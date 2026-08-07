@@ -6,15 +6,10 @@ import AmenitiesSection from "@/components/AmenitiesSection";
 import ConnectivitySection from "@/components/ConnectivitySection";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
+import ContactSidebar from "@/components/ContactSidebar";
 import {
-  CheckCircle2,
-  Shield,
-  Award,
-  Camera,
-  Phone,
-  Mail,
-  MapPin,
-  ChevronRight,
+  CheckCircle2, Shield, Award, Camera,
+  Phone, Mail, MapPin, ChevronRight,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────
@@ -217,6 +212,7 @@ export default function HomePage() {
     <>
       <Header />
       <SectionNav />
+      <ContactSidebar />
 
       <main className="pb-16 lg:pb-0">
         {/* ── Hero ── */}
@@ -546,7 +542,7 @@ export default function HomePage() {
         </FadeSection>
 
         {/* ── Kim Oanh Group ── */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white" data-reveal>
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Chủ đầu tư</SectionLabel>
             <SectionHeader sub="Thành lập 2009 – Hơn 15 năm phát triển bất động sản tại Đông Nam Bộ">
@@ -614,7 +610,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Tiến Độ ── */}
-        <section className="py-20 bg-slate-50">
+        <section className="py-20 bg-slate-50" data-reveal>
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Tiến độ</SectionLabel>
             <SectionHeader sub="Cập nhật tháng 6/2025">
@@ -670,7 +666,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 6 lý do đầu tư ── */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white" data-reveal>
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Tại sao nên đầu tư</SectionLabel>
             <SectionHeader sub="6 lý do khiến Mega City Nhơn Trạch là lựa chọn đầu tư thông minh">
@@ -697,7 +693,7 @@ export default function HomePage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="py-20 bg-slate-50">
+        <section className="py-20 bg-slate-50" data-reveal>
           <div className="max-w-3xl mx-auto px-4">
             <SectionLabel>FAQ</SectionLabel>
             <SectionHeader sub="Những câu hỏi thường gặp về Mega City Nhơn Trạch">
@@ -724,7 +720,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Liên Hệ ── */}
-        <section id="lien-he" className="py-20 bg-white">
+        <section id="lien-he" className="py-20 bg-white" data-reveal>
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Liên hệ</SectionLabel>
             <SectionHeader sub="Để lại thông tin – chuyên viên tư vấn sẽ liên hệ trong 30 phút">

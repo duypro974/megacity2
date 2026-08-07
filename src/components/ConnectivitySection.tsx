@@ -10,7 +10,21 @@ import { emitSectionHover } from "@/lib/sectionHoverEvent";
 
 const DEFAULT_IMG = "/Regional link/1.jpg";
 
-const GROUPS = [
+/* ─── Types ─── */
+interface GroupItem {
+  name: string;
+  note: string;
+  img: string;
+}
+interface Group {
+  id: number;
+  icon: React.ElementType;
+  label: string;
+  img: string;
+  items: GroupItem[];
+}
+
+const GROUPS: Group[] = [
   {
     id: 0,
     icon: Building2,
@@ -20,8 +34,8 @@ const GROUPS = [
       { name: "KCN Nhơn Trạch 1",       note: "~1 km theo đường 25C", img: "/Regional link/2.jpg" },
       { name: "KCN Nhơn Trạch 2",       note: "~1,5 km",              img: "/Regional link/3.jpg" },
       { name: "KCN Nhơn Trạch 3",       note: "~2 km",                img: "/Regional link/4.jpg" },
-      { name: "KCN Nhơn Trạch 4, 5, 6", note: "~2–4 km",             img: "/Regional link/5.jpg" },
-      { name: "KCN Nhơn Trạch 7 & 8",  note: "Đang mở rộng",         img: "/Regional link/6.jpg" },
+      { name: "KCN Nhơn Trạch 5", note: "~2–4 km",             img: "/Regional link/5.jpg" },
+      { name: "KCN Nhơn Trạch 6", note: "~3–4 km",             img: "/Regional link/6.jpg" },    
       { name: "KCN Phước An",           note: "Đang quy hoạch",       img: "/Regional link/7.jpg" },
       { name: "Cảng Cái Mép – Thị Vải", note: "Logistics quốc tế",   img: "/Regional link/8.jpeg" },
     ],
@@ -32,8 +46,8 @@ const GROUPS = [
     label: "Thương mại – Dịch vụ",
     img: "/Trade and Services/1.jpg",
     items: [
-      { name: "TT Triển lãm – Hội chợ QT Nhơn Trạch", note: "107 ha",        img: "/Trade and Services/1.jpg" },
-      { name: "Siêu thị VN Mart / GO!",                note: "~5–7 phút",     img: "/Trade and Services/2.png" },
+      { name: "TT Triển lãm – Hội chợ QT Nhơn Trạch", note: "107 ha, liền kề",        img: "/Trade and Services/1.jpg" },
+      { name: "Siêu thị GO!",                note: "~5–7 phút",     img: "/Trade and Services/2.png" },
       { name: "Hệ thống ngân hàng",                    note: "Bán kính 1 km", img: "/Trade and Services/3.jpg" },
       { name: "Sân golf Long Thành",                   note: "~15 phút",      img: "/Trade and Services/4.jpg" },
     ],
@@ -44,9 +58,8 @@ const GROUPS = [
     label: "Y tế",
     img: "/HeartPulse/1.jpg",
     items: [
-      { name: "BV Đa khoa Nhơn Trạch",      note: "Liền kề dự án", img: "/HeartPulse/1.jpg" },
-      { name: "TT Thể dục thể thao huyện",  note: "~5 phút",       img: "/HeartPulse/2.jpg" },
-      { name: "Phòng khám đa khoa tư nhân", note: "Bán kính 2 km", img: "/HeartPulse/1.jpg" },
+      { name: "BV Đa khoa Nhơn Trạch",      note: "Liền kề dự án", img: "/HeartPulse/1.jpg" },   
+      { name: "Phòng khám đa khoa tư nhân", note: "Bán kính 2 km", img: "/HeartPulse/2.jpg" },
     ],
   },
   {
@@ -59,7 +72,7 @@ const GROUPS = [
       { name: "Trường THPT Nguyễn Bỉnh Khiêm",  note: "~5–7 phút",       img: "/school/2.jpg" },
       { name: "Trường TC Kỹ thuật Đồng Nai",     note: "Khu vực",         img: "/school/3.jpg" },
       { name: "Các trường mầm non & tiểu học",   note: "Xung quanh",      img: "/school/4.jpg" },
-      { name: "Trường đại học, cao đẳng",        note: "Đang phát triển", img: "/school/5.jpg" },
+      {name: "TT Thể dục thể thao huyện",  note: "~5 phút",       img: "/school/5.jpg" },
     ],
   },
   {
@@ -70,7 +83,7 @@ const GROUPS = [
     items: [
       { name: "Sân bay QT Long Thành",           note: "~10–15 phút",     img: "/Plane/1.jpg" },
       { name: "Cổng chính sân bay – đường 25C",  note: "Trục trực tiếp", img: "/Plane/2.webp" },
-      { name: "Cầu Cát Lái – kết nối TP.HCM",   note: "Đang thi công",  img: "/Plane/3.webp" },
+      { name: "Cầu Cát Lái  ",   note: "Kết nối TP.HCM",  img: "/Plane/3.webp" },
       { name: "Cảng Cát Lái",                    note: "Cảng lớn nhất VN", img: "/Plane/4.jpg" },
     ],
   },

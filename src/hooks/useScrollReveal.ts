@@ -1,22 +1,16 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 /**
- * useScrollReveal
- * Gắn IntersectionObserver lên container ref.
- * Tất cả phần tử con có class `reveal` hoặc `reveal-left`
- * sẽ được thêm class `is-visible` khi vào viewport.
+ * Mount once — finds all [data-reveal] and [data-reveal-stagger]
+ * inside document and observes them. Fires only once per element.
  */
-export function useScrollReveal(threshold = 0.12) {
-  const ref = useRef<HTMLElement | null>(null);
-
+export function useScrollReveal() {
   useEffect(() => {
-    const container = ref.current;
-    if (!container) return;
+    // Respect prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const targets = container.querySelectorAll<HTMLElement>(
-      ".reveal, .reveal-left, .reveal-item"
+    const targets = document.querySelectorAll<HTMLElement>(
+      "[data-reveal], [data-reveal-stagger]"
     );
 
     if (!targets.length) return;
@@ -25,19 +19,15 @@ export function useScrollReveal(threshold = 0.12) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            // Unobserve sau khi đã reveal để không reset khi scroll lên
+            entry.target.classList.add("revealed");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold }
+      { threshold: 0.1 }
     );
 
     targets.forEach((el) => observer.observe(el));
-
     return () => observer.disconnect();
-  }, [threshold]);
-
-  return ref;
+  }, []);
 }
