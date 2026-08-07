@@ -4,11 +4,13 @@ import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import ConnectivitySection from "@/components/ConnectivitySection";
+import LegalSection from "@/components/LegalSection";
+import ProductSection from "@/components/ProductSection";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
 import ContactSidebar from "@/components/ContactSidebar";
 import {
-  CheckCircle2, Shield, Award, Camera,
+  Camera,
   Phone, Mail, MapPin, ChevronRight,
 } from "lucide-react";
 
@@ -75,47 +77,16 @@ function ImgSlot({
 const projectFacts = [
   { label: "Tên dự án", value: "Mega City Nhơn Trạch" },
   { label: "Vị trí", value: "Huyện Nhơn Trạch, Đồng Nai" },
-  { label: "Chủ đầu tư", value: "Kim Oanh Group" },
-  { label: "Đơn vị phát triển", value: "Kim Oanh Real Estate" },
-  { label: "Quy mô", value: "84 ha – 3.100 sản phẩm" },
+  { label: "Chủ đầu tư chính thức", value: "Công ty TNHH Khu đô thị Phú Hội" },
+  { label: "Đơn vị phát triển / phân phối", value: "Kim Oanh Group" },
+  { label: "Quy mô", value: "khoảng 83,94 ha" },
+  { label: "Lô phân lô bán nền", value: "2.421 lô (QĐ 1772 ngày 30/5/2025)" },
   { label: "Loại hình", value: "Nhà phố, Shophouse, Biệt thự" },
-  { label: "Diện tích", value: "90 – 200 m²" },
-  { label: "Mật độ xây dựng", value: "40%" },
+  { label: "Diện tích nền", value: "90 – 200 m²" },
   { label: "Hạ tầng", value: "Đường nội khu 13–32 m" },
   { label: "Khởi công / Hoàn thành", value: "2018 / 2021" },
   { label: "Tiến độ", value: "95% hoàn thiện hạ tầng" },
   { label: "Pháp lý", value: "Sổ hồng từng nền, đã cấp 110 GCN" },
-];
-
-const productTypes = [
-  {
-    code: "TH",
-    name: "Nhà phố TH",
-    desc: "Các lô liền kề mặt đường nội khu 13–17 m.",
-    lots: "1.580 lô",
-    area: "90–120 m²",
-  },
-  {
-    code: "T",
-    name: "Nhà phố T",
-    desc: "Lô mặt đường trục chính 15–32 m, vị trí đắc địa.",
-    lots: "1.478 lô",
-    area: "90–160 m²",
-  },
-  {
-    code: "SH",
-    name: "Shophouse",
-    desc: "Nhà phố thương mại mặt tiền đường lớn.",
-    lots: "Hạn chế",
-    area: "100–200 m²",
-  },
-  {
-    code: "V",
-    name: "Biệt thự V",
-    desc: "Biệt thự đơn lập, song lập, khuôn viên rộng.",
-    lots: "102 lô",
-    area: "150–200 m²",
-  },
 ];
 
 
@@ -201,6 +172,18 @@ const faqs = [
     q: "Khách hàng phản ánh gì về dự án?",
     a: "Đa số khách hàng đánh giá cao vị trí, hạ tầng hoàn thiện và tính pháp lý rõ ràng. Một số khách lưu ý khu vực chưa có nhiều tiện ích thương mại lân cận, tuy nhiên điều này đang được cải thiện nhanh khi dân cư và hạ tầng xã hội phát triển.",
   },
+  {
+    q: "Dự án đã được phép phân lô bán nền chưa?",
+    a: "Có. UBND tỉnh Đồng Nai đã ban hành Quyết định số 1772/QĐ-UBND ngày 30/5/2025 chấp thuận 2.421 lô được chuyển nhượng quyền sử dụng đất dưới hình thức phân lô bán nền, bao gồm các dãy T-1 đến T-29, TH-1 đến TH-28 và V-1 đến V-4.",
+  },
+  {
+    q: "Thời hạn xây dựng nhà ở là bao lâu?",
+    a: "Cá nhân nhận chuyển nhượng phải hoàn thành xây dựng nhà ở trước ngày 31/12/2029. Thời hạn này được ghi rõ trong Hợp đồng chuyển nhượng quyền sử dụng đất theo yêu cầu của Quyết định 1772/QĐ-UBND.",
+  },
+  {
+    q: "Mẫu nhà PH-B5 áp dụng cho lô nào?",
+    a: "Mẫu thiết kế nhà liên kế phố 3 tầng PH-B5 (5×16 m) áp dụng cho các lô T-30 ô số 13, 14 và các lô có kích thước tương tự theo quy hoạch. Mẫu nhà hoàn thiện mặt ngoài, xây thô bên trong với tổng diện tích sàn khoảng 327,8 m² và chiều cao 14,50 m.",
+  },
 ];
 
 /* ─────────────────────────────────────────
@@ -274,78 +257,7 @@ export default function HomePage() {
         <AmenitiesSection />
 
         {/* ── Sản Phẩm ── */}
-        <FadeSection
-          id="san-pham"
-          className="py-20 bg-white"
-        >
-          <div className="max-w-6xl mx-auto px-4">
-            <SectionLabel>Sản phẩm</SectionLabel>
-            <SectionHeader sub="Đa dạng loại hình, đáp ứng mọi nhu cầu ở thực và đầu tư">
-              Các loại hình sản phẩm
-            </SectionHeader>
-
-            {/* 4 product type cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              {productTypes.map((p) => (
-                <div
-                  key={p.code}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col gap-2 hover:shadow-md transition-shadow"
-                >
-                  <span className="text-3xl font-black text-primary-600">
-                    {p.code}
-                  </span>
-                  <h3 className="font-bold text-slate-800 text-lg">{p.name}</h3>
-                  <p className="text-slate-500 text-sm flex-1">{p.desc}</p>
-                  <div className="pt-2 border-t border-slate-200 mt-auto">
-                    <p className="text-xs text-slate-500">
-                      Số lượng:{" "}
-                      <span className="font-semibold text-slate-700">
-                        {p.lots}
-                      </span>
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      Diện tích:{" "}
-                      <span className="font-semibold text-slate-700">
-                        {p.area}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Floor plan images */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-              <ImgSlot
-                src="/overview/1.jpg"
-                alt="Mặt bằng tổng thể"
-                className="h-64"
-              />
-              <ImgSlot
-                src="/overview/2.webp"
-                alt="Mặt bằng chi tiết"
-                className="h-64"
-              />
-            </div>
-
-            {/* CCC banner */}
-            <div className="rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-white flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <p className="text-sm font-semibold opacity-80 uppercase tracking-wide mb-1">
-                  Sắp ra mắt
-                </p>
-                <h3 className="text-xl font-bold">
-                  Phân khu CCC – Khu thương mại tương lai
-                </h3>
-                <p className="text-sm opacity-90 mt-1">
-                  Trung tâm thương mại, văn phòng và căn hộ cao tầng trong lòng
-                  khu đô thị.
-                </p>
-              </div>
-              <ChevronRight className="w-8 h-8 opacity-70 flex-shrink-0" />
-            </div>
-          </div>
-        </FadeSection>
+        <ProductSection />
 
         {/* ── Bảng Giá ── */}
         <FadeSection
@@ -475,71 +387,7 @@ export default function HomePage() {
         </FadeSection>
 
         {/* ── Pháp Lý ── */}
-        <FadeSection
-          id="phap-ly"
-          className="py-20 bg-white"
-        >
-          <div className="max-w-6xl mx-auto px-4">
-            <SectionLabel>Pháp lý</SectionLabel>
-            <SectionHeader sub="Minh bạch, rõ ràng – Đã cấp 110 Giấy Chứng Nhận">
-              Tình trạng pháp lý dự án
-            </SectionHeader>
-
-            {/* Legal checklist */}
-            <ul className="space-y-3 mb-10">
-              {legalItems.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-700 text-sm">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* ImgSlots */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <ImgSlot
-                src="/overview/1.jpg"
-                alt="Giấy chứng nhận sổ hồng"
-                className="h-56"
-              />
-              <ImgSlot
-                src="/overview/2.webp"
-                alt="Tài liệu pháp lý"
-                className="h-56"
-              />
-            </div>
-
-            {/* 2 note boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-2xl bg-green-50 border border-green-200 p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <Shield className="w-5 h-5 text-green-600" />
-                  <h4 className="font-bold text-green-800 text-sm">
-                    Sổ hồng trực tiếp (không điều kiện)
-                  </h4>
-                </div>
-                <p className="text-sm text-green-700">
-                  Block TH và T mặt đường 13–17 m: sổ hồng riêng từng nền, không
-                  ràng buộc tiến độ xây dựng. Có thể giao dịch và sang tên ngay
-                  sau khi nhận nền.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-amber-50 border border-amber-200 p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <Award className="w-5 h-5 text-amber-600" />
-                  <h4 className="font-bold text-amber-800 text-sm">
-                    Sổ hồng có điều kiện xây dựng
-                  </h4>
-                </div>
-                <p className="text-sm text-amber-700">
-                  T mặt đường 24–32 m: sổ hồng riêng kèm điều kiện xây dựng
-                  trong vòng 5 năm. Phù hợp khách hàng có kế hoạch xây dựng
-                  trung hạn.
-                </p>
-              </div>
-            </div>
-          </div>
-        </FadeSection>
+        <LegalSection />
 
         {/* ── Kim Oanh Group ── */}
         <section className="py-20 bg-white" data-reveal>
