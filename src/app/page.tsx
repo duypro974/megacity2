@@ -354,7 +354,7 @@ export default function HomePage() {
         >
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Bảng giá</SectionLabel>
-            <SectionHeader sub="Cập nhật tháng 6/2025 – Liên hệ để nhận báo giá chi tiết">
+            <SectionHeader sub="Cập nhật tháng 05/2026 – Liên hệ để nhận báo giá chi tiết">
               Bảng giá tham khảo
             </SectionHeader>
 
@@ -742,7 +742,7 @@ export default function HomePage() {
                       Hotline
                     </p>
                     <a
-                      href="tel:0907839986"
+                      href="tel:0937587438"
                       className="text-xl font-bold text-slate-800 hover:text-primary-600 transition-colors"
                     >
                       0937.587.438
