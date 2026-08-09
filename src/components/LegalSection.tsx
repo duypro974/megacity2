@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Shield, Award, CheckCircle2, X, ZoomIn } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 
@@ -16,31 +17,50 @@ function Lightbox({
   alt: string;
   onClose: () => void;
 }) {
-  return (
+  // Keyboard + body scroll
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.92)" }}
       onClick={onClose}
     >
-      <div
-        className="relative max-w-4xl w-full"
-        onClick={(e) => e.stopPropagation()}
+      {/* Nút đóng — fixed góc trên phải viewport */}
+      <button
+        type="button"
+        onClick={onClose}
+        className="fixed top-4 right-4 z-[10000] w-11 h-11 rounded-full bg-white/20
+                   hover:bg-white/35 flex items-center justify-center text-white
+                   transition-colors shadow-lg"
+        aria-label="Đóng"
       >
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute -top-10 right-0 text-white hover:text-slate-300 transition-colors"
-          aria-label="Đóng"
-        >
-          <X className="w-7 h-7" />
-        </button>
+        <X className="w-5 h-5" />
+      </button>
+
+      {/* Ảnh căn giữa viewport */}
+      <div
+        className="flex items-center justify-center w-full h-full p-14"
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
           alt={alt}
-          className="w-full h-auto rounded-xl shadow-2xl"
+          className="max-w-full max-h-[88vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
+          style={{ touchAction: "pinch-zoom" }}
+          onClick={(e) => e.stopPropagation()}
         />
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

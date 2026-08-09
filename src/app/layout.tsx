@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               description: "Tư vấn và giới thiệu dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai.",
               url: "https://megacity2nhontach.com",
               telephone: "+840937587438",
-              email: "info@kimoanhgroup.org",
+              email: "k.homekog@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Đường 25C",

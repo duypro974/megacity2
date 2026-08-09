@@ -1,72 +1,131 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Phone } from "lucide-react";
 
-const CONTACTS = [
-  {
-    label: "Hotline",
-    href: "tel:0937587438",
-    title: "Gọi ngay: 0937.587.438",
-    bg: "bg-primary-600 hover:bg-primary-700",
-    icon: (
-      <Phone className="w-5 h-5 text-white" />
-    ),
-  },
-  {
-    label: "Zalo",
-    href: "https://zalo.me/0937587438",
-    title: "Chat Zalo",
-    bg: "bg-blue-500 hover:bg-blue-600",
-    icon: (
-      /* Zalo SVG icon */
-      <svg viewBox="0 0 48 48" className="w-5 h-5 fill-white">
-        <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm9.4 28.1c-.3.8-1.7 1.4-2.5 1.5-.6.1-1.4.1-2.2-.2-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.1-.2-1.3-1.7-1.3-3.3 0-1.6.8-2.3 1.1-2.7.3-.3.7-.4.9-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.9.1.1.1.3 0 .5-.1.2-.2.3-.3.5-.1.1-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.8 1.2 1.7 2 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1.3.1 1.8.8 2.1 1 .3.2.5.3.6.4.1.3.1 1.1-.2 1.9z"/>
+/* ── Phone với animation rung ── */
+function PhoneButton() {
+  return (
+    <a
+      href="tel:0937587438"
+      title="Gọi ngay: 0937.587.438"
+      aria-label="Gọi ngay: 0937.587.438"
+      className="group relative flex items-center justify-center w-12 h-12 rounded-full
+                 bg-green-500 hover:bg-green-600 shadow-lg transition-colors duration-200"
+      style={{ animation: "phonePulse 1.2s ease-in-out infinite" }}
+    >
+      {/* Ripple rings */}
+      <span className="absolute inset-0 rounded-full bg-green-400 opacity-60"
+        style={{ animation: "ripple 1.2s ease-out infinite" }} />
+      <span className="absolute inset-0 rounded-full bg-green-400 opacity-40"
+        style={{ animation: "ripple 1.2s ease-out 0.35s infinite" }} />
+
+      {/* Phone icon SVG */}
+      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white relative z-10"
+        style={{ animation: "shake 1.2s ease-in-out infinite" }}>
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
       </svg>
-    ),
-  },
-  {
-    label: "Messenger",
-    href: "https://m.me/kimoanhgroup",
-    title: "Chat Messenger",
-    bg: "bg-[#0084ff] hover:bg-blue-600",
-    icon: (
-      /* Messenger SVG icon */
-      <svg viewBox="0 0 48 48" className="w-5 h-5 fill-white">
-        <path d="M24 4C12.95 4 4 12.95 4 24c0 5.9 2.4 11.2 6.2 15.1L10 44l5.1-.2C18.2 45.3 21 46 24 46c11.05 0 20-8.95 20-20S35.05 4 24 4zm2 27l-5-5.3-9.7 5.3 10.7-11.4 5.1 5.3 9.6-5.3L26 31z"/>
+
+      {/* Tooltip */}
+      <span className="absolute right-14 whitespace-nowrap bg-white text-slate-800 text-sm font-bold
+                       px-3.5 py-2 rounded-xl shadow-xl border border-slate-100
+                       opacity-0 group-hover:opacity-100
+                       transition-opacity duration-150 pointer-events-none
+                       flex items-center gap-2">
+        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-green-500 flex-shrink-0">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        0937.587.438
+      </span>
+    </a>
+  );
+}
+
+/* ── Zalo button ── */
+function ZaloButton() {
+  return (
+    <a
+      href="https://zalo.me/0937587438"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Chat Zalo"
+      aria-label="Chat Zalo"
+      className="group relative flex items-center justify-center w-12 h-12 rounded-full
+                 bg-blue-500 shadow-lg hover:scale-110 transition-transform duration-200"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/z.png" alt="Zalo" className="w-8 h-8 object-contain" />
+      <span className="absolute right-14 whitespace-nowrap bg-slate-900 text-white text-xs font-medium
+                       px-2 py-1 rounded-md shadow opacity-0 group-hover:opacity-100
+                       transition-opacity duration-150 pointer-events-none">
+        Chat Zalo
+      </span>
+    </a>
+  );
+}
+
+/* ── Messenger button ── */
+function MessengerButton() {
+  return (
+    <a
+      href="https://m.me/61592416756280"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Chat Messenger"
+      aria-label="Chat Messenger"
+      className="group relative flex items-center justify-center w-12 h-12 rounded-full
+                 shadow-lg hover:scale-110 transition-transform duration-200"
+      style={{ background: "linear-gradient(135deg, #0099FF 0%, #A033FF 60%, #FF5C87 100%)" }}
+    >
+      <svg viewBox="0 0 24 24" className="w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.83 1.323 5.357 3.405 7.09V22l3.116-1.71A10.56 10.56 0 0 0 12 20.52c5.523 0 10-4.145 10-9.261C22 6.145 17.523 2 12 2zm1.008 12.462-2.548-2.718-4.973 2.718 5.47-5.806 2.611 2.718 4.91-2.718-5.47 5.806z"/>
       </svg>
-    ),
-  },
-];
+      <span className="absolute right-14 whitespace-nowrap bg-slate-900 text-white text-xs font-medium
+                       px-2 py-1 rounded-md shadow opacity-0 group-hover:opacity-100
+                       transition-opacity duration-150 pointer-events-none">
+        Chat Messenger
+      </span>
+    </a>
+  );
+}
 
 export default function ContactSidebar() {
-  // Mount scroll-reveal observer for the whole page
   useScrollReveal();
+
   return (
-    <div className="fixed right-3 top-1/2 -translate-y-1/2 z-50 flex-col gap-2.5 hidden md:flex">
-      {CONTACTS.map((c) => (
-        <a
-          key={c.label}
-          href={c.href}
-          target={c.href.startsWith("http") ? "_blank" : undefined}
-          rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-          title={c.title}
-          className={`group relative flex items-center justify-center
-                      w-11 h-11 rounded-full shadow-lg
-                      transition-all duration-200 hover:scale-110
-                      ${c.bg}`}
-        >
-          {c.icon}
-          {/* Tooltip */}
-          <span className="absolute right-14 whitespace-nowrap
-                           bg-slate-900 text-white text-xs font-medium
-                           px-2 py-1 rounded-md shadow
-                           opacity-0 group-hover:opacity-100
-                           transition-opacity duration-150 pointer-events-none">
-            {c.title}
-          </span>
-        </a>
-      ))}
-    </div>
+    <>
+      {/* Keyframe styles */}
+      <style>{`
+        @keyframes ripple {
+          0%   { transform: scale(1);   opacity: 0.6; }
+          100% { transform: scale(1.8); opacity: 0; }
+        }
+        @keyframes shake {
+          0%,100% { transform: rotate(0deg); }
+          15%      { transform: rotate(-18deg); }
+          30%      { transform: rotate(18deg); }
+          45%      { transform: rotate(-12deg); }
+          60%      { transform: rotate(12deg); }
+          75%      { transform: rotate(-6deg); }
+          90%      { transform: rotate(6deg); }
+        }
+        @keyframes phonePulse {
+          0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+          50%     { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+        }
+      `}</style>
+
+      {/* Desktop — sidebar phải */}
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex-col gap-3 hidden md:flex">
+        <PhoneButton />
+        <ZaloButton />
+        <MessengerButton />
+      </div>
+
+      {/* Mobile — bottom right floating */}
+      <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-2.5 md:hidden">
+        <ZaloButton />
+        <MessengerButton />
+      </div>
+    </>
   );
 }

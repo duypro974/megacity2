@@ -9,6 +9,7 @@ import ProductSection from "@/components/ProductSection";
 import PaymentSection from "@/components/PaymentSection";
 import RealPhotoSection from "@/components/RealPhotoSection";
 import { PROGRESS_IMAGES } from "@/data/realImages";
+import LeadPopup from "@/components/LeadPopup";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
 import ContactSidebar from "@/components/ContactSidebar";
@@ -189,6 +190,7 @@ export default function HomePage() {
       <Header />
       <SectionNav />
       <ContactSidebar />
+      <LeadPopup />
 
       <main className="pb-16 lg:pb-0">
         {/* ── Hero ── */}
@@ -808,7 +810,7 @@ export default function HomePage() {
                 {/* Email + Địa chỉ */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a
-                    href="mailto:info@kimoanhgroup.org"
+                    href="mailto:k.homekog@gmail.com"
                     className="flex items-start gap-3 p-4 rounded-2xl border border-slate-200
                                bg-slate-50 hover:border-primary-200 hover:bg-primary-50
                                transition-colors"
@@ -820,7 +822,7 @@ export default function HomePage() {
                     <div className="min-w-0">
                       <p className="text-xs text-slate-400 font-semibold uppercase tracking-wide">Email</p>
                       <p className="text-sm font-semibold text-slate-800 break-all mt-0.5">
-                        info@kimoanhgroup.org
+                        k.homekog@gmail.com
                       </p>
                     </div>
                   </a>

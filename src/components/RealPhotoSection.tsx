@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { REAL_IMAGES, type ImageCategory, type RealImage } from "@/data/realImages";
@@ -67,73 +68,73 @@ function Lightbox({
     return () => { document.body.style.overflow = ""; };
   }, []);
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(3,22,45,0.92)", backdropFilter: "blur(6px)" }}
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
+      style={{ background: "rgba(3,22,45,0.94)" }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={img.title}
     >
-      {/* Close */}
+      {/* Close — fixed góc trên phải viewport */}
       <button
         type="button"
         onClick={onClose}
         aria-label="Đóng"
-        className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10
-                   hover:bg-white/20 flex items-center justify-center text-white
-                   transition-colors z-10"
+        className="fixed top-4 right-4 z-[10000] w-11 h-11 rounded-full bg-white/20
+                   hover:bg-white/35 flex items-center justify-center text-white
+                   transition-colors shadow-lg"
       >
         <X className="w-5 h-5" />
       </button>
 
-      {/* Prev */}
+      {/* Prev — fixed giữa trái viewport */}
       <button
         type="button"
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
         aria-label="Ảnh trước"
-        className="absolute left-3 md:left-6 w-10 h-10 rounded-full bg-white/10
-                   hover:bg-white/20 flex items-center justify-center text-white
-                   transition-colors z-10"
+        className="fixed left-3 top-1/2 -translate-y-1/2 z-[10000] w-11 h-11 rounded-full
+                   bg-white/20 hover:bg-white/35 flex items-center justify-center
+                   text-white transition-colors shadow-lg"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
 
-      {/* Next */}
+      {/* Next — fixed giữa phải viewport */}
       <button
         type="button"
         onClick={(e) => { e.stopPropagation(); onNext(); }}
         aria-label="Ảnh tiếp theo"
-        className="absolute right-3 md:right-6 w-10 h-10 rounded-full bg-white/10
-                   hover:bg-white/20 flex items-center justify-center text-white
-                   transition-colors z-10"
+        className="fixed right-3 top-1/2 -translate-y-1/2 z-[10000] w-11 h-11 rounded-full
+                   bg-white/20 hover:bg-white/35 flex items-center justify-center
+                   text-white transition-colors shadow-lg"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
-      {/* Image */}
+      {/* Image + caption — click ảnh không đóng, click vùng tối xung quanh đóng */}
       <div
-        className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center"
-        onClick={(e) => e.stopPropagation()}
+        className="flex flex-col items-center justify-center w-full h-full px-16 py-12"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={img.src}
           alt={img.alt}
-          className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl"
+          className="max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
+          style={{ touchAction: "pinch-zoom" }}
+          onClick={(e) => e.stopPropagation()}
         />
-        {/* Caption */}
         <div className="mt-3 text-center px-4">
           <p className="text-white font-semibold text-sm">{img.title}</p>
           <p className="text-white/55 text-xs mt-1">{img.caption}</p>
         </div>
-        {/* Counter */}
-        <p className="mt-2 text-white/30 text-xs">
+        <p className="mt-1.5 text-white/30 text-xs tabular-nums">
           {index + 1} / {images.length}
         </p>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
