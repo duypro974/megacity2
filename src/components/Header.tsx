@@ -10,6 +10,7 @@ const NAV = [
   { label: "Tiện ích",   href: "#tien-ich" },
   { label: "Sản phẩm",   href: "#san-pham" },
   { label: "Bảng giá",   href: "#bang-gia" },
+  { label: "Thanh toán", href: "#thanh-toan" },
   { label: "Pháp lý",    href: "#phap-ly" },
   { label: "Liên hệ",    href: "#lien-he" },
 ];
@@ -80,7 +81,7 @@ export default function Header() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
-              href="tel:0907839986"
+              href="tel:0937587438"
               className={`flex items-center gap-1.5 text-sm font-bold transition
                 ${scrolled ? "text-primary-700 hover:text-primary-800" : "text-white/90 hover:text-white"}`}
             >
@@ -132,7 +133,7 @@ export default function Header() {
               ))}
               <div className="pt-4 pb-2 flex flex-col gap-3">
                 <a
-                  href="tel:0907839986"
+                  href="tel:0937587438"
                   className="flex items-center justify-center gap-2 border-2 border-primary-500 text-primary-600 py-3 rounded-full font-bold text-sm"
                 >
                   <Phone className="w-4 h-4" /> Gọi ngay: 0937.587.438
@@ -154,7 +155,7 @@ export default function Header() {
       <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden sticky-cta">
         <div className="flex divide-x divide-white/10">
           <a
-            href="tel:0907839986"
+            href="tel:0937587438"
             className="flex-1 flex items-center justify-center gap-2 py-3.5 text-white text-sm font-bold"
           >
             <Phone className="w-4 h-4 text-green-400" />

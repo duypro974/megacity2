@@ -1,168 +1,313 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import {
   Trees, School, HeartPulse, ShoppingBag,
-  Dumbbell, Baby, Users, Waves, Camera,
+  Dumbbell, Baby, Users, Waves,
 } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { emitSectionHover } from "@/lib/sectionHoverEvent";
 
-const ITEMS = [
-  { id: 0, icon: Waves,       label: "Hồ cảnh quan & Đài phun nước",    thumb: "Hồ cảnh quan",
-    desc: "Hồ nước rộng cùng đài phun nước nghệ thuật tại trung tâm công viên 21.682 m².",
-    imgHint: "Ảnh thực tế hồ cảnh quan, đài phun nước công viên trung tâm Mega City 2" },
-  { id: 1, icon: Dumbbell,    label: "Khu thể thao đa năng",             thumb: "Thể thao",
-    desc: "Hồ bơi, sân tennis, bóng rổ — khu phức hợp thể thao ngoài trời 30 tỷ đồng.",
-    imgHint: "Ảnh khu thể thao ngoài trời: hồ bơi, sân tennis, bóng rổ Mega City 2" },
-  { id: 2, icon: Trees,       label: "Công viên cây xanh",               thumb: "Công viên",
-    desc: "2,5 ha mảng xanh với cây đại thụ, thảm cỏ và chiếu sáng nghệ thuật ban đêm.",
-    imgHint: "Ảnh công viên cây xanh 2,5ha, đường dạo bộ thoáng mát nội khu Mega City 2" },
-  { id: 3, icon: Baby,        label: "Sân chơi trẻ em",                  thumb: "Trẻ em",
-    desc: "Khu vui chơi an toàn, đầy màu sắc với trang thiết bị hiện đại cho trẻ 2–12 tuổi.",
-    imgHint: "Ảnh khu vui chơi trẻ em: xích đu, cầu trượt, bãi cát an toàn nội khu" },
-  { id: 4, icon: School,      label: "Trường học các cấp",               thumb: "Trường học",
-    desc: "3,14 ha đất giáo dục. THCS Phú Hội & THCS Nguyễn Bỉnh Khiêm liền kề.",
-    imgHint: "Ảnh phối cảnh trường học nội khu hoặc trường THCS Phú Hội thực tế" },
-  { id: 5, icon: HeartPulse,  label: "Trung tâm y tế",                   thumb: "Y tế",
-    desc: "5.320 m² đất y tế nội khu. BV Đa khoa Nhơn Trạch chỉ cách vài phút.",
-    imgHint: "Ảnh BV Đa khoa Nhơn Trạch hoặc phối cảnh trung tâm y tế nội khu" },
-  { id: 6, icon: ShoppingBag, label: "Thương mại – Dịch vụ",            thumb: "Thương mại",
-    desc: "2,68 ha đất TMDV — siêu thị VN Mart, trung tâm mua sắm, chuỗi F&B.",
-    imgHint: "Ảnh khu thương mại dịch vụ, siêu thị VN Mart hoặc phối cảnh shophouse" },
-  { id: 7, icon: Users,       label: "Trung tâm sinh hoạt cộng đồng",   thumb: "Cộng đồng",
-    desc: "1.558 m² trung tâm sinh hoạt cộng đồng — không gian sự kiện, họp mặt.",
-    imgHint: "Ảnh phối cảnh trung tâm sinh hoạt cộng đồng Mega City 2" },
+/* ─────────────────────────────────────────
+   Data — chỉ tiện ích NỘI KHU
+───────────────────────────────────────── */
+const CATEGORIES = [
+  {
+    id: "canh-quan",
+    no: "01",
+    icon: Waves,
+    label: "Cảnh quan & Công viên",
+    img: "/overview/1.jpg",
+    stat: "21.682 – 25.214 m²",
+    statLabel: "Diện tích",
+    title: "Hồ cảnh quan & Công viên trung tâm",
+    desc: "Hồ nước rộng với đài phun nước nghệ thuật là trái tim của dự án. Công viên 2,5 ha phủ xanh toàn khu với cây đại thụ, thảm cỏ và hệ thống chiếu sáng nghệ thuật ban đêm.",
+    highlights: ["Hồ cảnh quan trung tâm", "Đài phun nước nghệ thuật", "Đường dạo bộ thoáng mát", "Chiếu sáng nghệ thuật ban đêm"],
+  },
+  {
+    id: "the-thao",
+    no: "02",
+    icon: Dumbbell,
+    label: "Thể thao & Vận động",
+    img: "/overview/2.webp",
+    stat: "30 tỷ đồng",
+    statLabel: "Đầu tư",
+    title: "Khu thể thao đa năng ngoài trời",
+    desc: "Khu phức hợp thể thao ngoài trời đầu tư 30 tỷ đồng với hồ bơi, sân tennis, sân bóng rổ và khu tập gym — đáp ứng nhu cầu vận động của mọi lứa tuổi.",
+    highlights: ["Hồ bơi ngoài trời", "Sân tennis tiêu chuẩn", "Sân bóng rổ", "Gym ngoài trời"],
+  },
+  {
+    id: "vui-choi",
+    no: "03",
+    icon: Baby,
+    label: "Vui chơi trẻ em",
+    img: "/overview/3.webp",
+    stat: "2 – 12 tuổi",
+    statLabel: "Độ tuổi",
+    title: "Khu vui chơi an toàn cho trẻ em",
+    desc: "Không gian vui chơi đầy màu sắc được thiết kế an toàn với thiết bị hiện đại, mặt sàn đàn hồi và khu vực giám sát. Phù hợp cho trẻ từ 2 đến 12 tuổi.",
+    highlights: ["Cầu trượt & xích đu", "Bãi cát an toàn", "Mặt sàn đàn hồi", "Khu giám sát phụ huynh"],
+  },
+  {
+    id: "giao-duc",
+    no: "04",
+    icon: School,
+    label: "Giáo dục",
+    img: "/overview/1.jpg",
+    stat: "31.406 m²",
+    statLabel: "Đất giáo dục",
+    title: "Quỹ đất giáo dục nội khu 3,1 ha",
+    desc: "Dự án dành riêng 3,14 ha đất cho giáo dục, đáp ứng nhu cầu học tập cho cư dân ngay trong khu. Liền kề trường THCS Phú Hội và THCS Nguyễn Bỉnh Khiêm.",
+    highlights: ["3,14 ha đất giáo dục", "Quy hoạch mầm non & tiểu học", "Liền kề THCS Phú Hội", "Hạ tầng giao thông thuận tiện"],
+  },
+  {
+    id: "y-te",
+    no: "05",
+    icon: HeartPulse,
+    label: "Y tế & Chăm sóc sức khỏe",
+    img: "/overview/2.webp",
+    stat: "5.320 m²",
+    statLabel: "Đất y tế",
+    title: "Trung tâm y tế nội khu",
+    desc: "5.320 m² đất y tế được quy hoạch ngay trong dự án, đảm bảo chăm sóc sức khỏe cho cư dân. Khu vực cũng nằm gần Bệnh viện Đa khoa Nhơn Trạch.",
+    highlights: ["5.320 m² đất y tế", "Quy hoạch trạm y tế", "Phòng khám đa khoa", "Gần BV Đa khoa Nhơn Trạch"],
+  },
+  {
+    id: "thuong-mai",
+    no: "06",
+    icon: ShoppingBag,
+    label: "Thương mại & Dịch vụ",
+    img: "/overview/3.webp",
+    stat: "26.813 m²",
+    statLabel: "Đất TMDV",
+    title: "Khu thương mại – dịch vụ 2,6 ha",
+    desc: "2,68 ha đất thương mại dịch vụ tích hợp siêu thị VN Mart, trung tâm mua sắm và chuỗi F&B đa dạng, phục vụ nhu cầu mua sắm và ẩm thực hằng ngày của cư dân.",
+    highlights: ["Siêu thị VN Mart", "Trung tâm mua sắm", "Chuỗi F&B", "Dịch vụ tài chính – ngân hàng"],
+  },
+  {
+    id: "cong-dong",
+    no: "07",
+    icon: Users,
+    label: "Cộng đồng",
+    img: "/overview/1.jpg",
+    stat: "1.558 m²",
+    statLabel: "Diện tích",
+    title: "Trung tâm sinh hoạt cộng đồng",
+    desc: "1.558 m² không gian sinh hoạt cộng đồng đa năng — nơi tổ chức sự kiện, lễ hội, họp mặt và các hoạt động văn hóa kết nối cư dân trong khu đô thị.",
+    highlights: ["Hội trường sự kiện", "Khu họp mặt cư dân", "Không gian triển lãm", "Sân khấu ngoài trời"],
+  },
 ];
 
-/* ─── Fade image ─── */
-function FadeImage({ hint, imgKey }: { hint: string; imgKey: string }) {
-  const [visible, setVisible] = useState(true);
-  const prevKey = useRef(imgKey);
+const TABLE_DATA = [
+  { icon: Waves,       label: "Công viên trung tâm",   note: "Hồ cảnh quan, đài phun nước, cây xanh", area: "21.682 – 25.214 m²", ha: "≈ 2,5 ha", color: "bg-emerald-500" },
+  { icon: School,      label: "Trường học các cấp",    note: "Đất giáo dục quy hoạch nội khu",        area: "31.406 m²",          ha: "≈ 3,1 ha", color: "bg-sky-500" },
+  { icon: ShoppingBag, label: "Thương mại – Dịch vụ", note: "Siêu thị, F&B, dịch vụ",               area: "26.813 m²",          ha: "≈ 2,6 ha", color: "bg-amber-500" },
+  { icon: HeartPulse,  label: "Y tế nội khu",         note: "Trung tâm y tế quy hoạch",              area: "5.320 m²",           ha: "0,53 ha",  color: "bg-rose-500" },
+  { icon: Users,       label: "Trung tâm cộng đồng",  note: "Hội trường, sự kiện cư dân",            area: "1.558 m²",           ha: "—",        color: "bg-violet-500" },
+  { icon: Dumbbell,    label: "Bưu điện – Hạ tầng",   note: "Bưu điện, viễn thông, kỹ thuật",        area: "5.592 m²",           ha: "0,56 ha",  color: "bg-slate-500" },
+];
 
-  useEffect(() => {
-    if (prevKey.current === imgKey) return;
-    setVisible(false);
-    const t = setTimeout(() => { prevKey.current = imgKey; setVisible(true); }, 180);
-    return () => clearTimeout(t);
-  }, [imgKey]);
-
-  return (
-    <div
-      className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-8 text-center
-                 bg-gradient-to-br from-slate-100 to-slate-200 text-slate-400
-                 transition-opacity duration-200"
-      style={{ opacity: visible ? 1 : 0 }}
-    >
-      <Camera className="w-10 h-10 opacity-40" />
-      <p className="text-sm font-medium opacity-70">🖼 {hint}</p>
-    </div>
-  );
-}
-
+/* ─────────────────────────────────────────
+   Main
+───────────────────────────────────────── */
 export default function AmenitiesSection() {
-  const [active, setActive]       = useState(0);
-  const [hoverIdx, setHoverIdx]   = useState<number | null>(null);
+  const [activeId, setActiveId] = useState(CATEGORIES[0].id);
   const sectionRef = useScrollFade();
 
-  const current     = ITEMS[active];
-  const displayItem = hoverIdx !== null ? ITEMS[hoverIdx] : current;
+  const active = CATEGORIES.find((c) => c.id === activeId) ?? CATEGORIES[0];
+  const ActiveIcon = active.icon;
 
   return (
     <section
       id="tien-ich"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="py-24 md:py-32 bg-gradient-to-br from-white via-emerald-50/30 to-white"
+      className="py-24 bg-white"
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+      <div className="max-w-6xl mx-auto px-4">
 
-          {/* ── LEFT: tiêu đề + list ── */}
-          <div className="space-y-8">
-            <div>
-              <p className="text-primary-600 text-sm font-semibold uppercase tracking-widest mb-2">
-                Tiện ích nội khu
-              </p>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
-                Tự hào sở hữu<br />
-                <span className="gradient-text">chốn sống đủ đầy</span>
-              </h2>
-            </div>
+        {/* ── Header ── */}
+        <div className="mb-14">
+          <span className="section-label">Tiện ích nội khu</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 leading-tight">
+            Chốn sống{" "}
+            <span className="text-[#16B364]">đầy đủ tiện nghi</span>
+          </h2>
+          <p className="mt-3 text-slate-500 text-base max-w-lg leading-relaxed">
+            Hệ thống tiện ích đồng bộ được quy hoạch ngay trong lòng dự án, đáp ứng
+            toàn diện nhu cầu sống, học tập, thể thao và kết nối cộng đồng.
+          </p>
+        </div>
 
-            <ul className="space-y-1">
-              {ITEMS.map((item, i) => {
-                const isActive = active === i;
+        {/* ── 2-col interactive ── */}
+        <div className="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-start mb-20">
+
+          {/* LEFT — navigation */}
+          <nav aria-label="Danh mục tiện ích nội khu">
+            <ul className="space-y-1" role="tablist">
+              {CATEGORIES.map((cat) => {
+                const CatIcon = cat.icon;
+                const isActive = cat.id === activeId;
                 return (
-                  <li key={item.id}>
+                  <li key={cat.id} role="presentation">
                     <button
+                      role="tab"
                       type="button"
-                      onClick={() => setActive(i)}
-                      onMouseEnter={() => { setHoverIdx(i); emitSectionHover(item.label); }}
-                      onMouseLeave={() => { setHoverIdx(null); emitSectionHover(null); }}
-                      className={`w-full flex items-center gap-4 px-5 py-3.5 rounded-2xl text-left
-                        transition-all duration-200
+                      id={`tab-${cat.id}`}
+                      aria-selected={isActive}
+                      aria-controls={`panel-${cat.id}`}
+                      onClick={() => {
+                        setActiveId(cat.id);
+                        emitSectionHover(cat.label);
+                      }}
+                      onMouseEnter={() => emitSectionHover(cat.label)}
+                      onMouseLeave={() => emitSectionHover(null)}
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left
+                                  transition-colors duration-150
                         ${isActive
-                          ? "bg-gradient-to-r from-primary-600 to-primary-500 shadow-lg shadow-primary-500/25"
-                          : "bg-white hover:bg-primary-50 border border-slate-200 hover:border-primary-200"}`}
+                          ? "bg-[#16B364] text-white"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-800"}`}
                     >
-                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0
-                        ${isActive ? "bg-white/20" : "bg-primary-100"}`}>
-                        <item.icon className={`w-4 h-4 ${isActive ? "text-white" : "text-primary-600"}`} />
-                      </div>
-                      <span className={`font-semibold text-sm ${isActive ? "text-white" : "text-slate-700"}`}>
-                        {item.label}
+                      <span className={`text-[10px] font-bold tracking-widest w-6 flex-shrink-0
+                        ${isActive ? "text-white/60" : "text-slate-300"}`}>
+                        {cat.no}
                       </span>
-                      {isActive && (
-                        <div className="ml-auto w-5 h-5 rounded-full bg-white/25 flex items-center justify-center shrink-0">
-                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                        </div>
-                      )}
+                      <CatIcon className={`w-4 h-4 flex-shrink-0
+                        ${isActive ? "text-white" : "text-[#16B364]"}`} />
+                      <span className="text-sm font-medium leading-tight">{cat.label}</span>
                     </button>
                   </li>
                 );
               })}
             </ul>
-          </div>
 
-          {/* ── RIGHT: ảnh lớn + thumbnails ── */}
-          <div className="space-y-4">
+            {/* Note tổng quỹ đất */}
+            <p className="mt-6 text-xs text-slate-400 leading-relaxed px-1">
+              Theo quy hoạch chi tiết 1/500 đã được phê duyệt.
+            </p>
+          </nav>
 
-            {/* Main image with fade */}
-            <div className="relative rounded-3xl overflow-hidden bg-slate-200 aspect-[4/3] shadow-xl">
-              <FadeImage hint={displayItem.imgHint} imgKey={displayItem.imgHint} />
-              {/* Overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 to-transparent
-                              flex items-end p-6 pointer-events-none">
-                <div>
-                  <p className="text-white font-bold text-lg leading-snug">{displayItem.label}</p>
-                  <p className="text-white/70 text-xs mt-1">{displayItem.desc}</p>
-                </div>
+          {/* RIGHT — content */}
+          <div
+            key={activeId}
+            role="tabpanel"
+            id={`panel-${activeId}`}
+            aria-labelledby={`tab-${activeId}`}
+            className="min-h-0"
+            style={{ animation: "fadeInUp 0.25s ease both" }}
+          >
+            {/* Image */}
+            <div className="relative rounded-2xl overflow-hidden bg-slate-100 aspect-[16/9] mb-6">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={active.img}
+                alt={`${active.title} – Tiện ích nội khu Mega City 2 Nhơn Trạch`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+
+              {/* Stat badge — trên trái */}
+              <div className="absolute top-3 left-3 bg-white/96 rounded-xl px-3 py-2
+                              shadow-[0_2px_12px_rgba(0,0,0,0.10)]">
+                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                  {active.statLabel}
+                </p>
+                <p className="text-sm font-bold text-[#16B364] leading-tight mt-0.5">
+                  {active.stat}
+                </p>
+              </div>
+
+              {/* Label + disclaimer — dưới */}
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/50 to-transparent
+                              px-4 py-3 flex items-center gap-2">
+                <ActiveIcon className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                <p className="text-white text-sm font-medium">{active.label}</p>
+                <p className="text-white/40 text-[10px] ml-auto">Phối cảnh tham khảo</p>
               </div>
             </div>
 
-            {/* Thumbnail strip */}
-            <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
-              {ITEMS.map((item, i) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  onMouseEnter={() => { setHoverIdx(i); emitSectionHover(item.label); }}
-                  onMouseLeave={() => { setHoverIdx(null); emitSectionHover(null); }}
-                  className={`shrink-0 w-16 h-12 rounded-xl border-2 transition-all duration-200
-                    flex flex-col items-center justify-center gap-0.5
-                    ${active === i
-                      ? "border-primary-500 bg-primary-50 text-primary-700 scale-105 shadow-md shadow-primary-500/20"
-                      : "border-slate-200 bg-slate-100 text-slate-500 opacity-60 hover:opacity-90"}`}
-                >
-                  <item.icon className={`w-3.5 h-3.5 ${active === i ? "text-primary-600" : "text-slate-400"}`} />
-                  <span className="text-[9px] font-bold">{item.thumb}</span>
-                </button>
+            {/* Text */}
+            <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 leading-snug">
+              {active.title}
+            </h3>
+            <p className="text-slate-500 text-sm leading-relaxed mb-5">
+              {active.desc}
+            </p>
+
+            {/* Highlights — inline tags thay vì list card */}
+            <div className="flex flex-wrap gap-2">
+              {active.highlights.map((h) => (
+                <span key={h}
+                  className="inline-flex items-center gap-1.5 text-xs font-medium
+                             text-emerald-700 bg-emerald-50 border border-emerald-100
+                             px-2.5 py-1 rounded-full">
+                  <span className="w-1 h-1 rounded-full bg-[#16B364] flex-shrink-0" />
+                  {h}
+                </span>
               ))}
             </div>
-
           </div>
         </div>
+
+        {/* ── Bảng quy hoạch — section bổ sung, visual tách biệt ── */}
+        <div className="border-t border-slate-100 pt-14">
+          <div className="mb-6">
+            <h3 className="text-base font-semibold text-slate-700">
+              Diện tích quy hoạch từng tiện ích
+            </h3>
+            <p className="text-sm text-slate-400 mt-1">
+              Theo quy hoạch chi tiết tỷ lệ 1/500 đã được phê duyệt.
+            </p>
+          </div>
+
+          {/* Table — clean, ít border hơn */}
+          <div className="rounded-2xl overflow-hidden border border-slate-150 shadow-sm">
+            {/* Header */}
+            <div className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_160px_72px]
+                            bg-slate-800 text-white text-xs font-semibold uppercase
+                            tracking-wider px-5 py-3 gap-4">
+              <span>Tiện ích</span>
+              <span className="text-right">Diện tích</span>
+              <span className="text-right hidden sm:block">Ha</span>
+            </div>
+
+            {TABLE_DATA.map((row, i) => {
+              const RowIcon = row.icon;
+              return (
+                <div key={row.label}
+                  className={`grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_160px_72px]
+                               items-center gap-4 px-5 py-3.5
+                               ${i % 2 === 0 ? "bg-white" : "bg-slate-50/60"}
+                               hover:bg-emerald-50/40 transition-colors duration-150`}
+                >
+                  {/* Name + note */}
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className={`w-6 h-6 rounded-lg ${row.color} flex items-center
+                                      justify-center flex-shrink-0`}>
+                      <RowIcon className="w-3 h-3 text-white" />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-slate-800 truncate">{row.label}</p>
+                      <p className="text-xs text-slate-400 truncate hidden sm:block">{row.note}</p>
+                    </div>
+                  </div>
+
+                  {/* Area */}
+                  <p className="text-sm font-semibold text-slate-700 text-right tabular-nums">
+                    {row.area}
+                  </p>
+
+                  {/* Ha badge */}
+                  <div className="hidden sm:flex justify-end">
+                    {row.ha !== "—"
+                      ? <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{row.ha}</span>
+                      : <span className="text-xs text-slate-300">—</span>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
     </section>
   );

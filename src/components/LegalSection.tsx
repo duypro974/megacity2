@@ -120,7 +120,8 @@ export default function LegalSection() {
           {/* Đoạn mở */}
           <div>
             <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-              Dự án Khu dân cư theo quy hoạch tại xã Long Tân và xã Phú Hội, huyện Nhơn Trạch
+              Dự án Khu dân cư theo quy hoạch tại xã Long Tân và xã Phú Hội, nay thuộc xã Nhơn Trạch,
+              tỉnh Đồng Nai
               (diện tích khoảng 83,94 ha) do Công ty TNHH Khu đô thị Phú Hội làm chủ đầu tư
               đã được Ủy ban nhân dân tỉnh Đồng Nai chấp thuận các vị trí thực hiện chuyển
               nhượng quyền sử dụng đất dưới hình thức phân lô, bán nền cho cá nhân tự xây

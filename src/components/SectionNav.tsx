@@ -3,13 +3,14 @@
 import { useState, useEffect, useCallback } from "react";
 
 const SECTIONS = [
-  { id: "tong-quan", label: "Tổng quan" },
-  { id: "vi-tri",    label: "Liên kết vùng" },
-  { id: "tien-ich",  label: "Tiện ích nội khu" },
-  { id: "san-pham",  label: "Sản phẩm" },
-  { id: "bang-gia",  label: "Bảng giá" },
-  { id: "phap-ly",   label: "Pháp lý" },
-  { id: "lien-he",   label: "Liên hệ" },
+  { id: "tong-quan",  label: "Tổng quan" },
+  { id: "vi-tri",     label: "Liên kết vùng" },
+  { id: "tien-ich",   label: "Tiện ích nội khu" },
+  { id: "san-pham",   label: "Sản phẩm" },
+  { id: "bang-gia",   label: "Bảng giá" },
+  { id: "thanh-toan", label: "Thanh toán" },
+  { id: "phap-ly",    label: "Pháp lý" },
+  { id: "lien-he",    label: "Liên hệ" },
 ];
 
 export default function SectionNav() {

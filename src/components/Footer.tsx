@@ -2,22 +2,23 @@ import { Phone, MapPin, Mail, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Tổng quan dự án",  href: "#tong-quan" },
-  { label: "Vị trí chiến lược",href: "#vi-tri" },
-  { label: "Tiện ích nội khu", href: "#tien-ich" },
-  { label: "Sản phẩm",         href: "#san-pham" },
-  { label: "Bảng giá 05/2026", href: "#bang-gia" },
-  { label: "Pháp lý",          href: "#phap-ly" },
-  { label: "Liên hệ tư vấn",   href: "#lien-he" },
+  { label: "Tổng quan dự án",   href: "#tong-quan" },
+  { label: "Vị trí chiến lược", href: "#vi-tri" },
+  { label: "Tiện ích nội khu",  href: "#tien-ich" },
+  { label: "Sản phẩm",          href: "#san-pham" },
+  { label: "Bảng giá 05/2026",  href: "#bang-gia" },
+  { label: "Thanh toán",        href: "#thanh-toan" },
+  { label: "Pháp lý",           href: "#phap-ly" },
+  { label: "Liên hệ tư vấn",    href: "#lien-he" },
 ];
 
 const PROJECT_INFO = [
-  { label: "Chủ đầu tư",      value: "Công ty TNHH Khu Đô Thị Phú Hội" },
-  { label: "Phát triển",       value: "Kim Oanh Group" },
-  { label: "Quy mô",           value: "84 ha – 3.100 sản phẩm" },
-  { label: "Loại hình",        value: "Đất nền · Nhà phố · Biệt thự" },
-  { label: "Tiến độ",          value: "Hạ tầng ~95% · Bàn giao từ 2020" },
-  { label: "Pháp lý",          value: "QH 1/500 · GCNĐKĐT · Sổ hồng" },
+  { label: "Chủ đầu tư",   value: "Công ty TNHH Khu Đô Thị Phú Hội" },
+  { label: "Phát triển",    value: "Kim Oanh Group" },
+  { label: "Quy mô",        value: "~83,94 ha · 3.160 sp thấp tầng" },
+  { label: "Loại hình",     value: "Nhà phố · Nhà vườn liên kế · Biệt thự" },
+  { label: "Tiến độ HT",    value: "~95% (cập nhật 06/2025)" },
+  { label: "Pháp lý",       value: "QH 1/500 · QĐ 1772/QĐ-UBND" },
 ];
 
 export default function Footer() {
@@ -56,7 +57,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-5">
-              Khu đô thị hạt nhân Nhơn Trạch – 84ha, 3.100 sản phẩm. Đất vàng cửa ngõ sân bay Quốc tế Long Thành.
+              Khu dân cư theo quy hoạch tại xã Nhơn Trạch, tỉnh Đồng Nai. ~83,94 ha, do Công ty TNHH Khu đô thị Phú Hội làm chủ đầu tư, Kim Oanh Group phát triển và phân phối.
             </p>
             {/* Keywords for SEO */}
             <div className="flex flex-wrap gap-1.5">
@@ -99,7 +100,7 @@ export default function Footer() {
             <h4 className="font-extrabold text-sm uppercase tracking-wider mb-5 text-white">Liên hệ tư vấn</h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:0907839986" className="flex items-start gap-3 group">
+                <a href="tel:0937587438" className="flex items-start gap-3 group">
                   <div className="w-9 h-9 rounded-lg bg-primary-600/20 flex items-center justify-center shrink-0">
                     <Phone className="w-4 h-4 text-primary-400" />
                   </div>
@@ -114,8 +115,8 @@ export default function Footer() {
                   <MapPin className="w-4 h-4 text-slate-400" />
                 </div>
                 <div>
-                  <p className="text-slate-300 text-sm font-medium">Đường 25C, Phú Hội</p>
-                  <p className="text-xs text-slate-500">Nhơn Trạch, Đồng Nai</p>
+                  <p className="text-slate-300 text-sm font-medium">Đường 25C, Xã Nhơn Trạch</p>
+                  <p className="text-xs text-slate-500">Tỉnh Đồng Nai</p>
                 </div>
               </li>
               <li>
@@ -135,7 +136,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-slate-800 pt-7 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-500">
-          <p>© 2026 Mega City 2 Nhơn Trạch · Kim Oanh Group. Thông tin mang tính tham khảo.</p>
+          <p>© 2026 Mega City 2 – Thông tin tham khảo, không phải website chính thức của chủ đầu tư.</p>
           <div className="flex items-center gap-5">
             <Link href="/admin" className="hover:text-primary-400 transition">Admin</Link>
             <a href="#" className="hover:text-primary-400 transition">Chính sách bảo mật</a>

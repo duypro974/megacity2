@@ -6,7 +6,7 @@ import { Phone } from "lucide-react";
 const CONTACTS = [
   {
     label: "Hotline",
-    href: "tel:0907839986",
+    href: "tel:0937587438",
     title: "Gọi ngay: 0937.587.438",
     bg: "bg-primary-600 hover:bg-primary-700",
     icon: (
@@ -15,7 +15,7 @@ const CONTACTS = [
   },
   {
     label: "Zalo",
-    href: "https://zalo.me/0907839986",
+    href: "https://zalo.me/0937587438",
     title: "Chat Zalo",
     bg: "bg-blue-500 hover:bg-blue-600",
     icon: (
@@ -43,7 +43,7 @@ export default function ContactSidebar() {
   // Mount scroll-reveal observer for the whole page
   useScrollReveal();
   return (
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2.5">
+    <div className="fixed right-3 top-1/2 -translate-y-1/2 z-50 flex-col gap-2.5 hidden md:flex">
       {CONTACTS.map((c) => (
         <a
           key={c.label}

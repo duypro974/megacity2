@@ -4,26 +4,26 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://megacity2nhontach.com"),
   title: {
-    default: "Mega City 2 Nhơn Trạch | Đất Vàng Cửa Ngõ Sân Bay Long Thành – Kim Oanh Group",
+    default: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
     template: "%s | Mega City 2 Nhơn Trạch",
   },
   description:
-    "Mega City 2 Nhơn Trạch – Khu đô thị 84ha, 3.100 sản phẩm đất nền, nhà phố, biệt thự tại mặt tiền đường 25C, Phú Hội. Vị trí vàng giữa 4 trục huyết mạch, gần sân bay Long Thành. Hạ tầng hoàn thiện 95%. Giá từ 1,15 tỷ. Pháp lý đầy đủ – Sổ hồng. Liên hệ ngay!",
+    "Mega City 2 Nhơn Trạch – Khu dân cư theo quy hoạch ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. Thông tin bảng giá, pháp lý QĐ 1772/QĐ-UBND, 2.421 lô phân lô bán nền. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
   keywords:
-    "Mega City 2, Mega City 2 Nhơn Trạch, đất nền Nhơn Trạch, Kim Oanh Group, đất gần sân bay Long Thành, nhà phố Nhơn Trạch, biệt thự Nhơn Trạch, đất nền Phú Hội, khu đô thị Nhơn Trạch, mua đất Nhơn Trạch, đất nền Kim Oanh",
+    "Mega City 2, Mega City 2 Nhơn Trạch, đất nền Nhơn Trạch, Kim Oanh Group, đất gần sân bay Long Thành, nhà phố Nhơn Trạch, biệt thự Nhơn Trạch, phân lô bán nền Nhơn Trạch, QĐ 1772 Mega City 2, pháp lý Mega City 2 2026",
   authors: [{ name: "Kim Oanh Group" }],
   openGraph: {
-    title: "Mega City 2 Nhơn Trạch | Kim Oanh Group – Đất Vàng Sân Bay Long Thành",
+    title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
     description:
-      "Khu đô thị hạt nhân 84ha, 3.100 sản phẩm, hạ tầng hoàn thiện 95%, giá từ 1,15 tỷ. Cơ hội đầu tư sinh lời đột phá.",
+      "Khu dân cư ~83,94 ha, 2.421 lô được UBND tỉnh Đồng Nai chấp thuận phân lô bán nền theo QĐ 1772/QĐ-UBND. Thông tin tham khảo.",
     type: "website",
     locale: "vi_VN",
     siteName: "Mega City 2 Nhơn Trạch",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mega City 2 Nhơn Trạch | Kim Oanh Group",
-    description: "Khu đô thị hạt nhân 84ha tại cửa ngõ sân bay Long Thành. Giá từ 1,15 tỷ.",
+    title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý 2026",
+    description: "Khu dân cư ~83,94 ha tại xã Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền. Thông tin tham khảo.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://megacity2nhontach.com" },
@@ -48,12 +48,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "RealEstateListing",
               name: "Mega City 2 Nhơn Trạch",
               description:
-                "Khu đô thị 84ha tại Phú Hội, Nhơn Trạch, Đồng Nai. 3.100 sản phẩm đất nền, nhà phố, biệt thự.",
+                "Khu dân cư theo quy hoạch ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND ngày 30/05/2025.",
               url: "https://megacity2nhontach.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Đường 25C",
-                addressLocality: "Phú Hội, Nhơn Trạch",
+                addressLocality: "Xã Nhơn Trạch",
                 addressRegion: "Đồng Nai",
                 addressCountry: "VN",
               },
@@ -63,7 +63,92 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 lowPrice: "1150000000",
                 highPrice: "4000000000",
                 priceCurrency: "VND",
+                description: "Giá chuyển nhượng tham khảo, tùy vị trí và thời điểm giao dịch.",
               },
+              disclaimer: "Thông tin mang tính tham khảo, không phải tài liệu chính thức của chủ đầu tư.",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Mega City 2 Nhơn Trạch – Kim Oanh Group",
+              description: "Tư vấn và giới thiệu dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai.",
+              url: "https://megacity2nhontach.com",
+              telephone: "+840937587438",
+              email: "info@kimoanhgroup.org",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Đường 25C",
+                addressLocality: "Xã Nhơn Trạch",
+                addressRegion: "Đồng Nai",
+                addressCountry: "VN",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 10.7567,
+                longitude: 106.9667,
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                opens: "08:00",
+                closes: "21:00",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Dự án Mega City 2 nằm ở đâu?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Mega City 2 tọa lạc tại Đường 25C, xã Nhơn Trạch, tỉnh Đồng Nai. Dự án nằm tại khu vực Long Tân – Phú Hội trước đây, tiếp giáp TP.HCM qua đường 25C.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Mega City 2 đã được phép phân lô bán nền chưa?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Có. UBND tỉnh Đồng Nai đã ban hành Quyết định số 1772/QĐ-UBND ngày 30/5/2025 chấp thuận 2.421 lô được chuyển nhượng quyền sử dụng đất theo hình thức phân lô bán nền.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Giá đất nền Mega City 2 hiện nay bao nhiêu?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Giá chuyển nhượng tham khảo từ khoảng 1,15 tỷ đồng/nền tùy vị trí, diện tích và thời điểm giao dịch. Liên hệ 0937.587.438 để nhận báo giá cập nhật.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Chủ đầu tư Mega City 2 là ai?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Chủ đầu tư chính thức là Công ty TNHH Khu đô thị Phú Hội. Đơn vị phát triển và phân phối là Kim Oanh Group.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Thời hạn xây dựng nhà ở tại Mega City 2 là bao lâu?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Theo Quyết định 1772/QĐ-UBND, cá nhân nhận chuyển nhượng phải hoàn thành xây dựng nhà ở trước ngày 31/12/2029.",
+                  },
+                },
+              ],
             }),
           }}
         />

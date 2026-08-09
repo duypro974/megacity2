@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { ChevronRight, X, ZoomIn, Sparkles, Home, Store, Crown, ArrowRight, Download } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronRight, X, ZoomIn, Home, Crown, ArrowRight, Download } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 
 /* ─────────────────────────────────────────
@@ -11,10 +11,10 @@ import { useScrollFade } from "@/hooks/useScrollFade";
 const productTypes = [
   {
     code: "TH",
-    name: "Nhà phố TH",
-    desc: "Lô liền kề mặt đường nội khu 13–17 m, phù hợp ở thực và cho thuê.",
+    name: "Nhà vườn liên kế TH",
+    desc: "Các dãy nhà liên kế nội khu, phù hợp nhu cầu an cư và đầu tư dài hạn.",
     lots: "1.580 lô",
-    area: "90–120 m²",
+    area: "khoảng 90–120 m²*",
     icon: Home,
     highlight: false,
     gradient: "from-emerald-500 to-teal-500",
@@ -24,10 +24,10 @@ const productTypes = [
   },
   {
     code: "T",
-    name: "Nhà phố T",
-    desc: "Mặt đường trục chính 15–32 m, vị trí đắc địa, tiềm năng thương mại cao.",
+    name: "Nhà phố liên kế T",
+    desc: "Các dãy nhà phố từ đường nội khu đến trục đường lớn, phù hợp ở kết hợp kinh doanh.",
     lots: "1.478 lô",
-    area: "90–160 m²",
+    area: "khoảng 90–160 m²*",
     icon: Home,
     highlight: true,
     gradient: "from-primary-500 to-emerald-600",
@@ -36,24 +36,11 @@ const productTypes = [
     tag: "Đầu tư tốt nhất",
   },
   {
-    code: "SH",
-    name: "Shophouse",
-    desc: "Nhà phố thương mại mặt tiền đường lớn, kinh doanh ngay tầng trệt.",
-    lots: "Hạn chế",
-    area: "100–200 m²",
-    icon: Store,
-    highlight: false,
-    gradient: "from-amber-500 to-orange-500",
-    lightBg: "from-amber-50 to-orange-50",
-    border: "border-amber-200",
-    tag: "Thương mại",
-  },
-  {
     code: "V",
-    name: "Biệt thự V",
-    desc: "Biệt thự đơn lập & song lập, khuôn viên rộng, đẳng cấp vượt trội.",
+    name: "Biệt thự song lập V",
+    desc: "Biệt thự song lập quy hoạch thấp tầng, mật độ ≤70%, không gian riêng tư.",
     lots: "102 lô",
-    area: "150–200 m²",
+    area: "Tùy vị trí*",
     icon: Crown,
     highlight: false,
     gradient: "from-purple-500 to-indigo-500",
@@ -231,45 +218,12 @@ function GalleryItem({ src, alt, caption }: { src: string; alt: string; caption:
 }
 
 /* ─────────────────────────────────────────
-   Animated counter
-───────────────────────────────────────── */
-function AnimCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const [display, setDisplay] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          let start = 0;
-          const steps = 40;
-          const inc = value / steps;
-          const timer = setInterval(() => {
-            start += inc;
-            if (start >= value) { setDisplay(value); clearInterval(timer); }
-            else setDisplay(Math.round(start));
-          }, 30);
-        }
-      },
-      { threshold: 0.4 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [value]);
-
-  return <span ref={ref}>{display.toLocaleString("vi-VN")}{suffix}</span>;
-}
-
-/* ─────────────────────────────────────────
    Main Component
 ───────────────────────────────────────── */
 export default function ProductSection() {
   const sectionRef = useScrollFade();
   const [mapOpen, setMapOpen] = useState(false);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   return (
     <section
@@ -292,44 +246,117 @@ export default function ProductSection() {
           </p>
         </div>
 
-        {/* ── 2. 4 product type cards ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-          {productTypes.map((p) => (
-            <div
-              key={p.code}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col gap-2 hover:shadow-md transition-shadow"
-            >
-              <span className="text-3xl font-black text-primary-600">{p.code}</span>
-              <h3 className="font-bold text-slate-800 text-lg">{p.name}</h3>
-              <p className="text-slate-500 text-sm flex-1">{p.desc}</p>
-              <div className="pt-2 border-t border-slate-200 mt-auto">
-                <p className="text-xs text-slate-500">
-                  Số lượng:{" "}
-                  <span className="font-semibold text-slate-700">{p.lots}</span>
-                </p>
-                <p className="text-xs text-slate-500">
-                  Diện tích:{" "}
-                  <span className="font-semibold text-slate-700">{p.area}</span>
-                </p>
+        {/* ── 2. 3 product type cards (TH / T / V) ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-3">
+          {productTypes.map((p, i) => {
+            const Icon = p.icon;
+            const isActive = activeCard === i;
+            return (
+              <div
+                key={p.code}
+                onMouseEnter={() => setActiveCard(i)}
+                onMouseLeave={() => setActiveCard(null)}
+                className={`relative rounded-2xl overflow-hidden cursor-default transition-all duration-300
+                  ${isActive ? "shadow-2xl -translate-y-1.5" : "shadow-md hover:shadow-xl"}
+                  ${p.highlight ? "ring-2 ring-primary-400 ring-offset-2" : ""}`}
+              >
+                {/* Top gradient bar */}
+                <div className={`h-1 w-full bg-gradient-to-r ${p.gradient}`} />
+                {/* Tag */}
+                <div className={`absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider
+                                  px-2 py-0.5 rounded-full bg-gradient-to-r ${p.gradient} text-white shadow`}>
+                  {p.tag}
+                </div>
+                {/* Body */}
+                <div className={`bg-gradient-to-br ${p.lightBg} p-6 flex flex-col border ${p.border} border-t-0`}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${p.gradient}
+                                     flex items-center justify-center shadow-md`}>
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <span className={`text-4xl font-black bg-gradient-to-br ${p.gradient}
+                                      bg-clip-text text-transparent leading-none`}>
+                      {p.code}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-slate-800 text-base mb-1 leading-snug">{p.name}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed flex-1">{p.desc}</p>
+                  <div className="mt-4 pt-4 border-t border-white/60 grid grid-cols-2 gap-3">
+                    <div>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Số lượng</p>
+                      <p className="text-sm font-black text-slate-700 mt-0.5">{p.lots}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Diện tích</p>
+                      <p className="text-sm font-black text-slate-700 mt-0.5">{p.area}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* ── 3. CCC banner ── */}
-        <div className="rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-white flex items-center justify-between flex-wrap gap-4 mb-16">
+        {/* Ghi chú diện tích */}
+        <p className="text-xs text-slate-400 mb-6 mt-1">
+          * Diện tích thực tế thay đổi theo từng vị trí và lô cụ thể.
+          Tổng cộng 1.478 + 1.580 + 102 = <strong className="text-slate-500">3.160 sản phẩm nhà ở thấp tầng</strong>.
+        </p>
+
+        {/* CTA bar */}
+        <div className="rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900
+                        p-5 flex flex-wrap items-center justify-between gap-4 mb-6 shadow-xl">
           <div>
-            <p className="text-sm font-semibold opacity-80 uppercase tracking-wide mb-1">
-              Sắp ra mắt
-            </p>
-            <h3 className="text-xl font-bold">
-              Phân khu CCC – Khu thương mại tương lai
-            </h3>
-            <p className="text-sm opacity-90 mt-1">
-              Trung tâm thương mại, văn phòng và căn hộ cao tầng trong lòng khu đô thị.
+            <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Tổng quy mô thấp tầng</p>
+            <p className="text-white font-bold text-base mt-0.5">
+              3.160 sản phẩm · 83,94 ha · Hạ tầng hoàn thiện 95%
             </p>
           </div>
-          <ChevronRight className="w-8 h-8 opacity-70 flex-shrink-0" />
+          <a href="#lien-he"
+            className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400
+                       text-white font-bold px-5 py-2.5 rounded-xl text-sm
+                       transition-all hover:scale-105 shadow-lg shadow-primary-500/30 flex-shrink-0">
+            Nhận báo giá <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* ── Shophouse xây sẵn ── */}
+        <div className="rounded-2xl bg-amber-50 border border-amber-200 p-5 mb-5">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 rounded-xl bg-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-white text-sm">🏪</span>
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-800 text-sm">Nhà phố &amp; Shophouse xây sẵn</h4>
+              <p className="text-slate-600 text-sm mt-1">
+                Một số sản phẩm nhà phố thương mại xây sẵn, phù hợp ở kết hợp kinh doanh.
+                Số lượng có hạn – liên hệ xác nhận giỏ hàng và chính sách hiện hành.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Khu cao tầng & thương mại ── */}
+        <div className="rounded-2xl bg-gradient-to-r from-slate-700 to-slate-800 p-6 text-white flex items-center justify-between flex-wrap gap-4 mb-16">
+          <div>
+            <p className="text-xs font-bold opacity-60 uppercase tracking-widest mb-1">
+              Đang phát triển
+            </p>
+            <h3 className="text-xl font-bold">
+              Khu cao tầng &amp; Thương mại – Dịch vụ
+            </h3>
+            <p className="text-sm opacity-75 mt-1 max-w-md">
+              Quỹ đất cao tầng và thương mại trong quy hoạch Mega City 2. Hiện có dự án
+              K-Home Avenue được phát triển trên một phần quỹ đất (9 block, 1.202 căn hộ).
+            </p>
+          </div>
+          <a
+            href="#lien-he"
+            className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/20
+                       text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors flex-shrink-0"
+          >
+            Tìm hiểu thêm <ChevronRight className="w-4 h-4" />
+          </a>
         </div>
 
         {/* ── DIVIDER ── */}
@@ -435,18 +462,15 @@ export default function ProductSection() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                const el = document.getElementById("gallery-ph-b5");
-                el?.scrollIntoView({ behavior: "smooth" });
-              }}
+            <a
+              href="#gallery-ph-b5"
+              onClick={(e) => { e.preventDefault(); document.getElementById("gallery-ph-b5")?.scrollIntoView({ behavior: "smooth" }); }}
               className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700
                          text-white font-bold px-6 py-3 rounded-full shadow-md shadow-primary-500/20
                          transition-all duration-200 hover:scale-105 text-sm"
             >
-              Xem mặt bằng chi tiết
-            </button>
+              Xem mặt bằng chi tiết <ArrowRight className="w-4 h-4" />
+            </a>
             <a
               href="/PH-TKTCT-KT-B5_5x16.pdf"
               target="_blank"
@@ -455,7 +479,7 @@ export default function ProductSection() {
                          text-primary-600 hover:bg-primary-50 font-bold px-6 py-3 rounded-full
                          transition-all duration-200 hover:scale-105 text-sm"
             >
-              Tải bản vẽ thi công (PDF)
+              <Download className="w-4 h-4" /> Tải bản vẽ thi công (PDF)
             </a>
           </div>
         </div>
