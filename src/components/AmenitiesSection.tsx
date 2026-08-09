@@ -17,7 +17,7 @@ const CATEGORIES = [
     no: "01",
     icon: Waves,
     label: "Cảnh quan & Công viên",
-    img: "/overview/1.jpg",
+    img: "/on-site amenities/1.jpg",
     stat: "21.682 – 25.214 m²",
     statLabel: "Diện tích",
     title: "Hồ cảnh quan & Công viên trung tâm",
@@ -29,7 +29,7 @@ const CATEGORIES = [
     no: "02",
     icon: Dumbbell,
     label: "Thể thao & Vận động",
-    img: "/overview/2.webp",
+    img: "/on-site amenities/2.jpg",
     stat: "30 tỷ đồng",
     statLabel: "Đầu tư",
     title: "Khu thể thao đa năng ngoài trời",
@@ -41,7 +41,7 @@ const CATEGORIES = [
     no: "03",
     icon: Baby,
     label: "Vui chơi trẻ em",
-    img: "/overview/3.webp",
+    img: "/on-site amenities/3.webp",
     stat: "2 – 12 tuổi",
     statLabel: "Độ tuổi",
     title: "Khu vui chơi an toàn cho trẻ em",
@@ -53,7 +53,7 @@ const CATEGORIES = [
     no: "04",
     icon: School,
     label: "Giáo dục",
-    img: "/overview/1.jpg",
+    img: "/on-site amenities/4.jpg",
     stat: "31.406 m²",
     statLabel: "Đất giáo dục",
     title: "Quỹ đất giáo dục nội khu 3,1 ha",
@@ -65,7 +65,7 @@ const CATEGORIES = [
     no: "05",
     icon: HeartPulse,
     label: "Y tế & Chăm sóc sức khỏe",
-    img: "/overview/2.webp",
+    img: "/on-site amenities/5.jpg",
     stat: "5.320 m²",
     statLabel: "Đất y tế",
     title: "Trung tâm y tế nội khu",
@@ -77,7 +77,7 @@ const CATEGORIES = [
     no: "06",
     icon: ShoppingBag,
     label: "Thương mại & Dịch vụ",
-    img: "/overview/3.webp",
+    img: "/on-site amenities/6.jpg",
     stat: "26.813 m²",
     statLabel: "Đất TMDV",
     title: "Khu thương mại – dịch vụ 2,6 ha",
@@ -89,7 +89,7 @@ const CATEGORIES = [
     no: "07",
     icon: Users,
     label: "Cộng đồng",
-    img: "/overview/1.jpg",
+    img: "/on-site amenities/7.jpg",
     stat: "1.558 m²",
     statLabel: "Diện tích",
     title: "Trung tâm sinh hoạt cộng đồng",
@@ -206,12 +206,12 @@ export default function AmenitiesSection() {
               />
 
               {/* Stat badge — trên trái */}
-              <div className="absolute top-3 left-3 bg-white/96 rounded-xl px-3 py-2
-                              shadow-[0_2px_12px_rgba(0,0,0,0.10)]">
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+              <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm rounded-xl px-3 py-2
+                              shadow-lg border border-white/10">
+                <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider">
                   {active.statLabel}
                 </p>
-                <p className="text-sm font-bold text-[#16B364] leading-tight mt-0.5">
+                <p className="text-sm font-bold text-white leading-tight mt-0.5">
                   {active.stat}
                 </p>
               </div>

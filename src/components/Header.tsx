@@ -5,14 +5,15 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 const NAV = [
-  { label: "Tổng quan",  href: "#tong-quan" },
-  { label: "Vị trí",     href: "#vi-tri" },
-  { label: "Tiện ích",   href: "#tien-ich" },
-  { label: "Sản phẩm",   href: "#san-pham" },
-  { label: "Bảng giá",   href: "#bang-gia" },
-  { label: "Thanh toán", href: "#thanh-toan" },
-  { label: "Pháp lý",    href: "#phap-ly" },
-  { label: "Liên hệ",    href: "#lien-he" },
+  { label: "Tổng quan",        href: "#tong-quan" },
+  { label: "Vị trí",           href: "#vi-tri" },
+  { label: "Tiện ích",         href: "#tien-ich" },
+  { label: "Hình ảnh",         href: "#hinh-anh-thuc-te" },
+  { label: "Sản phẩm",         href: "#san-pham" },
+  { label: "Bảng giá",         href: "#bang-gia" },
+  { label: "Thanh toán",       href: "#thanh-toan" },
+  { label: "Pháp lý",          href: "#phap-ly" },
+  { label: "Liên hệ",          href: "#lien-he" },
 ];
 
 export default function Header() {

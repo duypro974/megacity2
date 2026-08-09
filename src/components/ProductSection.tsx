@@ -482,6 +482,34 @@ export default function ProductSection() {
               <Download className="w-4 h-4" /> Tải bản vẽ thi công (PDF)
             </a>
           </div>
+
+          {/* Hình ảnh thực tế nhà phố */}
+          <div className="mt-10 pt-8 border-t border-slate-100">
+            <h4 className="text-sm font-semibold text-slate-700 mb-1">
+              Hình ảnh thực tế nhà phố
+            </h4>
+            <p className="text-xs text-slate-400 mb-4">
+              Một số hình ảnh thực tế về nhà phố tại dự án. Không phải ảnh của mẫu nhà PH-B5 cụ thể.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {[
+                { src: "/real/5.png",  alt: "Hình ảnh thực tế nhà phố góc tại Mega City 2" },
+                { src: "/real/7.png",  alt: "Hình ảnh thực tế mặt tiền nhà phố tại Mega City 2" },
+                { src: "/real/10.jpg", alt: "Hình ảnh thực tế dãy nhà phố tại Mega City 2" },
+              ].map((img) => (
+                <div key={img.src}
+                  className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3] group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={img.src} alt={img.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy" decoding="async" />
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-slate-400 mt-2 italic">
+              Hình ảnh thực tế ghi nhận tại dự án.
+            </p>
+          </div>
         </div>
 
         {/* Anchor cho gallery */}

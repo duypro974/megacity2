@@ -7,6 +7,8 @@ import ConnectivitySection from "@/components/ConnectivitySection";
 import LegalSection from "@/components/LegalSection";
 import ProductSection from "@/components/ProductSection";
 import PaymentSection from "@/components/PaymentSection";
+import RealPhotoSection from "@/components/RealPhotoSection";
+import { PROGRESS_IMAGES } from "@/data/realImages";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
 import ContactSidebar from "@/components/ContactSidebar";
@@ -334,181 +336,163 @@ export default function HomePage() {
         {/* ── Tiện ích nội khu ── */}
         <AmenitiesSection />
 
+        {/* ── Hình ảnh thực tế ── */}
+        <RealPhotoSection />
+
         {/* ── Sản Phẩm ── */}
         <ProductSection />
 
         {/* ── Bảng Giá ── */}
-        <FadeSection
-          id="bang-gia"
-          className="py-20 bg-slate-50"
-        >
+        <FadeSection id="bang-gia" className="py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <SectionLabel>Bảng giá</SectionLabel>
-            <SectionHeader sub="Giá chuyển nhượng tham khảo 05/2026 – Tùy vị trí, diện tích và thời điểm giao dịch">
-              Bảng giá tham khảo
-            </SectionHeader>
 
-            {/* 3 price cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              <div className="rounded-2xl bg-white border border-slate-200 p-6">
-                <h3 className="font-bold text-slate-700 mb-4 text-base">
-                  Nhà phố TH
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex justify-between">
-                    <span className="text-slate-500">TH24–TH28</span>
-                    <span className="font-semibold text-slate-800">
-                      1,2 – 1,5 tỷ
-                    </span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-slate-500">TH16–TH22</span>
-                    <span className="font-semibold text-slate-800">
-                      1,3 – 1,6 tỷ
-                    </span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-slate-500">TH1–TH8</span>
-                    <span className="font-semibold text-slate-800">
-                      1,4 – 1,5 tỷ
-                    </span>
-                  </li>
-                  <li className="flex justify-between gap-2">
-                    <span className="text-slate-500">T9–T12</span>
-                    <span className="font-semibold text-slate-800 text-right">
-                      ~1,15–1,4 tỷ
-                    </span>
-                  </li>
+            {/* Header */}
+            <div className="mb-10">
+              <span className="section-label">Bảng giá</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-2 leading-snug">
+                Bảng giá Mega City 2 Nhơn Trạch
+              </h2>
+              <p className="mt-2 text-slate-500 text-sm md:text-base">
+                Giá chuyển nhượng tham khảo theo từng block, mặt đường và diện tích.
+                Cập nhật theo từng thời điểm giao dịch.
+              </p>
+              <p className="mt-1 text-xs text-slate-400">
+                Cập nhật gần nhất: 05/2026
+              </p>
+            </div>
+
+            {/* 3 nhóm giá */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+              {/* Nhà phố TH */}
+              <div className="rounded-2xl bg-white border border-slate-200 p-5">
+                <h3 className="font-semibold text-slate-800 mb-1 text-base">Nhà phố TH</h3>
+                <p className="text-xs text-slate-400 mb-4">Lô liền kề nội khu</p>
+                <ul className="space-y-2.5 text-sm">
+                  {[
+                    { block: "TH24–TH28", price: "1,2 – 1,5 tỷ" },
+                    { block: "TH16–TH22", price: "1,3 – 1,6 tỷ" },
+                    { block: "TH1–TH8",   price: "1,4 – 1,5 tỷ" },
+                    { block: "T9–T12",    price: "~1,15–1,4 tỷ" },
+                  ].map((r) => (
+                    <li key={r.block} className="flex justify-between gap-2 items-baseline">
+                      <span className="text-slate-500">{r.block}</span>
+                      <span className="font-semibold text-slate-800 text-right tabular-nums">{r.price}</span>
+                    </li>
+                  ))}
                 </ul>
+                <a href="#lien-he"
+                  className="mt-5 block text-center text-xs font-semibold text-[#16B364]
+                             border border-[#16B364]/30 hover:bg-emerald-50 rounded-xl py-2
+                             transition-colors">
+                  Xem các vị trí →
+                </a>
               </div>
 
-              <div className="rounded-2xl bg-white border border-slate-200 p-6">
-                <h3 className="font-bold text-slate-700 mb-4 text-base">
-                  Nhà phố T (theo mặt đường)
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex justify-between">
-                    <span className="text-slate-500">Đường 15–17 m</span>
-                    <span className="font-semibold text-slate-800">
-                      1,5 – 1,8 tỷ
-                    </span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-slate-500">Đường 21–24 m</span>
-                    <span className="font-semibold text-slate-800">
-                      1,8 – 2,2 tỷ
-                    </span>
-                  </li>
-                  <li className="flex justify-between gap-2">
-                    <span className="text-slate-500">Đường 32 m</span>
-                    <span className="font-semibold text-slate-800 text-right">
-                      ~2,0–2,5 tỷ
-                    </span>
-                  </li>
+              {/* Nhà phố T */}
+              <div className="rounded-2xl bg-white border border-slate-200 p-5">
+                <h3 className="font-semibold text-slate-800 mb-1 text-base">Nhà phố T</h3>
+                <p className="text-xs text-slate-400 mb-4">Theo mặt đường</p>
+                <ul className="space-y-2.5 text-sm">
+                  {[
+                    { road: "Đường 15–17 m", price: "1,5 – 1,8 tỷ" },
+                    { road: "Đường 21–24 m", price: "1,8 – 2,2 tỷ" },
+                    { road: "Đường 32 m",    price: "~2,0–2,5 tỷ" },
+                  ].map((r) => (
+                    <li key={r.road} className="flex justify-between gap-2 items-baseline">
+                      <span className="text-slate-500">{r.road}</span>
+                      <span className="font-semibold text-slate-800 text-right tabular-nums">{r.price}</span>
+                    </li>
+                  ))}
                 </ul>
+                <a href="#lien-he"
+                  className="mt-5 block text-center text-xs font-semibold text-[#16B364]
+                             border border-[#16B364]/30 hover:bg-emerald-50 rounded-xl py-2
+                             transition-colors">
+                  Xem các vị trí →
+                </a>
               </div>
 
-              <div className="rounded-2xl bg-white border border-slate-200 p-6">
-                <h3 className="font-bold text-slate-700 mb-4 text-base">
-                  Biệt thự &amp; Nhà xây sẵn
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex justify-between gap-2">
+              {/* Biệt thự & Nhà xây sẵn */}
+              <div className="rounded-2xl bg-white border border-slate-200 p-5">
+                <h3 className="font-semibold text-slate-800 mb-1 text-base">Biệt thự &amp; Nhà xây sẵn</h3>
+                <p className="text-xs text-slate-400 mb-4">Nhà phố thương mại &amp; Biệt thự</p>
+                <ul className="space-y-2.5 text-sm">
+                  <li className="flex justify-between gap-2 items-baseline">
                     <span className="text-slate-500">Biệt thự V</span>
-                    <span className="font-semibold text-slate-800 text-right">
-                      ~từ 2,1 tỷ
-                    </span>
+                    <span className="font-semibold text-slate-800 text-right">~từ 2,1 tỷ</span>
                   </li>
-                  <li className="flex justify-between">
+                  <li className="flex justify-between gap-2 items-baseline">
                     <span className="text-slate-500">Nhà xây sẵn T6–T13</span>
-                    <span className="font-semibold text-slate-800">
-                      Trên 4 tỷ
-                    </span>
+                    <span className="font-semibold text-slate-800 text-right">Trên 4 tỷ</span>
                   </li>
                 </ul>
+                <a href="#lien-he"
+                  className="mt-5 block text-center text-xs font-semibold text-[#16B364]
+                             border border-[#16B364]/30 hover:bg-emerald-50 rounded-xl py-2
+                             transition-colors">
+                  Xem các vị trí →
+                </a>
               </div>
             </div>
 
-            {/* Hot listings */}
+            {/* Một số vị trí đang được chào bán */}
             <div className="mb-8">
-              <h3 className="font-bold text-slate-700 mb-4 flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                Nền đang quan tâm nhiều
+              <h3 className="text-sm font-semibold text-slate-700 mb-1">
+                Một số vị trí đang được chào bán
               </h3>
+              <p className="text-xs text-slate-400 mb-4">
+                Nguồn: tổng hợp thị trường 05/2026. Giá tham khảo, chưa bao gồm thuế phí.
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {hotListings.map((item) => (
-                  <div
-                    key={item.code}
-                    className="flex items-center justify-between rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm"
-                  >
-                    <div>
-                      <p className="font-bold text-slate-800">{item.code}</p>
-                      <p className="text-slate-500 text-xs">
+                  <div key={item.code}
+                    className="rounded-xl bg-white border border-slate-200 px-4 py-3.5 text-sm
+                               hover:border-slate-300 transition-colors">
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="font-semibold text-slate-800">{item.code}</p>
+                      <p className="font-bold text-[#16B364] tabular-nums flex-shrink-0">{item.price}</p>
+                    </div>
+                    {(item.area || item.note) && (
+                      <p className="text-slate-400 text-xs mt-1">
                         {[item.area, item.note].filter(Boolean).join(" · ")}
                       </p>
-                    </div>
-                    <span className="text-primary-600 font-bold">
-                      {item.price}
-                    </span>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Note */}
-            <p className="text-xs text-slate-400 border-t border-slate-200 pt-4">
-              * Giá chuyển nhượng tham khảo, tùy vị trí và thời điểm giao dịch. Liên hệ hotline
-              để nhận thông tin chính xác và hỗ trợ chọn nền phù hợp.
+            {/* Nhà phố & Shophouse xây sẵn */}
+            <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden mb-6">
+              <div className="px-5 py-3.5 border-b border-slate-100 bg-slate-50">
+                <p className="text-sm font-semibold text-slate-700">
+                  Nhà phố &amp; Shophouse xây sẵn
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Liên hệ xác nhận giỏ hàng và chính sách hiện hành
+                </p>
+              </div>
+              <div className="p-5 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { code: "T6-13", price: "Trên 4 tỷ" },
+                  { code: "T6-14", price: "Gần 4 tỷ" },
+                  { code: "T6-15", price: "Gần 4 tỷ" },
+                  { code: "T6-16", price: "Gần 4 tỷ" },
+                ].map((item) => (
+                  <div key={item.code} className="rounded-xl bg-slate-50 border border-slate-200 px-3 py-2.5 text-center">
+                    <p className="font-semibold text-slate-800 text-sm">{item.code}</p>
+                    <p className="text-xs text-slate-500 mt-0.5">{item.price}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Disclaimer */}
+            <p className="text-xs text-slate-400 leading-relaxed border-t border-slate-200 pt-4">
+              * Giá chuyển nhượng tham khảo, có thể thay đổi theo vị trí, diện tích, hồ sơ
+              và thời điểm giao dịch. Thông tin tổng hợp từ nguồn thị trường, không phải
+              bảng giá chính thức của chủ đầu tư. Liên hệ để xác nhận thông tin cụ thể.
             </p>
-
-            {/* Nhà xây sẵn */}
-            <div className="mt-8 rounded-2xl overflow-hidden border border-amber-200 shadow-md">
-              <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-3 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 text-white">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  <span className="text-xs font-black uppercase tracking-widest">Nhà phố &amp; Shophouse xây sẵn</span>
-                </span>
-              </div>
-              <div className="bg-amber-50 px-5 py-4">
-                <p className="font-bold text-slate-800 text-sm mb-3">
-                  20 căn nhà phố & Shophouse xây sẵn – Liên hệ xác nhận giỏ hàng và chính sách hiện hành
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {[
-                    { code: "T6-13", price: "Trên 4 tỷ" },
-                    { code: "T6-14", price: "Gần 4 tỷ" },
-                    { code: "T6-15", price: "Gần 4 tỷ" },
-                    { code: "T6-16", price: "Gần 4 tỷ" },
-                  ].map((item) => (
-                    <div key={item.code}
-                      className="rounded-xl bg-white border border-amber-200 px-3 py-2.5 text-center">
-                      <p className="font-black text-slate-800 text-sm">{item.code}</p>
-                      <p className="text-xs font-semibold text-amber-600 mt-0.5">{item.price}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-slate-500 mt-3">
-                  Giá tham khảo, được cập nhật theo từng thời điểm. Liên hệ phòng kinh doanh Kim Oanh Group để xác nhận giỏ hàng và chính sách mới nhất.
-                </p>
-              </div>
-            </div>
-
-            {/* Ưu đãi chiết khấu */}
-            <div className="mt-4 rounded-2xl bg-gradient-to-r from-primary-600 to-emerald-600
-                            p-5 flex flex-wrap items-center gap-4">
-              <div className="flex-1 min-w-0">
-                <p className="text-white font-black text-base">🎁 Ưu đãi dành cho sản phẩm trực tiếp chủ đầu tư</p>
-                <p className="text-white/70 text-xs mt-1">
-                  Áp dụng cho sản phẩm trực tiếp từ chủ đầu tư · Chính sách ưu đãi đợt 1
-                </p>
-              </div>
-              <a href="#lien-he"
-                className="inline-flex items-center gap-1.5 bg-white text-primary-700
-                           font-bold text-sm px-4 py-2 rounded-xl hover:bg-primary-50
-                           transition-colors shadow flex-shrink-0">
-                Nhận ưu đãi <ChevronRight className="w-4 h-4" />
-              </a>
-            </div>
           </div>
         </FadeSection>
 
@@ -518,69 +502,110 @@ export default function HomePage() {
         {/* ── Pháp Lý ── */}
         <LegalSection />
 
-        {/* ── Kim Oanh Group ── */}
+        {/* ── Chủ đầu tư & Đơn vị phát triển ── */}
         <section className="py-20 bg-white" data-reveal>
           <div className="max-w-6xl mx-auto px-4">
-            <SectionLabel>Chủ đầu tư</SectionLabel>
-            <SectionHeader sub="Thành lập 2009 – Hơn 15 năm phát triển bất động sản tại Đông Nam Bộ">
-              Kim Oanh Group
-            </SectionHeader>
 
-            {/* 3 member cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Header */}
+            <div className="mb-10">
+              <span className="section-label">Đơn vị phát triển</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-2 leading-snug">
+                Chủ đầu tư và đơn vị phát triển Mega City 2
+              </h2>
+              <p className="mt-2 text-slate-500 text-sm md:text-base max-w-2xl">
+                Mega City 2 được triển khai tại khu vực Nhơn Trạch, Đồng Nai.
+                Công ty TNHH Khu đô thị Phú Hội là chủ đầu tư pháp lý;
+                Kim Oanh Group tham gia phát triển và phân phối dự án.
+              </p>
+            </div>
+
+            {/* Phân biệt rõ vai trò */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
+                  Chủ đầu tư pháp lý
+                </p>
+                <h3 className="font-bold text-slate-800 text-base">
+                  Công ty TNHH Khu đô thị Phú Hội
+                </h3>
+                <p className="text-sm text-slate-500 mt-1 leading-relaxed">
+                  Chủ đầu tư chính thức theo hồ sơ pháp lý và Quyết định
+                  1772/QĐ-UBND ngày 30/05/2025.
+                </p>
+                <a href="#phap-ly"
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-semibold
+                             text-[#16B364] hover:underline">
+                  Xem hồ sơ pháp lý →
+                </a>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
+                  Đơn vị phát triển &amp; phân phối
+                </p>
+                <h3 className="font-bold text-slate-800 text-base">Kim Oanh Group</h3>
+                <p className="text-sm text-slate-500 mt-1 leading-relaxed">
+                  Tham gia phát triển hạ tầng, kinh doanh và phân phối sản phẩm
+                  tại dự án Mega City 2 Nhơn Trạch.
+                </p>
+              </div>
+            </div>
+
+            {/* Hệ sinh thái Kim Oanh */}
+            <h3 className="text-base font-semibold text-slate-700 mb-4">
+              Hệ sinh thái Kim Oanh Group
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
               {[
                 {
-                  code: "KI",
-                  name: "Kim Oanh Invest",
+                  name: "Kim Oanh Land",
+                  role: "Đầu tư & phát triển",
                   desc: "Đầu tư và phát triển dự án bất động sản quy mô lớn.",
                 },
                 {
-                  code: "KC",
                   name: "Kim Oanh Construction",
+                  role: "Xây dựng",
                   desc: "Thi công hạ tầng và xây dựng nhà ở dân dụng.",
                 },
                 {
-                  code: "KR",
                   name: "Kim Oanh Realty",
-                  desc: "Phân phối và môi giới bất động sản toàn quốc.",
+                  role: "Kinh doanh & phân phối",
+                  desc: "Kinh doanh, tiếp thị và phân phối bất động sản toàn quốc.",
                 },
               ].map((m) => (
-                <div
-                  key={m.code}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
-                >
-                  <span className="text-4xl font-black text-primary-600">
-                    {m.code}
-                  </span>
-                  <h3 className="font-bold text-slate-800 mt-2 mb-1">
-                    {m.name}
-                  </h3>
-                  <p className="text-slate-500 text-sm">{m.desc}</p>
+                <div key={m.name}
+                  className="rounded-2xl border border-slate-200 bg-white p-5
+                             hover:border-slate-300 hover:shadow-sm transition-all duration-200">
+                  <p className="text-[10px] font-bold text-[#16B364] uppercase tracking-widest mb-1">
+                    {m.role}
+                  </p>
+                  <h3 className="font-semibold text-slate-800 text-sm">{m.name}</h3>
+                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">{m.desc}</p>
                 </div>
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="rounded-2xl bg-gradient-to-r from-primary-600 to-primary-800 p-6 md:p-8 text-white">
+            {/* Stats — chỉ dùng số có căn cứ */}
+            <div className="rounded-2xl bg-slate-900 p-6 md:p-8 text-white">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
                 <div className="p-3">
-                  <p className="text-2xl md:text-3xl font-black">2009</p>
-                  <p className="text-xs md:text-sm opacity-80 mt-1">Năm thành lập</p>
+                  <p className="text-2xl md:text-3xl font-bold">2009</p>
+                  <p className="text-xs text-slate-400 mt-1">Năm thành lập Kim Oanh Group</p>
                 </div>
                 <div className="p-3">
-                  <p className="text-2xl md:text-3xl font-black">15+</p>
-                  <p className="text-xs md:text-sm opacity-80 mt-1">Năm kinh nghiệm</p>
+                  <p className="text-2xl md:text-3xl font-bold">~84 ha</p>
+                  <p className="text-xs text-slate-400 mt-1">Quy mô Mega City 2</p>
                 </div>
                 <div className="p-3">
-                  <p className="text-2xl md:text-3xl font-black">3.160</p>
-                  <p className="text-xs md:text-sm opacity-80 mt-1">Sp thấp tầng Mega City 2</p>
+                  <p className="text-2xl md:text-3xl font-bold">2018</p>
+                  <p className="text-xs text-slate-400 mt-1">Năm đầu tư Mega City 2</p>
                 </div>
                 <div className="p-3">
-                  <p className="text-2xl md:text-3xl font-black">3.000+</p>
-                  <p className="text-xs md:text-sm opacity-80 mt-1">Khách 1 ngày mở bán (2018)</p>
+                  <p className="text-2xl md:text-3xl font-bold">4</p>
+                  <p className="text-xs text-slate-400 mt-1">Mảng hoạt động chính</p>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -621,12 +646,33 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* 4 progress photos */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <ImgSlot src="/overview/1.jpg"            alt="Đường nội khu hoàn thiện dự án Mega City 2 Nhơn Trạch" className="h-40" />
-              <ImgSlot src="/overview/2.webp"           alt="Cảnh quan hạ tầng khu đô thị Mega City 2 Nhơn Trạch"  className="h-40" />
-              <ImgSlot src="/overview/3.webp"           alt="Tiến độ xây dựng hạ tầng Mega City 2 Đồng Nai"        className="h-40" />
-              <ImgSlot src="/on-site advantage/1.jpg"  alt="Thực tế hạ tầng nội khu dự án Mega City 2"            className="h-40" />
+            {/* Hiện trạng thực tế */}
+            <div className="mt-8">
+              <h3 className="text-sm font-semibold text-slate-700 mb-1">Hiện trạng thực tế</h3>
+              <p className="text-xs text-slate-400 mb-4">
+                Một số hình ảnh thực tế ghi nhận tại dự án, thể hiện hiện trạng nhà phố,
+                đường nội khu và cảnh quan.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {PROGRESS_IMAGES.map((img) => (
+                  <div key={img.src}
+                    className="relative overflow-hidden rounded-xl bg-slate-100 h-36 md:h-40 group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                                    flex items-end p-3">
+                      <p className="text-white text-xs font-medium leading-snug">{img.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

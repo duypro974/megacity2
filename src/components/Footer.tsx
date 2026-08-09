@@ -2,14 +2,15 @@ import { Phone, MapPin, Mail, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Tổng quan dự án",   href: "#tong-quan" },
-  { label: "Vị trí chiến lược", href: "#vi-tri" },
-  { label: "Tiện ích nội khu",  href: "#tien-ich" },
-  { label: "Sản phẩm",          href: "#san-pham" },
-  { label: "Bảng giá 05/2026",  href: "#bang-gia" },
-  { label: "Thanh toán",        href: "#thanh-toan" },
-  { label: "Pháp lý",           href: "#phap-ly" },
-  { label: "Liên hệ tư vấn",    href: "#lien-he" },
+  { label: "Tổng quan dự án",       href: "#tong-quan" },
+  { label: "Vị trí chiến lược",     href: "#vi-tri" },
+  { label: "Tiện ích nội khu",      href: "#tien-ich" },
+  { label: "Hình ảnh thực tế",      href: "#hinh-anh-thuc-te" },
+  { label: "Sản phẩm",              href: "#san-pham" },
+  { label: "Bảng giá 05/2026",      href: "#bang-gia" },
+  { label: "Thanh toán",            href: "#thanh-toan" },
+  { label: "Pháp lý",              href: "#phap-ly" },
+  { label: "Liên hệ tư vấn",       href: "#lien-he" },
 ];
 
 const PROJECT_INFO = [
