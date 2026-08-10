@@ -4,33 +4,18 @@ import { Phone, ArrowRight, MessageCircle } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 
 /* ─────────────────────────────────────────
-   Data – 2 phương thức đã xác nhận
+   Data – phương thức thanh toán nhanh 95%
 ───────────────────────────────────────── */
 
-const METHOD_1 = {
-  title: "Thanh toán theo tiến độ",
-  tag: "Linh hoạt",
-  tagColor: "from-emerald-500 to-teal-500",
-  desc: "Chia nhỏ dòng tiền – Không áp lực thanh toán một lần",
-  steps: [
-    { no: "①", label: "Đặt cọc",              value: "30 triệu đồng/nền",           note: "" },
-    { no: "②", label: "Đợt 1 – Ký hợp đồng", value: "40%",                          note: "Sau khoảng 7 ngày kể từ ngày đặt cọc" },
-    { no: "③", label: "Đợt 2",                value: "20%",                          note: "Sau 60 ngày kể từ đợt 1" },
-    { no: "④", label: "Đợt 3",                value: "20%",                          note: "Sau 120 ngày kể từ đợt 1" },
-    { no: "⑤", label: "Đợt 4",                value: "15%",                          note: "Sau 180 ngày kể từ đợt 1" },
-    { no: "⑥", label: "Đợt 5 – Nhận sổ",     value: "5%",                           note: "Thanh toán khi nhận Giấy chứng nhận" },
-  ],
-};
-
-const METHOD_2 = {
+const METHOD = {
   title: "Thanh toán nhanh 95%",
   tag: "Tối ưu chi phí",
   tagColor: "from-primary-500 to-emerald-500",
   desc: "Nhận ưu đãi theo chính sách từng thời kỳ",
   steps: [
-    { no: "①", label: "Đặt cọc",          value: "30 triệu đồng/nền", note: "" },
-    { no: "②", label: "Ký hợp đồng",      value: "95%",               note: "Thanh toán 95% giá trị hợp đồng theo thỏa thuận" },
-    { no: "③", label: "Nhận sổ",          value: "5%",                note: "Thanh toán phần còn lại khi nhận Giấy chứng nhận" },
+    { no: "①", label: "Đặt cọc",     value: "50 triệu đồng/nền", note: "" },
+    { no: "②", label: "Ký hợp đồng", value: "95%",               note: "Thanh toán 95% giá trị hợp đồng theo thỏa thuận" },
+    { no: "③", label: "Nhận sổ",     value: "5%",                note: "Thanh toán phần còn lại khi nhận Giấy chứng nhận" },
   ],
 };
 
@@ -97,46 +82,36 @@ export default function PaymentSection() {
           </p>
         </div>
 
-        {/* 2 method cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {[METHOD_1, METHOD_2].map((m) => (
-            <div
-              key={m.title}
-              className="rounded-2xl bg-white border border-slate-200 overflow-hidden
-                         shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col"
-            >
-              {/* Top bar */}
-              <div className={`h-1 bg-gradient-to-r ${m.tagColor}`} />
-
-              <div className="p-6 flex flex-col flex-1">
-                {/* Title + tag */}
-                <div className="flex items-start justify-between gap-3 mb-1">
-                  <h3 className="font-black text-slate-800 text-lg leading-snug">{m.title}</h3>
-                  <span className={`flex-shrink-0 text-[10px] font-bold uppercase tracking-widest
-                                    bg-gradient-to-r ${m.tagColor} text-white
-                                    px-2.5 py-0.5 rounded-full shadow-sm mt-0.5`}>
-                    {m.tag}
-                  </span>
-                </div>
-                <p className="text-slate-500 text-sm mb-6">{m.desc}</p>
-
-                {/* Steps */}
-                <div className="flex-1">
-                  {m.steps.map((s, i) => (
-                    <StepRow
-                      key={i}
-                      no={s.no}
-                      label={s.label}
-                      value={s.value}
-                      note={s.note}
-                      isLast={i === m.steps.length - 1}
-                      accent={m.tagColor}
-                    />
-                  ))}
-                </div>
+        {/* 1 method card — căn giữa */}
+        <div className="flex justify-center mb-8">
+          <div className="w-full max-w-lg rounded-2xl bg-white border border-slate-200 overflow-hidden
+                           shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col">
+            <div className={`h-1 bg-gradient-to-r ${METHOD.tagColor}`} />
+            <div className="p-6 flex flex-col flex-1">
+              <div className="flex items-start justify-between gap-3 mb-1">
+                <h3 className="font-black text-slate-800 text-lg leading-snug">{METHOD.title}</h3>
+                <span className={`flex-shrink-0 text-[10px] font-bold uppercase tracking-widest
+                                  bg-gradient-to-r ${METHOD.tagColor} text-white
+                                  px-2.5 py-0.5 rounded-full shadow-sm mt-0.5`}>
+                  {METHOD.tag}
+                </span>
+              </div>
+              <p className="text-slate-500 text-sm mb-6">{METHOD.desc}</p>
+              <div>
+                {METHOD.steps.map((s, i) => (
+                  <StepRow
+                    key={i}
+                    no={s.no}
+                    label={s.label}
+                    value={s.value}
+                    note={s.note}
+                    isLast={i === METHOD.steps.length - 1}
+                    accent={METHOD.tagColor}
+                  />
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Hỗ trợ ngân hàng – không cam kết con số */}

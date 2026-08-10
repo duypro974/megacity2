@@ -33,19 +33,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            {/* Logo */}
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center shadow-sm">
-                <span className="text-white font-black text-lg italic leading-none">K</span>
-              </div>
-              <div>
-                <p className="font-black text-slate-900 text-base leading-none tracking-wide uppercase">
-                  KIM OANH
-                </p>
-                <p className="text-[9px] font-bold tracking-[0.25em] uppercase text-slate-400 mt-0.5">
-                  GROUP
-                </p>
-              </div>
+            {/* Logo SVG */}
+            <div className="mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/KOG_Web_RGB_01.svg"
+                alt="Kim Oanh Group"
+                className="h-10 w-auto object-contain"
+              />
             </div>
             <p className="text-slate-500 text-sm leading-relaxed mb-4">
               Kim Oanh Group — Nhà phát triển bất động sản uy tín tại Đồng Nai.

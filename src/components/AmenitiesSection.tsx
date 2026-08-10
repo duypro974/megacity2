@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { emitSectionHover } from "@/lib/sectionHoverEvent";
+import { IMG_AMENITIES } from "@/lib/cloudinary";
 
 /* ─────────────────────────────────────────
    Data — chỉ tiện ích NỘI KHU
@@ -17,7 +18,7 @@ const CATEGORIES = [
     no: "01",
     icon: Waves,
     label: "Cảnh quan & Công viên",
-    img: "/on-site amenities/1.jpg",
+    img: IMG_AMENITIES["1"],
     stat: "21.682 – 25.214 m²",
     statLabel: "Diện tích",
     title: "Hồ cảnh quan & Công viên trung tâm",
@@ -29,7 +30,7 @@ const CATEGORIES = [
     no: "02",
     icon: Dumbbell,
     label: "Thể thao & Vận động",
-    img: "/on-site amenities/2.jpg",
+    img: IMG_AMENITIES["2"],
     stat: "30 tỷ đồng",
     statLabel: "Đầu tư",
     title: "Khu thể thao đa năng ngoài trời",
@@ -41,7 +42,7 @@ const CATEGORIES = [
     no: "03",
     icon: Baby,
     label: "Vui chơi trẻ em",
-    img: "/on-site amenities/3.webp",
+    img: IMG_AMENITIES["3"],
     stat: "2 – 12 tuổi",
     statLabel: "Độ tuổi",
     title: "Khu vui chơi an toàn cho trẻ em",
@@ -53,7 +54,7 @@ const CATEGORIES = [
     no: "04",
     icon: School,
     label: "Giáo dục",
-    img: "/on-site amenities/4.jpg",
+    img: IMG_AMENITIES["4"],
     stat: "31.406 m²",
     statLabel: "Đất giáo dục",
     title: "Quỹ đất giáo dục nội khu 3,1 ha",
@@ -65,7 +66,7 @@ const CATEGORIES = [
     no: "05",
     icon: HeartPulse,
     label: "Y tế & Chăm sóc sức khỏe",
-    img: "/on-site amenities/5.jpg",
+    img: IMG_AMENITIES["5"],
     stat: "5.320 m²",
     statLabel: "Đất y tế",
     title: "Trung tâm y tế nội khu",
@@ -77,7 +78,7 @@ const CATEGORIES = [
     no: "06",
     icon: ShoppingBag,
     label: "Thương mại & Dịch vụ",
-    img: "/on-site amenities/6.jpg",
+    img: IMG_AMENITIES["6"],
     stat: "26.813 m²",
     statLabel: "Đất TMDV",
     title: "Khu thương mại – dịch vụ 2,6 ha",
@@ -89,7 +90,7 @@ const CATEGORIES = [
     no: "07",
     icon: Users,
     label: "Cộng đồng",
-    img: "/on-site amenities/7.jpg",
+    img: IMG_AMENITIES["7"],
     stat: "1.558 m²",
     statLabel: "Diện tích",
     title: "Trung tâm sinh hoạt cộng đồng",

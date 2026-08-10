@@ -17,6 +17,10 @@ import {
   Camera,
   Phone, Mail, MapPin, ChevronRight,
 } from "lucide-react";
+import {
+  IMG_OVERVIEW as OV,
+  IMG_REAL as REAL_IMG,
+} from "@/lib/cloudinary";
 
 /* ─────────────────────────────────────────
    Helper micro-components
@@ -259,7 +263,7 @@ export default function HomePage() {
               <div className="relative overflow-hidden rounded-2xl bg-slate-100 group
                               col-span-2 md:col-span-1 md:row-span-2 h-48 md:h-auto">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/overview/1.jpg" alt="Toàn cảnh khu đô thị Mega City 2 Nhơn Trạch"
+                <img src={OV["1"]} alt="Toàn cảnh khu đô thị Mega City 2 Nhơn Trạch"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent
@@ -272,8 +276,8 @@ export default function HomePage() {
               </div>
               {/* 2 ảnh nhỏ */}
               {[
-                { src: "/overview/2.webp", alt: "Hạ tầng đường nội khu Mega City 2 Nhơn Trạch",  cap: "Hạ tầng nội khu" },
-                { src: "/overview/3.webp", alt: "Cảnh quan công viên trung tâm Mega City 2",     cap: "Công viên trung tâm" },
+                { src: OV["2"],  alt: "Hạ tầng đường nội khu Mega City 2 Nhơn Trạch",  cap: "Hạ tầng nội khu" },
+                { src: OV["3"],  alt: "Cảnh quan công viên trung tâm Mega City 2",      cap: "Công viên trung tâm" },
               ].map((img) => (
                 <div key={img.src}
                   className="relative overflow-hidden rounded-2xl bg-slate-100 group h-48">

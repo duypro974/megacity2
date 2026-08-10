@@ -7,8 +7,15 @@ import {
 } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { emitSectionHover } from "@/lib/sectionHoverEvent";
+import {
+  IMG_REGIONAL as R,
+  IMG_TRADE as TR,
+  IMG_HEARTPULSE as HP,
+  IMG_SCHOOL as SC,
+  IMG_PLANE as PL,
+} from "@/lib/cloudinary";
 
-const DEFAULT_IMG = "/Regional link/1.jpg";
+const DEFAULT_IMG = R["1"];
 
 /* ─── Types ─── */
 interface GroupItem {
@@ -29,62 +36,62 @@ const GROUPS: Group[] = [
     id: 0,
     icon: Building2,
     label: "Khu công nghiệp",
-    img: "/Regional link/2.jpg",
+    img: R["2"],
     items: [
-      { name: "KCN Nhơn Trạch 1",       note: "~1 km theo đường 25C", img: "/Regional link/2.jpg" },
-      { name: "KCN Nhơn Trạch 2",       note: "~1,5 km",              img: "/Regional link/3.jpg" },
-      { name: "KCN Nhơn Trạch 3",       note: "~2 km",                img: "/Regional link/4.jpg" },
-      { name: "KCN Nhơn Trạch 5", note: "~2–4 km",             img: "/Regional link/5.jpg" },
-      { name: "KCN Nhơn Trạch 6", note: "~3–4 km",             img: "/Regional link/6.jpg" },    
-      { name: "KCN Phước An",           note: "Đang quy hoạch",       img: "/Regional link/7.jpg" },
-      { name: "Cảng Cái Mép – Thị Vải", note: "Logistics quốc tế",   img: "/Regional link/8.jpeg" },
+      { name: "KCN Nhơn Trạch 1",       note: "~1 km theo đường 25C", img: R["2"] },
+      { name: "KCN Nhơn Trạch 2",       note: "~1,5 km",              img: R["3"] },
+      { name: "KCN Nhơn Trạch 3",       note: "~2 km",                img: R["4"] },
+      { name: "KCN Nhơn Trạch 5",       note: "~2–4 km",              img: R["5"] },
+      { name: "KCN Nhơn Trạch 6",       note: "~3–4 km",              img: R["6"] },
+      { name: "KCN Phước An",           note: "Đang quy hoạch",       img: R["7"] },
+      { name: "Cảng Cái Mép – Thị Vải", note: "Logistics quốc tế",    img: R["8"] },
     ],
   },
   {
     id: 1,
     icon: ShoppingBag,
     label: "Thương mại – Dịch vụ",
-    img: "/Trade and Services/1.jpg",
+    img: TR["1"],
     items: [
-      { name: "TT Triển lãm – Hội chợ QT Nhơn Trạch", note: "107 ha, liền kề",        img: "/Trade and Services/1.jpg" },
-      { name: "Siêu thị GO!",                note: "~5–7 phút",     img: "/Trade and Services/2.png" },
-      { name: "Hệ thống ngân hàng",                    note: "Bán kính 1 km", img: "/Trade and Services/3.jpg" },
-      { name: "Sân golf Long Thành",                   note: "~15 phút",      img: "/Trade and Services/4.jpg" },
+      { name: "TT Triển lãm – Hội chợ QT Nhơn Trạch", note: "107 ha, liền kề",  img: TR["1"] },
+      { name: "Siêu thị GO!",                          note: "~5–7 phút",        img: TR["2"] },
+      { name: "Hệ thống ngân hàng",                    note: "Bán kính 1 km",    img: TR["3"] },
+      { name: "Sân golf Long Thành",                   note: "~15 phút",         img: TR["4"] },
     ],
   },
   {
     id: 2,
     icon: HeartPulse,
     label: "Y tế",
-    img: "/HeartPulse/1.jpg",
+    img: HP["1"],
     items: [
-      { name: "BV Đa khoa Nhơn Trạch",      note: "Liền kề dự án", img: "/HeartPulse/1.jpg" },   
-      { name: "Phòng khám đa khoa tư nhân", note: "Bán kính 2 km", img: "/HeartPulse/2.jpg" },
+      { name: "BV Đa khoa Nhơn Trạch",      note: "Liền kề dự án", img: HP["1"] },
+      { name: "Phòng khám đa khoa tư nhân", note: "Bán kính 2 km", img: HP["2"] },
     ],
   },
   {
     id: 3,
     icon: School,
     label: "Giáo dục",
-    img: "/school/1.jpg",
+    img: SC["1"],
     items: [
-      { name: "Trường THCS Phú Hội",             note: "~3–5 phút",       img: "/school/1.jpg" },
-      { name: "Trường THPT Nguyễn Bỉnh Khiêm",  note: "~5–7 phút",       img: "/school/2.jpg" },
-      { name: "Trường TC Kỹ thuật Đồng Nai",     note: "Khu vực",         img: "/school/3.jpg" },
-      { name: "Các trường mầm non & tiểu học",   note: "Xung quanh",      img: "/school/4.jpg" },
-      {name: "TT Thể dục thể thao huyện",  note: "~5 phút",       img: "/school/5.jpg" },
+      { name: "Trường THCS Phú Hội",            note: "~3–5 phút",  img: SC["1"] },
+      { name: "Trường THPT Nguyễn Bỉnh Khiêm",  note: "~5–7 phút",  img: SC["2"] },
+      { name: "Trường TC Kỹ thuật Đồng Nai",    note: "Khu vực",    img: SC["3"] },
+      { name: "Các trường mầm non & tiểu học",  note: "Xung quanh", img: SC["4"] },
+      { name: "TT Thể dục thể thao huyện",      note: "~5 phút",    img: SC["5"] },
     ],
   },
   {
     id: 4,
     icon: Plane,
     label: "Sân bay & Giao thông",
-    img: "/Plane/1.jpg",
+    img: PL["1"],
     items: [
-      { name: "Sân bay QT Long Thành",           note: "~10–15 phút",     img: "/Plane/1.jpg" },
-      { name: "Cổng chính sân bay – đường 25C",  note: "Trục trực tiếp", img: "/Plane/2.webp" },
-      { name: "Cầu Cát Lái  ",   note: "Kết nối TP.HCM",  img: "/Plane/3.webp" },
-      { name: "Cảng Cát Lái",                    note: "Cảng lớn nhất VN", img: "/Plane/4.jpg" },
+      { name: "Sân bay QT Long Thành",          note: "~10–15 phút",      img: PL["1"] },
+      { name: "Cổng chính sân bay – đường 25C", note: "Trục trực tiếp",   img: PL["2"] },
+      { name: "Cầu Cát Lái",                    note: "Kết nối TP.HCM",   img: PL["3"] },
+      { name: "Cảng Cát Lái",                   note: "Cảng lớn nhất VN", img: PL["4"] },
     ],
   },
 ];

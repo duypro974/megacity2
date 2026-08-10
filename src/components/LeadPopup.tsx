@@ -263,17 +263,20 @@ export default function LeadPopup() {
           type="button"
           onClick={() => setShowPopup(true)}
           aria-label="Đăng ký tư vấn"
-          className="fixed bottom-20 left-4 z-50 flex items-center gap-2.5
-                     group transition-all duration-200 hover:scale-105 lg:bottom-6"
+          className="fixed bottom-20 left-4 z-50 flex items-center gap-0
+                     group transition-all duration-300 hover:gap-2.5 lg:bottom-6"
         >
           {/* Icon hộp thư */}
           <div className="w-12 h-12 rounded-full bg-amber-500 shadow-lg shadow-amber-500/30
-                          flex items-center justify-center flex-shrink-0">
+                          flex items-center justify-center flex-shrink-0 z-10">
             <Mail className="w-5 h-5 text-white" />
           </div>
-          {/* Label */}
+          {/* Label — ẩn mặc định, hover trượt ra */}
           <div className="bg-slate-900/90 backdrop-blur-sm text-white text-sm font-bold
-                          px-3.5 py-2 rounded-xl shadow-lg whitespace-nowrap">
+                          px-3.5 py-2 rounded-xl shadow-lg whitespace-nowrap
+                          max-w-0 overflow-hidden opacity-0
+                          group-hover:max-w-[160px] group-hover:opacity-100
+                          transition-all duration-300 ease-out -ml-3 pl-6">
             Đăng ký tư vấn
           </div>
         </button>

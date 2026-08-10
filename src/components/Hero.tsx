@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin, FileCheck, LayoutGrid, TrendingUp, ChevronDown, Phone, ArrowRight } from "lucide-react";
+import { IMG_HERO } from "@/lib/cloudinary";
 
 /* ── Stats: thông tin có giá trị pháp lý/quy mô thật ── */
 const STATS = [
@@ -17,7 +18,7 @@ export default function Hero() {
       {/* ── Background ── */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/all.jpg"
+        src={IMG_HERO}
         alt="Phối cảnh tham khảo dự án Mega City 2 Nhơn Trạch"
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"

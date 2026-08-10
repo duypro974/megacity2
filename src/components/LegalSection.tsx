@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Shield, Award, CheckCircle2, X, ZoomIn } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { IMG_LEGAL } from "@/lib/cloudinary";
 
 /* ─────────────────────────────────────────
    Lightbox component
@@ -151,7 +152,7 @@ export default function LegalSection() {
 
           {/* 3. Ảnh Quyết định trang 1 */}
           <ZoomableImage
-            src="/legal/1.jpeg"
+            src={IMG_LEGAL["1"]}
             alt="Quyết định số 1772/QĐ-UBND ngày 30/5/2025 của UBND tỉnh Đồng Nai chấp thuận phân lô bán nền dự án Mega City 2 Nhơn Trạch"
             caption="Quyết định số 1772/QĐ-UBND ngày 30 tháng 5 năm 2025 của Ủy ban nhân dân tỉnh Đồng Nai"
           />
@@ -217,11 +218,11 @@ export default function LegalSection() {
         <div className="mb-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ZoomableImage
-              src="/legal/2.jpeg"
+              src={IMG_LEGAL["2"]}
               alt="Danh sách các lô được chấp thuận chuyển nhượng phân lô bán nền – trang 1"
             />
             <ZoomableImage
-              src="/legal/3.jpeg"
+              src={IMG_LEGAL["3"]}
               alt="Danh sách các lô được chấp thuận chuyển nhượng phân lô bán nền – trang 2 – Tổng cộng 2.421 lô"
             />
           </div>

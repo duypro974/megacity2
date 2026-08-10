@@ -49,23 +49,14 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
 
-          {/* ── Logo — style Kim Oanh Group ── */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className={`flex items-center gap-2 ${scrolled ? "" : ""}`}>
-              {/* K icon */}
-              <div className="w-9 h-9 rounded-lg bg-amber-500 flex items-center justify-center shadow-sm">
-                <span className="text-white font-black text-base italic leading-none">K</span>
-              </div>
-              <div className={scrolled ? "text-slate-900" : "text-white"}>
-                <p className="font-black text-base leading-none tracking-wide uppercase">
-                  KIM OANH
-                </p>
-                <p className={`text-[9px] font-bold tracking-[0.25em] uppercase
-                               ${scrolled ? "text-slate-400" : "text-white/60"}`}>
-                  GROUP
-                </p>
-              </div>
-            </div>
+          {/* ── Logo — Kim Oanh Group SVG ── */}
+          <Link href="/" className="flex items-center shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/KOG_Web_RGB_01.svg"
+              alt="Kim Oanh Group"
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* ── Desktop nav ── */}

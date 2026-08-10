@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { ChevronRight, X, ZoomIn, Home, Crown, ArrowRight, Download } from "lucide-react";
+import {
+  IMG_PRODUCT as PROD,
+  IMG_REAL as REAL,
+} from "@/lib/cloudinary";
 import { useScrollFade } from "@/hooks/useScrollFade";
 
 /* ─────────────────────────────────────────
@@ -97,36 +101,12 @@ const materials = [
 ];
 
 const gallery = [
-  {
-    src: "/product/Trang 6.jpeg",
-    alt: "Mặt bằng kích thước tầng 1 nhà phố PH-B5 Mega City 2",
-    caption: "Mặt bằng tầng 1 – A2-03/17",
-  },
-  {
-    src: "/product/Trang 7.jpeg",
-    alt: "Mặt bằng kích thước tầng 2 và tầng 3 nhà phố PH-B5",
-    caption: "Mặt bằng tầng 2 & 3 – A2-04/17",
-  },
-  {
-    src: "/product/Trang 10.jpeg",
-    alt: "Mặt đứng nhà phố liên kế 3 tầng PH-B5",
-    caption: "Mặt đứng trục A-B / B-A – A2-07/17",
-  },
-  {
-    src: "/product/Trang 11.jpeg",
-    alt: "Mặt cắt A-A nhà phố PH-B5",
-    caption: "Mặt cắt A-A – A2-08/17",
-  },
-  {
-    src: "/product/Trang 12.jpeg",
-    alt: "Chi tiết cầu thang nhà PH-B5",
-    caption: "Chi tiết cầu thang – A2-09/17",
-  },
-  {
-    src: "/product/Trang 4.jpeg",
-    alt: "Bảng vật liệu hoàn thiện mẫu nhà PH-B5",
-    caption: "Bảng vật liệu hoàn thiện – A2-01/17",
-  },
+  { src: PROD["trang-6"],  alt: "Mặt bằng kích thước tầng 1 nhà phố PH-B5 Mega City 2",  caption: "Mặt bằng tầng 1 – A2-03/17" },
+  { src: PROD["trang-7"],  alt: "Mặt bằng kích thước tầng 2 và tầng 3 nhà phố PH-B5",    caption: "Mặt bằng tầng 2 & 3 – A2-04/17" },
+  { src: PROD["trang-10"], alt: "Mặt đứng nhà phố liên kế 3 tầng PH-B5",                  caption: "Mặt đứng trục A-B / B-A – A2-07/17" },
+  { src: PROD["trang-11"], alt: "Mặt cắt A-A nhà phố PH-B5",                               caption: "Mặt cắt A-A – A2-08/17" },
+  { src: PROD["trang-12"], alt: "Chi tiết cầu thang nhà PH-B5",                             caption: "Chi tiết cầu thang – A2-09/17" },
+  { src: PROD["trang-4"],  alt: "Bảng vật liệu hoàn thiện mẫu nhà PH-B5",                  caption: "Bảng vật liệu hoàn thiện – A2-01/17" },
 ];
 
 const mapLegend = [
@@ -508,9 +488,9 @@ export default function ProductSection() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[
-                { src: "/real/5.png",  alt: "Hình ảnh thực tế nhà phố góc tại Mega City 2" },
-                { src: "/real/7.png",  alt: "Hình ảnh thực tế mặt tiền nhà phố tại Mega City 2" },
-                { src: "/real/10.jpg", alt: "Hình ảnh thực tế dãy nhà phố tại Mega City 2" },
+                { src: REAL["5"],  alt: "Hình ảnh thực tế nhà phố góc tại Mega City 2" },
+                { src: REAL["7"],  alt: "Hình ảnh thực tế mặt tiền nhà phố tại Mega City 2" },
+                { src: REAL["10"], alt: "Hình ảnh thực tế dãy nhà phố tại Mega City 2" },
               ].map((img) => (
                 <div key={img.src}
                   className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3] group">
@@ -563,7 +543,7 @@ export default function ProductSection() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/product/Bản đồ.jpeg"
+              src={PROD["ban-do"]}
               alt="Bản đồ phân lô tổng thể dự án Mega City 2 Nhơn Trạch – Khu dân cư theo quy hoạch Long Tân Phú Hội"
               className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
               loading="lazy"
@@ -588,7 +568,7 @@ export default function ProductSection() {
       {/* Lightbox bản đồ */}
       {mapOpen && (
         <Lightbox
-          src="/product/Bản đồ.jpeg"
+          src={PROD["ban-do"]}
           alt="Bản đồ phân lô tổng thể dự án Mega City 2 Nhơn Trạch"
           onClose={() => setMapOpen(false)}
         />
