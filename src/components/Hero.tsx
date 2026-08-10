@@ -2,6 +2,7 @@
 
 import { MapPin, FileCheck, LayoutGrid, TrendingUp, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import { IMG_HERO } from "@/lib/cloudinary";
+import { scrollToSection } from "@/lib/scrollTo";
 
 /* ── Stats: thông tin có giá trị pháp lý/quy mô thật ── */
 const STATS = [
@@ -93,6 +94,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 mb-8">
             <a
               href="#bang-gia"
+              onClick={(e) => { e.preventDefault(); scrollToSection("bang-gia"); }}
               className="inline-flex items-center justify-center gap-2
                          bg-[#16B364] hover:bg-[#13a057]
                          text-white px-6 py-3 rounded-xl text-sm font-bold

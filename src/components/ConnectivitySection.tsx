@@ -14,6 +14,7 @@ import {
   IMG_SCHOOL as SC,
   IMG_PLANE as PL,
 } from "@/lib/cloudinary";
+import { scrollToSection } from "@/lib/scrollTo";
 
 const DEFAULT_IMG = R["1"];
 
@@ -287,6 +288,7 @@ export default function ConnectivitySection() {
 
             <a
               href="#lien-he"
+              onClick={(e) => { e.preventDefault(); scrollToSection("lien-he"); }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-400
                          hover:from-amber-600 hover:to-orange-500 text-white font-bold
                          px-7 py-3.5 rounded-full shadow-lg shadow-amber-400/30

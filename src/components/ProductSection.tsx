@@ -8,6 +8,7 @@ import {
   IMG_REAL as REAL,
 } from "@/lib/cloudinary";
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { scrollToSection } from "@/lib/scrollTo";
 
 /* ─────────────────────────────────────────
    Data
@@ -308,6 +309,7 @@ export default function ProductSection() {
             </p>
           </div>
           <a href="#lien-he"
+            onClick={(e) => { e.preventDefault(); scrollToSection("lien-he"); }}
             className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400
                        text-white font-bold px-5 py-2.5 rounded-xl text-sm
                        transition-all hover:scale-105 shadow-lg shadow-primary-500/30 flex-shrink-0">
@@ -347,6 +349,7 @@ export default function ProductSection() {
           </div>
           <a
             href="#lien-he"
+            onClick={(e) => { e.preventDefault(); scrollToSection("lien-he"); }}
             className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/20
                        text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors flex-shrink-0"
           >
@@ -459,7 +462,7 @@ export default function ProductSection() {
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="#gallery-ph-b5"
-              onClick={(e) => { e.preventDefault(); document.getElementById("gallery-ph-b5")?.scrollIntoView({ behavior: "smooth" }); }}
+              onClick={(e) => { e.preventDefault(); scrollToSection("gallery-ph-b5"); }}
               className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700
                          text-white font-bold px-6 py-3 rounded-full shadow-md shadow-primary-500/20
                          transition-all duration-200 hover:scale-105 text-sm"

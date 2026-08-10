@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { REAL_IMAGES, type ImageCategory, type RealImage } from "@/data/realImages";
+import { scrollToSection } from "@/lib/scrollTo";
 
 /* ─────────────────────────────────────────
    Filter config
@@ -284,6 +285,7 @@ export default function RealPhotoSection() {
             </div>
             <a
               href="#lien-he"
+              onClick={(e) => { e.preventDefault(); scrollToSection("lien-he"); }}
               className="inline-flex items-center gap-2 bg-[#16B364] hover:bg-[#13a057]
                          text-white font-semibold px-5 py-2.5 rounded-xl text-sm
                          transition-colors flex-shrink-0 shadow-sm"

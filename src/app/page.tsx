@@ -13,13 +13,12 @@ import LeadPopup from "@/components/LeadPopup";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
 import ContactSidebar from "@/components/ContactSidebar";
+import ScrollLink from "@/components/ScrollLink";
 import {
-  Camera,
   Phone, Mail, MapPin, ChevronRight,
 } from "lucide-react";
 import {
   IMG_OVERVIEW as OV,
-  IMG_REAL as REAL_IMG,
 } from "@/lib/cloudinary";
 
 /* ─────────────────────────────────────────
@@ -51,32 +50,6 @@ function SectionHeader({
   );
 }
 
-function ImgSlot({
-  src,
-  alt,
-  className = "",
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`relative overflow-hidden rounded-xl bg-slate-100 flex items-center justify-center ${className}`}
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover"
-        loading="lazy"
-      />
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/30">
-        <Camera className="w-8 h-8 text-white" />
-      </div>
-    </div>
-  );
-}
 
 /* ─────────────────────────────────────────
    Data
@@ -321,11 +294,11 @@ export default function HomePage() {
                 <p className="text-[11px] text-slate-400">
                   Thông tin tổng hợp từ hồ sơ, văn bản công bố và nguồn thị trường
                 </p>
-                <a href="#phap-ly"
+                <ScrollLink to="phap-ly"
                   className="text-[11px] font-bold text-primary-600 hover:text-primary-700
                              flex items-center gap-1 transition-colors flex-shrink-0 ml-4">
                   Xem hồ sơ pháp lý →
-                </a>
+                </ScrollLink>
               </div>
             </div>
 
@@ -386,12 +359,12 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <a href="#lien-he"
+                <ScrollLink to="lien-he"
                   className="mt-5 block text-center text-xs font-semibold text-[#16B364]
                              border border-[#16B364]/30 hover:bg-emerald-50 rounded-xl py-2
                              transition-colors">
                   Xem các vị trí →
-                </a>
+                </ScrollLink>
               </div>
 
               {/* Nhà phố T */}
@@ -410,12 +383,12 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <a href="#lien-he"
+                <ScrollLink to="lien-he"
                   className="mt-5 block text-center text-xs font-semibold text-[#16B364]
                              border border-[#16B364]/30 hover:bg-emerald-50 rounded-xl py-2
                              transition-colors">
                   Xem các vị trí →
-                </a>
+                </ScrollLink>
               </div>
 
               {/* Biệt thự & Nhà xây sẵn */}
@@ -432,12 +405,12 @@ export default function HomePage() {
                     <span className="font-semibold text-slate-800 text-right">Trên 4 tỷ</span>
                   </li>
                 </ul>
-                <a href="#lien-he"
+                <ScrollLink to="lien-he"
                   className="mt-5 block text-center text-xs font-semibold text-[#16B364]
                              border border-[#16B364]/30 hover:bg-emerald-50 rounded-xl py-2
                              transition-colors">
                   Xem các vị trí →
-                </a>
+                </ScrollLink>
               </div>
             </div>
 
@@ -538,11 +511,11 @@ export default function HomePage() {
                   Chủ đầu tư chính thức theo hồ sơ pháp lý và Quyết định
                   1772/QĐ-UBND ngày 30/05/2025.
                 </p>
-                <a href="#phap-ly"
+                <ScrollLink to="phap-ly"
                   className="mt-3 inline-flex items-center gap-1 text-xs font-semibold
                              text-[#16B364] hover:underline">
                   Xem hồ sơ pháp lý →
-                </a>
+                </ScrollLink>
               </div>
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
@@ -762,14 +735,14 @@ export default function HomePage() {
                   Chuyên viên tư vấn sẽ giải đáp trực tiếp trong 30 phút
                 </p>
               </div>
-              <a
-                href="#lien-he"
+              <ScrollLink
+                to="lien-he"
                 className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400
                            text-white font-bold px-5 py-2.5 rounded-xl text-sm
                            transition-all hover:scale-105 flex-shrink-0"
               >
                 <Phone className="w-4 h-4" /> Liên hệ ngay
-              </a>
+              </ScrollLink>
             </div>
           </div>
         </section>

@@ -115,7 +115,7 @@ export default function ContactSidebar() {
       `}</style>
 
       {/* Desktop — sidebar phải */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex-col gap-3 hidden md:flex">
+      <div className="fixed right-4 bottom-4 z-50 flex-col gap-3 hidden md:flex">
         <PhoneButton />
         <ZaloButton />
         <MessengerButton />

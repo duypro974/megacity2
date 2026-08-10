@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { scrollToSection } from "@/lib/scrollTo";
 
 const SECTIONS = [
   { id: "tong-quan",         label: "Tổng quan" },
@@ -62,6 +63,7 @@ export default function SectionNav() {
           <a
             key={id}
             href={`#${id}`}
+            onClick={(e) => { e.preventDefault(); scrollToSection(id); }}
             onMouseEnter={() => setLocalHover(id)}
             onMouseLeave={() => setLocalHover(null)}
             className="group flex items-center gap-2 cursor-pointer"

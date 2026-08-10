@@ -3,17 +3,18 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { scrollToSection } from "@/lib/scrollTo";
 
 const NAV = [
-  { label: "Tổng quan",   href: "#tong-quan" },
-  { label: "Vị trí",      href: "#vi-tri" },
-  { label: "Tiện ích",    href: "#tien-ich" },
-  { label: "Hình ảnh",    href: "#hinh-anh-thuc-te" },
-  { label: "Sản phẩm",    href: "#san-pham" },
-  { label: "Bảng giá",    href: "#bang-gia" },
-  { label: "Thanh toán",  href: "#thanh-toan" },
-  { label: "Pháp lý",     href: "#phap-ly" },
-  { label: "Liên hệ",     href: "#lien-he" },
+  { label: "Tổng quan",   id: "tong-quan" },
+  { label: "Vị trí",      id: "vi-tri" },
+  { label: "Tiện ích",    id: "tien-ich" },
+  { label: "Hình ảnh",    id: "hinh-anh-thuc-te" },
+  { label: "Sản phẩm",    id: "san-pham" },
+  { label: "Bảng giá",    id: "bang-gia" },
+  { label: "Thanh toán",  id: "thanh-toan" },
+  { label: "Pháp lý",     id: "phap-ly" },
+  { label: "Liên hệ",     id: "lien-he" },
 ];
 
 export default function Header() {
@@ -28,7 +29,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const ids = NAV.map((n) => n.href.replace("#", ""));
+    const ids = NAV.map((n) => n.id);
     const observer = new IntersectionObserver(
       (entries) => { entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); }); },
       { rootMargin: "-40% 0px -55% 0px" }
@@ -37,7 +38,23 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  const isActive = (href: string) => active === href.replace("#", "");
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    e.preventDefault();
+    scrollToSection(id);
+  };
+
+  const handleNavClickMobile = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    e.preventDefault();
+    setOpen(false);
+    // Nhỏ delay để drawer đóng trước khi scroll
+    setTimeout(() => scrollToSection(id), 50);
+  };
 
   return (
     <>
@@ -63,10 +80,11 @@ export default function Header() {
           <nav className="hidden xl:flex items-center gap-1">
             {NAV.map((item) => (
               <a
-                key={item.href}
-                href={item.href}
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(e, item.id)}
                 className={`px-3 py-1.5 text-sm font-medium transition-colors duration-150 relative
-                  ${isActive(item.href)
+                  ${active === item.id
                     ? "text-amber-600 after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-amber-500 after:rounded-full"
                     : scrolled
                       ? "text-slate-600 hover:text-amber-600"
@@ -109,11 +127,11 @@ export default function Header() {
             <nav className="flex flex-col px-4 py-2">
               {NAV.map((item) => (
                 <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavClickMobile(e, item.id)}
                   className={`py-3 text-sm font-medium border-b border-gray-50 flex justify-between items-center
-                    ${isActive(item.href) ? "text-amber-600" : "text-slate-700"}`}
+                    ${active === item.id ? "text-amber-600" : "text-slate-700"}`}
                 >
                   {item.label}
                   <ChevronDown className="w-4 h-4 opacity-30 -rotate-90" />
@@ -141,8 +159,11 @@ export default function Header() {
             <Phone className="w-4 h-4 text-amber-400" />
             Gọi ngay
           </a>
-          <a href="#lien-he"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-amber-500 text-white text-sm font-bold">
+          <a
+            href="#lien-he"
+            onClick={(e) => handleNavClick(e, "lien-he")}
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-amber-500 text-white text-sm font-bold"
+          >
             Đăng ký tư vấn
           </a>
         </div>

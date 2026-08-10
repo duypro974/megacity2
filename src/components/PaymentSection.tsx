@@ -2,6 +2,7 @@
 
 import { Phone, ArrowRight, MessageCircle } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { scrollToSection } from "@/lib/scrollTo";
 
 /* ─────────────────────────────────────────
    Data – phương thức thanh toán nhanh 95%
@@ -158,6 +159,7 @@ export default function PaymentSection() {
             </a>
             <a
               href="#lien-he"
+              onClick={(e) => { e.preventDefault(); scrollToSection("lien-he"); }}
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20
                          text-white font-bold px-4 py-2.5 rounded-xl text-sm
                          transition-all border border-white/20"
