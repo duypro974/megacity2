@@ -1,5 +1,10 @@
 import { MetadataRoute } from "next";
 
+// ─────────────────────────────────────────────────────────────
+// robots.ts — Kim Oanh Đồng Nai
+// Domain chính thức: https://kimoanhdongnai.com.vn
+// ─────────────────────────────────────────────────────────────
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -9,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/api/"],
       },
     ],
-    sitemap: "https://megacity2nhontach.com/sitemap.xml",
-    host: "https://megacity2nhontach.com",
+    sitemap: "https://kimoanhdongnai.com.vn/sitemap.xml",
+    host: "https://kimoanhdongnai.com.vn",
   };
 }

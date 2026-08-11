@@ -74,9 +74,7 @@ export default function KimOanhGroupSection() {
             />
 
             <a
-              href="https://kimoanh.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/ve-chung-toi"
               className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400
                          text-white px-7 py-3.5 rounded-full text-sm font-bold
                          shadow-lg shadow-amber-500/20 transition-all hover:-translate-y-0.5 group"

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
   description:
     "Mega City 2 Nhơn Trạch – Khu dân cư ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
-  alternates: { canonical: "https://megacity2nhontach.com/mega-city-2" },
+  alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2" },
 };
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";

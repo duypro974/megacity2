@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Về chúng tôi – Kim Oanh Đồng Nai",
   description:
     "Tìm hiểu về Kim Oanh Group – Tập đoàn bất động sản với hệ sinh thái đa dạng. Tầm nhìn, sứ mệnh, triết lý kinh doanh và hành trình phát triển.",
-  alternates: { canonical: "https://kimoanh.com/ve-chung-toi" },
+  alternates: { canonical: "https://kimoanhdongnai.com.vn/ve-chung-toi" },
   openGraph: {
     title: "Về Kim Oanh – Kim Oanh Đồng Nai",
     description: COMPANY_INFO.description,

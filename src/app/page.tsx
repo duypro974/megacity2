@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
   description:
     "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
-  alternates: { canonical: "https://kimoanh.com" },
+  alternates: { canonical: "https://kimoanhdongnai.com.vn" },
   openGraph: {
     title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
     description:

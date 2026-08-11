@@ -102,7 +102,7 @@ function TermsContent() {
   return (
     <>
       <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 text-slate-700 text-sm leading-relaxed">
-        Việc truy cập và sử dụng website megacity2nhontach.com đồng nghĩa với việc bạn đã đọc, hiểu và đồng ý bị ràng buộc bởi các Điều khoản sử dụng dưới đây.
+        Việc truy cập và sử dụng website kimoanhdongnai.com.vn đồng nghĩa với việc bạn đã đọc, hiểu và đồng ý bị ràng buộc bởi các Điều khoản sử dụng dưới đây.
       </div>
       <div><h3 className="font-bold text-slate-800 mb-2">1. Thông tin đơn vị quản lý Website</h3><p>Đơn vị quản lý: Công ty Cổ phần Tập đoàn Địa ốc Kim Oanh (Kim Oanh Group)</p><p>Địa chỉ trụ sở: 268A Phan Trung, phường Tam Hiệp, tỉnh Đồng Nai, Việt Nam</p><p>Hotline hỗ trợ: 0937.587.438</p><p>Email: k.homekog@gmail.com</p></div>
       <div><h3 className="font-bold text-slate-800 mb-2">2. Mục đích của Website</h3><p>Website được xây dựng nhằm cung cấp thông tin về dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai (do Công ty TNHH Khu đô thị Phú Hội làm chủ đầu tư, Kim Oanh Group phát triển và phân phối) và hỗ trợ khách hàng đăng ký tư vấn.</p></div>
@@ -122,7 +122,7 @@ function PrivacyContent() {
   return (
     <>
       <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 text-slate-700 text-sm leading-relaxed">
-        Chính sách này giải thích cách Công ty Cổ phần Tập đoàn Địa ốc Kim Oanh (Kim Oanh Group) thu thập, sử dụng, lưu trữ và bảo vệ dữ liệu cá nhân của bạn khi sử dụng Website megacity2nhontach.com, phù hợp với Nghị định 13/2023/NĐ-CP.
+        Chính sách này giải thích cách Công ty Cổ phần Tập đoàn Địa ốc Kim Oanh (Kim Oanh Group) thu thập, sử dụng, lưu trữ và bảo vệ dữ liệu cá nhân của bạn khi sử dụng Website kimoanhdongnai.com.vn, phù hợp với Nghị định 13/2023/NĐ-CP.
       </div>
       <div><h3 className="font-bold text-slate-800 mb-2">1. Đơn vị xử lý dữ liệu</h3><p>Tên đơn vị: Công ty Cổ phần Tập đoàn Địa ốc Kim Oanh</p><p>Địa chỉ: 268A Phan Trung, phường Tam Hiệp, tỉnh Đồng Nai, Việt Nam</p><p>Hotline: 0937.587.438</p><p>Email: k.homekog@gmail.com</p></div>
       <div><h3 className="font-bold text-slate-800 mb-2">2. Dữ liệu cá nhân chúng tôi thu thập</h3><p className="mb-2">Chúng tôi có thể thu thập các thông tin sau khi bạn điền form đăng ký tư vấn, gọi điện/nhắn tin qua Zalo/Messenger, hoặc truy cập Website:</p><ul className="space-y-1"><li>• Họ tên, số điện thoại, email</li><li>• Nhu cầu quan tâm dự án, loại sản phẩm</li><li>• Địa chỉ IP, loại trình duyệt, thời gian truy cập</li><li>• Các thông tin khác bạn chủ động cung cấp</li></ul></div>

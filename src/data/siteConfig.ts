@@ -15,9 +15,8 @@ export const SITE_CONFIG = {
   legalName: "Công ty Cổ phần Tập đoàn Địa ốc Kim Oanh",   // cần verify MST / ĐKKD chính thức
 
   // ── Domain ───────────────────────────────────────────────
-  // TODO: Cập nhật domain corporate chính thức khi có
-  corporateDomain: "https://kimoanh.com",
-  megaCity2Domain: "https://megacity2nhontach.com",
+  siteUrl: "https://kimoanhdongnai.com.vn",
+  // Domain cũ đã ngừng sử dụng
 
   // ── Liên hệ ──────────────────────────────────────────────
   // Đang sử dụng trong toàn bộ project — cần confirm là thông tin chính thức

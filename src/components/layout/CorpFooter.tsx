@@ -168,14 +168,15 @@ export default function CorpFooter() {
               {[
                 {
                   label: "Kim Oanh Group",
-                  href: "https://kimoanh.com",
-                  external: true,
+                  href: "/ve-chung-toi",
+                  external: false,
+                  anchor: false,
                 },
                 {
                   label: "Kim Oanh Realty",
-                  href: "#kim-oanh-group",
+                  href: "/ve-chung-toi",
                   external: false,
-                  anchor: true,
+                  anchor: false,
                 },
               ].map((item) => (
                 <li key={item.label}>
@@ -191,13 +192,13 @@ export default function CorpFooter() {
                       <ExternalLink className="w-3 h-3 opacity-30 group-hover:opacity-100 flex-shrink-0" />
                     </a>
                   ) : (
-                    <button
-                      onClick={() => item.anchor && scrollTo("kim-oanh-group")}
-                      className="flex items-center gap-2 text-sm text-slate-400 hover:text-amber-400 transition-colors group text-left"
+                    <Link
+                      href={item.href}
+                      className="flex items-center gap-2 text-sm text-slate-400 hover:text-amber-400 transition-colors group"
                     >
                       <span className="w-1 h-1 rounded-full bg-amber-500/40 group-hover:bg-amber-400 flex-shrink-0" />
                       {item.label}
-                    </button>
+                    </Link>
                   )}
                 </li>
               ))}

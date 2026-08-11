@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kimoanh.com"),
+  metadataBase: new URL("https://kimoanhdongnai.com.vn"),
   title: {
     default: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh tại Đồng Nai",
     template: "%s | Kim Oanh Đồng Nai",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: "Thông tin dự án bất động sản Kim Oanh tại Đồng Nai – Mega City 2, K-Home CityView.",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://kimoanh.com" },
+  alternates: { canonical: "https://kimoanhdongnai.com.vn" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: "Mega City 2 Nhơn Trạch",
               description:
                 "Khu dân cư theo quy hoạch ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND ngày 30/05/2025.",
-              url: "https://megacity2nhontach.com",
+              url: "https://kimoanhdongnai.com.vn/mega-city-2",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Đường 25C",
@@ -73,9 +73,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Mega City 2 Nhơn Trạch – Kim Oanh Group",
+              name: "Kim Oanh Đồng Nai – Thông tin dự án Mega City 2 Nhơn Trạch",
               description: "Tư vấn và giới thiệu dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai.",
-              url: "https://megacity2nhontach.com",
+              url: "https://kimoanhdongnai.com.vn",
               telephone: "+840937587438",
               email: "k.homekog@gmail.com",
               address: {
