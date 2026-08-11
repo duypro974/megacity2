@@ -27,8 +27,11 @@ export interface ProjectPreview {
   status?: ProjectStatus;
   featured?: boolean;
   priceFrom?: string;
+  /** Ẩn giá trên corporate homepage — chỉ hiện trên landing page dự án */
+  showPriceOnCorporate?: boolean;
   scale?: string;
   year?: number;
+  verified?: boolean;   // dữ liệu đã được xác minh
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -57,8 +60,10 @@ export const PROJECTS: ProjectPreview[] = [
     status: "dang-mo-ban",
     featured: true,
     priceFrom: "Từ 1,15 tỷ",
+    showPriceOnCorporate: false,
     scale: "~84 ha · 3.160 sản phẩm",
     year: 2018,
+    verified: true,
   },
 
   // ── K-HOME FAMILY ─────────────────────────────────────────
@@ -77,7 +82,9 @@ export const PROJECTS: ProjectPreview[] = [
     status: "dang-boc-tham",
     featured: false,
     priceFrom: "Từ 950 triệu",
+    showPriceOnCorporate: false,
     scale: "2,85 ha · 1.367 căn",
+    verified: true,
   },
   {
     slug: "k-home-avenue",
@@ -94,7 +101,9 @@ export const PROJECTS: ProjectPreview[] = [
     status: "da-cong-bo",
     featured: false,
     priceFrom: "Từ 750 triệu",
+    showPriceOnCorporate: false,
     scale: "5,3 ha · 1.104 căn",
+    verified: true,
   },
   {
     slug: "k-home-midtown",
@@ -111,7 +120,9 @@ export const PROJECTS: ProjectPreview[] = [
     status: "da-cong-bo",
     featured: false,
     priceFrom: "Từ 750 triệu",
+    showPriceOnCorporate: false,
     scale: "13,97 ha · 562 căn",
+    verified: true,
   },
 ];
 

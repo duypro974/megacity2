@@ -2,31 +2,29 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://megacity2nhontach.com"),
+  metadataBase: new URL("https://kimoanh.com"),
   title: {
-    default: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
-    template: "%s | Mega City 2 Nhơn Trạch",
+    default: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh tại Đồng Nai",
+    template: "%s | Kim Oanh Đồng Nai",
   },
   description:
-    "Mega City 2 Nhơn Trạch – Khu dân cư theo quy hoạch ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. Thông tin bảng giá, pháp lý QĐ 1772/QĐ-UBND, 2.421 lô phân lô bán nền. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
-  keywords:
-    "Mega City 2, Mega City 2 Nhơn Trạch, đất nền Nhơn Trạch, Kim Oanh Group, đất gần sân bay Long Thành, nhà phố Nhơn Trạch, biệt thự Nhơn Trạch, phân lô bán nền Nhơn Trạch, QĐ 1772 Mega City 2, pháp lý Mega City 2 2026",
-  authors: [{ name: "Kim Oanh Group" }],
+    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu thông tin dự án Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
+  authors: [{ name: "Kim Oanh Đồng Nai" }],
   openGraph: {
-    title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
+    title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh tại Đồng Nai",
     description:
-      "Khu dân cư ~83,94 ha, 2.421 lô được UBND tỉnh Đồng Nai chấp thuận phân lô bán nền theo QĐ 1772/QĐ-UBND. Thông tin tham khảo.",
+      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai. Mega City 2 Nhơn Trạch, K-Home CityView và các dự án đang được hỗ trợ.",
     type: "website",
     locale: "vi_VN",
-    siteName: "Mega City 2 Nhơn Trạch",
+    siteName: "Kim Oanh Đồng Nai",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý 2026",
-    description: "Khu dân cư ~83,94 ha tại xã Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền. Thông tin tham khảo.",
+    title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
+    description: "Thông tin dự án bất động sản Kim Oanh tại Đồng Nai – Mega City 2, K-Home CityView.",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://megacity2nhontach.com" },
+  alternates: { canonical: "https://kimoanh.com" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

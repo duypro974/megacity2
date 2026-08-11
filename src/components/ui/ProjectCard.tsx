@@ -11,12 +11,15 @@ interface ProjectCardProps {
   project: ProjectPreview;
   className?: string;
   variant?: "default" | "compact";
+  /** Corporate context: ẩn giá — default true trên homepage */
+  hidePrice?: boolean;
 }
 
 export default function ProjectCard({
   project,
   className,
   variant = "default",
+  hidePrice = true,
 }: ProjectCardProps) {
   const isExternal = project.href.startsWith("http");
 
@@ -86,8 +89,8 @@ export default function ProjectCard({
           </div>
         )}
 
-        {/* Price tag */}
-        {project.priceFrom && (
+        {/* Price tag — ẩn trên corporate context */}
+        {project.priceFrom && !hidePrice && (
           <div className="absolute bottom-3 left-3">
             <span className="text-xs font-bold text-white bg-amber-500/90 backdrop-blur-sm px-2.5 py-1 rounded-full">
               {project.priceFrom}
