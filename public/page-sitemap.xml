@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://kimoanhdongnai.com.vn/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://kimoanhdongnai.com.vn/"/>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/homepage/1.jpg</image:loc>
+      <image:title>Kim Oanh Đồng Nai – Cổng thông tin dự án bất động sản Kim Oanh Group tại Đồng Nai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://kimoanhdongnai.com.vn/ve-chung-toi</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://kimoanhdongnai.com.vn/ve-chung-toi"/>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/homepage/2.jpg</image:loc>
+      <image:title>Kim Oanh Group – Tập đoàn Địa ốc Kim Oanh Đồng Nai</image:title>
+    </image:image>
+  </url>
+</urlset>

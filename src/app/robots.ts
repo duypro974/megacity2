@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/api/"],
       },
     ],
-    sitemap: "https://kimoanhdongnai.com.vn/sitemap.xml",
+    sitemap: "https://kimoanhdongnai.com.vn/sitemap_index.xml",
     host: "https://kimoanhdongnai.com.vn",
   };
 }

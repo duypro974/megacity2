@@ -1,0 +1,6 @@
+# robots.txt — kimoanhdongnai.com.vn
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Sitemap: https://kimoanhdongnai.com.vn/sitemap_index.xml

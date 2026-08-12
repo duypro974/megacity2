@@ -9,35 +9,61 @@ import { MetadataRoute } from "next";
 // - KHÔNG dùng fragment #anchor — không phải route riêng
 // - KHÔNG dùng domain cũ (kimoanhdongnai.com.vn là domain duy nhất)
 // - Admin và API không đưa vào sitemap
+// - images[] khai báo ảnh tiêu biểu của từng trang (chuẩn Google Image Sitemap)
 // ─────────────────────────────────────────────────────────────
 
+const BASE = "https://kimoanhdongnai.com.vn";
+const CDN  = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit";
+
+/** Tạo Cloudinary URL cho sitemap (không cần transform nặng) */
+const cimg = (path: string) => `${CDN}/${path}`;
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://kimoanhdongnai.com.vn";
   const now = new Date().toISOString();
 
   return [
     // ── Homepage ─────────────────────────────────────────────
     {
-      url: base,
+      url: BASE,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
+      images: [
+        cimg("homepage/1.jpg"),
+      ],
     },
 
-    // ── Giới thiệu ───────────────────────────────────────────
+    // ── Trang dự án Mega City 2 ───────────────────────────────
     {
-      url: `${base}/ve-chung-toi`,
+      url: `${BASE}/mega-city-2`,
+      lastModified: "2026-08-09",
+      changeFrequency: "weekly",
+      priority: 0.95,
+      images: [
+        cimg("megacity2/overview/1.jpg"),
+        cimg("megacity2/overview/2.webp"),
+        cimg("megacity2/overview/3.webp"),
+        cimg("megacity2/amenities/1.jpg"),
+        cimg("megacity2/amenities/2.jpg"),
+        cimg("megacity2/amenities/3.webp"),
+        cimg("megacity2/real/1.png"),
+        cimg("megacity2/real/3.png"),
+        cimg("megacity2/real/9.png"),
+        cimg("megacity2/product/ban-do.jpeg"),
+        cimg("megacity2/product/trang-4.jpeg"),
+        cimg("megacity2/legal/1.jpeg"),
+        cimg("megacity2/legal/2.jpeg"),
+        cimg("megacity2/regional-link/1.jpg"),
+        cimg("megacity2/plane/1.jpg"),
+      ],
+    },
+
+    // ── Về chúng tôi ─────────────────────────────────────────
+    {
+      url: `${BASE}/ve-chung-toi`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
-    },
-
-    // ── Mega City 2 landing page ──────────────────────────────
-    {
-      url: `${base}/mega-city-2`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.7,
     },
   ];
 }
