@@ -170,25 +170,16 @@ export default function CorpHeader() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div
+          <Link href="/" className="flex items-center shrink-0 group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/KOG_Web_RGB_01.svg"
+              alt="Kim Oanh Group"
               className={cn(
-                "flex flex-col leading-none transition-all",
-                !scrolled ? "text-white" : "text-slate-900"
+                "h-9 w-auto object-contain transition-all duration-300",
+                !scrolled ? "brightness-0 invert" : ""
               )}
-            >
-              <span className="font-black text-[15px] tracking-[0.08em] uppercase">
-                KIM OANH
-              </span>
-              <span
-                className={cn(
-                  "font-bold text-[11px] tracking-[0.15em] uppercase transition-colors",
-                  !scrolled ? "text-amber-400" : "text-amber-600"
-                )}
-              >
-                ĐỒNG NAI
-              </span>
-            </div>
+            />
           </Link>
 
           {/* ── Desktop nav ── */}
