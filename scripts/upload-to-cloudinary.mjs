@@ -41,6 +41,7 @@ cloudinary.config({
 // Value: folder name trên Cloudinary
 const FOLDER_MAP = {
   "":                  "megacity2/hero",          // file root của public (all.jpg)
+  "homepage":          "homepage",                // ảnh homepage mới
   "overview":          "megacity2/overview",
   "on-site amenities": "megacity2/amenities",
   "real":              "megacity2/real",

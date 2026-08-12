@@ -5,11 +5,9 @@ import ScrollRevealInit from "@/components/ScrollRevealInit";
 
 // Homepage sections — theo đúng thứ tự cấu trúc
 import HomeHero from "@/components/home/Hero";
-import IntroSection from "@/components/home/IntroSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import BusinessAreasSection from "@/components/home/BusinessAreasSection";
 import ValuesSection from "@/components/home/ValuesSection";
-import KimOanhGroupSection from "@/components/home/KimOanhGroupSection";
 import NewsSection from "@/components/home/NewsSection";
 import ContactCTA from "@/components/home/ContactCTA";
 import CorpContactSection from "@/components/home/CorpContactSection";
@@ -61,10 +59,7 @@ export default function HomePage() {
         {/* 02. Hero */}
         <HomeHero />
 
-        {/* 03. Giới thiệu Kim Oanh + Kim Oanh Realty subsection */}
-        <IntroSection />
-
-        {/* 04. Dự án đang được quan tâm */}
+        {/* 03. Dự án đang được quan tâm */}
         <ProjectsSection />
 
         {/* 06. Lĩnh vực hoạt động Kim Oanh Group */}
@@ -72,9 +67,6 @@ export default function HomePage() {
 
         {/* 07. Vì sao nên tìm hiểu qua website */}
         <ValuesSection />
-
-        {/* 07. Kim Oanh Group */}
-        <KimOanhGroupSection />
 
         {/* 08. Tin tức & cập nhật */}
         <NewsSection />

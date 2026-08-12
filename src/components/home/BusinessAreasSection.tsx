@@ -112,19 +112,20 @@ function AreaBlock({
       {/* Image column */}
       <div className={`relative ${reverse ? "lg:order-1" : "lg:order-2"}`}>
         <div className="overflow-hidden rounded-[20px] shadow-lg
-                        group-hover:shadow-2xl transition-shadow duration-500">
+                        group-hover:shadow-2xl transition-shadow duration-500
+                        bg-white border border-slate-100">
           {area.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={area.image}
               alt={area.imageAlt}
-              className="w-full h-full object-cover transition-transform duration-700
-                         group-hover:scale-[1.03]"
-              style={{ aspectRatio: area.imageAspect }}
+              className="w-full object-contain transition-transform duration-700
+                         group-hover:scale-[1.02] block p-6"
+              style={{ aspectRatio: "16/9" }}
               loading="lazy"
             />
           ) : (
-            <ImagePlaceholder alt={area.imageAlt} aspect={area.imageAspect} />
+            <ImagePlaceholder alt={area.imageAlt} aspect="16/9" />
           )}
         </div>
 

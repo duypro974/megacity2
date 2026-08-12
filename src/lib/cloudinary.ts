@@ -12,6 +12,7 @@ const BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
 const T = {
   hero: "f_auto,q_auto:good,w_1920,c_limit",
   lg:   "f_auto,q_auto:good,w_1280,c_limit",
+  wide: "f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto",   // 16:9 smart crop
   md:   "f_auto,q_auto:good,w_800,c_limit",
   sm:   "f_auto,q_auto:eco,w_400,c_limit",
   doc:  "f_auto,q_auto:best,w_1600,c_limit",
@@ -20,6 +21,13 @@ const T = {
 /** Mapping cloudinary path → local fallback path */
 const LOCAL: Record<string, string> = {
   "megacity2/hero/all.jpg":               "/all.jpg",
+  // Homepage images
+  "homepage/1.jpg":                       "/homepage/1.jpg",
+  "homepage/2.jpg":                       "/homepage/2.jpg",
+  "homepage/3.jpg":                       "/homepage/3.jpg",
+  "homepage/4.webp":                      "/homepage/4.webp",
+  "homepage/5.webp":                      "/homepage/5.webp",
+  "homepage/6.webp":                      "/homepage/6.webp",
   "megacity2/overview/1.jpg":             "/overview/1.jpg",
   "megacity2/overview/2.webp":            "/overview/2.webp",
   "megacity2/overview/3.webp":            "/overview/3.webp",
@@ -202,3 +210,13 @@ export const IMG_PLANE: Record<string, string> = Object.fromEntries(
   [["1","1.jpg"],["2","2.webp"],["3","3.webp"],["4","4.jpg"]]
     .map(([k, v]) => [k, cld("megacity2/plane", v, "md")])
 );
+
+/** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
+export const IMG_HOMEPAGE: Record<string, string> = {
+  "1": cld("homepage", "1.jpg",  "hero"),   // Hero background
+  "2": cld("homepage", "2.jpg",  "lg"),     // Logo brand — object-contain
+  "3": cld("homepage", "3.jpg",  "lg"),
+  "4": cld("homepage", "4.webp", "lg"),
+  "5": cld("homepage", "5.webp", "lg"),
+  "6": cld("homepage", "6.webp", "lg"),
+};

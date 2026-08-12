@@ -1,13 +1,10 @@
 "use client";
 
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { cld } from "@/lib/cloudinary";
-
-const HERO_IMAGE = cld("megacity2/hero", "all.jpg", "hero");
+import { IMG_HOMEPAGE } from "@/lib/cloudinary";
 
 // ─────────────────────────────────────────────────────────────
 // HomeHero — KIM OANH ĐỒNG NAI
-// Định vị: Cổng thông tin dự án, không phải corporate group.
 // ─────────────────────────────────────────────────────────────
 
 export default function HomeHero() {
@@ -20,7 +17,7 @@ export default function HomeHero() {
       {/* Background image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={HERO_IMAGE}
+        src={IMG_HOMEPAGE["1"]}
         alt="Dự án bất động sản Kim Oanh tại Đồng Nai"
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"
@@ -31,8 +28,8 @@ export default function HomeHero() {
         className="absolute inset-0"
         style={{
           background: `
-            linear-gradient(115deg, rgba(8,15,30,0.94) 0%, rgba(8,15,30,0.75) 55%, rgba(8,15,30,0.50) 100%),
-            linear-gradient(to top, rgba(8,15,30,0.98) 0%, rgba(8,15,30,0.60) 40%, transparent 80%)
+            linear-gradient(115deg, rgba(8,15,30,0.92) 0%, rgba(8,15,30,0.72) 55%, rgba(8,15,30,0.45) 100%),
+            linear-gradient(to top, rgba(8,15,30,0.98) 0%, rgba(8,15,30,0.55) 38%, transparent 75%)
           `,
         }}
       />
@@ -49,31 +46,33 @@ export default function HomeHero() {
       {/* Gold glow accent */}
       <div
         className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)",
-        }}
+        style={{ background: "radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)" }}
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-36 pb-28 text-white">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-36 pb-24 text-white">
         <div className="max-w-5xl mx-auto">
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-8">
-            <span className="inline-block w-10 h-px bg-amber-400" />
-            <p className="text-amber-400 text-[11px] font-bold tracking-[0.2em] uppercase">
+          <div className="flex items-center gap-3 mb-7">
+            <span className="inline-block w-10 h-px bg-amber-400 flex-shrink-0" />
+            <p className="text-amber-400 text-[11px] font-bold tracking-[0.18em] uppercase">
               THÔNG TIN BẤT ĐỘNG SẢN KIM OANH
             </p>
           </div>
 
-          {/* Headline */}
-          <h1 className="font-black leading-none tracking-tight mb-8">
-            <span className="block text-white text-[clamp(2.8rem,7.5vw,5.5rem)]">
+          {/* Headline — fix: overflow-visible, no leading-none trên mobile */}
+          <h1 className="font-black tracking-tight mb-7 overflow-visible">
+            <span
+              className="block text-white leading-[1.05]"
+              style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)" }}
+            >
               KIM OANH
             </span>
             <span
-              className="block text-[clamp(1.6rem,4vw,3rem)] font-bold mt-1"
+              className="block font-black leading-[1.05] mt-1"
               style={{
+                fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
                 background: "linear-gradient(90deg, #f59e0b 0%, #fbbf24 60%, #f59e0b 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -118,15 +117,15 @@ export default function HomeHero() {
           </div>
 
           {/* Information bar */}
-          <div className="flex flex-wrap gap-x-10 gap-y-6 pt-8 border-t border-white/10">
+          <div className="flex flex-wrap gap-x-8 gap-y-5 pt-7 border-t border-white/10">
             {[
               { label: "KHU VỰC", value: "ĐỒNG NAI" },
               { label: "DỰ ÁN", value: "ĐANG HỖ TRỢ" },
               { label: "THÔNG TIN", value: "CẬP NHẬT" },
               { label: "TƯ VẤN", value: "KẾT NỐI" },
             ].map((item) => (
-              <div key={item.label} className="flex flex-col gap-0.5">
-                <p className="text-[10px] text-white/35 font-bold tracking-[0.2em] uppercase">
+              <div key={item.label} className="flex flex-col gap-1">
+                <p className="text-[10px] text-white/35 font-bold tracking-[0.18em] uppercase">
                   {item.label}
                 </p>
                 <p className="text-sm font-black text-white tracking-wider">
@@ -140,7 +139,7 @@ export default function HomeHero() {
 
       {/* Scroll indicator */}
       <button
-        onClick={() => scrollTo("gioi-thieu")}
+        onClick={() => scrollTo("du-an")}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1
                    text-white/30 hover:text-white/60 transition-colors animate-bounce"
         aria-label="Cuộn xuống"
