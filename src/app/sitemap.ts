@@ -207,5 +207,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
+    // ── Về chúng tôi ─────────────────────────────────────────
+    {
+      url: `${BASE}/ve-chung-toi`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.75,
+      images: [
+        cimg("about/kog-1"),
+        cimg("about/kog-2"),
+      ],
+    },
+
   ];
 }
