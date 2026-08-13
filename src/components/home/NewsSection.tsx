@@ -34,8 +34,22 @@ export interface NewsItem {
   source: string;
 }
 
-// TODO: Điền khi có hệ thống tin tức chính thức / nguồn xác thực
-const NEWS: NewsItem[] = [];
+const CDN = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_800,c_limit";
+
+const NEWS: NewsItem[] = [
+  {
+    slug: "co-nen-dau-tu-mega-city-2-nhon-trach",
+    title: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
+    date: "13/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Đánh giá tiềm năng đầu tư Mega City 2 dựa trên vị trí, pháp lý, hạ tầng và bảng giá cập nhật 2026.",
+    image: `${CDN}/megacity2/news1/1`,
+    href: "/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach",
+    verified: true,
+    source: "kimoanhdongnai.com.vn",
+  },
+];
 
 const VERIFIED_NEWS = NEWS.filter((n) => n.verified);
 

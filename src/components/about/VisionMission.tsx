@@ -64,15 +64,7 @@ export default function VisionMission() {
               <p className="text-amber-600 text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
                 SỨ MỆNH
               </p>
-              <p
-                className="font-black text-slate-900 text-[clamp(1.6rem,3.5vw,2.5rem)] leading-tight tracking-tight"
-                style={{
-                  background: "linear-gradient(135deg, #0f172a 0%, #f59e0b 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <p className="font-black text-amber-500 text-[clamp(1.6rem,3.5vw,2.5rem)] leading-tight tracking-tight">
                 {COMPANY_INFO.mission}
               </p>
             </div>

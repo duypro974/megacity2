@@ -44,14 +44,7 @@ export default function ContactCTA() {
           <h2 className="font-black text-white text-[clamp(1.8rem,4vw,3rem)] leading-tight tracking-tight mb-5">
             Bạn đang quan tâm
             <br />
-            <span
-              style={{
-                background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span className="text-amber-400">
               dự án nào?
             </span>
           </h2>

@@ -49,12 +49,12 @@ const NAV = [
       },
     ],
   },
-  { label: "Tin tức", href: "#tin-tuc" },
+  { label: "Tin tức", href: "/tin-tuc" },
   { label: "Kim Oanh Group", href: "#kim-oanh-group" },
   { label: "Liên hệ", href: "#lien-he" },
 ];
 
-export default function CorpHeader() {
+export default function CorpHeader({ solid = false }: { solid?: boolean }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdown, setDropdown] = useState<string | null>(null);
@@ -163,7 +163,7 @@ export default function CorpHeader() {
       <header
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-          scrolled
+          scrolled || solid
             ? "bg-white/95 backdrop-blur-sm shadow-[0_2px_20px_rgba(0,0,0,0.08)] py-3"
             : "bg-transparent py-5"
         )}
@@ -177,7 +177,7 @@ export default function CorpHeader() {
               alt="Kim Oanh Group"
               className={cn(
                 "h-9 w-auto object-contain transition-all duration-300",
-                !scrolled ? "brightness-0 invert" : ""
+                !scrolled && !solid ? "brightness-0 invert" : ""
               )}
             />
           </Link>
@@ -195,7 +195,7 @@ export default function CorpHeader() {
                       }}
                       className={cn(
                         "flex items-center gap-1 px-3.5 py-2 text-[13px] font-semibold rounded-lg transition-colors",
-                        scrolled
+                        scrolled || solid
                           ? "text-slate-600 hover:text-amber-600 hover:bg-amber-50"
                           : "text-white/85 hover:text-white hover:bg-white/10"
                       )}
@@ -225,7 +225,7 @@ export default function CorpHeader() {
                     href={item.href}
                     className={cn(
                       "px-3.5 py-2 text-[13px] font-semibold rounded-lg transition-colors",
-                      scrolled
+                      scrolled || solid
                         ? "text-slate-600 hover:text-amber-600 hover:bg-amber-50"
                         : "text-white/85 hover:text-white hover:bg-white/10"
                     )}
@@ -238,7 +238,7 @@ export default function CorpHeader() {
                     onClick={(e) => handleAnchorClick(e, item.href)}
                     className={cn(
                       "px-3.5 py-2 text-[13px] font-semibold rounded-lg transition-colors",
-                      scrolled
+                      scrolled || solid
                         ? "text-slate-600 hover:text-amber-600 hover:bg-amber-50"
                         : "text-white/85 hover:text-white hover:bg-white/10"
                     )}

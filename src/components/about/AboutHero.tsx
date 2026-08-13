@@ -56,15 +56,7 @@ export default function AboutHero() {
           {/* Heading */}
           <h1 className="font-black leading-none tracking-tight text-white mb-6">
             <span className="block text-[clamp(2rem,5vw,4rem)]">{line1}</span>
-            <span
-              className="block text-[clamp(2rem,5vw,4rem)]"
-              style={{
-                background: "linear-gradient(90deg, #f59e0b 0%, #fbbf24 60%, #f59e0b 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span className="block text-[clamp(2rem,5vw,4rem)] text-amber-400">
               {line2}
             </span>
           </h1>

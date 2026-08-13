@@ -70,14 +70,8 @@ export default function HomeHero() {
               KIM OANH
             </span>
             <span
-              className="block font-black leading-[1.05] mt-1"
-              style={{
-                fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
-                background: "linear-gradient(90deg, #f59e0b 0%, #fbbf24 60%, #f59e0b 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
+              className="block font-black leading-[1.05] mt-1 text-amber-400"
+              style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)" }}
             >
               ĐỒNG NAI
             </span>

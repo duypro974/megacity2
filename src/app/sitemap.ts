@@ -207,6 +207,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
+    // ── Tin tức ──────────────────────────────────────────────
+
+    {
+      url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.75,
+      images: [
+        cimg("megacity2/news1/1"),
+        cimg("megacity2/news1/2"),
+        cimg("megacity2/news1/3"),
+      ],
+    },
+
     // ── Về chúng tôi ─────────────────────────────────────────
     {
       url: `${BASE}/ve-chung-toi`,

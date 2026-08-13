@@ -36,14 +36,7 @@ export default function AboutCTA() {
             <h2 className="font-black text-white text-[clamp(1.6rem,3.5vw,2.5rem)] leading-tight mb-5">
               Tìm hiểu thêm về
               <br />
-              <span
-                style={{
-                  background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span className="text-amber-400">
                 các dự án tại Đồng Nai
               </span>
             </h2>
