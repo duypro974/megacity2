@@ -7,9 +7,147 @@ export const metadata: Metadata = {
   description:
     "Mega City 2 Nhơn Trạch – Khu dân cư ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2" },
+  openGraph: {
+    title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
+    description:
+      "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Giá từ 1,15 tỷ/nền.",
+    type: "website",
+    locale: "vi_VN",
+    siteName: "Kim Oanh Đồng Nai",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
+        width: 1280,
+        height: 720,
+        alt: "Toàn cảnh khu đô thị Mega City 2 Nhơn Trạch",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mega City 2 Nhơn Trạch – Bảng Giá & Pháp Lý 2026",
+    description:
+      "2.421 lô phân lô bán nền, hạ tầng ~95%, giá từ 1,15 tỷ/nền. QĐ 1772/QĐ-UBND ngày 30/5/2025.",
+    images: [
+      "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
+    ],
+  },
+};
+
+/* ─────────────────────────────────────────
+   JSON-LD — RealEstateListing (pillar page)
+   Đặt tại đây thay vì layout.tsx để schema
+   chỉ xuất hiện đúng trên trang này.
+───────────────────────────────────────── */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  "@id": "https://kimoanhdongnai.com.vn/mega-city-2#listing",
+  name: "Mega City 2 Nhơn Trạch – Khu dân cư phân lô bán nền",
+  description:
+    "Khu dân cư Mega City 2 quy mô ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. 2.421 lô phân lô bán nền được UBND tỉnh Đồng Nai chấp thuận theo QĐ 1772/QĐ-UBND ngày 30/05/2025. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
+  url: "https://kimoanhdongnai.com.vn/mega-city-2",
+  datePosted: "2026-08-13",
+  image: "https://kimoanhdongnai.com.vn/overview/1.jpg",
+  floorSize: {
+    "@type": "QuantitativeValue",
+    value: 90,
+    minValue: 90,
+    maxValue: 200,
+    unitCode: "MTK",
+    unitText: "m²",
+  },
+  numberOfRooms: null,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Đường 25C",
+    addressLocality: "Xã Nhơn Trạch",
+    addressRegion: "Đồng Nai",
+    addressCountry: "VN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 10.7567,
+    longitude: 106.9667,
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "VND",
+    lowPrice: 1150000000,
+    highPrice: 2500000000,
+    offerCount: 2421,
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Nhà phố TH – lô liền kề nội khu",
+        priceCurrency: "VND",
+        lowPrice: 1200000000,
+        highPrice: 1600000000,
+      },
+      {
+        "@type": "Offer",
+        name: "Nhà phố T – theo mặt đường",
+        priceCurrency: "VND",
+        lowPrice: 1150000000,
+        highPrice: 2200000000,
+      },
+      {
+        "@type": "Offer",
+        name: "Biệt thự V",
+        priceCurrency: "VND",
+        lowPrice: 2100000000,
+        highPrice: 2500000000,
+      },
+    ],
+  },
+  seller: {
+    "@type": "Organization",
+    name: "Kim Oanh Đồng Nai",
+    url: "https://kimoanhdongnai.com.vn",
+    telephone: "+840937587438",
+    email: "k.homekog@gmail.com",
+  },
+  additionalProperty: [
+    {
+      "@type": "PropertyValue",
+      name: "Quy mô",
+      value: "83,94 ha",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Số lô phân lô bán nền",
+      value: "2.421 lô",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Pháp lý",
+      value: "QĐ 1772/QĐ-UBND ngày 30/05/2025",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Chủ đầu tư",
+      value: "Công ty TNHH Khu đô thị Phú Hội",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Đơn vị phát triển",
+      value: "Kim Oanh Group",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Tiến độ hạ tầng",
+      value: "~95% (cập nhật 06/2025)",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "GCN đã cấp",
+      value: "110 GCN",
+    },
+  ],
 };
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
+import RelatedContent from "@/components/RelatedContent";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import ConnectivitySection from "@/components/ConnectivitySection";
 import LegalSection from "@/components/LegalSection";
@@ -172,6 +310,12 @@ const faqs = [
 export default function HomePage() {
   return (
     <>
+      {/* JSON-LD — RealEstateListing cho trang pillar Mega City 2 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Header />
       <SectionNav />
       <ContactSidebar />
@@ -858,6 +1002,67 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+
+      {/* ── Internal links: pillar → cluster ── */}
+      <RelatedContent
+        title="Tìm hiểu chi tiết từng khía cạnh của Mega City 2"
+        items={[
+          {
+            href: "/mega-city-2/vi-tri",
+            title: "Vị trí & Liên kết vùng",
+            description: "Phân tích vị trí chiến lược tại Nhơn Trạch: cách TP.HCM 30–35 km, đường 25C, sân bay Long Thành.",
+            tag: "Vị trí",
+          },
+          {
+            href: "/mega-city-2/mat-bang",
+            title: "Mặt bằng & Sản phẩm",
+            description: "Bản đồ phân lô tổng thể, các loại nhà phố liên kế TH, T và biệt thự V. Bản vẽ mẫu nhà PH-B5.",
+            tag: "Mặt bằng",
+          },
+          {
+            href: "/mega-city-2/bang-gia",
+            title: "Bảng giá cập nhật 2026",
+            description: "Giá chuyển nhượng tham khảo từ 1,15 tỷ/nền theo từng block, vị trí và loại sản phẩm.",
+            tag: "Bảng giá",
+          },
+          {
+            href: "/mega-city-2/tien-ich",
+            title: "Tiện ích nội khu & ngoại khu",
+            description: "Công viên trung tâm, trường học, y tế, thương mại dịch vụ và hạ tầng đồng bộ.",
+            tag: "Tiện ích",
+          },
+          {
+            href: "/mega-city-2/phap-ly",
+            title: "Pháp lý – QĐ 1772/QĐ-UBND",
+            description: "Tình trạng pháp lý, 2.421 lô được chấp thuận phân lô bán nền và điều kiện xây dựng.",
+            tag: "Pháp lý",
+          },
+          {
+            href: "/mega-city-2/hinh-anh",
+            title: "Hình ảnh thực tế",
+            description: "Bộ sưu tập ảnh thực tế đường nội khu, công viên, nhà mẫu và hạ tầng đã hoàn thiện.",
+            tag: "Hình ảnh",
+          },
+          {
+            href: "/mega-city-2/tien-do",
+            title: "Tiến độ hạ tầng",
+            description: "Cập nhật tiến độ thi công: đường, điện, nước, cây xanh đạt ~95% theo thông tin 06/2025.",
+            tag: "Tiến độ",
+          },
+          {
+            href: "/mega-city-2/thanh-toan",
+            title: "Phương thức thanh toán",
+            description: "Đặt cọc 50 triệu, thanh toán nhanh ưu đãi, hỗ trợ vay ngân hàng đối tác.",
+            tag: "Thanh toán",
+          },
+          {
+            href: "/mega-city-2/faq",
+            title: "FAQ – Câu hỏi thường gặp",
+            description: "Giải đáp đầy đủ về pháp lý, giá, tiến độ, sổ hồng và thủ tục giao dịch.",
+            tag: "FAQ",
+          },
+        ]}
+      />
 
       <Footer />
     </>

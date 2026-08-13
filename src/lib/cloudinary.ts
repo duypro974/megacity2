@@ -211,6 +211,28 @@ export const IMG_PLANE: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/plane", v, "md")])
 );
 
+/** About — ảnh ban lãnh đạo & dấu ấn Kim Oanh Group */
+export const IMG_ABOUT: Record<string, string> = {
+  // 1: Hero background (2560×1688, landscape)
+  "1":  `${BASE}/f_auto,q_auto:good,w_1920,c_limit/about/kog-1`,
+  // 2: AboutIntro section image (1920×904, ultra-wide)
+  "2":  `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-2`,
+  // 3–7: Timeline milestones
+  "3":  `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-3`,
+  "4":  `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-4`,
+  "5":  `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-5`,
+  "6":  `${BASE}/f_auto,q_auto:good,w_800,c_limit/about/kog-6`,
+  "7":  `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-7`,
+  // 8–9: Brochure lãnh đạo (trimmed)
+  "8":  `${BASE}/f_auto,q_auto:best,w_1600,c_limit/about/kog-8-trimmed`,
+  "9":  `${BASE}/f_auto,q_auto:best,w_1600,c_limit/about/kog-9-trimmed`,
+  // 10–13: Dấu ấn được ghi nhận (trimmed)
+  "10": `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-10-trimmed`,
+  "11": `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-11-trimmed`,
+  "12": `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-12-trimmed`,
+  "13": `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-13-trimmed`,
+};
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

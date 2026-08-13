@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
+import { IMG_ABOUT } from "@/lib/cloudinary";
 
 // ─────────────────────────────────────────────────────────────
 // AboutHero — Full-width premium hero cho trang /ve-chung-toi
+// Ảnh 1: 2560×1688 landscape — background hero
 // ─────────────────────────────────────────────────────────────
 
 export default function AboutHero() {
@@ -11,29 +13,15 @@ export default function AboutHero() {
 
   return (
     <section className="relative min-h-[70vh] flex flex-col justify-end overflow-hidden">
-      {/* Image placeholder — thay bằng ảnh corporate chính thức */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900">
-        {/* Placeholder pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,1) 40px, rgba(255,255,255,1) 41px)",
-          }}
+      {/* ── Background image ── */}
+      <div className="absolute inset-0 bg-slate-900">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={IMG_ABOUT["1"]}
+          alt="Kim Oanh Group – Về chúng tôi"
+          className="w-full h-full object-cover object-center"
+          fetchPriority="high"
         />
-        {/* Placeholder label */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-2xl border-2 border-dashed border-white/20 flex items-center justify-center mx-auto mb-3">
-              <svg className="w-7 h-7 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round"
-                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                />
-              </svg>
-            </div>
-            <p className="text-white/20 text-xs font-medium">Hero image placeholder</p>
-          </div>
-        </div>
       </div>
 
       {/* Dark overlay */}

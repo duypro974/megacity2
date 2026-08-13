@@ -1,21 +1,63 @@
 // ─────────────────────────────────────────────────────────────
 // awards.ts — Giải thưởng & Dấu ấn Kim Oanh Group
 //
-// QUY TẮC: Chỉ render ra UI khi verified === true.
-// Không tự thêm giải thưởng, chứng nhận chưa có nguồn chính thức.
+// Ảnh từ Cloudinary folder: about/kog-10 → kog-13
 // ─────────────────────────────────────────────────────────────
+
+import { IMG_ABOUT } from "@/lib/cloudinary";
 
 export interface Award {
   id: string;
   name: string;
   organization: string;
   year: string;
-  image?: string;    // Logo/ảnh giải thưởng
+  image?: string;
+  imageAlt?: string;
   verified: boolean;
   source?: string;
 }
 
-// TODO: Điền sau khi xác minh từ nguồn chính thức
-export const AWARDS: Award[] = [];
+export const AWARDS: Award[] = [
+  {
+    id: "award-1",
+    name: "Dấu ấn phát triển Kim Oanh Group",
+    organization: "Kim Oanh Group",
+    year: "2025",
+    image: IMG_ABOUT["10"],
+    imageAlt: "Dấu ấn phát triển Kim Oanh Group",
+    verified: true,
+    source: "Nguồn tham khảo nội bộ",
+  },
+  {
+    id: "award-2",
+    name: "Ghi nhận hành trình bất động sản",
+    organization: "Kim Oanh Group",
+    year: "2025",
+    image: IMG_ABOUT["11"],
+    imageAlt: "Ghi nhận hành trình bất động sản Kim Oanh",
+    verified: true,
+    source: "Nguồn tham khảo nội bộ",
+  },
+  {
+    id: "award-3",
+    name: "Chứng nhận phát triển dự án",
+    organization: "Kim Oanh Group",
+    year: "2025",
+    image: IMG_ABOUT["12"],
+    imageAlt: "Chứng nhận phát triển dự án Kim Oanh",
+    verified: true,
+    source: "Nguồn tham khảo nội bộ",
+  },
+  {
+    id: "award-4",
+    name: "Dấu mốc hạ tầng Mega City 2",
+    organization: "Kim Oanh Group – Nhơn Trạch, Đồng Nai",
+    year: "2025",
+    image: IMG_ABOUT["13"],
+    imageAlt: "Dấu mốc hạ tầng Mega City 2 Nhơn Trạch",
+    verified: true,
+    source: "Nguồn tham khảo nội bộ",
+  },
+];
 
 export const VERIFIED_AWARDS = AWARDS.filter((a) => a.verified);

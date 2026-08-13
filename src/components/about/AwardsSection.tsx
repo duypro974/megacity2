@@ -1,68 +1,269 @@
+"use client";
+
+import { useState, useRef, useCallback, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { VERIFIED_AWARDS } from "@/data/awards";
 
 // ─────────────────────────────────────────────────────────────
-// AwardsSection — Giải thưởng & Dấu ấn
-// Không tự tạo giải thưởng. Nếu chưa có dữ liệu → empty state.
+// AwardsSection — Những dấu ấn được ghi nhận
+// Carousel mượt: CSS scroll-snap + JS prev/next + auto-play
+// Mobile: swipe naturally; Desktop: arrow buttons + dots
 // ─────────────────────────────────────────────────────────────
 
+const AUTOPLAY_MS = 4000;
+
 export default function AwardsSection() {
+  const [active, setActive] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const items = VERIFIED_AWARDS;
+
+  // ── Scroll to slide ──────────────────────────────────────
+  const goTo = useCallback(
+    (idx: number) => {
+      const clamped = Math.max(0, Math.min(idx, items.length - 1));
+      setActive(clamped);
+      const track = trackRef.current;
+      if (!track) return;
+      const child = track.children[clamped] as HTMLElement | undefined;
+      if (child) {
+        track.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
+      }
+    },
+    [items.length]
+  );
+
+  const prev = useCallback(() => goTo((active - 1 + items.length) % items.length), [active, goTo, items.length]);
+  const next = useCallback(() => goTo((active + 1) % items.length), [active, goTo, items.length]);
+
+  // ── Auto-play ────────────────────────────────────────────
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(next, AUTOPLAY_MS);
+  }, [next]);
+
+  useEffect(() => {
+    resetTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [resetTimer]);
+
+  // ── Sync active index from scroll ────────────────────────
+  const handleScroll = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const scrollLeft = track.scrollLeft;
+    const width = track.clientWidth;
+    const idx = Math.round(scrollLeft / width);
+    setActive(Math.max(0, Math.min(idx, items.length - 1)));
+  }, [items.length]);
+
+  // Empty state
+  if (items.length === 0) {
+    return (
+      <section id="giai-thuong" className="py-28 bg-white" data-reveal>
+        <Container>
+          <div className="flex items-center gap-3 mb-10">
+            <span className="inline-block w-8 h-px bg-amber-500" />
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-600">
+              NHỮNG DẤU ẤN ĐƯỢC GHI NHẬN
+            </p>
+          </div>
+          <div className="rounded-[20px] bg-slate-50 border border-dashed border-slate-200 py-20 text-center">
+            <p className="text-slate-400 text-sm font-medium">Thông tin đang được cập nhật.</p>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
   return (
-    <section id="giai-thuong" className="py-28 bg-white" data-reveal>
-      <Container>
-        <div className="flex items-center gap-3 mb-14">
-          <span className="inline-block w-8 h-px bg-amber-500" />
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-600">
-            NHỮNG DẤU ẤN ĐƯỢC GHI NHẬN
-          </p>
+    <section
+      id="giai-thuong"
+      className="py-28 overflow-hidden"
+      style={{ background: "linear-gradient(160deg, #0f172a 0%, #1e293b 60%, #0f172a 100%)" }}
+      data-reveal
+    >
+      <Container size="xl">
+        {/* ── Header ── */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-block w-8 h-px bg-amber-400" />
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-400">
+                NHỮNG DẤU ẤN ĐƯỢC GHI NHẬN
+              </p>
+            </div>
+            <h2 className="font-black text-white text-[clamp(1.6rem,3.5vw,2.5rem)] leading-tight">
+              Hành trình & Ghi nhận
+            </h2>
+            <p className="text-slate-400 text-base mt-2 max-w-lg leading-relaxed">
+              Những dấu ấn trên hành trình xây dựng và phát triển của Kim Oanh Group.
+            </p>
+          </div>
+
+          {/* Arrow buttons — desktop */}
+          <div className="hidden sm:flex items-center gap-3">
+            <button
+              onClick={() => { prev(); resetTimer(); }}
+              aria-label="Trước"
+              className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center
+                         text-white/60 hover:text-white hover:border-white/50 hover:bg-white/10
+                         transition-all duration-200"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <span className="text-xs text-white/40 font-medium tabular-nums w-10 text-center">
+              {active + 1} / {items.length}
+            </span>
+            <button
+              onClick={() => { next(); resetTimer(); }}
+              aria-label="Tiếp theo"
+              className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center
+                         text-white/60 hover:text-white hover:border-white/50 hover:bg-white/10
+                         transition-all duration-200"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
-        {VERIFIED_AWARDS.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-            {VERIFIED_AWARDS.map((award) => (
+        {/* ── Carousel track ── */}
+        <div className="relative">
+          {/* Fade edges — desktop hint */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 z-10
+                          bg-gradient-to-r from-[#0f172a] to-transparent hidden sm:block" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 z-10
+                          bg-gradient-to-l from-[#0f172a] to-transparent hidden sm:block" />
+
+          <div
+            ref={trackRef}
+            onScroll={handleScroll}
+            onMouseDown={() => setDragging(false)}
+            className="flex gap-5 overflow-x-auto pb-2 snap-x snap-mandatory
+                       scrollbar-none scroll-smooth
+                       [-webkit-overflow-scrolling:touch]
+                       [&::-webkit-scrollbar]:hidden"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {items.map((award, i) => (
               <div
                 key={award.id}
-                className="group rounded-[20px] bg-slate-50 border border-slate-200
-                           p-6 text-center hover:border-amber-200 hover:shadow-md
-                           transition-all duration-300"
+                className="snap-center flex-shrink-0
+                           w-[85vw] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)]"
               >
-                {award.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={award.image}
-                    alt={award.name}
-                    className="h-16 w-auto object-contain mx-auto mb-4"
-                  />
-                ) : (
-                  <div className="w-16 h-16 rounded-xl bg-slate-200 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round"
-                        d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"
+                <button
+                  onClick={() => { if (!dragging) goTo(i); resetTimer(); }}
+                  className={`w-full h-full text-left group rounded-[20px] overflow-hidden
+                               border transition-all duration-400 focus-visible:outline-none
+                               focus-visible:ring-2 focus-visible:ring-amber-400
+                               ${i === active
+                                 ? "border-amber-400/60 shadow-2xl shadow-amber-400/10 scale-[1.01]"
+                                 : "border-white/10 hover:border-white/25"
+                               }`}
+                  style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(8px)" }}
+                  aria-current={i === active ? "true" : undefined}
+                >
+                  {/* Image — full width, no crop */}
+                  {award.image && (
+                    <div className="w-full overflow-hidden bg-black/20">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={award.image}
+                        alt={award.imageAlt ?? award.name}
+                        className={`w-full h-auto block transition-all duration-700
+                                    ${i === active ? "brightness-100" : "brightness-75 group-hover:brightness-90"}`}
+                        loading="lazy"
                       />
-                    </svg>
+                      {/* Active shimmer overlay */}
+                      {i === active && (
+                        <div
+                          className="absolute inset-0 pointer-events-none"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, rgba(251,191,36,0.08) 0%, transparent 60%)",
+                          }}
+                        />
+                      )}
+                      {/* Bottom gradient */}
+                      <div className="absolute inset-x-0 bottom-0 h-1/2
+                                      bg-gradient-to-t from-black/80 to-transparent" />
+
+                      {/* Active indicator badge */}
+                      {i === active && (
+                        <div className="absolute top-3 right-3">
+                          <span className="inline-flex items-center gap-1.5 bg-amber-500 text-white
+                                           text-[10px] font-bold uppercase tracking-wider px-2.5 py-1
+                                           rounded-full shadow-lg">
+                            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                            Đang xem
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Card content */}
+                  <div className="p-5">
+                    <p className={`text-xs font-bold uppercase tracking-widest mb-1.5 transition-colors
+                      ${i === active ? "text-amber-400" : "text-white/40 group-hover:text-white/60"}`}>
+                      {award.year} · {award.organization}
+                    </p>
+                    <h3 className={`font-bold leading-snug transition-colors text-sm
+                      ${i === active ? "text-white" : "text-white/70 group-hover:text-white/90"}`}>
+                      {award.name}
+                    </h3>
                   </div>
-                )}
-                <p className="font-bold text-slate-900 text-sm leading-tight mb-1">{award.name}</p>
-                <p className="text-slate-400 text-xs">{award.organization}</p>
-                <p className="text-amber-600 text-xs font-bold mt-1">{award.year}</p>
+                </button>
               </div>
             ))}
           </div>
-        ) : (
-          <div className="rounded-[20px] bg-slate-50 border border-dashed border-slate-200 py-20 text-center">
-            <div className="w-14 h-14 rounded-2xl border-2 border-dashed border-slate-200 flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round"
-                  d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"
-                />
-              </svg>
-            </div>
-            <p className="text-slate-400 text-sm font-medium">Thông tin đang được cập nhật.</p>
-            <p className="text-slate-400 text-xs mt-1">
-              Giải thưởng sẽ được công bố khi có dữ liệu xác thực.
-            </p>
-          </div>
-        )}
+        </div>
+
+        {/* ── Dot indicators ── */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { goTo(i); resetTimer(); }}
+              aria-label={`Slide ${i + 1}`}
+              className={`rounded-full transition-all duration-300
+                ${i === active
+                  ? "w-6 h-2 bg-amber-400"
+                  : "w-2 h-2 bg-white/25 hover:bg-white/50"
+                }`}
+            />
+          ))}
+        </div>
+
+        {/* ── Mobile arrow row ── */}
+        <div className="flex sm:hidden items-center justify-center gap-4 mt-6">
+          <button
+            onClick={() => { prev(); resetTimer(); }}
+            aria-label="Trước"
+            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center
+                       text-white/60 hover:text-white hover:bg-white/10 transition-all"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <span className="text-xs text-white/40 font-medium tabular-nums">
+            {active + 1} / {items.length}
+          </span>
+          <button
+            onClick={() => { next(); resetTimer(); }}
+            aria-label="Tiếp theo"
+            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center
+                       text-white/60 hover:text-white hover:bg-white/10 transition-all"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="mt-10 text-center text-[11px] text-white/25 leading-relaxed">
+          Hình ảnh mang tính minh họa, tổng hợp từ tài liệu nội bộ.
+        </p>
       </Container>
     </section>
   );

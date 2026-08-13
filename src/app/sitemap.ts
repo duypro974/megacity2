@@ -33,10 +33,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // ── Trang dự án Mega City 2 ───────────────────────────────
+    // ── Trang dự án Mega City 2 (Pillar Page) ────────────────
     {
       url: `${BASE}/mega-city-2`,
-      lastModified: "2026-08-09",
+      lastModified: "2026-08-13",
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
@@ -55,6 +55,155 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/legal/2.jpeg"),
         cimg("megacity2/regional-link/1.jpg"),
         cimg("megacity2/plane/1.jpg"),
+      ],
+    },
+
+    // ── Topic Cluster: Mega City 2 sub-pages ─────────────────
+
+    {
+      url: `${BASE}/mega-city-2/vi-tri`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.85,
+      images: [
+        cimg("megacity2/regional-link/1.jpg"),
+        cimg("megacity2/regional-link/2.jpg"),
+        cimg("megacity2/regional-link/3.jpg"),
+        cimg("megacity2/plane/1.jpg"),
+        cimg("megacity2/plane/2.webp"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/phap-ly`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.85,
+      images: [
+        cimg("megacity2/legal/1.jpeg"),
+        cimg("megacity2/legal/2.jpeg"),
+        cimg("megacity2/legal/3.jpeg"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/mat-bang`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/product/ban-do.jpeg"),
+        cimg("megacity2/product/trang-4.jpeg"),
+        cimg("megacity2/product/trang-6.jpeg"),
+        cimg("megacity2/product/trang-7.jpeg"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/tien-ich`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/amenities/1.jpg"),
+        cimg("megacity2/amenities/2.jpg"),
+        cimg("megacity2/amenities/3.webp"),
+        cimg("megacity2/amenities/4.jpg"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/tien-do`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/real/1.png"),
+        cimg("megacity2/real/2.png"),
+        cimg("megacity2/real/3.png"),
+        cimg("megacity2/real/8.png"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/hinh-anh`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.78,
+      images: [
+        cimg("megacity2/real/1.png"),
+        cimg("megacity2/real/4.png"),
+        cimg("megacity2/real/9.png"),
+        cimg("megacity2/overview/1.jpg"),
+        cimg("megacity2/amenities/1.jpg"),
+        cimg("megacity2/regional-link/1.jpg"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/bang-gia`,
+      lastModified: "2026-08-13",
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [
+        cimg("megacity2/real/9.png"),
+        cimg("megacity2/overview/1.jpg"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/thanh-toan`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.80,
+    },
+
+    {
+      url: `${BASE}/mega-city-2/faq`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+
+    // ── Keyword gap pages (mới tạo 2026-08-13) ───────────────
+
+    {
+      url: `${BASE}/mega-city-2/nha-pho-lien-ke`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.83,
+      images: [
+        cimg("megacity2/real/3.png"),
+        cimg("megacity2/real/5.png"),
+        cimg("megacity2/real/7.png"),
+        cimg("megacity2/real/1.png"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/quy-hoach-nhan-trach`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/regional-link/1.jpg"),
+        cimg("megacity2/regional-link/2.jpg"),
+        cimg("megacity2/plane/1.jpg"),
+        cimg("megacity2/plane/2.webp"),
+      ],
+    },
+
+    {
+      url: `${BASE}/mega-city-2/san-bay-long-thanh`,
+      lastModified: "2026-08-13",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/plane/1.jpg"),
+        cimg("megacity2/plane/2.webp"),
+        cimg("megacity2/plane/3.webp"),
+        cimg("megacity2/plane/4.jpg"),
+        cimg("megacity2/regional-link/1.jpg"),
       ],
     },
 
