@@ -41,6 +41,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "vi-tri-mega-city-2-o-dau",
+    title:    "Vị trí Mega City 2 ở đâu? Phân tích kết nối giao thông và tiềm năng khu vực Nhơn Trạch",
+    date:     "14/08/2026",
+    category: "tin-du-an",
+    excerpt:
+      "Khám phá vị trí Mega City 2 Nhơn Trạch, khả năng kết nối với TP.HCM, sân bay Long Thành và các tuyến giao thông trọng điểm của khu vực.",
+    image: `${CDN}/megacity2/news3/1`,
+    href:  "/tin-tuc/vi-tri-mega-city-2-o-dau",
+  },
+  {
     slug:     "bang-gia-mega-city-2-moi-nhat",
     title:    "Bảng giá Mega City 2 Nhơn Trạch mới nhất năm 2026",
     date:     "13/08/2026",

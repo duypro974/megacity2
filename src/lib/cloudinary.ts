@@ -81,6 +81,16 @@ const LOCAL: Record<string, string> = {
   "megacity2/plane/2.webp":              "/Plane/2.webp",
   "megacity2/plane/3.webp":              "/Plane/3.webp",
   "megacity2/plane/4.jpg":               "/Plane/4.jpg",
+  "megacity2/news3/1.jpg":               "/news3/1.jpg",
+  "megacity2/news3/2.jpg":               "/news3/2.jpg",
+  "megacity2/news3/3.jpg":               "/news3/3.jpg",
+  "megacity2/news3/4.webp":              "/news3/4.webp",
+  "megacity2/news3/5.png":               "/news3/5.png",
+  "megacity2/news3/6.png":               "/news3/6.png",
+  "megacity2/news3/7.png":               "/news3/7.png",
+  "megacity2/news3/8.png":               "/news3/8.png",
+  "megacity2/news3/9.png":               "/news3/9.png",
+  "megacity2/news3/10.jpg":              "/news3/10.jpg",
 };
 
 export function cld(
@@ -109,6 +119,7 @@ export function cld(
 // megacity2/heartpulse    ← public/HeartPulse/
 // megacity2/school        ← public/school/
 // megacity2/plane         ← public/Plane/
+// megacity2/news3         ← public/news3/
 // ─────────────────────────────────────────────────────────────
 
 // Pre-built URL helpers theo từng nhóm
@@ -232,6 +243,25 @@ export const IMG_ABOUT: Record<string, string> = {
   "12": `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-12-trimmed`,
   "13": `${BASE}/f_auto,q_auto:good,w_1280,c_limit/about/kog-13-trimmed`,
 };
+
+/** News3 — Vị trí Mega City 2 (10 ảnh)
+ *  1–4: ảnh bản đồ / giao thông / hạ tầng / sân bay
+ *  5–10: Toàn cảnh khu vực Mega City 2
+ */
+export const IMG_NEWS3: Record<string, string> = Object.fromEntries(
+  [
+    ["1",  "1.jpg"],
+    ["2",  "2.jpg"],
+    ["3",  "3.jpg"],
+    ["4",  "4.webp"],
+    ["5",  "5.png"],
+    ["6",  "6.png"],
+    ["7",  "7.png"],
+    ["8",  "8.png"],
+    ["9",  "9.png"],
+    ["10", "10.jpg"],
+  ].map(([k, v]) => [k, cld("megacity2/news3", v, "lg")])
+);
 
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
