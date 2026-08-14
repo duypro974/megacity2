@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ContactSidebar from "@/components/ContactSidebar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kimoanhdongnai.com.vn"),
@@ -115,6 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className="antialiased"
         style={{ fontFamily: "'Be Vietnam Pro', system-ui, sans-serif" }}
       >
+        <ContactSidebar />
         {children}
       </body>
     </html>

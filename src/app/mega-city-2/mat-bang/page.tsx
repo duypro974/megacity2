@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ContactSidebar from "@/components/ContactSidebar";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
@@ -186,7 +185,6 @@ export default function MatBangPage() {
       />
 
       <Header />
-      <ContactSidebar />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
         <SubPageHeader

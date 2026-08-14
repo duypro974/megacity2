@@ -36,7 +36,26 @@ export interface NewsItem {
 
 const CDN = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_800,c_limit";
 
+const BADGE_COLORS: Record<string, string> = {
+  "tin-du-an":  "bg-blue-500/90 text-white",
+  "tien-do":    "bg-emerald-500/90 text-white",
+  "thi-truong": "bg-amber-500/90 text-white",
+  "kim-oanh":   "bg-purple-500/90 text-white",
+};
+
 const NEWS: NewsItem[] = [
+  {
+    slug: "bang-gia-mega-city-2-moi-nhat",
+    title: "Bảng giá Mega City 2 Nhơn Trạch mới nhất năm 2026",
+    date: "13/08/2026",
+    category: "tin-du-an",
+    excerpt:
+      "Cập nhật giá tham khảo từng loại sản phẩm, các yếu tố ảnh hưởng và lưu ý quan trọng trước khi đầu tư Mega City 2.",
+    image: `${CDN}/megacity2/news2/1`,
+    href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+    verified: true,
+    source: "kimoanhdongnai.com.vn",
+  },
   {
     slug: "co-nen-dau-tu-mega-city-2-nhon-trach",
     title: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
@@ -72,7 +91,7 @@ function NewsCard({ item }: { item: NewsItem }) {
         />
         {/* Category badge */}
         <div className="absolute top-4 left-4">
-          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-white/90 text-amber-700">
+          <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full ${BADGE_COLORS[item.category] ?? "bg-white/90 text-amber-700"}`}>
             {CATEGORY_LABELS[item.category] ?? item.category}
           </span>
         </div>

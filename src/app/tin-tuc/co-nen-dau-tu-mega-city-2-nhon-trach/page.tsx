@@ -3,6 +3,7 @@ import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import PageCTA from "@/components/PageCTA";
 import RelatedContent from "@/components/RelatedContent";
+import { ArticleFigure, useLightbox, type LightboxImage } from "@/components/ImageLightbox";
 
 // ─────────────────────────────────────────────────────────────
 // Cloudinary CDN helpers
@@ -211,41 +212,21 @@ const faqs = [
 ];
 
 // ─────────────────────────────────────────────────────────────
-// Shared figure component (no crop, full image)
+// Lightbox images list
 // ─────────────────────────────────────────────────────────────
-function ArticleFigure({
-  src,
-  alt,
-  caption,
-}: {
-  src: string;
-  alt: string;
-  caption?: string;
-}) {
-  return (
-    <figure className="my-8 -mx-4 sm:mx-0">
-      <div className="bg-slate-100 rounded-none sm:rounded-2xl overflow-hidden border border-slate-200">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-auto block"
-          loading="lazy"
-        />
-      </div>
-      {caption && (
-        <figcaption className="mt-2.5 text-center text-xs text-slate-400 italic px-4">
-          {caption}
-        </figcaption>
-      )}
-    </figure>
-  );
-}
+const LIGHTBOX_IMAGES: LightboxImage[] = [
+  { src: NEWS1["1"], alt: "Toàn cảnh dự án Mega City 2 Nhơn Trạch",     caption: "Toàn cảnh dự án Mega City 2 Nhơn Trạch" },
+  { src: NEWS1["2"], alt: "Vị trí dự án Mega City 2 tại Nhơn Trạch",    caption: "Vị trí dự án Mega City 2 tại Nhơn Trạch" },
+  { src: NEWS1["3"], alt: "Hạ tầng giao thông kết nối Mega City 2",      caption: "Hạ tầng giao thông kết nối Mega City 2" },
+  { src: NEWS1["4"], alt: "Hình ảnh thực tế dự án Mega City 2",          caption: "Hình ảnh thực tế dự án Mega City 2" },
+  { src: NEWS1["5"], alt: "Quy hoạch khu dân cư Mega City 2",            caption: "Quy hoạch khu dân cư Mega City 2" },
+];
 
 // ─────────────────────────────────────────────────────────────
 // Page Component
 // ─────────────────────────────────────────────────────────────
 export default function CoNenDauTuPage() {
+  const { openLightbox, LightboxPortal, images } = useLightbox(LIGHTBOX_IMAGES);
   return (
     <>
       {/* JSON-LD Schemas */}
@@ -301,9 +282,16 @@ export default function CoNenDauTuPage() {
             </p>
           </div>
 
-          {/* Hero image — full width, no crop */}
+          {/* Hero image — full width, clickable lightbox */}
           <div className="max-w-5xl mx-auto px-0 sm:px-6 lg:px-8">
-            <div className="sm:rounded-t-2xl overflow-hidden border-t border-x border-slate-200 bg-slate-50">
+            <div
+              className="sm:rounded-t-2xl overflow-hidden border-t border-x border-slate-200 bg-slate-50 relative group cursor-zoom-in"
+              onClick={() => openLightbox(0)}
+              role="button"
+              tabIndex={0}
+              aria-label="Phóng to ảnh toàn cảnh"
+              onKeyDown={(e) => e.key === "Enter" && openLightbox(0)}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={NEWS1["1"]}
@@ -311,6 +299,13 @@ export default function CoNenDauTuPage() {
                 className="w-full h-auto block"
                 loading="eager"
               />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+                  <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/>
+                  </svg>
+                </div>
+              </div>
             </div>
             <p className="text-xs text-slate-400 italic text-center py-2.5 border-x border-slate-200 bg-slate-50 px-4">
               Toàn cảnh dự án Mega City 2 Nhơn Trạch
@@ -401,6 +396,7 @@ export default function CoNenDauTuPage() {
                 src={NEWS1["2"]}
                 alt="Vị trí dự án Mega City 2 tại Nhơn Trạch"
                 caption="Vị trí dự án Mega City 2 tại Nhơn Trạch"
+                images={images} index={1} onOpen={openLightbox}
               />
 
               {/* ── Section: Vị trí ── */}
@@ -443,6 +439,7 @@ export default function CoNenDauTuPage() {
                 src={NEWS1["3"]}
                 alt="Hạ tầng giao thông kết nối Mega City 2"
                 caption="Hạ tầng giao thông kết nối Mega City 2"
+                images={images} index={2} onOpen={openLightbox}
               />
 
               {/* ── Section: Pháp lý ── */}
@@ -537,6 +534,7 @@ export default function CoNenDauTuPage() {
                 src={NEWS1["4"]}
                 alt="Hình ảnh thực tế dự án Mega City 2"
                 caption="Hình ảnh thực tế dự án Mega City 2"
+                images={images} index={3} onOpen={openLightbox}
               />
 
               {/* ── Section: Rủi ro ── */}
@@ -575,6 +573,7 @@ export default function CoNenDauTuPage() {
                 src={NEWS1["5"]}
                 alt="Quy hoạch khu dân cư Mega City 2"
                 caption="Quy hoạch khu dân cư Mega City 2"
+                images={images} index={4} onOpen={openLightbox}
               />
 
               {/* ── Section: Kết luận ── */}
@@ -729,6 +728,7 @@ export default function CoNenDauTuPage() {
       </div>
 
       <CorpFooter />
+      {LightboxPortal}
     </>
   );
 }

@@ -1,14 +1,15 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { SITE_CONFIG } from "@/data/siteConfig";
 
 /* ── Phone với animation rung ── */
 function PhoneButton() {
   return (
     <a
-      href="tel:0937587438"
-      title="Gọi ngay: 0937.587.438"
-      aria-label="Gọi ngay: 0937.587.438"
+      href={`tel:${SITE_CONFIG.phone}`}
+      title={`Gọi ngay: ${SITE_CONFIG.phoneDisplay}`}
+      aria-label={`Gọi ngay: ${SITE_CONFIG.phoneDisplay}`}
       className="group relative flex items-center justify-center w-12 h-12 rounded-full
                  bg-green-500 hover:bg-green-600 shadow-lg transition-colors duration-200"
       style={{ animation: "phonePulse 1.2s ease-in-out infinite" }}
@@ -34,7 +35,7 @@ function PhoneButton() {
         <svg viewBox="0 0 24 24" className="w-4 h-4 fill-green-500 flex-shrink-0">
           <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
         </svg>
-        0937.587.438
+        {SITE_CONFIG.phoneDisplay}
       </span>
     </a>
   );
@@ -44,7 +45,7 @@ function PhoneButton() {
 function ZaloButton() {
   return (
     <a
-      href="https://zalo.me/0937587438"
+      href={SITE_CONFIG.social.zalo}
       target="_blank"
       rel="noopener noreferrer"
       title="Chat Zalo"

@@ -50,8 +50,7 @@ const NAV = [
     ],
   },
   { label: "Tin tức", href: "/tin-tuc" },
-  { label: "Kim Oanh Group", href: "#kim-oanh-group" },
-  { label: "Liên hệ", href: "#lien-he" },
+  { label: "Liên hệ", href: "/lien-he" },
 ];
 
 export default function CorpHeader({ solid = false }: { solid?: boolean }) {
@@ -252,19 +251,15 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
 
           {/* ── CTA ── */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
-            <a
-              href="#lien-he"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("lien-he")?.scrollIntoView({ behavior: "smooth" });
-              }}
+            <Link
+              href="/lien-he"
               className={cn(
                 "px-5 py-2.5 rounded-full text-[13px] font-bold transition-all duration-200",
                 "bg-amber-500 hover:bg-amber-400 text-white shadow-md shadow-amber-500/25 hover:shadow-amber-500/35 hover:scale-105"
               )}
             >
               TƯ VẤN
-            </a>
+            </Link>
           </div>
 
           {/* ── Mobile burger ── */}
@@ -376,18 +371,14 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
                 </div>
               ))}
               <div className="pt-4 pb-3">
-                <a
-                  href="#lien-he"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById("lien-he")?.scrollIntoView({ behavior: "smooth" });
-                    setOpen(false);
-                  }}
+                <Link
+                  href="/lien-he"
+                  onClick={() => setOpen(false)}
                   className="flex items-center justify-center gap-2 bg-amber-500 text-white
                              py-3 rounded-full font-bold text-sm shadow-md w-full"
                 >
                   <Phone className="w-4 h-4" /> TƯ VẤN
-                </a>
+                </Link>
               </div>
             </nav>
           </div>

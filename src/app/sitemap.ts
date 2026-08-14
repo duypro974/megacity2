@@ -210,6 +210,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Tin tức ──────────────────────────────────────────────
 
     {
+      url: `${BASE}/tin-tuc/bang-gia-mega-city-2-moi-nhat`,
+      lastModified: "2026-08-13",
+      changeFrequency: "weekly",
+      priority: 0.78,
+      images: [
+        cimg("megacity2/news2/1"),
+        cimg("megacity2/news2/2"),
+        cimg("megacity2/news2/3"),
+      ],
+    },
+
+    {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
       lastModified: "2026-08-13",
       changeFrequency: "monthly",

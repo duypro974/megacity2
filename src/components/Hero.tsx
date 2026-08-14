@@ -29,8 +29,8 @@ export default function Hero() {
       <div className="absolute inset-0"
         style={{
           background: `
-            linear-gradient(105deg, rgba(3,22,45,0.88) 0%, rgba(3,22,45,0.62) 50%, rgba(3,22,45,0.38) 100%),
-            linear-gradient(to top, rgba(3,22,45,0.90) 0%, rgba(3,22,45,0.45) 40%, transparent 75%)
+            linear-gradient(105deg, rgba(3,22,45,0.45) 0%, rgba(3,22,45,0.18) 50%, rgba(3,22,45,0.08) 100%),
+            linear-gradient(to top, rgba(3,22,45,0.45) 0%, rgba(3,22,45,0.14) 40%, transparent 75%)
           `,
         }}
       />
@@ -40,15 +40,16 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto">
 
           {/* Location — nhỏ, tinh tế */}
-          <p className="inline-flex items-center gap-1.5 text-white/55 text-xs font-medium
-                        tracking-widest uppercase mb-5">
+          <p className="inline-flex items-center gap-1.5 text-white text-xs font-bold
+                        tracking-widest uppercase mb-5 drop-shadow-md">
             <MapPin className="w-3 h-3 flex-shrink-0" />
             Đường 25C · Xã Nhơn Trạch · Tỉnh Đồng Nai
           </p>
 
           {/* H1 — hierarchy rõ: MEGA CITY 2 nhỏ hơn, NHƠN TRẠCH nổi bật */}
-          <h1 className="font-black leading-none tracking-tight mb-5 drop-shadow-xl">
-            <span className="block text-white/90
+          <h1 className="font-black leading-none tracking-tight mb-5"
+              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.8)" }}>
+            <span className="block text-white
                              text-[clamp(1.8rem,6vw,3.75rem)]">
               MEGA CITY 2
             </span>
@@ -59,11 +60,11 @@ export default function Hero() {
           </h1>
 
           {/* Sub — ngắn gọn, súc tích */}
-          <p className="text-white/75 text-sm md:text-base max-w-lg mb-2 leading-relaxed font-medium">
+          <p className="text-white text-sm md:text-base max-w-lg mb-2 leading-relaxed font-semibold drop-shadow-md">
             Khu dân cư theo quy hoạch 1/500 tại xã Nhơn Trạch, tỉnh Đồng Nai.
             Hạ tầng hoàn thiện phần lớn, pháp lý rõ ràng từng nền.
           </p>
-          <p className="text-white/40 text-xs mb-8">
+          <p className="text-white/80 text-xs mb-8 font-medium drop-shadow-sm">
             *Thông tin tham khảo · Theo dữ liệu công bố gần nhất
           </p>
 
@@ -73,17 +74,17 @@ export default function Hero() {
               <div key={i}
                 className="rounded-xl p-3 md:p-4 text-left"
                 style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.14)",
+                  background: "rgba(0,0,0,0.45)",
+                  border: "1px solid rgba(255,255,255,0.20)",
                   backdropFilter: "blur(12px)",
                 }}
               >
-                <s.icon className="w-3.5 h-3.5 text-[#16B364] mb-2 opacity-90" />
-                <p className="font-black leading-none text-white">
+                <s.icon className="w-3.5 h-3.5 text-[#16B364] mb-2 opacity-100" />
+                <p className="font-black leading-none text-white drop-shadow-sm">
                   <span className="text-xl md:text-2xl">{s.value}</span>
-                  {s.unit && <span className="text-sm ml-0.5 font-semibold opacity-70">{s.unit}</span>}
+                  {s.unit && <span className="text-sm ml-0.5 font-semibold text-white/80">{s.unit}</span>}
                 </p>
-                <p className="text-[10px] text-white/45 mt-1.5 leading-tight font-medium">
+                <p className="text-[10px] text-white/70 mt-1.5 leading-tight font-semibold">
                   {s.label}
                 </p>
               </div>
@@ -106,9 +107,10 @@ export default function Hero() {
             <a
               href="tel:0937587438"
               className="inline-flex items-center justify-center gap-2
-                         border border-white/25 text-white/90 hover:bg-white/10
-                         px-6 py-3 rounded-xl text-sm font-semibold
-                         transition-all duration-200"
+                         border-2 border-white text-white hover:bg-white hover:text-slate-900
+                         px-6 py-3 rounded-xl text-sm font-bold
+                         transition-all duration-200 drop-shadow-md"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}
             >
               <Phone className="w-4 h-4 flex-shrink-0" />
               0937.587.438
@@ -119,26 +121,26 @@ export default function Hero() {
           <div className="inline-flex flex-wrap items-center gap-x-5 gap-y-1
                           rounded-xl px-4 py-2.5"
             style={{
-              background: "rgba(255,255,255,0.07)",
-              border: "1px solid rgba(255,255,255,0.12)",
+              background: "rgba(0,0,0,0.40)",
+              border: "1px solid rgba(255,255,255,0.18)",
             }}
           >
             <div>
-              <span className="text-[10px] text-white/40 uppercase tracking-wider">Giá tham khảo từ</span>
+              <span className="text-[10px] text-white/70 uppercase tracking-wider font-semibold">Giá tham khảo từ</span>
               <span className="ml-1.5 text-sm font-black text-amber-400">1,15 tỷ</span>
-              <span className="text-[11px] text-white/40">/nền</span>
+              <span className="text-[11px] text-white/70">/nền</span>
             </div>
-            <span className="text-white/20 hidden sm:inline">·</span>
+            <span className="text-white/40 hidden sm:inline">·</span>
             <div>
-              <span className="text-[10px] text-white/40">Đường 24–32m</span>
-              <span className="ml-1.5 text-sm font-bold text-white/80">1,5–2,5 tỷ</span>
+              <span className="text-[10px] text-white/70">Đường 24–32m</span>
+              <span className="ml-1.5 text-sm font-bold text-white">1,5–2,5 tỷ</span>
             </div>
-            <span className="text-white/20 hidden sm:inline">·</span>
+            <span className="text-white/40 hidden sm:inline">·</span>
             <div>
-              <span className="text-[10px] text-white/40">Biệt thự từ</span>
-              <span className="ml-1.5 text-sm font-bold text-white/80">2,1 tỷ+</span>
+              <span className="text-[10px] text-white/70">Biệt thự từ</span>
+              <span className="ml-1.5 text-sm font-bold text-white">2,1 tỷ+</span>
             </div>
-            <span className="text-[10px] text-white/30 hidden sm:inline">· Cập nhật 05/2026</span>
+            <span className="text-[10px] text-white/50 hidden sm:inline">· Cập nhật 05/2026</span>
           </div>
 
         </div>

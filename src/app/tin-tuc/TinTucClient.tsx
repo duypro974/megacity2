@@ -41,6 +41,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "bang-gia-mega-city-2-moi-nhat",
+    title:    "Bảng giá Mega City 2 Nhơn Trạch mới nhất năm 2026",
+    date:     "13/08/2026",
+    category: "tin-du-an",
+    excerpt:
+      "Cập nhật giá tham khảo từng loại sản phẩm, các yếu tố ảnh hưởng và lưu ý quan trọng trước khi đầu tư Mega City 2.",
+    image: `${CDN}/megacity2/news2/1`,
+    href:  "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+  },
+  {
     slug:     "co-nen-dau-tu-mega-city-2-nhon-trach",
     title:    "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
     date:     "13/08/2026",

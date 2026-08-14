@@ -52,6 +52,8 @@ const FOLDER_MAP = {
   "heartpulse":        "megacity2/heartpulse",
   "school":            "megacity2/school",
   "plane":             "megacity2/plane",
+  "news1":             "megacity2/news1",
+  "news2":             "megacity2/news2",
 };
 
 // File name mapping — chuẩn hóa tên file có ký tự đặc biệt

@@ -158,7 +158,6 @@ import { PROGRESS_IMAGES } from "@/data/realImages";
 import LeadPopup from "@/components/LeadPopup";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
-import ContactSidebar from "@/components/ContactSidebar";
 import ScrollLink from "@/components/ScrollLink";
 import {
   Phone, Mail, MapPin, ChevronRight,
@@ -318,7 +317,6 @@ export default function HomePage() {
 
       <Header />
       <SectionNav />
-      <ContactSidebar />
       <LeadPopup />
 
       <main className="pb-16 lg:pb-0">
