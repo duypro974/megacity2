@@ -11,6 +11,20 @@ export const metadata: Metadata = {
   description:
     "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu thông tin dự án Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
   authors: [{ name: "Kim Oanh Đồng Nai" }],
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+    ],
+  },
   openGraph: {
     title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh tại Đồng Nai",
     description:
