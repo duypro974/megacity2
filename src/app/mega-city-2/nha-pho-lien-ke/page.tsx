@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+﻿import type { Metadata } from "next";
+import CorpHeader from "@/components/layout/CorpHeader";
+import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
@@ -143,7 +143,7 @@ export default function NhaPhoCLienKePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <Header />
+      <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
         <SubPageHeader
@@ -288,7 +288,7 @@ export default function NhaPhoCLienKePage() {
         />
       </div>
 
-      <Footer />
+      <CorpFooter />
     </>
   );
 }

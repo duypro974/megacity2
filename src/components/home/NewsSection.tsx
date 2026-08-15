@@ -45,6 +45,30 @@ const BADGE_COLORS: Record<string, string> = {
 
 const NEWS: NewsItem[] = [
   {
+    slug: "phap-ly-mega-city-2",
+    title: "Pháp lý Mega City 2 Nhơn Trạch có gì? Cập nhật mới nhất 2026",
+    date: "15/08/2026",
+    category: "tin-du-an",
+    excerpt:
+      "Cập nhật thông tin quy hoạch, quyết định phê duyệt 1772/QĐ-UBND, hồ sơ dự án và những điều nhà đầu tư cần kiểm tra trước khi mua.",
+    image: `${CDN}/megacity2/news4/1`,
+    href: "/tin-tuc/phap-ly-mega-city-2",
+    verified: true,
+    source: "kimoanhdongnai.com.vn",
+  },
+  {
+    slug: "vi-tri-mega-city-2-o-dau",
+    title: "Vị trí Mega City 2 ở đâu? Phân tích kết nối giao thông và tiềm năng khu vực Nhơn Trạch",
+    date: "14/08/2026",
+    category: "tin-du-an",
+    excerpt:
+      "Khám phá vị trí Mega City 2 Nhơn Trạch, khả năng kết nối với TP.HCM, sân bay Long Thành và các tuyến giao thông trọng điểm của khu vực.",
+    image: `${CDN}/megacity2/news3/1`,
+    href: "/tin-tuc/vi-tri-mega-city-2-o-dau",
+    verified: true,
+    source: "kimoanhdongnai.com.vn",
+  },
+  {
     slug: "bang-gia-mega-city-2-moi-nhat",
     title: "Bảng giá Mega City 2 Nhơn Trạch mới nhất năm 2026",
     date: "13/08/2026",

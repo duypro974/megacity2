@@ -4,32 +4,63 @@ import Link from "next/link";
 import { Phone, MapPin, Mail, ArrowUp, ExternalLink } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
 
+// ─── Social buttons — giống ContactSidebar ───────────────────
+function FooterPhone() {
+  return (
+    <a
+      href={`tel:${SITE_CONFIG.phone}`}
+      aria-label={`Gọi ngay: ${SITE_CONFIG.phoneDisplay}`}
+      className="flex items-center justify-center w-11 h-11 rounded-full
+                 bg-green-500 hover:bg-green-400 shadow-lg hover:scale-110
+                 transition-transform duration-200"
+    >
+      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+    </a>
+  );
+}
+
+function FooterZalo() {
+  return (
+    <a
+      href={SITE_CONFIG.social.zalo}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat Zalo"
+      className="flex items-center justify-center w-11 h-11 rounded-full
+                 bg-[#0068FF] hover:bg-[#0055cc] shadow-lg hover:scale-110
+                 transition-transform duration-200"
+    >
+      <span className="text-white font-black text-[13px] tracking-tight select-none">Zalo</span>
+    </a>
+  );
+}
+
+function FooterMessenger() {
+  return (
+    <a
+      href="https://m.me/61592416756280"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat Messenger"
+      className="flex items-center justify-center w-11 h-11 rounded-full
+                 shadow-lg hover:scale-110 transition-transform duration-200"
+      style={{ background: "linear-gradient(135deg, #0099FF 0%, #A033FF 55%, #FF5C87 100%)" }}
+    >
+      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+        <path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.83 1.323 5.357 3.405 7.09V22l3.116-1.71A10.56 10.56 0 0 0 12 20.52c5.523 0 10-4.145 10-9.261C22 6.145 17.523 2 12 2zm1.008 12.462-2.548-2.718-4.973 2.718 5.47-5.806 2.611 2.718 4.91-2.718-5.47 5.806z"/>
+      </svg>
+    </a>
+  );
+}
+
 // ─────────────────────────────────────────────────────────────
 // CorpFooter — KIM OANH ĐỒNG NAI
 // Tagline: Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai
 // KHÔNG tự nhận là Kim Oanh Group / chủ đầu tư
 // ─────────────────────────────────────────────────────────────
 
-const SOCIAL = [
-  {
-    label: "Facebook",
-    href: SITE_CONFIG.social.facebook,
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Zalo",
-    href: SITE_CONFIG.social.zalo,
-    icon: (
-      <svg viewBox="0 0 48 48" className="w-4 h-4 fill-current">
-        <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm8.5 28.5c-.55.55-1.3.8-2.05.8H17.55c-.75 0-1.5-.25-2.05-.8L12 29v-10c0-.75.3-1.5.8-2.05L16.3 13H31.7l3.5 3.95c.5.55.8 1.3.8 2.05v10l-3.5 3.5z" />
-      </svg>
-    ),
-  },
-];
 
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -43,14 +74,14 @@ export default function CorpFooter() {
 
           {/* ── Brand column ── */}
           <div className="lg:col-span-1">
-            {/* Logo text */}
-            <div className="flex flex-col leading-none mb-5">
-              <span className="font-black text-[16px] tracking-[0.08em] uppercase text-white">
-                KIM OANH
-              </span>
-              <span className="font-bold text-[12px] tracking-[0.15em] uppercase text-amber-500">
-                ĐỒNG NAI
-              </span>
+            {/* Logo */}
+            <div className="mb-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/KOG_Web_RGB_01.svg"
+                alt="Kim Oanh Group"
+                className="h-9 w-auto object-contain brightness-0 invert"
+              />
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -59,19 +90,9 @@ export default function CorpFooter() {
 
             {/* Social */}
             <div className="flex items-center gap-3">
-              {SOCIAL.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-amber-500
-                             flex items-center justify-center transition-colors"
-                >
-                  {s.icon}
-                </a>
-              ))}
+              <FooterPhone />
+              <FooterZalo />
+              <FooterMessenger />
             </div>
           </div>
 

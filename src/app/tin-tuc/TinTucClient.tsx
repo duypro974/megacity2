@@ -41,6 +41,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "phap-ly-mega-city-2",
+    title:    "Pháp lý Mega City 2 Nhơn Trạch có gì? Cập nhật mới nhất 2026",
+    date:     "15/08/2026",
+    category: "tin-du-an",
+    excerpt:
+      "Cập nhật thông tin quy hoạch, quyết định phê duyệt 1772/QĐ-UBND, hồ sơ dự án và những điều nhà đầu tư cần kiểm tra trước khi mua.",
+    image: `${CDN}/megacity2/news4/1`,
+    href:  "/tin-tuc/phap-ly-mega-city-2",
+  },
+  {
     slug:     "vi-tri-mega-city-2-o-dau",
     title:    "Vị trí Mega City 2 ở đâu? Phân tích kết nối giao thông và tiềm năng khu vực Nhơn Trạch",
     date:     "14/08/2026",

@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+﻿import type { Metadata } from "next";
+import CorpHeader from "@/components/layout/CorpHeader";
+import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
@@ -189,7 +189,7 @@ export default function ViTriPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLocationSchema) }}
       />
 
-      <Header />
+      <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
         <SubPageHeader
@@ -383,7 +383,7 @@ export default function ViTriPage() {
         />
       </div>
 
-      <Footer />
+      <CorpFooter />
     </>
   );
 }
