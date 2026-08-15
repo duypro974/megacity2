@@ -5,6 +5,7 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import ProductSection from "@/components/ProductSection";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -184,6 +185,7 @@ export default function MatBangPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqMatBangSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -201,15 +203,15 @@ export default function MatBangPage() {
         {/* ── Tổng quan quy hoạch ── */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-3">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-3 anim-up">
               Tổng quan quy hoạch Mega City 2
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            <p className="text-slate-600 text-sm leading-relaxed mb-4 anim-up anim-delay-100">
               Khu dân cư Mega City 2 có quy mô khoảng <strong>83,94 ha</strong> tại xã Nhơn
               Trạch, tỉnh Đồng Nai, được quy hoạch theo tiêu chuẩn đô thị đồng bộ với hệ
               thống đường nội khu, cây xanh và tiện ích tích hợp.
             </p>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 anim-up anim-delay-200">
               Toàn dự án có <strong>3.160 sản phẩm nhà ở thấp tầng</strong> theo quy hoạch,
               chia thành 3 loại hình chính: nhà vườn liên kế TH, nhà phố liên kế T và biệt
               thự song lập V. Trong đó <strong>2.421 lô</strong> đã được UBND tỉnh Đồng Nai
@@ -221,14 +223,14 @@ export default function MatBangPage() {
             </p>
 
             {/* Stats nhanh */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 anim-stagger">
               {[
                 { val: "~84 ha", label: "Quy mô tổng thể" },
                 { val: "3.160", label: "Sản phẩm theo QH" },
                 { val: "2.421 lô", label: "Được phân lô bán nền" },
                 { val: "3 loại", label: "Hình thức sản phẩm" },
               ].map((s) => (
-                <div key={s.label} className="rounded-2xl bg-primary-50 border border-primary-100 p-4 text-center">
+                <div key={s.label} className="rounded-2xl bg-primary-50 border border-primary-100 p-4 text-center anim-card">
                   <p className="text-xl font-black text-primary-700">{s.val}</p>
                   <p className="text-[11px] text-slate-500 mt-1">{s.label}</p>
                 </div>
@@ -236,20 +238,20 @@ export default function MatBangPage() {
             </div>
 
             {/* Quy hoạch đường nội khu */}
-            <h3 className="text-base font-bold text-slate-800 mb-3">
+            <h3 className="text-base font-bold text-slate-800 mb-3 anim-up">
               Hệ thống đường nội khu theo quy hoạch
             </h3>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            <p className="text-slate-600 text-sm leading-relaxed mb-4 anim-up anim-delay-100">
               Mạng lưới đường nội khu Mega City 2 được thiết kế với lộ giới từ{" "}
               <strong>13 m đến 32 m</strong>, phân cấp rõ ràng:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 anim-stagger">
               {[
                 { width: "32 m", type: "Trục đường chính", note: "Kết nối đường 25C, thương mại hai bên" },
                 { width: "17–24 m", type: "Trục nội khu cấp 1", note: "Các tuyến trục ngang và dọc chính" },
                 { width: "13–15 m", type: "Đường nhánh nội bộ", note: "Tiếp cận các lô TH và T nội khu" },
               ].map((r) => (
-                <div key={r.width} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div key={r.width} className="rounded-2xl border border-slate-200 bg-slate-50 p-4 anim-card">
                   <p className="text-lg font-black text-slate-800">{r.width}</p>
                   <p className="text-sm font-semibold text-slate-700 mt-0.5">{r.type}</p>
                   <p className="text-xs text-slate-500 mt-1">{r.note}</p>
@@ -262,17 +264,19 @@ export default function MatBangPage() {
         {/* ── 3 loại sản phẩm ── */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
-              3 loại hình sản phẩm nhà phố liên kế
-            </h2>
-            <p className="text-slate-500 text-sm mb-8">
-              Mỗi loại sản phẩm được thiết kế cho nhu cầu và ngân sách khác nhau.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            <div className="anim-up">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+                3 loại hình sản phẩm nhà phố liên kế
+              </h2>
+              <p className="text-slate-500 text-sm mb-8">
+                Mỗi loại sản phẩm được thiết kế cho nhu cầu và ngân sách khác nhau.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10 anim-stagger-slow">
               {productTypes.map((p) => (
                 <div
                   key={p.code}
-                  className={`rounded-2xl border p-5 flex flex-col
+                  className={`rounded-2xl border p-5 flex flex-col anim-card
                     ${p.highlight
                       ? "bg-primary-50 border-primary-200 shadow-md shadow-primary-100"
                       : "bg-white border-slate-200"}`}
@@ -299,10 +303,10 @@ export default function MatBangPage() {
             </div>
 
             {/* So sánh nhanh */}
-            <h3 className="text-base font-bold text-slate-800 mb-4">
+            <h3 className="text-base font-bold text-slate-800 mb-4 anim-up">
               Bảng so sánh 3 loại sản phẩm
             </h3>
-            <div className="rounded-2xl border border-slate-200 overflow-hidden">
+            <div className="rounded-2xl border border-slate-200 overflow-hidden anim-up anim-delay-100">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -335,29 +339,31 @@ export default function MatBangPage() {
         {/* ── Mẫu nhà PH-B5 ── */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-3">
-              Mẫu nhà PH-B5 – Nhà liên kế phố 3 tầng 5×16 m
-            </h2>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              Mẫu thiết kế nhà liên kế phố <strong>PH-B5</strong> là mẫu chuẩn được áp dụng
-              cho các lô T-30 ô số 13, 14 và các lô có kích thước 5×16 m tương đương tại
-              Mega City 2. Đây là thiết kế <strong>3 tầng</strong> với tổng diện tích sàn
-              khoảng <strong>327,8 m²</strong> và chiều cao tổng thể <strong>14,50 m</strong>.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+            <div className="anim-left">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-3">
+                Mẫu nhà PH-B5 – Nhà liên kế phố 3 tầng 5×16 m
+              </h2>
+              <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                Mẫu thiết kế nhà liên kế phố <strong>PH-B5</strong> là mẫu chuẩn được áp dụng
+                cho các lô T-30 ô số 13, 14 và các lô có kích thước 5×16 m tương đương tại
+                Mega City 2. Đây là thiết kế <strong>3 tầng</strong> với tổng diện tích sàn
+                khoảng <strong>327,8 m²</strong> và chiều cao tổng thể <strong>14,50 m</strong>.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 anim-stagger">
               {[
                 { label: "Kích thước lô", val: "5 × 16 m" },
                 { label: "Số tầng", val: "3 tầng" },
                 { label: "Tổng diện tích sàn", val: "~327,8 m²" },
                 { label: "Chiều cao tổng", val: "14,50 m" },
               ].map((s) => (
-                <div key={s.label} className="rounded-2xl bg-slate-50 border border-slate-200 p-4 text-center">
+                <div key={s.label} className="rounded-2xl bg-slate-50 border border-slate-200 p-4 text-center anim-card">
                   <p className="text-base font-black text-slate-800">{s.val}</p>
                   <p className="text-[11px] text-slate-500 mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 mb-6">
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 mb-6 anim-up anim-delay-200">
               <p className="text-xs text-amber-700 leading-relaxed">
                 <strong>Lưu ý:</strong> Mẫu nhà PH-B5 hoàn thiện phần mặt ngoài, xây thô
                 phần bên trong. Chủ nhà chịu trách nhiệm hoàn thiện nội thất theo nhu cầu.
@@ -370,10 +376,13 @@ export default function MatBangPage() {
         {/* ── Hướng dẫn chọn sản phẩm ── */}
         <section className="py-12 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
-              Nên chọn loại sản phẩm nào?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="anim-up">
+              <h2 className="text-xl font-bold text-slate-800 mb-2">
+                Nên chọn loại sản phẩm nào?
+              </h2>
+              <p className="text-sm text-slate-500 mb-6">Phân tích theo ngân sách và nhu cầu sử dụng.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 anim-stagger">
               {[
                 {
                   icon: "🏡",
@@ -409,7 +418,7 @@ export default function MatBangPage() {
                   color: "bg-amber-50 border-amber-200",
                 },
               ].map((g) => (
-                <div key={g.title} className={`rounded-2xl border p-5 ${g.color}`}>
+                <div key={g.title} className={`rounded-2xl border p-5 anim-card ${g.color}`}>
                   <div className="text-2xl mb-2">{g.icon}</div>
                   <h3 className="font-bold text-slate-800 text-sm mb-3">{g.title}</h3>
                   <ul className="space-y-1.5">

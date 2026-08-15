@@ -4,6 +4,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import {
   IMG_REAL,
   IMG_AMENITIES,
@@ -158,6 +159,7 @@ export default function HinhAnhPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqImageSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -175,7 +177,7 @@ export default function HinhAnhPage() {
         {/* Notice */}
         <section className="py-6 bg-slate-50 border-b border-slate-200">
           <div className="max-w-6xl mx-auto px-4">
-            <p className="text-xs text-slate-500 leading-relaxed">
+            <p className="text-xs text-slate-500 leading-relaxed anim-left">
               📷 Hình ảnh được phân chia thành các nhóm: <strong>thực tế tại dự án</strong>,
               phối cảnh quy hoạch, tiện ích và hạ tầng giao thông. Ảnh thực tế ghi nhận
               trong giai đoạn 2024–2025.
@@ -186,17 +188,17 @@ export default function HinhAnhPage() {
         {/* ── Tổng quan hình ảnh ── */}
         <section className="py-12 bg-white border-b border-slate-100">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-3">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-3 anim-up">
               Mega City 2 trông như thế nào ngoài thực tế?
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            <p className="text-slate-600 text-sm leading-relaxed mb-4 anim-up anim-delay-100">
               Sau nhiều năm xây dựng, khu dân cư Mega City 2 tại xã Nhơn Trạch, Đồng Nai
               đã có diện mạo rõ ràng. Hạ tầng nội khu đạt khoảng <strong>95%</strong>{" "}
               theo thông tin công bố tháng 06/2025 — đường nhựa rộng rãi, cây xanh hai
               bên, công viên trung tâm hoàn thiện và các dãy nhà phố liên kế đã mọc lên
               theo từng block.
             </p>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            <p className="text-slate-600 text-sm leading-relaxed mb-4 anim-up anim-delay-200">
               Bộ ảnh dưới đây phân loại thành <strong>4 nhóm</strong>: hình ảnh thực tế
               ghi nhận tại công trường, phối cảnh quy hoạch tổng thể, tiện ích nội khu và
               hình ảnh hạ tầng giao thông kết nối vùng (đường 25C, sân bay Long Thành).
@@ -206,14 +208,14 @@ export default function HinhAnhPage() {
               </a>{" "}
               để tự mình đánh giá hiện trạng các lô đang quan tâm.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 anim-stagger">
               {[
                 { val: "10 ảnh", label: "Thực tế hạ tầng" },
                 { val: "3 ảnh", label: "Phối cảnh tổng thể" },
                 { val: "7 ảnh", label: "Tiện ích nội khu" },
                 { val: "6 ảnh", label: "Liên kết vùng" },
               ].map((s) => (
-                <div key={s.label} className="rounded-2xl bg-slate-50 border border-slate-200 p-3 text-center">
+                <div key={s.label} className="rounded-2xl bg-slate-50 border border-slate-200 p-3 text-center anim-card">
                   <p className="text-lg font-black text-slate-800">{s.val}</p>
                   <p className="text-[11px] text-slate-500 mt-0.5">{s.label}</p>
                 </div>
@@ -226,32 +228,33 @@ export default function HinhAnhPage() {
         {galleryGroups.map((group) => (
           <section key={group.title} className="py-14 bg-white border-b border-slate-100 last:border-b-0">
             <div className="max-w-6xl mx-auto px-4">
-              <h2 className="text-xl font-bold text-slate-800 mb-1">{group.title}</h2>
+              <h2 className="text-xl font-bold text-slate-800 mb-1 anim-up">{group.title}</h2>
               {group.subtitle && (
-                <p className="text-xs text-slate-400 mb-3">{group.subtitle}</p>
+                <p className="text-xs text-slate-400 mb-3 anim-up anim-delay-50">{group.subtitle}</p>
               )}
               {group.description && (
-                <p className="text-sm text-slate-600 leading-relaxed mb-6 max-w-3xl">{group.description}</p>
-              )}              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                <p className="text-sm text-slate-600 leading-relaxed mb-6 max-w-3xl anim-up anim-delay-100">{group.description}</p>
+              )}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 anim-stagger">
                 {group.images.map((img, i) => (
                   <div
                     key={i}
-                    className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3] group"
+                    className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3] group anim-img-wrap"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={img.src}
                       alt={img.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                      className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-[1.07]"
                       loading="lazy"
                     />
                     <div
-                      className="absolute inset-0 bg-black/0 group-hover:bg-black/20
-                                 transition-colors duration-300 flex items-end p-2"
+                      className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent
+                                 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-2"
                     >
                       <p
-                        className="text-white text-[10px] leading-tight opacity-0
-                                   group-hover:opacity-100 transition-opacity duration-300
+                        className="text-white text-[10px] leading-tight translate-y-2
+                                   group-hover:translate-y-0 transition-transform duration-300
                                    line-clamp-2 drop-shadow"
                       >
                         {img.alt}

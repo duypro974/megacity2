@@ -5,6 +5,7 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import AmenitiesSection from "@/components/AmenitiesSection";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import { IMG_AMENITIES, IMG_TRADE, IMG_HEARTPULSE, IMG_SCHOOL } from "@/lib/cloudinary";
 import Link from "next/link";
 
@@ -166,6 +167,7 @@ export default function TienIchPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqAmenitySchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -183,13 +185,13 @@ export default function TienIchPage() {
         {/* Tóm tắt tiện ích */}
         <section className="py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
+            <h2 className="text-xl font-bold text-slate-800 mb-6 anim-up">
               6 nhóm tiện ích chính
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 anim-stagger">
               {amenityHighlights.map((a) => (
                 <div key={a.title}
-                  className="rounded-2xl bg-slate-50 border border-slate-200 p-5
+                  className="rounded-2xl bg-slate-50 border border-slate-200 p-5 anim-card
                              hover:border-primary-200 hover:shadow-sm transition-all">
                   <div className="text-2xl mb-3">{a.emoji}</div>
                   <h3 className="font-bold text-slate-800 text-sm mb-1.5">{a.title}</h3>
@@ -197,7 +199,7 @@ export default function TienIchPage() {
                 </div>
               ))}
             </div>
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 anim-up anim-delay-200">
               <p className="text-xs text-amber-700 leading-relaxed">
                 <span className="font-bold">Lưu ý:</span> Một số tiện ích đang trong quá trình phát triển
                 theo quy hoạch. Tình trạng thực tế có thể khác với quy hoạch. Cư dân và nhà đầu tư
@@ -213,29 +215,29 @@ export default function TienIchPage() {
         {/* ── Tiện ích nội khu chi tiết ── */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2 anim-up">
               Tiện ích nội khu Mega City 2 – Chi tiết từng hạng mục
             </h2>
-            <p className="text-slate-500 text-sm mb-8">
+            <p className="text-slate-500 text-sm mb-8 anim-up anim-delay-100">
               Hệ thống tiện ích được quy hoạch đồng bộ theo tiêu chuẩn khu dân cư hiện đại,
               phục vụ nhu cầu sinh hoạt toàn diện của cư dân.
             </p>
-            <div className="space-y-10">
-              {internalAmenities.map((a) => (
-                <div key={a.title} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                  <div>
+            <div className="space-y-12">
+              {internalAmenities.map((a, idx) => (
+                <div key={a.title} className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
+                  <div className={idx % 2 === 1 ? "anim-right" : "anim-left"}>
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-3xl">{a.icon}</span>
                       <h3 className="text-base font-bold text-slate-800">{a.title}</h3>
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed">{a.desc}</p>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className={`grid grid-cols-2 gap-3 ${idx % 2 === 1 ? "anim-left" : "anim-right"} anim-delay-100`}>
                     {a.images.map((src, i) => (
-                      <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3]">
+                      <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] anim-img-wrap">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={src} alt={`${a.title} tại Mega City 2`}
-                          className="w-full h-full object-cover" loading="lazy" />
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.05]" loading="lazy" />
                       </div>
                     ))}
                   </div>
@@ -248,24 +250,24 @@ export default function TienIchPage() {
         {/* ── Tiện ích ngoại khu ── */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2 anim-up">
               Tiện ích ngoại khu – Giáo dục, Y tế, Thương mại
             </h2>
-            <p className="text-slate-500 text-sm mb-8">
+            <p className="text-slate-500 text-sm mb-8 anim-up anim-delay-100">
               Khu vực Nhơn Trạch đang phát triển mạnh với hạ tầng xã hội ngày càng đầy đủ.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 anim-stagger-slow">
               {externalAmenities.map((a) => (
-                <div key={a.title} className="rounded-2xl bg-white border border-slate-200 p-5">
+                <div key={a.title} className="rounded-2xl bg-white border border-slate-200 p-5 anim-card">
                   <span className="text-3xl block mb-3">{a.icon}</span>
                   <h3 className="font-bold text-slate-800 text-sm mb-2">{a.title}</h3>
                   <p className="text-xs text-slate-500 leading-relaxed mb-4">{a.desc}</p>
                   <div className="grid grid-cols-2 gap-2">
                     {a.images.slice(0, 2).map((src, i) => (
-                      <div key={i} className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3]">
+                      <div key={i} className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3] anim-img-wrap">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={src} alt={`${a.title} gần Mega City 2 Nhơn Trạch`}
-                          className="w-full h-full object-cover" loading="lazy" />
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.05]" loading="lazy" />
                       </div>
                     ))}
                   </div>
@@ -278,7 +280,7 @@ export default function TienIchPage() {
         {/* ── Tầm nhìn phát triển ── */}
         <section className="py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="rounded-2xl bg-slate-900 text-white p-6 md:p-8">
+            <div className="rounded-2xl bg-slate-900 text-white p-6 md:p-8 anim-scale">
               <h2 className="text-lg font-bold mb-3">
                 Khu vực Nhơn Trạch đang đô thị hóa nhanh
               </h2>

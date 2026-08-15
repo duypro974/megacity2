@@ -5,6 +5,7 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import PaymentSection from "@/components/PaymentSection";
+import ScrollAnimator from "@/components/ScrollAnimator";
 
 export const metadata: Metadata = {
   title: "Phương Thức Thanh Toán Mega City 2 – Chính Sách Tài Chính 2026",
@@ -148,6 +149,7 @@ export default function ThanhToanPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPaymentSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -165,30 +167,38 @@ export default function ThanhToanPage() {
         {/* Disclaimer */}
         <section className="py-6 bg-amber-50 border-b border-amber-200">
           <div className="max-w-6xl mx-auto px-4">
-            <p className="text-xs text-amber-700 leading-relaxed">
-              <strong>Lưu ý:</strong> Chính sách thanh toán có thể thay đổi theo từng thời kỳ
-              và từng lô giao dịch cụ thể. Thông tin dưới đây mang tính tham khảo.
-              Liên hệ{" "}
-              <a href="tel:0937587438" className="font-bold underline text-amber-800">
-                0937.587.438
-              </a>{" "}
-              để nhận thông tin chính sách mới nhất.
-            </p>
+            <div className="flex items-start gap-3 anim-left">
+              <span className="text-xl flex-shrink-0">⚠️</span>
+              <p className="text-xs text-amber-700 leading-relaxed">
+                <strong>Lưu ý:</strong> Chính sách thanh toán có thể thay đổi theo từng thời kỳ
+                và từng lô giao dịch cụ thể. Thông tin dưới đây mang tính tham khảo.
+                Liên hệ{" "}
+                <a href="tel:0937587438" className="font-bold underline text-amber-800">
+                  0937.587.438
+                </a>{" "}
+                để nhận thông tin chính sách mới nhất.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Lợi ích */}
         <section className="py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
-              Chính sách hỗ trợ tài chính
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="anim-up">
+              <h2 className="text-xl font-bold text-slate-800 mb-2">
+                Chính sách hỗ trợ tài chính
+              </h2>
+              <p className="text-sm text-slate-500 mb-6">
+                Đa dạng phương án thanh toán linh hoạt phù hợp từng nhu cầu.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 anim-stagger">
               {benefits.map((b) => (
                 <div
                   key={b.title}
-                  className="rounded-2xl bg-slate-50 border border-slate-200 p-5
-                             hover:border-primary-200 hover:shadow-sm transition-all"
+                  className="rounded-2xl bg-slate-50 border border-slate-200 p-5 anim-card
+                             hover:border-primary-200 hover:shadow-md transition-all"
                 >
                   <div className="text-2xl mb-3">{b.icon}</div>
                   <h3 className="font-bold text-slate-800 text-sm mb-1.5">{b.title}</h3>
@@ -205,14 +215,17 @@ export default function ThanhToanPage() {
         {/* FAQ */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
-              Câu hỏi thường gặp về thanh toán
-            </h2>
-            <div className="space-y-3">
+            <div className="anim-up">
+              <h2 className="text-xl font-bold text-slate-800 mb-2">
+                Câu hỏi thường gặp về thanh toán
+              </h2>
+              <p className="text-sm text-slate-500 mb-6">Giải đáp những thắc mắc phổ biến nhất.</p>
+            </div>
+            <div className="space-y-3 anim-stagger-slow">
               {faqPayment.map((faq, i) => (
                 <details
                   key={i}
-                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden"
+                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden anim-card"
                 >
                   <summary
                     className="flex items-center justify-between gap-4 cursor-pointer
@@ -220,7 +233,8 @@ export default function ThanhToanPage() {
                                  group-open:text-primary-700 select-none"
                   >
                     <span>{faq.q}</span>
-                    <span className="flex-shrink-0 w-5 h-5 text-slate-400 group-open:text-primary-600">▼</span>
+                    <span className="flex-shrink-0 w-5 h-5 text-slate-400 group-open:text-primary-600
+                                     transition-transform duration-300 group-open:rotate-180">▼</span>
                   </summary>
                   <p className="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
                     {faq.a}

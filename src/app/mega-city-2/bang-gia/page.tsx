@@ -4,6 +4,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import { IMG_REAL } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
@@ -198,6 +199,7 @@ export default function BangGiaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPriceSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -215,7 +217,7 @@ export default function BangGiaPage() {
         {/* Disclaimer nổi bật */}
         <section className="py-8 bg-amber-50 border-b border-amber-200">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-3 anim-left">
               <span className="text-2xl flex-shrink-0">⚠️</span>
               <div>
                 <p className="font-bold text-amber-800 text-sm mb-1">
@@ -238,15 +240,17 @@ export default function BangGiaPage() {
         {/* Bảng giá tham khảo */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
-              Bảng giá tham khảo theo loại sản phẩm
-            </h2>
-            <p className="text-sm text-slate-500 mb-8">
-              Giá từ khoảng <strong className="text-slate-700">1,15 tỷ đồng/nền</strong> tùy vị trí, block và thời điểm giao dịch.
-            </p>
+            <div className="anim-up">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+                Bảng giá tham khảo theo loại sản phẩm
+              </h2>
+              <p className="text-sm text-slate-500 mb-8">
+                Giá từ khoảng <strong className="text-slate-700">1,15 tỷ đồng/nền</strong> tùy vị trí, block và thời điểm giao dịch.
+              </p>
+            </div>
 
             {/* Desktop table */}
-            <div className="rounded-2xl border border-slate-200 overflow-hidden mb-8 hidden md:block">
+            <div className="rounded-2xl border border-slate-200 overflow-hidden mb-8 hidden md:block anim-up anim-delay-100">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -304,7 +308,7 @@ export default function BangGiaPage() {
             </div>
 
             {/* Mobile cards */}
-            <div className="space-y-3 md:hidden">
+            <div className="space-y-3 md:hidden anim-stagger">
               {priceRanges.map((row) => (
                 <div
                   key={row.type}
@@ -342,62 +346,26 @@ export default function BangGiaPage() {
         {/* Yếu tố ảnh hưởng giá */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-2">
-              6 yếu tố ảnh hưởng đến giá
-            </h2>
-            <p className="text-sm text-slate-500 mb-8">
-              Hiểu rõ các yếu tố định giá giúp bạn đưa ra quyết định đầu tư đúng đắn.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="anim-up">
+              <h2 className="text-xl font-bold text-slate-800 mb-2">
+                6 yếu tố ảnh hưởng đến giá
+              </h2>
+              <p className="text-sm text-slate-500 mb-8">
+                Hiểu rõ các yếu tố định giá giúp bạn đưa ra quyết định đầu tư đúng đắn.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 anim-stagger">
               {priceFactors.map((f) => (
                 <div
                   key={f.title}
-                  className="rounded-2xl bg-white border border-slate-200 p-5
-                             hover:border-primary-200 hover:shadow-sm transition-all"
+                  className="rounded-2xl bg-white border border-slate-200 p-5 anim-card
+                             hover:border-primary-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default"
                 >
                   <div className="text-2xl mb-3">{f.icon}</div>
                   <h3 className="font-bold text-slate-800 text-sm mb-1.5">{f.title}</h3>
                   <p className="text-xs text-slate-500 leading-relaxed">{f.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Liên hệ nhận báo giá */}
-        <section className="py-10 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="rounded-2xl bg-slate-900 p-6 md:p-8 text-white">
-              <h2 className="text-xl md:text-2xl font-bold mb-3">
-                Nhận báo giá cập nhật theo lô cụ thể
-              </h2>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-xl">
-                Giá thị trường có thể thay đổi. Liên hệ để nhận thông tin giá mới nhất,
-                so sánh các vị trí lô và được hỗ trợ chọn sản phẩm phù hợp với ngân sách.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="tel:0937587438"
-                  className="inline-flex items-center justify-center gap-2 bg-amber-500
-                             hover:bg-amber-600 text-white px-6 py-3 rounded-full
-                             font-bold text-sm transition-all hover:scale-105"
-                >
-                  📞 Gọi 0937.587.438
-                </a>
-                <a
-                  href="https://zalo.me/0937587438"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#06C755]
-                             hover:bg-[#05b34d] text-white px-6 py-3 rounded-full
-                             font-bold text-sm transition-all hover:scale-105"
-                >
-                  💬 Nhắn Zalo nhận giá
-                </a>
-              </div>
-              <p className="text-xs text-slate-500 mt-4">
-                Hỗ trợ 8:00 – 21:00, Thứ 2 – Chủ nhật · Tư vấn miễn phí
-              </p>
             </div>
           </div>
         </section>

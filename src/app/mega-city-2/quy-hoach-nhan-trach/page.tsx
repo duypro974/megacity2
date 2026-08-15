@@ -4,6 +4,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import Link from "next/link";
 import { IMG_REGIONAL, IMG_PLANE } from "@/lib/cloudinary";
 
@@ -148,6 +149,7 @@ export default function QuyHoachNhonTrachPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -165,7 +167,7 @@ export default function QuyHoachNhonTrachPage() {
         {/* Disclaimer */}
         <section className="py-6 bg-amber-50 border-b border-amber-200">
           <div className="max-w-6xl mx-auto px-4">
-            <p className="text-xs text-amber-700 leading-relaxed">
+            <p className="text-xs text-amber-700 leading-relaxed anim-up">
               <strong>Lưu ý:</strong> Thông tin quy hoạch tổng hợp từ nguồn công khai và
               mang tính tham khảo. Tiến độ các dự án hạ tầng phụ thuộc vào quyết định của
               cơ quan có thẩm quyền và có thể thay đổi. Không phải cam kết về tăng giá
@@ -177,17 +179,17 @@ export default function QuyHoachNhonTrachPage() {
         {/* ── Tổng quan quy hoạch ── */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4 anim-up">
               Nhơn Trạch trong quy hoạch phát triển Đồng Nai
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            <p className="text-slate-600 text-sm leading-relaxed mb-4 anim-up anim-delay-100">
               Huyện Nhơn Trạch (tỉnh Đồng Nai) được định hướng trở thành{" "}
               <strong>đô thị vệ tinh</strong> của TP.HCM theo quy hoạch tỉnh Đồng Nai
               đến năm 2030, tầm nhìn 2050. Khu vực nằm trong tam giác phát triển{" "}
               <strong>TP.HCM – Long Thành – Nhơn Trạch</strong>, được đầu tư hạ tầng
               giao thông đồng bộ từ nhiều nguồn vốn.
             </p>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 anim-up anim-delay-150">
               Các dự án hạ tầng trọng điểm đang triển khai — sân bay Long Thành, cầu
               Nhơn Trạch, cao tốc Bến Lức – Long Thành — tạo động lực phát triển đáng
               kể cho thị trường bất động sản khu vực, trong đó có dự án{" "}
@@ -198,9 +200,9 @@ export default function QuyHoachNhonTrachPage() {
             </p>
 
             {/* Hình ảnh liên kết vùng */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8 anim-stagger">
               {[IMG_REGIONAL["1"], IMG_REGIONAL["2"], IMG_PLANE["1"], IMG_PLANE["2"]].map((src, i) => (
-                <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3]">
+                <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] anim-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={src} alt={`Quy hoạch hạ tầng Nhơn Trạch ${i + 1}`}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.04]"
@@ -214,17 +216,17 @@ export default function QuyHoachNhonTrachPage() {
         {/* ── 6 dự án hạ tầng ── */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2 anim-up">
               6 dự án hạ tầng ảnh hưởng đến bất động sản Nhơn Trạch
             </h2>
-            <p className="text-slate-500 text-sm mb-8">
+            <p className="text-slate-500 text-sm mb-8 anim-up anim-delay-100">
               Mỗi dự án đều tác động trực tiếp hoặc gián tiếp đến giá trị và thanh khoản
               bất động sản khu vực Nhơn Trạch.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 anim-stagger">
               {infraProjects.map((p) => (
                 <div key={p.title}
-                  className={`rounded-2xl border p-5 ${p.highlight
+                  className={`rounded-2xl border p-5 anim-card ${p.highlight
                     ? "bg-primary-50 border-primary-200"
                     : "bg-white border-slate-200"}`}>
                   <div className="text-3xl mb-3">{p.icon}</div>
@@ -245,13 +247,13 @@ export default function QuyHoachNhonTrachPage() {
         {/* ── FAQ ── */}
         <section className="py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
+            <h2 className="text-xl font-bold text-slate-800 mb-6 anim-up">
               Câu hỏi thường gặp về quy hoạch Nhơn Trạch
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 anim-stagger-slow">
               {faqSchema.mainEntity.map((faq, i) => (
                 <details key={i}
-                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-primary-200 transition-colors">
+                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-primary-200 transition-colors anim-up">
                   <summary className="flex items-start justify-between gap-4 cursor-pointer px-5 py-4 font-semibold text-slate-800 text-sm list-none group-open:text-primary-700 select-none">
                     <span className="leading-snug">{faq.name}</span>
                     <span className="flex-shrink-0 mt-0.5 text-slate-400 group-open:text-primary-600 transition-transform group-open:rotate-180 text-xs">▼</span>

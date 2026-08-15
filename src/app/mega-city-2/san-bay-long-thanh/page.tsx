@@ -4,6 +4,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import Link from "next/link";
 import { IMG_PLANE, IMG_REGIONAL } from "@/lib/cloudinary";
 
@@ -92,6 +93,7 @@ export default function SanBayLongThanhPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -109,7 +111,7 @@ export default function SanBayLongThanhPage() {
         {/* Disclaimer */}
         <section className="py-6 bg-amber-50 border-b border-amber-200">
           <div className="max-w-6xl mx-auto px-4">
-            <p className="text-xs text-amber-700 leading-relaxed">
+            <p className="text-xs text-amber-700 leading-relaxed anim-up">
               <strong>Lưu ý:</strong> Thông tin về tiến độ sân bay Long Thành tổng hợp từ
               nguồn công khai. Tiến độ thực tế phụ thuộc quyết định cơ quan có thẩm quyền.
               Phân tích tác động BĐS mang tính tham khảo, không phải cam kết tăng giá.
@@ -120,16 +122,16 @@ export default function SanBayLongThanhPage() {
         {/* ── Tổng quan ── */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4 anim-up">
               Sân bay Long Thành – Dự án hạ tầng hàng không trọng điểm quốc gia
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            <p className="text-slate-600 text-sm leading-relaxed mb-4 anim-up anim-delay-100">
               Sân bay quốc tế Long Thành là dự án hạ tầng hàng không lớn nhất Việt Nam,
               tọa lạc tại huyện Long Thành, tỉnh Đồng Nai. Giai đoạn 1 có công suất{" "}
               <strong>25 triệu hành khách/năm</strong>, dự kiến trở thành cửa ngõ hàng
               không quốc tế chiến lược cho toàn vùng kinh tế trọng điểm phía Nam.
             </p>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 anim-up anim-delay-150">
               Với vị trí chỉ cách{" "}
               <Link href="/mega-city-2" className="text-primary-600 hover:underline font-semibold">
                 Mega City 2 Nhơn Trạch
@@ -140,9 +142,9 @@ export default function SanBayLongThanhPage() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 anim-stagger">
               {airportFacts.map((f) => (
-                <div key={f.label} className="rounded-2xl bg-primary-50 border border-primary-100 p-4 text-center">
+                <div key={f.label} className="rounded-2xl bg-primary-50 border border-primary-100 p-4 text-center anim-card">
                   <p className="text-lg font-black text-primary-700">{f.val}</p>
                   <p className="text-[11px] text-slate-500 mt-1">{f.label}</p>
                 </div>
@@ -150,9 +152,9 @@ export default function SanBayLongThanhPage() {
             </div>
 
             {/* Ảnh sân bay */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 anim-stagger">
               {[IMG_PLANE["1"], IMG_PLANE["2"], IMG_PLANE["3"], IMG_PLANE["4"]].map((src, i) => (
-                <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3]">
+                <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] anim-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={src} alt={`Sân bay quốc tế Long Thành gần Mega City 2 Nhơn Trạch ${i + 1}`}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.04]"
@@ -166,10 +168,10 @@ export default function SanBayLongThanhPage() {
         {/* ── Tác động BĐS ── */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
+            <h2 className="text-xl font-bold text-slate-800 mb-6 anim-up">
               Tác động của sân bay Long Thành đến BĐS Nhơn Trạch
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 anim-stagger">
               {[
                 {
                   icon: "👥",
@@ -192,7 +194,7 @@ export default function SanBayLongThanhPage() {
                   desc: "Sự hiện diện của dự án sân bay lớn thường tạo kỳ vọng tích cực trong tâm lý nhà đầu tư BĐS khu vực. Tuy nhiên, tác động thực tế phụ thuộc tiến độ triển khai và cần đánh giá thận trọng.",
                 },
               ].map((item) => (
-                <div key={item.title} className="rounded-2xl bg-white border border-slate-200 p-5">
+                <div key={item.title} className="rounded-2xl bg-white border border-slate-200 p-5 anim-card">
                   <div className="text-3xl mb-3">{item.icon}</div>
                   <h3 className="font-bold text-slate-800 text-sm mb-2">{item.title}</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
@@ -201,9 +203,9 @@ export default function SanBayLongThanhPage() {
             </div>
 
             {/* Ảnh liên kết vùng */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 anim-stagger">
               {[IMG_REGIONAL["1"], IMG_REGIONAL["2"], IMG_REGIONAL["3"], IMG_REGIONAL["4"]].map((src, i) => (
-                <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3]">
+                <div key={i} className="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] anim-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={src} alt={`Hạ tầng giao thông kết nối sân bay Long Thành và Nhơn Trạch ${i + 1}`}
                     className="w-full h-full object-cover" loading="lazy" />
@@ -216,13 +218,13 @@ export default function SanBayLongThanhPage() {
         {/* ── FAQ ── */}
         <section className="py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
+            <h2 className="text-xl font-bold text-slate-800 mb-6 anim-up">
               Câu hỏi thường gặp về sân bay Long Thành & Mega City 2
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 anim-stagger-slow">
               {faqSchema.mainEntity.map((faq, i) => (
                 <details key={i}
-                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-primary-200 transition-colors">
+                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-primary-200 transition-colors anim-up">
                   <summary className="flex items-start justify-between gap-4 cursor-pointer px-5 py-4 font-semibold text-slate-800 text-sm list-none group-open:text-primary-700 select-none">
                     <span className="leading-snug">{faq.name}</span>
                     <span className="flex-shrink-0 mt-0.5 text-slate-400 group-open:text-primary-600 transition-transform group-open:rotate-180 text-xs">▼</span>

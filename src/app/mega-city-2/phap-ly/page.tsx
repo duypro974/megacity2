@@ -4,6 +4,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import { IMG_LEGAL } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
@@ -161,6 +162,7 @@ export default function PhapLyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -178,7 +180,7 @@ export default function PhapLyPage() {
         {/* Highlight QĐ 1772 */}
         <section className="py-10 bg-primary-50 border-b border-primary-100">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="rounded-2xl bg-primary-600 text-white p-6 md:p-8">
+            <div className="rounded-2xl bg-primary-600 text-white p-6 md:p-8 anim-scale">
               <div className="flex items-start gap-4">
                 <div className="text-3xl flex-shrink-0">📋</div>
                 <div>
@@ -215,14 +217,17 @@ export default function PhapLyPage() {
         {/* Hồ sơ pháp lý */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
-              Các văn bản pháp lý chính
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            <div className="anim-up">
+              <h2 className="text-xl font-bold text-slate-800 mb-2">
+                Các văn bản pháp lý chính
+              </h2>
+              <p className="text-sm text-slate-500 mb-6">Hồ sơ pháp lý đã được công bố chính thức.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 anim-stagger">
               {legalDocs.map((doc) => (
                 <div
                   key={doc.title}
-                  className={`rounded-2xl p-5 border
+                  className={`rounded-2xl p-5 border anim-card
                     ${doc.highlight
                       ? "bg-primary-50 border-primary-200"
                       : "bg-slate-50 border-slate-200"}`}
@@ -250,10 +255,10 @@ export default function PhapLyPage() {
             </div>
 
             {/* Cơ cấu lô */}
-            <h2 className="text-xl font-bold text-slate-800 mb-4">
+            <h2 className="text-xl font-bold text-slate-800 mb-4 anim-up">
               Cơ cấu sản phẩm theo quy hoạch
             </h2>
-            <div className="rounded-2xl border border-slate-200 overflow-hidden mb-8">
+            <div className="rounded-2xl border border-slate-200 overflow-hidden mb-8 anim-up anim-delay-100">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -298,25 +303,25 @@ export default function PhapLyPage() {
             </div>
 
             {/* Ảnh pháp lý */}
-            <h2 className="text-xl font-bold text-slate-800 mb-4">
+            <h2 className="text-xl font-bold text-slate-800 mb-4 anim-up">
               Hình ảnh hồ sơ pháp lý
             </h2>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-slate-400 mb-4 anim-up anim-delay-50">
               Hình ảnh tài liệu pháp lý được công bố. Khách hàng nên yêu cầu xem bản gốc khi giao dịch.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 anim-stagger">
               {[
                 { src: IMG_LEGAL["1"], alt: "Quyết định 1772/QĐ-UBND phân lô bán nền Mega City 2" },
                 { src: IMG_LEGAL["2"], alt: "Quy hoạch 1/500 khu dân cư Mega City 2 Nhơn Trạch" },
                 { src: IMG_LEGAL["3"], alt: "Giấy chứng nhận quyền sử dụng đất Mega City 2" },
               ].map((img) => (
                 <div key={img.src}
-                  className="relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200">
+                  className="relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 anim-img-wrap group">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="w-full object-contain"
+                    className="w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
                 </div>
@@ -328,20 +333,24 @@ export default function PhapLyPage() {
         {/* FAQ Pháp lý */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
-              Câu hỏi thường gặp về pháp lý
-            </h2>
-            <div className="space-y-3">
+            <div className="anim-up">
+              <h2 className="text-xl font-bold text-slate-800 mb-2">
+                Câu hỏi thường gặp về pháp lý
+              </h2>
+              <p className="text-sm text-slate-500 mb-6">Những thắc mắc phổ biến nhất từ khách hàng.</p>
+            </div>
+            <div className="space-y-3 anim-stagger-slow">
               {faqSchema.mainEntity.map((faq, i) => (
                 <details
                   key={i}
-                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden"
+                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden anim-card"
                 >
                   <summary className="flex items-center justify-between gap-4 cursor-pointer
                                        px-5 py-4 font-semibold text-slate-800 text-sm list-none
                                        group-open:text-primary-700 select-none">
                     <span>{faq.name}</span>
-                    <span className="flex-shrink-0 w-5 h-5 text-slate-400 group-open:text-primary-600">▼</span>
+                    <span className="flex-shrink-0 w-5 h-5 text-slate-400 group-open:text-primary-600
+                                     transition-transform duration-300 group-open:rotate-180">▼</span>
                   </summary>
                   <p className="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
                     {faq.acceptedAnswer.text}
@@ -355,7 +364,7 @@ export default function PhapLyPage() {
         {/* Disclaimer */}
         <section className="py-8 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 anim-up">
               <p className="text-sm font-bold text-amber-800 mb-2">⚠️ Lưu ý pháp lý quan trọng</p>
               <p className="text-xs text-amber-700 leading-relaxed">
                 Thông tin pháp lý trên đây được tổng hợp từ văn bản công khai và nguồn thị trường.

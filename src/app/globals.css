@@ -192,6 +192,324 @@ html {
 }
 
 /* ══════════════════════════════════════════
+   SUB-PAGE ANIMATION SYSTEM
+   ══════════════════════════════════════════ */
+
+/* Fade + slide up — mặc định */
+.anim-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-up.in-view { opacity: 1; transform: translateY(0); }
+
+/* Fade + slide từ trái */
+.anim-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-left.in-view { opacity: 1; transform: translateX(0); }
+
+/* Fade + slide từ phải */
+.anim-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-right.in-view { opacity: 1; transform: translateX(0); }
+
+/* Scale in */
+.anim-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+              transform 0.65s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-scale.in-view { opacity: 1; transform: scale(1); }
+
+/* Flip in from below */
+.anim-flip {
+  opacity: 0;
+  transform: perspective(600px) rotateX(18deg) translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-flip.in-view { opacity: 1; transform: perspective(600px) rotateX(0) translateY(0); }
+
+/* Zoom fade */
+.anim-zoom {
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-zoom.in-view { opacity: 1; transform: scale(1); }
+
+/* Stagger container — children fade up in sequence */
+.anim-stagger > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+              transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-stagger.in-view > *:nth-child(1)  { opacity:1; transform:none; transition-delay:0ms;   }
+.anim-stagger.in-view > *:nth-child(2)  { opacity:1; transform:none; transition-delay:80ms;  }
+.anim-stagger.in-view > *:nth-child(3)  { opacity:1; transform:none; transition-delay:160ms; }
+.anim-stagger.in-view > *:nth-child(4)  { opacity:1; transform:none; transition-delay:240ms; }
+.anim-stagger.in-view > *:nth-child(5)  { opacity:1; transform:none; transition-delay:320ms; }
+.anim-stagger.in-view > *:nth-child(6)  { opacity:1; transform:none; transition-delay:400ms; }
+.anim-stagger.in-view > *:nth-child(7)  { opacity:1; transform:none; transition-delay:480ms; }
+.anim-stagger.in-view > *:nth-child(8)  { opacity:1; transform:none; transition-delay:560ms; }
+
+/* Stagger slow — cho card lớn */
+.anim-stagger-slow > * {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-stagger-slow.in-view > *:nth-child(1) { opacity:1; transform:none; transition-delay:0ms;   }
+.anim-stagger-slow.in-view > *:nth-child(2) { opacity:1; transform:none; transition-delay:120ms; }
+.anim-stagger-slow.in-view > *:nth-child(3) { opacity:1; transform:none; transition-delay:240ms; }
+.anim-stagger-slow.in-view > *:nth-child(4) { opacity:1; transform:none; transition-delay:360ms; }
+.anim-stagger-slow.in-view > *:nth-child(5) { opacity:1; transform:none; transition-delay:480ms; }
+.anim-stagger-slow.in-view > *:nth-child(6) { opacity:1; transform:none; transition-delay:600ms; }
+
+/* Delay helpers */
+.anim-delay-50  { transition-delay:  50ms !important; }
+.anim-delay-100 { transition-delay: 100ms !important; }
+.anim-delay-150 { transition-delay: 150ms !important; }
+.anim-delay-200 { transition-delay: 200ms !important; }
+.anim-delay-300 { transition-delay: 300ms !important; }
+.anim-delay-400 { transition-delay: 400ms !important; }
+.anim-delay-500 { transition-delay: 500ms !important; }
+.anim-delay-600 { transition-delay: 600ms !important; }
+
+/* ── Progress bar fill animation ── */
+@keyframes fillBar {
+  from { width: 0%; }
+  to   { width: var(--pct, 100%); }
+}
+.progress-fill {
+  width: 0%;
+  animation: none;
+}
+.progress-fill.in-view {
+  animation: fillBar 1.4s cubic-bezier(0.22,1,0.36,1) both;
+  animation-delay: 250ms;
+}
+
+/* ── Animated progress bar (scroll-driven) ── */
+.anim-bar-wrap {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.anim-bar-wrap.in-view { opacity: 1; transform: translateX(0); }
+
+.anim-bar-inner {
+  width: 0%;
+  transition: width 1.4s cubic-bezier(0.22,1,0.36,1) 0.3s;
+}
+.anim-bar-wrap.in-view .anim-bar-inner {
+  width: var(--target-w, 95%);
+}
+
+/* ── Counter increment animation ── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(14px) scale(0.88); }
+  to   { opacity: 1; transform: none; }
+}
+.anim-counter { opacity: 0; }
+.anim-counter.in-view {
+  animation: countUp 0.65s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* ── Stat number pop ── */
+@keyframes statPop {
+  0%   { opacity:0; transform: scale(0.6) translateY(16px); }
+  60%  { transform: scale(1.08) translateY(-2px); }
+  100% { opacity:1; transform: scale(1) translateY(0); }
+}
+.anim-stat {
+  opacity: 0;
+}
+.anim-stat.in-view {
+  animation: statPop 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* ── Card hover lift (applied via class, always on) ── */
+.anim-card {
+  transition: transform 0.28s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.28s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.2s ease;
+}
+.anim-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -8px rgba(0,0,0,0.12);
+}
+
+/* ── Image reveal overlay ── */
+.anim-img-wrap {
+  overflow: hidden;
+}
+.anim-img-wrap img {
+  transform: scale(1.08);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.22,1,0.36,1),
+              opacity 0.7s ease;
+}
+.anim-img-wrap.in-view img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ── Glow pulse on CTA ── */
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(22,179,100,0.45); }
+  50%     { box-shadow: 0 0 0 14px rgba(22,179,100,0); }
+}
+.anim-glow-pulse {
+  animation: glowPulse 2.2s ease-in-out infinite;
+}
+
+/* ── Shimmer highlight ── */
+@keyframes highlightSweep {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.anim-highlight-sweep {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.35) 50%,
+    transparent 100%);
+  background-size: 200% 100%;
+  animation: highlightSweep 2.5s ease-in-out infinite;
+}
+
+/* ── Tag badge bounce-in ── */
+@keyframes badgeBounce {
+  0%   { opacity:0; transform: scale(0.5) translateY(-8px); }
+  70%  { transform: scale(1.12) translateY(2px); }
+  100% { opacity:1; transform: scale(1) translateY(0); }
+}
+.anim-badge {
+  animation: badgeBounce 0.6s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* ── Line draw for SubPageHeader ── */
+@keyframes lineDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.anim-line-draw {
+  transform-origin: left;
+  animation: lineDraw 0.8s cubic-bezier(0.22,1,0.36,1) 0.35s both;
+}
+
+/* ── Section divider draw ── */
+.anim-divider {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-divider.in-view { transform: scaleX(1); }
+
+/* ── Floating dots background ── */
+@keyframes floatDot {
+  0%,100% { transform: translateY(0) scale(1);   opacity: 0.4; }
+  50%     { transform: translateY(-18px) scale(1.1); opacity: 0.7; }
+}
+.anim-dot-1 { animation: floatDot 4.5s ease-in-out infinite; }
+.anim-dot-2 { animation: floatDot 5.5s ease-in-out 0.8s infinite; }
+.anim-dot-3 { animation: floatDot 4.0s ease-in-out 1.5s infinite; }
+.anim-dot-4 { animation: floatDot 6.0s ease-in-out 0.4s infinite; }
+.anim-dot-5 { animation: floatDot 5.0s ease-in-out 2.0s infinite; }
+.anim-dot-6 { animation: floatDot 3.8s ease-in-out 1.2s infinite; }
+
+/* ── Orbit ring decoration ── */
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.anim-orbit {
+  animation: orbitSpin 18s linear infinite;
+}
+
+/* ── Number count-up animation (JS-driven) ── */
+.anim-number {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.anim-number.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Timeline dot pulse ── */
+@keyframes timelinePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(22,179,100,0.6); }
+  70%  { box-shadow: 0 0 0 10px rgba(22,179,100,0); }
+  100% { box-shadow: 0 0 0 0 rgba(22,179,100,0); }
+}
+.anim-timeline-dot {
+  animation: timelinePulse 2s ease-out infinite;
+}
+
+/* ── Timeline line grow ── */
+.anim-timeline-line {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.anim-timeline-line.in-view { transform: scaleY(1); }
+
+/* ── Section background parallax wash ── */
+@keyframes bgDrift {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+.anim-bg-drift {
+  background-size: 200% 200%;
+  animation: bgDrift 12s ease infinite alternate;
+}
+
+/* ── Floating action shimmer ── */
+@keyframes shimmerBtn {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.anim-btn-shimmer {
+  background-image: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255,255,255,0.25) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmerBtn 2.8s ease-in-out infinite;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .anim-up, .anim-left, .anim-right, .anim-scale, .anim-flip, .anim-zoom,
+  .anim-stagger > *, .anim-stagger-slow > *, .progress-fill, .anim-counter,
+  .anim-stat, .anim-badge, .anim-line-draw, .anim-divider, .anim-number,
+  .anim-bar-wrap, .anim-img-wrap img, .anim-timeline-line {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════
    SCROLL-REVEAL  (dùng IntersectionObserver)
    ══════════════════════════════════════════ */
 

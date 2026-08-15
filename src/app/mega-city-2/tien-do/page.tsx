@@ -1,9 +1,11 @@
 ﻿import type { Metadata } from "next";
+import type React from "react";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import { IMG_REAL } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
@@ -129,6 +131,7 @@ export default function TienDoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqProgressSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -146,7 +149,7 @@ export default function TienDoPage() {
         {/* Disclaimer nổi bật */}
         <section className="py-8 bg-amber-50 border-b border-amber-200">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-3 anim-left">
               <span className="text-2xl flex-shrink-0">⚠️</span>
               <div>
                 <p className="font-bold text-amber-800 text-sm mb-1">Lưu ý về số liệu tiến độ</p>
@@ -163,15 +166,15 @@ export default function TienDoPage() {
         {/* Progress bars */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-2">
+            <h2 className="text-xl font-bold text-slate-800 mb-2 anim-up">
               Tiến độ theo hạng mục hạ tầng
             </h2>
-            <p className="text-sm text-slate-500 mb-8">
+            <p className="text-sm text-slate-500 mb-8 anim-up anim-delay-100">
               Theo thông tin công bố tháng 06/2025. Cập nhật lần cuối: 08/2026.
             </p>
             <div className="space-y-6 max-w-2xl">
-              {progressItems.map((item) => (
-                <div key={item.label}>
+              {progressItems.map((item, i) => (
+                <div key={item.label} className="anim-bar-wrap" style={{ transitionDelay: `${i * 80}ms` }}>
                   <div className="flex items-baseline justify-between mb-1.5">
                     <div>
                       <span className="text-sm font-semibold text-slate-700">{item.label}</span>
@@ -186,8 +189,8 @@ export default function TienDoPage() {
                   </div>
                   <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full ${item.pct === 100 ? "bg-emerald-500" : "bg-primary-500"}`}
-                      style={{ width: `${item.pct}%` }}
+                      className={`h-full rounded-full anim-bar-inner ${item.pct === 100 ? "bg-emerald-500" : "bg-primary-500"}`}
+                      style={{ "--target-w": `${item.pct}%` } as React.CSSProperties}
                     />
                   </div>
                 </div>
@@ -199,27 +202,28 @@ export default function TienDoPage() {
         {/* Hình ảnh thực tế */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-2">
+            <h2 className="text-xl font-bold text-slate-800 mb-2 anim-up">
               Hình ảnh thực tế tại dự án
             </h2>
-            <p className="text-xs text-slate-400 mb-6">
+            <p className="text-xs text-slate-400 mb-6 anim-up anim-delay-100">
               Hình ảnh ghi nhận thực tế tại khu dân cư Mega City 2 Nhơn Trạch.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 anim-stagger">
               {realImages.map((img) => (
                 <div key={img.key}
-                  className="relative overflow-hidden rounded-xl bg-slate-100 h-40 group">
+                  className="relative overflow-hidden rounded-xl bg-slate-100 h-40 group anim-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={IMG_REAL[img.key]}
                     alt={img.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
             </div>
-            <p className="text-xs text-slate-400 mt-3 italic">
+            <p className="text-xs text-slate-400 mt-3 italic anim-up">
               * Hình ảnh thực tế ghi nhận tại dự án, không phải phối cảnh.
             </p>
           </div>
@@ -228,7 +232,7 @@ export default function TienDoPage() {
         {/* Timeline xây dựng */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">
+            <h2 className="text-xl font-bold text-slate-800 mb-6 anim-up">
               Timeline pháp lý & hạ tầng quan trọng
             </h2>
             <div className="space-y-4 max-w-2xl">
@@ -239,17 +243,17 @@ export default function TienDoPage() {
                 { year: "06/2025", event: "Hạ tầng đạt ~95% theo thông tin công bố", done: true },
                 { year: "31/12/2029", event: "Hạn cuối hoàn thành xây dựng nhà ở (theo QĐ 1772)", done: false },
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
+                <div key={i} className="flex items-start gap-4 anim-left" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="flex flex-col items-center flex-shrink-0">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold
                       ${item.highlight
-                        ? "bg-primary-600 shadow-lg shadow-primary-300"
+                        ? "bg-primary-600 shadow-lg shadow-primary-300 anim-timeline-dot"
                         : item.done ? "bg-emerald-500" : "bg-slate-300"}`}>
                       {item.done ? "✓" : "○"}
                     </div>
-                    {i < 4 && <div className="w-px h-8 bg-slate-200 mt-1" />}
+                    {i < 4 && <div className="w-px h-8 bg-slate-200 mt-1 anim-timeline-line" />}
                   </div>
-                  <div className={`flex-1 rounded-2xl border p-4 -mt-1
+                  <div className={`flex-1 rounded-2xl border p-4 -mt-1 anim-card
                     ${item.highlight
                       ? "bg-primary-50 border-primary-200"
                       : "bg-white border-slate-200"}`}>

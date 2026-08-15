@@ -4,6 +4,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 import {
   IMG_REGIONAL,
   IMG_PLANE,
@@ -189,6 +190,7 @@ export default function ViTriPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLocationSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -207,7 +209,7 @@ export default function ViTriPage() {
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-              <div>
+              <div className="anim-left">
                 <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">
                   Tọa lạc tại cửa ngõ Đông Nam Bộ
                 </h2>
@@ -249,7 +251,7 @@ export default function ViTriPage() {
               </div>
 
               {/* Map embed */}
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm anim-right anim-delay-100">
                 <iframe
                   title="Vị trí Mega City 2 Nhơn Trạch trên bản đồ"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.8!2d106.9667!3d10.7567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ1JzI0LjEiTiAxMDbCsDU4JzAwLjEiRQ!5e0!3m2!1svi!2svn!4v1"
@@ -273,18 +275,20 @@ export default function ViTriPage() {
         {/* Liên kết vùng */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
-              6 trục kết nối vùng quan trọng
-            </h2>
-            <p className="text-slate-500 text-sm mb-8">
-              Mega City 2 được hưởng lợi từ hệ thống giao thông đang và sẽ được phát triển
-              trong khu vực Đông Nam Bộ.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            <div className="anim-up">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+                6 trục kết nối vùng quan trọng
+              </h2>
+              <p className="text-slate-500 text-sm mb-8">
+                Mega City 2 được hưởng lợi từ hệ thống giao thông đang và sẽ được phát triển
+                trong khu vực Đông Nam Bộ.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 anim-stagger">
               {connections.map((c) => (
                 <div
                   key={c.title}
-                  className={`rounded-2xl p-5 border transition-shadow hover:shadow-md
+                  className={`rounded-2xl p-5 border transition-all duration-300 hover:shadow-md hover:-translate-y-1
                     ${c.highlight
                       ? "bg-primary-50 border-primary-200"
                       : "bg-white border-slate-200"}`}
@@ -300,13 +304,13 @@ export default function ViTriPage() {
             </div>
 
             {/* Hình ảnh liên kết vùng */}
-            <h3 className="text-base font-semibold text-slate-700 mb-4">
+            <h3 className="text-base font-semibold text-slate-700 mb-4 anim-up">
               Hình ảnh hạ tầng và liên kết vùng
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 anim-stagger">
               {[IMG_REGIONAL["1"], IMG_REGIONAL["2"], IMG_REGIONAL["3"], IMG_REGIONAL["4"],
                 IMG_PLANE["1"], IMG_PLANE["2"], IMG_REGIONAL["5"], IMG_REGIONAL["6"]].map((src, i) => (
-                <div key={i} className="relative overflow-hidden rounded-xl bg-slate-100 h-36 group">
+                <div key={i} className="relative overflow-hidden rounded-xl bg-slate-100 h-36 group anim-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={src}
@@ -323,7 +327,7 @@ export default function ViTriPage() {
         {/* Lưu ý quan trọng */}
         <section className="py-10 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 anim-up">
               <p className="text-sm font-bold text-amber-800 mb-2">⚠️ Lưu ý quan trọng</p>
               <p className="text-xs text-amber-700 leading-relaxed">
                 Thông tin về tiến độ hạ tầng giao thông (cầu Nhơn Trạch, cao tốc, sân bay)

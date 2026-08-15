@@ -4,6 +4,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
+import ScrollAnimator from "@/components/ScrollAnimator";
 
 export const metadata: Metadata = {
   title: "FAQ Mega City 2 – Câu Hỏi Thường Gặp Về Pháp Lý, Giá & Tiến Độ",
@@ -137,6 +138,7 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
+      <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 lg:pb-0 min-h-screen">
@@ -155,25 +157,26 @@ export default function FaqPage() {
         <section className="py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 space-y-12">
             {faqGroups.map((group) => (
-              <div key={group.group}>
-                <h2 className="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-200">
+              <div key={group.group} className="anim-up">
+                <h2 className="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-primary-500 inline-block flex-shrink-0" />
                   {group.group}
                 </h2>
-                <div className="space-y-3">
+                <div className="space-y-3 anim-stagger">
                   {group.items.map((faq, i) => (
                     <details
                       key={i}
                       className="group rounded-2xl border border-slate-200 bg-white overflow-hidden
-                                 hover:border-primary-200 transition-colors"
+                                 hover:border-primary-200 hover:shadow-sm transition-all duration-200"
                     >
                       <summary
                         className="flex items-start justify-between gap-4 cursor-pointer
                                      px-5 py-4 font-semibold text-slate-800 text-sm list-none
-                                     group-open:text-primary-700 select-none"
+                                     group-open:text-primary-700 group-open:bg-primary-50/40 select-none transition-colors"
                       >
                         <span className="leading-snug">{faq.q}</span>
                         <span className="flex-shrink-0 mt-0.5 text-slate-400 group-open:text-primary-600
-                                         transition-transform group-open:rotate-180 text-xs">
+                                         transition-transform duration-300 group-open:rotate-180 text-xs">
                           ▼
                         </span>
                       </summary>
