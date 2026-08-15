@@ -41,6 +41,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "tien-do-mega-city-2",
+    title:    "Tiến độ Mega City 2 Nhơn Trạch mới nhất năm 2026",
+    date:     "16/08/2026",
+    category: "tien-do",
+    excerpt:
+      "Cập nhật hình ảnh và tình hình thi công thực tế tháng 08/2026: đường nội khu, hạ tầng kỹ thuật và khu nhà xây sẵn tại Mega City 2.",
+    image: `${CDN}/megacity2/news5/1`,
+    href:  "/tin-tuc/tien-do-mega-city-2",
+  },
+  {
     slug:     "phap-ly-mega-city-2",
     title:    "Pháp lý Mega City 2 Nhơn Trạch có gì? Cập nhật mới nhất 2026",
     date:     "15/08/2026",

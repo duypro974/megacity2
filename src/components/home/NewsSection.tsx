@@ -44,6 +44,20 @@ const BADGE_COLORS: Record<string, string> = {
 };
 
 const NEWS: NewsItem[] = [
+  // ── 1 bài Tiến độ — mới nhất ──────────────────────────────
+  {
+    slug: "tien-do-mega-city-2",
+    title: "Tiến độ Mega City 2 Nhơn Trạch mới nhất năm 2026",
+    date: "16/08/2026",
+    category: "tien-do",
+    excerpt:
+      "Cập nhật hình ảnh và tình hình thi công thực tế tháng 08/2026: đường nội khu, hạ tầng kỹ thuật và khu nhà xây sẵn tại Mega City 2.",
+    image: `${CDN}/megacity2/news5/1`,
+    href: "/tin-tuc/tien-do-mega-city-2",
+    verified: true,
+    source: "kimoanhdongnai.com.vn",
+  },
+  // ── 1 bài Tin dự án — mới nhất ────────────────────────────
   {
     slug: "phap-ly-mega-city-2",
     title: "Pháp lý Mega City 2 Nhơn Trạch có gì? Cập nhật mới nhất 2026",
@@ -56,30 +70,7 @@ const NEWS: NewsItem[] = [
     verified: true,
     source: "kimoanhdongnai.com.vn",
   },
-  {
-    slug: "vi-tri-mega-city-2-o-dau",
-    title: "Vị trí Mega City 2 ở đâu? Phân tích kết nối giao thông và tiềm năng khu vực Nhơn Trạch",
-    date: "14/08/2026",
-    category: "tin-du-an",
-    excerpt:
-      "Khám phá vị trí Mega City 2 Nhơn Trạch, khả năng kết nối với TP.HCM, sân bay Long Thành và các tuyến giao thông trọng điểm của khu vực.",
-    image: `${CDN}/megacity2/news3/1`,
-    href: "/tin-tuc/vi-tri-mega-city-2-o-dau",
-    verified: true,
-    source: "kimoanhdongnai.com.vn",
-  },
-  {
-    slug: "bang-gia-mega-city-2-moi-nhat",
-    title: "Bảng giá Mega City 2 Nhơn Trạch mới nhất năm 2026",
-    date: "13/08/2026",
-    category: "tin-du-an",
-    excerpt:
-      "Cập nhật giá tham khảo từng loại sản phẩm, các yếu tố ảnh hưởng và lưu ý quan trọng trước khi đầu tư Mega City 2.",
-    image: `${CDN}/megacity2/news2/1`,
-    href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
-    verified: true,
-    source: "kimoanhdongnai.com.vn",
-  },
+  // ── 1 bài Thị trường — mới nhất ───────────────────────────
   {
     slug: "co-nen-dau-tu-mega-city-2-nhon-trach",
     title: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
