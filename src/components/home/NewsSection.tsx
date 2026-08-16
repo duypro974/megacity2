@@ -70,6 +70,19 @@ const NEWS: NewsItem[] = [
     verified: true,
     source: "kimoanhdongnai.com.vn",
   },
+  // ── 1 bài Quy hoạch Nhơn Trạch ────────────────────────────
+  {
+    slug: "quy-hoach-nhon-trach-moi-nhat",
+    title: "Quy hoạch Nhơn Trạch mới nhất 2026: Những thay đổi quan trọng cần biết",
+    date: "16/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Phân tích bản đồ quy hoạch, định hướng phát triển đô thị, hạ tầng giao thông và tác động đến thị trường bất động sản Nhơn Trạch 2026.",
+    image: `${CDN}/megacity2/news7/1`,
+    href: "/tin-tuc/quy-hoach-nhon-trach-moi-nhat",
+    verified: true,
+    source: "kimoanhdongnai.com.vn",
+  },
   // ── 1 bài Tin dự án — mới nhất ────────────────────────────
   {
     slug: "phap-ly-mega-city-2",

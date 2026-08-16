@@ -98,6 +98,13 @@ const LOCAL: Record<string, string> = {
   "megacity2/news6/5.jpg":               "/news6/5.jpg",
   "megacity2/news6/6.jpg":               "/news6/6.jpg",
   "megacity2/news6/7.webp":              "/news6/7.webp",
+  "megacity2/news7/1.jpg":               "/news7/1.jpg",
+  "megacity2/news7/2.jpg":               "/news7/2.jpg",
+  "megacity2/news7/3.jpg":               "/news7/3.jpg",
+  "megacity2/news7/4.jpg":               "/news7/4.jpg",
+  "megacity2/news7/5.webp":              "/news7/5.webp",
+  "megacity2/news7/6.png":               "/news7/6.png",
+  "megacity2/news7/7.jpg":               "/news7/7.jpg",
 };
 
 export function cld(
@@ -281,6 +288,19 @@ export const IMG_NEWS6: Record<string, string> = Object.fromEntries(
     ["6", "6.jpg"],
     ["7", "7.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news6", v, "lg")])
+);
+
+/** News7 — Quy hoạch Nhơn Trạch 2026 (7 ảnh) */
+export const IMG_NEWS7: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.jpg"],
+    ["5", "5.webp"],
+    ["6", "6.png"],
+    ["7", "7.jpg"],
+  ].map(([k, v]) => [k, cld("megacity2/news7", v, "lg")])
 );
 
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */

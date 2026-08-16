@@ -100,6 +100,16 @@ const ALL_NEWS: NewsItem[] = [
     image: `${CDN}/megacity2/news6/1`,
     href:  "/tin-tuc/gia-dat-nhon-trach-2026",
   },
+  {
+    slug:     "quy-hoach-nhon-trach-moi-nhat",
+    title:    "Quy hoạch Nhơn Trạch mới nhất 2026: Những thay đổi quan trọng cần biết",
+    date:     "16/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Phân tích bản đồ quy hoạch, định hướng phát triển đô thị, hạ tầng giao thông và tác động đến thị trường bất động sản Nhơn Trạch 2026.",
+    image: `${CDN}/megacity2/news7/1`,
+    href:  "/tin-tuc/quy-hoach-nhon-trach-moi-nhat",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
