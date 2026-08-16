@@ -98,7 +98,7 @@ const GROUPS: Group[] = [
 ];
 
 /* ─── Crossfade image — không chớp ─── */
-function CrossfadeImage({ src }: { src: string }) {
+function CrossfadeImage({ src, label }: { src: string; label?: string }) {
   const [layers, setLayers] = useState([{ src, id: 0 }]);
   const prevSrc = useRef(src);
   const idRef   = useRef(1);
@@ -108,10 +108,8 @@ function CrossfadeImage({ src }: { src: string }) {
     prevSrc.current = src;
 
     const newId = idRef.current++;
-    // Thêm layer mới — dùng CSS animation fadein nên không cần JS state toggle
     setLayers((prev) => [...prev, { src, id: newId }]);
 
-    // Dọn layer cũ sau khi transition xong
     const t = setTimeout(() => {
       setLayers((prev) => prev.filter((l) => l.id === newId));
     }, 700);
@@ -119,7 +117,7 @@ function CrossfadeImage({ src }: { src: string }) {
   }, [src]);
 
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0" role="img" aria-label={label ?? "Hình ảnh liên kết vùng Mega City 2 Nhơn Trạch"}>
       {layers.map((layer, i) => {
         const isTop = i === layers.length - 1;
         return (
@@ -128,6 +126,7 @@ function CrossfadeImage({ src }: { src: string }) {
             key={layer.id}
             src={layer.src}
             alt=""
+            aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{
               zIndex: i + 1,
@@ -165,7 +164,7 @@ export default function ConnectivitySection() {
           {/* LEFT — ảnh + badges */}
           <div className="space-y-4">
             <div className="relative rounded-3xl overflow-hidden bg-slate-200 aspect-[4/3] shadow-xl">
-              <CrossfadeImage src={currentImg} />
+              <CrossfadeImage src={currentImg} label={`${currentLabel} – liên kết vùng Mega City 2`} />
               <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent
                               flex items-end px-6 pb-5 pointer-events-none">
                 <div className="flex items-center gap-2">
@@ -201,8 +200,8 @@ export default function ConnectivitySection() {
                 Liên kết vùng
               </p>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
-                Tâm mạch phát triển<br />
-                <span className="text-amber-500">Đa dạng kết nối</span>
+                Vị trí &amp; Liên kết vùng<br />
+                <span className="text-amber-500">Mega City 2 Nhơn Trạch</span>
               </h2>
             </div>
 

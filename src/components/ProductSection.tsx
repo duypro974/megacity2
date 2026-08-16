@@ -235,7 +235,7 @@ export default function ProductSection() {
             Sản phẩm
           </span>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 leading-snug">
-            Các loại hình sản phẩm
+            Sản phẩm nhà phố Mega City 2
           </h2>
           <p className="mt-2 text-slate-500 text-sm md:text-base">
             Đa dạng loại hình, đáp ứng mọi nhu cầu ở thực và đầu tư

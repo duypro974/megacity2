@@ -130,8 +130,8 @@ export default function AmenitiesSection() {
         <div className="mb-14">
           <span className="section-label">Tiện ích nội khu</span>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 leading-tight">
-            Chốn sống{" "}
-            <span className="text-[#16B364]">đầy đủ tiện nghi</span>
+            Tiện ích nội khu{" "}
+            <span className="text-[#16B364]">Mega City 2 Nhơn Trạch</span>
           </h2>
           <p className="mt-3 text-slate-500 text-base max-w-lg leading-relaxed">
             Hệ thống tiện ích đồng bộ được quy hoạch ngay trong lòng dự án, đáp ứng
@@ -306,6 +306,17 @@ export default function AmenitiesSection() {
                 </div>
               );
             })}
+          </div>
+
+          {/* Link đến trang tiện ích chi tiết */}
+          <div className="mt-4 text-right">
+            <a
+              href="/mega-city-2/tien-ich"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold
+                         text-primary-600 hover:text-primary-700 hover:underline transition-colors"
+            >
+              Xem đầy đủ tiện ích Mega City 2 →
+            </a>
           </div>
         </div>
 

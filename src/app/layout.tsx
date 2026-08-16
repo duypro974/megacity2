@@ -78,14 +78,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: "Kim Oanh Đồng Nai",
               url: "https://kimoanhdongnai.com.vn",
               description: "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai. Mega City 2 Nhơn Trạch, K-Home CityView.",
-              potentialAction: {
-                "@type": "SearchAction",
-                target: {
-                  "@type": "EntryPoint",
-                  urlTemplate: "https://kimoanhdongnai.com.vn/mega-city-2/faq",
-                },
-                "query-input": "required name=search_term_string",
-              },
             }),
           }}
         />

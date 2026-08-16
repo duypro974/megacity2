@@ -131,8 +131,8 @@ export default function LegalSection() {
           <span className="inline-block text-xs font-bold tracking-widest uppercase text-primary-600 bg-primary-50 px-3 py-1 rounded-full mb-3">
             Pháp lý
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 leading-snug max-w-3xl">
-            Pháp lý dự án – Minh bạch, đã được UBND tỉnh chấp thuận phân lô bán nền
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 leading-snug">
+            Pháp lý dự án Mega City 2 – Minh bạch, đã được UBND tỉnh chấp thuận phân lô bán nền
           </h2>
         </div>
 
@@ -260,8 +260,16 @@ export default function LegalSection() {
           </a>
         </div>
 
-        {/* Anchor target cho nút thứ 2 */}
-        <div id="legal-table" />
+        {/* Link đến trang pháp lý chi tiết */}
+        <div className="mt-4 text-center">
+          <a
+            href="/mega-city-2/phap-ly"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold
+                       text-primary-600 hover:text-primary-700 hover:underline transition-colors"
+          >
+            Xem toàn bộ hồ sơ pháp lý Mega City 2 →
+          </a>
+        </div>
 
         {/* 8. Ghi chú nhỏ cuối section */}
         <p className="text-xs text-slate-400 border-t border-slate-100 pt-4 text-center">

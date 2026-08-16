@@ -236,7 +236,7 @@ export default function RealPhotoSection() {
               Không chỉ nhìn trên phối cảnh — hãy xem hiện trạng thực tế
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-800 leading-snug">
-              Hình ảnh thực tế dự án
+              Hình ảnh thực tế dự án Mega City 2
             </h2>
             <p className="mt-2 text-slate-500 text-sm md:text-base max-w-xl">
               Những hình ảnh thực tế được ghi nhận tại dự án, đường nội khu và khu vực xung quanh,

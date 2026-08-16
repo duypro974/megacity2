@@ -5,7 +5,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "res.cloudinary.com",
+        pathname: "/dqy4lfmcf/**",
+      },
+      // Cho phép các domain ảnh khác nếu cần (maps embed, etc.)
+      {
+        protocol: "https",
+        hostname: "maps.googleapis.com",
       },
     ],
   },

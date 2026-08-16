@@ -46,17 +46,19 @@ export default function Hero() {
             Đường 25C · Xã Nhơn Trạch · Tỉnh Đồng Nai
           </p>
 
-          {/* H1 — hierarchy rõ: MEGA CITY 2 nhỏ hơn, NHƠN TRẠCH nổi bật */}
-          <h1 className="font-black leading-none tracking-tight mb-5"
-              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.8)" }}>
-            <span className="block text-white
-                             text-[clamp(1.8rem,6vw,3.75rem)]">
+          {/* H1 — keyword đầy đủ cho SEO, visual chia 2 dòng bằng CSS */}
+          <h1
+            className="font-black leading-none tracking-tight mb-5"
+            style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.8)" }}
+          >
+            <span className="block text-white text-[clamp(1.8rem,6vw,3.75rem)]">
               MEGA CITY 2
             </span>
-            <span className="block text-[#16B364]
-                             text-[clamp(2.5rem,9vw,5rem)] mt-1">
+            <span className="block text-[#16B364] text-[clamp(2.5rem,9vw,5rem)] mt-1">
               NHƠN TRẠCH
             </span>
+            {/* Text đầy đủ ẩn visual nhưng Google đọc được H1 hoàn chỉnh */}
+            <span className="sr-only"> - Thông tin dự án mới nhất 2026</span>
           </h1>
 
           {/* Sub — ngắn gọn, súc tích */}

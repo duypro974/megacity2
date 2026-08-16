@@ -3,12 +3,19 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 
 export const metadata: Metadata = {
-  title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
+  title: "Mega City 2 Nhơn Trạch - Thông tin dự án mới nhất 2026",
   description:
-    "Mega City 2 Nhơn Trạch – Khu dân cư ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
+    "Cập nhật thông tin dự án Mega City 2 Nhơn Trạch mới nhất: vị trí, bảng giá, tiện ích, pháp lý, tiến độ, hình ảnh và các thông tin liên quan.",
+  keywords: [
+    "Mega City 2",
+    "Mega City 2 Nhơn Trạch",
+    "Dự án Mega City 2",
+    "Khu đô thị Mega City 2",
+    "bảng giá Mega City 2",
+  ],
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2" },
   openGraph: {
-    title: "Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Thông Tin 2026",
+    title: "Mega City 2 Nhơn Trạch - Thông tin dự án mới nhất 2026",
     description:
       "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Giá từ 1,15 tỷ/nền.",
     type: "website",
@@ -25,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mega City 2 Nhơn Trạch – Bảng Giá & Pháp Lý 2026",
+    title: "Mega City 2 Nhơn Trạch - Thông tin mới nhất 2026",
     description:
       "2.421 lô phân lô bán nền, hạ tầng ~95%, giá từ 1,15 tỷ/nền. QĐ 1772/QĐ-UBND ngày 30/5/2025.",
     images: [
@@ -48,7 +55,7 @@ const jsonLd = {
     "Khu dân cư Mega City 2 quy mô ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. 2.421 lô phân lô bán nền được UBND tỉnh Đồng Nai chấp thuận theo QĐ 1772/QĐ-UBND ngày 30/05/2025. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
   url: "https://kimoanhdongnai.com.vn/mega-city-2",
   datePosted: "2026-08-13",
-  image: "https://kimoanhdongnai.com.vn/overview/1.jpg",
+  image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
   floorSize: {
     "@type": "QuantitativeValue",
     value: 90,
@@ -145,6 +152,105 @@ const jsonLd = {
     },
   ],
 };
+
+/* ─────────────────────────────────────────
+   JSON-LD — BreadcrumbList (pillar page)
+───────────────────────────────────────── */
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Trang chủ",
+      item: "https://kimoanhdongnai.com.vn",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Mega City 2",
+      item: "https://kimoanhdongnai.com.vn/mega-city-2",
+    },
+  ],
+};
+
+/* ─────────────────────────────────────────
+   JSON-LD — FAQPage (pillar page)
+   Lấy từ faqs array bên dưới để đồng bộ nội dung.
+   Khai báo ở đây vì faqs được define sau, sẽ
+   được inject vào component sau khi build.
+───────────────────────────────────────── */
+const faqSchemaData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Dự án cách TP.HCM bao xa và đi bằng đường nào?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Mega City Nhơn Trạch cách trung tâm TP.HCM khoảng 30–35 km. Khách hàng có thể đi theo đường 25C (cao tốc Bến Lức – Long Thành) hoặc phà Cát Lái – Nhơn Trạch. Khi cầu Nhơn Trạch hoàn thành thời gian di chuyển rút ngắn còn 20–25 phút.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Tiến độ thực tế và tình trạng sổ hồng ra sao?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Hạ tầng đã hoàn thiện ~95% theo thông tin công bố 06/2025. Dự án đã được cấp 110 GCN (sổ hồng). Các lô Block TH và T đường 13–17 m có sổ hồng riêng không ràng buộc xây dựng. Các lô T đường 24–32 m có sổ hồng với điều kiện xây dựng trong 5 năm.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quy mô dự án Mega City 2 như thế nào?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Mega City 2 có quy mô khoảng 83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. Dự án có 3.160 sản phẩm nhà ở thấp tầng gồm nhà vườn liên kế TH (1.580 lô), nhà phố liên kế T (1.478 lô) và biệt thự song lập V (102 lô). Trong đó 2.421 lô đã được UBND tỉnh Đồng Nai chấp thuận phân lô bán nền theo QĐ 1772/QĐ-UBND ngày 30/5/2025.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Mega City 2 có những loại sản phẩm nào? Giá khởi điểm bao nhiêu?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Dự án có 3 loại chính: Nhà phố TH (90–120 m², từ 1,2 tỷ), Nhà phố T (90–160 m², từ 1,15 tỷ) và Biệt thự V (150–200 m², từ 2,1 tỷ). Nhà xây sẵn T6–T13 có giá trên 4 tỷ.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Dự án Mega City 2 đã được phép phân lô bán nền chưa?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Có. UBND tỉnh Đồng Nai đã ban hành Quyết định số 1772/QĐ-UBND ngày 30/5/2025 chấp thuận 2.421 lô được chuyển nhượng quyền sử dụng đất dưới hình thức phân lô bán nền, bao gồm các dãy T-1 đến T-29, TH-1 đến TH-28 và V-1 đến V-4.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Thời hạn xây dựng nhà ở tại Mega City 2 là bao lâu?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cá nhân nhận chuyển nhượng phải hoàn thành xây dựng nhà ở trước ngày 31/12/2029. Thời hạn này được ghi rõ trong Hợp đồng chuyển nhượng theo yêu cầu của Quyết định 1772/QĐ-UBND.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Chủ đầu tư Mega City 2 là ai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Chủ đầu tư chính thức theo hồ sơ pháp lý là Công ty TNHH Khu đô thị Phú Hội. Kim Oanh Group là đơn vị tham gia phát triển và phân phối dự án.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Mẫu nhà PH-B5 áp dụng cho lô nào tại Mega City 2?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Mẫu thiết kế nhà liên kế phố 3 tầng PH-B5 (5×16 m) áp dụng cho các lô T-30 ô số 13, 14 và các lô có kích thước tương tự theo quy hoạch. Tổng diện tích sàn khoảng 327,8 m² và chiều cao 14,50 m.",
+      },
+    },
+  ],
+};
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import RelatedContent from "@/components/RelatedContent";
@@ -159,6 +265,7 @@ import LeadPopup from "@/components/LeadPopup";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
 import ScrollLink from "@/components/ScrollLink";
+import TableOfContents from "@/components/megacity2/TableOfContents";
 import {
   Phone, Mail, MapPin, ChevronRight,
 } from "lucide-react";
@@ -239,31 +346,37 @@ const investReasons = [
     no: "01",
     title: "Vị trí kết nối vùng",
     desc: "Tiếp giáp TP.HCM qua đường 25C, gần sân bay Long Thành, nằm giữa 4 trục giao thông huyết mạch Đông Nam Bộ.",
+    link: { href: "/mega-city-2/vi-tri", label: "Xem phân tích vị trí →" },
   },
   {
     no: "02",
     title: "Hạ tầng đồng bộ",
     desc: "Đường nội khu 13–32 m, điện âm, nước thủy cục, viễn thông hoàn chỉnh. Cư dân có thể kiểm tra hiện trạng trước khi giao dịch.",
+    link: { href: "/mega-city-2/tien-do", label: "Xem tiến độ hạ tầng →" },
   },
   {
     no: "03",
     title: "Hạ tầng đã hoàn thiện phần lớn",
     desc: "Theo cập nhật gần nhất được công bố (06/2025), tiến độ hạ tầng đạt ~95%. Khách hàng nên xác nhận tình trạng thực tế từng lô trước khi ký hợp đồng.",
+    link: { href: "/mega-city-2/hinh-anh", label: "Xem hình ảnh thực tế →" },
   },
   {
     no: "04",
     title: "Pháp lý rõ ràng",
     desc: "Quy hoạch 1/500 được phê duyệt. UBND tỉnh Đồng Nai đã chấp thuận 2.421 lô đủ điều kiện phân lô bán nền theo QĐ 1772/QĐ-UBND ngày 30/5/2025.",
+    link: { href: "/mega-city-2/phap-ly", label: "Xem chi tiết pháp lý →" },
   },
   {
     no: "05",
     title: "Mức giá tham khảo cạnh tranh",
     desc: "Giá chuyển nhượng tham khảo từ 1,15 tỷ/nền theo nguồn thị trường 05/2026. Giá thực tế phụ thuộc vị trí, diện tích và thời điểm giao dịch.",
+    link: { href: "/mega-city-2/bang-gia", label: "Xem bảng giá Mega City 2 →" },
   },
   {
     no: "06",
     title: "Nhơn Trạch phát triển đô thị",
     desc: "Khu vực Nhơn Trạch đang trong quá trình phát triển đô thị theo định hướng quy hoạch tỉnh Đồng Nai, là một trong các khu vực trọng điểm phía Nam.",
+    link: { href: "/mega-city-2/quy-hoach-nhan-trach", label: "Xem quy hoạch Nhơn Trạch →" },
   },
 ];
 
@@ -314,6 +427,16 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {/* JSON-LD — BreadcrumbList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {/* JSON-LD — FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaData) }}
+      />
 
       <Header />
       <SectionNav />
@@ -322,6 +445,11 @@ export default function HomePage() {
       <main className="pb-16 lg:pb-0">
         {/* ── Hero ── */}
         <Hero />
+
+        {/* ── Mục lục ── */}
+        <div className="max-w-2xl mx-auto px-4 pt-8 pb-2">
+          <TableOfContents />
+        </div>
 
         {/* ── Tổng Quan ── */}
         <FadeSection id="tong-quan" className="py-20 bg-white">
@@ -620,7 +748,10 @@ export default function HomePage() {
             <p className="text-xs text-slate-400 leading-relaxed border-t border-slate-200 pt-4">
               * Giá chuyển nhượng tham khảo, có thể thay đổi theo vị trí, diện tích, hồ sơ
               và thời điểm giao dịch. Thông tin tổng hợp từ nguồn thị trường, không phải
-              bảng giá chính thức của chủ đầu tư. Liên hệ để xác nhận thông tin cụ thể.
+              bảng giá chính thức của chủ đầu tư. Liên hệ để xác nhận thông tin cụ thể.{" "}
+              <a href="/mega-city-2/bang-gia" className="text-primary-600 hover:underline font-semibold">
+                Xem bảng giá Mega City 2 chi tiết →
+              </a>
             </p>
           </div>
         </FadeSection>
@@ -743,13 +874,16 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Tiến độ</SectionLabel>
             <SectionHeader sub="Theo thông tin được công bố gần nhất – tháng 06/2025">
-              Tiến độ thi công hạ tầng
+              Tiến độ thi công hạ tầng Mega City 2
             </SectionHeader>
 
             <div className="mb-6 rounded-2xl bg-amber-50 border border-amber-200 px-4 py-3">
               <p className="text-xs text-amber-700">
                 <span className="font-bold">Lưu ý:</span> Số liệu tiến độ dưới đây theo cập nhật tháng 06/2025.
-                Tình trạng thực tế có thể thay đổi – vui lòng liên hệ để xác nhận.
+                Tình trạng thực tế có thể thay đổi – vui lòng liên hệ để xác nhận.{" "}
+                <a href="/mega-city-2/tien-do" className="font-bold text-amber-800 underline">
+                  Xem tiến độ xây dựng chi tiết →
+                </a>
               </p>
             </div>
 
@@ -780,7 +914,10 @@ export default function HomePage() {
               <h3 className="text-sm font-semibold text-slate-700 mb-1">Hiện trạng thực tế</h3>
               <p className="text-xs text-slate-400 mb-4">
                 Một số hình ảnh thực tế ghi nhận tại dự án, thể hiện hiện trạng nhà phố,
-                đường nội khu và cảnh quan.
+                đường nội khu và cảnh quan.{" "}
+                <a href="/mega-city-2/hinh-anh" className="text-primary-600 hover:underline font-semibold">
+                  Xem toàn bộ hình ảnh thực tế →
+                </a>
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {PROGRESS_IMAGES.map((img) => (
@@ -835,6 +972,15 @@ export default function HomePage() {
                     </h3>
                   </div>
                   <p className="text-slate-500 text-sm leading-relaxed pl-11">{r.desc}</p>
+                  {r.link && (
+                    <a
+                      href={r.link.href}
+                      className="mt-3 ml-11 inline-flex items-center gap-1 text-xs font-semibold
+                                 text-primary-600 hover:text-primary-700 hover:underline transition-colors"
+                    >
+                      {r.link.label}
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
@@ -846,7 +992,7 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto px-4">
             <SectionLabel>FAQ</SectionLabel>
             <SectionHeader sub="Những câu hỏi thường gặp về dự án Mega City 2 Nhơn Trạch">
-              Câu hỏi thường gặp
+              Câu hỏi thường gặp về Mega City 2
             </SectionHeader>
 
             <div className="space-y-2">
@@ -1058,6 +1204,24 @@ export default function HomePage() {
             title: "FAQ – Câu hỏi thường gặp",
             description: "Giải đáp đầy đủ về pháp lý, giá, tiến độ, sổ hồng và thủ tục giao dịch.",
             tag: "FAQ",
+          },
+          {
+            href: "/mega-city-2/nha-pho-lien-ke",
+            title: "Nhà phố liên kế TH, T & Biệt thự V",
+            description: "So sánh chi tiết 3 loại sản phẩm: diện tích, giá tham khảo, pháp lý và hướng dẫn chọn phù hợp.",
+            tag: "Nhà phố",
+          },
+          {
+            href: "/mega-city-2/quy-hoach-nhan-trach",
+            title: "Quy hoạch Nhơn Trạch 2026",
+            description: "Sân bay Long Thành, cầu Nhơn Trạch, đường 25C và tác động đến bất động sản khu vực.",
+            tag: "Quy hoạch",
+          },
+          {
+            href: "/mega-city-2/san-bay-long-thanh",
+            title: "Sân bay Long Thành & Mega City 2",
+            description: "Khoảng cách ~18 km, phân tích tác động sân bay quốc tế đến giá đất Nhơn Trạch.",
+            tag: "Sân bay",
           },
         ]}
       />
