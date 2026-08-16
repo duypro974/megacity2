@@ -57,6 +57,7 @@ const FOLDER_MAP = {
   "news3":             "megacity2/news3",
   "news4":             "megacity2/news4",
   "news5":             "megacity2/news5",
+  "news6":             "megacity2/news6",
 };
 
 // File name mapping — chuẩn hóa tên file có ký tự đặc biệt

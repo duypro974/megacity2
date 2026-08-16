@@ -90,6 +90,16 @@ const ALL_NEWS: NewsItem[] = [
     image: `${CDN}/megacity2/news1/1`,
     href:  "/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach",
   },
+  {
+    slug:     "gia-dat-nhon-trach-2026",
+    title:    "Giá đất Nhơn Trạch 2026: Thị trường đang diễn biến như thế nào?",
+    date:     "16/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Cập nhật bảng giá đất Nhơn Trạch theo quy định mới, giá thực tế thị trường, các khu vực tiềm năng và phân tích dự án Mega City 2.",
+    image: `${CDN}/megacity2/news6/1`,
+    href:  "/tin-tuc/gia-dat-nhon-trach-2026",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────

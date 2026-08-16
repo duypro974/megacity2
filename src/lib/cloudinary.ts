@@ -91,6 +91,13 @@ const LOCAL: Record<string, string> = {
   "megacity2/news3/8.png":               "/news3/8.png",
   "megacity2/news3/9.png":               "/news3/9.png",
   "megacity2/news3/10.jpg":              "/news3/10.jpg",
+  "megacity2/news6/1.png":               "/news6/1.png",
+  "megacity2/news6/2.jpg":               "/news6/2.jpg",
+  "megacity2/news6/3.jpg":               "/news6/3.jpg",
+  "megacity2/news6/4.jpg":               "/news6/4.jpg",
+  "megacity2/news6/5.jpg":               "/news6/5.jpg",
+  "megacity2/news6/6.jpg":               "/news6/6.jpg",
+  "megacity2/news6/7.webp":              "/news6/7.webp",
 };
 
 export function cld(
@@ -261,6 +268,19 @@ export const IMG_NEWS3: Record<string, string> = Object.fromEntries(
     ["9",  "9.png"],
     ["10", "10.jpg"],
   ].map(([k, v]) => [k, cld("megacity2/news3", v, "lg")])
+);
+
+/** News6 — Giá đất Nhơn Trạch 2026 (7 ảnh) */
+export const IMG_NEWS6: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.png"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.jpg"],
+    ["5", "5.jpg"],
+    ["6", "6.jpg"],
+    ["7", "7.webp"],
+  ].map(([k, v]) => [k, cld("megacity2/news6", v, "lg")])
 );
 
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */

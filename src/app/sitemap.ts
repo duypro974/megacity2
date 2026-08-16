@@ -222,6 +222,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
+      url: `${BASE}/tin-tuc/gia-dat-nhon-trach-2026`,
+      lastModified: "2026-08-16",
+      changeFrequency: "weekly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news6/1"),
+        cimg("megacity2/news6/2"),
+        cimg("megacity2/news6/3"),
+        cimg("megacity2/news6/4"),
+      ],
+    },
+
+    {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
       lastModified: "2026-08-13",
       changeFrequency: "monthly",

@@ -57,6 +57,19 @@ const NEWS: NewsItem[] = [
     verified: true,
     source: "kimoanhdongnai.com.vn",
   },
+  // ── 1 bài Thị trường mới — giá đất Nhơn Trạch 2026 ────────
+  {
+    slug: "gia-dat-nhon-trach-2026",
+    title: "Giá đất Nhơn Trạch 2026: Thị trường đang diễn biến như thế nào?",
+    date: "16/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Cập nhật bảng giá đất Nhơn Trạch theo quy định mới, giá thực tế thị trường, các khu vực tiềm năng và phân tích dự án Mega City 2.",
+    image: `${CDN}/megacity2/news6/1`,
+    href: "/tin-tuc/gia-dat-nhon-trach-2026",
+    verified: true,
+    source: "kimoanhdongnai.com.vn",
+  },
   // ── 1 bài Tin dự án — mới nhất ────────────────────────────
   {
     slug: "phap-ly-mega-city-2",
@@ -70,7 +83,7 @@ const NEWS: NewsItem[] = [
     verified: true,
     source: "kimoanhdongnai.com.vn",
   },
-  // ── 1 bài Thị trường — mới nhất ───────────────────────────
+  // ── 1 bài Thị trường ───────────────────────────────────────
   {
     slug: "co-nen-dau-tu-mega-city-2-nhon-trach",
     title: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
