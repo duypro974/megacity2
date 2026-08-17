@@ -247,6 +247,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach`,
+      lastModified: "2026-08-17",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news8/1"),
+        cimg("megacity2/news8/2"),
+        cimg("megacity2/news8/3"),
+        cimg("megacity2/news8/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
       lastModified: "2026-08-13",
       changeFrequency: "monthly",

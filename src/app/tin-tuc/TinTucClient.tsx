@@ -110,6 +110,16 @@ const ALL_NEWS: NewsItem[] = [
     image: `${CDN}/megacity2/news7/1`,
     href:  "/tin-tuc/quy-hoach-nhon-trach-moi-nhat",
   },
+  {
+    slug:     "san-bay-long-thanh-va-bat-dong-san-nhon-trach",
+    title:    "Sân bay Long Thành ảnh hưởng như thế nào đến bất động sản Nhơn Trạch?",
+    date:     "17/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Sân bay Long Thành đang tạo ra những tác động đáng kể đến thị trường bất động sản Nhơn Trạch. Tìm hiểu khoảng cách, tiềm năng và những khu vực được hưởng lợi.",
+    image: `${CDN}/megacity2/news8/1`,
+    href:  "/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
