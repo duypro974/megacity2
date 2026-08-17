@@ -314,6 +314,16 @@ export const IMG_NEWS8: Record<string, string> = Object.fromEntries(
   ].map(([k, v]) => [k, cld("megacity2/news8", v, "lg")])
 );
 
+/** News9 — Cao tốc Biên Hòa - Vũng Tàu và BĐS Nhơn Trạch (4 ảnh) */
+export const IMG_NEWS9: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.jpg"],
+  ].map(([k, v]) => [k, cld("megacity2/news9", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

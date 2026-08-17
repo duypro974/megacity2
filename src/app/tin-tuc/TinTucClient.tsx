@@ -120,6 +120,16 @@ const ALL_NEWS: NewsItem[] = [
     image: `${CDN}/megacity2/news8/1`,
     href:  "/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach",
   },
+  {
+    slug:     "cao-toc-bien-hoa-vung-tau",
+    title:    "Cao tốc Biên Hòa - Vũng Tàu tác động như thế nào đến bất động sản Nhơn Trạch?",
+    date:     "17/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Tìm hiểu tác động của cao tốc Biên Hòa - Vũng Tàu đến thị trường bất động sản Nhơn Trạch. Phân tích hạ tầng, kết nối giao thông và tiềm năng trong tương lai.",
+    image: `${CDN}/megacity2/news9/1`,
+    href:  "/tin-tuc/cao-toc-bien-hoa-vung-tau",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
