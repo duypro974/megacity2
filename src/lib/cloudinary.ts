@@ -324,6 +324,18 @@ export const IMG_NEWS9: Record<string, string> = Object.fromEntries(
   ].map(([k, v]) => [k, cld("megacity2/news9", v, "lg")])
 );
 
+/** News10 — Kinh nghiệm mua đất nền Nhơn Trạch (6 ảnh, 4-6 là phối cảnh Mega City 2) */
+export const IMG_NEWS10: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.webp"],
+    ["4", "4.jpg"],
+    ["5", "5.jpg"],
+    ["6", "6.jpg"],
+  ].map(([k, v]) => [k, cld("megacity2/news10", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

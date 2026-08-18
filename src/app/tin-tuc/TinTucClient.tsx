@@ -130,6 +130,16 @@ const ALL_NEWS: NewsItem[] = [
     image: `${CDN}/megacity2/news9/1`,
     href:  "/tin-tuc/cao-toc-bien-hoa-vung-tau",
   },
+  {
+    slug:     "kinh-nghiem-mua-dat-nen-nhon-trach",
+    title:    "Kinh Nghiệm Mua Đất Nền Nhơn Trạch Từ A-Z Cho Người Mới Năm 2026",
+    date:     "18/08/2026",
+    category: "thi-truong",
+    excerpt:
+      "Tổng hợp kinh nghiệm mua đất nền Nhơn Trạch: kiểm tra pháp lý, quy hoạch, vị trí, so sánh giá và những sai lầm cần tránh khi đầu tư.",
+    image: `${CDN}/megacity2/news10/1`,
+    href:  "/tin-tuc/kinh-nghiem-mua-dat-nen-nhon-trach",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────

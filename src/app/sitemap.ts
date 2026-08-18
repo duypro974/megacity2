@@ -271,6 +271,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/kinh-nghiem-mua-dat-nen-nhon-trach`,
+      lastModified: "2026-08-18",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news10/1"),
+        cimg("megacity2/news10/2"),
+        cimg("megacity2/news10/3"),
+        cimg("megacity2/news10/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
       lastModified: "2026-08-13",
       changeFrequency: "monthly",
