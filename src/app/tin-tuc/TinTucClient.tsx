@@ -140,6 +140,16 @@ const ALL_NEWS: NewsItem[] = [
     image: `${CDN}/megacity2/news10/1`,
     href:  "/tin-tuc/kinh-nghiem-mua-dat-nen-nhon-trach",
   },
+  {
+    slug:     "5-ly-do-nen-dau-tu-mega-city-2",
+    title:    "5 Lý Do Nên Đầu Tư Mega City 2 Nhơn Trạch Trong Năm 2026",
+    date:     "18/08/2026",
+    category: "tin-du-an",
+    excerpt:
+      "Phân tích 5 lý do: vị trí chiến lược, hạ tầng vùng, quy hoạch đồng bộ, giá hợp lý và tiềm năng dài hạn giúp Mega City 2 thu hút nhiều nhà đầu tư.",
+    image: `${CDN}/megacity2/news11/1`,
+    href:  "/tin-tuc/5-ly-do-nen-dau-tu-mega-city-2",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────

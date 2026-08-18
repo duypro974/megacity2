@@ -336,6 +336,17 @@ export const IMG_NEWS10: Record<string, string> = Object.fromEntries(
   ].map(([k, v]) => [k, cld("megacity2/news10", v, "lg")])
 );
 
+/** News11 — 5 Lý Do Nên Đầu Tư Mega City 2 (5 ảnh) */
+export const IMG_NEWS11: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.webp"],
+    ["5", "5.webp"],
+  ].map(([k, v]) => [k, cld("megacity2/news11", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

@@ -283,6 +283,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/5-ly-do-nen-dau-tu-mega-city-2`,
+      lastModified: "2026-08-18",
+      changeFrequency: "monthly",
+      priority: 0.83,
+      images: [
+        cimg("megacity2/news11/1"),
+        cimg("megacity2/news11/2"),
+        cimg("megacity2/news11/3"),
+        cimg("megacity2/news11/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
       lastModified: "2026-08-13",
       changeFrequency: "monthly",
