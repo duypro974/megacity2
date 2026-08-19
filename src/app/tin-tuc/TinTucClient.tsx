@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cau-cat-lai",
+    title:    "Cầu Cát Lái 2026: Tiến Độ Mới Nhất Và Tác Động Đến Bất Động Sản Nhơn Trạch",
+    date:     "19/08/2026",
+    category: "thi-truong",
+    excerpt:  "Cập nhật tiến độ cầu Cát Lái mới nhất năm 2026. Phân tích kết nối TP.HCM – Nhơn Trạch và tác động đến thị trường bất động sản khu vực.",
+    image: `${CDN}/megacity2/news15/1`,
+    href:  "/tin-tuc/cau-cat-lai",
+  },
+  {
     slug:     "duong-25c",
     title:    "Đường 25C Nhơn Trạch: Tiến Độ Mới Nhất 2026 Và Tác Động Đến Mega City 2",
     date:     "19/08/2026",

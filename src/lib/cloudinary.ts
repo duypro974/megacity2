@@ -373,6 +373,12 @@ export const IMG_NEWS14: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news14", v, "lg")])
 );
 
+/** News15 — Cầu Cát Lái 2026 (4 ảnh) */
+export const IMG_NEWS15: Record<string, string> = Object.fromEntries(
+  [["1","1.webp"],["2","2.webp"],["3","3.png"],["4","4.jpg"]]
+    .map(([k, v]) => [k, cld("megacity2/news15", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

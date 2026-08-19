@@ -218,6 +218,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news14/4"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/cau-cat-lai`,
+      lastModified: "2026-08-19",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news15/1"),
+        cimg("megacity2/news15/2"),
+        cimg("megacity2/news15/3"),
+        cimg("megacity2/news15/4"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 
