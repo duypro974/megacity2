@@ -1,0 +1,20 @@
+# KIM OANH ĐỒNG NAI
+
+Website: https://kimoanhdongnai.com.vn
+
+## Priority pages
+
+/mega-city-2
+/mega-city-2/bang-gia
+/mega-city-2/vi-tri
+/mega-city-2/phap-ly
+/mega-city-2/tien-do
+/mega-city-2/hinh-anh
+/mega-city-2/tien-ich
+/mega-city-2/mat-bang
+/mega-city-2/thanh-toan
+/mega-city-2/faq
+
+## Sitemap
+
+https://kimoanhdongnai.com.vn/sitemap.xml

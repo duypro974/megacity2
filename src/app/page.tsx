@@ -17,14 +17,58 @@ export const metadata: Metadata = {
   description:
     "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn" },
+  // E-E-A-T: khai báo tác giả/tổ chức xuất bản
+  authors: [{ name: "Ban biên tập KIM OANH ĐỒNG NAI" }],
   openGraph: {
     title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
     description:
       "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai – Mega City 2 Nhơn Trạch, K-Home CityView.",
+    url: "https://kimoanhdongnai.com.vn",
     type: "website",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
+        width: 1280,
+        height: 720,
+        alt: "Kim Oanh Đồng Nai – Mega City 2 Nhơn Trạch",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
+    description:
+      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai – Mega City 2 Nhơn Trạch, K-Home CityView.",
+    images: [
+      "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
+    ],
+  },
+};
+
+// ─────────────────────────────────────────────────────────────
+// JSON-LD WebPage — E-E-A-T: author, publisher, dateModified
+// ─────────────────────────────────────────────────────────────
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
+  url: "https://kimoanhdongnai.com.vn",
+  description:
+    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
+  author: {
+    "@type": "Organization",
+    name: "KIM OANH ĐỒNG NAI",
+    url: "https://kimoanhdongnai.com.vn",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "KIM OANH ĐỒNG NAI",
+    url: "https://kimoanhdongnai.com.vn",
+  },
+  datePublished: "2026-01-01",
+  dateModified: "2026-08-19",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -49,6 +93,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* JSON-LD WebPage — E-E-A-T */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+
       {/* 01. Header */}
       <CorpHeader />
 
@@ -79,6 +129,15 @@ export default function HomePage() {
       </main>
 
       {/* 11. Footer */}
+      {/* E-E-A-T: tác giả và ngày cập nhật — ẩn thị giác, vẫn có trong DOM */}
+      <div
+        className="homepage-meta sr-only"
+        aria-hidden="true"
+        style={{ position: "absolute", width: 1, height: 1, overflow: "hidden" }}
+      >
+        <p>Tác giả: Ban biên tập KIM OANH ĐỒNG NAI</p>
+        <p>Cập nhật lần cuối: 19/08/2026</p>
+      </div>
       <CorpFooter />
     </>
   );
