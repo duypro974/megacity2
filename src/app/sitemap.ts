@@ -230,6 +230,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news15/4"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/vanh-dai-3`,
+      lastModified: "2026-08-19",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news16/1"),
+        cimg("megacity2/news16/2"),
+        cimg("megacity2/news16/3"),
+        cimg("megacity2/news16/4"),
+        cimg("megacity2/news16/5"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 

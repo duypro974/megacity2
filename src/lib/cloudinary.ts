@@ -379,6 +379,12 @@ export const IMG_NEWS15: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news15", v, "lg")])
 );
 
+/** News16 — Vành đai 3 TP.HCM 2026 (5 ảnh) */
+export const IMG_NEWS16: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.webp"],["3","3.jpg"],["4","4.webp"],["5","5.webp"]]
+    .map(([k, v]) => [k, cld("megacity2/news16", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

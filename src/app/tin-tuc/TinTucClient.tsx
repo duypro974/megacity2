@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "vanh-dai-3",
+    title:    "Vành đai 3 TP.HCM 2026: Tiến Độ Mới Nhất Và Tác Động Đến Bất Động Sản Nhơn Trạch",
+    date:     "19/08/2026",
+    category: "thi-truong",
+    excerpt:  "Cập nhật tiến độ Vành đai 3 TP.HCM mới nhất năm 2026. Phân tích vị trí, quy hoạch, khả năng kết nối với Nhơn Trạch và tác động đến thị trường bất động sản.",
+    image: `${CDN}/megacity2/news16/1`,
+    href:  "/tin-tuc/vanh-dai-3",
+  },
+  {
     slug:     "cau-cat-lai",
     title:    "Cầu Cát Lái 2026: Tiến Độ Mới Nhất Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "19/08/2026",
