@@ -357,6 +357,16 @@ export const IMG_NEWS12: Record<string, string> = Object.fromEntries(
   ].map(([k, v]) => [k, cld("megacity2/news12", v, "lg")])
 );
 
+/** News13 — Lịch sử Kim Oanh Group (4 ảnh) */
+export const IMG_NEWS13: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.png"],
+    ["4", "4.png"],
+  ].map(([k, v]) => [k, cld("megacity2/news13", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

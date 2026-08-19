@@ -307,6 +307,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/lich-su-phat-trien-kim-oanh-group`,
+      lastModified: "2026-08-19",
+      changeFrequency: "monthly",
+      priority: 0.78,
+      images: [
+        cimg("megacity2/news13/1"),
+        cimg("megacity2/news13/2"),
+        cimg("megacity2/news13/3"),
+        cimg("megacity2/news13/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
       lastModified: "2026-08-13",
       changeFrequency: "monthly",

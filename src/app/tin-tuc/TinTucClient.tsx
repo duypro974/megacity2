@@ -52,6 +52,15 @@ const ALL_NEWS: NewsItem[] = [
     href:  "/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat",
   },
   {
+    slug:     "lich-su-phat-trien-kim-oanh-group",
+    title:    "Lịch sử hình thành và phát triển của Kim Oanh Group",
+    date:     "19/08/2026",
+    category: "kim-oanh",
+    excerpt:  "Khám phá hành trình phát triển của Kim Oanh Group từ những ngày đầu thành lập đến khi trở thành thương hiệu bất động sản nổi bật tại Việt Nam.",
+    image: `${CDN}/megacity2/news13/1`,
+    href:  "/tin-tuc/lich-su-phat-trien-kim-oanh-group",
+  },
+  {
     slug:     "5-ly-do-nen-dau-tu-mega-city-2",
     title:    "5 Lý Do Nên Đầu Tư Mega City 2 Nhơn Trạch Trong Năm 2026",
     date:     "18/08/2026",
