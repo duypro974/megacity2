@@ -206,6 +206,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/regional-link/1.jpg"),
       ],
     },
+    {
+      url: `${BASE}/mega-city-2/duong-25c`,
+      lastModified: "2026-08-19",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news14/1"),
+        cimg("megacity2/news14/2"),
+        cimg("megacity2/news14/3"),
+        cimg("megacity2/news14/4"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 
