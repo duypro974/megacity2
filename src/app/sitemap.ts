@@ -207,7 +207,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${BASE}/mega-city-2/duong-25c`,
+      url: `${BASE}/tin-tuc/duong-25c`,
       lastModified: "2026-08-19",
       changeFrequency: "monthly",
       priority: 0.80,

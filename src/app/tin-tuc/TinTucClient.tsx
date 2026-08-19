@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "duong-25c",
+    title:    "Đường 25C Nhơn Trạch: Tiến Độ Mới Nhất 2026 Và Tác Động Đến Mega City 2",
+    date:     "19/08/2026",
+    category: "thi-truong",
+    excerpt:  "Cập nhật tiến độ đường 25C Nhơn Trạch mới nhất năm 2026. Phân tích kết nối đến sân bay Long Thành và tác động của hạ tầng đến dự án Mega City 2.",
+    image: `${CDN}/megacity2/news14/1`,
+    href:  "/tin-tuc/duong-25c",
+  },
+  {
     slug:     "ha-tang-giao-thong-nhon-trach-moi-nhat",
     title:    "Hạ tầng giao thông Nhơn Trạch mới nhất 2026: Những thay đổi tác động đến bất động sản",
     date:     "19/08/2026",
