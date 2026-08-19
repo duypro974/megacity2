@@ -67,7 +67,6 @@ const webPageSchema = {
     name: "KIM OANH ĐỒNG NAI",
     url: "https://kimoanhdongnai.com.vn",
   },
-  datePublished: "2026-01-01",
   dateModified: "2026-08-19",
 };
 
@@ -129,15 +128,6 @@ export default function HomePage() {
       </main>
 
       {/* 11. Footer */}
-      {/* E-E-A-T: tác giả và ngày cập nhật — ẩn thị giác, vẫn có trong DOM */}
-      <div
-        className="homepage-meta sr-only"
-        aria-hidden="true"
-        style={{ position: "absolute", width: 1, height: 1, overflow: "hidden" }}
-      >
-        <p>Tác giả: Ban biên tập KIM OANH ĐỒNG NAI</p>
-        <p>Cập nhật lần cuối: 19/08/2026</p>
-      </div>
       <CorpFooter />
     </>
   );

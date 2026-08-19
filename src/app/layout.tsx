@@ -91,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: "Kim Oanh Đồng Nai – Thông tin dự án Mega City 2 Nhơn Trạch",
               description: "Tư vấn và giới thiệu dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai.",
               url: "https://kimoanhdongnai.com.vn",
-              telephone: "+840937587438",
+              telephone: "+84937587438",
               email: "k.homekog@gmail.com",
               address: {
                 "@type": "PostalAddress",

@@ -270,6 +270,9 @@ export default function CorpFooter() {
             <p className="text-slate-600">
               Website cung cấp thông tin dự án, không đại diện cho chủ đầu tư.
             </p>
+            {/* E-E-A-T: tác giả và ngày cập nhật — đọc được bởi crawler */}
+            <p className="sr-only">Tác giả: Ban biên tập KIM OANH ĐỒNG NAI</p>
+            <p className="sr-only">Cập nhật lần cuối: 19/08/2026</p>
           </div>
           <div className="flex items-center gap-4">
             <Link
