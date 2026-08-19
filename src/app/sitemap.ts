@@ -295,6 +295,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat`,
+      lastModified: "2026-08-19",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news12/1"),
+        cimg("megacity2/news12/2"),
+        cimg("megacity2/news12/3"),
+        cimg("megacity2/news12/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
       lastModified: "2026-08-13",
       changeFrequency: "monthly",

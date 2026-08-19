@@ -347,6 +347,16 @@ export const IMG_NEWS11: Record<string, string> = Object.fromEntries(
   ].map(([k, v]) => [k, cld("megacity2/news11", v, "lg")])
 );
 
+/** News12 — Hạ tầng giao thông Nhơn Trạch 2026 (4 ảnh) */
+export const IMG_NEWS12: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.png"],
+    ["2", "2.jpg"],
+    ["3", "3.webp"],
+    ["4", "4.jpg"],
+  ].map(([k, v]) => [k, cld("megacity2/news12", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background
