@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cao-toc-ben-luc-long-thanh",
+    title:    "Cao tốc Bến Lức - Long Thành 2026: Tiến Độ Và Tác Động Đến Bất Động Sản Nhơn Trạch",
+    date:     "20/08/2026",
+    category: "thi-truong",
+    excerpt:  "Cập nhật tiến độ cao tốc Bến Lức - Long Thành năm 2026, khả năng kết nối Nhơn Trạch với TP.HCM, Long Thành và các khu vực kinh tế phía Nam.",
+    image: `${CDN}/megacity2/news17/1`,
+    href:  "/tin-tuc/cao-toc-ben-luc-long-thanh",
+  },
+  {
     slug:     "vanh-dai-3",
     title:    "Vành đai 3 TP.HCM 2026: Tiến Độ Mới Nhất Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "19/08/2026",

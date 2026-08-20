@@ -385,6 +385,12 @@ export const IMG_NEWS16: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news16", v, "lg")])
 );
 
+/** News17 — Cao tốc Bến Lức - Long Thành 2026 (5 ảnh) */
+export const IMG_NEWS17: Record<string, string> = Object.fromEntries(
+  [["1","1.png"],["2","2.jpg"],["3","3.jpg"],["4","4.webp"],["5","5.jpg"]]
+    .map(([k, v]) => [k, cld("megacity2/news17", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

@@ -243,6 +243,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news16/5"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/cao-toc-ben-luc-long-thanh`,
+      lastModified: "2026-08-20",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news17/1"),
+        cimg("megacity2/news17/2"),
+        cimg("megacity2/news17/3"),
+        cimg("megacity2/news17/4"),
+        cimg("megacity2/news17/5"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 
