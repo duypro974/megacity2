@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cao-toc-bien-hoa-vung-tau",
+    title:    "Cao tốc Biên Hòa - Vũng Tàu 2026: Tiến Độ Và Tác Động Đến Bất Động Sản Nhơn Trạch",
+    date:     "20/08/2026",
+    category: "thi-truong",
+    excerpt:  "Cập nhật cao tốc Biên Hòa - Vũng Tàu năm 2026, hướng tuyến, tiến độ, khả năng kết nối sân bay Long Thành và tác động đến bất động sản Nhơn Trạch.",
+    image: `${CDN}/megacity2/news18/1`,
+    href:  "/tin-tuc/cao-toc-bien-hoa-vung-tau",
+  },
+  {
     slug:     "cao-toc-ben-luc-long-thanh",
     title:    "Cao tốc Bến Lức - Long Thành 2026: Tiến Độ Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "20/08/2026",

@@ -257,6 +257,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
+    {
+      url: `${BASE}/tin-tuc/cao-toc-bien-hoa-vung-tau`,
+      lastModified: "2026-08-20",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news18/1"),
+        cimg("megacity2/news18/2"),
+        cimg("megacity2/news18/3"),
+        cimg("megacity2/news18/4"),
+        cimg("megacity2/news18/5"),
+      ],
+    },
+
     // ── Tin tức ──────────────────────────────────────────────
 
     {
