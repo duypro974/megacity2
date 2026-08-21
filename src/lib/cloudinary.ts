@@ -403,6 +403,12 @@ export const IMG_NEWS19: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news19", v, "lg")])
 );
 
+/** News20 — Quy hoạch 1/500 Nhơn Trạch (6 ảnh) */
+export const IMG_NEWS20: Record<string, string> = Object.fromEntries(
+  [["1","1.webp"],["2","2.webp"],["3","3.png"],["4","4.jpg"],["5","5.webp"],["6","6.jpg"]]
+    .map(([k, v]) => [k, cld("megacity2/news20", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

@@ -284,6 +284,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news19/6"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/quy-hoach-1-500-nhon-trach`,
+      lastModified: "2026-08-21",
+      changeFrequency: "monthly",
+      priority: 0.83,
+      images: [
+        cimg("megacity2/news20/1"),
+        cimg("megacity2/news20/2"),
+        cimg("megacity2/news20/3"),
+        cimg("megacity2/news20/4"),
+        cimg("megacity2/news20/5"),
+        cimg("megacity2/news20/6"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 

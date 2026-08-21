@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "quy-hoach-1-500-nhon-trach",
+    title:    "Quy hoạch 1/500 Nhơn Trạch: Cách Đọc Bản Đồ Và Những Điều Người Mua Đất Cần Biết",
+    date:     "21/08/2026",
+    category: "thi-truong",
+    excerpt:  "Quy hoạch 1/500 Nhơn Trạch là gì? Hướng dẫn cách đọc bản đồ quy hoạch chi tiết, phân biệt các cấp quy hoạch và kiểm tra pháp lý trước khi mua đất.",
+    image: `${CDN}/megacity2/news20/1`,
+    href:  "/tin-tuc/quy-hoach-1-500-nhon-trach",
+  },
+  {
     slug:     "cau-nhon-trach",
     title:    "Cầu Nhơn Trạch 2026: Kết Nối Giao Thông & Tác Động Bất Động Sản",
     date:     "21/08/2026",
