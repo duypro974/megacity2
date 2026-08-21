@@ -310,6 +310,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news21/4"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/mua-dat-nhon-trach-can-luu-y-gi`,
+      lastModified: "2026-08-22",
+      changeFrequency: "monthly",
+      priority: 0.84,
+      images: [
+        cimg("megacity2/news22/1"),
+        cimg("megacity2/news22/2"),
+        cimg("megacity2/news22/3"),
+        cimg("megacity2/news22/4"),
+        cimg("megacity2/news22/5"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 

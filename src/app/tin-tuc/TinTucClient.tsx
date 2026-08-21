@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "mua-dat-nhon-trach-can-luu-y-gi",
+    title:    "Mua Đất Nhơn Trạch Cần Lưu Ý Gì? 10 Điều Quan Trọng Người Mua Cần Biết Năm 2026",
+    date:     "22/08/2026",
+    category: "thi-truong",
+    excerpt:  "10 yếu tố quan trọng về pháp lý, quy hoạch, vị trí, giá bán, hạ tầng và tài chính cần kiểm tra trước khi mua đất Nhơn Trạch năm 2026.",
+    image: `${CDN}/megacity2/news22/1`,
+    href:  "/tin-tuc/mua-dat-nhon-trach-can-luu-y-gi",
+  },
+  {
     slug:     "nen-mua-dat-nen-nhon-trach-hay-dau-tu-can-ho",
     title:    "Nên Mua Đất Nền Nhơn Trạch Hay Đầu Tư Căn Hộ? So Sánh Chi Tiết Cho Người Mới 2026",
     date:     "22/08/2026",
