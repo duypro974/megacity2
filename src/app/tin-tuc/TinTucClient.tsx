@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cau-nhon-trach",
+    title:    "Cầu Nhơn Trạch 2026: Kết Nối Giao Thông & Tác Động Bất Động Sản",
+    date:     "21/08/2026",
+    category: "thi-truong",
+    excerpt:  "Cầu Nhơn Trạch đã khánh thành 19/8/2025, khai thác từ 20/8/2025. Phân tích kết nối Vành đai 3, cao tốc TP.HCM – Long Thành và tác động đến bất động sản Nhơn Trạch.",
+    image: `${CDN}/megacity2/news19/1`,
+    href:  "/tin-tuc/cau-nhon-trach",
+  },
+  {
     slug:     "cao-toc-bien-hoa-vung-tau",
     title:    "Cao tốc Biên Hòa - Vũng Tàu 2026: Tiến Độ Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "20/08/2026",

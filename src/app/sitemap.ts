@@ -270,6 +270,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news18/5"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/cau-nhon-trach`,
+      lastModified: "2026-08-21",
+      changeFrequency: "monthly",
+      priority: 0.84,
+      images: [
+        cimg("megacity2/news19/1"),
+        cimg("megacity2/news19/2"),
+        cimg("megacity2/news19/3"),
+        cimg("megacity2/news19/4"),
+        cimg("megacity2/news19/5"),
+        cimg("megacity2/news19/6"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 
