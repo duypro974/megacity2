@@ -298,6 +298,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news20/6"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/nen-mua-dat-nen-nhon-trach-hay-dau-tu-can-ho`,
+      lastModified: "2026-08-22",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news21/1"),
+        cimg("megacity2/news21/2"),
+        cimg("megacity2/news21/3"),
+        cimg("megacity2/news21/4"),
+      ],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 

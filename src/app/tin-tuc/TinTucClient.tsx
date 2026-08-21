@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "nen-mua-dat-nen-nhon-trach-hay-dau-tu-can-ho",
+    title:    "Nên Mua Đất Nền Nhơn Trạch Hay Đầu Tư Căn Hộ? So Sánh Chi Tiết Cho Người Mới 2026",
+    date:     "22/08/2026",
+    category: "thi-truong",
+    excerpt:  "So sánh ưu nhược điểm, vốn, pháp lý, khả năng sử dụng, thanh khoản và tiềm năng của đất nền và căn hộ tại Nhơn Trạch để có cơ sở lựa chọn phù hợp.",
+    image: `${CDN}/megacity2/news21/1`,
+    href:  "/tin-tuc/nen-mua-dat-nen-nhon-trach-hay-dau-tu-can-ho",
+  },
+  {
     slug:     "quy-hoach-1-500-nhon-trach",
     title:    "Quy hoạch 1/500 Nhơn Trạch: Cách Đọc Bản Đồ Và Những Điều Người Mua Đất Cần Biết",
     date:     "21/08/2026",
