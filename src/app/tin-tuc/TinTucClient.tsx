@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "so-sanh-mega-city-2-va-cac-khu-do-thi-nhon-trach",
+    title:    "So Sánh Mega City 2 Và Các Khu Đô Thị Nhơn Trạch: Nên Chọn Dự Án Nào?",
+    date:     "23/08/2026",
+    category: "thi-truong",
+    excerpt:  "So sánh Mega City 2 với Aqua City, Izumi City và SwanBay theo vị trí, quy mô, sản phẩm, hạ tầng, tiện ích và nhu cầu đầu tư tại Nhơn Trạch 2026.",
+    image: `${CDN}/megacity2/news24/1`,
+    href:  "/tin-tuc/so-sanh-mega-city-2-va-cac-khu-do-thi-nhon-trach",
+  },
+  {
     slug:     "quy-trinh-mua-dat-nen-nhon-trach",
     title:    "Quy Trình Mua Đất Nền Nhơn Trạch Từ A–Z: 8 Bước Cần Biết Năm 2026",
     date:     "23/08/2026",

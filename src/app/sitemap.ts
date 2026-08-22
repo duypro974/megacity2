@@ -324,6 +324,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.84,
       images: [cimg("megacity2/news23/1"),cimg("megacity2/news23/2"),cimg("megacity2/news23/3"),cimg("megacity2/news23/4")],
     },
+    {
+      url: `${BASE}/tin-tuc/so-sanh-mega-city-2-va-cac-khu-do-thi-nhon-trach`,
+      lastModified: "2026-08-23",
+      changeFrequency: "monthly",
+      priority: 0.83,
+      images: [cimg("megacity2/news24/1"),cimg("megacity2/news24/2"),cimg("megacity2/news24/3"),cimg("megacity2/news24/4"),cimg("megacity2/news24/5"),cimg("megacity2/news24/6")],
+    },
 
     // ── Tin tức ──────────────────────────────────────────────
 
