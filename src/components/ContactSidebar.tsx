@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { ChevronUp } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SITE_CONFIG } from "@/data/siteConfig";
 
@@ -92,6 +94,16 @@ function MessengerButton() {
 export default function ContactSidebar() {
   useScrollReveal();
 
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <>
       {/* Keyframe styles */}
@@ -124,9 +136,24 @@ export default function ContactSidebar() {
 
       {/* Mobile — bottom right floating */}
       <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-2.5 md:hidden">
+        <PhoneButton />
         <ZaloButton />
         <MessengerButton />
       </div>
+
+      {/* Scroll to top — góc trái dưới cùng, hiện khi scroll xuống */}
+      {showTop && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Lên đầu trang"
+          className="fixed bottom-4 left-4 z-50 w-12 h-12 rounded-full
+                     bg-amber-500 hover:bg-amber-600
+                     text-white shadow-lg flex items-center justify-center
+                     transition-all duration-200 hover:scale-110 lg:bottom-[4.5rem]"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
     </>
   );
 }

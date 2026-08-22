@@ -269,7 +269,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
           <button
             className={cn(
               "xl:hidden p-2 rounded-lg transition",
-              scrolled
+              scrolled || solid
                 ? "text-slate-800 hover:bg-gray-100"
                 : "text-white hover:bg-white/10"
             )}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import LeadPopup from "@/components/LeadPopup";
 
 // Homepage sections — theo đúng thứ tự cấu trúc
 import HomeHero from "@/components/home/Hero";
@@ -103,6 +104,9 @@ export default function HomePage() {
 
       {/* Scroll reveal observer */}
       <ScrollRevealInit />
+
+      {/* Popup tư vấn — hiện sau 5s, 1 lần/session */}
+      <LeadPopup />
 
       <main>
         {/* 02. Hero */}
