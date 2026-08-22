@@ -56,7 +56,7 @@ function ZaloButton() {
                  bg-blue-500 shadow-lg hover:scale-110 transition-transform duration-200"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/z.png" alt="Zalo" className="w-8 h-8 object-contain" />
+      <img src="/z.png" alt="Zalo" width={32} height={32} className="w-8 h-8 object-contain" />
       <span className="absolute right-14 whitespace-nowrap bg-slate-900 text-white text-xs font-medium
                        px-2 py-1 rounded-md shadow opacity-0 group-hover:opacity-100
                        transition-opacity duration-150 pointer-events-none">

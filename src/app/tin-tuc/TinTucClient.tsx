@@ -264,7 +264,11 @@ function NewsCard({ item }: { item: NewsItem }) {
       <div className="relative aspect-[16/9] bg-slate-100 overflow-hidden flex-shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={item.image} alt={item.title}
-          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" loading="lazy" />
+          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+          loading="lazy"
+          decoding="async"
+          width={800}
+          height={450} />
         <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${badge}`}>
           {CATEGORY_LABELS[item.category]}
         </span>

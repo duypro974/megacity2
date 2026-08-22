@@ -114,6 +114,8 @@ export default function HomeHero() {
           alt="Dự án bất động sản Kim Oanh tại Đồng Nai"
           className="absolute inset-0 w-full h-full object-cover"
           fetchPriority="high"
+          width={1920}
+          height={1080}
         />
 
         {/* Warm golden overlay — sáng, ấm như ảnh mẫu */}
@@ -173,8 +175,8 @@ export default function HomeHero() {
               Thông tin dự án&nbsp;•&nbsp;Tiến độ&nbsp;•&nbsp;Sản phẩm&nbsp;•&nbsp;Tư vấn
             </p>
 
-            {/* Description */}
-            <p className="text-white/65 text-base md:text-lg max-w-xl mb-12 leading-relaxed font-light">
+            {/* Description — LCP element: tăng opacity để đủ contrast WCAG AA và render sớm hơn */}
+            <p className="text-white/90 text-base md:text-lg max-w-xl mb-12 leading-relaxed font-light">
               Kênh thông tin tổng hợp các dự án bất động sản Kim Oanh đang được giới
               thiệu tại Đồng Nai, giúp khách hàng thuận tiện tìm hiểu thông tin dự án
               và kết nối tư vấn.
@@ -185,7 +187,7 @@ export default function HomeHero() {
               <button
                 onClick={() => scrollTo("du-an")}
                 className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400
-                           text-white px-8 py-4 rounded-full text-sm font-bold
+                           text-slate-900 px-8 py-4 rounded-full text-sm font-bold
                            shadow-lg shadow-amber-500/30 transition-all hover:-translate-y-0.5 group"
               >
                 KHÁM PHÁ DỰ ÁN

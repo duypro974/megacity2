@@ -95,7 +95,7 @@ export default function IntroSection() {
             <button
               onClick={() => document.getElementById("du-an")?.scrollIntoView({ behavior: "smooth" })}
               className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400
-                         text-white text-sm font-bold px-7 py-3.5 rounded-full
+                         text-slate-900 text-sm font-bold px-7 py-3.5 rounded-full
                          shadow-md shadow-amber-500/20 transition-all hover:-translate-y-0.5 group"
             >
               Xem các dự án đang hỗ trợ
@@ -124,6 +124,9 @@ export default function IntroSection() {
                 alt="Dự án bất động sản Kim Oanh tại Đồng Nai"
                 className="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
+                width={800}
+                height={1000}
               />
               {/* Gradient overlay */}
               <div

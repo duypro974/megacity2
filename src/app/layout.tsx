@@ -57,12 +57,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi" className="scroll-smooth">
       <head>
+        {/*
+          Font loading strategy — non-render-blocking:
+          - preconnect warms up DNS/TCP early
+          - preload as="style" tells browser to fetch font CSS at high priority
+          - rel="stylesheet" media="print" + inline onLoad script swaps to "all"
+            after load → font never blocks first paint
+          - Only weights actually used: 400 (body), 500 (medium), 600 (semibold),
+            700 (bold), 800 (extrabold). Removed 300/900/italic.
+          - display=swap ensures text visible in fallback font while loading
+        */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
-          rel="stylesheet"
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
         />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+          media="print"
+          // @ts-expect-error — onLoad string is intentional for non-blocking font swap
+          onLoad="this.media='all'"
+        />
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+          />
+        </noscript>
         {/*
           JSON-LD Organization + Website schema — chỉ đặt các schema
           áp dụng cho TOÀN SITE ở đây.

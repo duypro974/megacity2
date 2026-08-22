@@ -122,7 +122,7 @@ export default function CorpContactSection() {
               <a
                 href={`tel:${SITE_CONFIG.phone}`}
                 className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400
-                           text-white px-6 py-3 rounded-full text-sm font-bold
+                           text-slate-900 px-6 py-3 rounded-full text-sm font-bold
                            shadow-md shadow-amber-500/20 transition-all hover:scale-105"
               >
                 <Phone className="w-3.5 h-3.5" /> Gọi ngay
@@ -200,10 +200,15 @@ export default function CorpContactSection() {
 
                   {/* Dự án quan tâm */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
+                    <label
+                      htmlFor="contact-interest"
+                      className="block text-[11px] font-bold text-slate-500 mb-1.5 uppercase tracking-wider"
+                    >
                       Dự án quan tâm
                     </label>
                     <select
+                      id="contact-interest"
+                      name="interest"
                       value={form.interest}
                       onChange={(e) => setForm({ ...form, interest: e.target.value })}
                       className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3

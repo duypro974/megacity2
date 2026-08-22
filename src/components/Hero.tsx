@@ -23,6 +23,8 @@ export default function Hero() {
         alt="Phối cảnh tham khảo dự án Mega City 2 Nhơn Trạch"
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"
+        width={1920}
+        height={1080}
       />
 
       {/* Overlay: góc trái đậm → phải nhạt, + dưới lên trên đậm */}

@@ -177,6 +177,8 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
             <img
               src="/KOG_Web_RGB_01.svg"
               alt="Kim Oanh Group"
+              width={160}
+              height={36}
               className={cn(
                 "h-9 w-auto object-contain transition-all duration-300",
                 !scrolled && !solid ? "brightness-0 invert" : ""
@@ -258,7 +260,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
               href="/lien-he"
               className={cn(
                 "px-5 py-2.5 rounded-full text-[13px] font-bold transition-all duration-200",
-                "bg-amber-500 hover:bg-amber-400 text-white shadow-md shadow-amber-500/25 hover:shadow-amber-500/35 hover:scale-105"
+                "bg-amber-500 hover:bg-amber-400 text-slate-900 shadow-md shadow-amber-500/25 hover:shadow-amber-500/35 hover:scale-105"
               )}
             >
               TƯ VẤN
@@ -295,7 +297,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
             <div className="flex items-center justify-between px-4 py-4 border-b border-gray-100">
               <Link href="/" onClick={() => setOpen(false)}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/KOG_Web_RGB_01.svg" alt="Kim Oanh Group" className="h-8 w-auto" />
+                <img src="/KOG_Web_RGB_01.svg" alt="Kim Oanh Group" width={120} height={32} className="h-8 w-auto" />
               </Link>
               <button
                 onClick={() => { setOpen(false); setDropdown(null); }}
@@ -395,7 +397,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
                 <Link
                   href="/lien-he"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-2 bg-amber-500 text-white
+                  className="flex items-center justify-center gap-2 bg-amber-500 text-slate-900
                              py-3.5 rounded-full font-bold text-sm shadow-md w-full active:bg-amber-600"
                 >
                   <Phone className="w-4 h-4" /> TƯ VẤN

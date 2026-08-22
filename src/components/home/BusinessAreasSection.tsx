@@ -123,6 +123,9 @@ function AreaBlock({
                          group-hover:scale-[1.02] block p-6"
               style={{ aspectRatio: "16/9" }}
               loading="lazy"
+              decoding="async"
+              width={640}
+              height={360}
             />
           ) : (
             <ImagePlaceholder alt={area.imageAlt} aspect="16/9" />
@@ -171,6 +174,8 @@ export default function BusinessAreasSection() {
           <img
             src="/KOG_Web_RGB_01.svg"
             alt="Kim Oanh Group"
+            width={120}
+            height={20}
             className="h-5 w-auto object-contain opacity-60"
           />
         </div>

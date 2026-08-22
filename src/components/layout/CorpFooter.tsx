@@ -80,11 +80,13 @@ export default function CorpFooter() {
               <img
                 src="/KOG_Web_RGB_01.svg"
                 alt="Kim Oanh Group"
+                width={160}
+                height={36}
                 className="h-9 w-auto object-contain brightness-0 invert"
               />
             </div>
 
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            <p className="text-slate-300 text-sm leading-relaxed mb-6">
               {SITE_CONFIG.siteTagline}
             </p>
 
@@ -256,7 +258,7 @@ export default function CorpFooter() {
                   {SITE_CONFIG.email}
                 </a>
               </li>
-              <li className="text-sm text-slate-500 pl-7">
+              <li className="text-sm text-slate-400 pl-7">
                 {SITE_CONFIG.workingHours}
               </li>
             </ul>
@@ -265,9 +267,9 @@ export default function CorpFooter() {
 
         {/* ── Bottom bar ── */}
         <div className="border-t border-white/[0.07] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-slate-500 text-center sm:text-left space-y-1">
+          <div className="text-xs text-slate-400 text-center sm:text-left space-y-1">
             <p>© 2026 Kim Oanh Đồng Nai. Tất cả quyền được bảo lưu.</p>
-            <p className="text-slate-600">
+            <p className="text-slate-400">
               Website cung cấp thông tin dự án, không đại diện cho chủ đầu tư.
             </p>
             {/* E-E-A-T: tác giả và ngày cập nhật — đọc được bởi crawler */}
@@ -277,7 +279,7 @@ export default function CorpFooter() {
           <div className="flex items-center gap-4">
             <Link
               href="/admin"
-              className="text-xs text-slate-600 hover:text-amber-400 transition"
+              className="text-xs text-slate-400 hover:text-amber-400 transition"
             >
               Admin
             </Link>

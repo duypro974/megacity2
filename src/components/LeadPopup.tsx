@@ -127,10 +127,11 @@ function PopupForm({ onClose }: { onClose: () => void }) {
 
         {/* Nhu cầu */}
         <div>
-          <label className="block text-xs font-bold text-slate-600 mb-1.5 uppercase tracking-wide">
+          <label htmlFor="popup-interest" className="block text-xs font-bold text-slate-600 mb-1.5 uppercase tracking-wide">
             Nhu cầu của bạn
           </label>
           <select
+            id="popup-interest"
             name="interest" value={form.interest} onChange={handleChange}
             className="w-full px-4 py-3 text-sm border border-slate-200 rounded-xl
                        bg-slate-50 focus:bg-white focus:ring-2 focus:ring-green-400

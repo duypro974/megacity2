@@ -109,8 +109,9 @@ export default function LeadForm() {
 
         {/* Interest */}
         <div>
-          <label className="block text-xs font-bold text-slate-600 mb-1.5 uppercase tracking-wide">Nhu cầu của bạn</label>
+          <label htmlFor="leadform-interest" className="block text-xs font-bold text-slate-600 mb-1.5 uppercase tracking-wide">Nhu cầu của bạn</label>
           <select
+            id="leadform-interest"
             name="interest" value={form.interest} onChange={handleChange}
             className="w-full px-4 py-3 text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-transparent outline-none transition bg-slate-50 focus:bg-white"
           >

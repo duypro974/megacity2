@@ -80,7 +80,10 @@ function NewsCard({ item }: { item: NewsItem }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={item.image} alt={item.title}
           className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
-          loading="lazy" />
+          loading="lazy"
+          decoding="async"
+          width={400}
+          height={250} />
         <div className="absolute top-4 left-4">
           <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full ${BADGE_COLORS[item.category] ?? "bg-white/90 text-amber-700"}`}>
             {CATEGORY_LABELS[item.category] ?? item.category}

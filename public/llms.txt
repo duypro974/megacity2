@@ -1,20 +1,63 @@
-# KIM OANH ĐỒNG NAI
+# Kim Oanh Đồng Nai
 
-Website: https://kimoanhdongnai.com.vn
+Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.
 
-## Priority pages
+Website: [https://kimoanhdongnai.com.vn](https://kimoanhdongnai.com.vn)
 
-/mega-city-2
-/mega-city-2/bang-gia
-/mega-city-2/vi-tri
-/mega-city-2/phap-ly
-/mega-city-2/tien-do
-/mega-city-2/hinh-anh
-/mega-city-2/tien-ich
-/mega-city-2/mat-bang
-/mega-city-2/thanh-toan
-/mega-city-2/faq
+## Trang chủ
+
+- [Trang chủ Kim Oanh Đồng Nai](https://kimoanhdongnai.com.vn)
+- [Giới thiệu](https://kimoanhdongnai.com.vn/ve-chung-toi)
+- [Tin tức bất động sản](https://kimoanhdongnai.com.vn/tin-tuc)
+- [Liên hệ tư vấn](https://kimoanhdongnai.com.vn/lien-he)
+
+## Dự án Mega City 2 – Nhơn Trạch, Đồng Nai
+
+Khu dân cư Mega City 2 tọa lạc tại xã Nhơn Trạch, tỉnh Đồng Nai. Quy mô khoảng 84 ha, pháp lý rõ ràng, hạ tầng hoàn thiện.
+
+- [Tổng quan Mega City 2](https://kimoanhdongnai.com.vn/mega-city-2)
+- [Vị trí dự án](https://kimoanhdongnai.com.vn/mega-city-2/vi-tri)
+- [Pháp lý](https://kimoanhdongnai.com.vn/mega-city-2/phap-ly)
+- [Bảng giá mới nhất](https://kimoanhdongnai.com.vn/mega-city-2/bang-gia)
+- [Mặt bằng phân lô](https://kimoanhdongnai.com.vn/mega-city-2/mat-bang)
+- [Tiện ích nội khu](https://kimoanhdongnai.com.vn/mega-city-2/tien-ich)
+- [Tiến độ thi công](https://kimoanhdongnai.com.vn/mega-city-2/tien-do)
+- [Hình ảnh thực tế](https://kimoanhdongnai.com.vn/mega-city-2/hinh-anh)
+- [Phương thức thanh toán](https://kimoanhdongnai.com.vn/mega-city-2/thanh-toan)
+- [Câu hỏi thường gặp](https://kimoanhdongnai.com.vn/mega-city-2/faq)
+- [Nhà phố liên kề](https://kimoanhdongnai.com.vn/mega-city-2/nha-pho-lien-ke)
+- [Quy hoạch Nhơn Trạch](https://kimoanhdongnai.com.vn/mega-city-2/quy-hoach-nhan-trach)
+- [Sân bay Long Thành](https://kimoanhdongnai.com.vn/mega-city-2/san-bay-long-thanh)
+
+## Tin tức & Phân tích thị trường
+
+- [Bảng giá Mega City 2 mới nhất](https://kimoanhdongnai.com.vn/tin-tuc/bang-gia-mega-city-2-moi-nhat)
+- [Giá đất Nhơn Trạch 2026](https://kimoanhdongnai.com.vn/tin-tuc/gia-dat-nhon-trach-2026)
+- [Quy hoạch Nhơn Trạch mới nhất](https://kimoanhdongnai.com.vn/tin-tuc/quy-hoach-nhon-trach-moi-nhat)
+- [Sân bay Long Thành và BĐS Nhơn Trạch](https://kimoanhdongnai.com.vn/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach)
+- [Đường 25C Nhơn Trạch](https://kimoanhdongnai.com.vn/tin-tuc/duong-25c)
+- [Hạ tầng giao thông Nhơn Trạch 2026](https://kimoanhdongnai.com.vn/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat)
+- [5 lý do nên đầu tư Mega City 2](https://kimoanhdongnai.com.vn/tin-tuc/5-ly-do-nen-dau-tu-mega-city-2)
+- [Kinh nghiệm mua đất nền Nhơn Trạch](https://kimoanhdongnai.com.vn/tin-tuc/kinh-nghiem-mua-dat-nen-nhon-trach)
+- [Nên mua đất nền hay đầu tư căn hộ Nhơn Trạch](https://kimoanhdongnai.com.vn/tin-tuc/nen-mua-dat-nen-nhon-trach-hay-dau-tu-can-ho)
+- [Mua đất Nhơn Trạch cần lưu ý gì](https://kimoanhdongnai.com.vn/tin-tuc/mua-dat-nhon-trach-can-luu-y-gi)
+- [Quy trình mua đất nền Nhơn Trạch](https://kimoanhdongnai.com.vn/tin-tuc/quy-trinh-mua-dat-nen-nhon-trach)
+- [Cầu Nhơn Trạch 2026](https://kimoanhdongnai.com.vn/tin-tuc/cau-nhon-trach)
+- [Quy hoạch 1/500 Nhơn Trạch](https://kimoanhdongnai.com.vn/tin-tuc/quy-hoach-1-500-nhon-trach)
+- [Cao tốc Biên Hòa – Vũng Tàu](https://kimoanhdongnai.com.vn/tin-tuc/cao-toc-bien-hoa-vung-tau)
+- [Cao tốc Bến Lức – Long Thành](https://kimoanhdongnai.com.vn/tin-tuc/cao-toc-ben-luc-long-thanh)
+- [Vành đai 3 TP.HCM](https://kimoanhdongnai.com.vn/tin-tuc/vanh-dai-3)
+- [Cầu Cát Lái](https://kimoanhdongnai.com.vn/tin-tuc/cau-cat-lai)
+- [Lịch sử phát triển Kim Oanh Group](https://kimoanhdongnai.com.vn/tin-tuc/lich-su-phat-trien-kim-oanh-group)
+
+## Liên hệ
+
+- Hotline: 0937.587.438
+- Email: k.homekog@gmail.com
+- Địa chỉ: 268A Phan Trung, Phường Tam Hiệp, Tỉnh Đồng Nai
+- Giờ làm việc: 8:00 – 18:00, Thứ 2 – Chủ nhật
+- [Gửi yêu cầu tư vấn](https://kimoanhdongnai.com.vn/lien-he)
 
 ## Sitemap
 
-https://kimoanhdongnai.com.vn/sitemap.xml
+[https://kimoanhdongnai.com.vn/sitemap.xml](https://kimoanhdongnai.com.vn/sitemap.xml)
