@@ -146,10 +146,10 @@ export default function ContactSidebar() {
         <button
           onClick={scrollToTop}
           aria-label="Lên đầu trang"
-          className="fixed bottom-4 left-4 z-50 w-12 h-12 rounded-full
+          className="fixed bottom-[8.5rem] left-4 z-50 w-12 h-12 rounded-full
                      bg-amber-500 hover:bg-amber-600
                      text-white shadow-lg flex items-center justify-center
-                     transition-all duration-200 hover:scale-110 lg:bottom-[4.5rem]"
+                     transition-all duration-200 hover:scale-110 lg:bottom-[5.5rem]"
         >
           <ChevronUp className="w-5 h-5" />
         </button>
