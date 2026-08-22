@@ -64,14 +64,17 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Đóng desktop dropdown khi click ra ngoài (chỉ áp dụng khi desktop dropdown đang mở và mobile menu đóng)
   useEffect(() => {
+    if (open) return; // mobile drawer đang mở → không can thiệp
+    if (!dropdown) return;
     const handler = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target.closest("[data-dropdown-container]")) setDropdown(null);
     };
     document.addEventListener("click", handler);
     return () => document.removeEventListener("click", handler);
-  }, []);
+  }, [open, dropdown]);
 
   const handleAnchorClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -270,82 +273,100 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
                 ? "text-slate-800 hover:bg-gray-100"
                 : "text-white hover:bg-white/10"
             )}
-            onClick={() => setOpen(!open)}
+            onClick={() => { setOpen(!open); setDropdown(null); }}
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
+      </header>
 
-        {/* ── Mobile drawer ── */}
-        <div
-          className={cn(
-            "xl:hidden overflow-hidden transition-all duration-300",
-            open ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
-          )}
-        >
-          <div className="bg-white border-t border-gray-100 shadow-xl">
+      {/* ── Mobile drawer — full-screen overlay ngoài header để tránh bị che ── */}
+      {open && (
+        <div className="xl:hidden fixed inset-0 z-[60]" onClick={() => { setOpen(false); setDropdown(null); }}>
+          {/* backdrop mờ */}
+          <div className="absolute inset-0 bg-black/30" />
+          {/* panel trắng bên trên */}
+          <div
+            className="absolute top-0 left-0 right-0 bg-white shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header của drawer */}
+            <div className="flex items-center justify-between px-4 py-4 border-b border-gray-100">
+              <Link href="/" onClick={() => setOpen(false)}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/KOG_Web_RGB_01.svg" alt="Kim Oanh Group" className="h-8 w-auto" />
+              </Link>
+              <button
+                onClick={() => { setOpen(false); setDropdown(null); }}
+                className="p-2 rounded-lg text-slate-500 hover:bg-gray-100 transition"
+                aria-label="Đóng menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Nav items */}
             <nav className="flex flex-col px-4 py-2">
               {NAV.map((item) => (
                 <div key={item.label}>
                   {item.children ? (
                     <>
                       <button
-                        onClick={() =>
-                          setDropdown(dropdown === item.label ? null : item.label)
-                        }
-                        className="w-full py-3 text-sm font-semibold border-b border-gray-50 flex justify-between items-center text-slate-700"
+                        onClick={() => setDropdown(dropdown === item.label ? null : item.label)}
+                        className="w-full py-4 text-base font-semibold border-b border-gray-100 flex justify-between items-center text-slate-700 active:bg-gray-50"
                       >
                         {item.label}
                         <ChevronDown
                           className={cn(
-                            "w-4 h-4 opacity-40 transition-transform",
+                            "w-5 h-5 text-slate-400 transition-transform duration-200",
                             dropdown === item.label && "rotate-180"
                           )}
                         />
                       </button>
                       {dropdown === item.label && (
-                        <div className="pl-3 py-1 bg-slate-50 rounded-xl mb-1">
+                        <div className="mx-1 mb-3 bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
                           {item.children.map((child) =>
-                            child.external ? (
+                            child.isViewAll ? (
+                              <a
+                                key={child.label}
+                                href={child.href}
+                                onClick={(e) => { handleAnchorClick(e, child.href); setOpen(false); }}
+                                className="flex items-center gap-2 py-3.5 px-4 text-sm font-bold text-amber-600 bg-amber-50 active:bg-amber-100"
+                              >
+                                {child.label}
+                                <ArrowRight className="w-4 h-4" />
+                              </a>
+                            ) : child.external ? (
                               <a
                                 key={child.label}
                                 href={child.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-between py-2.5 px-2 text-sm text-slate-600 border-b border-gray-100 last:border-0"
+                                className="flex items-center gap-3 py-3.5 px-4 border-b border-slate-100 last:border-0 active:bg-amber-50 group"
                                 onClick={() => setOpen(false)}
                               >
-                                {child.label}
-                                {child.note && (
-                                  <span className="text-xs text-slate-400">{child.note}</span>
-                                )}
+                                <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-[15px] font-bold text-slate-800 group-active:text-amber-600">{child.label}</div>
+                                  {child.note && <div className="text-xs text-slate-400 mt-0.5">{child.note}</div>}
+                                </div>
+                                <ArrowRight className="w-4 h-4 text-slate-300 shrink-0" />
                               </a>
-                            ) : child.href.startsWith("/") ? (
+                            ) : (
                               <Link
                                 key={child.label}
                                 href={child.href}
-                                className="flex items-center justify-between py-2.5 px-2 text-sm text-slate-600 border-b border-gray-100 last:border-0"
+                                className="flex items-center gap-3 py-3.5 px-4 border-b border-slate-100 last:border-0 active:bg-amber-50 group"
                                 onClick={() => setOpen(false)}
                               >
-                                {child.label}
-                                {child.note && (
-                                  <span className="text-xs text-slate-400">{child.note}</span>
-                                )}
+                                <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-[15px] font-bold text-slate-800 group-active:text-amber-600">{child.label}</div>
+                                  {child.note && <div className="text-xs text-slate-400 mt-0.5">{child.note}</div>}
+                                </div>
+                                <ArrowRight className="w-4 h-4 text-slate-300 shrink-0" />
                               </Link>
-                            ) : (
-                              <a
-                                key={child.label}
-                                href={child.href}
-                                onClick={(e) => {
-                                  handleAnchorClick(e, child.href);
-                                  setOpen(false);
-                                }}
-                                className="flex items-center gap-2 py-2.5 px-2 text-sm font-semibold text-amber-700"
-                              >
-                                {child.label}
-                                <ArrowRight className="w-3.5 h-3.5" />
-                              </a>
                             )
                           )}
                         </div>
@@ -354,7 +375,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
                   ) : item.href.startsWith("/") ? (
                     <Link
                       href={item.href}
-                      className="py-3 text-sm font-semibold border-b border-gray-50 flex justify-between items-center text-slate-700"
+                      className="py-4 text-base font-semibold border-b border-gray-100 flex items-center text-slate-700 active:bg-gray-50"
                       onClick={() => setOpen(false)}
                     >
                       {item.label}
@@ -363,19 +384,19 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
                     <a
                       href={item.href}
                       onClick={(e) => { handleAnchorClick(e, item.href); setOpen(false); }}
-                      className="py-3 text-sm font-semibold border-b border-gray-50 flex justify-between items-center text-slate-700"
+                      className="py-4 text-base font-semibold border-b border-gray-100 flex items-center text-slate-700 active:bg-gray-50"
                     >
                       {item.label}
                     </a>
                   )}
                 </div>
               ))}
-              <div className="pt-4 pb-3">
+              <div className="pt-4 pb-5">
                 <Link
                   href="/lien-he"
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-center gap-2 bg-amber-500 text-white
-                             py-3 rounded-full font-bold text-sm shadow-md w-full"
+                             py-3.5 rounded-full font-bold text-sm shadow-md w-full active:bg-amber-600"
                 >
                   <Phone className="w-4 h-4" /> TƯ VẤN
                 </Link>
@@ -383,7 +404,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
             </nav>
           </div>
         </div>
-      </header>
+      )}
     </>
   );
 }
