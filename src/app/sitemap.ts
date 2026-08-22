@@ -315,13 +315,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-08-22",
       changeFrequency: "monthly",
       priority: 0.84,
-      images: [
-        cimg("megacity2/news22/1"),
-        cimg("megacity2/news22/2"),
-        cimg("megacity2/news22/3"),
-        cimg("megacity2/news22/4"),
-        cimg("megacity2/news22/5"),
-      ],
+      images: [cimg("megacity2/news22/1"),cimg("megacity2/news22/2"),cimg("megacity2/news22/3"),cimg("megacity2/news22/4"),cimg("megacity2/news22/5")],
+    },
+    {
+      url: `${BASE}/tin-tuc/quy-trinh-mua-dat-nen-nhon-trach`,
+      lastModified: "2026-08-23",
+      changeFrequency: "monthly",
+      priority: 0.84,
+      images: [cimg("megacity2/news23/1"),cimg("megacity2/news23/2"),cimg("megacity2/news23/3"),cimg("megacity2/news23/4")],
     },
 
     // ── Tin tức ──────────────────────────────────────────────

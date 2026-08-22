@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "quy-trinh-mua-dat-nen-nhon-trach",
+    title:    "Quy Trình Mua Đất Nền Nhơn Trạch Từ A–Z: 8 Bước Cần Biết Năm 2026",
+    date:     "23/08/2026",
+    category: "thi-truong",
+    excerpt:  "Hướng dẫn 8 bước quy trình mua đất nền Nhơn Trạch từ kiểm tra pháp lý, quy hoạch, khảo sát thực tế đến đặt cọc, công chứng và sang tên.",
+    image: `${CDN}/megacity2/news23/1`,
+    href:  "/tin-tuc/quy-trinh-mua-dat-nen-nhon-trach",
+  },
+  {
     slug:     "mua-dat-nhon-trach-can-luu-y-gi",
     title:    "Mua Đất Nhơn Trạch Cần Lưu Ý Gì? 10 Điều Quan Trọng Người Mua Cần Biết Năm 2026",
     date:     "22/08/2026",
