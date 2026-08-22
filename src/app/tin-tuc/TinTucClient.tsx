@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "mega-city-2-co-phu-hop-de-o",
+    title:    "Mega City 2 Có Phù Hợp Để Ở Không? Phân Tích Nhu Cầu An Cư Tại Nhơn Trạch",
+    date:     "23/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích vị trí, hạ tầng, tiện ích, loại hình nhà ở và những yếu tố cần cân nhắc trước khi mua Mega City 2 để an cư tại Nhơn Trạch.",
+    image: `${CDN}/megacity2/news25/1`,
+    href:  "/tin-tuc/mega-city-2-co-phu-hop-de-o",
+  },
+  {
     slug:     "so-sanh-mega-city-2-va-cac-khu-do-thi-nhon-trach",
     title:    "So Sánh Mega City 2 Và Các Khu Đô Thị Nhơn Trạch: Nên Chọn Dự Án Nào?",
     date:     "23/08/2026",

@@ -433,6 +433,12 @@ export const IMG_NEWS24: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news24", v, "lg")])
 );
 
+/** News25 — Mega City 2 có phù hợp để ở không (4 ảnh) */
+export const IMG_NEWS25: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.webp"],["3","3.png"],["4","4.jpg"]]
+    .map(([k, v]) => [k, cld("megacity2/news25", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background
