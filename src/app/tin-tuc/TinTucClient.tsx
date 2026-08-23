@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cach-doc-ban-do-quy-hoach-nhon-trach",
+    title:    "Cách Đọc Bản Đồ Quy Hoạch Nhơn Trạch: Hướng Dẫn Cho Người Mua Đất",
+    date:     "23/08/2026",
+    category: "thi-truong",
+    excerpt:  "Hướng dẫn đọc ký hiệu, màu sắc, số tờ, số thửa và cách đối chiếu vị trí thửa đất với bản đồ quy hoạch trước khi mua đất nền Nhơn Trạch.",
+    image: `${CDN}/megacity2/news27/1`,
+    href:  "/tin-tuc/cach-doc-ban-do-quy-hoach-nhon-trach",
+  },
+  {
     slug:     "cach-kiem-tra-phap-ly-dat-nen-nhon-trach",
     title:    "Cách Kiểm Tra Pháp Lý Đất Nền Nhơn Trạch Trước Khi Mua",
     date:     "23/08/2026",
