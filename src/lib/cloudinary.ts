@@ -439,6 +439,12 @@ export const IMG_NEWS25: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news25", v, "lg")])
 );
 
+/** News26 — Cách kiểm tra pháp lý đất nền Nhơn Trạch (4 ảnh) */
+export const IMG_NEWS26: Record<string, string> = Object.fromEntries(
+  [["1","1.png"],["2","2.jpeg"],["3","3.jpg"],["4","4.png"]]
+    .map(([k, v]) => [k, cld("megacity2/news26", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cach-kiem-tra-phap-ly-dat-nen-nhon-trach",
+    title:    "Cách Kiểm Tra Pháp Lý Đất Nền Nhơn Trạch Trước Khi Mua",
+    date:     "23/08/2026",
+    category: "thi-truong",
+    excerpt:  "Hướng dẫn kiểm tra sổ đỏ, quy hoạch, mục đích sử dụng đất, thế chấp, tranh chấp và hồ sơ cần xem trước khi giao dịch đất nền tại Nhơn Trạch.",
+    image: `${CDN}/megacity2/news26/1`,
+    href:  "/tin-tuc/cach-kiem-tra-phap-ly-dat-nen-nhon-trach",
+  },
+  {
     slug:     "mega-city-2-co-phu-hop-de-o",
     title:    "Mega City 2 Có Phù Hợp Để Ở Không? Phân Tích Nhu Cầu An Cư Tại Nhơn Trạch",
     date:     "23/08/2026",
