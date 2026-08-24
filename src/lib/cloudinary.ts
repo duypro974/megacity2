@@ -451,6 +451,12 @@ export const IMG_NEWS27: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news27", v, "lg")])
 );
 
+/** News28 — Thị trường bất động sản Nhơn Trạch 2026 (7 ảnh) */
+export const IMG_NEWS28: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.png"],["4","4.png"],["5","5.png"],["6","6.png"],["7","7.png"]]
+    .map(([k, v]) => [k, cld("megacity2/news28", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "thi-truong-bat-dong-san-nhon-trach-2026",
+    title:    "Thị Trường Bất Động Sản Nhơn Trạch 2026: Giá Đất, Hạ Tầng Và Cơ Hội Đầu Tư",
+    date:     "24/08/2026",
+    category: "thi-truong",
+    excerpt:  "Cập nhật toàn diện thị trường bất động sản Nhơn Trạch 2026: giá đất, hạ tầng giao thông, quy hoạch, sân bay Long Thành và những yếu tố cần đánh giá trước khi mua.",
+    image: `${CDN}/megacity2/news28/1`,
+    href:  "/tin-tuc/thi-truong-bat-dong-san-nhon-trach-2026",
+  },
+  {
     slug:     "cach-doc-ban-do-quy-hoach-nhon-trach",
     title:    "Cách Đọc Bản Đồ Quy Hoạch Nhơn Trạch: Hướng Dẫn Cho Người Mua Đất",
     date:     "23/08/2026",
