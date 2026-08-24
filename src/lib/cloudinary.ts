@@ -457,6 +457,12 @@ export const IMG_NEWS28: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news28", v, "lg")])
 );
 
+/** News29 — Hệ sinh thái bất động sản Kim Oanh Group (10 ảnh) */
+export const IMG_NEWS29: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.png"],["3","3.jpg"],["4","4.jpg"],["5","5.webp"],["6","6.jpg"],["7","7.png"],["8","8.png"],["9","9.jpg"],["10","10.png"]]
+    .map(([k, v]) => [k, cld("megacity2/news29", v, "lg")])
+);
+
 /** Homepage images — dùng trên trang chủ KIM OANH ĐỒNG NAI */
 export const IMG_HOMEPAGE: Record<string, string> = {
   "1": cld("homepage", "1.jpg",  "hero"),   // Hero background

@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "he-sinh-thai-bat-dong-san-kim-oanh-group",
+    title:    "Hệ Sinh Thái Bất Động Sản Kim Oanh Group: Mô Hình Phát Triển Đồng Bộ",
+    date:     "24/08/2026",
+    category: "kim-oanh",
+    excerpt:  "Tìm hiểu hệ sinh thái bất động sản Kim Oanh Group, các lĩnh vực hoạt động, vai trò của Kim Oanh Land, phát triển nhà ở xã hội K-Home và định hướng phát triển đô thị.",
+    image: `${CDN}/megacity2/news29/1`,
+    href:  "/tin-tuc/he-sinh-thai-bat-dong-san-kim-oanh-group",
+  },
+  {
     slug:     "thi-truong-bat-dong-san-nhon-trach-2026",
     title:    "Thị Trường Bất Động Sản Nhơn Trạch 2026: Giá Đất, Hạ Tầng Và Cơ Hội Đầu Tư",
     date:     "24/08/2026",
