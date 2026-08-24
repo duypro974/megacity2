@@ -383,18 +383,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news8/4"),
       ],
     },
-    {
-      url: `${BASE}/tin-tuc/cao-toc-bien-hoa-vung-tau`,
-      lastModified: "2026-08-17",
-      changeFrequency: "monthly",
-      priority: 0.80,
-      images: [
-        cimg("megacity2/news9/1"),
-        cimg("megacity2/news9/2"),
-        cimg("megacity2/news9/3"),
-        cimg("megacity2/news9/4"),
-      ],
-    },
+    // NOTE: cao-toc-bien-hoa-vung-tau (news18) đã có entry ở trên (hạ tầng cluster)
+    // Xóa entry trùng news9 ở đây để tránh duplicate URL trong sitemap
     {
       url: `${BASE}/tin-tuc/kinh-nghiem-mua-dat-nen-nhon-trach`,
       lastModified: "2026-08-18",
@@ -452,6 +442,92 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news1/1"),
         cimg("megacity2/news1/2"),
         cimg("megacity2/news1/3"),
+      ],
+    },
+
+    // ── Tin tức Mega City 2 (article pages) ─────────────────
+    {
+      url: `${BASE}/tin-tuc/vi-tri-mega-city-2-o-dau`,
+      lastModified: "2026-08-14",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news3/1"),
+        cimg("megacity2/news3/2"),
+        cimg("megacity2/news3/3"),
+      ],
+    },
+    {
+      url: `${BASE}/tin-tuc/phap-ly-mega-city-2`,
+      lastModified: "2026-08-15",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news4/1"),
+      ],
+    },
+    {
+      url: `${BASE}/tin-tuc/tien-do-mega-city-2`,
+      lastModified: "2026-08-16",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news5/1"),
+      ],
+    },
+
+    // ── Tin tức Nhơn Trạch (mới 08/2026) ────────────────────
+    {
+      url: `${BASE}/tin-tuc/mega-city-2-co-phu-hop-de-o`,
+      lastModified: "2026-08-23",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news25/1"),
+        cimg("megacity2/news25/2"),
+        cimg("megacity2/news25/3"),
+      ],
+    },
+    {
+      url: `${BASE}/tin-tuc/cach-doc-ban-do-quy-hoach-nhon-trach`,
+      lastModified: "2026-08-23",
+      changeFrequency: "monthly",
+      priority: 0.78,
+      images: [
+        cimg("megacity2/news27/1"),
+        cimg("megacity2/news27/2"),
+        cimg("megacity2/news27/3"),
+      ],
+    },
+    {
+      url: `${BASE}/tin-tuc/cach-kiem-tra-phap-ly-dat-nen-nhon-trach`,
+      lastModified: "2026-08-24",
+      changeFrequency: "monthly",
+      priority: 0.78,
+      images: [
+        cimg("megacity2/news26/1"),
+      ],
+    },
+    {
+      url: `${BASE}/tin-tuc/thi-truong-bat-dong-san-nhon-trach-2026`,
+      lastModified: "2026-08-24",
+      changeFrequency: "monthly",
+      priority: 0.80,
+      images: [
+        cimg("megacity2/news28/1"),
+        cimg("megacity2/news28/2"),
+        cimg("megacity2/news28/3"),
+      ],
+    },
+    {
+      url: `${BASE}/tin-tuc/he-sinh-thai-bat-dong-san-kim-oanh-group`,
+      lastModified: "2026-08-24",
+      changeFrequency: "monthly",
+      priority: 0.76,
+      images: [
+        cimg("megacity2/news29/1"),
+        cimg("megacity2/news29/2"),
+        cimg("megacity2/news29/3"),
       ],
     },
 

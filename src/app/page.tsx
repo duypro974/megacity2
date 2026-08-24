@@ -49,6 +49,42 @@ export const metadata: Metadata = {
 };
 
 // ─────────────────────────────────────────────────────────────
+// JSON-LD LocalBusiness — chỉ đặt trên trang chủ.
+// Không inject global vì sẽ gây noise trên bài tin tức và cluster pages.
+// ─────────────────────────────────────────────────────────────
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://kimoanhdongnai.com.vn/#localbusiness",
+  name: "Kim Oanh Đồng Nai – Thông tin dự án Mega City 2 Nhơn Trạch",
+  description: "Cổng thông tin tổng hợp dự án bất động sản Kim Oanh tại Đồng Nai. Tư vấn và giới thiệu dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai.",
+  url: "https://kimoanhdongnai.com.vn",
+  telephone: "+84937587438",
+  email: "k.homekog@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "268A Phan Trung",
+    addressLocality: "Phường Tam Hiệp",
+    addressRegion: "Đồng Nai",
+    addressCountry: "VN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 10.7567,
+    longitude: 106.9667,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    opens: "08:00",
+    closes: "21:00",
+  },
+  sameAs: [
+    "https://www.facebook.com/kimoanhhomes",
+  ],
+};
+
+// ─────────────────────────────────────────────────────────────
 // JSON-LD WebPage — E-E-A-T: author, publisher, dateModified
 // ─────────────────────────────────────────────────────────────
 const webPageSchema = {
@@ -97,6 +133,11 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      {/* JSON-LD LocalBusiness — chỉ trên trang chủ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
 
       {/* 01. Header */}

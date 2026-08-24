@@ -87,14 +87,14 @@ function ZoomableImage({
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="relative overflow-hidden rounded-xl bg-slate-100 group cursor-zoom-in w-full"
+          className="relative overflow-hidden rounded-xl bg-slate-100 group cursor-zoom-in w-full aspect-[3/4]"
           aria-label={`Phóng to: ${alt}`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}
             alt={alt}
-            className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">

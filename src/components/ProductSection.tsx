@@ -187,14 +187,14 @@ function GalleryItem({ src, alt, caption }: { src: string; alt: string; caption:
           type="button"
           onClick={() => setOpen(true)}
           className="relative overflow-hidden rounded-xl bg-slate-100 cursor-zoom-in w-full
-                     ring-1 ring-slate-200 hover:ring-primary-400 transition-all duration-300
+                     aspect-[3/2] ring-1 ring-slate-200 hover:ring-primary-400 transition-all duration-300
                      hover:shadow-lg hover:shadow-primary-100"
           aria-label={`Phóng to: ${caption}`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src} alt={alt}
-            className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent

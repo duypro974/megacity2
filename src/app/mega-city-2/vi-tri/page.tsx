@@ -214,7 +214,10 @@ export default function ViTriPage() {
                   Tọa lạc tại cửa ngõ Đông Nam Bộ
                 </h2>
                 <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  Mega City 2 nằm tại xã Nhơn Trạch, tỉnh Đồng Nai – khu vực tiếp giáp
+                  <a href="/mega-city-2" className="font-semibold text-primary-700 hover:underline">
+                    Dự án Mega City 2 Nhơn Trạch
+                  </a>{" "}
+                  nằm tại xã Nhơn Trạch, tỉnh Đồng Nai – khu vực tiếp giáp
                   trực tiếp với TP.HCM qua đường 25C và phà Cát Lái. Đây là vị trí chiến lược
                   trong tam giác phát triển TP.HCM – Long Thành – Nhơn Trạch.
                 </p>

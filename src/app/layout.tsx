@@ -75,10 +75,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
         />
         {/*
-          JSON-LD Organization + Website schema — chỉ đặt các schema
-          áp dụng cho TOÀN SITE ở đây.
+          JSON-LD — Chỉ đặt schema áp dụng cho TOÀN SITE ở đây:
+          WebSite + Organization.
+          LocalBusiness đặt riêng tại trang chủ (page.tsx) và trang liên hệ
+          để tránh noise trên bài tin tức và cluster pages.
           Các schema trang-cụ-thể (FAQPage, Article, RealEstateListing...)
-          đặt trong từng page.tsx tương ứng để tránh duplicate/noise.
+          đặt trong từng page.tsx tương ứng.
         */}
         <script
           type="application/ld+json"
@@ -97,30 +99,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "@id": "https://kimoanhdongnai.com.vn/#localbusiness",
-              name: "Kim Oanh Đồng Nai – Thông tin dự án Mega City 2 Nhơn Trạch",
-              description: "Tư vấn và giới thiệu dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai.",
+              "@type": "Organization",
+              "@id": "https://kimoanhdongnai.com.vn/#organization",
+              name: "Kim Oanh Đồng Nai",
               url: "https://kimoanhdongnai.com.vn",
-              telephone: "+84937587438",
-              email: "k.homekog@gmail.com",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "268A Phan Trung",
-                addressLocality: "Phường Tam Hiệp",
-                addressRegion: "Đồng Nai",
-                addressCountry: "VN",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 10.7567,
-                longitude: 106.9667,
-              },
-              openingHoursSpecification: {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-                opens: "08:00",
-                closes: "21:00",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://kimoanhdongnai.com.vn/KOG_Web_RGB_01.svg",
               },
               sameAs: [
                 "https://www.facebook.com/kimoanhhomes",

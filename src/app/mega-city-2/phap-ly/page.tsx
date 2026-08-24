@@ -193,7 +193,10 @@ export default function PhapLyPage() {
                   <p className="text-primary-100 text-sm leading-relaxed mb-4">
                     Ngày 30/5/2025, UBND tỉnh Đồng Nai ban hành Quyết định 1772/QĐ-UBND
                     chấp thuận{" "}
-                    <strong className="text-white">2.421 lô</strong> thuộc dự án Mega City 2
+                    <strong className="text-white">2.421 lô</strong> thuộc{" "}
+                    <a href="/mega-city-2" className="text-white font-semibold underline underline-offset-2 hover:text-primary-100">
+                      dự án Mega City 2 Nhơn Trạch
+                    </a>{" "}
                     đủ điều kiện chuyển nhượng quyền sử dụng đất theo hình thức phân lô bán nền,
                     bao gồm các dãy T-1 đến T-29, TH-1 đến TH-28 và V-1 đến V-4.
                   </p>
