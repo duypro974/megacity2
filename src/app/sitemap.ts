@@ -520,6 +520,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/chi-phi-xay-nha-mega-city-2`,
+      lastModified: "2026-08-25",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news30/1"),
+        cimg("megacity2/news30/2"),
+        cimg("megacity2/news30/3"),
+        cimg("megacity2/news30/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/he-sinh-thai-bat-dong-san-kim-oanh-group`,
       lastModified: "2026-08-24",
       changeFrequency: "monthly",

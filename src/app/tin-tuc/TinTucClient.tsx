@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "chi-phi-xay-nha-mega-city-2",
+    title:    "Chi Phí Xây Nhà Thực Tế Tại Mega City 2 Nhơn Trạch 2026",
+    date:     "25/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Cập nhật đơn giá xây thô 3,5–3,9 triệu/m², trọn gói 5–8,5 triệu/m², ước tính chi phí nền 100–150m², thời gian thi công và so sánh xây mới vs nhà xây sẵn tại Mega City 2.",
+    image: `${CDN}/megacity2/news30/1`,
+    href:  "/tin-tuc/chi-phi-xay-nha-mega-city-2",
+  },
+  {
     slug:     "he-sinh-thai-bat-dong-san-kim-oanh-group",
     title:    "Hệ Sinh Thái Bất Động Sản Kim Oanh Group: Mô Hình Phát Triển Đồng Bộ",
     date:     "24/08/2026",
