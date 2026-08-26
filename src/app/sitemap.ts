@@ -520,6 +520,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/checklist-nhan-nen-mega-city-2`,
+      lastModified: "2026-08-26",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      images: [
+        cimg("megacity2/news31/1"),
+        cimg("megacity2/news31/2"),
+        cimg("megacity2/news31/3"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/chi-phi-xay-nha-mega-city-2`,
       lastModified: "2026-08-25",
       changeFrequency: "monthly",

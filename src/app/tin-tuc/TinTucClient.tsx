@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "checklist-nhan-nen-mega-city-2",
+    title:    "Checklist Nhận Nền & Kiểm Tra Hiện Trạng Trước Khi Xây Nhà Tại Mega City 2 Nhơn Trạch 2026",
+    date:     "26/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Checklist chi tiết 12 bước kiểm tra khi nhận nền đất Mega City 2: pháp lý, hạ tầng kỹ thuật, chỉ giới xây dựng, địa chất và biên bản bàn giao hiện trạng trước khi khởi công.",
+    image: `${CDN}/megacity2/news31/1`,
+    href:  "/tin-tuc/checklist-nhan-nen-mega-city-2",
+  },
+  {
     slug:     "chi-phi-xay-nha-mega-city-2",
     title:    "Chi Phí Xây Nhà Thực Tế Tại Mega City 2 Nhơn Trạch 2026",
     date:     "25/08/2026",
