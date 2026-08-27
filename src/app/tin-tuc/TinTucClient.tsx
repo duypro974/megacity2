@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "mega-city-2-co-nhung-loai-san-pham-nao",
+    title:    "Mega City 2 Có Những Loại Sản Phẩm Nào? Đất Nền, Nhà Phố, Nhà Vườn",
+    date:     "27/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích đặc điểm đất nền, nhà phố liền kề, nhà vườn liên kế và biệt thự tại Mega City 2 Nhơn Trạch, cùng những yếu tố cần xem xét trước khi lựa chọn.",
+    image: `${CDN}/megacity2/news32/1`,
+    href:  "/tin-tuc/mega-city-2-co-nhung-loai-san-pham-nao",
+  },
+  {
     slug:     "checklist-nhan-nen-mega-city-2",
     title:    "Checklist Nhận Nền & Kiểm Tra Hiện Trạng Trước Khi Xây Nhà Tại Mega City 2 Nhơn Trạch 2026",
     date:     "26/08/2026",
