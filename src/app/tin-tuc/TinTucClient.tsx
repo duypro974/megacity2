@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "ha-tang-ky-thuat-mega-city-2",
+    title:    "Hạ Tầng Kỹ Thuật Mega City 2 Nhơn Trạch: Điện Âm, Nước Máy & Hệ Thống Thoát Nước",
+    date:     "27/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích chi tiết điện âm 100%, cấp nước Dowaco, thoát nước 2 tuyến riêng biệt, cốt nền chống ngập và đường nội khu lộ giới 13–32m tại Mega City 2 Nhơn Trạch.",
+    image: `${CDN}/megacity2/news33/1`,
+    href:  "/tin-tuc/ha-tang-ky-thuat-mega-city-2",
+  },
+  {
     slug:     "mega-city-2-co-nhung-loai-san-pham-nao",
     title:    "Mega City 2 Có Những Loại Sản Phẩm Nào? Đất Nền, Nhà Phố, Nhà Vườn",
     date:     "27/08/2026",

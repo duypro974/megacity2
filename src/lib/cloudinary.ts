@@ -463,6 +463,12 @@ export const IMG_NEWS29: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news29", v, "lg")])
 );
 
+/** News33 — Hạ tầng kỹ thuật Mega City 2: Điện âm, Nước máy & Thoát nước (5 ảnh) */
+export const IMG_NEWS33: Record<string, string> = Object.fromEntries(
+  [["1","1.webp"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"]]
+    .map(([k, v]) => [k, cld("megacity2/news33", v, "lg")])
+);
+
 /** News32 — Các loại sản phẩm Mega City 2: Đất nền, nhà phố, nhà vườn (7 ảnh) */
 export const IMG_NEWS32: Record<string, string> = Object.fromEntries(
   [["1","1.jpg"],["2","2.webp"],["3","3.webp"],["4","4.jpg"],["5","5.webp"],["6","6.jpg"],["7","7.jpg"]]
