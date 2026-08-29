@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "quy-cach-xay-dung-mega-city-2",
+    title:    "Tiêu Chuẩn Và Quy Cách Xây Dựng Tại Dự Án Mega City 2 Nhơn Trạch Mới Nhất",
+    date:     "29/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Hướng dẫn chi tiết tầng cao cho phép, mật độ xây dựng, khoảng lùi trước sau, kiến trúc mặt ngoài và quy trình 5 bước xin phép xây dựng tại Mega City 2 Nhơn Trạch.",
+    image: `${CDN}/megacity2/news35/1`,
+    href:  "/tin-tuc/quy-cach-xay-dung-mega-city-2",
+  },
+  {
     slug:     "mat-bang-phan-lo-mega-city-2-nhon-trach",
     title:    "Bản Đồ Mặt Bằng Phân Lô Mega City 2 Nhơn Trạch: Chi Tiết Từng Phân Khu Và Diện Tích",
     date:     "29/08/2026",
