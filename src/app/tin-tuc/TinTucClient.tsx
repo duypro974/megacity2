@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "mat-bang-phan-lo-mega-city-2-nhon-trach",
+    title:    "Bản Đồ Mặt Bằng Phân Lô Mega City 2 Nhơn Trạch: Chi Tiết Từng Phân Khu Và Diện Tích",
+    date:     "29/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích tổng thể mặt bằng 84 ha, sơ đồ phân khu thương mại, nhà phố, biệt thự vườn, cơ cấu lô 90–300m², lộ giới 13–32m và công viên trung tâm 2,1 ha tại Mega City 2.",
+    image: `${CDN}/megacity2/news34/1`,
+    href:  "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",
+  },
+  {
     slug:     "ha-tang-ky-thuat-mega-city-2",
     title:    "Hạ Tầng Kỹ Thuật Mega City 2 Nhơn Trạch: Điện Âm, Nước Máy & Hệ Thống Thoát Nước",
     date:     "27/08/2026",
