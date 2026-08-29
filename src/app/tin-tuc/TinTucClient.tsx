@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "thu-tuc-chuyen-nhuong-mega-city-2",
+    title:    "Thủ Tục Sang Tên Hợp Đồng Và Chuyển Nhượng Đất Nền Mega City 2 Mới Nhất",
+    date:     "29/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Hướng dẫn quy trình 4 bước sang tên chuyển nhượng Mega City 2: điều kiện pháp lý, bộ hồ sơ cần chuẩn bị, thuế TNCN 2% và 4 nguyên tắc phòng tránh rủi ro giao dịch thứ cấp.",
+    image: `${CDN}/megacity2/news36/1`,
+    href:  "/tin-tuc/thu-tuc-chuyen-nhuong-mega-city-2",
+  },
+  {
     slug:     "quy-cach-xay-dung-mega-city-2",
     title:    "Tiêu Chuẩn Và Quy Cách Xây Dựng Tại Dự Án Mega City 2 Nhơn Trạch Mới Nhất",
     date:     "29/08/2026",

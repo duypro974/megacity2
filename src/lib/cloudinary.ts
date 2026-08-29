@@ -463,6 +463,12 @@ export const IMG_NEWS29: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news29", v, "lg")])
 );
 
+/** News36 — Thủ tục sang tên & chuyển nhượng đất nền Mega City 2 (4 ảnh) */
+export const IMG_NEWS36: Record<string, string> = Object.fromEntries(
+  [["1","1.png"],["2","2.png"],["3","3.jpg"],["4","4.webp"]]
+    .map(([k, v]) => [k, cld("megacity2/news36", v, "lg")])
+);
+
 /** News35 — Quy cách xây dựng Mega City 2: Tầng cao, khoảng lùi & mẫu nhà (4 ảnh) */
 export const IMG_NEWS35: Record<string, string> = Object.fromEntries(
   [["1","1.jpg"],["2","2.jpg"],["3","3.png"],["4","4.png"]]
