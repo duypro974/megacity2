@@ -463,6 +463,12 @@ export const IMG_NEWS29: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("megacity2/news29", v, "lg")])
 );
 
+/** News37 — Đường đi từ TP.HCM đến Mega City 2 Nhơn Trạch (4 ảnh) */
+export const IMG_NEWS37: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"]]
+    .map(([k, v]) => [k, cld("megacity2/news37", v, "lg")])
+);
+
 /** News36 — Thủ tục sang tên & chuyển nhượng đất nền Mega City 2 (4 ảnh) */
 export const IMG_NEWS36: Record<string, string> = Object.fromEntries(
   [["1","1.png"],["2","2.png"],["3","3.jpg"],["4","4.webp"]]

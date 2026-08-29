@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "duong-di-tu-tphcm-den-mega-city-2",
+    title:    "Khoảng Cách Từ Mega City 2 Đến Trung Tâm TP.HCM: Các Hướng Di Chuyển Thực Tế",
+    date:     "29/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích 3 lộ trình từ TP.HCM đến Mega City 2 Nhơn Trạch: qua phà Cát Lái (22–25km), cao tốc Long Thành + đường 319 (30–32km) và cầu Nhơn Trạch Vành đai 3 (18–22km).",
+    image: `${CDN}/megacity2/news37/1`,
+    href:  "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2",
+  },
+  {
     slug:     "thu-tuc-chuyen-nhuong-mega-city-2",
     title:    "Thủ Tục Sang Tên Hợp Đồng Và Chuyển Nhượng Đất Nền Mega City 2 Mới Nhất",
     date:     "29/08/2026",
