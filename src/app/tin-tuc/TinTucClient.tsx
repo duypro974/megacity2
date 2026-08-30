@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",
+    title:    "Kết Nối Từ Mega City 2 Đến Các Khu Công Nghiệp Nhơn Trạch: Tiềm Năng Cho Thuê Và An Cư",
+    date:     "30/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Khoảng cách 2,5–10km đến 9 KCN Nhơn Trạch với 120.000+ lao động, 3 mô hình khai thác cho thuê và 4 lợi thế của Mega City 2 so với nhà trọ tự phát ven khu công nghiệp.",
+    image: `${CDN}/megacity2/news38/1`,
+    href:  "/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",
+  },
+  {
     slug:     "duong-di-tu-tphcm-den-mega-city-2",
     title:    "Khoảng Cách Từ Mega City 2 Đến Trung Tâm TP.HCM: Các Hướng Di Chuyển Thực Tế",
     date:     "29/08/2026",
