@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "tien-ich-ngoai-khu-mega-city-2",
+    title:    "Tiện Ích Ngoại Khu Xung Quanh Mega City 2: Bệnh Viện, Trường Học, Chợ Và Hành Chính",
+    date:     "30/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Hệ thống tiện ích dày đặc trong bán kính 1–5 km: bệnh viện đa khoa 2km, trường học 800m–3km, chợ Phú Hội 1,2km, UBND huyện 2km và sân golf 10km quanh Mega City 2.",
+    image: `${CDN}/megacity2/news39/1`,
+    href:  "/tin-tuc/tien-ich-ngoai-khu-mega-city-2",
+  },
+  {
     slug:     "ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",
     title:    "Kết Nối Từ Mega City 2 Đến Các Khu Công Nghiệp Nhơn Trạch: Tiềm Năng Cho Thuê Và An Cư",
     date:     "30/08/2026",
