@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "dat-nen-nha-vuon-biet-thu-mega-city-2",
+    title:    "Đất Nền Nhà Vườn Và Biệt Thự Mega City 2 Nhơn Trạch: Đặc Điểm Và Tiềm Năng Khai Thác",
+    date:     "30/08/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích diện tích 200–350m², mật độ xây dựng, khoảng lùi biệt thự Mega City 2 và 3 mô hình khai thác: second-home cuối tuần, cho thuê chuyên gia KCN và cafe sân vườn.",
+    image: `${CDN}/megacity2/news40/1`,
+    href:  "/tin-tuc/dat-nen-nha-vuon-biet-thu-mega-city-2",
+  },
+  {
     slug:     "tien-ich-ngoai-khu-mega-city-2",
     title:    "Tiện Ích Ngoại Khu Xung Quanh Mega City 2: Bệnh Viện, Trường Học, Chợ Và Hành Chính",
     date:     "30/08/2026",
