@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "shophouse-mega-city-2-khai-thac-kinh-doanh",
+    title:    "Shophouse Mega City 2 Nhơn Trạch: Khả Năng Khai Thác Kinh Doanh Dọc Các Trục Đường Lớn",
+    date:     "01/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích vị trí mặt bằng, 4 nhóm ngành nghề tiềm năng (F&B, bán lẻ, y tế-làm đẹp, logistics), bảng tài chính tham khảo và kinh nghiệm chọn lô shophouse đẹp nhất Mega City 2.",
+    image: `${CDN}/megacity2/news41/1`,
+    href:  "/tin-tuc/shophouse-mega-city-2-khai-thac-kinh-doanh",
+  },
+  {
     slug:     "dat-nen-nha-vuon-biet-thu-mega-city-2",
     title:    "Đất Nền Nhà Vườn Và Biệt Thự Mega City 2 Nhơn Trạch: Đặc Điểm Và Tiềm Năng Khai Thác",
     date:     "30/08/2026",
