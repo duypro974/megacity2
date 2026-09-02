@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "so-sanh-mega-city-2-va-dat-tho-cu-dan-nhon-trach",
+    title:    "So Sánh Suất Đầu Tư Mega City 2 Với Đất Thổ Cư Dân Tự Phân Lô Tại Nhơn Trạch",
+    date:     "02/09/2026",
+    category: "tin-du-an",
+    excerpt:  "So sánh 5 tiêu chí: hạ tầng điện âm, pháp lý 1/500, quy cách xây dựng, tiện ích sinh thái và thanh khoản giữa đất dự án Mega City 2 và đất thổ cư dân tự phân lô Nhơn Trạch.",
+    image: `${CDN}/megacity2/news42/1`,
+    href:  "/tin-tuc/so-sanh-mega-city-2-va-dat-tho-cu-dan-nhon-trach",
+  },
+  {
     slug:     "shophouse-mega-city-2-khai-thac-kinh-doanh",
     title:    "Shophouse Mega City 2 Nhơn Trạch: Khả Năng Khai Thác Kinh Doanh Dọc Các Trục Đường Lớn",
     date:     "01/09/2026",
