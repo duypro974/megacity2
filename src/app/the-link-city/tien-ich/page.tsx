@@ -86,7 +86,7 @@ export default function TienIchPage() {
         <SubPageHeader
           tag="Tiện ích"
           title="Hệ tiện ích The Link City Dầu Giây"
-          subtitle="50 tiện ích theo công bố tại kimoanhgroup.vn và sự kiện 23/12/2025. Các hạng mục đang ở các giai đoạn hoàn thiện khác nhau."
+          subtitle="50 tiện ích theo công bố tại sự kiện 23/12/2025. Các hạng mục đang ở các giai đoạn hoàn thiện khác nhau."
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "Tiện ích" },
@@ -204,7 +204,7 @@ export default function TienIchPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-[10px] text-slate-400 mt-3">Theo công bố tại kimoanhgroup.vn + sự kiện 23/12/2025</p>
+                <p className="text-[10px] text-slate-400 mt-3">Theo công bố tại sự kiện 23/12/2025</p>
               </div>
 
               <div className="bg-white rounded-2xl border border-slate-200 p-5">
@@ -240,16 +240,27 @@ export default function TienIchPage() {
           <div className="max-w-6xl mx-auto px-4">
             <div className="anim-up mb-6">
               <h2 className="text-xl font-bold text-slate-800 mb-2">Hình ảnh tiện ích</h2>
-              <p className="text-sm text-slate-500">Hình ảnh thực tế sẽ được cập nhật khi có.</p>
+              <p className="text-sm text-slate-500">Hình ảnh phối cảnh tiện ích nội khu The Link City.</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 anim-stagger">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className={`relative rounded-2xl bg-slate-100 overflow-hidden anim-img-wrap ${i === 1 ? "col-span-2 md:col-span-1 h-56" : "h-44"}`}>
+            <div className="grid grid-cols-2 gap-3 anim-stagger">
+              {/* Ảnh 0 — infographic tổng quan tiện ích, chiếm full hàng */}
+              <div className="col-span-2 rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden anim-img-wrap">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={TLC_AMENITIES["1"]}
+                  alt="Hệ tiện ích đa dạng The Link City Dầu Giây — sơ đồ tổng quan"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+              {/* Ảnh 2–5 — collage theo nhóm tiện ích, 2 cột */}
+              {[2, 3, 4, 5].map((i) => (
+                <div key={i} className="rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden anim-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={TLC_AMENITIES[String(i)]}
                     alt={`Tiện ích nội khu The Link City Dầu Giây — hạng mục ${i}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto object-contain"
                     loading="lazy"
                   />
                 </div>
@@ -261,7 +272,7 @@ export default function TienIchPage() {
         <section className="py-4 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <p className="text-xs text-slate-400">
-              Nguồn: Kim Oanh Group (kimoanhgroup.vn) · Báo Đồng Nai (23/12/2025) · Cập nhật lần cuối: 23/12/2025
+              Nguồn: Kim Oanh Land · Báo Đồng Nai (23/12/2025) · Cập nhật lần cuối: 23/12/2025
             </p>
           </div>
         </section>

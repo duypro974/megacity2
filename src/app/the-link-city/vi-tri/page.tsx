@@ -309,7 +309,7 @@ export default function ViTriPage() {
         <section className="py-6 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <p className="text-xs text-slate-400">
-              Nguồn: Kim Oanh Group (kimoanhgroup.vn) · Báo Đồng Nai (23/12/2025) · Cập nhật lần cuối: 23/12/2025
+              Nguồn: Kim Oanh Land · Báo Đồng Nai (23/12/2025) · Cập nhật lần cuối: 23/12/2025
             </p>
           </div>
         </section>

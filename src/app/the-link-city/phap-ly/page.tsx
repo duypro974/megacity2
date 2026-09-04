@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -6,41 +7,49 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
-import { TLC_OG, TLC_LEGAL } from "@/lib/cloudinary";
-import { ShieldCheck, ArrowRight, AlertTriangle } from "lucide-react";
+import { useLightbox, type LightboxImage } from "@/components/ImageLightbox";
+import { TLC_OG, TLC_CERTIFICATE, TLC_LEGAL_AS1 } from "@/lib/cloudinary";
+import { SITE_CONFIG } from "@/data/siteConfig";
+import {
+  ShieldCheck, ArrowRight, AlertTriangle, Download,
+  CheckCircle2, Clock, FileText, Landmark, Phone, MessageCircle,
+} from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Pháp lý The Link City Dầu Giây – Thông tin & Hồ sơ Cập nhật",
-  description:
-    "Thông tin pháp lý dự án The Link City Dầu Giây: chủ đầu tư Phú Việt Tín, tình trạng cấp GCN theo giai đoạn và VietinBank đồng hành. Cập nhật theo nguồn 23/12/2025.",
-  alternates: { canonical: "https://kimoanhdongnai.com.vn/the-link-city/phap-ly" },
-  openGraph: {
-    title: "Pháp lý The Link City Dầu Giây",
-    description: "CĐT: Phú Việt Tín. GĐ1 một số sản phẩm đã cấp GCN. GĐ2 đang hoàn thiện. VietinBank Biên Hòa đồng hành.",
-    type: "article",
-    locale: "vi_VN",
-    siteName: "Kim Oanh Đồng Nai",
-    images: [{ url: TLC_OG, width: 1280, height: 720, alt: "Pháp lý The Link City Dầu Giây" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Pháp lý The Link City Dầu Giây",
-    description: "CĐT Phú Việt Tín, GĐ1 đã cấp GCN một phần, VietinBank đồng hành.",
-    images: [TLC_OG],
-  },
-};
+// ─────────────────────────────────────────────────────────────
+// JSON-LD (client page — via <script> tag)
+// ─────────────────────────────────────────────────────────────
+const BASE_URL = "https://kimoanhdongnai.com.vn";
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Pháp lý The Link City Dầu Giây – Thông tin hồ sơ cập nhật",
-  description: "Phân tích tình trạng pháp lý dự án The Link City: chủ đầu tư Phú Việt Tín, Kim Oanh Land và tình trạng cấp GCN.",
-  author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
-  publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
+  headline: "Pháp lý The Link City Dầu Giây – Hồ sơ & Tiến trình Đầy đủ",
+  description:
+    "Toàn bộ hồ sơ pháp lý dự án The Link City: quyết định phê duyệt, quy hoạch 1/500, giao đất, nghĩa vụ tài chính, kết luận kiểm toán và công văn UBND tỉnh chỉ đạo cấp sổ 2026.",
+  author: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
+  publisher: {
+    "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL,
+    logo: { "@type": "ImageObject", url: `${BASE_URL}/KOG_Web_RGB_01.svg` },
+  },
   datePublished: "2025-12-23",
-  dateModified: "2025-12-23",
-  url: "https://kimoanhdongnai.com.vn/the-link-city/phap-ly",
-  about: { "@type": "RealEstateListing", name: "The Link City", url: "https://kimoanhdongnai.com.vn/the-link-city" },
+  dateModified: "2026-09-04",
+  url: `${BASE_URL}/the-link-city/phap-ly`,
+  image: [
+    TLC_CERTIFICATE,
+    TLC_LEGAL_AS1,
+    TLC_OG,
+  ],
+  about: { "@type": "RealEstateListing", name: "The Link City", url: `${BASE_URL}/the-link-city` },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: BASE_URL },
+    { "@type": "ListItem", position: 2, name: "The Link City", item: `${BASE_URL}/the-link-city` },
+    { "@type": "ListItem", position: 3, name: "Pháp lý", item: `${BASE_URL}/the-link-city/phap-ly` },
+  ],
 };
 
 const faqSchema = {
@@ -49,18 +58,26 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Chủ đầu tư pháp lý của The Link City là ai?",
+      name: "Pháp lý dự án The Link City đã có sổ đỏ chưa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Chủ đầu tư pháp lý là Công ty TNHH Đầu tư Phú Việt Tín. Kim Oanh Land (thuộc Kim Oanh Group) là đơn vị tham gia phát triển và phân phối dự án. Thông tin này được xác nhận bởi ông Đặng Phước Bình – TGĐ Phú Việt Tín và ông Mai Văn Hiền – Chủ tịch UBND xã Dầu Giây tại sự kiện 23/12/2025.",
+        text: "The Link City đã có Giấy chứng nhận quyền sử dụng đất (Sổ hồng) từng nền cấp cho Chủ đầu tư Phú Việt Tín, hoàn thành 100% tiền sử dụng đất với Cục Thuế Đồng Nai và quy hoạch chi tiết 1/500 phê duyệt đầy đủ. Công văn số 2505/UBND-KTN ngày 13/02/2026 của UBND tỉnh Đồng Nai đã chỉ đạo Sở NN&MT đẩy nhanh tiến độ cấp sổ cho từng khách hàng.",
       },
     },
     {
       "@type": "Question",
-      name: "The Link City đã có sổ hồng chưa?",
+      name: "Chủ đầu tư pháp lý của The Link City là ai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Theo thông tin công bố ngày 23/12/2025: Giai đoạn 1 một số sản phẩm đã được cấp Giấy chứng nhận quyền sử dụng đất. Giai đoạn 2 đang hoàn thiện điều kiện cấp GCN. Tình trạng GCN từng sản phẩm cụ thể cần kiểm tra trực tiếp trước khi giao dịch.",
+        text: "Chủ đầu tư pháp lý là Công ty TNHH Đầu tư Phú Việt Tín (đại diện: Ông Đặng Phước Bình – TGĐ). Kim Oanh Land (thuộc Kim Oanh Group) là đơn vị tham gia phát triển và phân phối dự án.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Dự án The Link City đã qua kiểm toán nhà nước chưa?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Đã xử lý xong. Văn bản kết luận số 261/KV XIII-TH ngày 05/12/2025 của Kiểm toán Nhà nước xác nhận dự án đã hoàn thành các nội dung kiến nghị về giá đất.",
       },
     },
     {
@@ -71,88 +88,106 @@ const faqSchema = {
         text: "Bà Nguyễn Thị Ngọc Trúc – Phó Giám đốc VietinBank chi nhánh Biên Hòa phát biểu tại sự kiện 23/12/2025: 'VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City.'",
       },
     },
-    {
-      "@type": "Question",
-      name: "Số quyết định phê duyệt quy hoạch The Link City là gì?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Thông tin về số quyết định phê duyệt quy hoạch cụ thể hiện chưa được công bố trong các nguồn đã xác minh. Khách hàng nên yêu cầu chủ đầu tư Phú Việt Tín hoặc Kim Oanh Land cung cấp hồ sơ gốc trước khi giao dịch.",
-      },
-    },
   ],
 };
 
-const legalItems = [
+// ─────────────────────────────────────────────────────────────
+// DATA — Timeline pháp lý
+// ─────────────────────────────────────────────────────────────
+const legalTimeline = [
   {
-    icon: "🏛️",
-    title: "Chủ đầu tư",
-    content: "Công ty TNHH Đầu tư Phú Việt Tín",
-    detail: "Đại diện: Ông Đặng Phước Bình – Tổng Giám đốc",
-    source: "Báo Đồng Nai (23/12/2025)",
-    highlight: true,
-    confidence: "VERIFIED",
-  },
-  {
-    icon: "🏢",
-    title: "Đơn vị phát triển & phân phối",
-    content: "Kim Oanh Land (thuộc Kim Oanh Group)",
-    detail: "Bà Đặng Thị Kim Oanh – Chủ tịch HĐQT kiêm TGĐ Kim Oanh Group",
-    source: "Báo Đồng Nai (23/12/2025)",
-    highlight: false,
-    confidence: "VERIFIED",
-  },
-  {
+    year: "2011",
     icon: "📋",
-    title: "Pháp lý Giai đoạn 1",
-    content: "Một số sản phẩm đã được cấp GCN quyền sử dụng đất",
-    detail: "Hạ tầng kỹ thuật đã hoàn thiện và đưa vào sử dụng",
-    source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín (23/12/2025)",
-    highlight: true,
-    confidence: "VERIFIED — TIME-SENSITIVE",
+    title: "Quyết định phê duyệt dự án",
+    doc: "QĐ số 3317/QĐ-UBND",
+    date: "12/12/2011",
+    detail: "UBND tỉnh Đồng Nai phê duyệt dự án Khu dân cư A1-C1 Dầu Giây. Các quyết định điều chỉnh tiếp theo: QĐ 2633 (2014), QĐ 3259 (2018), QĐ 906 (2019), QĐ 237 (2024).",
+    status: "done",
   },
   {
-    icon: "⏳",
-    title: "Pháp lý Giai đoạn 2",
-    content: "Đang hoàn thiện điều kiện cấp GCN",
-    detail: "UBND xã Dầu Giây đã đề nghị chủ đầu tư sớm hoàn thiện hạ tầng đủ điều kiện cấp GCN",
-    source: "Ông Mai Văn Hiền – Chủ tịch UBND xã Dầu Giây (23/12/2025)",
-    highlight: false,
-    confidence: "VERIFIED — TIME-SENSITIVE",
+    year: "2020",
+    icon: "🗺️",
+    title: "Quy hoạch chi tiết 1/500",
+    doc: "QĐ số 2022/QĐ-UBND",
+    date: "16/06/2020",
+    detail: "UBND tỉnh Đồng Nai phê duyệt quy hoạch chi tiết 1/500. Điều chỉnh cục bộ theo QĐ số 4448/QĐ-UBND ngày 26/10/2021.",
+    status: "done",
   },
   {
-    icon: "🏦",
-    title: "Ngân hàng đồng hành",
-    content: "VietinBank chi nhánh Biên Hòa",
-    detail: '"Rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City"',
-    source: "Bà Nguyễn Thị Ngọc Trúc – Phó GĐ VietinBank Biên Hòa (23/12/2025)",
-    highlight: false,
-    confidence: "VERIFIED",
+    year: "2020",
+    icon: "🏗️",
+    title: "Giao đất",
+    doc: "QĐ số 3963/QĐ-UBND",
+    date: "26/10/2020",
+    detail: "UBND tỉnh Đồng Nai ban hành quyết định giao đất cho Chủ đầu tư Phú Việt Tín triển khai dự án.",
+    status: "done",
   },
   {
-    icon: "📅",
-    title: "Sự kiện minh bạch thông tin",
-    content: "Lễ công bố kế hoạch phát triển dự án The Link City",
-    detail: "Ngày 23/12/2025 tại xã Dầu Giây — nhằm minh bạch thông tin pháp lý và tiến độ",
-    source: "Báo Đồng Nai (baodongnai.com.vn)",
-    highlight: false,
-    confidence: "VERIFIED",
+    year: "2022",
+    icon: "💰",
+    title: "Hoàn thành 100% nghĩa vụ tài chính",
+    doc: "TB số 128/TB.CTDON & VB 7259/CTDON",
+    date: "18/02/2022 & 20/05/2022",
+    detail: "Cục Thuế tỉnh Đồng Nai xác nhận chủ đầu tư đã hoàn thành 100% nghĩa vụ nộp tiền sử dụng đất. Căn cứ: Thông báo số 128/TB.CTDON.QLHKDCNTK (18/02/2022) và Văn bản xác nhận số 7259/CTDON-QLHKDCNTK (20/05/2022).",
+    status: "done",
+  },
+  {
+    year: "2025",
+    icon: "🔍",
+    title: "Kết luận Kiểm toán Nhà nước",
+    doc: "VB số 261/KV XIII-TH",
+    date: "05/12/2025",
+    detail: "Kiểm toán Nhà nước ban hành văn bản kết luận xác nhận dự án đã hoàn thành toàn bộ các nội dung kiến nghị về giá đất. Đây là bước then chốt để tiến hành cấp GCN cho từng nền.",
+    status: "done",
+  },
+  {
+    year: "2026",
+    icon: "📨",
+    title: "UBND tỉnh chỉ đạo cấp sổ",
+    doc: "CV số 2505/UBND-KTN",
+    date: "13/02/2026",
+    detail: "UBND tỉnh Đồng Nai gửi Công văn số 2505/UBND-KTN đến Sở NN&MT, chỉ đạo đẩy nhanh tiến độ cấp Giấy chứng nhận quyền sử dụng đất từng nền cho dự án The Link City.",
+    status: "current",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────
+// Lightbox images
+// ─────────────────────────────────────────────────────────────
+const legalImages: LightboxImage[] = [
+  {
+    src: TLC_CERTIFICATE,
+    alt: "Hình ảnh thực tế Giấy chứng nhận quyền sử dụng đất từng nền dự án The Link City Dầu Giây cấp năm 2026",
+    caption: "Sổ hồng từng nền The Link City đã hoàn tất cấp cho Chủ đầu tư Phú Việt Tín",
+  },
+  {
+    src: TLC_LEGAL_AS1,
+    alt: "Công văn số 2505/UBND-KTN của UBND tỉnh Đồng Nai về việc cấp sổ dự án The Link City",
+    caption: "Công văn số 2505/UBND-KTN – UBND tỉnh Đồng Nai chỉ đạo cấp sổ The Link City",
   },
 ];
 
 const relatedItems = [
   { href: "/the-link-city", title: "Tổng quan The Link City", description: "Thông tin đầy đủ về dự án.", tag: "Tổng quan" },
-  { href: "/the-link-city/tien-do", title: "Tiến độ The Link City", description: "Cập nhật tiến độ GĐ1 và GĐ2 (23/12/2025).", tag: "Tiến độ" },
+  { href: "/the-link-city/tien-do", title: "Tiến độ The Link City", description: "Cập nhật tiến độ GĐ1 và GĐ2.", tag: "Tiến độ" },
   { href: "/the-link-city/mat-bang", title: "Mặt bằng The Link City", description: "Quy hoạch 2 giai đoạn, cơ cấu sản phẩm.", tag: "Mặt bằng" },
-  { href: "/the-link-city/vi-tri", title: "Vị trí The Link City", description: "Ngã tư QL1A và QL20, xã Dầu Giây.", tag: "Vị trí" },
-  { href: "/the-link-city/faq", title: "Câu hỏi thường gặp", description: "Giải đáp câu hỏi về pháp lý, tiến độ và vị trí.", tag: "FAQ" },
+  { href: "/the-link-city/thanh-toan", title: "Chính sách bán hàng", description: "Tiến độ thanh toán & hỗ trợ VietinBank.", tag: "Thanh toán" },
+  { href: "/the-link-city/faq", title: "Câu hỏi thường gặp", description: "Giải đáp câu hỏi về pháp lý và tiến độ.", tag: "FAQ" },
 ];
 
+// ─────────────────────────────────────────────────────────────
+// PAGE
+// ─────────────────────────────────────────────────────────────
 export default function PhapLyPage() {
+  const { openLightbox, LightboxPortal } = useLightbox(legalImages);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
+      {LightboxPortal}
       <ScrollAnimator />
       <CorpHeader solid />
 
@@ -160,32 +195,38 @@ export default function PhapLyPage() {
         <SubPageHeader
           tag="Pháp lý"
           title="Pháp lý The Link City Dầu Giây"
-          subtitle="Thông tin pháp lý tổng hợp từ nguồn công bố chính thức. Tình trạng cấp GCN theo từng giai đoạn và vai trò các bên liên quan."
+          subtitle="Toàn bộ hồ sơ pháp lý từ quyết định phê duyệt, giao đất, hoàn thành nghĩa vụ tài chính đến công văn UBND tỉnh chỉ đạo cấp sổ năm 2026."
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "Pháp lý" },
           ]}
-          updatedAt="23/12/2025"
+          updatedAt="04/09/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
 
-        {/* Highlight sự kiện */}
+        {/* ── HIGHLIGHT BANNER ── */}
         <section className="py-10 bg-primary-50 border-b border-primary-100">
           <div className="max-w-6xl mx-auto px-4">
             <div className="rounded-2xl bg-primary-600 text-white p-6 md:p-8 anim-scale">
               <div className="flex items-start gap-4">
-                <ShieldCheck className="w-8 h-8 text-primary-200 flex-shrink-0" />
+                <ShieldCheck className="w-8 h-8 text-primary-200 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-primary-200 text-xs font-bold uppercase tracking-widest mb-1">Minh bạch thông tin pháp lý</p>
-                  <h2 className="text-xl md:text-2xl font-bold mb-3">Sự kiện công bố ngày 23/12/2025</h2>
+                  <p className="text-primary-200 text-xs font-bold uppercase tracking-widest mb-1">Bảo chứng niềm tin</p>
+                  <h2 className="text-xl md:text-2xl font-bold mb-3">Pháp lý đầy đủ — Sổ hồng đã cấp cho CĐT</h2>
                   <p className="text-primary-100 text-sm leading-relaxed mb-4">
-                    Ngày 23/12/2025, Kim Oanh Land và Công ty TNHH Đầu tư Phú Việt Tín tổ chức lễ công bố kế hoạch
-                    phát triển dự án The Link City với mục tiêu <strong className="text-white">minh bạch thông tin pháp lý
-                    và tiến độ xây dựng</strong>. Sự kiện có sự tham dự của đại diện UBND xã Dầu Giây và VietinBank.
+                    The Link City đã hoàn thành toàn bộ nghĩa vụ tài chính với Nhà nước, vượt qua kiểm toán,
+                    và <strong className="text-white">UBND tỉnh Đồng Nai đã ban hành Công văn 2505/UBND-KTN
+                    ngày 13/02/2026</strong> chỉ đạo Sở NN&amp;MT cấp Giấy chứng nhận quyền sử dụng đất
+                    từng nền cho khách hàng.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["Phú Việt Tín — Chủ đầu tư", "Kim Oanh Land — Phát triển", "VietinBank — Ngân hàng", "UBND xã Dầu Giây"].map((tag) => (
+                    {[
+                      "✅ QH 1/500 đầy đủ",
+                      "✅ 100% nghĩa vụ tài chính",
+                      "✅ Kiểm toán Nhà nước thông qua",
+                      "✅ UBND tỉnh chỉ đạo cấp sổ",
+                    ].map((tag) => (
                       <span key={tag} className="bg-white/20 text-white text-xs px-3 py-1.5 rounded-full font-semibold">{tag}</span>
                     ))}
                   </div>
@@ -195,27 +236,223 @@ export default function PhapLyPage() {
           </div>
         </section>
 
-        {/* Thông tin pháp lý */}
-        <section className="py-14 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="anim-up mb-8">
-              <h2 className="text-xl font-bold text-slate-800 mb-2">Thông tin pháp lý theo nguồn xác minh</h2>
-              <p className="text-sm text-slate-500">Mỗi thông tin đều ghi rõ nguồn và thời điểm xác minh.</p>
+        {/* ── TIMELINE PHÁP LÝ ── */}
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="mb-10 anim-up">
+              <span className="section-label">Tiến trình pháp lý</span>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-1">
+                Hành trình pháp lý The Link City
+              </h2>
+              <p className="mt-2 text-sm text-slate-500">
+                Các mốc pháp lý quan trọng từ 2011 đến nay, kèm số văn bản xác minh.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 anim-stagger">
-              {legalItems.map((item) => (
-                <div key={item.title} className={`rounded-2xl p-5 border anim-card ${item.highlight ? "bg-primary-50 border-primary-200" : "bg-slate-50 border-slate-200"}`}>
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-[22px] top-0 bottom-0 w-0.5 bg-slate-200 hidden sm:block" />
+
+              <div className="space-y-6">
+                {legalTimeline.map((item, i) => (
+                  <div key={i} className="relative flex gap-4 sm:gap-6 anim-up" style={{ animationDelay: `${i * 60}ms` }}>
+                    {/* Dot */}
+                    <div className="relative z-10 flex-shrink-0">
+                      <div className={`w-11 h-11 rounded-full flex items-center justify-center text-lg shadow-sm border-2
+                        ${item.status === "current"
+                          ? "bg-amber-400 border-amber-300 shadow-amber-200"
+                          : "bg-white border-slate-200"}`}>
+                        {item.status === "done"
+                          ? <CheckCircle2 className="w-5 h-5 text-green-500" />
+                          : <Clock className="w-5 h-5 text-amber-600" />}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className={`flex-1 rounded-2xl border p-5 mb-1
+                      ${item.status === "current"
+                        ? "bg-amber-50 border-amber-200"
+                        : "bg-slate-50 border-slate-200"}`}>
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <div>
+                          <span className={`text-[10px] font-bold uppercase tracking-widest
+                            ${item.status === "current" ? "text-amber-600" : "text-slate-400"}`}>
+                            {item.year}
+                            {item.status === "current" && " · ĐANG TRIỂN KHAI"}
+                          </span>
+                          <h3 className="font-bold text-slate-800 text-sm mt-0.5">{item.title}</h3>
+                        </div>
+                        <span className={`text-[9px] font-black px-2 py-1 rounded-full flex-shrink-0 whitespace-nowrap
+                          ${item.status === "current" ? "bg-amber-200 text-amber-800" : "bg-green-100 text-green-700"}`}>
+                          {item.status === "done" ? "HOÀN THÀNH" : "ĐANG TIẾN HÀNH"}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 mb-2.5">
+                        <FileText className="w-3 h-3 text-slate-400 flex-shrink-0" />
+                        <p className="text-xs font-bold text-slate-600">{item.doc}</p>
+                        <span className="text-slate-300 mx-1">·</span>
+                        <p className="text-xs text-slate-400">{item.date}</p>
+                      </div>
+
+                      <p className="text-xs text-slate-600 leading-relaxed">{item.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-xl bg-slate-50 border border-slate-200 px-5 py-4 anim-up">
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Nguồn: UBND tỉnh Đồng Nai · Cục Thuế tỉnh Đồng Nai · Kiểm toán Nhà nước · Kim Oanh Group.
+                Cập nhật: 04/09/2026. Thông tin mang tính tham khảo — vui lòng yêu cầu chủ đầu tư cung cấp hồ sơ gốc trước khi giao dịch.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 2 ẢNH THỰC TẾ ── */}
+        <section className="py-16 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="mb-8 anim-up">
+              <span className="section-label">Hình ảnh thực tế</span>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-1">
+                Chứng từ pháp lý thực tế
+              </h2>
+              <p className="mt-2 text-sm text-slate-500">Nhấn vào ảnh để phóng to xem chi tiết.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 anim-stagger">
+              {/* Ảnh 1 — Sổ hồng */}
+              <div
+                className="rounded-2xl overflow-hidden border border-slate-200 bg-white cursor-zoom-in group hover:shadow-lg transition-shadow"
+                onClick={() => openLightbox(0)}
+                role="button"
+                tabIndex={0}
+                aria-label="Phóng to ảnh sổ hồng The Link City"
+                onKeyDown={(e) => e.key === "Enter" && openLightbox(0)}
+              >
+                <div className="relative overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={TLC_CERTIFICATE}
+                    alt="Hình ảnh thực tế Giấy chứng nhận quyền sử dụng đất từng nền dự án The Link City Dầu Giây cấp năm 2026"
+                    className="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-95"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
+                    ✓ Đã cấp 2026
+                  </div>
+                </div>
+                <div className="px-4 py-3 border-t border-slate-100 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-bold text-slate-700">Sổ hồng The Link City</p>
+                    <p className="text-[11px] text-slate-400 mt-0.5">Giấy CNQSDĐ từng nền — cấp cho CĐT Phú Việt Tín</p>
+                  </div>
+                  <span className="text-xs font-semibold text-primary-600 flex-shrink-0 ml-3">🔍 Phóng to</span>
+                </div>
+              </div>
+
+              {/* Ảnh 2 — Công văn 2505 */}
+              <div
+                className="rounded-2xl overflow-hidden border border-slate-200 bg-white cursor-zoom-in group hover:shadow-lg transition-shadow"
+                onClick={() => openLightbox(1)}
+                role="button"
+                tabIndex={0}
+                aria-label="Phóng to công văn 2505 UBND tỉnh Đồng Nai"
+                onKeyDown={(e) => e.key === "Enter" && openLightbox(1)}
+              >
+                <div className="relative overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={TLC_LEGAL_AS1}
+                    alt="Công văn số 2505/UBND-KTN của UBND tỉnh Đồng Nai về việc cấp sổ dự án The Link City"
+                    className="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-95"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 right-3 bg-blue-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
+                    CV 2505 · 2026
+                  </div>
+                </div>
+                <div className="px-4 py-3 border-t border-slate-100 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-bold text-slate-700">Công văn 2505/UBND-KTN</p>
+                    <p className="text-[11px] text-slate-400 mt-0.5">UBND tỉnh Đồng Nai chỉ đạo cấp sổ · 13/02/2026</p>
+                  </div>
+                  <span className="text-xs font-semibold text-primary-600 flex-shrink-0 ml-3">🔍 Phóng to</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Download CTA — Bộ hồ sơ pháp lý PDF */}
+            <div className="mt-8 rounded-2xl border border-primary-200 bg-primary-50 p-5 anim-up">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                    <Download className="w-5 h-5 text-primary-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-800">Tải Trọn Bộ Hồ Sơ Pháp Lý Dự Án</p>
+                    <p className="text-xs text-slate-500 mt-0.5">Công văn 2505/UBND-KTN · File PDF đầy đủ</p>
+                  </div>
+                </div>
+                <a
+                  href="/the%20link/2505_CV_CV_2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
+                             font-bold text-sm px-5 py-3 rounded-xl transition-colors shadow-sm flex-shrink-0"
+                >
+                  <Download className="w-4 h-4" />
+                  📥 Tải PDF Hồ Sơ Pháp Lý
+                </a>
+              </div>
+              <p className="text-[11px] text-slate-400 mt-3">
+                Hoặc liên hệ để nhận toàn bộ hồ sơ gốc bao gồm QĐ phê duyệt, QĐ giao đất, xác nhận Cục Thuế và kết luận Kiểm toán.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CÁC BÊN LIÊN QUAN ── */}
+        <section className="py-14 bg-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="mb-8 anim-up">
+              <span className="section-label">Các bên liên quan</span>
+              <h2 className="text-xl font-bold text-slate-800 mt-1">
+                Thông tin pháp lý đã xác minh
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 anim-stagger">
+              {[
+                { icon: "🏛️", title: "Chủ đầu tư pháp lý",       content: "Công ty TNHH Đầu tư Phú Việt Tín",     detail: "Đại diện: Ông Đặng Phước Bình – Tổng Giám đốc",                                                source: "Báo Đồng Nai (23/12/2025)",                   highlight: true,  badge: "VERIFIED" },
+                { icon: "🏢", title: "Đơn vị phát triển",          content: "Kim Oanh Land (Kim Oanh Group)",       detail: "Đại diện: Bà Đặng Thị Kim Oanh – Chủ tịch HĐQT",                                             source: "Báo Đồng Nai (23/12/2025)",                   highlight: false, badge: "VERIFIED" },
+                { icon: "📋", title: "Pháp lý Giai đoạn 1",        content: "Sổ hồng đã cấp cho CĐT Phú Việt Tín", detail: "Hạ tầng kỹ thuật hoàn thiện, GCN từng nền đã được cấp",                                        source: "CV 2505/UBND-KTN · 13/02/2026",               highlight: true,  badge: "CONFIRMED" },
+                { icon: "⏳", title: "Pháp lý Giai đoạn 2",        content: "Đang hoàn thiện điều kiện cấp GCN",   detail: "UBND tỉnh đã chỉ đạo Sở NN&MT đẩy nhanh tiến độ cấp sổ từng khách hàng",                        source: "CV 2505/UBND-KTN · 13/02/2026",               highlight: false, badge: "IN PROGRESS" },
+                { icon: "🏦", title: "Ngân hàng đồng hành",         content: "VietinBank chi nhánh Biên Hòa",       detail: '"Rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City"',                       source: "Bà Nguyễn Thị Ngọc Trúc – Phó GĐ (23/12/2025)", highlight: false, badge: "VERIFIED" },
+                { icon: "🔍", title: "Kiểm toán Nhà nước",          content: "Đã xử lý xong toàn bộ kiến nghị",    detail: "VB 261/KV XIII-TH xác nhận hoàn thành kiến nghị về giá đất",                                      source: "Kiểm toán Nhà nước · 05/12/2025",             highlight: false, badge: "CLOSED" },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className={`rounded-2xl p-5 border anim-card
+                    ${item.highlight ? "bg-primary-50 border-primary-200" : "bg-slate-50 border-slate-200"}`}
+                >
                   <div className="flex items-start gap-3">
                     <span className="text-2xl flex-shrink-0">{item.icon}</span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2 mb-1">
                         <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">{item.title}</p>
-                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0 ${item.confidence === "VERIFIED" ? "bg-green-100 text-green-700" : "bg-amber-100 text-amber-700"}`}>
-                          {item.confidence}
+                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0 whitespace-nowrap
+                          ${item.badge === "VERIFIED" || item.badge === "CONFIRMED" ? "bg-green-100 text-green-700"
+                          : item.badge === "CLOSED" ? "bg-slate-100 text-slate-600"
+                          : "bg-amber-100 text-amber-700"}`}>
+                          {item.badge}
                         </span>
                       </div>
-                      <p className={`font-bold text-sm mb-1 ${item.highlight ? "text-primary-800" : "text-slate-800"}`}>{item.content}</p>
+                      <p className={`font-bold text-sm mb-1 ${item.highlight ? "text-primary-800" : "text-slate-800"}`}>
+                        {item.content}
+                      </p>
                       <p className="text-xs text-slate-500 leading-relaxed mb-1">{item.detail}</p>
                       <p className="text-[10px] text-slate-400">Nguồn: {item.source}</p>
                     </div>
@@ -224,14 +461,17 @@ export default function PhapLyPage() {
               ))}
             </div>
 
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 anim-up">
+            {/* VietinBank quote */}
+            <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5 anim-up">
               <div className="flex items-start gap-3">
-                <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                <Landmark className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold text-amber-800 mb-1">Thông tin chưa có nguồn xác minh</p>
-                  <p className="text-xs text-amber-700 leading-relaxed">
-                    Số quyết định phê duyệt quy hoạch cụ thể hiện chưa được công bố trong các nguồn đã xác minh.
-                    Khách hàng nên yêu cầu chủ đầu tư cung cấp hồ sơ gốc trước khi thực hiện giao dịch.
+                  <p className="text-xs font-bold text-blue-800 mb-2">Xác nhận từ VietinBank chi nhánh Biên Hòa</p>
+                  <blockquote className="text-sm text-blue-900 italic leading-relaxed">
+                    &ldquo;VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City.&rdquo;
+                  </blockquote>
+                  <p className="text-[11px] text-blue-600 mt-2">
+                    — Bà Nguyễn Thị Ngọc Trúc, Phó Giám đốc VietinBank chi nhánh Biên Hòa · 23/12/2025
                   </p>
                 </div>
               </div>
@@ -239,35 +479,12 @@ export default function PhapLyPage() {
           </div>
         </section>
 
-        {/* Ảnh pháp lý */}
+        {/* ── FAQ ── */}
         <section className="py-14 bg-slate-50">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="anim-up mb-6">
-              <h2 className="text-xl font-bold text-slate-800 mb-2">Hình ảnh hồ sơ pháp lý</h2>
-              <p className="text-sm text-slate-500">
-                Hình ảnh tài liệu pháp lý sẽ được cập nhật khi có. Khách hàng nên yêu cầu xem bản gốc khi giao dịch.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 anim-stagger">
-              {[
-                { src: TLC_LEGAL["1"], alt: "Hồ sơ pháp lý The Link City Dầu Giây — tài liệu 1" },
-                { src: TLC_LEGAL["2"], alt: "Giấy chứng nhận quyền sử dụng đất The Link City Dầu Giây" },
-                { src: TLC_LEGAL["3"], alt: "Quyết định quy hoạch dự án The Link City Dầu Giây" },
-              ].map((img, i) => (
-                <div key={i} className="relative rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden anim-img-wrap">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img.src} alt={img.alt} className="w-full object-contain" loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4">
-            <div className="anim-up mb-6">
-              <h2 className="text-xl font-bold text-slate-800 mb-2">Câu hỏi về pháp lý The Link City</h2>
+            <div className="mb-6 anim-up">
+              <span className="section-label">FAQ</span>
+              <h2 className="text-xl font-bold text-slate-800 mt-1">Câu hỏi về pháp lý The Link City</h2>
             </div>
             <div className="space-y-3 anim-stagger-slow">
               {faqSchema.mainEntity.map((faq, i) => (
@@ -287,22 +504,22 @@ export default function PhapLyPage() {
           </div>
         </section>
 
-        {/* Disclaimer */}
-        <section className="py-8 bg-slate-50">
+        {/* ── DISCLAIMER ── */}
+        <section className="py-8 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 anim-up">
               <div className="flex items-start gap-3">
-                <ShieldCheck className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold text-slate-600 mb-1">Lưu ý về thông tin pháp lý</p>
+                  <p className="text-xs font-bold text-slate-700 mb-1">Lưu ý quan trọng</p>
                   <p className="text-xs text-slate-500 leading-relaxed">
-                    Thông tin pháp lý trên trang này được tổng hợp từ nguồn công bố ngày 23/12/2025.
-                    Hiện tại là tháng 9/2026 — tình trạng pháp lý thực tế có thể đã thay đổi.
-                    Website không cung cấp tư vấn pháp lý. Tình trạng GCN từng sản phẩm cụ thể
-                    cần được kiểm tra trực tiếp với chủ đầu tư hoặc cơ quan nhà nước có thẩm quyền.
+                    Thông tin pháp lý trên trang này được tổng hợp từ tài liệu và nguồn công bố chính thức.
+                    Tình trạng GCN từng sản phẩm cụ thể cần được kiểm tra trực tiếp với chủ đầu tư hoặc
+                    cơ quan nhà nước có thẩm quyền trước khi thực hiện giao dịch.
+                    Website không cung cấp tư vấn pháp lý.
                   </p>
                   <p className="text-[11px] text-slate-400 mt-2">
-                    Nguồn: Báo Đồng Nai (baodongnai.com.vn) · Kim Oanh Group (kimoanhgroup.vn) · 23/12/2025
+                    Nguồn: UBND tỉnh Đồng Nai · Cục Thuế Đồng Nai · Kiểm toán Nhà nước · Kim Oanh Group · Cập nhật: 04/09/2026
                   </p>
                 </div>
               </div>
@@ -311,12 +528,12 @@ export default function PhapLyPage() {
         </section>
 
         <PageCTA
-          title="Cần xác minh pháp lý The Link City?"
-          subtitle="Liên hệ để được hỗ trợ kiểm tra tình trạng pháp lý từng sản phẩm cụ thể."
-          primaryHref="tel:0937587438"
-          primaryLabel="Gọi 0937.587.438"
-          secondaryHref="https://zalo.me/0937587438"
-          secondaryLabel="Nhắn Zalo"
+          title="Nhận hồ sơ pháp lý đầy đủ The Link City"
+          subtitle="Liên hệ để được gửi trọn bộ tài liệu pháp lý gốc và tư vấn tình trạng từng sản phẩm cụ thể."
+          primaryHref={`tel:${SITE_CONFIG.phone}`}
+          primaryLabel={`Gọi ${SITE_CONFIG.phoneDisplay}`}
+          secondaryHref={SITE_CONFIG.social.zalo}
+          secondaryLabel="Nhận hồ sơ qua Zalo"
         />
 
         <RelatedContent title="Tìm hiểu thêm về The Link City" items={relatedItems} />

@@ -10,6 +10,7 @@ import {
   TLC_OG,
   TLC_DIAGRAM,
   TLC_T3_2B,
+  TLC_PRODUCT,
 } from "@/lib/cloudinary";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import {
@@ -25,6 +26,7 @@ import {
   Store,
   Layers,
   ShieldCheck,
+  LayoutGrid,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────
@@ -163,6 +165,39 @@ const T3_IMAGES: LightboxImage[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────
+// CLUSTER IMAGES — 4 cụm sản phẩm The Link City
+// ─────────────────────────────────────────────────────────────
+const CLUSTER_IMAGES: LightboxImage[] = [
+  {
+    src: TLC_PRODUCT["1"],
+    alt: "Cụm Shophouse QL1A – Mặt bằng chi tiết The Link City Dầu Giây",
+    caption: "Cụm Shophouse QL1A · Nhà phố thương mại mặt tiền Quốc lộ 1A",
+  },
+  {
+    src: TLC_PRODUCT["2"],
+    alt: "Cụm Nhà phố liên kế – Mặt bằng chi tiết The Link City Dầu Giây",
+    caption: "Cụm Nhà phố liên kế · Townhouse nội khu · Đường nội bộ rộng",
+  },
+  {
+    src: TLC_PRODUCT["3"],
+    alt: "Cụm Công viên & Tiện ích – Mặt bằng chi tiết The Link City Dầu Giây",
+    caption: "Cụm Công viên & Tiện ích · Công viên cảnh quan · Quảng trường cộng đồng",
+  },
+  {
+    src: TLC_PRODUCT["4"],
+    alt: "Cụm Biệt thự & Shophouse – Mặt bằng chi tiết The Link City Dầu Giây",
+    caption: "Cụm Biệt thự & Shophouse · Villa & Shophouse · Chi tiết phân lô",
+  },
+];
+
+const CLUSTER_META = [
+  { icon: "🏪", name: "Cụm Shophouse QL1A",        sub: "Nhà phố thương mại · Mặt tiền Quốc lộ 1A" },
+  { icon: "🏠", name: "Cụm Nhà phố liên kế",       sub: "Townhouse nội khu · Đường nội bộ rộng" },
+  { icon: "🌳", name: "Cụm Công viên & Tiện ích",  sub: "Công viên cảnh quan · Quảng trường cộng đồng" },
+  { icon: "🏡", name: "Cụm Biệt thự & Shophouse",  sub: "Villa & Shophouse · Chi tiết phân lô" },
+];
+
+// ─────────────────────────────────────────────────────────────
 // SHEET CARD — hiển thị 1 sheet với zoom trigger
 // ─────────────────────────────────────────────────────────────
 function SheetCard({
@@ -228,6 +263,7 @@ export default function MatBangPage() {
   // Two separate lightbox contexts: diagram + T3 sheets
   const diagramLightbox = useLightbox(DIAGRAM_IMAGES);
   const t3Lightbox      = useLightbox(T3_IMAGES);
+  const clusterLightbox = useLightbox(CLUSTER_IMAGES);
 
   return (
     <>
@@ -239,6 +275,7 @@ export default function MatBangPage() {
       {/* Lightbox portals */}
       {diagramLightbox.LightboxPortal}
       {t3Lightbox.LightboxPortal}
+      {clusterLightbox.LightboxPortal}
 
       <ScrollAnimator />
       <CorpHeader solid />
@@ -387,14 +424,74 @@ export default function MatBangPage() {
                 ))}
               </div>
               <p className="text-[11px] text-primary-600 mt-3">
-                Nguồn: kimoanhgroup.vn · Báo Đồng Nai (23/12/2025). Tổng ~100 ha là tổng hợp từ 2 giai đoạn.
+                Nguồn: Kim Oanh Land · Báo Đồng Nai (23/12/2025). Tổng ~100 ha là tổng hợp từ 2 giai đoạn.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ─── SECTION 03: CƠ CẤU MẶT BẰNG & LOẠI HÌNH SẢN PHẨM ─── */}
+        {/* ─── SECTION 02b: BẢN ĐỒ CHI TIẾT TỪNG CỤM SẢN PHẨM ─── */}
         <section className="py-16 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="mb-2 anim-up">
+              <span className="section-label">Phân khu sản phẩm</span>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-1 flex items-center gap-2">
+                <LayoutGrid className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                Bản đồ chi tiết từng cụm sản phẩm
+              </h2>
+              <p className="mt-2 text-sm text-slate-500 max-w-3xl">
+                Click vào từng ảnh để xem phóng to và đọc chi tiết lô đất.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 anim-stagger">
+              {CLUSTER_META.map((cluster, i) => (
+                <button
+                  key={cluster.name}
+                  onClick={() => clusterLightbox.openLightbox(i)}
+                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden
+                             hover:shadow-md hover:border-primary-200 transition-all duration-200
+                             text-left cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary-300"
+                  aria-label={`Phóng to ${cluster.name}`}
+                >
+                  {/* Ảnh */}
+                  <div className="relative overflow-hidden bg-slate-100 aspect-[4/3]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={CLUSTER_IMAGES[i].src}
+                      alt={CLUSTER_IMAGES[i].alt}
+                      className="w-full h-full object-cover transition-transform duration-300
+                                 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200" />
+                    <span className="absolute top-2 right-2 flex items-center gap-1 text-[10px] font-bold
+                                     bg-white/90 text-slate-700 px-2 py-1 rounded-lg opacity-0
+                                     group-hover:opacity-100 transition-opacity duration-200">
+                      <ZoomIn className="w-3 h-3" />
+                      Phóng to
+                    </span>
+                  </div>
+
+                  {/* Caption */}
+                  <div className="px-4 py-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-base">{cluster.icon}</span>
+                      <p className="font-semibold text-slate-800 text-sm leading-snug">{cluster.name}</p>
+                    </div>
+                    <p className="text-[11px] text-slate-400 leading-relaxed">{cluster.sub}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <p className="text-[11px] text-slate-400 mt-4 anim-up">
+              Nguồn: tài liệu dự án The Link City Dầu Giây · Tham khảo, không thay thế hồ sơ pháp lý chính thức.
+            </p>
+          </div>
+        </section>
+
+        {/* ─── SECTION 03: CƠ CẤU MẶT BẰNG & LOẠI HÌNH SẢN PHẨM ─── */}        <section className="py-16 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">Cơ cấu sản phẩm</span>

@@ -83,6 +83,15 @@ const LOCAL: Record<string, string> = {
   "megacity2/plane/4.jpg":               "/Plane/4.jpg",
   "megacity2/news3/1.jpg":               "/news3/1.jpg",
   // The Link City local fallbacks
+  "thelinkcity/utilities/0.jpg":           "/the link/utilities/0.jpg",
+  "thelinkcity/utilities/1.jpg":           "/the link/utilities/1.jpg",
+  "thelinkcity/utilities/2.jpg":           "/the link/utilities/2.jpg",
+  "thelinkcity/utilities/3.jpg":           "/the link/utilities/3.jpg",
+  "thelinkcity/utilities/4.jpg":           "/the link/utilities/4.jpg",
+  "thelinkcity/product/1.jpg":             "/the link/product/1.jpg",
+  "thelinkcity/product/2.webp":            "/the link/product/2.webp",
+  "thelinkcity/product/3.jpg":             "/the link/product/3.jpg",
+  "thelinkcity/product/4.jpg":             "/the link/product/4.jpg",
   "thelinkcity/hero/1.webp":               "/the link/home/1.webp",
   "thelinkcity/overview/1.webp":           "/the link/overview/1.webp",
   "thelinkcity/overview/2.jpg":            "/the link/overview/2.jpg",
@@ -588,12 +597,15 @@ export const TLC_INFRA: Record<string, string> = Object.fromEntries(
 );
 
 /** The Link City — Tiện ích (on-site amenities)
- *  1-3 = on-site amenities/1-3.jpg
+ *  5 ảnh mới từ public/the link/utilities/0-4.jpg
+ *  Cloudinary: thelinkcity/utilities/0–4
  */
 export const TLC_AMENITIES: Record<string, string> = {
-  "1": cld("thelinkcity/amenities", "1.jpg", "lg"),
-  "2": cld("thelinkcity/amenities", "2.jpg", "lg"),
-  "3": cld("thelinkcity/amenities", "3.jpg", "lg"),
+  "1": cld("thelinkcity/utilities", "0.jpg", "lg"),
+  "2": cld("thelinkcity/utilities", "1.jpg", "lg"),
+  "3": cld("thelinkcity/utilities", "2.jpg", "lg"),
+  "4": cld("thelinkcity/utilities", "3.jpg", "lg"),
+  "5": cld("thelinkcity/utilities", "4.jpg", "lg"),
 };
 
 /** The Link City — Ảnh thực tế (real photos)
@@ -610,11 +622,17 @@ export const TLC_LOCATION: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("thelinkcity/location", v, "md")])
 );
 
-/** The Link City — Mặt bằng / Quy hoạch — chờ ảnh */
-export const TLC_LAYOUT: Record<string, string> = Object.fromEntries(
-  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"]]
-    .map(([k, v]) => [k, cld("thelinkcity/layout", v, "doc")])
-);
+/** The Link City — Mặt bằng / Quy hoạch — 4 ảnh cụm sản phẩm
+ *  1 = Shophouse QL1A, 2 = Nhà phố liên kế
+ *  3 = Công viên & Tiện ích, 4 = Biệt thự & Shophouse
+ *  Nguồn: public/the link/product/ → Cloudinary: thelinkcity/product/
+ */
+export const TLC_LAYOUT: Record<string, string> = {
+  "1": cld("thelinkcity/product", "1.jpg",  "doc"),
+  "2": cld("thelinkcity/product", "2.webp", "doc"),
+  "3": cld("thelinkcity/product", "3.jpg",  "doc"),
+  "4": cld("thelinkcity/product", "4.jpg",  "doc"),
+};
 
 /** The Link City — Pháp lý — chờ ảnh */
 export const TLC_LEGAL: Record<string, string> = Object.fromEntries(
@@ -631,24 +649,51 @@ export const TLC_RENDER: Record<string, string> = Object.fromEntries(
 /** OG image chính cho The Link City (1280×720) — dùng overview/1.webp */
 export const TLC_OG = `${BASE}/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/thelinkcity/overview/1.webp`;
 
-/** The Link City — Sơ đồ phân lô tổng thể (1 ảnh, đã crop sẵn, KHÔNG crop thêm)
- *  Dùng local path cho đến khi upload lên Cloudinary.
- *  Sau khi upload xong, đổi thành:
- *  export const TLC_DIAGRAM = `${BASE}/${T.doc}/thelinkcity/diagram/so-do-tong-the.jpeg`;
- */
-export const TLC_DIAGRAM = "/the link/diagram/Screenshot_3-9-2026_223041_.jpeg";
+/** The Link City — Sơ đồ phân lô tổng thể (1 ảnh, đã crop sẵn, KHÔNG crop thêm) */
+export const TLC_DIAGRAM = `${BASE}/${T.doc}/thelinkcity/diagram/so-do-tong-the`;
 
 /** The Link City — 8 sheet hồ sơ mẫu nhà T3-2b
- *  Dùng local path cho đến khi upload lên Cloudinary.
- *  Sau khi upload xong, thay mỗi value bằng Cloudinary URL tương ứng.
+ *  a01-01 = Mặt bằng vị trí mẫu nhà
+ *  a01-02 = Bảng thông số lô đất
+ *  a02-01 = Mặt bằng công năng tầng 1
+ *  a02-02 = Mặt bằng công năng tầng 2, 3
+ *  a03-01 = Mặt đứng trục A-C, C-A
+ *  a03-02 = Mặt đứng trục 4-1
+ *  a04-01 = Mặt cắt A04-01
+ *  a04-02 = Mặt cắt A04-02
  */
 export const TLC_T3_2B: Record<string, string> = {
-  "a01-01": "/the link/cross-section/A01-01.jpeg",
-  "a01-02": "/the link/cross-section/A01-02.jpeg",
-  "a02-01": "/the link/cross-section/A02-01.jpeg",
-  "a02-02": "/the link/cross-section/A02-02.jpeg",
-  "a03-01": "/the link/cross-section/A03-01.jpeg",
-  "a03-02": "/the link/cross-section/A03-02.jpeg",
-  "a04-01": "/the link/cross-section/A04-01.jpeg",
-  "a04-02": "/the link/cross-section/A04-02.jpeg",
+  "a01-01": `${BASE}/${T.doc}/thelinkcity/cross-section/a01-01`,
+  "a01-02": `${BASE}/${T.doc}/thelinkcity/cross-section/a01-02`,
+  "a02-01": `${BASE}/${T.doc}/thelinkcity/cross-section/a02-01`,
+  "a02-02": `${BASE}/${T.doc}/thelinkcity/cross-section/a02-02`,
+  "a03-01": `${BASE}/${T.doc}/thelinkcity/cross-section/a03-01`,
+  "a03-02": `${BASE}/${T.doc}/thelinkcity/cross-section/a03-02`,
+  "a04-01": `${BASE}/${T.doc}/thelinkcity/cross-section/a04-01`,
+  "a04-02": `${BASE}/${T.doc}/thelinkcity/cross-section/a04-02`,
+};
+
+/** The Link City — Sổ hồng thực tế (Giấy chứng nhận QSDĐ từng nền cấp cho CĐT Phú Việt Tín)
+ *  Nguồn: public/the link/Land use rights certificate.jpg
+ *  Cloudinary: thelinkcity/certificate/so-hong-the-link-city
+ */
+export const TLC_CERTIFICATE = `${BASE}/${T.lg}/thelinkcity/certificate/so-hong-the-link-city`;
+
+/** The Link City — Ảnh pháp lý AS1 (Công văn / tài liệu pháp lý thực tế)
+ *  Nguồn: public/the link/legal.jpeg
+ *  Cloudinary: thelinkcity/legal/as1
+ */
+export const TLC_LEGAL_AS1 = `${BASE}/${T.lg}/thelinkcity/legal/as1`;
+
+/** The Link City — Ảnh sản phẩm / phân khu (4 ảnh)
+ *  1 = Cụm Shophouse QL1A, 2 = Cụm Nhà phố liên kế
+ *  3 = Cụm Công viên & Tiện ích, 4 = Cụm Biệt thự & Shophouse
+ *  Nguồn: public/the link/product/1-4
+ *  Cloudinary: thelinkcity/product/
+ */
+export const TLC_PRODUCT: Record<string, string> = {
+  "1": cld("thelinkcity/product", "1.jpg",  "lg"),
+  "2": cld("thelinkcity/product", "2.webp", "lg"),
+  "3": cld("thelinkcity/product", "3.jpg",  "lg"),
+  "4": cld("thelinkcity/product", "4.jpg",  "lg"),
 };

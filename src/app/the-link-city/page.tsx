@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -19,6 +20,9 @@ import {
   TLC_AMENITIES,
   TLC_DIAGRAM,
   TLC_T3_2B,
+  TLC_CERTIFICATE,
+  TLC_LEGAL_AS1,
+  TLC_LAYOUT,
 } from "@/lib/cloudinary";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import {
@@ -42,6 +46,13 @@ import {
   Calendar,
   FileText,
   LayoutGrid,
+  Download,
+  ZoomIn,
+  CheckCircle2,
+  BadgeCheck,
+  Calculator,
+  TrendingDown,
+  Home,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────
@@ -56,6 +67,7 @@ const listingSchema = {
     "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai. 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
   url: "https://kimoanhdongnai.com.vn/the-link-city",
   datePosted: "2025-12-23",
+  dateModified: "2026-09-04",
   image: TLC_OG,
   address: {
     "@type": "PostalAddress",
@@ -163,6 +175,22 @@ const faqSchema = {
         text: "VietinBank chi nhánh Biên Hòa là ngân hàng đồng hành chính thức của dự án, hỗ trợ tài chính cho cả giai đoạn 1 và giai đoạn 2.",
       },
     },
+    {
+      "@type": "Question",
+      name: "Pháp lý dự án The Link City đã có sổ đỏ chưa?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Link City đã có Giấy chứng nhận quyền sử dụng đất (Sổ hồng) từng nền cấp cho Chủ đầu tư Phú Việt Tín, hoàn thành 100% tiền sử dụng đất với Cục Thuế Đồng Nai và quy hoạch chi tiết 1/500 phê duyệt đầy đủ. UBND tỉnh Đồng Nai đã ban hành Công văn số 2505/UBND-KTN ngày 13/02/2026 chỉ đạo Sở NN&MT đẩy nhanh cấp sổ cho từng khách hàng.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Chính sách vay ngân hàng The Link City như thế nào?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Khách hàng được ngân hàng VietinBank hỗ trợ vay tới 70% giá trị sản phẩm trong 20–30 năm, với chính sách ưu đãi ân hạn nợ gốc lên đến 24 tháng (chỉ trả lãi suất trong 2 năm đầu). Vốn tự có tối thiểu chỉ 30%. Ngoài ra có chiết khấu thanh toán sớm tương đương 16%/năm.",
+      },
+    },
   ],
 };
 
@@ -227,7 +255,7 @@ const relatedItems = [
   {
     href: "/the-link-city/phap-ly",
     title: "Pháp lý The Link City Dầu Giây",
-    description: "Thông tin pháp lý dự án: chủ đầu tư Phú Việt Tín, tình trạng cấp GCN và VietinBank đồng hành.",
+    description: "Sổ hồng 2026 đã cấp cho CĐT Phú Việt Tín, UBND tỉnh chỉ đạo cấp sổ, kiểm toán thông qua.",
     tag: "Pháp lý",
   },
   {
@@ -279,6 +307,8 @@ const amenitiesImages: LightboxImage[] = [
   { src: TLC_AMENITIES["1"], alt: "Tiện ích nội khu The Link City Dầu Giây — hạng mục 1", caption: "Tiện ích The Link City" },
   { src: TLC_AMENITIES["2"], alt: "Tiện ích nội khu The Link City Dầu Giây — hạng mục 2", caption: "Tiện ích The Link City" },
   { src: TLC_AMENITIES["3"], alt: "Tiện ích nội khu The Link City Dầu Giây — hạng mục 3", caption: "Tiện ích The Link City" },
+  { src: TLC_AMENITIES["4"], alt: "Tiện ích nội khu The Link City Dầu Giây — hạng mục 4", caption: "Tiện ích The Link City" },
+  { src: TLC_AMENITIES["5"], alt: "Tiện ích nội khu The Link City Dầu Giây — hạng mục 5", caption: "Tiện ích The Link City" },
 ];
 
 const realImages: LightboxImage[] = [
@@ -294,15 +324,59 @@ const t3ThumbImages: LightboxImage[] = [
   { src: TLC_T3_2B["a01-01"], alt: "Mặt bằng vị trí mẫu nhà T3-2b The Link City Dầu Giây", caption: "A01-01 · Mặt bằng vị trí mẫu nhà T3-2b" },
 ];
 
+const t3AllImages: LightboxImage[] = [
+  { src: TLC_T3_2B["a01-01"], alt: "A01-01 · Mặt bằng vị trí mẫu nhà T3-2b",    caption: "A01-01 · Mặt bằng vị trí mẫu nhà T3-2b" },
+  { src: TLC_T3_2B["a01-02"], alt: "A01-02 · Bảng thông số lô đất T3-2b",        caption: "A01-02 · Bảng thông số lô đất" },
+  { src: TLC_T3_2B["a02-01"], alt: "A02-01 · Mặt bằng công năng tầng 1 T3-2b",   caption: "A02-01 · Tầng 1 – Kinh doanh / Tầng hầm kỹ thuật" },
+  { src: TLC_T3_2B["a02-02"], alt: "A02-02 · Mặt bằng công năng tầng 2–3 T3-2b", caption: "A02-02 · Tầng 2 – Phòng khách, bếp, ngủ · Tầng 3 – Ngủ, thờ, sân thượng" },
+  { src: TLC_T3_2B["a03-01"], alt: "A03-01 · Mặt đứng trục A-C và C-A T3-2b",    caption: "A03-01 · Mặt đứng trục A-C, C-A" },
+  { src: TLC_T3_2B["a03-02"], alt: "A03-02 · Mặt đứng trục 4-1 T3-2b",           caption: "A03-02 · Mặt đứng trục 4-1" },
+  { src: TLC_T3_2B["a04-01"], alt: "A04-01 · Mặt cắt A04-01 T3-2b",              caption: "A04-01 · Mặt cắt A04-01" },
+  { src: TLC_T3_2B["a04-02"], alt: "A04-02 · Mặt cắt A04-02 T3-2b",              caption: "A04-02 · Mặt cắt A04-02" },
+];
+
+const certificateImages: LightboxImage[] = [
+  { src: TLC_CERTIFICATE, alt: "Sổ hồng thực tế The Link City – Giấy chứng nhận QSDĐ cấp cho CĐT Phú Việt Tín", caption: "Sổ hồng thực tế – GCN quyền sử dụng đất, có dấu mộc đỏ của Sở TN&MT tỉnh Đồng Nai" },
+  { src: TLC_LEGAL_AS1,   alt: "Công văn pháp lý The Link City – tài liệu pháp lý thực tế",                      caption: "Tài liệu pháp lý AS1 – Công văn / xác nhận pháp lý dự án The Link City" },
+];
+
+const layoutDetailImages: LightboxImage[] = [
+  { src: TLC_LAYOUT["1"], alt: "Mặt bằng phân lô chi tiết The Link City – Cụm Shophouse QL1A",         caption: "Cụm Shophouse mặt tiền Quốc lộ 1A" },
+  { src: TLC_LAYOUT["2"], alt: "Mặt bằng phân lô chi tiết The Link City – Cụm Nhà phố liên kế",        caption: "Cụm Nhà phố liên kế nội khu" },
+  { src: TLC_LAYOUT["3"], alt: "Mặt bằng phân lô chi tiết The Link City – Cụm Công viên và Tiện ích",  caption: "Cụm Công viên & Tiện ích cộng đồng" },
+  { src: TLC_LAYOUT["4"], alt: "Mặt bằng phân lô chi tiết The Link City – Cụm Biệt thự và Shophouse",  caption: "Cụm Biệt thự & Shophouse – chi tiết lô" },
+];
+
 // ─────────────────────────────────────────────────────────────
 // PAGE COMPONENT
 // ─────────────────────────────────────────────────────────────
 export default function TheLinkCityPage() {
-  const overviewLb  = useLightbox(overviewImages);
-  const diagramLb   = useLightbox(diagramImages);
-  const amenitiesLb = useLightbox(amenitiesImages);
-  const realLb      = useLightbox(realImages);
-  const t3Lb        = useLightbox(t3ThumbImages);
+  const overviewLb     = useLightbox(overviewImages);
+  const diagramLb      = useLightbox(diagramImages);
+  const amenitiesLb    = useLightbox(amenitiesImages);
+  const realLb         = useLightbox(realImages);
+  const t3Lb           = useLightbox(t3AllImages);
+  const certLb         = useLightbox(certificateImages);
+  const layoutDetailLb = useLightbox(layoutDetailImages);
+
+  // ─── Widget tính lãi vay ───
+  const [loanPrice,   setLoanPrice]   = useState(3000);  // triệu VNĐ
+  const [loanRatio,   setLoanRatio]   = useState(70);    // %
+  const [loanRate,    setLoanRate]    = useState(9);     // %/năm
+  const [loanTerm,    setLoanTerm]    = useState(20);    // năm
+  const [gracePeriod, setGracePeriod] = useState(24);   // tháng ân hạn gốc
+
+  const loanAmount          = loanPrice * loanRatio / 100;
+  const monthlyRate         = loanRate / 100 / 12;
+  const totalMonths         = loanTerm * 12;
+  const monthlyInterestOnly = loanAmount * monthlyRate;
+  const remainingMonths     = totalMonths - gracePeriod;
+  const monthlyAfterGrace   =
+    remainingMonths > 0 && monthlyRate > 0
+      ? (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, remainingMonths)) /
+        (Math.pow(1 + monthlyRate, remainingMonths) - 1)
+      : loanAmount / Math.max(remainingMonths, 1);
+  const ownCapital = loanPrice * (1 - loanRatio / 100);
 
   return (
     <>
@@ -312,6 +386,8 @@ export default function TheLinkCityPage() {
       {amenitiesLb.LightboxPortal}
       {realLb.LightboxPortal}
       {t3Lb.LightboxPortal}
+      {certLb.LightboxPortal}
+      {layoutDetailLb.LightboxPortal}
 
       {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listingSchema) }} />
@@ -463,6 +539,7 @@ export default function TheLinkCityPage() {
                 { id: "tien-ich",   label: "Tiện ích" },
                 { id: "phap-ly",    label: "Pháp lý" },
                 { id: "tien-do",    label: "Tiến độ" },
+                { id: "thanh-toan", label: "Thanh toán" },
                 { id: "hinh-anh",   label: "Hình ảnh" },
                 { id: "mau-nha",    label: "Mẫu nhà" },
                 { id: "chuyen-trang", label: "Chuyên trang" },
@@ -743,65 +820,176 @@ export default function TheLinkCityPage() {
           </div>
         </FadeSection>
 
-        {/* ─── SECTION 06: SƠ ĐỒ MẶT BẰNG TỔNG THỂ (GIỚI THIỆU) ─── */}
+        {/* ─── SECTION 06: SƠ ĐỒ MẶT BẰNG TỔNG THỂ ─── */}
         <FadeSection id="mat-bang" className="py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
+
+            {/* Header */}
             <div className="mb-8 anim-up">
               <span className="section-label">Sơ đồ mặt bằng</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">
-                Tổng quan sơ đồ mặt bằng The Link City
+                Mặt bằng phân lô The Link City
               </h2>
               <p className="mt-2 text-slate-500 text-sm md:text-base">
-                Dự án được quy hoạch thành 2 giai đoạn với các phân khu sản phẩm rõ ràng.
-                Sơ đồ dưới đây cho thấy tổng thể bố cục mặt bằng toàn khu.
+                Toàn bộ sơ đồ phân lô tổng thể và bản đồ chi tiết từng cụm sản phẩm — click vào ảnh để phóng to.
               </p>
             </div>
 
-            {/* Sơ đồ phân lô tổng thể — 1 ảnh duy nhất, KHÔNG crop thêm */}
+            {/* ── Sơ đồ tổng thể — click phóng to ── */}
             <div
-              className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-6 anim-up cursor-zoom-in group"
+              className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 mb-8 anim-up cursor-zoom-in group shadow-lg"
               onClick={() => diagramLb.openLightbox(0)}
               role="button"
               tabIndex={0}
               aria-label="Phóng to sơ đồ phân lô tổng thể The Link City"
               onKeyDown={(e) => e.key === "Enter" && diagramLb.openLightbox(0)}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={TLC_DIAGRAM}
-                alt="Sơ đồ phân lô tổng thể The Link City Dầu Giây Đồng Nai"
-                title="Sơ đồ phân lô tổng thể The Link City Dầu Giây"
-                className="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-95"
-                loading="lazy"
-              />
+              <div className="relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={TLC_DIAGRAM}
+                  alt="Sơ đồ phân lô tổng thể The Link City Dầu Giây Đồng Nai"
+                  title="Sơ đồ phân lô tổng thể The Link City Dầu Giây"
+                  className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+                {/* Overlay zoom hint */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-200 flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3 text-sm font-bold text-slate-700 shadow-xl flex items-center gap-2">
+                    <ZoomIn className="w-5 h-5 text-primary-600" /> Click để xem phóng to toàn màn hình
+                  </span>
+                </div>
+                {/* Watermark badge */}
+                <div className="absolute top-3 right-3 bg-amber-400 text-slate-900 text-[10px] font-black px-3 py-1 rounded-full shadow">
+                  🗺 SƠ ĐỒ TỔNG THỂ
+                </div>
+              </div>
               <div className="px-5 py-3 bg-white border-t border-slate-100 flex items-center justify-between">
                 <p className="text-xs text-slate-500 italic">
-                  Sơ đồ phân lô tổng thể The Link City Dầu Giây · Nguồn: tài liệu dự án
+                  Sơ đồ phân lô tổng thể The Link City Dầu Giây · Nguồn: tài liệu dự án CĐT Phú Việt Tín
                 </p>
-                <span className="text-xs font-semibold text-primary-600 flex-shrink-0 ml-3">🔍 Phóng to</span>
+                <span className="text-xs font-bold text-primary-600 flex-shrink-0 ml-3 flex items-center gap-1">
+                  <ZoomIn className="w-3.5 h-3.5" /> Phóng to
+                </span>
               </div>
             </div>
 
-            {/* Giải thích tổng quan — không phân tích sâu T3-2b */}
-            <div className="rounded-2xl bg-white border border-slate-200 p-6 mb-6 anim-up">
-              <h3 className="font-bold text-slate-800 text-sm mb-3">Về cơ cấu quy hoạch</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Sơ đồ thể hiện bố cục tổng thể của toàn khu, bao gồm phân khu giai đoạn 1 (~53 ha)
-                và giai đoạn 2 (~47 ha), các tuyến đường nội khu, khu vực tiện ích công cộng và
-                vị trí các loại sản phẩm (shophouse, nhà phố liên kế, biệt thự).
-                Để xem chi tiết từng lô, cách đọc mặt bằng và hồ sơ mẫu nhà, vui lòng xem trang chuyên đề mặt bằng.
+            {/* ── Tiêu đề cụm chi tiết ── */}
+            <div className="mb-5 anim-up">
+              <h3 className="font-bold text-slate-800 text-lg flex items-center gap-2">
+                <LayoutGrid className="w-5 h-5 text-primary-600" />
+                Bản đồ chi tiết từng cụm sản phẩm
+              </h3>
+              <p className="text-slate-500 text-sm mt-1">
+                Click vào từng ảnh để xem phóng to và đọc chi tiết lô đất.
               </p>
             </div>
 
-            <div className="flex justify-center anim-up">
-              <Link
-                href="/the-link-city/mat-bang"
-                className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
-                           font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
-              >
-                Xem chi tiết mặt bằng The Link City
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* ── Grid 4 ảnh chi tiết cụm ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 anim-stagger">
+              {[
+                {
+                  idx: 0,
+                  label: "Cụm Shophouse QL1A",
+                  sub:   "Nhà phố thương mại · Mặt tiền Quốc lộ 1A",
+                  color: "amber",
+                  icon:  Store,
+                },
+                {
+                  idx: 1,
+                  label: "Cụm Nhà phố liên kế",
+                  sub:   "Townhouse nội khu · Đường nội bộ rộng",
+                  color: "primary",
+                  icon:  Home,
+                },
+                {
+                  idx: 2,
+                  label: "Cụm Công viên & Tiện ích",
+                  sub:   "Công viên cảnh quan · Quảng trường cộng đồng",
+                  color: "green",
+                  icon:  Trees,
+                },
+                {
+                  idx: 3,
+                  label: "Cụm Biệt thự & Shophouse",
+                  sub:   "Villa & Shophouse · Chi tiết phân lô",
+                  color: "slate",
+                  icon:  Building2,
+                },
+              ].map((cluster) => (
+                <div
+                  key={cluster.idx}
+                  className="group rounded-2xl overflow-hidden border border-slate-200 bg-white
+                             hover:shadow-lg transition-all duration-300 cursor-zoom-in"
+                  onClick={() => layoutDetailLb.openLightbox(cluster.idx)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Phóng to: ${cluster.label}`}
+                  onKeyDown={(e) => e.key === "Enter" && layoutDetailLb.openLightbox(cluster.idx)}
+                >
+                  {/* Ảnh */}
+                  <div className="relative h-48 overflow-hidden bg-slate-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={TLC_LAYOUT[String(cluster.idx + 1)]}
+                      alt={`${cluster.label} — Mặt bằng chi tiết The Link City Dầu Giây`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-bold text-slate-700 shadow flex items-center gap-1.5">
+                        <ZoomIn className="w-3.5 h-3.5" /> Phóng to
+                      </span>
+                    </div>
+                  </div>
+                  {/* Label */}
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0
+                        ${cluster.color === "amber"   ? "bg-amber-50"   : ""}
+                        ${cluster.color === "primary" ? "bg-primary-50" : ""}
+                        ${cluster.color === "green"   ? "bg-green-50"   : ""}
+                        ${cluster.color === "slate"   ? "bg-slate-100"  : ""}`}>
+                        <cluster.icon className={`w-4 h-4
+                          ${cluster.color === "amber"   ? "text-amber-600"   : ""}
+                          ${cluster.color === "primary" ? "text-primary-600" : ""}
+                          ${cluster.color === "green"   ? "text-green-600"   : ""}
+                          ${cluster.color === "slate"   ? "text-slate-500"   : ""}`} />
+                      </div>
+                      <p className="font-bold text-slate-800 text-sm leading-snug">{cluster.label}</p>
+                    </div>
+                    <p className="text-[11px] text-slate-500 leading-snug pl-9">{cluster.sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Sơ đồ tổng thể PDF download */}
+            <div className="rounded-2xl bg-white border border-slate-200 p-5 mb-6 anim-up flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="font-bold text-slate-800 text-sm mb-1">Tải sơ đồ phân lô dạng PDF</p>
+                <p className="text-xs text-slate-500">File SƠ ĐỒ THE LINK CITY DẦU GIÂY — độ phân giải cao, in được</p>
+              </div>
+              <div className="flex flex-wrap gap-2 flex-shrink-0">
+                <a
+                  href="/the%20link/diagram/S%C6%A0%20%C4%90%E1%BB%92%20THE%20LINK%20CITY%20D%E1%BA%A6U%20GI%C3%82Y.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
+                             font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  <Download className="w-4 h-4" />
+                  Tải sơ đồ PDF
+                </a>
+                <Link
+                  href="/the-link-city/mat-bang"
+                  className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
+                             text-slate-700 font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors"
+                >
+                  Xem chuyên trang mặt bằng
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </FadeSection>
@@ -830,14 +1018,36 @@ export default function TheLinkCityPage() {
               ))}
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8 anim-stagger">
-              {[1, 2, 3].map((i) => (
+            <div className="grid grid-cols-2 gap-3 mb-8 anim-stagger">
+              {/* Ảnh 0 — infographic tổng quan tiện ích, chiếm full hàng */}
+              <div
+                className="col-span-2 relative rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden anim-img-wrap cursor-zoom-in group"
+                onClick={() => amenitiesLb.openLightbox(0)}
+                role="button" tabIndex={0}
+                aria-label="Phóng to tiện ích 1"
+                onKeyDown={(e) => e.key === "Enter" && amenitiesLb.openLightbox(0)}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={TLC_AMENITIES["1"]}
+                  alt="Hệ tiện ích đa dạng The Link City Dầu Giây — sơ đồ tổng quan"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-semibold text-slate-700 shadow">
+                    🔍 Phóng to
+                  </span>
+                </div>
+              </div>
+
+              {/* Ảnh 2–5 — collage theo nhóm tiện ích, 2 cột */}
+              {[2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
-                  className="relative rounded-2xl bg-slate-200 overflow-hidden h-44 anim-img-wrap cursor-zoom-in group"
+                  className="relative rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden anim-img-wrap cursor-zoom-in group"
                   onClick={() => amenitiesLb.openLightbox(i - 1)}
-                  role="button"
-                  tabIndex={0}
+                  role="button" tabIndex={0}
                   aria-label={`Phóng to tiện ích ${i}`}
                   onKeyDown={(e) => e.key === "Enter" && amenitiesLb.openLightbox(i - 1)}
                 >
@@ -845,10 +1055,10 @@ export default function TheLinkCityPage() {
                   <img
                     src={TLC_AMENITIES[String(i)]}
                     alt={`Tiện ích nội khu The Link City Dầu Giây — hạng mục ${i}`}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    className="w-full h-auto object-contain"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-semibold text-slate-700 shadow">
                       🔍 Phóng to
                     </span>
@@ -881,65 +1091,261 @@ export default function TheLinkCityPage() {
         {/* ─── SECTION 08: PHÁP LÝ ─── */}
         <FadeSection id="phap-ly" className="py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="mb-8 anim-up">
+
+            {/* Header */}
+            <div className="mb-10 anim-up">
               <span className="section-label">Pháp lý</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">
-                Thông tin pháp lý The Link City
+                Pháp lý The Link City — Sổ hồng thực tế
               </h2>
-              <p className="mt-2 text-slate-500 text-sm md:text-base">
-                Tổng hợp thông tin pháp lý theo nguồn công bố chính thức.
+              <p className="mt-2 text-slate-500 text-sm md:text-base max-w-3xl">
+                The Link City có đầy đủ hồ sơ pháp lý: Sổ hồng từng nền cấp cho CĐT Phú Việt Tín,
+                hoàn thành 100% tiền sử dụng đất với Cục Thuế Đồng Nai và quy hoạch 1/500 phê duyệt.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 anim-stagger">
-              {[
-                { icon: "🏛️", title: "Chủ đầu tư",                  content: "Công ty TNHH Đầu tư Phú Việt Tín",           sub: "Đại diện: Ông Đặng Phước Bình – Tổng Giám đốc",                                      highlight: true },
-                { icon: "🏢", title: "Đơn vị phát triển & phân phối", content: "Kim Oanh Land (thuộc Kim Oanh Group)",       sub: "Đại diện: Bà Đặng Thị Kim Oanh – Chủ tịch HĐQT kiêm TGĐ",                          highlight: false },
-                { icon: "📋", title: "Pháp lý Giai đoạn 1",          content: "Một số sản phẩm đã được cấp GCN quyền sử dụng đất", sub: "Theo thông tin công bố 23/12/2025",                                          highlight: true },
-                { icon: "⏳", title: "Pháp lý Giai đoạn 2",          content: "Đang hoàn thiện điều kiện cấp GCN",           sub: "UBND xã Dầu Giây đã đề nghị đẩy nhanh tiến độ",                                    highlight: false },
-                { icon: "🏦", title: "Ngân hàng đồng hành",          content: "VietinBank chi nhánh Biên Hòa",               sub: "\"Rất an tâm về pháp lý dự án\" — Phó GĐ VietinBank Biên Hòa (23/12/2025)",        highlight: false },
-                { icon: "📅", title: "Sự kiện công bố pháp lý",      content: "23/12/2025 — Lễ công bố kế hoạch phát triển", sub: "Nguồn: Báo Đồng Nai (baodongnai.com.vn)",                                           highlight: false },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className={`rounded-2xl p-5 border anim-card
-                    ${item.highlight ? "bg-primary-50 border-primary-200" : "bg-white border-slate-200"}`}
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl flex-shrink-0">{item.icon}</span>
-                    <div>
-                      <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{item.title}</p>
-                      <p className={`font-bold text-sm mb-1 ${item.highlight ? "text-primary-800" : "text-slate-800"}`}>{item.content}</p>
-                      <p className="text-xs text-slate-500 leading-relaxed">{item.sub}</p>
+            {/* ── HERO: Ảnh sổ hồng nổi bật nhất ── */}
+            <div className="mb-10 anim-up">
+              <div className="rounded-3xl overflow-hidden border-2 border-green-200 shadow-xl bg-white">
+                {/* Badge nổi bật */}
+                <div className="bg-gradient-to-r from-green-600 to-emerald-500 px-6 py-4 flex items-center gap-3">
+                  <BadgeCheck className="w-6 h-6 text-white flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-black text-base tracking-wide">
+                      SỔ HỒNG THỰC TẾ — CÓ DẤU MỘC ĐỎ CỦA SỞ TN&amp;MT ĐỒNG NAI
+                    </p>
+                    <p className="text-green-100 text-xs mt-0.5">
+                      Giấy chứng nhận quyền sử dụng đất từng nền cấp cho CĐT Phú Việt Tín · Ảnh chụp thực tế tại Sở
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                  {/* Ảnh sổ hồng */}
+                  <div
+                    className="relative cursor-zoom-in group bg-slate-50 min-h-[280px] flex items-center justify-center"
+                    onClick={() => certLb.openLightbox(0)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Phóng to ảnh sổ hồng thực tế The Link City"
+                    onKeyDown={(e) => e.key === "Enter" && certLb.openLightbox(0)}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={TLC_CERTIFICATE}
+                      alt="Sổ hồng thực tế The Link City – Giấy chứng nhận QSDĐ cấp cho CĐT Phú Việt Tín, có dấu mộc đỏ Sở TN&MT Đồng Nai"
+                      className="w-full h-full object-contain max-h-[380px] transition-transform duration-300 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-bold text-slate-700 shadow-lg flex items-center gap-2">
+                        <ZoomIn className="w-4 h-4" /> Phóng to xem chi tiết
+                      </span>
+                    </div>
+                    <div className="absolute bottom-3 left-3 bg-green-600/90 text-white text-[10px] font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                      📷 Ảnh thực tế · Có dấu mộc đỏ
+                    </div>
+                  </div>
+                  {/* Ảnh pháp lý AS1 */}
+                  <div
+                    className="relative cursor-zoom-in group bg-slate-50 min-h-[280px] flex items-center justify-center"
+                    onClick={() => certLb.openLightbox(1)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Phóng to tài liệu pháp lý The Link City"
+                    onKeyDown={(e) => e.key === "Enter" && certLb.openLightbox(1)}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={TLC_LEGAL_AS1}
+                      alt="Tài liệu pháp lý The Link City – Công văn xác nhận pháp lý dự án"
+                      className="w-full h-full object-contain max-h-[380px] transition-transform duration-300 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-bold text-slate-700 shadow-lg flex items-center gap-2">
+                        <ZoomIn className="w-4 h-4" /> Phóng to xem chi tiết
+                      </span>
+                    </div>
+                    <div className="absolute bottom-3 left-3 bg-blue-600/90 text-white text-[10px] font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                      📄 Công văn pháp lý
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 mb-6 anim-up">
-              <div className="flex items-start gap-3">
-                <ShieldCheck className="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-xs font-bold text-slate-700 mb-1">Lưu ý quan trọng</p>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    Thông tin pháp lý trên được tổng hợp từ nguồn công bố. Tình trạng GCN từng sản phẩm cụ thể
-                    cần được kiểm tra trực tiếp trước khi thực hiện giao dịch. Website không cung cấp tư vấn pháp lý.
+                <div className="px-6 py-3 bg-green-50 border-t border-green-100 flex items-center justify-between">
+                  <p className="text-xs text-green-700 font-semibold">
+                    ✅ Xấp sổ hồng thực tế — Nguồn: CĐT Phú Việt Tín · Sở TN&amp;MT tỉnh Đồng Nai
                   </p>
-                  <p className="text-[11px] text-slate-400 mt-2">Nguồn: Báo Đồng Nai · Kim Oanh Group · 23/12/2025</p>
+                  <a
+                    href="/the-link-city/phap-ly"
+                    className="text-xs font-bold text-green-700 hover:text-green-800 flex items-center gap-1 flex-shrink-0 ml-4"
+                  >
+                    Xem thêm →
+                  </a>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-center anim-up">
+            {/* ── TIMELINE các mốc pháp lý đắt giá ── */}
+            <div className="mb-10 anim-up">
+              <h3 className="font-bold text-slate-800 text-lg mb-6 flex items-center gap-2">
+                <Landmark className="w-5 h-5 text-primary-600" />
+                Timeline các mốc pháp lý quan trọng
+              </h3>
+              <div className="relative">
+                {/* Đường kẻ dọc */}
+                <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-400 via-green-400 to-slate-200 hidden md:block" />
+                <div className="space-y-4">
+                  {[
+                    {
+                      year: "2022",
+                      color: "primary",
+                      icon: "📋",
+                      title: "Quyết định phê duyệt quy hoạch 1/500",
+                      desc: "QĐ số 2022 — Quy hoạch chi tiết 1/500 Khu dân cư A1-C1 Dầu Giây được UBND tỉnh Đồng Nai phê duyệt chính thức. Đây là nền tảng pháp lý cơ bản nhất của dự án.",
+                      badge: "Quy hoạch 1/500",
+                      badgeColor: "bg-primary-100 text-primary-700 border-primary-200",
+                    },
+                    {
+                      year: "QĐ 3963",
+                      color: "amber",
+                      icon: "🏗️",
+                      title: "Quyết định giao đất số 3963",
+                      desc: "UBND tỉnh Đồng Nai ban hành Quyết định giao đất cho Công ty TNHH Đầu tư Phú Việt Tín để triển khai dự án theo quy hoạch được duyệt.",
+                      badge: "Giao đất CĐT",
+                      badgeColor: "bg-amber-100 text-amber-700 border-amber-200",
+                    },
+                    {
+                      year: "7259",
+                      color: "green",
+                      icon: "💰",
+                      title: "Xác nhận hoàn thành nộp tiền sử dụng đất — Biên lai 7259",
+                      desc: "Cục Thuế tỉnh Đồng Nai xác nhận CĐT Phú Việt Tín đã hoàn thành 100% nghĩa vụ tài chính tiền sử dụng đất. Đây là điều kiện tiên quyết để cấp sổ hồng từng nền.",
+                      badge: "100% tiền SDĐ",
+                      badgeColor: "bg-green-100 text-green-700 border-green-200",
+                    },
+                    {
+                      year: "2025",
+                      color: "green",
+                      icon: "📕",
+                      title: "Sổ hồng từng nền — Cấp cho CĐT Phú Việt Tín",
+                      desc: "Sở TN&MT tỉnh Đồng Nai cấp Giấy chứng nhận QSDĐ (sổ hồng) từng nền riêng lẻ cho Chủ đầu tư Phú Việt Tín. Có dấu mộc đỏ chính thức của Sở. VietinBank Biên Hòa xác nhận 'rất an tâm về pháp lý dự án'.",
+                      badge: "Sổ hồng thực tế ✅",
+                      badgeColor: "bg-green-100 text-green-700 border-green-200",
+                    },
+                    {
+                      year: "2505/2026",
+                      color: "blue",
+                      icon: "🏛️",
+                      title: "Công văn UBND tỉnh số 2505 — Chỉ đạo cấp sổ cho khách hàng",
+                      desc: "UBND tỉnh Đồng Nai ban hành Công văn số 2505/UBND-KTN ngày 13/02/2026, chỉ đạo Sở NN&MT đẩy nhanh tiến độ cấp Giấy chứng nhận QSDĐ cho từng khách hàng mua sản phẩm tại The Link City.",
+                      badge: "CV 2505/UBND",
+                      badgeColor: "bg-blue-100 text-blue-700 border-blue-200",
+                    },
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4 md:gap-6 pl-0 md:pl-12 relative">
+                      {/* Dot trên timeline */}
+                      <div className={`absolute left-3.5 top-5 w-3 h-3 rounded-full border-2 border-white shadow-sm hidden md:block
+                        ${item.color === "primary" ? "bg-primary-500"
+                          : item.color === "amber"   ? "bg-amber-400"
+                          : item.color === "green"   ? "bg-green-500"
+                          : "bg-blue-500"}`}
+                      />
+                      <div className="flex-1 bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-md transition-shadow">
+                        <div className="flex items-start justify-between gap-3 mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xl">{item.icon}</span>
+                            <p className="font-bold text-slate-800 text-sm leading-snug">{item.title}</p>
+                          </div>
+                          <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border flex-shrink-0 whitespace-nowrap ${item.badgeColor}`}>
+                            {item.badge}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                        <p className="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-wider">Mốc: {item.year}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ── Nút tải bộ file pháp lý PDF ── */}
+            <div className="rounded-2xl bg-gradient-to-r from-primary-600 to-primary-700 p-6 mb-8 anim-up">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                  <h3 className="font-black text-white text-base mb-1 flex items-center gap-2">
+                    <Download className="w-5 h-5" />
+                    Tải trọn bộ file pháp lý PDF
+                  </h3>
+                  <p className="text-primary-100 text-sm">
+                    Bao gồm: QĐ 1/500 · QĐ giao đất 3963 · Xác nhận nộp thuế 7259 · Công văn UBND 2505 · Sổ hồng CĐT
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3 flex-shrink-0">
+                  <a
+                    href="/the%20link/14.2026_Ch%C3%ADnh%20s%C3%A1ch%20cho%20kh%C3%A1ch%20h%C3%A0ng%20-%20D%E1%BB%B1%20%C3%A1n%20Khu%20d%C3%A2n%20c%C6%B0%20A1-C1-%C4%90%C3%B4%20th%E1%BB%8B%20D%E1%BA%A7u%20Gi%C3%A2y.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white text-primary-700 font-bold text-sm
+                               px-5 py-2.5 rounded-xl hover:bg-primary-50 transition-colors shadow-sm"
+                  >
+                    <Download className="w-4 h-4" />
+                    Chính sách khách hàng 2026
+                  </a>
+                  <a
+                    href="/the%20link/2505_CV_CV_2026.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-bold text-sm
+                               px-5 py-2.5 rounded-xl border border-white/30 transition-colors"
+                  >
+                    <Download className="w-4 h-4" />
+                    CV UBND 2505/2026
+                  </a>
+                  <a
+                    href={`tel:${SITE_CONFIG.phone}`}
+                    className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-sm
+                               px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Nhận toàn bộ hồ sơ
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Lưu ý + link chuyên trang */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 mb-6 anim-up">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-xs font-bold text-slate-700 mb-1">Lưu ý quan trọng</p>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Thông tin pháp lý tổng hợp từ nguồn công bố. Tình trạng GCN từng sản phẩm cụ thể cần kiểm tra
+                    trực tiếp trước khi giao dịch. Website không cung cấp tư vấn pháp lý.
+                  </p>
+                  <p className="text-[11px] text-slate-400 mt-2">Nguồn: Báo Đồng Nai · Kim Oanh Group · 23/12/2025 · UBND tỉnh Đồng Nai 13/02/2026</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3 justify-center anim-up">
               <Link
                 href="/the-link-city/phap-ly"
                 className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
                            font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
               >
-                Xem hồ sơ pháp lý chi tiết
+                Xem hồ sơ pháp lý đầy đủ
                 <ArrowRight className="w-4 h-4" />
               </Link>
+              <a
+                href={`tel:${SITE_CONFIG.phone}`}
+                className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
+                           text-slate-700 font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
+              >
+                <Phone className="w-4 h-4" />
+                Tư vấn pháp lý trực tiếp
+              </a>
             </div>
           </div>
         </FadeSection>
@@ -1044,6 +1450,386 @@ export default function TheLinkCityPage() {
           </div>
         </FadeSection>
 
+        {/* ─── SECTION 10b: THANH TOÁN & WIDGET TÍNH LÃI VAY ─── */}
+        <FadeSection id="thanh-toan" className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-4">
+
+            {/* Header */}
+            <div className="mb-10 anim-up">
+              <span className="section-label">Thanh toán</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">
+                Tiến độ thanh toán &amp; Công cụ tính lãi vay
+              </h2>
+              <p className="mt-2 text-slate-500 text-sm md:text-base max-w-3xl">
+                Bảng tiến độ thanh toán chuẩn cho đất nền &amp; nhà phố, kèm công cụ tính lãi vay
+                tương tác — kéo thanh trượt để tính ngay số tiền trả hàng tháng với ân hạn gốc 24 tháng.
+              </p>
+            </div>
+
+            {/* ── BẢNG TIẾN ĐỘ THANH TOÁN ── */}
+            <div className="mb-12 anim-up">
+              <h3 className="font-bold text-slate-800 text-lg mb-5 flex items-center gap-2">
+                <FileText className="w-5 h-5 text-primary-600" />
+                Bảng tiến độ thanh toán chuẩn
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                {/* Đất nền */}
+                <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                  <div className="px-5 py-3.5 bg-amber-50 border-b border-amber-100 flex items-center justify-between">
+                    <h4 className="font-bold text-amber-800 flex items-center gap-2">
+                      <MapPin className="w-4 h-4" /> Đất nền (Giai đoạn 1 &amp; 2)
+                    </h4>
+                    <span className="text-[10px] font-bold bg-amber-100 text-amber-700 border border-amber-200 px-2.5 py-1 rounded-full">
+                      Vốn tự có 30%
+                    </span>
+                  </div>
+                  <div className="bg-white">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-slate-100">
+                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-10">Đợt</th>
+                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Mốc thanh toán</th>
+                          <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-16">Tỷ lệ</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-50">
+                        {[
+                          { dot: 1, milestone: "Ký HĐMB",                          pct: "30%", hl: true },
+                          { dot: 2, milestone: "Sau ký HĐMB 90 ngày",              pct: "20%", hl: false },
+                          { dot: 3, milestone: "Sau đợt 2 · 90 ngày",              pct: "20%", hl: false },
+                          { dot: 4, milestone: "Sau đợt 3 · 90 ngày",              pct: "10%", hl: false },
+                          { dot: 5, milestone: "Bàn giao sổ hồng / công chứng",    pct: "20%", hl: true },
+                        ].map((row) => (
+                          <tr key={row.dot} className={`hover:bg-slate-50/60 transition-colors ${row.hl ? "bg-amber-50/40" : ""}`}>
+                            <td className="px-4 py-3">
+                              <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black flex items-center justify-center">
+                                {row.dot}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 text-slate-700 text-xs leading-snug">{row.milestone}</td>
+                            <td className="px-4 py-3 text-right font-black text-amber-700">{row.pct}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                      <tfoot>
+                        <tr className="border-t-2 border-amber-200 bg-amber-50">
+                          <td colSpan={2} className="px-4 py-3 font-bold text-slate-700 text-sm">Tổng cộng</td>
+                          <td className="px-4 py-3 text-right font-black text-amber-700 text-base">100%</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div className="px-5 py-3 bg-slate-50 border-t border-slate-100">
+                    <p className="text-[11px] text-slate-400">Ngân hàng hỗ trợ 70% · VietinBank Biên Hòa · Ân hạn gốc 24 tháng</p>
+                  </div>
+                </div>
+
+                {/* Nhà phố & Shophouse */}
+                <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                  <div className="px-5 py-3.5 bg-primary-50 border-b border-primary-100 flex items-center justify-between">
+                    <h4 className="font-bold text-primary-800 flex items-center gap-2">
+                      <Building2 className="w-4 h-4" /> Nhà phố &amp; Shophouse
+                    </h4>
+                    <span className="text-[10px] font-bold bg-primary-100 text-primary-700 border border-primary-200 px-2.5 py-1 rounded-full">
+                      Vay tới 70%
+                    </span>
+                  </div>
+                  <div className="bg-white">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-slate-100">
+                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-10">Đợt</th>
+                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Mốc thanh toán</th>
+                          <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-16">Tỷ lệ</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-50">
+                        {[
+                          { dot: 1, milestone: "Đặt cọc giữ chỗ",               pct: "5%",  hl: false },
+                          { dot: 2, milestone: "Ký HĐMB",                        pct: "25%", hl: true },
+                          { dot: 3, milestone: "Sau ký HĐMB 90 ngày",            pct: "20%", hl: false },
+                          { dot: 4, milestone: "Sau đợt 3 · 90 ngày",            pct: "20%", hl: false },
+                          { dot: 5, milestone: "Sau đợt 4 · 90 ngày",            pct: "10%", hl: false },
+                          { dot: 6, milestone: "Bàn giao nhà / công chứng",      pct: "20%", hl: true },
+                        ].map((row) => (
+                          <tr key={row.dot} className={`hover:bg-slate-50/60 transition-colors ${row.hl ? "bg-primary-50/40" : ""}`}>
+                            <td className="px-4 py-3">
+                              <span className="w-6 h-6 rounded-full bg-primary-500 text-white text-[10px] font-black flex items-center justify-center">
+                                {row.dot}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 text-slate-700 text-xs leading-snug">{row.milestone}</td>
+                            <td className="px-4 py-3 text-right font-black text-primary-700">{row.pct}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                      <tfoot>
+                        <tr className="border-t-2 border-primary-200 bg-primary-50">
+                          <td colSpan={2} className="px-4 py-3 font-bold text-slate-700 text-sm">Tổng cộng</td>
+                          <td className="px-4 py-3 text-right font-black text-primary-700 text-base">100%</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div className="px-5 py-3 bg-slate-50 border-t border-slate-100">
+                    <p className="text-[11px] text-slate-400">Chiết khấu thanh toán sớm ~16%/năm · Liên hệ để biết chi tiết</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Nút tải bảng dự toán Excel */}
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href={`tel:${SITE_CONFIG.phone}`}
+                  className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
+                             font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  <Download className="w-4 h-4" />
+                  Tải bảng dự toán dòng tiền (Excel)
+                </a>
+                <a
+                  href="/the%20link/14.2026_Ch%C3%ADnh%20s%C3%A1ch%20cho%20kh%C3%A1ch%20h%C3%A0ng%20-%20D%E1%BB%B1%20%C3%A1n%20Khu%20d%C3%A2n%20c%C6%B0%20A1-C1-%C4%90%C3%B4%20th%E1%BB%8B%20D%E1%BA%A7u%20Gi%C3%A2y.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
+                             text-slate-700 font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors"
+                >
+                  <FileText className="w-4 h-4" />
+                  Chính sách khách hàng 2026 (PDF)
+                </a>
+              </div>
+            </div>
+
+            {/* ── WIDGET TÍNH LÃI VAY INTERACTIVE ── */}
+            <div className="rounded-3xl border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-white overflow-hidden shadow-lg anim-up">
+              {/* Header widget */}
+              <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-5">
+                <div className="flex items-center gap-3">
+                  <Calculator className="w-6 h-6 text-white flex-shrink-0" />
+                  <div>
+                    <h3 className="text-white font-black text-base">Bảng tính lãi vay &amp; dòng tiền trả góp</h3>
+                    <p className="text-primary-100 text-xs mt-0.5">Kéo thanh trượt để tính ngay — ân hạn gốc 24 tháng từ VietinBank</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Cột trái: thanh trượt */}
+                <div className="space-y-6">
+
+                  {/* Giá trị bất động sản */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="text-sm font-bold text-slate-700">Giá trị bất động sản</label>
+                      <span className="text-primary-700 font-black text-base">{loanPrice.toLocaleString("vi-VN")} triệu</span>
+                    </div>
+                    <input
+                      type="range" min={500} max={10000} step={100}
+                      value={loanPrice}
+                      onChange={(e) => setLoanPrice(Number(e.target.value))}
+                      className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
+                      aria-label="Giá trị bất động sản"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                      <span>500 triệu</span><span>10 tỷ</span>
+                    </div>
+                  </div>
+
+                  {/* Tỷ lệ vay */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="text-sm font-bold text-slate-700">Tỷ lệ vay ngân hàng</label>
+                      <span className="text-primary-700 font-black text-base">{loanRatio}%</span>
+                    </div>
+                    <input
+                      type="range" min={10} max={70} step={5}
+                      value={loanRatio}
+                      onChange={(e) => setLoanRatio(Number(e.target.value))}
+                      className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
+                      aria-label="Tỷ lệ vay ngân hàng"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                      <span>10%</span><span className="text-primary-500 font-bold">Tối đa 70%</span>
+                    </div>
+                  </div>
+
+                  {/* Lãi suất */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="text-sm font-bold text-slate-700">Lãi suất (%/năm)</label>
+                      <span className="text-primary-700 font-black text-base">{loanRate}%</span>
+                    </div>
+                    <input
+                      type="range" min={6} max={14} step={0.5}
+                      value={loanRate}
+                      onChange={(e) => setLoanRate(Number(e.target.value))}
+                      className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
+                      aria-label="Lãi suất năm"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                      <span>6%</span><span>14%</span>
+                    </div>
+                  </div>
+
+                  {/* Thời hạn vay */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="text-sm font-bold text-slate-700">Thời hạn vay</label>
+                      <span className="text-primary-700 font-black text-base">{loanTerm} năm</span>
+                    </div>
+                    <input
+                      type="range" min={5} max={30} step={1}
+                      value={loanTerm}
+                      onChange={(e) => setLoanTerm(Number(e.target.value))}
+                      className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
+                      aria-label="Thời hạn vay"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                      <span>5 năm</span><span>30 năm</span>
+                    </div>
+                  </div>
+
+                  {/* Ân hạn nợ gốc */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="text-sm font-bold text-slate-700">Ân hạn nợ gốc</label>
+                      <span className="text-amber-600 font-black text-base">{gracePeriod} tháng</span>
+                    </div>
+                    <input
+                      type="range" min={0} max={36} step={6}
+                      value={gracePeriod}
+                      onChange={(e) => setGracePeriod(Number(e.target.value))}
+                      className="w-full h-2 bg-amber-200 rounded-full appearance-none cursor-pointer accent-amber-500"
+                      aria-label="Ân hạn nợ gốc"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                      <span>0 tháng</span>
+                      <span className="text-amber-500 font-bold">VietinBank hỗ trợ 24 tháng</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Cột phải: kết quả */}
+                <div className="space-y-4">
+
+                  {/* Summary cards */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Vốn tự có</p>
+                      <p className="text-xl font-black text-slate-800">
+                        {Math.round(ownCapital).toLocaleString("vi-VN")}
+                      </p>
+                      <p className="text-xs text-slate-500 mt-0.5">triệu đồng ({100 - loanRatio}%)</p>
+                    </div>
+                    <div className="bg-primary-600 rounded-2xl p-4 shadow-sm">
+                      <p className="text-[10px] font-bold text-primary-200 uppercase tracking-wider mb-1">Số tiền vay</p>
+                      <p className="text-xl font-black text-white">
+                        {Math.round(loanAmount).toLocaleString("vi-VN")}
+                      </p>
+                      <p className="text-xs text-primary-200 mt-0.5">triệu đồng ({loanRatio}%)</p>
+                    </div>
+                  </div>
+
+                  {/* Dòng tiền hàng tháng */}
+                  <div className="bg-white rounded-2xl border border-amber-200 overflow-hidden shadow-sm">
+                    <div className="px-4 py-3 bg-amber-50 border-b border-amber-100">
+                      <p className="text-xs font-bold text-amber-800 flex items-center gap-1.5">
+                        <TrendingDown className="w-4 h-4" />
+                        Dòng tiền trả góp hàng tháng
+                      </p>
+                    </div>
+                    <div className="divide-y divide-slate-50">
+                      {/* Trong ân hạn */}
+                      <div className="px-4 py-4">
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <p className="text-xs font-bold text-amber-700">
+                              {gracePeriod > 0 ? `${gracePeriod} tháng đầu (ân hạn gốc)` : "Không có ân hạn gốc"}
+                            </p>
+                            <p className="text-[11px] text-slate-500 mt-0.5">Chỉ trả lãi — chưa trả nợ gốc</p>
+                          </div>
+                          <div className="text-right flex-shrink-0">
+                            <p className="text-lg font-black text-amber-600">
+                              {gracePeriod > 0 ? monthlyInterestOnly.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) : "—"}
+                            </p>
+                            <p className="text-[10px] text-slate-400">triệu/tháng</p>
+                          </div>
+                        </div>
+                        {gracePeriod > 0 && (
+                          <div className="mt-2 bg-amber-50 rounded-lg px-3 py-2">
+                            <p className="text-[11px] text-amber-700">
+                              ✅ Tiết kiệm so với trả đủ gốc lãi: ~{Math.max(0, monthlyAfterGrace - monthlyInterestOnly).toLocaleString("vi-VN", { maximumFractionDigits: 1 })} triệu/tháng
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                      {/* Sau ân hạn */}
+                      <div className="px-4 py-4">
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <p className="text-xs font-bold text-primary-700">
+                              {gracePeriod > 0
+                                ? `Từ tháng ${gracePeriod + 1} đến ${loanTerm * 12}`
+                                : `Toàn bộ ${loanTerm * 12} tháng`}
+                            </p>
+                            <p className="text-[11px] text-slate-500 mt-0.5">Trả cả gốc lẫn lãi (phương thức đều)</p>
+                          </div>
+                          <div className="text-right flex-shrink-0">
+                            <p className="text-lg font-black text-primary-700">
+                              {monthlyAfterGrace.toLocaleString("vi-VN", { maximumFractionDigits: 1 })}
+                            </p>
+                            <p className="text-[10px] text-slate-400">triệu/tháng</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Disclaimer */}
+                  <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      <span className="font-bold text-slate-600">Lưu ý:</span> Số liệu mang tính tham khảo, tính theo
+                      phương thức trả đều (annuity). Lãi suất thực tế do VietinBank Biên Hòa xác định theo hợp đồng.
+                      Liên hệ tư vấn viên để có con số chính xác.
+                    </p>
+                  </div>
+
+                  {/* CTA gọi điện */}
+                  <a
+                    href={`tel:${SITE_CONFIG.phone}`}
+                    className="flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700
+                               text-white font-bold text-sm py-3.5 rounded-xl transition-colors shadow-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Tư vấn lãi vay trực tiếp — {SITE_CONFIG.phoneDisplay}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Link sang chuyên trang */}
+            <div className="mt-6 flex flex-wrap gap-3 justify-center anim-up">
+              <Link
+                href="/the-link-city/thanh-toan"
+                className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
+                           font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
+              >
+                Xem chuyên trang thanh toán đầy đủ
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/the-link-city/bang-gia"
+                className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
+                           text-slate-700 font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
+              >
+                Bảng giá The Link City
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </FadeSection>
+
         {/* ─── SECTION 10: HÌNH ẢNH ─── */}
         <FadeSection id="hinh-anh" className="py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
@@ -1103,66 +1889,180 @@ export default function TheLinkCityPage() {
           </div>
         </FadeSection>
 
-        {/* ─── SECTION 11: MẪU NHÀ T3-2B — GIỚI THIỆU NGẮN ─── */}
+        {/* ─── SECTION 11: MẪU NHÀ T3-2B — ĐẦY ĐỦ 8 BẢN VẼ ─── */}
         <FadeSection id="mau-nha" className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
+
+            {/* Header */}
             <div className="mb-8 anim-up">
               <span className="section-label">Mẫu nhà</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">
-                Mẫu nhà T3-2b trong hồ sơ dự án
+                Bản vẽ mẫu nhà T3-2b — Công năng 3 tầng
               </h2>
+              <p className="mt-2 text-slate-500 text-sm md:text-base max-w-3xl">
+                Hồ sơ kỹ thuật đầy đủ 8 bản vẽ của mẫu nhà T3-2b tại The Link City —
+                bao gồm mặt bằng công năng từng tầng, mặt đứng và mặt cắt. Click vào bất kỳ ảnh nào để phóng to.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center anim-up">
-              {/* Thumbnail — chỉ 1 ảnh đại diện (sheet A01-01) */}
-              <div
-                className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 cursor-zoom-in group"
-                onClick={() => t3Lb.openLightbox(0)}
-                role="button"
-                tabIndex={0}
-                aria-label="Phóng to mặt bằng vị trí mẫu nhà T3-2b"
-                onKeyDown={(e) => e.key === "Enter" && t3Lb.openLightbox(0)}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={TLC_T3_2B["a01-01"]}
-                  alt="Mặt bằng vị trí mẫu nhà T3-2b The Link City Dầu Giây"
-                  title="Mặt bằng vị trí mẫu nhà T3-2b – The Link City Dầu Giây"
-                  className="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-95"
-                  loading="lazy"
-                />
-                <div className="px-4 py-2.5 bg-white border-t border-slate-100 flex items-center justify-between">
-                  <p className="text-[11px] text-slate-400 italic">
-                    A01-01 · Mặt bằng vị trí mẫu nhà T3-2b
-                  </p>
-                  <span className="text-xs font-semibold text-primary-600 flex-shrink-0 ml-2">🔍 Phóng to</span>
-                </div>
-              </div>
-
-              {/* Mô tả ngắn — 100–150 từ, không trình bày toàn bộ bản vẽ */}
-              <div>
-                <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  Trong hồ sơ được cung cấp có <strong>mẫu nhà T3-2b</strong> — một mẫu nhà phố
-                  được thể hiện đầy đủ qua 8 bản vẽ kỹ thuật, bao gồm mặt bằng vị trí, bảng thông số lô đất,
-                  mặt bằng công năng các tầng, mặt đứng và mặt cắt.
-                </p>
-                <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  Lưu ý: T3-2b là mẫu nhà trong hồ sơ được cung cấp, không đại diện mặc định cho
-                  toàn bộ sản phẩm của dự án. Thông số thực tế từng lô cần xác nhận trực tiếp với chủ đầu tư.
-                </p>
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                  Để xem đầy đủ 8 bản vẽ kỹ thuật — gồm mặt bằng, mặt đứng, mặt cắt và cách đọc
-                  hồ sơ mẫu nhà — hãy truy cập trang chuyên đề mặt bằng.
-                </p>
-                <Link
-                  href="/the-link-city/mat-bang"
-                  className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
-                             font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
+            {/* ── Mô tả công năng 3 tầng ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 anim-stagger">
+              {[
+                {
+                  floor: "Tầng 1",
+                  label: "Kinh doanh / Thương mại",
+                  color: "amber",
+                  icon:  Store,
+                  items: ["Mặt tiền kinh doanh rộng", "Tầng hầm kỹ thuật (thoát nước, điện)", "Không gian linh hoạt — shop, văn phòng, nhà hàng"],
+                },
+                {
+                  floor: "Tầng 2",
+                  label: "Phòng khách, Bếp & Phòng ngủ",
+                  color: "primary",
+                  icon:  Home,
+                  items: ["Phòng khách rộng hướng đường", "Bếp + bàn ăn liền thông", "1–2 phòng ngủ + WC riêng"],
+                },
+                {
+                  floor: "Tầng 3",
+                  label: "Ngủ, Thờ & Sân thượng",
+                  color: "green",
+                  icon:  Layers,
+                  items: ["Phòng ngủ master + ban công", "Phòng thờ / thư giãn", "Sân thượng cảnh quan · Thoáng mát"],
+                },
+              ].map((floor) => (
+                <div
+                  key={floor.floor}
+                  className={`rounded-2xl border p-5 hover:shadow-md transition-shadow
+                    ${floor.color === "amber"   ? "bg-amber-50 border-amber-200"   : ""}
+                    ${floor.color === "primary" ? "bg-primary-50 border-primary-200" : ""}
+                    ${floor.color === "green"   ? "bg-green-50 border-green-200"   : ""}`}
                 >
-                  Xem mặt bằng và bản vẽ T3-2b
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0
+                      ${floor.color === "amber"   ? "bg-amber-100"   : ""}
+                      ${floor.color === "primary" ? "bg-primary-100" : ""}
+                      ${floor.color === "green"   ? "bg-green-100"   : ""}`}>
+                      <floor.icon className={`w-5 h-5
+                        ${floor.color === "amber"   ? "text-amber-600"   : ""}
+                        ${floor.color === "primary" ? "text-primary-600" : ""}
+                        ${floor.color === "green"   ? "text-green-600"   : ""}`} />
+                    </div>
+                    <div>
+                      <p className={`text-[10px] font-black uppercase tracking-widest
+                        ${floor.color === "amber"   ? "text-amber-600"   : ""}
+                        ${floor.color === "primary" ? "text-primary-600" : ""}
+                        ${floor.color === "green"   ? "text-green-600"   : ""}`}>{floor.floor}</p>
+                      <p className="font-bold text-slate-800 text-sm leading-snug">{floor.label}</p>
+                    </div>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {floor.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-slate-600">
+                        <CheckCircle2 className={`w-3.5 h-3.5 flex-shrink-0 mt-0.5
+                          ${floor.color === "amber"   ? "text-amber-500"   : ""}
+                          ${floor.color === "primary" ? "text-primary-500" : ""}
+                          ${floor.color === "green"   ? "text-green-500"   : ""}`} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* ── 8 bản vẽ kỹ thuật — grid 4 cột ── */}
+            <div className="mb-6 anim-up">
+              <h3 className="font-bold text-slate-800 text-base mb-4 flex items-center gap-2">
+                <FileText className="w-4 h-4 text-primary-600" />
+                8 bản vẽ kỹ thuật đầy đủ — click để phóng to
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {[
+                  { key: "a01-01", label: "A01-01",  desc: "Mặt bằng vị trí",          idx: 0 },
+                  { key: "a01-02", label: "A01-02",  desc: "Bảng thông số lô đất",      idx: 1 },
+                  { key: "a02-01", label: "A02-01",  desc: "Công năng Tầng 1",           idx: 2 },
+                  { key: "a02-02", label: "A02-02",  desc: "Công năng Tầng 2–3",         idx: 3 },
+                  { key: "a03-01", label: "A03-01",  desc: "Mặt đứng A-C, C-A",         idx: 4 },
+                  { key: "a03-02", label: "A03-02",  desc: "Mặt đứng trục 4-1",         idx: 5 },
+                  { key: "a04-01", label: "A04-01",  desc: "Mặt cắt A04-01",            idx: 6 },
+                  { key: "a04-02", label: "A04-02",  desc: "Mặt cắt A04-02",            idx: 7 },
+                ].map((sheet) => (
+                  <div
+                    key={sheet.key}
+                    className="group rounded-2xl overflow-hidden border border-slate-200 bg-slate-50
+                               hover:shadow-md transition-all duration-300 cursor-zoom-in"
+                    onClick={() => t3Lb.openLightbox(sheet.idx)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Phóng to bản vẽ ${sheet.label} — ${sheet.desc}`}
+                    onKeyDown={(e) => e.key === "Enter" && t3Lb.openLightbox(sheet.idx)}
+                  >
+                    {/* Ảnh thumbnail */}
+                    <div className="relative h-36 overflow-hidden bg-slate-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={TLC_T3_2B[sheet.key]}
+                        alt={`Bản vẽ ${sheet.label} — ${sheet.desc} mẫu nhà T3-2b The Link City`}
+                        title={`${sheet.label} · ${sheet.desc} · Mẫu nhà T3-2b The Link City`}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.05]"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 text-[11px] font-bold text-slate-700 shadow flex items-center gap-1">
+                          <ZoomIn className="w-3 h-3" /> Phóng to
+                        </span>
+                      </div>
+                    </div>
+                    {/* Label */}
+                    <div className="px-3 py-2.5">
+                      <p className="text-[10px] font-black text-primary-600 uppercase tracking-wider">{sheet.label}</p>
+                      <p className="text-xs font-semibold text-slate-700 leading-snug mt-0.5">{sheet.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
+            </div>
+
+            {/* Lưu ý + nút xem thêm */}
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 mb-6 anim-up">
+              <div className="flex items-start gap-3">
+                <Info className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-amber-800 leading-relaxed">
+                  <span className="font-bold">Lưu ý:</span> T3-2b là mẫu nhà trong hồ sơ được cung cấp bởi CĐT Phú Việt Tín —
+                  không đại diện mặc định cho toàn bộ sản phẩm dự án.
+                  Thông số thực tế (diện tích lô, số tầng, công năng cụ thể) từng căn cần xác nhận trực tiếp trước giao dịch.
+                </p>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-wrap gap-3 justify-center anim-up">
+              <a
+                href="/the%20link/cross-section/T3-2b.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
+                           font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
+              >
+                <Download className="w-4 h-4" />
+                Tải bản vẽ T3-2b (PDF đầy đủ)
+              </a>
+              <Link
+                href="/the-link-city/mat-bang"
+                className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
+                           text-slate-700 font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
+              >
+                Xem chuyên trang mặt bằng
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href={`tel:${SITE_CONFIG.phone}`}
+                className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
+                           text-slate-700 font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
+              >
+                <Phone className="w-4 h-4" />
+                Tư vấn mẫu nhà phù hợp
+              </a>
             </div>
           </div>
         </FadeSection>
@@ -1314,7 +2214,7 @@ export default function TheLinkCityPage() {
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
-                  { label: "Kim Oanh Group",  sub: "kimoanhgroup.vn",                        icon: "🏢" },
+                  { label: "Kim Oanh Land",   sub: "Đơn vị phát triển & phân phối",          icon: "🏢" },
                   { label: "Báo Đồng Nai",    sub: "baodongnai.com.vn · 23/12/2025",         icon: "📰" },
                   { label: "UBND xã Dầu Giây",sub: "Phát biểu chính thức tại sự kiện",       icon: "🏛️" },
                 ].map((src) => (

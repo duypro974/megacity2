@@ -37,17 +37,17 @@ const faqs = [
       {
         q: "The Link City là dự án gì?",
         a: "The Link City là khu dân cư có tên quy hoạch Khu dân cư A1 - C1 Dầu Giây, cung cấp 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự.",
-        source: "kimoanhgroup.vn + Báo Đồng Nai (23/12/2025)",
+        source: "Kim Oanh Land · Báo Đồng Nai (23/12/2025)",
       },
       {
         q: "The Link City ở đâu?",
         a: "Dự án tọa lạc tại xã Dầu Giây, tỉnh Đồng Nai, ngay tại ngã tư Quốc lộ 1A và Quốc lộ 20, trung tâm hành chính xã Dầu Giây.",
-        source: "Báo Đồng Nai (23/12/2025) + kimoanhgroup.vn",
+        source: "Báo Đồng Nai (23/12/2025)",
       },
       {
         q: "The Link City có bao nhiêu sản phẩm?",
         a: "1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự.",
-        source: "kimoanhgroup.vn",
+        source: "Kim Oanh Land · Báo Đồng Nai (23/12/2025)",
       },
     ],
   },
@@ -107,7 +107,7 @@ const faqs = [
       {
         q: "The Link City có những tiện ích gì?",
         a: "Theo thông tin công bố, dự án quy hoạch 50 tiện ích, nổi bật gồm: trường liên cấp, trung tâm thương mại 2,6 ha, hồ bơi, công viên cảnh quan, tổ hợp thể thao ngoài trời, khu vui chơi trẻ em, BBQ, quảng trường sự kiện, đường dạo bộ và khu sinh hoạt cộng đồng.",
-        source: "kimoanhgroup.vn + Báo Đồng Nai (23/12/2025)",
+        source: "Kim Oanh Land · Báo Đồng Nai (23/12/2025)",
       },
       {
         q: "Diện tích và số tầng từng loại sản phẩm là bao nhiêu?",
@@ -235,7 +235,7 @@ export default function FAQPage() {
                 Nếu câu hỏi của bạn chưa có trong danh sách hoặc cần xác minh thêm, hãy liên hệ trực tiếp để được tư vấn cụ thể.
               </p>
               <p className="text-[11px] text-slate-400">
-                Tất cả câu trả lời được tổng hợp từ nguồn đã xác minh (kimoanhgroup.vn · Báo Đồng Nai · 23/12/2025).
+                Tất cả câu trả lời được tổng hợp từ nguồn đã xác minh (Kim Oanh Land · Báo Đồng Nai · 23/12/2025).
               </p>
             </div>
           </div>
