@@ -23,6 +23,12 @@ const NAV = [
         external: false,
       },
       {
+        label: "The Link City",
+        note: "Dầu Giây, Đồng Nai",
+        href: "/the-link-city",
+        external: false,
+      },
+      {
         label: "K-Home CityView",
         note: "Hố Nai, Biên Hòa",
         href: "https://k-homedongnai.com.vn/k-home-cityview-ho-nai",

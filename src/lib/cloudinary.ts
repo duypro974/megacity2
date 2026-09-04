@@ -82,6 +82,31 @@ const LOCAL: Record<string, string> = {
   "megacity2/plane/3.webp":              "/Plane/3.webp",
   "megacity2/plane/4.jpg":               "/Plane/4.jpg",
   "megacity2/news3/1.jpg":               "/news3/1.jpg",
+  // The Link City local fallbacks
+  "thelinkcity/hero/1.webp":               "/the link/home/1.webp",
+  "thelinkcity/overview/1.webp":           "/the link/overview/1.webp",
+  "thelinkcity/overview/2.jpg":            "/the link/overview/2.jpg",
+  "thelinkcity/overview/3.jpg":            "/the link/overview/3.jpg",
+  "thelinkcity/amenities/1.jpg":           "/the link/on-site amenities/1.jpg",
+  "thelinkcity/amenities/2.jpg":           "/the link/on-site amenities/2.jpg",
+  "thelinkcity/amenities/3.jpg":           "/the link/on-site amenities/3.jpg",
+  "thelinkcity/real/1.jpg":               "/the link/real/1.jpg",
+  "thelinkcity/real/2.jpg":               "/the link/real/2.jpg",
+  "thelinkcity/real/3.jpg":               "/the link/real/3.jpg",
+  "thelinkcity/real/4.jpg":               "/the link/real/4.jpg",
+  "thelinkcity/real/5.jpg":               "/the link/real/5.jpg",
+  "thelinkcity/real/6.jpg":               "/the link/real/6.jpg",
+  // The Link City — sơ đồ phân lô tổng thể
+  "thelinkcity/diagram/so-do-tong-the.jpeg": "/the link/diagram/Screenshot_3-9-2026_223041_.jpeg",
+  // The Link City — mặt cắt T3-2b (8 sheets)
+  "thelinkcity/cross-section/a01-01.jpeg":   "/the link/cross-section/A01-01.jpeg",
+  "thelinkcity/cross-section/a01-02.jpeg":   "/the link/cross-section/A01-02.jpeg",
+  "thelinkcity/cross-section/a02-01.jpeg":   "/the link/cross-section/A02-01.jpeg",
+  "thelinkcity/cross-section/a02-02.jpeg":   "/the link/cross-section/A02-02.jpeg",
+  "thelinkcity/cross-section/a03-01.jpeg":   "/the link/cross-section/A03-01.jpeg",
+  "thelinkcity/cross-section/a03-02.jpeg":   "/the link/cross-section/A03-02.jpeg",
+  "thelinkcity/cross-section/a04-01.jpeg":   "/the link/cross-section/A04-01.jpeg",
+  "thelinkcity/cross-section/a04-02.jpeg":   "/the link/cross-section/A04-02.jpeg",
   "megacity2/news3/2.jpg":               "/news3/2.jpg",
   "megacity2/news3/3.jpg":               "/news3/3.jpg",
   "megacity2/news3/4.webp":              "/news3/4.webp",
@@ -537,4 +562,93 @@ export const IMG_HOMEPAGE: Record<string, string> = {
   "4": cld("homepage", "4.webp", "lg"),
   "5": cld("homepage", "5.webp", "lg"),
   "6": cld("homepage", "6.webp", "lg"),
+};
+
+// ─────────────────────────────────────────────────────────────
+// THE LINK CITY — image exports
+// Cloudinary folder: thelinkcity/
+// ─────────────────────────────────────────────────────────────
+
+/** The Link City — Hero (home/1.webp → thelinkcity/hero/1) */
+export const TLC_HERO = cld("thelinkcity/hero", "1.webp", "hero");
+
+/** The Link City — Overview / Tổng quan
+ *  1 = overview/1.webp, 2 = overview/2.jpg, 3 = overview/3.jpg
+ */
+export const TLC_OVERVIEW: Record<string, string> = {
+  "1": cld("thelinkcity/overview", "1.webp", "lg"),
+  "2": cld("thelinkcity/overview", "2.jpg",  "lg"),
+  "3": cld("thelinkcity/overview", "3.jpg",  "lg"),
+};
+
+/** The Link City — Hạ tầng (infrastructure) — chờ ảnh */
+export const TLC_INFRA: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/infrastructure", v, "lg")])
+);
+
+/** The Link City — Tiện ích (on-site amenities)
+ *  1-3 = on-site amenities/1-3.jpg
+ */
+export const TLC_AMENITIES: Record<string, string> = {
+  "1": cld("thelinkcity/amenities", "1.jpg", "lg"),
+  "2": cld("thelinkcity/amenities", "2.jpg", "lg"),
+  "3": cld("thelinkcity/amenities", "3.jpg", "lg"),
+};
+
+/** The Link City — Ảnh thực tế (real photos)
+ *  1-6 = real/1-6.jpg
+ */
+export const TLC_REAL: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"],["6","6.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/real", v, "lg")])
+);
+
+/** The Link City — Vị trí / Bản đồ — chờ ảnh */
+export const TLC_LOCATION: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/location", v, "md")])
+);
+
+/** The Link City — Mặt bằng / Quy hoạch — chờ ảnh */
+export const TLC_LAYOUT: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/layout", v, "doc")])
+);
+
+/** The Link City — Pháp lý — chờ ảnh */
+export const TLC_LEGAL: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/legal", v, "doc")])
+);
+
+/** The Link City — Phối cảnh — chờ ảnh */
+export const TLC_RENDER: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/renders", v, "lg")])
+);
+
+/** OG image chính cho The Link City (1280×720) — dùng overview/1.webp */
+export const TLC_OG = `${BASE}/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/thelinkcity/overview/1.webp`;
+
+/** The Link City — Sơ đồ phân lô tổng thể (1 ảnh, đã crop sẵn, KHÔNG crop thêm)
+ *  Dùng local path cho đến khi upload lên Cloudinary.
+ *  Sau khi upload xong, đổi thành:
+ *  export const TLC_DIAGRAM = `${BASE}/${T.doc}/thelinkcity/diagram/so-do-tong-the.jpeg`;
+ */
+export const TLC_DIAGRAM = "/the link/diagram/Screenshot_3-9-2026_223041_.jpeg";
+
+/** The Link City — 8 sheet hồ sơ mẫu nhà T3-2b
+ *  Dùng local path cho đến khi upload lên Cloudinary.
+ *  Sau khi upload xong, thay mỗi value bằng Cloudinary URL tương ứng.
+ */
+export const TLC_T3_2B: Record<string, string> = {
+  "a01-01": "/the link/cross-section/A01-01.jpeg",
+  "a01-02": "/the link/cross-section/A01-02.jpeg",
+  "a02-01": "/the link/cross-section/A02-01.jpeg",
+  "a02-02": "/the link/cross-section/A02-02.jpeg",
+  "a03-01": "/the link/cross-section/A03-01.jpeg",
+  "a03-02": "/the link/cross-section/A03-02.jpeg",
+  "a04-01": "/the link/cross-section/A04-01.jpeg",
+  "a04-02": "/the link/cross-section/A04-02.jpeg",
 };

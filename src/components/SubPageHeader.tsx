@@ -8,6 +8,10 @@ interface SubPageHeaderProps {
   subtitle?: string;
   breadcrumbs: BreadcrumbItem[];
   updatedAt?: string;
+  /** Override back-link href (default: /mega-city-2) */
+  backHref?: string;
+  /** Override back-link label (default: "Quay lại trang dự án") */
+  backLabel?: string;
 }
 
 /**
@@ -20,6 +24,8 @@ export default function SubPageHeader({
   subtitle,
   breadcrumbs,
   updatedAt,
+  backHref = "/mega-city-2",
+  backLabel = "Quay lại trang dự án",
 }: SubPageHeaderProps) {
   return (
     <div className="relative bg-white border-b border-slate-100 pt-24 pb-14 overflow-hidden">
@@ -71,13 +77,13 @@ export default function SubPageHeader({
 
         {/* Back link */}
         <Link
-          href="/mega-city-2"
+          href={backHref}
           className="inline-flex items-center gap-1.5 text-xs text-slate-400
                      hover:text-primary-600 transition-colors mb-4 group animate-fade-in"
           style={{ animationDelay: "0ms", animationDuration: "0.5s" }}
         >
           <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1" />
-          Quay lại trang dự án
+          {backLabel}
         </Link>
 
         {/* Breadcrumb */}
