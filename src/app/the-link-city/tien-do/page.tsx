@@ -6,7 +6,7 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
-import { TLC_OG, TLC_INFRA, TLC_REAL } from "@/lib/cloudinary";
+import { TLC_OG, TLC_PROGRESS } from "@/lib/cloudinary";
 import { Clock, ArrowRight, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -221,18 +221,16 @@ export default function TienDoPage() {
           <div className="max-w-6xl mx-auto px-4">
             <div className="anim-up mb-6">
               <h2 className="text-xl font-bold text-slate-800 mb-2">Hình ảnh tiến độ thực tế</h2>
-              <p className="text-sm text-slate-500">Hình ảnh thực tế tiến độ sẽ được cập nhật khi có. Mỗi ảnh sẽ ghi rõ thời điểm ghi nhận.</p>
+              <p className="text-sm text-slate-500">Hình ảnh ghi nhận tiến độ tại dự án.</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 anim-stagger">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 anim-stagger">
               {[
-                { src: TLC_INFRA["1"], alt: "Hạ tầng kỹ thuật giai đoạn 1 The Link City Dầu Giây" },
-                { src: TLC_INFRA["2"], alt: "Đường nội khu The Link City Dầu Giây đã hoàn thiện" },
-                { src: TLC_REAL["1"], alt: "Hình ảnh thực tế The Link City Dầu Giây" },
-                { src: TLC_REAL["2"], alt: "Tiến độ xây dựng giai đoạn 2 The Link City Dầu Giây" },
+                { src: TLC_PROGRESS["1"], alt: "Tiến độ thi công hạ tầng The Link City Dầu Giây" },
+                { src: TLC_PROGRESS["2"], alt: "Hạ tầng kỹ thuật The Link City Dầu Giây đang hoàn thiện" },
               ].map((img, i) => (
-                <div key={i} className="relative rounded-2xl bg-slate-100 overflow-hidden h-44 anim-img-wrap">
+                <div key={i} className="relative rounded-2xl bg-slate-100 overflow-hidden anim-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={img.src} alt={img.alt} className="w-full h-auto object-contain" loading="lazy" />
                 </div>
               ))}
             </div>

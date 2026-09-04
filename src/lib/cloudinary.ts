@@ -83,6 +83,16 @@ const LOCAL: Record<string, string> = {
   "megacity2/plane/4.jpg":               "/Plane/4.jpg",
   "megacity2/news3/1.jpg":               "/news3/1.jpg",
   // The Link City local fallbacks
+  "thelinkcity/maps/1.webp":               "/the link/maps/1.webp",
+  "thelinkcity/maps/2.jpg":                "/the link/maps/2.jpg",
+  "thelinkcity/maps/3.webp":               "/the link/maps/3.webp",
+  "thelinkcity/maps/4.webp":               "/the link/maps/4.webp",
+  "thelinkcity/progress/1.jpg":            "/the link/progress/1.jpg",
+  "thelinkcity/progress/2.jpg":            "/the link/progress/2.jpg",
+  "thelinkcity/image/1.jpg":               "/the link/image/1.jpg",
+  "thelinkcity/image/2.jpg":               "/the link/image/2.jpg",
+  "thelinkcity/image/3.jpg":               "/the link/image/3.jpg",
+  "thelinkcity/image/4.jpg":               "/the link/image/4.jpg",
   "thelinkcity/utilities/0.jpg":           "/the link/utilities/0.jpg",
   "thelinkcity/utilities/1.jpg":           "/the link/utilities/1.jpg",
   "thelinkcity/utilities/2.jpg":           "/the link/utilities/2.jpg",
@@ -616,11 +626,15 @@ export const TLC_REAL: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("thelinkcity/real", v, "lg")])
 );
 
-/** The Link City — Vị trí / Bản đồ — chờ ảnh */
-export const TLC_LOCATION: Record<string, string> = Object.fromEntries(
-  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"]]
-    .map(([k, v]) => [k, cld("thelinkcity/location", v, "md")])
-);
+/** The Link City — Vị trí / Bản đồ
+ *  Nguồn: public/the link/maps/ → Cloudinary: thelinkcity/maps/
+ */
+export const TLC_LOCATION: Record<string, string> = {
+  "1": cld("thelinkcity/maps", "1.webp", "lg"),
+  "2": cld("thelinkcity/maps", "2.jpg",  "lg"),
+  "3": cld("thelinkcity/maps", "3.webp", "lg"),
+  "4": cld("thelinkcity/maps", "4.webp", "lg"),
+};
 
 /** The Link City — Mặt bằng / Quy hoạch — 4 ảnh cụm sản phẩm
  *  1 = Shophouse QL1A, 2 = Nhà phố liên kế
@@ -640,11 +654,23 @@ export const TLC_LEGAL: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, cld("thelinkcity/legal", v, "doc")])
 );
 
-/** The Link City — Phối cảnh — chờ ảnh */
-export const TLC_RENDER: Record<string, string> = Object.fromEntries(
-  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"]]
-    .map(([k, v]) => [k, cld("thelinkcity/renders", v, "lg")])
-);
+/** The Link City — Tiến độ thực tế (2 ảnh)
+ *  Nguồn: public/the link/progress/ → Cloudinary: thelinkcity/progress/
+ */
+export const TLC_PROGRESS: Record<string, string> = {
+  "1": cld("thelinkcity/progress", "1.jpg", "lg"),
+  "2": cld("thelinkcity/progress", "2.jpg", "lg"),
+};
+
+/** The Link City — Hình ảnh thực tế (4 ảnh)
+ *  Nguồn: public/the link/image/ → Cloudinary: thelinkcity/image/
+ */
+export const TLC_IMAGE: Record<string, string> = {
+  "1": cld("thelinkcity/image", "1.jpg", "lg"),
+  "2": cld("thelinkcity/image", "2.jpg", "lg"),
+  "3": cld("thelinkcity/image", "3.jpg", "lg"),
+  "4": cld("thelinkcity/image", "4.jpg", "lg"),
+};
 
 /** OG image chính cho The Link City (1280×720) — dùng overview/1.webp */
 export const TLC_OG = `${BASE}/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/thelinkcity/overview/1.webp`;

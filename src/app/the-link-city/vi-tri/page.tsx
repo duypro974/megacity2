@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -6,30 +7,15 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
-import { TLC_OG, TLC_LOCATION } from "@/lib/cloudinary";
-import { MapPin, Navigation, ArrowRight, Layers } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Vị trí The Link City Dầu Giây – Kết nối giao thông Đồng Nai",
-  description:
-    "Vị trí dự án The Link City tại ngã tư Quốc lộ 1A và Quốc lộ 20, trung tâm hành chính xã Dầu Giây, tỉnh Đồng Nai. Kết nối giao thông khu vực phía Đông Nam.",
-  alternates: { canonical: "https://kimoanhdongnai.com.vn/the-link-city/vi-tri" },
-  openGraph: {
-    title: "Vị trí The Link City Dầu Giây – Kết nối giao thông Đồng Nai",
-    description:
-      "The Link City tọa lạc ngay ngã tư Quốc lộ 1A và Quốc lộ 20, trung tâm hành chính xã Dầu Giây, tỉnh Đồng Nai.",
-    type: "article",
-    locale: "vi_VN",
-    siteName: "Kim Oanh Đồng Nai",
-    images: [{ url: TLC_OG, width: 1280, height: 720, alt: "Vị trí The Link City tại ngã tư Dầu Giây" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Vị trí The Link City Dầu Giây",
-    description: "Ngã tư Quốc lộ 1A và Quốc lộ 20, xã Dầu Giây, Đồng Nai.",
-    images: [TLC_OG],
-  },
-};
+import { TLC_LOCATION } from "@/lib/cloudinary";
+import { useLightbox, type LightboxImage } from "@/components/ImageLightbox";
+import { MapPin, Navigation, ArrowRight, ZoomIn } from "lucide-react";
+const mapsImages: LightboxImage[] = [
+  { src: TLC_LOCATION["1"], alt: "Bản đồ vị trí The Link City tại ngã tư Dầu Giây, Đồng Nai", caption: "Vị trí The Link City – ngã tư QL1A & QL20" },
+  { src: TLC_LOCATION["2"], alt: "Khu vực trung tâm hành chính xã Dầu Giây, Đồng Nai", caption: "Khu vực Dầu Giây nhìn từ trên cao" },
+  { src: TLC_LOCATION["3"], alt: "Hạ tầng giao thông khu vực Dầu Giây, Đồng Nai", caption: "Kết nối giao thông khu vực" },
+  { src: TLC_LOCATION["4"], alt: "Bản đồ kết nối vùng The Link City Dầu Giây", caption: "Kết nối vùng The Link City" },
+];
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -110,10 +96,12 @@ const relatedItems = [
 ];
 
 export default function ViTriPage() {
+  const mapsLb = useLightbox(mapsImages);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      {mapsLb.LightboxPortal}
 
       <ScrollAnimator />
       <CorpHeader solid />
@@ -177,14 +165,25 @@ export default function ViTriPage() {
             {/* Ảnh vị trí + mô tả */}
             <div className="rounded-2xl bg-slate-100 overflow-hidden mb-8 anim-up">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <div className="relative h-64 md:h-auto">
+                <div
+                  className="relative h-64 md:h-auto cursor-zoom-in group"
+                  onClick={() => mapsLb.openLightbox(0)}
+                  role="button" tabIndex={0}
+                  aria-label="Phóng to bản đồ vị trí"
+                  onKeyDown={(e) => e.key === "Enter" && mapsLb.openLightbox(0)}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={TLC_LOCATION["1"]}
                     alt="Bản đồ vị trí The Link City tại ngã tư Dầu Giây, Đồng Nai"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-semibold text-slate-700 shadow flex items-center gap-1">
+                      <ZoomIn className="w-3 h-3" /> Phóng to
+                    </span>
+                  </div>
                 </div>
                 <div className="p-6 md:p-8 bg-white flex flex-col justify-center">
                   <h3 className="font-bold text-slate-800 text-base mb-4">Vị trí chiến lược tại Dầu Giây</h3>
@@ -262,20 +261,26 @@ export default function ViTriPage() {
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="anim-up mb-6">
-              <h2 className="text-xl font-bold text-slate-800 mb-2">Hình ảnh khu vực Dầu Giây</h2>
-              <p className="text-sm text-slate-500">
-                Hình ảnh thực tế khu vực xung quanh dự án sẽ được cập nhật khi có.
-              </p>
+              <h2 className="text-xl font-bold text-slate-800 mb-2">Hình ảnh vị trí & kết nối vùng</h2>
+              <p className="text-sm text-slate-500">Click vào ảnh để xem phóng to.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 anim-stagger">
-              {[
-                { src: TLC_LOCATION["1"], alt: "Ngã tư Quốc lộ 1A và Quốc lộ 20 tại Dầu Giây, Đồng Nai" },
-                { src: TLC_LOCATION["2"], alt: "Khu vực trung tâm hành chính xã Dầu Giây, Đồng Nai" },
-                { src: TLC_LOCATION["3"], alt: "Hạ tầng giao thông khu vực Dầu Giây, Đồng Nai" },
-              ].map((img, i) => (
-                <div key={i} className="relative rounded-2xl bg-slate-100 overflow-hidden h-52 anim-img-wrap">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 anim-stagger">
+              {mapsImages.map((img, i) => (
+                <div
+                  key={i}
+                  className="relative rounded-2xl bg-slate-100 overflow-hidden h-44 cursor-zoom-in group anim-img-wrap"
+                  onClick={() => mapsLb.openLightbox(i)}
+                  role="button" tabIndex={0}
+                  aria-label={`Phóng to: ${img.caption}`}
+                  onKeyDown={(e) => e.key === "Enter" && mapsLb.openLightbox(i)}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" loading="lazy" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-semibold text-slate-700 shadow flex items-center gap-1">
+                      <ZoomIn className="w-3 h-3" /> Phóng to
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
