@@ -11,6 +11,8 @@ import FadeSection from "@/components/FadeSection";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import ScrollLink from "@/components/ScrollLink";
 import TLCSectionNav from "@/components/thelinkcity/TLCSectionNav";
+import SaBanVideoFacade from "@/components/thelinkcity/SaBanVideoFacade";
+import SaBanGallery from "@/components/thelinkcity/SaBanGallery";
 import { useLightbox, type LightboxImage } from "@/components/ImageLightbox";
 import {
   TLC_OG,
@@ -23,6 +25,8 @@ import {
   TLC_CERTIFICATE,
   TLC_LEGAL_AS1,
   TLC_LAYOUT,
+  TLC_SABAN,
+  TLC_SABAN_VIDEO,
 } from "@/lib/cloudinary";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import {
@@ -54,6 +58,8 @@ import {
   TrendingDown,
   Home,
   ChevronDown,
+  Play,
+  Maximize2,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────
@@ -300,6 +306,63 @@ const overviewImages: LightboxImage[] = [
   { src: TLC_OVERVIEW["3"], alt: "Cảnh quan khu đô thị The Link City tại xã Dầu Giây, Đồng Nai",     caption: "Cảnh quan dự án" },
 ];
 
+/** Sa bàn — 6 ảnh dùng trong section showcase tổng quan */
+const saBanShowcaseImages: LightboxImage[] = [
+  { src: TLC_SABAN["1"], alt: "Sa bàn toàn cảnh quy hoạch dự án The Link City Dầu Giây",               caption: "Toàn cảnh quy hoạch hạ tầng đồng bộ — nhìn từ 45°" },
+  { src: TLC_SABAN["2"], alt: "Góc sa bàn trục shophouse thương mại mặt tiền The Link City",           caption: "Trục phố thương mại shophouse — Kim Oanh Land Showroom" },
+  { src: TLC_SABAN["3"], alt: "Sa bàn tổ hợp clubhouse tiện ích và trường học The Link City",          caption: "Tổ hợp Clubhouse & Trường học liên cấp" },
+  { src: TLC_SABAN["4"], alt: "Sa bàn khu biệt thự nhà phố liên kế The Link City",                    caption: "Phân khu biệt thự BT — nhà phố liên kế" },
+  { src: TLC_SABAN["5"], alt: "Sa bàn cảnh quan công viên và tiện ích The Link City",                   caption: "Cảnh quan cốt lõi & Khu tiện ích thể thao" },
+  { src: TLC_SABAN["7"], alt: "Sa bàn toàn cảnh 2 giai đoạn The Link City Dầu Giây",                   caption: "Toàn bộ layout 2 giai đoạn — sân bóng, tiện ích, dân cư" },
+];
+
+// ─── Inline video facade (native controls — không gọi play() bằng JS) ────
+function SaBanVideoInline() {
+  const [started, setStarted] = useState(false);
+
+  return (
+    <div className="relative rounded-2xl overflow-hidden bg-slate-700 group"
+         style={{ aspectRatio: "4/3" }}>
+      {!started ? (
+        /* Poster facade */
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={TLC_SABAN["1"]} alt="Video sa bàn toàn cảnh The Link City"
+            className="absolute inset-0 w-full h-full object-cover
+                       transition-transform duration-500 group-hover:scale-[1.03]"
+            loading="lazy" />
+          <div className="absolute inset-0 bg-slate-900/45 group-hover:bg-slate-900/35 transition-colors" />
+          <button onClick={() => setStarted(true)} aria-label="Phát video sa bàn"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+            <span className="w-[52px] h-[52px] rounded-full bg-amber-400 shadow-xl shadow-amber-400/60
+                             flex items-center justify-center
+                             group-hover:scale-110 transition-transform duration-200">
+              <Play className="w-5 h-5 text-slate-900 ml-0.5" fill="currentColor" />
+            </span>
+            <span className="bg-black/65 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+              🎬 Video toàn cảnh
+            </span>
+          </button>
+        </>
+      ) : (
+        /* Video với native controls */
+        /* eslint-disable-next-line jsx-a11y/media-has-caption */
+        <video
+          key={TLC_SABAN_VIDEO.clip9}
+          className="absolute inset-0 w-full h-full"
+          src={TLC_SABAN_VIDEO.clip9}
+          poster={TLC_SABAN["1"]}
+          controls
+          playsInline
+          preload="metadata"
+        />
+      )}
+    </div>
+  );
+}
+
+
+
 const diagramImages: LightboxImage[] = [
   { src: TLC_DIAGRAM, alt: "Sơ đồ phân lô tổng thể The Link City Dầu Giây Đồng Nai", caption: "Sơ đồ phân lô tổng thể The Link City Dầu Giây · Nguồn: tài liệu dự án" },
 ];
@@ -353,6 +416,7 @@ const layoutDetailImages: LightboxImage[] = [
 // ─────────────────────────────────────────────────────────────
 export default function TheLinkCityPage() {
   const overviewLb     = useLightbox(overviewImages);
+  const saBanLb        = useLightbox(saBanShowcaseImages);
   const diagramLb      = useLightbox(diagramImages);
   const amenitiesLb    = useLightbox(amenitiesImages);
   const realLb         = useLightbox(realImages);
@@ -383,6 +447,7 @@ export default function TheLinkCityPage() {
     <>
       {/* Lightbox portals */}
       {overviewLb.LightboxPortal}
+      {saBanLb.LightboxPortal}
       {diagramLb.LightboxPortal}
       {amenitiesLb.LightboxPortal}
       {realLb.LightboxPortal}
@@ -749,6 +814,208 @@ export default function TheLinkCityPage() {
             <p className="text-xs text-slate-400 mb-4 anim-up">
               Thông số chi tiết từng sản phẩm (diện tích, số tầng) chưa có nguồn xác minh — vui lòng liên hệ để biết thêm.
             </p>
+          </div>
+        </FadeSection>
+
+        {/* ─── SECTION 03B: SA BÀN KIẾN TRÚC — SHOWCASE ─── */}
+        {/*
+          ─── SECTION 03B: SA BÀN KIẾN TRÚC — SHOWCASE ───────────────────
+          Fix: bg sáng hơn (slate-800→gradient), layout hero dùng min-h thay
+          aspect-ratio để tránh lỗ, video có nút expand fullscreen,
+          label đúng tên ảnh, caption 10.jpg → Shophouse thực tế.
+        */}
+        <FadeSection id="sa-ban" className="py-16 md:py-24 overflow-hidden bg-slate-800">
+          <div className="max-w-6xl mx-auto px-4">
+
+            {/* ── Header ── */}
+            <div className="text-center mb-10 anim-up">
+              <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40
+                              text-amber-300 text-xs font-bold uppercase tracking-[0.18em]
+                              px-4 py-2 rounded-full mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                Sa Bàn Kiến Trúc Thực Tế
+              </div>
+              <h2 className="text-2xl md:text-4xl font-black text-white leading-tight mb-3">
+                Toàn Cảnh Quy Hoạch
+                <span className="text-amber-400"> The Link City </span>
+                Trên Sa Bàn
+              </h2>
+              <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                Mô hình kiến trúc tỷ lệ thực tế — chụp tại showroom Kim Oanh Land, Dầu Giây.
+                Trực quan hóa toàn bộ quy hoạch hạ tầng, tiện ích và từng phân khu sản phẩm.
+              </p>
+            </div>
+
+            {/* ── ROW 1: ảnh hero lớn (trái) + 2 ảnh cột (phải) ── */}
+            {/*
+              Fix lỗ: dùng min-h cố định thay vì aspect-ratio trên container
+              flex để 2 ảnh phải luôn lấp đầy chiều cao hero bên trái.
+            */}
+            <div className="flex flex-col lg:flex-row gap-4 mb-4 anim-stagger">
+
+              {/* Ảnh hero — toàn cảnh 45° (1.jpg) — chiều cao cố định */}
+              <div
+                className="lg:w-7/12 relative rounded-3xl overflow-hidden bg-slate-700 group cursor-zoom-in"
+                style={{ minHeight: "360px", height: "420px" }}
+                onClick={() => saBanLb.openLightbox(0)}
+                role="button" tabIndex={0}
+                aria-label="Phóng to: Sa bàn toàn cảnh The Link City"
+                onKeyDown={(e) => e.key === "Enter" && saBanLb.openLightbox(0)}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={TLC_SABAN["1"]}
+                  alt="Sa bàn toàn cảnh quy hoạch dự án The Link City Dầu Giây Đồng Nai"
+                  className="absolute inset-0 w-full h-full object-cover
+                             transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <span className="inline-flex items-center gap-1.5 bg-amber-400 text-slate-900
+                                   text-[10px] font-black uppercase tracking-[0.15em]
+                                   px-3 py-1.5 rounded-full mb-2">
+                    ⭐ Toàn cảnh
+                  </span>
+                  <p className="text-white font-bold text-sm md:text-base leading-snug drop-shadow">
+                    Toàn cảnh quy hoạch hạ tầng đồng bộ — nhìn từ 45°
+                  </p>
+                </div>
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="bg-white/25 backdrop-blur-sm rounded-full p-2">
+                    <ZoomIn className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Cột phải — 2 ảnh lấp đầy chiều cao hero */}
+              <div className="lg:w-5/12 flex flex-col gap-4" style={{ height: "420px" }}>
+
+                {/* Ảnh 2 — trục shophouse (2.jpg) — eye-level đường đôi */}
+                <div
+                  className="relative flex-1 rounded-3xl overflow-hidden bg-slate-700 group cursor-zoom-in"
+                  onClick={() => saBanLb.openLightbox(1)}
+                  role="button" tabIndex={0}
+                  aria-label="Phóng to: Trục shophouse sa bàn"
+                  onKeyDown={(e) => e.key === "Enter" && saBanLb.openLightbox(1)}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={TLC_SABAN["2"]}
+                    alt="Góc sa bàn trục shophouse thương mại mặt tiền The Link City"
+                    className="absolute inset-0 w-full h-full object-cover
+                               transition-transform duration-700 group-hover:scale-[1.06]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/65 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                    <span className="bg-amber-400/90 text-slate-900 text-[10px] font-black
+                                     px-2.5 py-1 rounded-full">Shophouse</span>
+                    <span className="bg-black/50 backdrop-blur-sm text-white text-[10px]
+                                     px-2 py-1 rounded-full">Trục thương mại</span>
+                  </div>
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="bg-white/25 backdrop-blur-sm rounded-full p-1.5">
+                      <ZoomIn className="w-3 h-3 text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Ảnh 3 — Clubhouse & Trường học (3.jpg) */}
+                <div
+                  className="relative flex-1 rounded-3xl overflow-hidden bg-slate-700 group cursor-zoom-in"
+                  onClick={() => saBanLb.openLightbox(2)}
+                  role="button" tabIndex={0}
+                  aria-label="Phóng to: Clubhouse và tiện ích sa bàn"
+                  onKeyDown={(e) => e.key === "Enter" && saBanLb.openLightbox(2)}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={TLC_SABAN["3"]}
+                    alt="Sa bàn tổ hợp clubhouse tiện ích và trường học The Link City"
+                    className="absolute inset-0 w-full h-full object-cover
+                               transition-transform duration-700 group-hover:scale-[1.06]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/65 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                    <span className="bg-emerald-400/90 text-slate-900 text-[10px] font-black
+                                     px-2.5 py-1 rounded-full">Tiện ích</span>
+                    <span className="bg-black/50 backdrop-blur-sm text-white text-[10px]
+                                     px-2 py-1 rounded-full">Clubhouse &amp; Trường học</span>
+                  </div>
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="bg-white/25 backdrop-blur-sm rounded-full p-1.5">
+                      <ZoomIn className="w-3 h-3 text-white" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── ROW 2: 3 ảnh + 1 video (có nút expand) ── */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 anim-stagger">
+              {[
+                { key: "4", lb: 3, label: "Nhà phố & Biệt thự", color: "bg-sky-400/90" },
+                { key: "5", lb: 4, label: "Cảnh quan & Tiện ích", color: "bg-emerald-400/90" },
+                { key: "7", lb: 5, label: "Toàn cảnh GĐ 1+2", color: "bg-amber-400/90" },
+              ].map((item) => (
+                <div
+                  key={item.key}
+                  className="relative rounded-2xl overflow-hidden bg-slate-700 group cursor-zoom-in"
+                  style={{ aspectRatio: "4/3" }}
+                  onClick={() => saBanLb.openLightbox(item.lb)}
+                  role="button" tabIndex={0}
+                  aria-label={`Phóng to: ${item.label}`}
+                  onKeyDown={(e) => e.key === "Enter" && saBanLb.openLightbox(item.lb)}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={TLC_SABAN[item.key]}
+                    alt={`Sa bàn ${item.label} — The Link City Dầu Giây`}
+                    className="absolute inset-0 w-full h-full object-cover
+                               transition-transform duration-500 group-hover:scale-[1.07]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-2 left-2">
+                    <span className={`${item.color} text-slate-900 text-[10px] font-black px-2 py-1 rounded-full`}>
+                      {item.label}
+                    </span>
+                  </div>
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="bg-white/25 backdrop-blur-sm rounded-full p-1.5">
+                      <ZoomIn className="w-3 h-3 text-white" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Video inline — có nút expand để xem fullscreen */}
+              <SaBanVideoInline />
+            </div>
+
+            {/* ── BOTTOM CTA BAR ── */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4
+                            bg-white/10 border border-white/15 rounded-2xl px-6 py-5 anim-up">
+              <div>
+                <p className="text-white font-bold text-sm mb-0.5">
+                  Xem đầy đủ bộ ảnh &amp; video sa bàn kiến trúc
+                </p>
+                <p className="text-slate-300 text-xs">
+                  8 góc chiến lược · 3 video quét toàn cảnh · Lọc theo phân khu
+                </p>
+              </div>
+              <Link
+                href="/the-link-city/hinh-anh#sa-ban-gallery"
+                className="flex-shrink-0 inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300
+                           text-slate-900 font-bold text-sm px-6 py-3 rounded-full
+                           transition-all duration-200 shadow-lg shadow-amber-400/25"
+              >
+                Xem toàn bộ sa bàn
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </FadeSection>
 
@@ -1834,14 +2101,36 @@ export default function TheLinkCityPage() {
         {/* ─── SECTION 10: HÌNH ẢNH ─── */}
         <FadeSection id="hinh-anh" className="py-12 md:py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
+
+            {/* ── Header ── */}
             <div className="mb-8 anim-up">
               <span className="section-label">Hình ảnh thực tế</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">
-                Hình ảnh The Link City Dầu Giây
+                Hình ảnh &amp; Video Sa Bàn The Link City
               </h2>
-              <p className="mt-2 text-slate-500 text-sm">
-                Hình ảnh thực tế tại dự án The Link City, xã Dầu Giây. Ảnh phối cảnh được ghi nhãn rõ ràng.
+              <p className="mt-2 text-slate-500 text-sm md:text-base max-w-3xl">
+                Bộ tư liệu sa bàn kiến trúc chụp tại showroom Kim Oanh Land — 7 góc chiến lược
+                và video quét toàn cảnh mô hình tỷ lệ thực tế dự án.
               </p>
+            </div>
+
+            {/* ── Video Facade sa bàn ── */}
+            <div className="mb-10 anim-up">
+              <SaBanVideoFacade />
+            </div>
+
+            {/* ── Gallery sa bàn 7 góc + filter tab ── */}
+            <div className="mb-10 anim-up">
+              <SaBanGallery />
+            </div>
+
+            {/* ── Divider ── */}
+            <div className="border-t border-slate-200 mb-10" />
+
+            {/* ── Ảnh thực tế hạ tầng (giữ nguyên grid cũ) ── */}
+            <div className="mb-6 anim-up">
+              <h3 className="text-base font-bold text-slate-700">Hình ảnh thực tế hạ tầng nội khu</h3>
+              <p className="text-xs text-slate-400 mt-0.5">Ảnh chụp thực tế tại hiện trường The Link City</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8 anim-stagger">

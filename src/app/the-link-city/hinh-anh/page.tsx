@@ -7,6 +7,8 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import SaBanVideoFacade from "@/components/thelinkcity/SaBanVideoFacade";
+import SaBanGallery from "@/components/thelinkcity/SaBanGallery";
 import {
   TLC_OG, TLC_OVERVIEW, TLC_AMENITIES,
   TLC_IMAGE, TLC_LOCATION, TLC_LAYOUT,
@@ -103,12 +105,12 @@ const relatedItems = [
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Hình ảnh The Link City Dầu Giây – Ảnh thực tế dự án",
-  description: "Gallery hình ảnh thực tế và phối cảnh dự án The Link City tại xã Dầu Giây, tỉnh Đồng Nai.",
+  headline: "Hình ảnh The Link City Dầu Giây – Ảnh sa bàn & thực tế dự án",
+  description: "Gallery hình ảnh sa bàn kiến trúc, video trải nghiệm và ảnh thực tế dự án The Link City tại xã Dầu Giây, tỉnh Đồng Nai.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
   datePublished: "2025-12-23",
-  dateModified: "2025-12-23",
+  dateModified: "2026-09-05",
   url: "https://kimoanhdongnai.com.vn/the-link-city/hinh-anh",
   image: TLC_OG,
 };
@@ -131,15 +133,29 @@ export default function HinhAnhPage() {
         <SubPageHeader
           tag="Hình ảnh"
           title="Hình ảnh The Link City Dầu Giây"
-          subtitle="Gallery hình ảnh dự án The Link City. Click vào từng ảnh để xem phóng to."
+          subtitle="Sa bàn kiến trúc, video trải nghiệm và ảnh thực tế tại dự án. Click vào từng ảnh để phóng to."
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "Hình ảnh" },
           ]}
-          updatedAt="23/12/2025"
+          updatedAt="05/09/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
+
+        {/* ── VIDEO SA BÀN ── */}
+        <section id="sa-ban-video" className="py-12 border-b border-slate-100">
+          <div className="max-w-6xl mx-auto px-4">
+            <SaBanVideoFacade />
+          </div>
+        </section>
+
+        {/* ── GALLERY SA BÀN 7 GÓC ── */}
+        <section id="sa-ban-gallery" className="py-12 border-b border-slate-100">
+          <div className="max-w-6xl mx-auto px-4">
+            <SaBanGallery />
+          </div>
+        </section>
 
         {galleryGroups.map((group, gIdx) => {
           const offset = groupOffsets[gIdx];
@@ -200,6 +216,22 @@ export default function HinhAnhPage() {
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-base font-bold text-slate-700 mb-4 anim-up">Chuyển đến nhóm ảnh</h2>
             <div className="flex flex-wrap gap-2 anim-stagger">
+              {/* Sa bàn links */}
+              <a
+                href="#sa-ban-video"
+                className="text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100
+                           border border-amber-200 px-3 py-1.5 rounded-full transition-colors"
+              >
+                🎬 Video sa bàn
+              </a>
+              <a
+                href="#sa-ban-gallery"
+                className="text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100
+                           border border-amber-200 px-3 py-1.5 rounded-full transition-colors"
+              >
+                📸 Gallery sa bàn
+              </a>
+              {/* Các nhóm ảnh cũ */}
               {galleryGroups.map((g) => (
                 <a
                   key={g.id}

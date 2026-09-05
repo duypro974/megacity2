@@ -115,6 +115,15 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/real/4.jpg":               "/the link/real/4.jpg",
   "thelinkcity/real/5.jpg":               "/the link/real/5.jpg",
   "thelinkcity/real/6.jpg":               "/the link/real/6.jpg",
+  // The Link City — sa bàn kiến trúc (real1/)
+  "thelinkcity/real1/1.jpg":   "/the link/real1/1.jpg",
+  "thelinkcity/real1/2.jpg":   "/the link/real1/2.jpg",
+  "thelinkcity/real1/3.jpg":   "/the link/real1/3.jpg",
+  "thelinkcity/real1/4.jpg":   "/the link/real1/4.jpg",
+  "thelinkcity/real1/5.jpg":   "/the link/real1/5.jpg",
+  "thelinkcity/real1/6.jpg":   "/the link/real1/6.jpg",
+  "thelinkcity/real1/7.jpg":   "/the link/real1/7.jpg",
+  "thelinkcity/real1/10.jpg":  "/the link/real1/10.jpg",
   // The Link City — sơ đồ phân lô tổng thể
   "thelinkcity/diagram/so-do-tong-the.jpeg": "/the link/diagram/Screenshot_3-9-2026_223041_.jpeg",
   // The Link City — mặt cắt T3-2b (8 sheets)
@@ -697,6 +706,44 @@ export const TLC_T3_2B: Record<string, string> = {
   "a03-02": `${BASE}/${T.doc}/thelinkcity/cross-section/a03-02`,
   "a04-01": `${BASE}/${T.doc}/thelinkcity/cross-section/a04-01`,
   "a04-02": `${BASE}/${T.doc}/thelinkcity/cross-section/a04-02`,
+};
+
+/** The Link City — Ảnh sa bàn kiến trúc (real1/) — 10 ảnh + 3 video
+ *  1  = Toàn cảnh 45° (1.jpg)         — Góc bird-eye toàn bộ dự án
+ *  2  = Trục đường shophouse (2.jpg)  — Eye-level trục đường đôi, Kim Oanh Land backdrop
+ *  3  = Tiện ích Clubhouse (3.jpg)    — Tổ hợp thể thao & Clubhouse, Sales Gallery, Trường học
+ *  4  = Khu biệt thự (4.jpg)         — Phân khu BT32/BT34/BT35 eye-level
+ *  5  = Cảnh quan cốt lõi (5.jpg)    — Trường học + Clubhouse góc 3/4
+ *  6  = Ngã 4 Dầu Giây (6.jpg)       — QL1A, la bàn N-W-E, Khu hồ bơi
+ *  7  = Toàn cảnh GĐ2 (7.jpg)        — Layout 2 giai đoạn đầy đủ, sân bóng đá
+ *  10 = Nhà phố thực tế (10.jpg)     — Ảnh thực tế mặt ngoài nhà liên kế hoàn thiện
+ */
+export const TLC_SABAN: Record<string, string> = {
+  "1":  cld("thelinkcity/real1", "1.jpg",  "lg"),
+  "2":  cld("thelinkcity/real1", "2.jpg",  "lg"),
+  "3":  cld("thelinkcity/real1", "3.jpg",  "lg"),
+  "4":  cld("thelinkcity/real1", "4.jpg",  "lg"),
+  "5":  cld("thelinkcity/real1", "5.jpg",  "lg"),
+  "6":  cld("thelinkcity/real1", "6.jpg",  "lg"),
+  "7":  cld("thelinkcity/real1", "7.jpg",  "lg"),
+  "10": cld("thelinkcity/real1", "10.jpg", "lg"),
+};
+
+/** The Link City — Local fallback paths cho sa bàn real1 (dùng khi USE_CLOUDINARY = false) */
+// LOCAL keys tương ứng sẽ được thêm vào bên dưới
+
+/** The Link City — Video sa bàn (3 clips .mp4 từ real1/)
+ *  Phục vụ SaBanVideoFacade — KHÔNG dùng trực tiếp trong <video src>, chỉ load khi user nhấn Play
+ *  8.mp4  = Video quét sa bàn clip 1 (Góc giao thương)
+ *  9.mp4  = Video quét sa bàn clip 2 (Toàn cảnh)
+ *  11.mp4 = Video quét sa bàn clip 3 (Góc tiện ích)
+ */
+const CLD_VIDEO_BASE = `https://res.cloudinary.com/dqy4lfmcf/video/upload`;
+
+export const TLC_SABAN_VIDEO = {
+  clip8:  `/the%20link/real1/8.mp4`,
+  clip9:  `/the%20link/real1/9.mp4`,
+  clip11: `/the%20link/real1/11.mp4`,
 };
 
 /** The Link City — Sổ hồng thực tế (Giấy chứng nhận QSDĐ từng nền cấp cho CĐT Phú Việt Tín)
