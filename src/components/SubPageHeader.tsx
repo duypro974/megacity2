@@ -28,7 +28,7 @@ export default function SubPageHeader({
   backLabel = "Quay lại trang dự án",
 }: SubPageHeaderProps) {
   return (
-    <div className="relative bg-white border-b border-slate-100 pt-24 pb-14 overflow-hidden">
+    <div className="relative bg-white border-b border-slate-100 pt-20 md:pt-24 pb-10 md:pb-14 overflow-hidden">
 
       {/* ── Layer 1: gradient mesh wash ── */}
       <div
@@ -63,7 +63,7 @@ export default function SubPageHeader({
       {/* ── Layer 4: floating geometric rings ── */}
       <span className="absolute top-10 right-14 w-28 h-28 rounded-full border border-primary-200/35 anim-dot-1 pointer-events-none" />
       <span className="absolute top-20 right-36 w-12 h-12 rounded-full bg-primary-100/45 anim-dot-2 pointer-events-none" />
-      <span className="absolute bottom-8 right-24 w-18 h-18 rounded-full border-2 border-amber-200/25 anim-dot-3 pointer-events-none" />
+      <span className="absolute bottom-8 right-24 w-[72px] h-[72px] rounded-full border-2 border-amber-200/25 anim-dot-3 pointer-events-none" />
       <span className="absolute top-12 left-[55%] w-7 h-7 rounded-full bg-primary-200/35 anim-dot-4 pointer-events-none" />
       <span className="absolute bottom-12 left-[20%] w-5 h-5 rounded-full bg-amber-300/25 anim-dot-5 pointer-events-none" />
       <span className="absolute top-6 left-[30%] w-3 h-3 rounded-full bg-primary-300/40 anim-dot-6 pointer-events-none" />
@@ -108,7 +108,7 @@ export default function SubPageHeader({
 
         {/* Title */}
         <h1
-          className="text-2xl md:text-4xl font-bold text-slate-900 leading-tight mb-3
+          className="text-xl sm:text-2xl md:text-4xl font-bold text-slate-900 leading-tight mb-3
                      animate-fade-in-up"
           style={{ animationDelay: "200ms", animationDuration: "0.65s" }}
         >

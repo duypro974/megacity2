@@ -53,6 +53,7 @@ import {
   Calculator,
   TrendingDown,
   Home,
+  ChevronDown,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────
@@ -445,8 +446,8 @@ export default function TheLinkCityPage() {
               className="font-black leading-none mb-5 animate-fade-in-up"
               style={{ animationDelay: "160ms", textShadow: "0 2px 20px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.4)" }}
             >
-              <span className="block text-5xl md:text-7xl lg:text-8xl text-white drop-shadow-2xl">THE LINK</span>
-              <span className="block text-5xl md:text-7xl lg:text-8xl text-amber-400 drop-shadow-2xl">CITY</span>
+              <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white drop-shadow-2xl">THE LINK</span>
+              <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-amber-400 drop-shadow-2xl">CITY</span>
             </h1>
 
             <div className="flex items-center gap-3 mb-5 animate-fade-in" style={{ animationDelay: "220ms" }}>
@@ -500,20 +501,20 @@ export default function TheLinkCityPage() {
 
         {/* Bottom stats bar */}
         <div className="relative z-10 border-t border-white/10 bg-slate-950/60 backdrop-blur-md">
-          <div className="w-full px-4 md:px-8">
-            <div className="flex items-stretch divide-x divide-white/10">
+          <div className="w-full px-0">
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-white/10">
               {[
-                { label: "Khu vực",     value: "Dầu Giây",     sub: "Đồng Nai",                         icon: "📍" },
-                { label: "Sản phẩm",   value: "1.397",         sub: "Shophouse · Nhà phố · Biệt thự",   icon: "🏠" },
-                { label: "Chủ đầu tư", value: "Phú Việt Tín",  sub: "Công ty TNHH Đầu tư",              icon: "🏛️" },
-                { label: "Phát triển", value: "Kim Oanh Land", sub: "Kim Oanh Group",                    icon: "🏢" },
+                { label: "Khu vực",     value: "Dầu Giây",     sub: "Đồng Nai",                       icon: "📍" },
+                { label: "Sản phẩm",   value: "1.397",         sub: "Shophouse · Nhà phố · Biệt thự", icon: "🏠" },
+                { label: "Chủ đầu tư", value: "Phú Việt Tín",  sub: "Công ty TNHH Đầu tư",            icon: "🏛️" },
+                { label: "Phát triển", value: "Kim Oanh Land", sub: "Kim Oanh Group",                  icon: "🏢" },
               ].map((stat) => (
-                <div key={stat.label} className="flex-1 flex items-center gap-3 px-5 py-4">
-                  <span className="text-xl flex-shrink-0 opacity-60 hidden md:block">{stat.icon}</span>
+                <div key={stat.label} className="flex items-center gap-2 px-3 sm:px-5 py-3 sm:py-4">
+                  <span className="text-lg flex-shrink-0 opacity-60 hidden md:block">{stat.icon}</span>
                   <div className="min-w-0 flex-1">
                     <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/40 mb-0.5">{stat.label}</p>
-                    <p className="text-sm font-black text-white leading-tight">{stat.value}</p>
-                    <p className="text-[10px] text-white/50 mt-0.5 truncate">{stat.sub}</p>
+                    <p className="text-xs sm:text-sm font-black text-white leading-tight">{stat.value}</p>
+                    <p className="text-[9px] sm:text-[10px] text-white/50 mt-0.5 truncate">{stat.sub}</p>
                   </div>
                 </div>
               ))}
@@ -549,7 +550,7 @@ export default function TheLinkCityPage() {
                   key={item.id}
                   to={item.id}
                   className="flex-shrink-0 text-xs font-semibold text-slate-500 hover:text-primary-600
-                             hover:bg-primary-50 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap"
+                             hover:bg-primary-50 px-3 py-2 rounded-lg transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </ScrollLink>
@@ -559,7 +560,7 @@ export default function TheLinkCityPage() {
         </nav>
 
         {/* ─── SECTION 02: THE LINK CITY LÀ GÌ? / TỔNG QUAN ─── */}
-        <FadeSection id="tong-quan" className="py-20 bg-white">
+        <FadeSection id="tong-quan" className="py-12 md:py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">Tổng quan dự án</span>
@@ -602,7 +603,7 @@ export default function TheLinkCityPage() {
               ].map((img) => (
                 <div
                   key={img.alt}
-                  className={`relative overflow-hidden rounded-2xl bg-slate-100 group h-48 cursor-zoom-in ${img.col}`}
+                  className={`relative overflow-hidden rounded-2xl bg-slate-100 group h-40 sm:h-48 cursor-zoom-in ${img.col}`}
                   onClick={() => overviewLb.openLightbox(img.idx)}
                   role="button"
                   tabIndex={0}
@@ -645,7 +646,7 @@ export default function TheLinkCityPage() {
                   Tổng diện tích ~100 ha là tổng hợp từ GĐ1 (~53 ha) và GĐ2 (~47 ha) theo thông tin công bố.
                 </p>
               </div>
-              <div className="flex items-center justify-between px-5 py-3 border-t border-amber-200 bg-white">
+              <div className="flex items-center justify-between flex-col sm:flex-row gap-2 px-5 py-3 border-t border-amber-200 bg-white">
                 <p className="text-[11px] text-slate-400">Nguồn: Kim Oanh Group · Báo Đồng Nai (23/12/2025)</p>
                 <Link
                   href="/the-link-city/phap-ly"
@@ -660,7 +661,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 03: QUY MÔ DỰ ÁN ─── */}
-        <FadeSection id="san-pham" className="py-20 bg-slate-50">
+        <FadeSection id="san-pham" className="py-12 md:py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">Quy mô &amp; Sản phẩm</span>
@@ -752,7 +753,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 04: VỊ TRÍ ─── */}
-        <FadeSection id="vi-tri" className="py-20 bg-white">
+        <FadeSection id="vi-tri" className="py-12 md:py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">Vị trí</span>
@@ -821,7 +822,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 06: SƠ ĐỒ MẶT BẰNG TỔNG THỂ ─── */}
-        <FadeSection id="mat-bang" className="py-20 bg-slate-50">
+        <FadeSection id="mat-bang" className="py-12 md:py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
 
             {/* Header */}
@@ -995,7 +996,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 07: TIỆN ÍCH ─── */}
-        <FadeSection id="tien-ich" className="py-20 bg-white">
+        <FadeSection id="tien-ich" className="py-12 md:py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">Tiện ích</span>
@@ -1031,7 +1032,7 @@ export default function TheLinkCityPage() {
                 <img
                   src={TLC_AMENITIES["1"]}
                   alt="Hệ tiện ích đa dạng The Link City Dầu Giây — sơ đồ tổng quan"
-                  className="w-full h-auto object-contain"
+                  className="w-full object-contain max-h-[320px] sm:max-h-[480px] md:max-h-none"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
@@ -1055,7 +1056,7 @@ export default function TheLinkCityPage() {
                   <img
                     src={TLC_AMENITIES[String(i)]}
                     alt={`Tiện ích nội khu The Link City Dầu Giây — hạng mục ${i}`}
-                    className="w-full h-auto object-contain"
+                    className="w-full object-contain max-h-[240px] sm:max-h-[360px] md:max-h-none"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
@@ -1089,7 +1090,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 08: PHÁP LÝ ─── */}
-        <FadeSection id="phap-ly" className="py-20 bg-slate-50">
+        <FadeSection id="phap-ly" className="py-12 md:py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
 
             {/* Header */}
@@ -1108,10 +1109,10 @@ export default function TheLinkCityPage() {
             <div className="mb-10 anim-up">
               <div className="rounded-3xl overflow-hidden border-2 border-green-200 shadow-xl bg-white">
                 {/* Badge nổi bật */}
-                <div className="bg-gradient-to-r from-green-600 to-emerald-500 px-6 py-4 flex items-center gap-3">
-                  <BadgeCheck className="w-6 h-6 text-white flex-shrink-0" />
+                <div className="bg-gradient-to-r from-green-600 to-emerald-500 px-4 sm:px-6 py-4 flex items-start sm:items-center gap-3">
+                  <BadgeCheck className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0 mt-0.5 sm:mt-0" />
                   <div>
-                    <p className="text-white font-black text-base tracking-wide">
+                    <p className="text-white font-black text-sm sm:text-base tracking-wide leading-snug">
                       SỔ HỒNG THỰC TẾ — CÓ DẤU MỘC ĐỎ CỦA SỞ TN&amp;MT ĐỒNG NAI
                     </p>
                     <p className="text-green-100 text-xs mt-0.5">
@@ -1171,13 +1172,13 @@ export default function TheLinkCityPage() {
                     </div>
                   </div>
                 </div>
-                <div className="px-6 py-3 bg-green-50 border-t border-green-100 flex items-center justify-between">
+                <div className="px-4 sm:px-6 py-3 bg-green-50 border-t border-green-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                   <p className="text-xs text-green-700 font-semibold">
                     ✅ Xấp sổ hồng thực tế — Nguồn: CĐT Phú Việt Tín · Sở TN&amp;MT tỉnh Đồng Nai
                   </p>
                   <a
                     href="/the-link-city/phap-ly"
-                    className="text-xs font-bold text-green-700 hover:text-green-800 flex items-center gap-1 flex-shrink-0 ml-4"
+                    className="text-xs font-bold text-green-700 hover:text-green-800 flex items-center gap-1 flex-shrink-0"
                   >
                     Xem thêm →
                   </a>
@@ -1251,12 +1252,12 @@ export default function TheLinkCityPage() {
                           : "bg-blue-500"}`}
                       />
                       <div className="flex-1 bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-md transition-shadow">
-                        <div className="flex items-start justify-between gap-3 mb-2">
-                          <div className="flex items-center gap-2">
-                            <span className="text-xl">{item.icon}</span>
+                        <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="text-xl flex-shrink-0">{item.icon}</span>
                             <p className="font-bold text-slate-800 text-sm leading-snug">{item.title}</p>
                           </div>
-                          <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border flex-shrink-0 whitespace-nowrap ${item.badgeColor}`}>
+                          <span className={`text-[9px] sm:text-[10px] font-bold px-2 sm:px-2.5 py-1 rounded-full border flex-shrink-0 ${item.badgeColor}`}>
                             {item.badge}
                           </span>
                         </div>
@@ -1351,7 +1352,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 09: TIẾN ĐỘ ─── */}
-        <FadeSection id="tien-do" className="py-20 bg-white">
+        <FadeSection id="tien-do" className="py-12 md:py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-6 anim-up">
               <span className="section-label">Tiến độ</span>
@@ -1451,7 +1452,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 10b: THANH TOÁN & WIDGET TÍNH LÃI VAY ─── */}
-        <FadeSection id="thanh-toan" className="py-20 bg-white">
+        <FadeSection id="thanh-toan" className="py-12 md:py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
 
             {/* Header */}
@@ -1484,8 +1485,8 @@ export default function TheLinkCityPage() {
                       Vốn tự có 30%
                     </span>
                   </div>
-                  <div className="bg-white">
-                    <table className="w-full text-sm">
+                  <div className="bg-white overflow-x-auto">
+                    <table className="w-full text-sm min-w-[320px]">
                       <thead>
                         <tr className="bg-slate-50 border-b border-slate-100">
                           <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-10">Đợt</th>
@@ -1535,8 +1536,8 @@ export default function TheLinkCityPage() {
                       Vay tới 70%
                     </span>
                   </div>
-                  <div className="bg-white">
-                    <table className="w-full text-sm">
+                  <div className="bg-white overflow-x-auto">
+                    <table className="w-full text-sm min-w-[320px]">
                       <thead>
                         <tr className="bg-slate-50 border-b border-slate-100">
                           <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-10">Đợt</th>
@@ -1614,7 +1615,7 @@ export default function TheLinkCityPage() {
                 </div>
               </div>
 
-              <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {/* Cột trái: thanh trượt */}
                 <div className="space-y-6">
 
@@ -1717,14 +1718,14 @@ export default function TheLinkCityPage() {
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Vốn tự có</p>
-                      <p className="text-xl font-black text-slate-800">
+                      <p className="text-base sm:text-xl font-black text-slate-800">
                         {Math.round(ownCapital).toLocaleString("vi-VN")}
                       </p>
                       <p className="text-xs text-slate-500 mt-0.5">triệu đồng ({100 - loanRatio}%)</p>
                     </div>
                     <div className="bg-primary-600 rounded-2xl p-4 shadow-sm">
                       <p className="text-[10px] font-bold text-primary-200 uppercase tracking-wider mb-1">Số tiền vay</p>
-                      <p className="text-xl font-black text-white">
+                      <p className="text-base sm:text-xl font-black text-white">
                         {Math.round(loanAmount).toLocaleString("vi-VN")}
                       </p>
                       <p className="text-xs text-primary-200 mt-0.5">triệu đồng ({loanRatio}%)</p>
@@ -1750,7 +1751,7 @@ export default function TheLinkCityPage() {
                             <p className="text-[11px] text-slate-500 mt-0.5">Chỉ trả lãi — chưa trả nợ gốc</p>
                           </div>
                           <div className="text-right flex-shrink-0">
-                            <p className="text-lg font-black text-amber-600">
+                            <p className="text-base sm:text-lg font-black text-amber-600">
                               {gracePeriod > 0 ? monthlyInterestOnly.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) : "—"}
                             </p>
                             <p className="text-[10px] text-slate-400">triệu/tháng</p>
@@ -1776,7 +1777,7 @@ export default function TheLinkCityPage() {
                             <p className="text-[11px] text-slate-500 mt-0.5">Trả cả gốc lẫn lãi (phương thức đều)</p>
                           </div>
                           <div className="text-right flex-shrink-0">
-                            <p className="text-lg font-black text-primary-700">
+                            <p className="text-base sm:text-lg font-black text-primary-700">
                               {monthlyAfterGrace.toLocaleString("vi-VN", { maximumFractionDigits: 1 })}
                             </p>
                             <p className="text-[10px] text-slate-400">triệu/tháng</p>
@@ -1831,7 +1832,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 10: HÌNH ẢNH ─── */}
-        <FadeSection id="hinh-anh" className="py-20 bg-slate-50">
+        <FadeSection id="hinh-anh" className="py-12 md:py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">Hình ảnh thực tế</span>
@@ -1890,7 +1891,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 11: MẪU NHÀ T3-2B — ĐẦY ĐỦ 8 BẢN VẼ ─── */}
-        <FadeSection id="mau-nha" className="py-20 bg-white">
+        <FadeSection id="mau-nha" className="py-12 md:py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
 
             {/* Header */}
@@ -2068,7 +2069,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 12: CÁC CHUYÊN TRANG THE LINK CITY ─── */}
-        <FadeSection id="chuyen-trang" className="py-20 bg-slate-50">
+        <FadeSection id="chuyen-trang" className="py-12 md:py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">Chuyên trang</span>
@@ -2103,7 +2104,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 13: FAQ TỔNG QUAN ─── */}
-        <FadeSection id="faq" className="py-20 bg-white">
+        <FadeSection id="faq" className="py-12 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-4">
             <div className="mb-8 anim-up">
               <span className="section-label">FAQ</span>
@@ -2121,12 +2122,12 @@ export default function TheLinkCityPage() {
                   key={i}
                   className="group rounded-2xl border border-slate-200 bg-white overflow-hidden anim-card"
                 >
-                  <summary className="flex items-center justify-between gap-4 cursor-pointer
+                  <summary className="flex items-center justify-between gap-3 cursor-pointer
                                        px-5 py-4 font-semibold text-slate-800 text-sm list-none
                                        group-open:text-primary-700 select-none">
-                    <span>{faq.name}</span>
-                    <span className="flex-shrink-0 w-5 h-5 text-slate-400 group-open:text-primary-600
-                                     transition-transform duration-300 group-open:rotate-180">▼</span>
+                    <span className="min-w-0">{faq.name}</span>
+                    <ChevronDown className="flex-shrink-0 w-4 h-4 text-slate-400 group-open:text-primary-600
+                                     transition-transform duration-300 group-open:rotate-180" />
                   </summary>
                   <p className="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
                     {faq.acceptedAnswer.text}
@@ -2148,9 +2149,9 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 14: CTA CUỐI TRANG ─── */}
-        <FadeSection className="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+        <FadeSection className="py-12 md:py-20 bg-gradient-to-br from-slate-900 to-slate-800">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               <div className="anim-up">
                 <span className="inline-block text-xs font-bold tracking-widest uppercase text-amber-400 mb-3">
                   Liên hệ
