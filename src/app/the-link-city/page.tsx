@@ -13,6 +13,7 @@ import ScrollLink from "@/components/ScrollLink";
 import TLCSectionNav from "@/components/thelinkcity/TLCSectionNav";
 import SaBanVideoFacade from "@/components/thelinkcity/SaBanVideoFacade";
 import SaBanGallery from "@/components/thelinkcity/SaBanGallery";
+import BangGiaTable from "@/components/thelinkcity/BangGiaTable";
 import { useLightbox, type LightboxImage } from "@/components/ImageLightbox";
 import {
   TLC_OG,
@@ -29,6 +30,7 @@ import {
   TLC_SABAN_VIDEO,
 } from "@/lib/cloudinary";
 import { SITE_CONFIG } from "@/data/siteConfig";
+import { STATS } from "@/data/bangGiaData";
 import {
   MapPin,
   Building2,
@@ -74,7 +76,7 @@ const listingSchema = {
     "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai. 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
   url: "https://kimoanhdongnai.com.vn/the-link-city",
   datePosted: "2025-12-23",
-  dateModified: "2026-09-04",
+  dateModified: "2026-09-05",
   image: TLC_OG,
   address: {
     "@type": "PostalAddress",
@@ -95,6 +97,21 @@ const listingSchema = {
     name: "Kim Oanh Đồng Nai",
     url: "https://kimoanhdongnai.com.vn",
     telephone: `+84${SITE_CONFIG.phone}`,
+  },
+  // ── Dải giá — giúp Google hiển thị Rich Snippet kết quả tìm kiếm ──
+  priceCurrency: "VND",
+  priceRange: "1.852.500.000 – 6.415.800.000",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "VND",
+    lowPrice: "1852500000",
+    highPrice: "6415800000",
+    offerCount: String(STATS.total),
+    seller: {
+      "@type": "Organization",
+      name: "Kim Oanh Đồng Nai",
+      url: "https://kimoanhdongnai.com.vn",
+    },
   },
 };
 
@@ -605,6 +622,7 @@ export default function TheLinkCityPage() {
                 { id: "tien-ich",   label: "Tiện ích" },
                 { id: "phap-ly",    label: "Pháp lý" },
                 { id: "tien-do",    label: "Tiến độ" },
+                { id: "bang-gia",   label: "Bảng giá" },
                 { id: "thanh-toan", label: "Thanh toán" },
                 { id: "hinh-anh",   label: "Hình ảnh" },
                 { id: "mau-nha",    label: "Mẫu nhà" },
@@ -1715,6 +1733,94 @@ export default function TheLinkCityPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+          </div>
+        </FadeSection>
+
+        {/* ─── SECTION 09: BẢNG GIÁ ─── */}
+        <FadeSection id="bang-gia" className="py-12 md:py-20 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+
+            {/* Header */}
+            <div className="mb-8 anim-up">
+              <span className="section-label">Bảng giá</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">
+                Giá chính thức The Link City 2026
+              </h2>
+              <p className="mt-2 text-slate-500 text-sm md:text-base max-w-3xl">
+                {STATS.total} sản phẩm Sẵn sàng từ CRM Kim Oanh Land · Lọc theo loại hình ·
+                Click <strong>Tính lãi</strong> để tự động điền vào công cụ bên dưới.
+              </p>
+            </div>
+
+            {/* 3 price summary cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 anim-stagger">
+              {[
+                {
+                  emoji: "🏞️", type: "Đất nền liên kế",
+                  from: "1,852 tỷ/nền", area: "95–162 m²", unit: "~19,5 tr/m²",
+                  count: STATS.datNen,
+                  border: "border-amber-200", bg: "bg-amber-50", price: "text-amber-700",
+                  tag: "bg-amber-400 text-slate-900",
+                },
+                {
+                  emoji: "🏡", type: "Biệt thự vườn",
+                  from: "3,744 tỷ/căn", area: "240–312 m²", unit: "~15,6 tr/m²",
+                  count: STATS.bietThu,
+                  border: "border-violet-200", bg: "bg-violet-50", price: "text-violet-700",
+                  tag: "bg-violet-500 text-white",
+                },
+                {
+                  emoji: "🏪", type: "Nhà phố xây sẵn",
+                  from: "3,855 tỷ/căn", area: "100–152 m²", unit: "Gồm nhà HT",
+                  count: STATS.nhaPho,
+                  border: "border-emerald-200", bg: "bg-emerald-50", price: "text-emerald-700",
+                  tag: "bg-emerald-500 text-white",
+                },
+              ].map((c) => (
+                <div key={c.type}
+                  className={`bg-white rounded-2xl border-2 ${c.border} p-5 shadow-sm hover:shadow-md transition-shadow`}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-2xl">{c.emoji}</span>
+                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${c.tag}`}>{c.type}</span>
+                  </div>
+                  <p className="text-xs text-slate-400 mb-1">Giá từ</p>
+                  <p className={`text-xl font-black mb-3 ${c.price}`}>{c.from}</p>
+                  <div className={`rounded-xl p-3 space-y-1 ${c.bg}`}>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-slate-500">Diện tích</span>
+                      <span className="font-semibold text-slate-700">{c.area} m²</span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-slate-500">Đơn giá</span>
+                      <span className="font-semibold text-slate-700">{c.unit}</span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-slate-500">Sẵn sàng</span>
+                      <span className="font-bold text-emerald-600">{c.count} lô</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bảng giá tương tác */}
+            <BangGiaTable
+              onCalcLoan={(giaInTy) => {
+                // Convert tỷ → triệu rồi set vào widget tính lãi
+                setLoanPrice(Math.round(giaInTy * 1000));
+                // Scroll xuống widget
+                setTimeout(() => {
+                  document.getElementById("thanh-toan")?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
+            />
+
+            <p className="mt-4 text-[11px] text-slate-400 text-center">
+              * Giá niêm yết có VAT từ CRM · Có thể điều chỉnh theo từng thời điểm ·
+              <Link href="/the-link-city/bang-gia" className="ml-1 text-primary-600 font-semibold hover:underline">
+                Xem bảng giá đầy đủ →
+              </Link>
+            </p>
           </div>
         </FadeSection>
 
