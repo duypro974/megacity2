@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
@@ -104,8 +104,8 @@ const listingSchema = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "VND",
-    lowPrice: "1852500000",
-    highPrice: "6415800000",
+    lowPrice: String(STATS.minPrice),
+    highPrice: String(STATS.maxPrice),
     offerCount: String(STATS.total),
     seller: {
       "@type": "Organization",
@@ -429,6 +429,225 @@ const layoutDetailImages: LightboxImage[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────
+// PAYMENT TABS — sub-component (cần state riêng, tách khỏi page)
+// ─────────────────────────────────────────────────────────────
+type TK = "lien-ke" | "biet-thu" | "shophouse";
+
+const PAY_TABS: { key: TK; label: string; emoji: string; coc: string }[] = [
+  { key: "lien-ke",   label: "Đất nền liên kế", emoji: "🏞️", coc: "50 tr" },
+  { key: "biet-thu",  label: "Đất nền biệt thự", emoji: "🏡", coc: "50 tr" },
+  { key: "shophouse", label: "Nhà xây sẵn",       emoji: "🏪", coc: "100 tr" },
+];
+
+const ROWS_A: Record<TK, { dot: string; label: string; pct: string; note?: string }[]> = {
+  "lien-ke":   [
+    { dot:"Cọc",    label:"Đặt cọc giữ chỗ",                              pct:"50 tr" },
+    { dot:"Đợt 1",  label:"7 ngày kể từ cọc – Ký HĐ",                    pct:"20%" },
+    { dot:"Đợt 2",  label:"30 ngày sau Đợt 1",                             pct:"10%" },
+    { dot:"Đợt 3",  label:"30 ngày sau Đợt 2",                             pct:"10%" },
+    { dot:"Đợt 4",  label:"30 ngày sau Đợt 3",                             pct:"10%" },
+    { dot:"Đợt 5",  label:"30 ngày sau Đợt 4",                             pct:"10%" },
+    { dot:"Đợt 6",  label:"30 ngày sau Đợt 5",                             pct:"5%" },
+    { dot:"Đợt 7",  label:"30 ngày sau Đợt 6",                             pct:"5%" },
+    { dot:"Đợt 8",  label:"120 ngày sau Đợt 7 hoặc khi đủ đk ký HĐCN",   pct:"25%" },
+    { dot:"Đợt 9",  label:"Khi nhận thông báo bàn giao sổ",                pct:"5%" },
+  ],
+  "biet-thu": [
+    { dot:"Cọc",    label:"Đặt cọc giữ chỗ",                              pct:"50 tr" },
+    { dot:"Đợt 1",  label:"7 ngày kể từ cọc – Ký HĐ",                    pct:"15%" },
+    { dot:"Đợt 2",  label:"30 ngày sau Đợt 1",                             pct:"10%" },
+    { dot:"Đợt 3",  label:"30 ngày sau Đợt 2",                             pct:"10%" },
+    { dot:"Đợt 4",  label:"30 ngày sau Đợt 3",                             pct:"10%" },
+    { dot:"Đợt 5",  label:"30 ngày sau Đợt 4",                             pct:"10%" },
+    { dot:"Đợt 6",  label:"45 ngày sau Đợt 5",                             pct:"5%" },
+    { dot:"Đợt 7",  label:"45 ngày sau Đợt 6",                             pct:"5%" },
+    { dot:"Đợt 8",  label:"45 ngày sau Đợt 7",                             pct:"5%" },
+    { dot:"Đợt 9",  label:"Khi đủ điều kiện ký HĐCN / HĐMB",              pct:"25%" },
+    { dot:"Đợt 10", label:"Khi nhận thông báo bàn giao sổ",                pct:"5%" },
+  ],
+  "shophouse": [
+    { dot:"Cọc",    label:"Đặt cọc giữ chỗ",                              pct:"100 tr" },
+    { dot:"Đợt 1",  label:"7 ngày kể từ cọc – Ký HĐ",                    pct:"20%" },
+    { dot:"Đợt 2",  label:"45 ngày sau Đợt 1",                             pct:"10%" },
+    { dot:"Đợt 3",  label:"45 ngày sau Đợt 2",                             pct:"10%" },
+    { dot:"Đợt 4",  label:"45 ngày sau Đợt 3",                             pct:"10%" },
+    { dot:"Đợt 5",  label:"45 ngày sau Đợt 4",                             pct:"5%" },
+    { dot:"Đợt 6",  label:"45 ngày sau Đợt 5",                             pct:"5%" },
+    { dot:"Đợt 7",  label:"45 ngày sau Đợt 6",                             pct:"5%" },
+    { dot:"Đợt 8",  label:"45 ngày sau Đợt 7",                             pct:"5%" },
+    { dot:"Đợt 9",  label:"Khi nhận thông báo bàn giao nhà",               pct:"25%" },
+    { dot:"Đợt 10", label:"Khi nhận thông báo bàn giao sổ",                pct:"5%" },
+  ],
+};
+
+const ROWS_B: Record<TK, { dot: string; label: string; pct: string; note?: string }[]> = {
+  "lien-ke": [
+    { dot:"Cọc",       label:"Đặt cọc giữ chỗ",                              pct:"50 tr" },
+    { dot:"Đợt 1",     label:"7 ngày kể từ cọc – Ký HĐ (vốn tự có)",       pct:"20%", note:"Vốn tự có" },
+    { dot:"Đợt 2",     label:"30 ngày sau Đợt 1 (vốn tự có)",               pct:"10%", note:"Vốn tự có" },
+    { dot:"NH 70%",    label:"VietinBank giải ngân 70% (khi đủ điều kiện)", pct:"70%", note:"NH giải ngân" },
+    { dot:"Đợt 9",     label:"Khi nhận thông báo bàn giao sổ",               pct:"5%",  note:"Nhận sổ hồng" },
+  ],
+  "biet-thu": [
+    { dot:"Cọc",       label:"Đặt cọc giữ chỗ",                              pct:"50 tr" },
+    { dot:"Đợt 1",     label:"7 ngày kể từ cọc – Ký HĐ (vốn tự có)",       pct:"15%", note:"Vốn tự có" },
+    { dot:"Đợt 2",     label:"30 ngày sau Đợt 1 (vốn tự có)",               pct:"10%", note:"Vốn tự có" },
+    { dot:"Đợt 3",     label:"30 ngày sau Đợt 2 (vốn tự có)",               pct:"5%",  note:"Vốn tự có" },
+    { dot:"NH 70%",    label:"VietinBank giải ngân 70% (khi đủ điều kiện)", pct:"70%", note:"NH giải ngân" },
+    { dot:"Đợt 10",    label:"Khi nhận thông báo bàn giao sổ",               pct:"5%",  note:"Nhận sổ hồng" },
+  ],
+  "shophouse": [
+    { dot:"Cọc",       label:"Đặt cọc giữ chỗ",                              pct:"100 tr" },
+    { dot:"Đợt 1",     label:"7 ngày kể từ cọc – Ký HĐ (vốn tự có)",       pct:"20%", note:"Vốn tự có" },
+    { dot:"Đợt 2",     label:"45 ngày sau Đợt 1 (vốn tự có)",               pct:"10%", note:"Vốn tự có" },
+    { dot:"NH 70%",    label:"VietinBank giải ngân 70% (khi đủ điều kiện)", pct:"70%", note:"NH giải ngân" },
+    { dot:"Đợt 10",    label:"Khi nhận thông báo bàn giao sổ",               pct:"5%",  note:"Nhận sổ hồng" },
+  ],
+};
+
+function PaymentTabs() {
+  const [activePayTab, setActivePayTab] = useState<TK>("lien-ke");
+  const [planB, setPlanB] = useState(false);
+  const curTab = PAY_TABS.find(t => t.key === activePayTab)!;
+  const rows = planB ? ROWS_B[activePayTab] : ROWS_A[activePayTab];
+
+  return (
+    <div>
+      {/* Tab + switcher */}
+      <div className="flex items-center gap-2 mb-4 overflow-x-auto no-scrollbar pb-1 flex-wrap">
+        <div className="flex gap-2 flex-shrink-0">
+          {PAY_TABS.map(t => (
+            <button key={t.key} onClick={() => setActivePayTab(t.key)}
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold flex-shrink-0 transition-all border
+                ${activePayTab === t.key
+                  ? "bg-primary-600 text-white border-primary-600 shadow-sm"
+                  : "bg-white text-slate-600 border-slate-200 hover:border-primary-300"}`}
+            >{t.emoji} {t.label}</button>
+          ))}
+        </div>
+        <div className="ml-auto flex-shrink-0 flex items-center gap-1 bg-slate-100 rounded-xl p-1">
+          <button onClick={() => setPlanB(false)}
+            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-all
+              ${!planB ? "bg-white shadow text-slate-800" : "text-slate-500 hover:text-slate-700"}`}>
+            Phương án A · Vốn tự có
+          </button>
+          <button onClick={() => setPlanB(true)}
+            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-all
+              ${planB ? "bg-primary-600 shadow text-white" : "text-slate-500 hover:text-slate-700"}`}>
+            Phương án B · Vay NH 70%
+          </button>
+        </div>
+      </div>
+
+      {/* Bảng 4 cột */}
+      <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+        <div className={`px-5 py-3.5 border-b flex items-center justify-between gap-4
+          ${planB ? "bg-primary-50 border-primary-100" : "bg-slate-50 border-slate-100"}`}>
+          <div className="flex items-center gap-2">
+            <span className="text-lg">{curTab.emoji}</span>
+            <div>
+              <p className="font-bold text-slate-800 text-sm">{curTab.label}</p>
+              <p className="text-[11px] text-slate-500">
+                {planB ? "Phương án B: Vay VietinBank 70% · Ân hạn gốc 24 tháng" : "Phương án A: Vốn tự có toàn bộ"}
+              </p>
+            </div>
+          </div>
+          <span className={`text-[10px] font-black px-2.5 py-1 rounded-full border flex-shrink-0
+            ${planB ? "bg-primary-100 text-primary-700 border-primary-200" : "bg-slate-100 text-slate-600 border-slate-200"}`}>
+            Cọc {curTab.coc}
+          </span>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[420px]">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-100">
+                <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-24">Đợt</th>
+                <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Thời điểm thanh toán</th>
+                <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-16">Tỷ lệ</th>
+                <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-28">Số tiền mẫu</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-50">
+              {rows.map((row, i) => {
+                const isNH   = row.dot === "NH 70%";
+                const isCoc  = row.dot === "Cọc";
+                const pctNum = parseInt(row.pct);
+                const sampleAmt = !isNaN(pctNum) && !isCoc
+                  ? Math.round(2020000000 * pctNum / 100 / 1_000_000)
+                  : null;
+                return (
+                  <tr key={i} className={`transition-colors
+                    ${isNH ? "bg-primary-50/60 hover:bg-primary-50"
+                    : row.note === "Vốn tự có" ? "hover:bg-amber-50/40"
+                    : "hover:bg-slate-50/60"}`}>
+                    <td className="px-4 py-3">
+                      <span className={`inline-flex items-center justify-center px-2 h-6 rounded-full text-[10px] font-black
+                        ${isNH ? "bg-primary-600 text-white"
+                        : isCoc ? "bg-amber-400 text-slate-900"
+                        : "bg-slate-200 text-slate-700"}`}>
+                        {row.dot}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      <p className={`text-xs leading-snug ${isNH ? "font-semibold text-primary-700" : "text-slate-700"}`}>
+                        {row.label}
+                      </p>
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      <span className={`font-black text-sm ${isNH ? "text-primary-600" : isCoc ? "text-amber-600" : "text-slate-700"}`}>
+                        {row.pct}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      {sampleAmt ? (
+                        <span className="text-xs text-slate-500">~{sampleAmt.toLocaleString("vi-VN")} tr</span>
+                      ) : (
+                        <span className="text-xs text-slate-400">–</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+            <tfoot>
+              <tr className="bg-slate-50 border-t-2 border-slate-200">
+                <td colSpan={2} className="px-4 py-3 text-xs font-bold text-slate-600">
+                  Mẫu tính theo lô tiêu biểu 2,02 tỷ (LK17A-42 ~2.020 tỷ)
+                </td>
+                <td className="px-4 py-3 text-right font-black text-slate-800">100%</td>
+                <td className="px-4 py-3 text-right text-xs text-slate-500">2.020.000.000 đ</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+          <p className="text-[11px] text-slate-400">Căn cứ: TB số 14/2026/TB-KO/TGĐ ngày 27/01/2026</p>
+          <Link href="/the-link-city/thanh-toan"
+            className="text-[11px] font-bold text-primary-600 hover:text-primary-700 flex-shrink-0">
+            Xem bảng đầy đủ 10 đợt →
+          </Link>
+        </div>
+      </div>
+
+      {/* Khung chiết khấu sớm */}
+      <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 flex items-start gap-3">
+        <span className="text-xl flex-shrink-0">⚡</span>
+        <div>
+          <p className="text-sm font-bold text-amber-800 mb-0.5">Chiết khấu thanh toán sớm</p>
+          <p className="text-xs text-amber-700 leading-relaxed">
+            Hưởng chiết khấu tương đương <strong>16%/năm</strong> tính trên số tiền và số ngày
+            thanh toán vượt tiến độ quy định khi thanh toán sớm đến mức 95% giá trị hợp đồng.
+          </p>
+          <p className="text-[10px] text-amber-600 mt-1.5 font-semibold">
+            CK mua nhiều: 2 SP → +1% · 3 SP → +1,5% · Từ 4 SP → +2% · Cộng dồn với CK sớm
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
 // PAGE COMPONENT
 // ─────────────────────────────────────────────────────────────
 export default function TheLinkCityPage() {
@@ -441,24 +660,33 @@ export default function TheLinkCityPage() {
   const certLb         = useLightbox(certificateImages);
   const layoutDetailLb = useLightbox(layoutDetailImages);
 
-  // ─── Widget tính lãi vay ───
-  const [loanPrice,   setLoanPrice]   = useState(3000);  // triệu VNĐ
-  const [loanRatio,   setLoanRatio]   = useState(70);    // %
-  const [loanRate,    setLoanRate]    = useState(9);     // %/năm
-  const [loanTerm,    setLoanTerm]    = useState(20);    // năm
-  const [gracePeriod, setGracePeriod] = useState(24);   // tháng ân hạn gốc
+  // ─── Widget tính lãi vay — state ───
+  type ProductType = "dat-nen" | "biet-thu" | "nha-xay-san";
+  const [productType,  setProductType]  = useState<ProductType>("dat-nen");
+  const [useBank,      setUseBank]      = useState(true);          // toggle vay / tự có
+  const [loanPrice,    setLoanPrice]    = useState(2.02);          // tỷ VNĐ (mặc định 2,02 tỷ)
+  const [loanRate,     setLoanRate]     = useState(7.5);           // %/năm
+  const [loanTerm,     setLoanTerm]     = useState(25);            // năm
+  const [gracePeriod,  setGracePeriod]  = useState(24);            // tháng ân hạn gốc
 
-  const loanAmount          = loanPrice * loanRatio / 100;
-  const monthlyRate         = loanRate / 100 / 12;
-  const totalMonths         = loanTerm * 12;
-  const monthlyInterestOnly = loanAmount * monthlyRate;
-  const remainingMonths     = totalMonths - gracePeriod;
-  const monthlyAfterGrace   =
+  // cọc theo loại SP
+  const depositAmount = productType === "nha-xay-san" ? 0.1 : 0.05; // tỷ
+
+  // tỷ lệ vay cố định 70% khi bật ngân hàng
+  const loanRatio    = useBank ? 70 : 0;
+  const loanAmountTy = loanPrice * loanRatio / 100;                // tỷ
+  const ownCapitalTy = loanPrice - loanAmountTy;                   // tỷ
+
+  const monthlyRate        = loanRate / 100 / 12;
+  const totalMonths        = loanTerm * 12;
+  const loanAmountMil      = loanAmountTy * 1000;                  // triệu (cho tính toán)
+  const monthlyInterestOnly = loanAmountMil * monthlyRate;         // triệu/tháng
+  const remainingMonths    = totalMonths - (useBank ? gracePeriod : 0);
+  const monthlyAfterGrace  =
     remainingMonths > 0 && monthlyRate > 0
-      ? (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, remainingMonths)) /
+      ? (loanAmountMil * monthlyRate * Math.pow(1 + monthlyRate, remainingMonths)) /
         (Math.pow(1 + monthlyRate, remainingMonths) - 1)
-      : loanAmount / Math.max(remainingMonths, 1);
-  const ownCapital = loanPrice * (1 - loanRatio / 100);
+      : loanAmountMil / Math.max(remainingMonths, 1);
 
   return (
     <>
@@ -1806,8 +2034,8 @@ export default function TheLinkCityPage() {
             {/* Bảng giá tương tác */}
             <BangGiaTable
               onCalcLoan={(giaInTy) => {
-                // Convert tỷ → triệu rồi set vào widget tính lãi
-                setLoanPrice(Math.round(giaInTy * 1000));
+                // giaInTy là số tỷ VNĐ — set thẳng vào state loanPrice (tỷ)
+                setLoanPrice(Math.round(giaInTy * 100) / 100);
                 // Scroll xuống widget
                 setTimeout(() => {
                   document.getElementById("thanh-toan")?.scrollIntoView({ behavior: "smooth" });
@@ -1829,355 +2057,285 @@ export default function TheLinkCityPage() {
           <div className="max-w-6xl mx-auto px-4">
 
             {/* Header */}
-            <div className="mb-10 anim-up">
+            <div className="mb-8 anim-up">
               <span className="section-label">Thanh toán</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">
-                Tiến độ thanh toán &amp; Công cụ tính lãi vay
+                Tiến độ thanh toán &amp; Công cụ tính dòng tiền
               </h2>
               <p className="mt-2 text-slate-500 text-sm md:text-base max-w-3xl">
-                Bảng tiến độ thanh toán chuẩn cho đất nền &amp; nhà phố, kèm công cụ tính lãi vay
-                tương tác — kéo thanh trượt để tính ngay số tiền trả hàng tháng với ân hạn gốc 24 tháng.
+                Bảng tiến độ 3 dòng sản phẩm kèm công cụ tính lãi vay tương tác —
+                nhập giá lô, chọn phương thức và xem ngay dòng tiền hàng tháng.{" "}
+                <Link href="/the-link-city/thanh-toan" className="text-primary-600 font-semibold hover:underline">
+                  Xem đầy đủ chính sách →
+                </Link>
               </p>
             </div>
 
-            {/* ── BẢNG TIẾN ĐỘ THANH TOÁN ── */}
-            <div className="mb-12 anim-up">
-              <h3 className="font-bold text-slate-800 text-lg mb-5 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-primary-600" />
-                Bảng tiến độ thanh toán chuẩn
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                {/* Đất nền */}
-                <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                  <div className="px-5 py-3.5 bg-amber-50 border-b border-amber-100 flex items-center justify-between">
-                    <h4 className="font-bold text-amber-800 flex items-center gap-2">
-                      <MapPin className="w-4 h-4" /> Đất nền (Giai đoạn 1 &amp; 2)
-                    </h4>
-                    <span className="text-[10px] font-bold bg-amber-100 text-amber-700 border border-amber-200 px-2.5 py-1 rounded-full">
-                      Vốn tự có 30%
-                    </span>
-                  </div>
-                  <div className="bg-white overflow-x-auto">
-                    <table className="w-full text-sm min-w-[320px]">
-                      <thead>
-                        <tr className="bg-slate-50 border-b border-slate-100">
-                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-10">Đợt</th>
-                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Mốc thanh toán</th>
-                          <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-16">Tỷ lệ</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-50">
-                        {[
-                          { dot: 1, milestone: "Ký HĐMB",                          pct: "30%", hl: true },
-                          { dot: 2, milestone: "Sau ký HĐMB 90 ngày",              pct: "20%", hl: false },
-                          { dot: 3, milestone: "Sau đợt 2 · 90 ngày",              pct: "20%", hl: false },
-                          { dot: 4, milestone: "Sau đợt 3 · 90 ngày",              pct: "10%", hl: false },
-                          { dot: 5, milestone: "Bàn giao sổ hồng / công chứng",    pct: "20%", hl: true },
-                        ].map((row) => (
-                          <tr key={row.dot} className={`hover:bg-slate-50/60 transition-colors ${row.hl ? "bg-amber-50/40" : ""}`}>
-                            <td className="px-4 py-3">
-                              <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black flex items-center justify-center">
-                                {row.dot}
-                              </span>
-                            </td>
-                            <td className="px-4 py-3 text-slate-700 text-xs leading-snug">{row.milestone}</td>
-                            <td className="px-4 py-3 text-right font-black text-amber-700">{row.pct}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                      <tfoot>
-                        <tr className="border-t-2 border-amber-200 bg-amber-50">
-                          <td colSpan={2} className="px-4 py-3 font-bold text-slate-700 text-sm">Tổng cộng</td>
-                          <td className="px-4 py-3 text-right font-black text-amber-700 text-base">100%</td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                  <div className="px-5 py-3 bg-slate-50 border-t border-slate-100">
-                    <p className="text-[11px] text-slate-400">Ngân hàng hỗ trợ 70% · VietinBank Biên Hòa · Ân hạn gốc 24 tháng</p>
-                  </div>
-                </div>
-
-                {/* Nhà phố & Shophouse */}
-                <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                  <div className="px-5 py-3.5 bg-primary-50 border-b border-primary-100 flex items-center justify-between">
-                    <h4 className="font-bold text-primary-800 flex items-center gap-2">
-                      <Building2 className="w-4 h-4" /> Nhà phố &amp; Shophouse
-                    </h4>
-                    <span className="text-[10px] font-bold bg-primary-100 text-primary-700 border border-primary-200 px-2.5 py-1 rounded-full">
-                      Vay tới 70%
-                    </span>
-                  </div>
-                  <div className="bg-white overflow-x-auto">
-                    <table className="w-full text-sm min-w-[320px]">
-                      <thead>
-                        <tr className="bg-slate-50 border-b border-slate-100">
-                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-10">Đợt</th>
-                          <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Mốc thanh toán</th>
-                          <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider w-16">Tỷ lệ</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-50">
-                        {[
-                          { dot: 1, milestone: "Đặt cọc giữ chỗ",               pct: "5%",  hl: false },
-                          { dot: 2, milestone: "Ký HĐMB",                        pct: "25%", hl: true },
-                          { dot: 3, milestone: "Sau ký HĐMB 90 ngày",            pct: "20%", hl: false },
-                          { dot: 4, milestone: "Sau đợt 3 · 90 ngày",            pct: "20%", hl: false },
-                          { dot: 5, milestone: "Sau đợt 4 · 90 ngày",            pct: "10%", hl: false },
-                          { dot: 6, milestone: "Bàn giao nhà / công chứng",      pct: "20%", hl: true },
-                        ].map((row) => (
-                          <tr key={row.dot} className={`hover:bg-slate-50/60 transition-colors ${row.hl ? "bg-primary-50/40" : ""}`}>
-                            <td className="px-4 py-3">
-                              <span className="w-6 h-6 rounded-full bg-primary-500 text-white text-[10px] font-black flex items-center justify-center">
-                                {row.dot}
-                              </span>
-                            </td>
-                            <td className="px-4 py-3 text-slate-700 text-xs leading-snug">{row.milestone}</td>
-                            <td className="px-4 py-3 text-right font-black text-primary-700">{row.pct}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                      <tfoot>
-                        <tr className="border-t-2 border-primary-200 bg-primary-50">
-                          <td colSpan={2} className="px-4 py-3 font-bold text-slate-700 text-sm">Tổng cộng</td>
-                          <td className="px-4 py-3 text-right font-black text-primary-700 text-base">100%</td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                  <div className="px-5 py-3 bg-slate-50 border-t border-slate-100">
-                    <p className="text-[11px] text-slate-400">Chiết khấu thanh toán sớm ~16%/năm · Liên hệ để biết chi tiết</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Nút tải bảng dự toán Excel */}
-              <div className="mt-5 flex flex-wrap gap-3">
-                <a
-                  href={`tel:${SITE_CONFIG.phone}`}
-                  className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white
-                             font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors shadow-sm"
-                >
-                  <Download className="w-4 h-4" />
-                  Tải bảng dự toán dòng tiền (Excel)
-                </a>
-                <a
-                  href="/the%20link/14.2026_Ch%C3%ADnh%20s%C3%A1ch%20cho%20kh%C3%A1ch%20h%C3%A0ng%20-%20D%E1%BB%B1%20%C3%A1n%20Khu%20d%C3%A2n%20c%C6%B0%20A1-C1-%C4%90%C3%B4%20th%E1%BB%8B%20D%E1%BA%A7u%20Gi%C3%A2y.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
-                             text-slate-700 font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors"
-                >
-                  <FileText className="w-4 h-4" />
-                  Chính sách khách hàng 2026 (PDF)
-                </a>
-              </div>
+            {/* ── BẢNG TIẾN ĐỘ 3 TAB ── */}
+            <div className="mb-10 anim-up">
+              <PaymentTabs />
             </div>
 
-            {/* ── WIDGET TÍNH LÃI VAY INTERACTIVE ── */}
-            <div className="rounded-3xl border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-white overflow-hidden shadow-lg anim-up">
+            {/* ── WIDGET TÍNH LÃI VAY NÂNG CẤP ── */}
+            <div id="loan-calc" className="rounded-3xl border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-white overflow-hidden shadow-lg anim-up">
               {/* Header widget */}
               <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-5">
                 <div className="flex items-center gap-3">
                   <Calculator className="w-6 h-6 text-white flex-shrink-0" />
                   <div>
                     <h3 className="text-white font-black text-base">Bảng tính lãi vay &amp; dòng tiền trả góp</h3>
-                    <p className="text-primary-100 text-xs mt-0.5">Kéo thanh trượt để tính ngay — ân hạn gốc 24 tháng từ VietinBank</p>
+                    <p className="text-primary-100 text-xs mt-0.5">Tính ngay dòng tiền hàng tháng · Ân hạn gốc 24 tháng từ VietinBank Biên Hòa</p>
                   </div>
                 </div>
               </div>
 
               <div className="p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                {/* Cột trái: thanh trượt */}
-                <div className="space-y-6">
+                {/* Cột trái: inputs */}
+                <div className="space-y-5">
 
-                  {/* Giá trị bất động sản */}
+                  {/* Loại sản phẩm */}
+                  <div>
+                    <label className="text-sm font-bold text-slate-700 block mb-2">Loại sản phẩm</label>
+                    <div className="flex gap-2 flex-wrap">
+                      {([
+                        { v: "dat-nen",     l: "Đất nền", em: "🏞️" },
+                        { v: "biet-thu",    l: "Biệt thự", em: "🏡" },
+                        { v: "nha-xay-san", l: "Nhà xây sẵn", em: "🏪" },
+                      ] as const).map(item => (
+                        <button
+                          key={item.v}
+                          onClick={() => {
+                            setProductType(item.v);
+                            // Đặt giá mặc định theo loại
+                            if (item.v === "dat-nen")     setLoanPrice(2.02);
+                            if (item.v === "biet-thu")    setLoanPrice(3.744);
+                            if (item.v === "nha-xay-san") setLoanPrice(3.855);
+                          }}
+                          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold
+                                      border transition-all
+                            ${productType === item.v
+                              ? "bg-primary-600 text-white border-primary-600 shadow-sm"
+                              : "bg-white text-slate-600 border-slate-200 hover:border-primary-300"}`}
+                        >
+                          {item.em} {item.l}
+                        </button>
+                      ))}
+                    </div>
+                    <p className="text-[11px] text-slate-400 mt-1.5">
+                      Cọc: {productType === "nha-xay-san" ? "100 triệu" : "50 triệu"}
+                    </p>
+                  </div>
+
+                  {/* Phương thức tài chính */}
+                  <div>
+                    <label className="text-sm font-bold text-slate-700 block mb-2">Phương thức tài chính</label>
+                    <div className="flex gap-0 rounded-xl overflow-hidden border border-slate-200">
+                      <button
+                        onClick={() => setUseBank(false)}
+                        className={`flex-1 py-2.5 text-xs font-bold transition-all
+                          ${!useBank ? "bg-slate-700 text-white" : "bg-white text-slate-500 hover:bg-slate-50"}`}
+                      >
+                        💰 Vốn tự có 100%
+                      </button>
+                      <button
+                        onClick={() => setUseBank(true)}
+                        className={`flex-1 py-2.5 text-xs font-bold transition-all
+                          ${useBank ? "bg-primary-600 text-white" : "bg-white text-slate-500 hover:bg-slate-50"}`}
+                      >
+                        🏦 Vay VietinBank 70%
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Giá trị BĐS */}
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                      <label className="text-sm font-bold text-slate-700">Giá trị bất động sản</label>
-                      <span className="text-primary-700 font-black text-base">{loanPrice.toLocaleString("vi-VN")} triệu</span>
+                      <label className="text-sm font-bold text-slate-700">Tổng thanh toán</label>
+                      <span className="text-primary-700 font-black text-base">
+                        {loanPrice.toFixed(3).replace(/\.?0+$/, "")} tỷ
+                      </span>
                     </div>
                     <input
-                      type="range" min={500} max={10000} step={100}
+                      type="range" min={1.8} max={7} step={0.01}
                       value={loanPrice}
                       onChange={(e) => setLoanPrice(Number(e.target.value))}
                       className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
                       aria-label="Giá trị bất động sản"
                     />
                     <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                      <span>500 triệu</span><span>10 tỷ</span>
+                      <span>1,8 tỷ</span><span>7 tỷ</span>
                     </div>
                   </div>
 
-                  {/* Tỷ lệ vay */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <label className="text-sm font-bold text-slate-700">Tỷ lệ vay ngân hàng</label>
-                      <span className="text-primary-700 font-black text-base">{loanRatio}%</span>
-                    </div>
-                    <input
-                      type="range" min={10} max={70} step={5}
-                      value={loanRatio}
-                      onChange={(e) => setLoanRatio(Number(e.target.value))}
-                      className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
-                      aria-label="Tỷ lệ vay ngân hàng"
-                    />
-                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                      <span>10%</span><span className="text-primary-500 font-bold">Tối đa 70%</span>
-                    </div>
-                  </div>
+                  {/* Lãi suất — chỉ hiện khi bật vay */}
+                  {useBank && (
+                    <>
+                      <div>
+                        <div className="flex justify-between items-center mb-2">
+                          <label className="text-sm font-bold text-slate-700">Lãi suất (%/năm)</label>
+                          <span className="text-primary-700 font-black text-base">{loanRate}%</span>
+                        </div>
+                        <input
+                          type="range" min={6} max={12} step={0.5}
+                          value={loanRate}
+                          onChange={(e) => setLoanRate(Number(e.target.value))}
+                          className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
+                          aria-label="Lãi suất năm"
+                        />
+                        <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                          <span>6%</span><span className="text-primary-500 font-bold">Mặc định 7,5%</span><span>12%</span>
+                        </div>
+                      </div>
 
-                  {/* Lãi suất */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <label className="text-sm font-bold text-slate-700">Lãi suất (%/năm)</label>
-                      <span className="text-primary-700 font-black text-base">{loanRate}%</span>
-                    </div>
-                    <input
-                      type="range" min={6} max={14} step={0.5}
-                      value={loanRate}
-                      onChange={(e) => setLoanRate(Number(e.target.value))}
-                      className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
-                      aria-label="Lãi suất năm"
-                    />
-                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                      <span>6%</span><span>14%</span>
-                    </div>
-                  </div>
+                      <div>
+                        <div className="flex justify-between items-center mb-2">
+                          <label className="text-sm font-bold text-slate-700">Thời hạn vay</label>
+                          <span className="text-primary-700 font-black text-base">{loanTerm} năm</span>
+                        </div>
+                        <input
+                          type="range" min={5} max={30} step={1}
+                          value={loanTerm}
+                          onChange={(e) => setLoanTerm(Number(e.target.value))}
+                          className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
+                          aria-label="Thời hạn vay"
+                        />
+                        <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                          <span>5 năm</span><span>30 năm</span>
+                        </div>
+                      </div>
 
-                  {/* Thời hạn vay */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <label className="text-sm font-bold text-slate-700">Thời hạn vay</label>
-                      <span className="text-primary-700 font-black text-base">{loanTerm} năm</span>
-                    </div>
-                    <input
-                      type="range" min={5} max={30} step={1}
-                      value={loanTerm}
-                      onChange={(e) => setLoanTerm(Number(e.target.value))}
-                      className="w-full h-2 bg-primary-200 rounded-full appearance-none cursor-pointer accent-primary-600"
-                      aria-label="Thời hạn vay"
-                    />
-                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                      <span>5 năm</span><span>30 năm</span>
-                    </div>
-                  </div>
-
-                  {/* Ân hạn nợ gốc */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <label className="text-sm font-bold text-slate-700">Ân hạn nợ gốc</label>
-                      <span className="text-amber-600 font-black text-base">{gracePeriod} tháng</span>
-                    </div>
-                    <input
-                      type="range" min={0} max={36} step={6}
-                      value={gracePeriod}
-                      onChange={(e) => setGracePeriod(Number(e.target.value))}
-                      className="w-full h-2 bg-amber-200 rounded-full appearance-none cursor-pointer accent-amber-500"
-                      aria-label="Ân hạn nợ gốc"
-                    />
-                    <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                      <span>0 tháng</span>
-                      <span className="text-amber-500 font-bold">VietinBank hỗ trợ 24 tháng</span>
-                    </div>
-                  </div>
+                      {/* Toggle ân hạn gốc */}
+                      <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 flex items-center justify-between gap-3">
+                        <div>
+                          <p className="text-xs font-bold text-amber-800">Ân hạn nợ gốc 24 tháng</p>
+                          <p className="text-[11px] text-amber-600 mt-0.5">Chính sách độc quyền VietinBank Biên Hòa</p>
+                        </div>
+                        <button
+                          onClick={() => setGracePeriod(gracePeriod > 0 ? 0 : 24)}
+                          className={`relative w-11 h-6 rounded-full transition-colors flex-shrink-0
+                            ${gracePeriod > 0 ? "bg-amber-500" : "bg-slate-300"}`}
+                          aria-label="Bật/tắt ân hạn gốc 24 tháng"
+                        >
+                          <span className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform
+                            ${gracePeriod > 0 ? "translate-x-5" : "translate-x-0"}`} />
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 {/* Cột phải: kết quả */}
                 <div className="space-y-4">
 
-                  {/* Summary cards */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Vốn tự có</p>
-                      <p className="text-base sm:text-xl font-black text-slate-800">
-                        {Math.round(ownCapital).toLocaleString("vi-VN")}
-                      </p>
-                      <p className="text-xs text-slate-500 mt-0.5">triệu đồng ({100 - loanRatio}%)</p>
+                  {/* Summary: vốn tự có / vay */}
+                  {useBank ? (
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Vốn tự có (30%)</p>
+                        <p className="text-lg font-black text-slate-800">
+                          {ownCapitalTy.toFixed(3).replace(/\.?0+$/, "")} tỷ
+                        </p>
+                        <p className="text-[11px] text-slate-500 mt-0.5">
+                          Cọc {productType === "nha-xay-san" ? "100" : "50"} tr + {Math.round((ownCapitalTy - depositAmount) * 1000)} tr tiếp theo
+                        </p>
+                      </div>
+                      <div className="bg-primary-600 rounded-2xl p-4 shadow-sm">
+                        <p className="text-[10px] font-bold text-primary-200 uppercase tracking-wider mb-1">NH giải ngân (70%)</p>
+                        <p className="text-lg font-black text-white">
+                          {loanAmountTy.toFixed(3).replace(/\.?0+$/, "")} tỷ
+                        </p>
+                        <p className="text-[11px] text-primary-200 mt-0.5">VietinBank Biên Hòa</p>
+                      </div>
                     </div>
-                    <div className="bg-primary-600 rounded-2xl p-4 shadow-sm">
-                      <p className="text-[10px] font-bold text-primary-200 uppercase tracking-wider mb-1">Số tiền vay</p>
-                      <p className="text-base sm:text-xl font-black text-white">
-                        {Math.round(loanAmount).toLocaleString("vi-VN")}
-                      </p>
-                      <p className="text-xs text-primary-200 mt-0.5">triệu đồng ({loanRatio}%)</p>
+                  ) : (
+                    <div className="bg-white rounded-2xl border border-amber-200 p-4 shadow-sm">
+                      <p className="text-[10px] font-bold text-amber-600 uppercase tracking-wider mb-1">Thanh toán vốn tự có</p>
+                      <p className="text-xl font-black text-amber-700">{loanPrice.toFixed(3).replace(/\.?0+$/, "")} tỷ</p>
+                      <p className="text-[11px] text-slate-500 mt-1">Hưởng CK thanh toán sớm tới 16%/năm khi vượt tiến độ</p>
                     </div>
-                  </div>
+                  )}
 
-                  {/* Dòng tiền hàng tháng */}
-                  <div className="bg-white rounded-2xl border border-amber-200 overflow-hidden shadow-sm">
-                    <div className="px-4 py-3 bg-amber-50 border-b border-amber-100">
-                      <p className="text-xs font-bold text-amber-800 flex items-center gap-1.5">
-                        <TrendingDown className="w-4 h-4" />
-                        Dòng tiền trả góp hàng tháng
-                      </p>
-                    </div>
-                    <div className="divide-y divide-slate-50">
-                      {/* Trong ân hạn */}
-                      <div className="px-4 py-4">
-                        <div className="flex items-start justify-between gap-2">
-                          <div>
-                            <p className="text-xs font-bold text-amber-700">
-                              {gracePeriod > 0 ? `${gracePeriod} tháng đầu (ân hạn gốc)` : "Không có ân hạn gốc"}
-                            </p>
-                            <p className="text-[11px] text-slate-500 mt-0.5">Chỉ trả lãi — chưa trả nợ gốc</p>
+                  {/* Dòng tiền hàng tháng (chỉ khi vay) */}
+                  {useBank && (
+                    <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-sm bg-white">
+                      <div className="px-4 py-3 bg-slate-50 border-b border-slate-100">
+                        <p className="text-xs font-bold text-slate-700">Dòng tiền trả góp hàng tháng</p>
+                      </div>
+
+                      {/* Trong ân hạn — highlight đậm nhất */}
+                      {gracePeriod > 0 && (
+                        <div className="px-4 py-4 bg-green-50 border-b border-green-100">
+                          <div className="flex items-start justify-between gap-2 mb-2">
+                            <div>
+                              <p className="text-xs font-black text-green-800 uppercase tracking-wide">
+                                24 THÁNG ĐẦU — ÂN HẠN GỐC
+                              </p>
+                              <p className="text-[11px] text-green-700 mt-0.5">Gốc = 0 đ · Chỉ trả lãi nhờ chính sách VietinBank</p>
+                            </div>
+                            <div className="text-right flex-shrink-0">
+                              <p className="text-2xl font-black text-green-700">
+                                ~{monthlyInterestOnly.toLocaleString("vi-VN", { maximumFractionDigits: 0 })}
+                              </p>
+                              <p className="text-[10px] text-green-600 font-bold">triệu/tháng</p>
+                            </div>
                           </div>
-                          <div className="text-right flex-shrink-0">
-                            <p className="text-base sm:text-lg font-black text-amber-600">
-                              {gracePeriod > 0 ? monthlyInterestOnly.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) : "—"}
+                          <div className="rounded-lg bg-green-100 border border-green-200 px-3 py-2">
+                            <p className="text-[11px] text-green-800 font-semibold">
+                              ✅ Tiết kiệm ~{Math.max(0, monthlyAfterGrace - monthlyInterestOnly).toLocaleString("vi-VN", { maximumFractionDigits: 0 })} triệu/tháng so với trả ngay gốc lẫn lãi
                             </p>
-                            <p className="text-[10px] text-slate-400">triệu/tháng</p>
                           </div>
                         </div>
-                        {gracePeriod > 0 && (
-                          <div className="mt-2 bg-amber-50 rounded-lg px-3 py-2">
-                            <p className="text-[11px] text-amber-700">
-                              ✅ Tiết kiệm so với trả đủ gốc lãi: ~{Math.max(0, monthlyAfterGrace - monthlyInterestOnly).toLocaleString("vi-VN", { maximumFractionDigits: 1 })} triệu/tháng
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                      {/* Sau ân hạn */}
+                      )}
+
+                      {/* Từ tháng 25 trở đi */}
                       <div className="px-4 py-4">
                         <div className="flex items-start justify-between gap-2">
                           <div>
-                            <p className="text-xs font-bold text-primary-700">
-                              {gracePeriod > 0
-                                ? `Từ tháng ${gracePeriod + 1} đến ${loanTerm * 12}`
-                                : `Toàn bộ ${loanTerm * 12} tháng`}
+                            <p className="text-xs font-bold text-slate-700">
+                              {gracePeriod > 0 ? `Từ tháng 25 — ${loanTerm * 12}` : `Toàn bộ ${loanTerm * 12} tháng`}
                             </p>
-                            <p className="text-[11px] text-slate-500 mt-0.5">Trả cả gốc lẫn lãi (phương thức đều)</p>
+                            <p className="text-[11px] text-slate-500 mt-0.5">Gốc chia đều + Lãi theo dư nợ giảm dần</p>
                           </div>
                           <div className="text-right flex-shrink-0">
-                            <p className="text-base sm:text-lg font-black text-primary-700">
-                              {monthlyAfterGrace.toLocaleString("vi-VN", { maximumFractionDigits: 1 })}
+                            <p className="text-xl font-black text-primary-700">
+                              ~{monthlyAfterGrace.toLocaleString("vi-VN", { maximumFractionDigits: 0 })}
                             </p>
                             <p className="text-[10px] text-slate-400">triệu/tháng</p>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Disclaimer */}
-                  <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+                  <div className="rounded-xl bg-slate-50 border border-slate-200 p-3">
                     <p className="text-[11px] text-slate-500 leading-relaxed">
-                      <span className="font-bold text-slate-600">Lưu ý:</span> Số liệu mang tính tham khảo, tính theo
-                      phương thức trả đều (annuity). Lãi suất thực tế do VietinBank Biên Hòa xác định theo hợp đồng.
-                      Liên hệ tư vấn viên để có con số chính xác.
+                      <span className="font-bold text-slate-600">Lưu ý:</span> Số liệu tham khảo, tính theo phương thức annuity.
+                      Lãi suất thực tế do VietinBank xác định theo hợp đồng. Liên hệ tư vấn viên để có số chính xác.
                     </p>
                   </div>
 
-                  {/* CTA gọi điện */}
-                  <a
-                    href={`tel:${SITE_CONFIG.phone}`}
-                    className="flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700
-                               text-white font-bold text-sm py-3.5 rounded-xl transition-colors shadow-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Tư vấn lãi vay trực tiếp — {SITE_CONFIG.phoneDisplay}
-                  </a>
+                  {/* CTA kép */}
+                  <div className="space-y-2">
+                    <a
+                      href={`tel:${SITE_CONFIG.phone}`}
+                      className="flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700
+                                 text-white font-bold text-sm py-3 rounded-xl transition-colors shadow-sm"
+                    >
+                      <Phone className="w-4 h-4" />
+                      Tư vấn lãi vay — {SITE_CONFIG.phoneDisplay}
+                    </a>
+                    <a
+                      href={`${SITE_CONFIG.social.zalo}?text=Tôi muốn nhận lịch trả nợ chi tiết 360 tháng cho lô ${loanPrice.toFixed(3).replace(/\.?0+$/, "")} tỷ tại The Link City`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-[#0068FF] hover:bg-blue-700
+                                 text-white font-bold text-sm py-3 rounded-xl transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      Nhận lịch trả nợ chi tiết 360 tháng qua Zalo
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2193,8 +2351,7 @@ export default function TheLinkCityPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-             
-             href="/the-link-city/bang-gia"
+                href="/the-link-city/bang-gia"
                 className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50
                            text-slate-700 font-semibold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm"
               >
