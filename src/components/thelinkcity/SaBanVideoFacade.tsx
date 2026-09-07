@@ -18,7 +18,7 @@ const videoSchema = {
   "@type": "VideoObject",
   name: "Video sa bàn quy hoạch dự án The Link City Dầu Giây",
   description: "Toàn cảnh sa bàn dự án The Link City tại Dầu Giây, Đồng Nai: Trục giao thương Shophouse, cụm tiện ích thể thao, công viên trung tâm và khu nhà phố biệt thự.",
-  uploadDate: "2026-09-05",
+  uploadDate: "2026-09-05T08:00:00+07:00",
   thumbnailUrl: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/thelinkcity/real1/7",
   contentUrl: "https://kimoanhdongnai.com.vn/the%20link/real1/11.mp4",
   embedUrl: "https://kimoanhdongnai.com.vn/the-link-city#hinh-anh",
