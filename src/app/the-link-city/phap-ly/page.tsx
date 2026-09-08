@@ -31,8 +31,8 @@ const articleSchema = {
     "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL,
     logo: { "@type": "ImageObject", url: `${BASE_URL}/KOG_Web_RGB_01.svg` },
   },
-  datePublished: "2025-12-23",
-  dateModified: "2026-09-04",
+  datePublished: "2026-03-01",
+  dateModified: "2026-09-08",
   url: `${BASE_URL}/the-link-city/phap-ly`,
   image: [
     TLC_CERTIFICATE,

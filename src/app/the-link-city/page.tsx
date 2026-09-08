@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
@@ -75,8 +75,8 @@ const listingSchema = {
   description:
     "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai. 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
   url: "https://kimoanhdongnai.com.vn/the-link-city",
-  datePosted: "2025-12-23",
-  dateModified: "2026-09-05",
+  datePosted: "2026-03-01",
+  dateModified: "2026-09-08",
   image: TLC_OG,
   address: {
     "@type": "PostalAddress",

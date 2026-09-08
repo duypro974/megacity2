@@ -25,8 +25,8 @@ const articleSchema = {
     "Thông tin về vị trí dự án The Link City tại ngã tư Quốc lộ 1A và Quốc lộ 20, xã Dầu Giây, tỉnh Đồng Nai.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
-  datePublished: "2025-12-23",
-  dateModified: "2025-12-23",
+  datePublished: "2026-03-01",
+  dateModified: "2026-09-08",
   url: "https://kimoanhdongnai.com.vn/the-link-city/vi-tri",
   about: { "@type": "RealEstateListing", name: "The Link City", url: "https://kimoanhdongnai.com.vn/the-link-city" },
 };

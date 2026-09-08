@@ -154,8 +154,8 @@ const articleSchema = {
   description: "Tổng hợp các câu hỏi thường gặp về The Link City, giải đáp dựa trên thông tin đã xác minh.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
-  datePublished: "2025-12-23",
-  dateModified: "2025-12-23",
+  datePublished: "2026-03-01",
+  dateModified: "2026-09-08",
   url: "https://kimoanhdongnai.com.vn/the-link-city/faq",
   about: { "@type": "RealEstateListing", name: "The Link City", url: "https://kimoanhdongnai.com.vn/the-link-city" },
 };

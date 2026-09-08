@@ -1,4 +1,4 @@
-﻿import { MetadataRoute } from "next";
+import { MetadataRoute } from "next";
 
 // ─────────────────────────────────────────────────────────────
 // sitemap.ts — Kim Oanh Đồng Nai
@@ -570,7 +570,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── The Link City (Pillar Page) ──────────────────────────
     {
       url: `${BASE}/the-link-city`,
-      lastModified: "2026-09-03",
+      lastModified: "2026-09-08",
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
@@ -586,15 +586,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Topic Cluster: The Link City ─────────────────────────
     {
       url: `${BASE}/the-link-city/vi-tri`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
       priority: 0.85,
       images: [cimg("thelinkcity/location/1.jpg"), cimg("thelinkcity/location/2.jpg")],
     },
     {
       url: `${BASE}/the-link-city/mat-bang`,
-      lastModified: "2026-09-03",
-      changeFrequency: "monthly",
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
       priority: 0.88,
       images: [
         cimg("thelinkcity/diagram/so-do-tong-the.jpeg"),
@@ -610,30 +610,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/tien-ich`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
       priority: 0.82,
       images: [cimg("thelinkcity/amenities/1.jpg"), cimg("thelinkcity/amenities/2.jpg"), cimg("thelinkcity/amenities/3.jpg")],
     },
     {
       url: `${BASE}/the-link-city/phap-ly`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
-      priority: 0.85,
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
+      priority: 0.88,
       images: [cimg("thelinkcity/legal/1.jpg"), cimg("thelinkcity/legal/2.jpg")],
     },
     {
       url: `${BASE}/the-link-city/tien-do`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
-      priority: 0.82,
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
+      priority: 0.85,
       images: [cimg("thelinkcity/infrastructure/1.jpg"), cimg("thelinkcity/infrastructure/2.jpg"), cimg("thelinkcity/real/1.jpg")],
     },
     {
       url: `${BASE}/the-link-city/hinh-anh`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
-      priority: 0.80,
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
+      priority: 0.85,
       images: [
         cimg("thelinkcity/real/1.jpg"), cimg("thelinkcity/real/2.jpg"),
         cimg("thelinkcity/real/3.jpg"), cimg("thelinkcity/real/4.jpg"),
@@ -642,21 +642,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/bang-gia`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
-      priority: 0.83,
+      lastModified: "2026-09-08",
+      changeFrequency: "daily",
+      priority: 0.90,
     },
     {
       url: `${BASE}/the-link-city/thanh-toan`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
-      priority: 0.76,
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
+      priority: 0.85,
     },
     {
       url: `${BASE}/the-link-city/faq`,
-      lastModified: "2025-12-23",
-      changeFrequency: "monthly",
-      priority: 0.74,
+      lastModified: "2026-09-08",
+      changeFrequency: "weekly",
+      priority: 0.78,
     },
   ];
 }

@@ -109,8 +109,8 @@ const articleSchema = {
   description: "Gallery hình ảnh sa bàn kiến trúc, video trải nghiệm và ảnh thực tế dự án The Link City tại xã Dầu Giây, tỉnh Đồng Nai.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
-  datePublished: "2025-12-23",
-  dateModified: "2026-09-05",
+  datePublished: "2026-03-01",
+  dateModified: "2026-09-08",
   url: "https://kimoanhdongnai.com.vn/the-link-city/hinh-anh",
   image: TLC_OG,
 };

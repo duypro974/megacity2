@@ -40,8 +40,8 @@ const articleSchema = {
   description: "Thông tin về hệ tiện ích dự án The Link City: 50 tiện ích theo công bố, trung tâm thương mại 2,6 ha và trường liên cấp.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
-  datePublished: "2025-12-23",
-  dateModified: "2025-12-23",
+  datePublished: "2026-03-01",
+  dateModified: "2026-09-08",
   url: "https://kimoanhdongnai.com.vn/the-link-city/tien-ich",
   about: { "@type": "RealEstateListing", name: "The Link City", url: "https://kimoanhdongnai.com.vn/the-link-city" },
 };
