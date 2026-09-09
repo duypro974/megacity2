@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "tong-quan-the-link-city-dau-giay",
+    title:    "The Link City Dầu Giây – Tổng Quan Dự Án & Giá Bán Đợt 1 Năm 2026",
+    date:     "09/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Tổng quan toàn diện dự án The Link City (Khu dân cư A1-C1 Đô thị Dầu Giây): vị trí ngã tư QL1A & QL20, pháp lý sổ hồng từng nền, bảng giá đợt 1 từ 1,85 tỷ và tiềm năng tăng giá 2026–2028.",
+    image: `${CDN}/thelinkcity/news43/1`,
+    href:  "/tin-tuc/tong-quan-the-link-city-dau-giay",
+  },
+  {
     slug:     "so-sanh-mega-city-2-va-dat-tho-cu-dan-nhon-trach",
     title:    "So Sánh Suất Đầu Tư Mega City 2 Với Đất Thổ Cư Dân Tự Phân Lô Tại Nhơn Trạch",
     date:     "02/09/2026",

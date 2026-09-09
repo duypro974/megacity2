@@ -856,6 +856,7 @@ export default function TheLinkCityPage() {
                 { id: "mau-nha",    label: "Mẫu nhà" },
                 { id: "chuyen-trang", label: "Chuyên trang" },
                 { id: "faq",        label: "FAQ" },
+                { id: "lien-he",    label: "Liên hệ" },
               ].map((item) => (
                 <ScrollLink
                   key={item.id}
@@ -2729,7 +2730,7 @@ export default function TheLinkCityPage() {
         </FadeSection>
 
         {/* ─── SECTION 14: CTA CUỐI TRANG ─── */}
-        <FadeSection className="py-12 md:py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+        <FadeSection id="lien-he" className="py-12 md:py-20 bg-gradient-to-br from-slate-900 to-slate-800">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               <div className="anim-up">

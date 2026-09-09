@@ -115,6 +115,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/real/4.jpg":               "/the link/real/4.jpg",
   "thelinkcity/real/5.jpg":               "/the link/real/5.jpg",
   "thelinkcity/real/6.jpg":               "/the link/real/6.jpg",
+  // The Link City — news43
+  "thelinkcity/news43/1.jpg":   "/the link/news43/1.jpg",
+  "thelinkcity/news43/2.jpg":   "/the link/news43/2.jpg",
+  "thelinkcity/news43/3.jpg":   "/the link/news43/3.jpg",
+  "thelinkcity/news43/4.webp":  "/the link/news43/4.webp",
+  "thelinkcity/news43/5.jpg":   "/the link/news43/5.jpg",
   // The Link City — sa bàn kiến trúc (real1/)
   "thelinkcity/real1/1.jpg":   "/the link/real1/1.jpg",
   "thelinkcity/real1/2.jpg":   "/the link/real1/2.jpg",
@@ -770,3 +776,21 @@ export const TLC_PRODUCT: Record<string, string> = {
   "3": cld("thelinkcity/product", "3.jpg",  "lg"),
   "4": cld("thelinkcity/product", "4.jpg",  "lg"),
 };
+
+/** News43 — Tổng quan & đầu tư The Link City Dầu Giây (5 ảnh)
+ *  1 = Toàn cảnh sa bàn kiến trúc 21ha
+ *  2 = Sơ đồ kết nối giao thông / bản đồ vị trí
+ *  3 = Sổ hồng từng nền / pháp lý thực tế
+ *  4 = Sơ đồ phân lô quy hoạch tổng thể
+ *  5 = Công viên cây xanh & tiện ích nội khu
+ *  Nguồn: public/the link/news43/ → Cloudinary: thelinkcity/news43/
+ */
+export const IMG_NEWS43: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.webp"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news43", v, "lg")])
+);

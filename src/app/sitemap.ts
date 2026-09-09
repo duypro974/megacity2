@@ -658,5 +658,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.78,
     },
+
+    // ── Tin tức The Link City ────────────────────────────────
+    {
+      url: `${BASE}/tin-tuc/tong-quan-the-link-city-dau-giay`,
+      lastModified: "2026-09-09",
+      changeFrequency: "monthly",
+      priority: 0.85,
+      images: [
+        cimg("thelinkcity/news43/1"),
+        cimg("thelinkcity/news43/2"),
+        cimg("thelinkcity/news43/3"),
+        cimg("thelinkcity/news43/4"),
+        cimg("thelinkcity/news43/5"),
+      ],
+    },
   ];
 }
