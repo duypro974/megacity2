@@ -1278,6 +1278,33 @@ export default function TheLinkCityPage() {
               </p>
             </div>
 
+            {/* Google Maps embed */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8 anim-up">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.27240580942!2d107.15002609999999!3d10.9427836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174fbfdadf2ac69%3A0x85cecc57cc3a9b7e!2zROG7sSDDgW4gVGhlIExpbmsgQ2l0eSBE4bqndSBHacOieSDigJMgS2ltIE9hbmggR3JvdXA!5e0!3m2!1svi!2s!4v1788965809209!5m2!1svi!2s"
+                width="100%"
+                height="380"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Bản đồ vị trí The Link City Dầu Giây – Kim Oanh Group"
+              />
+              <div className="px-4 py-3 bg-white border-t border-slate-100 flex items-center justify-between">
+                <p className="text-xs text-slate-500">
+                  📍 Dự án The Link City · Ngã tư QL1A &amp; QL20 · Xã Dầu Giây, Đồng Nai
+                </p>
+                <a
+                  href="https://maps.google.com/?q=10.9427836,107.1500261"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-primary-600 hover:text-primary-700 flex-shrink-0 ml-3"
+                >
+                  Mở Google Maps ↗
+                </a>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 anim-up anim-delay-100">
               <div className="space-y-3">
                 {[
@@ -2735,6 +2762,33 @@ export default function TheLinkCityPage() {
                       <span className="text-sm font-semibold text-white">{c.text}</span>
                     </a>
                   ))}
+                </div>
+
+                {/* Google Maps embed */}
+                <div className="rounded-2xl overflow-hidden border border-white/10 mb-5">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.27240580942!2d107.15002609999999!3d10.9427836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174fbfdadf2ac69%3A0x85cecc57cc3a9b7e!2zROG7sSDDgW4gVGhlIExpbmsgQ2l0eSBE4bqndSBHacOieSDigJMgS2ltIE9hbmggR3JvdXA!5e0!3m2!1svi!2s!4v1788965809209!5m2!1svi!2s"
+                    width="100%"
+                    height="260"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title="Bản đồ vị trí The Link City Dầu Giây – Kim Oanh Group"
+                  />
+                  <div className="px-4 py-2.5 bg-white/5 border-t border-white/10 flex items-center justify-between">
+                    <p className="text-xs text-slate-400">
+                      📍 Ngã tư QL1A &amp; QL20 · Xã Dầu Giây, Đồng Nai
+                    </p>
+                    <a
+                      href="https://maps.google.com/?q=10.9427836,107.1500261"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-bold text-amber-400 hover:text-amber-300 flex-shrink-0 ml-3"
+                    >
+                      Mở Maps ↗
+                    </a>
+                  </div>
                 </div>
 
                 {/* Internal link sang mat-bang */}

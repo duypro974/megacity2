@@ -201,8 +201,43 @@ export default function ViTriPage() {
           </div>
         </section>
 
+        {/* Google Maps nhúng */}
+        <section className="py-10 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="anim-up mb-5">
+              <h2 className="text-xl font-bold text-slate-800 mb-1">Bản đồ vị trí The Link City</h2>
+              <p className="text-sm text-slate-500">
+                Xem trực tiếp vị trí dự án trên Google Maps — ngã tư Quốc lộ 1A &amp; Quốc lộ 20, xã Dầu Giây.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm anim-up">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.27240580942!2d107.15002609999999!3d10.9427836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174fbfdadf2ac69%3A0x85cecc57cc3a9b7e!2zROG7sSDDgW4gVGhlIExpbmsgQ2l0eSBE4bqndSBHacOieSDigJMgS2ltIE9hbmggR3JvdXA!5e0!3m2!1svi!2s!4v1788965809209!5m2!1svi!2s"
+                width="100%"
+                height="480"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Bản đồ vị trí The Link City Dầu Giây – Kim Oanh Group"
+              />
+            </div>
+            <p className="text-[11px] text-slate-400 mt-2 text-center">
+              Dự án The Link City · Ngã tư QL1A &amp; QL20 · Xã Dầu Giây, Đồng Nai ·{" "}
+              <a
+                href="https://maps.google.com/?q=10.9427836,107.1500261"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-600 font-semibold hover:underline"
+              >
+                Mở Google Maps ↗
+              </a>
+            </p>
+          </div>
+        </section>
+
         {/* Kết nối giao thông */}
-        <section className="py-14 bg-slate-50">
+        <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="anim-up mb-8">
               <h2 className="text-xl font-bold text-slate-800 mb-2">Kết nối giao thông khu vực</h2>
