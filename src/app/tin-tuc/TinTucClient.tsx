@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "bang-gia-the-link-city-dau-giay-bai-toan-vay-ngan-hang-2026",
+    title:    "Bảng Giá The Link City Dầu Giây 2026 & Bài Toán Vay Mua Đất Nền Chỉ Từ 550 Triệu Vốn Tự Có",
+    date:     "10/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích chi tiết giá từng block LK17A từ 1,85 tỷ, 4 phương thức thanh toán linh hoạt và bảng tính trả nợ giảm dần 20 năm — bài toán tài chính thực chiến cho người mua đất nền The Link City Dầu Giây.",
+    image: `${CDN}/thelinkcity/news44/1`,
+    href:  "/tin-tuc/bang-gia-the-link-city-dau-giay-bai-toan-vay-ngan-hang-2026",
+  },
+  {
     slug:     "tong-quan-the-link-city-dau-giay",
     title:    "The Link City Dầu Giây – Tổng Quan Dự Án & Giá Bán Đợt 1 Năm 2026",
     date:     "09/09/2026",

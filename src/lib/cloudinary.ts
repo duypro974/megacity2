@@ -121,6 +121,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news43/3.jpg":   "/the link/news43/3.jpg",
   "thelinkcity/news43/4.webp":  "/the link/news43/4.webp",
   "thelinkcity/news43/5.jpg":   "/the link/news43/5.jpg",
+  // The Link City — news44
+  "thelinkcity/news44/1.jpg":   "/the link/news44/1.jpg",
+  "thelinkcity/news44/2.webp":  "/the link/news44/2.webp",
+  "thelinkcity/news44/3.jpg":   "/the link/news44/3.jpg",
+  "thelinkcity/news44/4.png":   "/the link/news44/4.png",
+  "thelinkcity/news44/5.jpg":   "/the link/news44/5.jpg",
   // The Link City — sa bàn kiến trúc (real1/)
   "thelinkcity/real1/1.jpg":   "/the link/real1/1.jpg",
   "thelinkcity/real1/2.jpg":   "/the link/real1/2.jpg",
@@ -793,4 +799,22 @@ export const IMG_NEWS43: Record<string, string> = Object.fromEntries(
     ["4", "4.webp"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news43", v, "lg")])
+);
+
+/** News44 — Bảng giá & bài toán vay ngân hàng The Link City Dầu Giây (5 ảnh)
+ *  1 = Bảng giá / phối cảnh phân khu mở bán đợt 1
+ *  2 = Sơ đồ phân lô LK17A / LK17B
+ *  3 = Tư vấn lịch thanh toán bên sa bàn
+ *  4 = Đòn bẩy tài chính / ngân hàng liên kết
+ *  5 = Hạ tầng thực tế hoàn thiện 100%
+ *  Nguồn: public/the link/news44/ → Cloudinary: thelinkcity/news44/
+ */
+export const IMG_NEWS44: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.webp"],
+    ["3", "3.jpg"],
+    ["4", "4.png"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news44", v, "lg")])
 );

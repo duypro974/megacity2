@@ -661,6 +661,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Tin tức The Link City ────────────────────────────────
     {
+      url: `${BASE}/tin-tuc/bang-gia-the-link-city-dau-giay-bai-toan-vay-ngan-hang-2026`,
+      lastModified: "2026-09-10",
+      changeFrequency: "weekly",
+      priority: 0.87,
+      images: [
+        cimg("thelinkcity/news44/1"),
+        cimg("thelinkcity/news44/2"),
+        cimg("thelinkcity/news44/4"),
+        cimg("thelinkcity/news44/5"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/tong-quan-the-link-city-dau-giay`,
       lastModified: "2026-09-09",
       changeFrequency: "monthly",
