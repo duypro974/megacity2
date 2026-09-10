@@ -127,6 +127,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news44/3.jpg":   "/the link/news44/3.jpg",
   "thelinkcity/news44/4.png":   "/the link/news44/4.png",
   "thelinkcity/news44/5.jpg":   "/the link/news44/5.jpg",
+  // The Link City — news45
+  "thelinkcity/news45/1.jpg":   "/the link/news45/1.jpg",
+  "thelinkcity/news45/2.jpg":   "/the link/news45/2.jpg",
+  "thelinkcity/news45/3.jpg":   "/the link/news45/3.jpg",
+  "thelinkcity/news45/4.png":   "/the link/news45/4.png",
+  "thelinkcity/news45/5.jpg":   "/the link/news45/5.jpg",
   // The Link City — sa bàn kiến trúc (real1/)
   "thelinkcity/real1/1.jpg":   "/the link/real1/1.jpg",
   "thelinkcity/real1/2.jpg":   "/the link/real1/2.jpg",
@@ -817,4 +823,22 @@ export const IMG_NEWS44: Record<string, string> = Object.fromEntries(
     ["4", "4.png"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news44", v, "lg")])
+);
+
+/** News45 — So sánh đất nền The Link City vs đất thổ cư khu vực (5 ảnh)
+ *  1 = Hạ tầng khu đô thị The Link City (đường rộng, vỉa hè, cây xanh)
+ *  2 = Đối chiếu hạ tầng nội khu vs đường dân sinh bên ngoài
+ *  3 = Sa bàn trục đường thương mại / ngã tư Dầu Giây
+ *  4 = Bản đồ quy hoạch hạ tầng giao thông liên vùng
+ *  5 = Tiện ích sân bóng đá / sân thể thao thực tế
+ *  Nguồn: public/the link/news45/ → Cloudinary: thelinkcity/news45/
+ */
+export const IMG_NEWS45: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.png"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news45", v, "lg")])
 );

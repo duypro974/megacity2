@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "so-sanh-dat-nen-the-link-city-dau-giay-voi-dat-tho-cu-2026",
+    title:    "So Sánh Đất Nền The Link City Dầu Giây Với Đất Thổ Cư Khu Vực: Có Đáng Xuống Tiền Đợt 1 Năm 2026?",
+    date:     "10/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích 6 tiêu chí trực diện, 5 ngòi nổ tăng giá 2026–2028 và 3 chiến lược chốt lời thực chiến — giúp nhà đầu tư đưa ra quyết định chính xác khi so sánh đất nền The Link City với đất thổ cư phân lô tự do ven QL1A Dầu Giây.",
+    image: `${CDN}/thelinkcity/news45/1`,
+    href:  "/tin-tuc/so-sanh-dat-nen-the-link-city-dau-giay-voi-dat-tho-cu-2026",
+  },
+  {
     slug:     "bang-gia-the-link-city-dau-giay-bai-toan-vay-ngan-hang-2026",
     title:    "Bảng Giá The Link City Dầu Giây 2026 & Bài Toán Vay Mua Đất Nền Chỉ Từ 550 Triệu Vốn Tự Có",
     date:     "10/09/2026",
