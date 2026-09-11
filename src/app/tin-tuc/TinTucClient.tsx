@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "he-sinh-thai-tien-ich-the-link-city-dau-giay-2026",
+    title:    "Hệ Sinh Thái 50+ Tiện Ích The Link City Dầu Giây: Chuẩn Mực Sống \"All-In-One\" Giữa Trung Tâm Đô Thị Mới",
+    date:     "11/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Khám phá trọn bộ 50+ tiện ích đẳng cấp tại The Link City Dầu Giây: Trung tâm thương mại 2,6ha, cụm sân pickleball & bóng đá đêm, công viên đa thế hệ, trường học liên cấp và liên kết ngoại khu chỉ 5 phút.",
+    image: `${CDN}/thelinkcity/news47/1`,
+    href:  "/tin-tuc/he-sinh-thai-tien-ich-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "quy-trinh-mua-ban-the-link-city-dau-giay-tieu-chuan-xay-dung-2026",
     title:    "Hướng Dẫn Quy Trình Mua Bán The Link City Dầu Giây & Tiêu Chuẩn Xây Dựng Mẫu Nhà T3-2b Mới Nhất 2026",
     date:     "11/09/2026",
