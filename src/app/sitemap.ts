@@ -661,6 +661,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Tin tức The Link City ────────────────────────────────
     {
+      url: `${BASE}/tin-tuc/quy-trinh-mua-ban-the-link-city-dau-giay-tieu-chuan-xay-dung-2026`,
+      lastModified: "2026-09-11",
+      changeFrequency: "monthly",
+      priority: 0.84,
+      images: [
+        cimg("thelinkcity/news46/1"),
+        cimg("thelinkcity/news46/3"),
+        cimg("thelinkcity/news46/4"),
+        cimg("thelinkcity/news46/5"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/so-sanh-dat-nen-the-link-city-dau-giay-voi-dat-tho-cu-2026`,
       lastModified: "2026-09-10",
       changeFrequency: "monthly",

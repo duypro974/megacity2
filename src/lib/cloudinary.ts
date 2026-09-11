@@ -133,6 +133,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news45/3.jpg":   "/the link/news45/3.jpg",
   "thelinkcity/news45/4.png":   "/the link/news45/4.png",
   "thelinkcity/news45/5.jpg":   "/the link/news45/5.jpg",
+  // The Link City — news46
+  "thelinkcity/news46/1.jpg":   "/the link/news46/1.jpg",
+  "thelinkcity/news46/2.jpg":   "/the link/news46/2.jpg",
+  "thelinkcity/news46/3.png":   "/the link/news46/3.png",
+  "thelinkcity/news46/4.jpg":   "/the link/news46/4.jpg",
+  "thelinkcity/news46/5.jpg":   "/the link/news46/5.jpg",
   // The Link City — sa bàn kiến trúc (real1/)
   "thelinkcity/real1/1.jpg":   "/the link/real1/1.jpg",
   "thelinkcity/real1/2.jpg":   "/the link/real1/2.jpg",
@@ -841,4 +847,22 @@ export const IMG_NEWS45: Record<string, string> = Object.fromEntries(
     ["4", "4.png"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news45", v, "lg")])
+);
+
+/** News46 — Quy trình mua bán & tiêu chuẩn xây dựng The Link City Dầu Giây (5 ảnh)
+ *  1 = Khách hàng ký hợp đồng tại văn phòng Kim Oanh
+ *  2 = Bàn giao mốc ranh giới / cột mốc phân lô thực địa
+ *  3 = Bản vẽ phối cảnh / mặt cắt mẫu nhà phố T3-2b
+ *  4 = Dãy nhà phố hoàn thiện thực tế nội khu
+ *  5 = Cảnh quan công viên / cư dân sinh hoạt The Link City
+ *  Nguồn: public/the link/news46/ → Cloudinary: thelinkcity/news46/
+ */
+export const IMG_NEWS46: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.png"],
+    ["4", "4.jpg"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news46", v, "lg")])
 );

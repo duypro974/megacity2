@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "quy-trinh-mua-ban-the-link-city-dau-giay-tieu-chuan-xay-dung-2026",
+    title:    "Hướng Dẫn Quy Trình Mua Bán The Link City Dầu Giây & Tiêu Chuẩn Xây Dựng Mẫu Nhà T3-2b Mới Nhất 2026",
+    date:     "11/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Hướng dẫn từ A-Z quy trình 5 bước mua bán chuẩn pháp lý, thủ tục công chứng sang tên sổ hồng và bảng thông số kỹ thuật chi tiết mẫu nhà phố liên kế T3-2b (1 trệt 2 lầu) tại The Link City Dầu Giây.",
+    image: `${CDN}/thelinkcity/news46/1`,
+    href:  "/tin-tuc/quy-trinh-mua-ban-the-link-city-dau-giay-tieu-chuan-xay-dung-2026",
+  },
+  {
     slug:     "so-sanh-dat-nen-the-link-city-dau-giay-voi-dat-tho-cu-2026",
     title:    "So Sánh Đất Nền The Link City Dầu Giây Với Đất Thổ Cư Khu Vực: Có Đáng Xuống Tiền Đợt 1 Năm 2026?",
     date:     "10/09/2026",
