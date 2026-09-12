@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "shophouse-the-link-city-dau-giay-tiem-nang-kinh-doanh-2026",
+    title:    "Shophouse The Link City Dầu Giây 2026: Vị Thế Mặt Tiền Giao Thương & Bài Toán Khai Thác Dòng Tiền Cho Thuê",
+    date:     "12/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích tiềm năng đầu tư Shophouse The Link City Dầu Giây: mặt tiền QL1A, thiết kế dual-key, giá từ 3,85 tỷ, rental yield 7,8–9,2%/năm và top 5 mô hình kinh doanh hái ra tiền.",
+    image: `${CDN}/thelinkcity/news48/1`,
+    href:  "/tin-tuc/shophouse-the-link-city-dau-giay-tiem-nang-kinh-doanh-2026",
+  },
+  {
     slug:     "he-sinh-thai-tien-ich-the-link-city-dau-giay-2026",
     title:    "Hệ Sinh Thái 50+ Tiện Ích The Link City Dầu Giây: Chuẩn Mực Sống \"All-In-One\" Giữa Trung Tâm Đô Thị Mới",
     date:     "11/09/2026",

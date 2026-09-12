@@ -661,6 +661,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Tin tức The Link City ────────────────────────────────
     {
+      url: `${BASE}/tin-tuc/shophouse-the-link-city-dau-giay-tiem-nang-kinh-doanh-2026`,
+      lastModified: "2026-09-12",
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+      images: [
+        cimg("thelinkcity/news48/1"),
+        cimg("thelinkcity/news48/3"),
+        cimg("thelinkcity/news48/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/he-sinh-thai-tien-ich-the-link-city-dau-giay-2026`,
       lastModified: "2026-09-11",
       changeFrequency: "monthly",

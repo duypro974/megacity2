@@ -66,6 +66,27 @@ export const PROJECTS: ProjectPreview[] = [
     verified: true,
   },
 
+  // ── THE LINK CITY ─────────────────────────────────────────
+  {
+    slug: "the-link-city",
+    name: "The Link City",
+    brand: "Kim Oanh Land",
+    location: "Dầu Giây, Thống Nhất, Đồng Nai",
+    category: "mega-city",
+    type: "Đất nền · Nhà phố · Shophouse · Biệt thự",
+    description:
+      "Khu dân cư A1-C1 Đô thị Dầu Giây, tọa lạc ngay ngã tư Quốc lộ 1A & Quốc lộ 20. Sổ hồng từng nền, hạ tầng hoàn thiện 100%, 50+ tiện ích nội khu.",
+    image: `${MCCLOUD}/${MCOPT}/thelinkcity/overview/1.webp`,
+    href: "/the-link-city",
+    status: "dang-mo-ban",
+    featured: false,
+    priceFrom: "Từ 1,85 tỷ",
+    showPriceOnCorporate: false,
+    scale: "~21 ha · 1.397 sản phẩm",
+    year: 2026,
+    verified: true,
+  },
+
   // ── K-HOME FAMILY ─────────────────────────────────────────
   {
     slug: "k-home-cityview",

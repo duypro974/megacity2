@@ -145,6 +145,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news47/3.jpg":   "/the link/news47/3.jpg",
   "thelinkcity/news47/4.jpg":   "/the link/news47/4.jpg",
   "thelinkcity/news47/5.png":   "/the link/news47/5.png",
+  // The Link City — news48
+  "thelinkcity/news48/1.webp":  "/the link/news48/1.webp",
+  "thelinkcity/news48/2.png":   "/the link/news48/2.png",
+  "thelinkcity/news48/3.webp":  "/the link/news48/3.webp",
+  "thelinkcity/news48/4.png":   "/the link/news48/4.png",
+  "thelinkcity/news48/5.png":   "/the link/news48/5.png",
   // The Link City — sa bàn kiến trúc (real1/)
   "thelinkcity/real1/1.jpg":   "/the link/real1/1.jpg",
   "thelinkcity/real1/2.jpg":   "/the link/real1/2.jpg",
@@ -889,4 +895,22 @@ export const IMG_NEWS47: Record<string, string> = Object.fromEntries(
     ["4", "4.jpg"],
     ["5", "5.png"],
   ].map(([k, v]) => [k, cld("thelinkcity/news47", v, "lg")])
+);
+
+/** News48 — Shophouse The Link City Dầu Giây (5 ảnh)
+ *  1 = Phố shophouse thương mại về đêm
+ *  2 = Nội thất tầng trệt / không gian kinh doanh
+ *  3 = Căn góc shophouse 2 mặt tiền
+ *  4 = Hoạt động buôn bán sầm uất tại phố thương mại
+ *  5 = Không gian sống nghỉ dưỡng trên lầu shophouse
+ *  Nguồn: public/the link/news48/ → Cloudinary: thelinkcity/news48/
+ */
+export const IMG_NEWS48: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.webp"],
+    ["2", "2.png"],
+    ["3", "3.webp"],
+    ["4", "4.png"],
+    ["5", "5.png"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news48", v, "lg")])
 );
