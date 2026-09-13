@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "nhat-ky-thuc-dia-the-link-city-dau-giay-2026",
+    title:    "Nhật Ký Thực Địa The Link City Dầu Giây 2026: Một Ngày Tận Mục Sở Thị \"Mỏ Vàng\" Cửa Ngõ Cao Tốc",
+    date:     "13/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Ký sự chân thực: 45 phút cao tốc từ TP.HCM, đường nhựa phẳng mịn, sổ hồng cầm tay, công viên đồi cỏ xanh mướt và bài toán 550 triệu vốn tự có giải mã tại chỗ tại The Link City Dầu Giây.",
+    image: `${CDN}/thelinkcity/news49/1`,
+    href:  "/tin-tuc/nhat-ky-thuc-dia-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "shophouse-the-link-city-dau-giay-tiem-nang-kinh-doanh-2026",
     title:    "Shophouse The Link City Dầu Giây 2026: Vị Thế Mặt Tiền Giao Thương & Bài Toán Khai Thác Dòng Tiền Cho Thuê",
     date:     "12/09/2026",
