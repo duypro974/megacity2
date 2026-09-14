@@ -163,6 +163,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/3.webp":  "/the link/news50/3.webp",
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
+  // The Link City — news51
+  "thelinkcity/news51/1.png":   "/the link/news51/1.png",
+  "thelinkcity/news51/2.jpg":   "/the link/news51/2.jpg",
+  "thelinkcity/news51/3.jpg":   "/the link/news51/3.jpg",
+  "thelinkcity/news51/4.jpg":   "/the link/news51/4.jpg",
+  "thelinkcity/news51/5.jpg":   "/the link/news51/5.jpg",
   // The Link City — sa bàn kiến trúc (real1/)
   "thelinkcity/real1/1.jpg":   "/the link/real1/1.jpg",
   "thelinkcity/real1/2.jpg":   "/the link/real1/2.jpg",
@@ -961,4 +967,22 @@ export const IMG_NEWS50: Record<string, string> = Object.fromEntries(
     ["4", "4.png"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news50", v, "lg")])
+);
+
+/** News51 — Đón sóng đô thị hóa Dầu Giây 2026–2030 (5 ảnh)
+ *  1 = Phối cảnh đô thị Dầu Giây tương lai / quy hoạch
+ *  2 = Sa bàn 21ha toàn cảnh góc rộng 45° (ảnh thật)
+ *  3 = Sổ hồng từng nền thực tế (ảnh thật)
+ *  4 = Phối cảnh phố đêm thương mại / công viên ánh sáng
+ *  5 = Căn nhà phố/biệt thự góc đường đã hoàn thiện (ảnh thật)
+ *  Nguồn: public/the link/news51/ → Cloudinary: thelinkcity/news51/
+ */
+export const IMG_NEWS51: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.png"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.jpg"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news51", v, "lg")])
 );

@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "don-song-do-thi-hoa-dau-giay-2026-2030-the-link-city",
+    title:    "Đón Sóng Đô Thị Hóa Dầu Giây 2026 – 2030: Cơ Hội \"Nhân Đôi Tài Sản\" Cùng The Link City",
+    date:     "15/09/2026",
+    category: "thi-truong",
+    excerpt:  "Lộ trình Dầu Giây lên thị xã 2026–2030, bài học Dĩ An tăng 300% & Long Khánh 250%, 3 cột mốc vàng kích hoạt sóng tăng giá và cơ hội mua ở vùng đệm 1,85 tỷ tại The Link City.",
+    image: `${CDN}/thelinkcity/news51/1`,
+    href:  "/tin-tuc/don-song-do-thi-hoa-dau-giay-2026-2030-the-link-city",
+  },
+  {
     slug:     "cam-nang-chon-lo-dat-nen-the-link-city-dau-giay-2026",
     title:    "Cẩm Nang Chọn Lô Đất Nền The Link City Dầu Giây 2026: Phân Tích Chi Tiết Block LK17A, LK17B & Hướng Đẹp Nhất",
     date:     "14/09/2026",
