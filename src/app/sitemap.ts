@@ -661,6 +661,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Tin tức The Link City ────────────────────────────────
     {
+      url: `${BASE}/tin-tuc/cam-nang-chon-lo-dat-nen-the-link-city-dau-giay-2026`,
+      lastModified: "2026-09-14",
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+      images: [
+        cimg("thelinkcity/news50/1"),
+        cimg("thelinkcity/news50/2"),
+        cimg("thelinkcity/news50/4"),
+        cimg("thelinkcity/news50/5"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/nhat-ky-thuc-dia-the-link-city-dau-giay-2026`,
       lastModified: "2026-09-13",
       changeFrequency: "monthly" as const,

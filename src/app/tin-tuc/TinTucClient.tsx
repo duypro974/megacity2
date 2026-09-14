@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cam-nang-chon-lo-dat-nen-the-link-city-dau-giay-2026",
+    title:    "Cẩm Nang Chọn Lô Đất Nền The Link City Dầu Giây 2026: Phân Tích Chi Tiết Block LK17A, LK17B & Hướng Đẹp Nhất",
+    date:     "14/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Phân tích chi tiết Block LK17A đường N20 (từ 1,85 tỷ), LK17B ven công viên, so sánh lô tiêu chuẩn vs lô góc 2 mặt tiền, tư vấn hướng phong thủy và chiến lược vốn 500tr–3 tỷ tại The Link City.",
+    image: `${CDN}/thelinkcity/news50/1`,
+    href:  "/tin-tuc/cam-nang-chon-lo-dat-nen-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "nhat-ky-thuc-dia-the-link-city-dau-giay-2026",
     title:    "Nhật Ký Thực Địa The Link City Dầu Giây 2026: Một Ngày Tận Mục Sở Thị \"Mỏ Vàng\" Cửa Ngõ Cao Tốc",
     date:     "13/09/2026",
