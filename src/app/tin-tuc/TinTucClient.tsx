@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "giai-phap-an-cu-gia-dinh-tre-the-link-city-dau-giay-2026",
+    title:    "Giải Pháp An Cư Cho Gia Đình Trẻ 2026: Sở Hữu Nhà Phố The Link City Dầu Giây Chỉ Từ 12 Triệu/Tháng",
+    date:     "16/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Vốn tự có 550 triệu, trả góp 12 triệu/tháng sở hữu nhà phố 3 tầng sổ hồng riêng tại The Link City Dầu Giây — giải pháp an cư vượt trội so với chung cư vùng ven 2,8–3,5 tỷ.",
+    image: `${CDN}/thelinkcity/news52/1`,
+    href:  "/tin-tuc/giai-phap-an-cu-gia-dinh-tre-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "don-song-do-thi-hoa-dau-giay-2026-2030-the-link-city",
     title:    "Đón Sóng Đô Thị Hóa Dầu Giây 2026 – 2030: Cơ Hội \"Nhân Đôi Tài Sản\" Cùng The Link City",
     date:     "15/09/2026",

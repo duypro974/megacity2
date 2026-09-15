@@ -163,6 +163,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/3.webp":  "/the link/news50/3.webp",
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
+  // The Link City — news52
+  "thelinkcity/news52/1.jpg":   "/the link/news52/1.jpg",
+  "thelinkcity/news52/2.jpg":   "/the link/news52/2.jpg",
+  "thelinkcity/news52/3.jpg":   "/the link/news52/3.jpg",
+  "thelinkcity/news52/4.png":   "/the link/news52/4.png",
+  "thelinkcity/news52/5.jpg":   "/the link/news52/5.jpg",
   // The Link City — news51
   "thelinkcity/news51/1.png":   "/the link/news51/1.png",
   "thelinkcity/news51/2.jpg":   "/the link/news51/2.jpg",
@@ -967,6 +973,24 @@ export const IMG_NEWS50: Record<string, string> = Object.fromEntries(
     ["4", "4.png"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news50", v, "lg")])
+);
+
+/** News52 — Giải pháp an cư gia đình trẻ The Link City Dầu Giây 2026 (5 ảnh)
+ *  1 = Gia đình trẻ / nhà phố hiện đại (ảnh thật hoặc AI)
+ *  2 = Công viên cỏ xanh đồi ngựa hiện hữu (ảnh thật)
+ *  3 = Sổ hồng từng nền thực tế (ảnh thật)
+ *  4 = Gia đình 3 thế hệ trong công viên eco (ảnh AI/thật)
+ *  5 = Mẫu nhà phố T3-2b hoàn thiện thực tế (ảnh thật)
+ *  Nguồn: public/the link/news52/ → Cloudinary: thelinkcity/news52/
+ */
+export const IMG_NEWS52: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.png"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news52", v, "lg")])
 );
 
 /** News51 — Đón sóng đô thị hóa Dầu Giây 2026–2030 (5 ảnh)
