@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 // Kept in layout.tsx so the page.tsx can be a client component
 // ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Mặt Bằng The Link City Dầu Giây – Sơ Đồ Phân Lô & Mẫu Nhà T3-2b",
+  title: "Mặt Bằng The Link City Dầu Giây – Sơ Đồ Phân Lô | Kim Oanh Đồng Nai",
   description:
     "Sơ đồ phân lô tổng thể The Link City Dầu Giây, cơ cấu sản phẩm, hồ sơ mẫu nhà T3-2b (8 sheet kỹ thuật) và hướng dẫn đọc mặt bằng nhà phố liên kế.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/the-link-city/mat-bang" },

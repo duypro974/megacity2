@@ -9,7 +9,7 @@ const TLC_OG_URL =
   "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/thelinkcity/overview/1.webp";
 
 export const metadata: Metadata = {
-  title: "The Link City Dầu Giây – Tổng Quan Dự Án, Vị Trí, Mặt Bằng & Tiện Ích",
+  title: "The Link City Dầu Giây 2026 – Bảng Giá, Vị Trí & Pháp Lý | Kim Oanh Đồng Nai",
   description:
     "Tổng quan dự án The Link City tại xã Dầu Giây, Đồng Nai: 1.397 sản phẩm nhà phố thương mại, nhà phố liên kế và biệt thự. Chủ đầu tư Phú Việt Tín, đơn vị phát triển Kim Oanh Land.",
   keywords: [

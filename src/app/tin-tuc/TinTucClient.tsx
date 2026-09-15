@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "ho-so-phap-ly-the-link-city-dau-giay-cong-van-2505-ubnd-2026",
+    title:    "Hồ Sơ Pháp Lý The Link City Dầu Giây 2026: Giải Mã Công Văn 2505/UBND-KTN & Tiến Trình Cấp Sổ Đỏ Từng Nền",
+    date:     "17/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Giải mã công văn 2505/UBND-KTN ngày 13/02/2026 của UBND Đồng Nai, hoàn thành 100% nghĩa vụ tài chính và tiến trình cấp sổ hồng riêng từng nền tại The Link City Dầu Giây.",
+    image: `${CDN}/thelinkcity/news53/1`,
+    href:  "/tin-tuc/ho-so-phap-ly-the-link-city-dau-giay-cong-van-2505-ubnd-2026",
+  },
+  {
     slug:     "giai-phap-an-cu-gia-dinh-tre-the-link-city-dau-giay-2026",
     title:    "Giải Pháp An Cư Cho Gia Đình Trẻ 2026: Sở Hữu Nhà Phố The Link City Dầu Giây Chỉ Từ 12 Triệu/Tháng",
     date:     "16/09/2026",

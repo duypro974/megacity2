@@ -4,7 +4,7 @@ const TLC_OG_URL =
   "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/thelinkcity/overview/1.webp";
 
 export const metadata: Metadata = {
-  title: "Pháp lý The Link City Dầu Giây – Sổ Hồng, Quy Hoạch & Hồ Sơ 2026",
+  title: "Pháp Lý The Link City Dầu Giây 2026 – Sổ Hồng & Hồ Sơ | Kim Oanh Đồng Nai",
   description:
     "Toàn bộ pháp lý The Link City Dầu Giây 2026: sổ hồng cấp cho CĐT Phú Việt Tín, QH 1/500 phê duyệt, 100% nghĩa vụ tài chính, kiểm toán nhà nước thông qua và UBND tỉnh chỉ đạo cấp sổ.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/the-link-city/phap-ly" },

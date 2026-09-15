@@ -4,7 +4,7 @@ const TLC_OG_URL =
   "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/thelinkcity/overview/1.webp";
 
 export const metadata: Metadata = {
-  title: "Thanh Toán The Link City – Tiến Độ, Vay VietinBank & Chiết Khấu 2026",
+  title: "Chính Sách Thanh Toán The Link City 2026 – Lịch Vay | Kim Oanh Đồng Nai",
   description:
     "Chính sách bán hàng The Link City 2026: tiến độ thanh toán đất nền liên kế, biệt thự, shophouse. Vay VietinBank tối đa 70%, ân hạn nợ gốc 24 tháng. Chiết khấu sớm 16%/năm.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/the-link-city/thanh-toan" },

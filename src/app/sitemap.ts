@@ -661,6 +661,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Tin tức The Link City ────────────────────────────────
     {
+      url: `${BASE}/tin-tuc/ho-so-phap-ly-the-link-city-dau-giay-cong-van-2505-ubnd-2026`,
+      lastModified: "2026-09-17",
+      changeFrequency: "monthly" as const,
+      priority: 0.87,
+      images: [
+        cimg("thelinkcity/news53/1"),
+        cimg("thelinkcity/news53/3"),
+        cimg("thelinkcity/news53/5"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/giai-phap-an-cu-gia-dinh-tre-the-link-city-dau-giay-2026`,
       lastModified: "2026-09-16",
       changeFrequency: "monthly" as const,
