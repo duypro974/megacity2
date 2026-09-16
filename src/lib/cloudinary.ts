@@ -163,6 +163,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/3.webp":  "/the link/news50/3.webp",
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
+  // The Link City — news54
+  "thelinkcity/news54/1.png":   "/the link/news54/1.png",
+  "thelinkcity/news54/2.jpg":   "/the link/news54/2.jpg",
+  "thelinkcity/news54/3.png":   "/the link/news54/3.png",
+  "thelinkcity/news54/4.webp":  "/the link/news54/4.webp",
+  "thelinkcity/news54/5.jpg":   "/the link/news54/5.jpg",
   // The Link City — news53
   "thelinkcity/news53/1.png":   "/the link/news53/1.png",
   "thelinkcity/news53/2.jpg":   "/the link/news53/2.jpg",
@@ -979,6 +985,24 @@ export const IMG_NEWS50: Record<string, string> = Object.fromEntries(
     ["4", "4.png"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news50", v, "lg")])
+);
+
+/** News54 — Tiềm năng BĐS huyện Thống Nhất / ngã tư Dầu Giây 2026 (5 ảnh)
+ *  1 = Bản đồ vệ tinh / holographic quy hoạch hạ tầng Thống Nhất (AI)
+ *  2 = Sa bàn trục đường shophouse kết nối ngã tư QL1A (ảnh thật)
+ *  3 = KCN / logistics hiện đại Thống Nhất (AI)
+ *  4 = Hạ tầng đường nhựa + vỉa hè nội khu The Link City (ảnh thật)
+ *  5 = Sổ hồng từng nền thực tế (ảnh thật)
+ *  Nguồn: public/the link/news54/ → Cloudinary: thelinkcity/news54/
+ */
+export const IMG_NEWS54: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.png"],
+    ["2", "2.jpg"],
+    ["3", "3.png"],
+    ["4", "4.webp"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news54", v, "lg")])
 );
 
 /** News53 — Hồ sơ pháp lý The Link City Dầu Giây 2026 (5 ảnh)

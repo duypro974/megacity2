@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "tiem-nang-bat-dong-san-thong-nhat-nga-tu-dau-giay-2026",
+    title:    "Tiềm Năng Bất Động Sản Huyện Thống Nhất 2026: Vì Sao Ngã Tư Dầu Giây Là \"Tọa Độ Vàng\" Hút Dòng Vốn?",
+    date:     "18/09/2026",
+    category: "thi-truong",
+    excerpt:  "Phân tích toàn cảnh BĐS Thống Nhất 2026: Hạ tầng hội tụ 3 cao tốc, KCN Dầu Giây 330ha, ĐT 769 kết nối sân bay Long Thành và vùng trũng giá 19–23 triệu/m² tại The Link City.",
+    image: `${CDN}/thelinkcity/news54/1`,
+    href:  "/tin-tuc/tiem-nang-bat-dong-san-thong-nhat-nga-tu-dau-giay-2026",
+  },
+  {
     slug:     "ho-so-phap-ly-the-link-city-dau-giay-cong-van-2505-ubnd-2026",
     title:    "Hồ Sơ Pháp Lý The Link City Dầu Giây 2026: Giải Mã Công Văn 2505/UBND-KTN & Tiến Trình Cấp Sổ Đỏ Từng Nền",
     date:     "17/09/2026",
