@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.env.local
+data/leads.json
+scripts/
+public/the link/
+public/real/
+public/product/
+public/news*/
+*.pdf
+*.xlsx
+*.zip
+*.rar

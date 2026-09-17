@@ -36,6 +36,14 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Experimental features for better performance
+  experimental: {
+    optimizeCss: true,
+  },
+  
+  // Output configuration for deployment
+  output: 'standalone',
+  
   async headers() {
     return [
       {
@@ -58,6 +66,23 @@ const nextConfig: NextConfig = {
         hostname: "maps.googleapis.com",
       },
     ],
+  },
+  
+  // Reduce build time
+  typescript: {
+    // Ignore type checking errors during build (not recommended for production)
+    ignoreBuildErrors: false,
+  },
+  
+  // Optimize bundle
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+      };
+    }
+    return config;
   },
 };
 

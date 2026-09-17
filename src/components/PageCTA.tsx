@@ -15,7 +15,7 @@ interface PageCTAProps {
  * Enhanced with rich animations and visual polish
  */
 export default function PageCTA({
-  title = "Tư vấn miễn phí về Mega City 2",
+  title = "Tư vấn miễn phí về The Link City Dầu Giây",
   subtitle = "Liên hệ ngay để nhận thông tin bảng giá, pháp lý và hỗ trợ chọn vị trí phù hợp.",
   primaryHref = "tel:0937587438",
   primaryLabel = "Gọi 0937.587.438",
