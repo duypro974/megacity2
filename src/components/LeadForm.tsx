@@ -41,7 +41,7 @@ export default function LeadForm() {
         </div>
         <h3 className="text-2xl font-extrabold text-slate-900 mb-2">Đăng ký thành công!</h3>
         <p className="text-slate-500 mb-6 text-sm leading-relaxed">
-          Cảm ơn <strong>bạn</strong> đã quan tâm Mega City 2.<br />
+          Cảm ơn <strong>bạn</strong> đã quan tâm The Link City Dầu Giây.<br />
           Tư vấn viên sẽ liên hệ trong <strong className="text-primary-600">5–15 phút</strong>.
         </p>
         <button onClick={() => setStatus("idle")} className="text-primary-600 font-bold text-sm hover:underline">

@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "id": "lead_1789620363926_h47qu4",
+    "name": "Nguyễn Thiên Duy",
+    "phone": "0394939704",
+    "email": "duypro974@gmail.com",
+    "interest": "dau-tu",
+    "createdAt": "2026-09-17T04:46:03.926Z",
+    "status": "new"
+  },
+  {
+    "id": "lead_1789622150257_tch1pd",
+    "name": "Nguyễn Thiên Duy",
+    "phone": "039401111",
+    "email": "duypro974@gmail.com",
+    "interest": "mega-city-2",
+    "createdAt": "2026-09-17T05:15:50.257Z",
+    "status": "new"
+  },
+  {
+    "id": "lead_1789622191607_7frzmq",
+    "name": "Nguyễn Thiên Duy",
+    "phone": "0394939704",
+    "email": "duypro974@gmail.com",
+    "interest": "dau-tu",
+    "createdAt": "2026-09-17T05:16:31.607Z",
+    "status": "new"
+  }
+]
