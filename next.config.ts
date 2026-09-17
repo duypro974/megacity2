@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 // ─────────────────────────────────────────────────────────────
-// Security headers — Nhiệm vụ 4/5/6
+// Security headers
 //   • X-Content-Type-Options  → ngăn MIME sniffing
 //   • X-Frame-Options         → chống clickjacking
 //   • Referrer-Policy         → kiểm soát referrer leak
@@ -36,18 +36,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-  },
-  
-  // Output configuration for deployment
-  output: 'standalone',
-  
   async headers() {
     return [
       {
-        // Áp dụng cho toàn bộ route
         source: "/(.*)",
         headers: securityHeaders,
       },
@@ -60,29 +51,11 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/dqy4lfmcf/**",
       },
-      // Cho phép các domain ảnh khác nếu cần (maps embed, etc.)
       {
         protocol: "https",
         hostname: "maps.googleapis.com",
       },
     ],
-  },
-  
-  // Reduce build time
-  typescript: {
-    // Ignore type checking errors during build (not recommended for production)
-    ignoreBuildErrors: false,
-  },
-  
-  // Optimize bundle
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-      };
-    }
-    return config;
   },
 };
 
