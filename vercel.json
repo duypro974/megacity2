@@ -7,16 +7,5 @@
       "maxDuration": 30
     }
   },
-  "regions": ["sin1"],
-  "env": {
-    "CLOUDINARY_CLOUD_NAME": "@cloudinary_cloud_name",
-    "CLOUDINARY_API_KEY": "@cloudinary_api_key", 
-    "CLOUDINARY_API_SECRET": "@cloudinary_api_secret",
-    "GMAIL_USER": "@gmail_user",
-    "GMAIL_APP_PASSWORD": "@gmail_app_password",
-    "NOTIFY_EMAIL": "@notify_email",
-    "GOOGLE_SERVICE_ACCOUNT_EMAIL": "@google_service_account_email",
-    "GOOGLE_PRIVATE_KEY": "@google_private_key",
-    "GOOGLE_SHEET_ID": "@google_sheet_id"
-  }
+  "regions": ["sin1"]
 }

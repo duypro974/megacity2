@@ -701,19 +701,19 @@ export default function Cam2TyNenMuaPage() {
               href: "/the-link-city",
               title: "Tổng quan dự án The Link City Dầu Giây",
               description: "Khu đô thị 21ha tại ngã tư Dầu Giây với đầy đủ tiện ích, sổ hồng sẵn và hạ tầng hoàn thiện 100%.",
-              category: "Dự án",
+              tag: "Dự án",
             },
             {
               href: "/tin-tuc/bang-gia-the-link-city-dau-giay-bai-toan-vay-ngan-hang-2026",
               title: "Bảng giá & Bài toán vay ngân hàng 2026",
               description: "Chi tiết bảng giá từng lô đất và các phương án vay ngân hàng OCB, Vietcombank tại The Link City.",
-              category: "Tài chính",
+              tag: "Tài chính",
             },
             {
               href: "/tin-tuc/tiem-nang-bat-dong-san-thong-nhat-nga-tu-dau-giay-2026",
               title: "Tiềm năng BĐS huyện Thống Nhất – Ngã tư Dầu Giây 2026",
               description: "Phân tích toàn diện tiềm năng tăng trưởng bất động sản tại vị trí chiến lược ngã tư Dầu Giây.",
-              category: "Phân tích",
+              tag: "Phân tích",
             },
           ]}
         />
