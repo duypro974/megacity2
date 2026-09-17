@@ -163,6 +163,12 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/3.webp":  "/the link/news50/3.webp",
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
+  // The Link City — news55
+  "thelinkcity/news55/1.png":   "/the link/news55/1.png",
+  "thelinkcity/news55/2.jpg":   "/the link/news55/2.jpg",
+  "thelinkcity/news55/3.jpg":   "/the link/news55/3.jpg",
+  "thelinkcity/news55/4.jpg":   "/the link/news55/4.jpg",
+  "thelinkcity/news55/5.jpg":   "/the link/news55/5.jpg",
   // The Link City — news54
   "thelinkcity/news54/1.png":   "/the link/news54/1.png",
   "thelinkcity/news54/2.jpg":   "/the link/news54/2.jpg",
@@ -1057,4 +1063,22 @@ export const IMG_NEWS51: Record<string, string> = Object.fromEntries(
     ["4", "4.jpg"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news51", v, "lg")])
+);
+
+/** News55 — Cầm 2 Tỷ 2026: Nên Mua Chung Cư Biên Hòa, Đất Long Thành Hay The Link City? (5 ảnh)
+ *  1 = Nhà đầu tư cân nhắc các phương án tài chính BĐS 2026 (AI)
+ *  2 = Căn hộ chung cư hiện đại tại Biên Hòa (minh họa)
+ *  3 = Hạ tầng đường nhựa hoàn thiện 100% tại The Link City (ảnh thật)
+ *  4 = Tập sổ hồng từng nền The Link City trao tay (ảnh thật)
+ *  5 = Sa bàn toàn cảnh 21ha The Link City Dầu Giây (ảnh thật)
+ *  Nguồn: public/the link/news55/ → Cloudinary: thelinkcity/news55/
+ */
+export const IMG_NEWS55: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.png"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.jpg"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news55", v, "lg")])
 );

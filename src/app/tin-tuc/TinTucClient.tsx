@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "cam-2-ty-nen-mua-chung-cu-bien-hoa-dat-long-thanh-the-link-city-2026",
+    title:    "Cầm 1,8 – 2 Tỷ Năm 2026: Nên Mua Chung Cư Biên Hòa, Đất Long Thành Hay The Link City Dầu Giây?",
+    date:     "17/09/2026",
+    category: "thi-truong",
+    excerpt:  "Phân tích so sánh 3 kênh đầu tư 2 tỷ tại Đồng Nai 2026: Chung cư Biên Hòa, đất nền Long Thành hay đất sổ hồng The Link City Dầu Giây – Kênh nào sinh lời cao nhất?",
+    image: `${CDN}/thelinkcity/news55/1`,
+    href:  "/tin-tuc/cam-2-ty-nen-mua-chung-cu-bien-hoa-dat-long-thanh-the-link-city-2026",
+  },
+  {
     slug:     "tiem-nang-bat-dong-san-thong-nhat-nga-tu-dau-giay-2026",
     title:    "Tiềm Năng Bất Động Sản Huyện Thống Nhất 2026: Vì Sao Ngã Tư Dầu Giây Là \"Tọa Độ Vàng\" Hút Dòng Vốn?",
     date:     "18/09/2026",

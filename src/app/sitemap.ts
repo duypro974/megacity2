@@ -661,6 +661,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Tin tức The Link City ────────────────────────────────
     {
+      url: `${BASE}/tin-tuc/cam-2-ty-nen-mua-chung-cu-bien-hoa-dat-long-thanh-the-link-city-2026`,
+      lastModified: "2026-09-17",
+      changeFrequency: "monthly" as const,
+      priority: 0.87,
+      images: [
+        cimg("thelinkcity/news55/1"),
+        cimg("thelinkcity/news55/3"),
+        cimg("thelinkcity/news55/4"),
+        cimg("thelinkcity/news55/5"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/tiem-nang-bat-dong-san-thong-nhat-nga-tu-dau-giay-2026`,
       lastModified: "2026-09-18",
       changeFrequency: "monthly" as const,
