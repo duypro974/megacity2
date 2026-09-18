@@ -9,12 +9,12 @@ import ScrollAnimator from "@/components/ScrollAnimator";
 import { IMG_REAL } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
-  title: "Tiến Độ Mega City 2 Nhơn Trạch – Cập Nhật Hạ Tầng 2025–2026",
+  title: "Tiến Độ Xây Dựng Mega City 2 Nhơn Trạch – Hạ Tầng & Mốc Pháp Lý",
   description:
     "Tiến độ thi công hạ tầng Mega City 2 Nhơn Trạch: đường nội khu, điện nước, công viên đạt ~95% theo cập nhật 06/2025. Hình ảnh thực tế và timeline xây dựng.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2/tien-do" },
   openGraph: {
-    title: "Tiến Độ Mega City 2 – Hạ Tầng ~95% (06/2025)",
+    title: "Tiến Độ Xây Dựng Mega City 2 Nhơn Trạch – Hạ Tầng & Mốc Pháp Lý",
     description:
       "Cập nhật tiến độ hạ tầng Mega City 2: đường, điện, nước, công viên đạt ~95%. Hình ảnh thực tế.",
     type: "article",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tiến Độ Mega City 2 – Hạ Tầng ~95%",
+    title: "Tiến Độ Xây Dựng Mega City 2 Nhơn Trạch – Hạ Tầng & Mốc Pháp Lý",
     description: "Cập nhật tiến độ hạ tầng và hình ảnh thực tế dự án Mega City 2 Nhơn Trạch.",
     images: [IMG_REAL["1"]],
   },
