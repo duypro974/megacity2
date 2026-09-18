@@ -16,7 +16,7 @@ const PUBLISHED_ISO = "2026-09-09";
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "The Link City Dầu Giây – Tổng Quan Dự Án & Giá Bán Đợt 1 Năm 2026",
+  headline: "Phân Tích The Link City Dầu Giây 2026: Vị Trí, Pháp Lý & Bảng Giá Đợt 1",
   description:
     "Tổng quan dự án The Link City (Khu dân cư A1-C1 Đô thị Dầu Giây): vị trí ngã tư QL1A & QL20, pháp lý sổ hồng từng nền, bảng giá đợt 1 từ 1,85 tỷ, tiến độ hạ tầng hoàn thiện 100% năm 2026.",
   image: [IMG_NEWS43["1"], IMG_NEWS43["2"], IMG_NEWS43["3"]],
@@ -258,7 +258,7 @@ export default function TongQuanTheLinkCityPage() {
               <span className="text-xs text-slate-400">· 15 phút đọc</span>
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4 max-w-3xl">
-              The Link City Dầu Giây – Tổng Quan Dự Án & Giá Bán Đợt 1 Năm 2026
+              Phân Tích The Link City Dầu Giây 2026: Vị Trí, Pháp Lý & Bảng Giá Đợt 1
             </h1>
             <p className="text-slate-500 text-base leading-relaxed max-w-2xl mb-8">
               Phân tích toàn diện dự án{" "}

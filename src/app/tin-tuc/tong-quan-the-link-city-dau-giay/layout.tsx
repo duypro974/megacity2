@@ -6,7 +6,7 @@ const CDN      = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_aut
 const OG_IMG   = `${CDN}/thelinkcity/news43/1`;
 
 export const metadata: Metadata = {
-  title: "The Link City Dầu Giây – Tổng Quan Dự Án & Giá Bán Đợt 1 Năm 2026",
+  title: "Phân Tích The Link City Dầu Giây 2026: Vị Trí, Pháp Lý & Bảng Giá Đợt 1",
   description:
     "Tổng quan dự án The Link City (Khu dân cư A1-C1 Đô thị Dầu Giây): vị trí ngã tư QL1A & QL20, pháp lý sổ hồng từng nền, bảng giá đợt 1 từ 1,85 tỷ, tiến độ hạ tầng hoàn thiện 100% năm 2026.",
   alternates: { canonical: PAGE_URL },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Phú Việt Tín Dầu Giây",
   ],
   openGraph: {
-    title: "The Link City Dầu Giây – Tổng Quan Dự Án & Giá Bán Đợt 1 Năm 2026",
+    title: "Phân Tích The Link City Dầu Giây 2026: Vị Trí, Pháp Lý & Bảng Giá Đợt 1",
     description:
       "21ha tại ngã tư QL1A & QL20, sổ hồng từng nền sẵn sàng công chứng, giá mở bán đợt 1 chỉ từ 1,85 tỷ đồng. Khám phá toàn bộ thông số kỹ thuật, bảng giá và tiềm năng đầu tư The Link City Dầu Giây 2026.",
     type: "article",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Link City Dầu Giây – Tổng Quan & Giá Bán Đợt 1 Năm 2026",
+    title: "Phân Tích The Link City Dầu Giây 2026: Vị Trí, Pháp Lý & Bảng Giá Đợt 1",
     description:
       "Sổ hồng từng nền, hạ tầng hoàn thiện 100%, giá từ 1,85 tỷ – Tổng quan toàn diện dự án The Link City tại ngã tư QL1A & QL20 Dầu Giây Đồng Nai.",
     images: [OG_IMG],
