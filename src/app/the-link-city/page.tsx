@@ -766,7 +766,7 @@ export default function TheLinkCityPage() {
                 className="text-white/90 text-xs md:text-sm font-semibold uppercase tracking-[0.18em]"
                 style={{ textShadow: "0 1px 10px rgba(0,0,0,0.8)" }}
               >
-                Tâm điểm giao thương
+                Dầu Giây · Đồng Nai
               </span>
               <div className="h-px w-6 bg-white/60" />
             </div>
