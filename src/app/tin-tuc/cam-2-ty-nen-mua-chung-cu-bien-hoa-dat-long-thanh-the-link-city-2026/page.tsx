@@ -439,7 +439,7 @@ export default function Cam2TyNenMuaPage() {
                   </div>
 
                   <div className="flex flex-wrap gap-3 not-prose pt-2">
-                    <LinkBtn href="/the-link-city#vi-tri">📍 Xem bản đồ kết nối giao thông và quy hoạch vùng</LinkBtn>
+                    <LinkBtn href="/the-link-city/vi-tri">📍 Xem bản đồ kết nối giao thông và quy hoạch vùng</LinkBtn>
                   </div>
                 </div>
               </section>
