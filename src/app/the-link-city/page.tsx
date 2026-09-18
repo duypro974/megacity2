@@ -84,6 +84,11 @@ const listingSchema = {
     addressRegion: "Đồng Nai",
     addressCountry: "VN",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 10.9427836,
+    longitude: 107.1500261,
+  },
   additionalProperty: [
     { "@type": "PropertyValue", name: "Chủ đầu tư", value: "Công ty TNHH Đầu tư Phú Việt Tín" },
     { "@type": "PropertyValue", name: "Đơn vị phát triển", value: "Kim Oanh Land" },
