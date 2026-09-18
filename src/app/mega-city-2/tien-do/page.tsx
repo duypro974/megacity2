@@ -272,6 +272,16 @@ export default function TienDoPage() {
           </div>
         </section>
 
+        <div className="max-w-6xl mx-auto px-4 pb-8">
+          <p className="text-sm text-slate-600">
+            Xem thêm:{" "}
+            <a href="/tin-tuc/tien-do-mega-city-2" className="text-primary-600 font-semibold hover:underline">
+              Cập nhật tiến độ Mega City 2 mới nhất
+            </a>{" "}
+            — hình ảnh thực tế và đánh giá hạ tầng tại dự án.
+          </p>
+        </div>
+
         <PageCTA
           title="Kiểm tra tiến độ thực tế tại Mega City 2"
           subtitle="Đặt lịch tham quan để tự mình xem xét tiến độ hạ tầng và hiện trạng các lô đang quan tâm."
