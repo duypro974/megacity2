@@ -871,7 +871,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Tiến Độ ── */}
-        <section className="py-20 bg-slate-50" data-reveal>
+        <section id="tien-do" className="py-20 bg-slate-50" data-reveal>
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Tiến độ</SectionLabel>
             <SectionHeader sub="Theo thông tin được công bố gần nhất – tháng 06/2025">

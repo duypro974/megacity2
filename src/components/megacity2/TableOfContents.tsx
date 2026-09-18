@@ -13,7 +13,7 @@ const TOC_ITEMS = [
   { id: "bang-gia",         label: "Bảng giá" },
   { id: "thanh-toan",       label: "Phương thức thanh toán" },
   { id: "phap-ly",          label: "Pháp lý dự án" },
-  { id: "tong-quan",        label: "Tiến độ xây dựng" },   // re-use scroll fallback
+  { id: "tien-do",          label: "Tiến độ xây dựng" },
   { id: "lien-he",          label: "Câu hỏi thường gặp & Liên hệ" },
 ];
 
@@ -27,7 +27,7 @@ const TOC_DISPLAY = [
   { id: "bang-gia",         no: "6", label: "Bảng giá mới nhất" },
   { id: "thanh-toan",       no: "7", label: "Phương thức thanh toán" },
   { id: "phap-ly",          no: "8", label: "Pháp lý dự án" },
-  { id: "tiến-độ",          no: "9", label: "Tiến độ xây dựng" },
+  { id: "tien-do",          no: "9", label: "Tiến độ xây dựng" },
   { id: "lien-he",          no: "10", label: "FAQ & Liên hệ" },
 ];
 
