@@ -55,6 +55,7 @@ const jsonLd = {
     "Khu dân cư Mega City 2 quy mô ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. 2.421 lô phân lô bán nền được UBND tỉnh Đồng Nai chấp thuận theo QĐ 1772/QĐ-UBND ngày 30/05/2025. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
   url: "https://kimoanhdongnai.com.vn/mega-city-2",
   datePosted: "2026-08-13",
+  dateModified: "2026-09-08",
   image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
   floorSize: {
     "@type": "QuantitativeValue",

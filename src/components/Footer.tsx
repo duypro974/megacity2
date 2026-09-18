@@ -153,7 +153,7 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/KOG_Web_RGB_01.svg" alt="Kim Oanh Group" className="h-10 w-auto object-contain mb-4" />
               <p className="text-slate-500 text-sm leading-relaxed mb-4">
-                Khu dân cư Mega City 2 Nhơn Trạch. Chủ đầu tư: Cong ty TNHH Khu do thi Phu Hoi. Đơn vị phát triển &amp; phân phối: Kim Oanh Group.
+                Khu dân cư Mega City 2 Nhơn Trạch. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Đơn vị phát triển &amp; phân phối: Kim Oanh Group.
               </p>
               <div className="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-full px-3 py-1">
                 <div className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
