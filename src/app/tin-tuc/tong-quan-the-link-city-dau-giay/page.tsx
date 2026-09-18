@@ -405,7 +405,7 @@ export default function TongQuanTheLinkCityPage() {
                       {
                         icon: "🛣️",
                         title: "Cao tốc TP.HCM – Long Thành – Dầu Giây & Dầu Giây – Phan Thiết",
-                        body: "Cư dân tại The Link City chỉ mất đúng 3 phút để tiếp cận nút giao cao tốc. Tuyến đường này rút ngắn thời gian di chuyển từ dự án về TP. Thủ Đức (TP.HCM) chỉ còn khoảng 45 phút, mở ra tiềm năng an cư cho lực lượng chuyên gia làm việc tại TP.HCM nhưng ưa chuộng không gian sống rộng thoáng vùng ven.",
+                        body: "The Link City tọa lạc tại ngã tư Quốc lộ 1A và Quốc lộ 20 — khu vực Dầu Giây có kết nối trực tiếp với cao tốc TP.HCM – Long Thành – Dầu Giây, mở ra khả năng di chuyển thuận tiện về TP.HCM và các tỉnh lân cận cho cư dân.",
                       },
                       {
                         icon: "🚧",
@@ -415,7 +415,7 @@ export default function TongQuanTheLinkCityPage() {
                       {
                         icon: "✈️",
                         title: "Cảng hàng không Quốc tế Long Thành",
-                        body: "Cách dự án chỉ khoảng 20 phút di chuyển theo Quốc lộ 1A mở rộng và đường Vành đai. The Link City đón đầu lượng chuyên gia hàng không, logistics và chuỗi dịch vụ hậu cần sân bay về định cư.",
+                        body: "Sân bay Quốc tế Long Thành nằm trong khu vực có kết nối giao thông với Dầu Giây qua Quốc lộ 1A và các tuyến đường vành đai. The Link City nằm trong vùng ảnh hưởng trực tiếp của dự án hàng không trọng điểm quốc gia này.",
                       },
                     ].map((item) => (
                       <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">

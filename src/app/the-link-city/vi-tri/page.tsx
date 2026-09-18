@@ -292,6 +292,21 @@ export default function ViTriPage() {
           </div>
         </section>
 
+        {/* Cao tốc Dầu Giây – Tân Phú */}
+        <section className="my-8 max-w-6xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Tiến Độ Cao Tốc Dầu Giây – Tân Phú 2026 & Đòn Bẩy Cho The Link City
+          </h2>
+          <div className="space-y-3 text-gray-700 leading-relaxed">
+            <p>
+              Tuyến cao tốc Dầu Giây – Tân Phú có chiều dài 60,1 km với tổng mức đầu tư gần 9.000 tỷ đồng, là đoạn đầu tiên của tuyến cao tốc Dầu Giây – Liên Khương kết nối trực tiếp Đông Nam Bộ với Tây Nguyên.
+            </p>
+            <p>
+              Tọa lạc ngay giao lộ huyết mạch Quốc lộ 1A và Quốc lộ 20, <strong>The Link City</strong> nằm trong khu vực Dầu Giây — điểm giao thoa của nhiều tuyến hạ tầng giao thông, trong đó có nút kết nối với cao tốc TP.HCM – Long Thành – Dầu Giây và tuyến cao tốc Dầu Giây – Tân Phú đang triển khai.
+            </p>
+          </div>
+        </section>
+
         {/* Ảnh khu vực */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">

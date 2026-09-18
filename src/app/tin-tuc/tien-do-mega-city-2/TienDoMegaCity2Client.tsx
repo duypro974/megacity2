@@ -678,6 +678,25 @@ export default function TienDoMegaCity2Client() {
           </div>
         </div>
 
+        {/* ── Internal Link Box: The Link City ── */}
+        <div className="max-w-4xl mx-auto px-4 mb-8">
+          <div className="my-8 p-6 bg-amber-50/80 border border-amber-200 rounded-2xl shadow-sm">
+            <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+              <span>⭐</span> Dự Án Trọng Điểm Đang Triển Khai Của Kim Oanh Tại Đồng Nai
+            </h3>
+            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+              Bên cạnh Nhơn Trạch, Tập đoàn Kim Oanh đang đẩy mạnh triển khai{" "}
+              <a
+                href="/the-link-city"
+                className="font-semibold text-amber-700 hover:text-amber-800 underline decoration-amber-400 decoration-2 underline-offset-2"
+              >
+                Dự án The Link City Dầu Giây
+              </a>{" "}
+              – Khu đô thị quy mô 21ha tọa lạc ngay trung tâm ngã tư Quốc lộ 1A và Quốc lộ 20. Dự án có mức giá chỉ từ 1,85 tỷ/sản phẩm với pháp lý hoàn chỉnh sổ hồng thổ cư sẵn có.
+            </p>
+          </div>
+        </div>
+
         {/* Page CTA */}
         <PageCTA
           title="Muốn cập nhật tiến độ Mega City 2 mới nhất?"

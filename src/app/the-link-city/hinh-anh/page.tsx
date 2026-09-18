@@ -143,6 +143,16 @@ export default function HinhAnhPage() {
           backLabel="Quay lại trang The Link City"
         />
 
+        {/* ── Định hướng ngữ cảnh — chống Cannibalization ── */}
+        <div className="max-w-6xl mx-auto px-4 pt-6">
+          <p className="text-sm text-gray-600 mb-6 bg-gray-50 p-4 rounded-xl border border-gray-200">
+            Bộ sưu tập hình ảnh thực tế mới nhất tại dự án (cập nhật tháng 09/2026). Để xem phân tích quy hoạch tổng thể, hồ sơ pháp lý và bảng giá từng phân khu, mời quý khách truy cập:{" "}
+            <Link href="/the-link-city" className="font-semibold text-blue-600 hover:underline">
+              Trang thông tin tổng quan dự án The Link City Dầu Giây
+            </Link>.
+          </p>
+        </div>
+
         {/* ── VIDEO SA BÀN ── */}
         <section id="sa-ban-video" className="py-12 border-b border-slate-100">
           <div className="max-w-6xl mx-auto px-4">

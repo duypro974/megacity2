@@ -3,9 +3,9 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 
 export const metadata: Metadata = {
-  title: "Mega City 2 Nhơn Trạch - Thông tin dự án mới nhất 2026",
+  title: "Mega City 2 Nhơn Trạch 2026: Giá Từ 1,15 Tỷ & Pháp Lý 1772",
   description:
-    "Cập nhật thông tin dự án Mega City 2 Nhơn Trạch mới nhất: vị trí, bảng giá, tiện ích, pháp lý, tiến độ, hình ảnh và các thông tin liên quan.",
+    "Dự án Mega City 2 Nhơn Trạch quy mô 84ha. Đã có quyết định 2.421 lô phân lô theo QĐ 1772/QĐ-UBND. Cập nhật bảng giá bán đất nền và tiến độ mới nhất tháng 09/2026.",
   keywords: [
     "Mega City 2",
     "Mega City 2 Nhơn Trạch",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2" },
   openGraph: {
-    title: "Mega City 2 Nhơn Trạch - Thông tin dự án mới nhất 2026",
+    title: "Mega City 2 Nhơn Trạch 2026: Giá Từ 1,15 Tỷ & Pháp Lý 1772",
     description:
       "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Giá từ 1,15 tỷ/nền.",
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mega City 2 Nhơn Trạch - Thông tin mới nhất 2026",
+    title: "Mega City 2 Nhơn Trạch 2026: Giá Từ 1,15 Tỷ & Pháp Lý 1772",
     description:
       "2.421 lô phân lô bán nền, hạ tầng ~95%, giá từ 1,15 tỷ/nền. QĐ 1772/QĐ-UBND ngày 30/5/2025.",
     images: [
