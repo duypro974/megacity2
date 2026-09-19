@@ -736,6 +736,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [cimg("megacity2/news32/1"), cimg("megacity2/news32/2"), cimg("megacity2/news32/3")],
     },
 
+    // ── Tin tức Mega City 2 mới (09/2026) ───────────────────
+    {
+      url: `${BASE}/tin-tuc/dien-tich-dat-nen-mega-city-2`,
+      lastModified: "2026-09-19",
+      changeFrequency: "monthly" as const,
+      priority: 0.84,
+      images: [
+        cimg("megacity2/news56/1"),
+        cimg("megacity2/news56/2"),
+        cimg("megacity2/news56/3"),
+        cimg("megacity2/news56/4"),
+      ],
+    },
+
     // ── Tin tức The Link City ────────────────────────────────
     {
       url: `${BASE}/tin-tuc/cam-2-ty-nen-mua-chung-cu-bien-hoa-dat-long-thanh-the-link-city-2026`,

@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "dien-tich-dat-nen-mega-city-2",
+    title:    "Mega City 2 có những diện tích nền nào? Hướng dẫn chọn diện tích theo nhu cầu",
+    date:     "19/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Tổng hợp 4 nhóm diện tích nền Mega City 2 Nhơn Trạch: 90m², 100m², 120m²–150m² và 200m²–300m² — kèm hướng dẫn chọn theo ngân sách và mục đích ở thực hoặc kinh doanh.",
+    image: `${CDN}/megacity2/news56/1`,
+    href:  "/tin-tuc/dien-tich-dat-nen-mega-city-2",
+  },
+  {
     slug:     "cam-2-ty-nen-mua-chung-cu-bien-hoa-dat-long-thanh-the-link-city-2026",
     title:    "Cầm 1,8 – 2 Tỷ Năm 2026: Nên Mua Chung Cư Biên Hòa, Đất Long Thành Hay The Link City Dầu Giây?",
     date:     "17/09/2026",

@@ -163,6 +163,11 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/3.webp":  "/the link/news50/3.webp",
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
+  // Mega City 2 — news56
+  "megacity2/news56/1.jpg":   "/news56/1.jpg",
+  "megacity2/news56/2.png":   "/news56/2.png",
+  "megacity2/news56/3.png":   "/news56/3.png",
+  "megacity2/news56/4.png":   "/news56/4.png",
   // The Link City — news55
   "thelinkcity/news55/1.png":   "/the link/news55/1.png",
   "thelinkcity/news55/2.jpg":   "/the link/news55/2.jpg",
@@ -1081,4 +1086,20 @@ export const IMG_NEWS55: Record<string, string> = Object.fromEntries(
     ["4", "4.jpg"],
     ["5", "5.jpg"],
   ].map(([k, v]) => [k, cld("thelinkcity/news55", v, "lg")])
+);
+
+/** News56 — Diện tích nền Mega City 2: Hướng dẫn chọn theo nhu cầu (4 ảnh)
+ *  1 = Hero: Quy hoạch 3D tổng thể Mega City 2 với nhãn diện tích (AI)
+ *  2 = Sơ đồ kích thước lô đất chuẩn 5×20m (100m²) (AI)
+ *  3 = Phối cảnh biệt thự vườn 200m² ven công viên (AI)
+ *  4 = Infographic hướng dẫn chọn diện tích theo nhu cầu (AI)
+ *  Nguồn: public/news56/ → Cloudinary: megacity2/news56/
+ */
+export const IMG_NEWS56: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.png"],
+    ["3", "3.png"],
+    ["4", "4.png"],
+  ].map(([k, v]) => [k, cld("megacity2/news56", v, "lg")])
 );
