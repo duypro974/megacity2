@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Homepage ─────────────────────────────────────────────
     {
       url: BASE,
-      lastModified: now,
+      lastModified: "2026-09-18",
       changeFrequency: "weekly",
       priority: 1.0,
       images: [
@@ -383,8 +383,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news8/4"),
       ],
     },
-    // NOTE: cao-toc-bien-hoa-vung-tau (news18) đã có entry ở trên (hạ tầng cluster)
-    // Xóa entry trùng news9 ở đây để tránh duplicate URL trong sitemap
     {
       url: `${BASE}/tin-tuc/kinh-nghiem-mua-dat-nen-nhon-trach`,
       lastModified: "2026-08-18",
@@ -657,6 +655,85 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-09-08",
       changeFrequency: "weekly",
       priority: 0.78,
+    },
+
+    // ── Tin tức Mega City 2 — nhóm bài mới (08–09/2026) ────────
+    {
+      url: `${BASE}/tin-tuc/so-sanh-mega-city-2-va-dat-tho-cu-dan-nhon-trach`,
+      lastModified: "2026-09-02",
+      changeFrequency: "monthly" as const,
+      priority: 0.82,
+      images: [cimg("megacity2/news42/1"), cimg("megacity2/news42/2"), cimg("megacity2/news42/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/shophouse-mega-city-2-khai-thac-kinh-doanh`,
+      lastModified: "2026-09-01",
+      changeFrequency: "monthly" as const,
+      priority: 0.82,
+      images: [cimg("megacity2/news41/1"), cimg("megacity2/news41/2"), cimg("megacity2/news41/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/dat-nen-nha-vuon-biet-thu-mega-city-2`,
+      lastModified: "2026-08-30",
+      changeFrequency: "monthly" as const,
+      priority: 0.81,
+      images: [cimg("megacity2/news40/1"), cimg("megacity2/news40/2"), cimg("megacity2/news40/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/tien-ich-ngoai-khu-mega-city-2`,
+      lastModified: "2026-08-30",
+      changeFrequency: "monthly" as const,
+      priority: 0.81,
+      images: [cimg("megacity2/news39/1"), cimg("megacity2/news39/2"), cimg("megacity2/news39/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach`,
+      lastModified: "2026-08-30",
+      changeFrequency: "monthly" as const,
+      priority: 0.81,
+      images: [cimg("megacity2/news38/1"), cimg("megacity2/news38/2"), cimg("megacity2/news38/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/duong-di-tu-tphcm-den-mega-city-2`,
+      lastModified: "2026-08-29",
+      changeFrequency: "monthly" as const,
+      priority: 0.81,
+      images: [cimg("megacity2/news37/1"), cimg("megacity2/news37/2"), cimg("megacity2/news37/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/thu-tuc-chuyen-nhuong-mega-city-2`,
+      lastModified: "2026-08-27",
+      changeFrequency: "monthly" as const,
+      priority: 0.82,
+      images: [cimg("megacity2/news36/1"), cimg("megacity2/news36/2"), cimg("megacity2/news36/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/quy-cach-xay-dung-mega-city-2`,
+      lastModified: "2026-08-26",
+      changeFrequency: "monthly" as const,
+      priority: 0.81,
+      images: [cimg("megacity2/news35/1"), cimg("megacity2/news35/2"), cimg("megacity2/news35/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach`,
+      lastModified: "2026-08-25",
+      changeFrequency: "monthly" as const,
+      priority: 0.83,
+      images: [cimg("megacity2/news34/1"), cimg("megacity2/news34/2"), cimg("megacity2/news34/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/ha-tang-ky-thuat-mega-city-2`,
+      lastModified: "2026-08-25",
+      changeFrequency: "monthly" as const,
+      priority: 0.82,
+      images: [cimg("megacity2/news33/1"), cimg("megacity2/news33/2"), cimg("megacity2/news33/3")],
+    },
+    {
+      url: `${BASE}/tin-tuc/mega-city-2-co-nhung-loai-san-pham-nao`,
+      lastModified: "2026-08-25",
+      changeFrequency: "monthly" as const,
+      priority: 0.82,
+      images: [cimg("megacity2/news32/1"), cimg("megacity2/news32/2"), cimg("megacity2/news32/3")],
     },
 
     // ── Tin tức The Link City ────────────────────────────────
