@@ -2,14 +2,19 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { X, Send, CheckCircle, Loader2, Phone, User, MessageSquare, Sparkles, Mail } from "lucide-react";
+import { PROJECTS } from "@/data/projects";
 
 /* ─────────────────────────────────────────
    Mini form dùng trong popup
 ───────────────────────────────────────── */
-type FormData = { name: string; phone: string; email: string; interest: string; note: string };
+const POPUP_SCOPE = ["mega-city-2", "the-link-city", "k-home-cityview", "k-home-avenue", "k-home-midtown"];
+const POPUP_PROJECTS = PROJECTS.filter((p) => POPUP_SCOPE.includes(p.slug))
+  .sort((a, b) => POPUP_SCOPE.indexOf(a.slug) - POPUP_SCOPE.indexOf(b.slug));
+
+type FormData = { name: string; phone: string; email: string; project: string; interest: string; note: string };
 
 function PopupForm({ onClose }: { onClose: () => void }) {
-  const [form, setForm]     = useState<FormData>({ name: "", phone: "", email: "", interest: "dau-tu", note: "" });
+  const [form, setForm]     = useState<FormData>({ name: "", phone: "", email: "", project: "", interest: "dau-tu", note: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -127,22 +132,58 @@ function PopupForm({ onClose }: { onClose: () => void }) {
 
         {/* Nhu cầu */}
         <div>
+          <label htmlFor="popup-project" className="block text-xs font-bold text-slate-600 mb-1.5 uppercase tracking-wide">
+            Dự án quan tâm
+          </label>
+          <div className="relative">
+            <select
+              id="popup-project"
+              name="project" value={form.project} onChange={handleChange}
+              className="w-full appearance-none pl-4 pr-10 py-3 text-sm border border-slate-200 rounded-xl
+                         bg-slate-50 focus:bg-white focus:ring-2 focus:ring-green-400
+                         focus:border-transparent outline-none transition cursor-pointer"
+            >
+              <option value="">— Chọn dự án —</option>
+              {POPUP_PROJECTS.map((p) => (
+                <option key={p.slug} value={p.slug}>
+                  {p.name} – {p.location}
+                </option>
+              ))}
+              <option value="general">Tìm hiểu chung</option>
+            </select>
+            <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        {/* Nhu cầu */}
+        <div>
           <label htmlFor="popup-interest" className="block text-xs font-bold text-slate-600 mb-1.5 uppercase tracking-wide">
             Nhu cầu của bạn
           </label>
-          <select
-            id="popup-interest"
-            name="interest" value={form.interest} onChange={handleChange}
-            className="w-full px-4 py-3 text-sm border border-slate-200 rounded-xl
-                       bg-slate-50 focus:bg-white focus:ring-2 focus:ring-green-400
-                       focus:border-transparent outline-none transition"
-          >
-            <option value="dau-tu">Đầu tư sinh lời</option>
-            <option value="mua-o">Mua để ở</option>
-            <option value="xem-mat-bang">Xem mặt bằng thực tế</option>
-            <option value="nha-xay-san">Quan tâm nhà xây sẵn</option>
-            <option value="khac">Khác</option>
-          </select>
+          <div className="relative">
+            <select
+              id="popup-interest"
+              name="interest" value={form.interest} onChange={handleChange}
+              className="w-full appearance-none pl-4 pr-10 py-3 text-sm border border-slate-200 rounded-xl
+                         bg-slate-50 focus:bg-white focus:ring-2 focus:ring-green-400
+                         focus:border-transparent outline-none transition cursor-pointer"
+            >
+              <option value="dau-tu">Đầu tư sinh lời</option>
+              <option value="mua-o">Mua để ở</option>
+              <option value="xem-mat-bang">Xem mặt bằng thực tế</option>
+              <option value="nha-xay-san">Quan tâm nhà xây sẵn</option>
+              <option value="khac">Khác</option>
+            </select>
+            <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </div>
         </div>
 
         {/* Ghi chú */}
