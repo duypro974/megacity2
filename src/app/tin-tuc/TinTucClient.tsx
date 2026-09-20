@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong",
+    title:    "Đất nền Mega City 2 có được xây nhà ngay không? Lộ trình quy hoạch và thời điểm khởi công thực tế",
+    date:     "20/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Giải đáp chính xác đất nền Mega City 2 có được xây nhà ngay không: cập nhật tiến độ điều chỉnh quy hoạch Nhơn Trạch, lộ trình ra sổ hồng và dự kiến tháng 3 năm sau cấp phép xây dựng.",
+    image: `${CDN}/megacity2/news58/1`,
+    href:  "/tin-tuc/dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong",
+  },
+  {
     slug:     "lo-dat-mega-city-2-mat-tien-bao-nhieu",
     title:    "Lô đất Mega City 2 mặt tiền bao nhiêu? Hướng dẫn cách kiểm tra kích thước thực tế",
     date:     "20/09/2026",

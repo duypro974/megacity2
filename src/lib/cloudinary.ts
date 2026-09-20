@@ -163,6 +163,11 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/3.webp":  "/the link/news50/3.webp",
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
+  // Mega City 2 — news58
+  "megacity2/news58/1.jpg":   "/news58/1.jpg",
+  "megacity2/news58/2.png":   "/news58/2.png",
+  "megacity2/news58/3.png":   "/news58/3.png",
+  "megacity2/news58/4.png":   "/news58/4.png",
   // Mega City 2 — news57
   "megacity2/news57/1.jpg":   "/news57/1.jpg",
   "megacity2/news57/2.png":   "/news57/2.png",
@@ -1123,4 +1128,20 @@ export const IMG_NEWS57: Record<string, string> = Object.fromEntries(
     ["3", "3.png"],
     ["4", "4.png"],
   ].map(([k, v]) => [k, cld("megacity2/news57", v, "lg")])
+);
+
+/** News58 — Đất nền Mega City 2 có được xây nhà ngay không? (4 ảnh)
+ *  1 = Dãy nhà phố hoàn thiện bên cạnh lô đất nền trống tại Mega City 2 (AI)
+ *  2 = Infographic timeline lộ trình ra sổ & cấp phép xây dựng (AI)
+ *  3 = Phối cảnh mẫu nhà phố 5×20m 1 trệt 2 lầu chuẩn bị xây (AI)
+ *  4 = Giao dịch ký kết hợp đồng chuyển nhượng tại văn phòng công chứng (AI)
+ *  Nguồn: public/news58/ → Cloudinary: megacity2/news58/
+ */
+export const IMG_NEWS58: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.png"],
+    ["3", "3.png"],
+    ["4", "4.png"],
+  ].map(([k, v]) => [k, cld("megacity2/news58", v, "lg")])
 );
