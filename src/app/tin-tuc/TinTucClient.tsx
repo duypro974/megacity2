@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "lo-dat-mega-city-2-mat-tien-bao-nhieu",
+    title:    "Lô đất Mega City 2 mặt tiền bao nhiêu? Hướng dẫn cách kiểm tra kích thước thực tế",
+    date:     "20/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Tổng hợp kích thước mặt tiền chuẩn từng loại sản phẩm Mega City 2: 5m, 6m, 10m, 15m — kèm quy trình 4 bước kiểm tra cọc mốc ranh giới thực địa chính xác.",
+    image: `${CDN}/megacity2/news57/1`,
+    href:  "/tin-tuc/lo-dat-mega-city-2-mat-tien-bao-nhieu",
+  },
+  {
     slug:     "dien-tich-dat-nen-mega-city-2",
     title:    "Mega City 2 có những diện tích nền nào? Hướng dẫn chọn diện tích theo nhu cầu",
     date:     "19/09/2026",

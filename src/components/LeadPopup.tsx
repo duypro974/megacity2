@@ -292,7 +292,7 @@ export default function LeadPopup() {
               <X className="w-4 h-4" />
             </button>
 
-            <div className="max-h-[90vh] overflow-y-auto">
+            <div className="max-h-[90vh]">
               <PopupForm onClose={closePopup} />
             </div>
           </div>

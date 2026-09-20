@@ -738,6 +738,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Tin tức Mega City 2 mới (09/2026) ───────────────────
     {
+      url: `${BASE}/tin-tuc/lo-dat-mega-city-2-mat-tien-bao-nhieu`,
+      lastModified: "2026-09-20",
+      changeFrequency: "monthly" as const,
+      priority: 0.83,
+      images: [
+        cimg("megacity2/news57/1"),
+        cimg("megacity2/news57/2"),
+        cimg("megacity2/news57/3"),
+        cimg("megacity2/news57/4"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/dien-tich-dat-nen-mega-city-2`,
       lastModified: "2026-09-19",
       changeFrequency: "monthly" as const,

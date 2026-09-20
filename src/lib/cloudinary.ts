@@ -163,6 +163,11 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/3.webp":  "/the link/news50/3.webp",
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
+  // Mega City 2 — news57
+  "megacity2/news57/1.jpg":   "/news57/1.jpg",
+  "megacity2/news57/2.png":   "/news57/2.png",
+  "megacity2/news57/3.png":   "/news57/3.png",
+  "megacity2/news57/4.png":   "/news57/4.png",
   // Mega City 2 — news56
   "megacity2/news56/1.jpg":   "/news56/1.jpg",
   "megacity2/news56/2.png":   "/news56/2.png",
@@ -1102,4 +1107,20 @@ export const IMG_NEWS56: Record<string, string> = Object.fromEntries(
     ["3", "3.png"],
     ["4", "4.png"],
   ].map(([k, v]) => [k, cld("megacity2/news56", v, "lg")])
+);
+
+/** News57 — Lô đất Mega City 2 mặt tiền bao nhiêu? Hướng dẫn kiểm tra kích thước thực tế (4 ảnh)
+ *  1 = Lô đất nền với đồ họa đường đo kích thước mặt tiền 5m, chiều dài 20m (AI)
+ *  2 = So sánh 3D kích thước mặt tiền 5m, 6m, 10m cạnh nhau (AI)
+ *  3 = Cận cảnh cọc mốc bê tông ranh giới thửa đất (AI)
+ *  4 = Kỹ sư trắc địa đo đạc kích thước thực tế (AI)
+ *  Nguồn: public/news57/ → Cloudinary: megacity2/news57/
+ */
+export const IMG_NEWS57: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.png"],
+    ["3", "3.png"],
+    ["4", "4.png"],
+  ].map(([k, v]) => [k, cld("megacity2/news57", v, "lg")])
 );
