@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -562,8 +562,8 @@ export default function LoDatMatTienPage() {
                     </div>
                     <div className="flex flex-wrap gap-3 mt-3">
                       {[
-                        { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat", label: "Bảng giá mới nhất" },
-                        { href: "/tin-tuc/phap-ly-mega-city-2", label: "Pháp lý dự án" },
+                        { href: "/mega-city-2/bang-gia", label: "Bảng giá mới nhất" },
+                        { href: "/mega-city-2/phap-ly", label: "Pháp lý dự án" },
                         { href: "/tin-tuc/tien-do-mega-city-2", label: "Tiến độ mới nhất" },
                       ].map(({ href, label }) => (
                         <a key={href} href={href} className="text-slate-400 hover:text-white text-xs transition-colors">
@@ -614,7 +614,7 @@ export default function LoDatMatTienPage() {
                       { href: "/tin-tuc/dien-tich-dat-nen-mega-city-2", label: "Diện tích nền Mega City 2: Các loại & cách chọn" },
                       { href: "/tin-tuc/checklist-nhan-nen-mega-city-2", label: "Checklist nhận nền Mega City 2" },
                       { href: "/tin-tuc/chi-phi-xay-nha-mega-city-2", label: "Chi phí xây nhà tại Mega City 2" },
-                      { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat", label: "Bảng giá Mega City 2 mới nhất" },
+                      { href: "/mega-city-2/bang-gia", label: "Bảng giá Mega City 2 mới nhất" },
                       { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach", label: "Mặt bằng phân lô Mega City 2" },
                     ].map(({ href, label }) => (
                       <li key={href}>

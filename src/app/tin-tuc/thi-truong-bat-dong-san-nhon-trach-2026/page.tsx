@@ -515,8 +515,8 @@ export default function ThiTruongBDSNhonTrach2026Page() {
                   </InfoBox>
                   <div className="flex flex-wrap gap-3">
                     <LinkBtn href="/tin-tuc/vi-tri-mega-city-2-o-dau">Vị trí Mega City 2 →</LinkBtn>
-                    <LinkBtn href="/tin-tuc/bang-gia-mega-city-2-moi-nhat">Bảng giá Mega City 2 →</LinkBtn>
-                    <LinkBtn href="/tin-tuc/phap-ly-mega-city-2">Pháp lý Mega City 2 →</LinkBtn>
+                    <LinkBtn href="/mega-city-2/bang-gia">Bảng giá Mega City 2 →</LinkBtn>
+                    <LinkBtn href="/mega-city-2/phap-ly">Pháp lý Mega City 2 →</LinkBtn>
                     <LinkBtn href="/tin-tuc/tien-do-mega-city-2">Tiến độ Mega City 2 →</LinkBtn>
                     <LinkBtn href="/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach">Có nên đầu tư Mega City 2? →</LinkBtn>
                   </div>

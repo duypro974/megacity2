@@ -19,9 +19,13 @@ const PUBLISHED_ISO = "2026-08-16";
 // Metadata
 // ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Tiến độ Mega City 2 Nhơn Trạch 2026: Cập nhật mới nhất về hạ tầng và xây dựng",
+  // SEO update 2026-09-22 — Hướng B differentiation:
+  // Bài này = tin tức / nhật ký cập nhật tiến độ theo thời gian ("mới nhất", có ngày)
+  // /mega-city-2/tien-do = trang thông tin kỹ thuật chính thức (tỷ lệ %, hình ảnh thực tế)
+  // Hai trang phục vụ intent khác nhau → giữ cả hai, KHÔNG redirect
+  title: "Cập Nhật Tiến Độ Mega City 2 Tháng 9/2026 – Hạ Tầng Đạt ~95%",
   description:
-    "Theo dõi tiến độ Mega City 2 Nhơn Trạch mới nhất năm 2026. Cập nhật tình hình xây dựng, hạ tầng, phân khu và những thay đổi mới nhất của dự án.",
+    "Tiến độ Mega City 2 Nhơn Trạch tháng 9/2026: hạ tầng nội khu ~95%, đường nhựa và điện nước hoàn thiện, 110 GCN đã cấp. Nhật ký cập nhật mới nhất từ thực địa.",
   alternates: { canonical: PAGE_URL },
   keywords: [
     "tiến độ Mega City 2",
@@ -35,9 +39,9 @@ export const metadata: Metadata = {
     "Mega City 2 Đồng Nai",
   ],
   openGraph: {
-    title: "Tiến độ Mega City 2 Nhơn Trạch 2026: Cập nhật mới nhất về hạ tầng và xây dựng",
+    title: "Cập Nhật Tiến Độ Mega City 2 Tháng 9/2026 – Hạ Tầng Đạt ~95%",
     description:
-      "Theo dõi tiến độ Mega City 2 Nhơn Trạch mới nhất năm 2026. Cập nhật tình hình xây dựng, hạ tầng, phân khu và những thay đổi mới nhất của dự án.",
+      "Hạ tầng Mega City 2 đạt ~95%, đường nhựa và điện nước hoàn thiện, 110 GCN đã cấp. Nhật ký tiến độ thực địa tháng 9/2026.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -53,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tiến độ Mega City 2 Nhơn Trạch 2026: Cập nhật mới nhất",
+    title: "Cập Nhật Tiến Độ Mega City 2 Tháng 9/2026 – Hạ Tầng ~95%",
     description:
-      "Cập nhật tình hình xây dựng, hạ tầng và hình ảnh thực tế mới nhất của Mega City 2 Nhơn Trạch tháng 08/2026.",
+      "Đường nhựa và điện nước hoàn thiện, 110 GCN đã cấp. Xem nhật ký tiến độ thực địa mới nhất tháng 9/2026.",
     images: [NEWS5["1"]],
   },
 };

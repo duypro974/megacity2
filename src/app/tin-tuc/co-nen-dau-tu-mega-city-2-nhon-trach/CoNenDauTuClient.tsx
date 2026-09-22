@@ -32,6 +32,50 @@ const priceRows = [
   { type: "Biệt thự V", price: "Từ 2,1 tỷ" },
 ];
 
+// ── Investor-angle data ──────────────────────────────────────
+const rentalRows = [
+  { type: "Nhà phố T (đường lớn)", monthly: "6–12 triệu/tháng", annual: "72–144 triệu/năm", yield: "~4–7%*" },
+  { type: "Nhà phố T (nội khu)", monthly: "3–6 triệu/tháng", annual: "36–72 triệu/năm", yield: "~3–5%*" },
+  { type: "Nhà phố TH (liền kề)", monthly: "3–5 triệu/tháng", annual: "36–60 triệu/năm", yield: "~3–4%*" },
+];
+
+const liquidityFactors = [
+  { icon: "✅", label: "Pháp lý rõ ràng", desc: "QĐ 1772/QĐ-UBND chấp thuận 2.421 lô phân lô bán nền. 110 GCN đã cấp — dễ dàng giao dịch ngân hàng và công chứng." },
+  { icon: "✅", label: "Hạ tầng hoàn thiện ~95%", desc: "Đường nhựa, điện, nước đã có — người mua có thể tham quan thực tế trước khi xuống tiền, giảm tâm lý ngại ngần." },
+  { icon: "✅", label: "Nhu cầu thuê từ KCN", desc: "6 khu công nghiệp Nhơn Trạch (KCN 1–6) trong bán kính 5–10 km tạo nguồn khách thuê ổn định từ kỹ sư, chuyên gia." },
+  { icon: "⚠️", label: "Thị trường đang phục hồi", desc: "Nhơn Trạch trải qua giai đoạn trầm lắng 2022–2024. Thanh khoản đang cải thiện nhưng chưa ở mức đỉnh — phù hợp nắm giữ trung-dài hạn hơn lướt sóng ngắn." },
+  { icon: "⚠️", label: "Phụ thuộc tiến độ hạ tầng vùng", desc: "Giá trị dài hạn liên quan mật thiết đến cầu Nhơn Trạch và sân bay Long Thành — hai công trình đang triển khai, chưa hoàn thành." },
+];
+
+const priceGrowthContext = [
+  { year: "2019–2021", note: "Giá đất Nhơn Trạch tăng mạnh theo sóng hạ tầng, một số khu vực tăng 2–3× so với 2019." },
+  { year: "2022–2024", note: "Thị trường điều chỉnh, thanh khoản giảm, giá một số phân khu giảm 15–25% so với đỉnh 2022." },
+  { year: "2025–nay", note: "Pháp lý được cải thiện (QĐ 1772 tháng 5/2025), hạ tầng hoàn thiện — tín hiệu phục hồi rõ hơn." },
+];
+
+const investProfiles = [
+  {
+    profile: "Đầu tư dài hạn (3–5 năm+)",
+    suitability: "Cao",
+    reason: "Hưởng lợi từ cầu Nhơn Trạch, sân bay Long Thành hoàn thành. Đất thổ cư có sổ hồng hưởng giá trị tăng trưởng dài hạn.",
+  },
+  {
+    profile: "Đầu tư cho thuê",
+    suitability: "Trung bình",
+    reason: "Lợi suất cho thuê thô ước 3–7%/năm tùy vị trí. Cần xây nhà hoặc thuê nhà xây sẵn — phát sinh chi phí ban đầu.",
+  },
+  {
+    profile: "Lướt sóng ngắn hạn (< 1 năm)",
+    suitability: "Thấp",
+    reason: "Thị trường Nhơn Trạch chưa đủ thanh khoản để lướt sóng nhanh. Chi phí giao dịch (thuế + phí) ~2–3% làm bào mòn biên lợi nhuận.",
+  },
+  {
+    profile: "Mua đất chờ hạ tầng",
+    suitability: "Trung bình",
+    reason: "Phụ thuộc vào tiến độ cầu Nhơn Trạch và sân bay. Rủi ro nếu hạ tầng chậm so với kỳ vọng.",
+  },
+];
+
 const overviewRows = [
   { label: "Tên dự án",        value: "Mega City 2" },
   { label: "Vị trí",           value: "Nhơn Trạch – Đồng Nai" },
@@ -383,6 +427,136 @@ export default function CoNenDauTuClient() {
                 images={images} index={3} onOpen={openLightbox}
               />
 
+              {/* ── Section: Tiềm năng cho thuê ── */}
+              <section className="mb-14">
+                <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-2 pb-4 border-b-2 border-amber-400">
+                  Tiềm năng cho thuê và lợi suất ước tính
+                </h2>
+                <div className="pt-6 space-y-5">
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Với 6 khu công nghiệp Nhơn Trạch trong bán kính 5–10 km, nhu cầu thuê nhà từ kỹ sư, quản lý và chuyên gia nước ngoài là yếu tố hỗ trợ dòng tiền cho nhà đầu tư. Bảng dưới đây là ước tính tham khảo theo thị trường 2026:
+                  </p>
+                  <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <div className="bg-slate-900 px-6 py-4">
+                      <p className="text-white font-black text-sm uppercase tracking-wider">Ước tính lợi suất cho thuê (tham khảo)</p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-slate-50 border-b border-slate-200">
+                            <th className="text-left px-5 py-3 text-xs font-bold text-slate-500 uppercase">Loại sản phẩm</th>
+                            <th className="text-left px-5 py-3 text-xs font-bold text-slate-500 uppercase">Thuê/tháng</th>
+                            <th className="text-left px-5 py-3 text-xs font-bold text-slate-500 uppercase">Doanh thu/năm</th>
+                            <th className="text-left px-5 py-3 text-xs font-bold text-slate-500 uppercase">Lợi suất thô*</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                          {rentalRows.map((row, i) => (
+                            <tr key={row.type} className={i % 2 === 0 ? "bg-white" : "bg-slate-50/60"}>
+                              <td className="px-5 py-4 font-semibold text-slate-700 text-sm">{row.type}</td>
+                              <td className="px-5 py-4 text-slate-600 text-sm">{row.monthly}</td>
+                              <td className="px-5 py-4 text-slate-600 text-sm">{row.annual}</td>
+                              <td className="px-5 py-4 font-black text-amber-600">{row.yield}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div className="rounded-xl bg-amber-50 border border-amber-200 px-6 py-4 text-xs text-amber-800 flex gap-3">
+                    <span className="text-base leading-tight mt-0.5 shrink-0">⚠️</span>
+                    <p>* Lợi suất thô = doanh thu cho thuê / giá vốn mua đất (chưa tính chi phí xây nhà, quản lý, trống phòng và thuế). Lợi suất thực tế thường thấp hơn. Số liệu mang tính tham khảo, không phải cam kết lợi nhuận.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* ── Section: Thanh khoản ── */}
+              <section className="mb-14">
+                <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-2 pb-4 border-b-2 border-amber-400">
+                  Đánh giá thanh khoản – điểm mạnh và điểm cần lưu ý
+                </h2>
+                <div className="pt-6 space-y-4">
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Thanh khoản là khả năng mua lại hoặc bán ra tài sản khi cần. Với Mega City 2, có cả yếu tố hỗ trợ lẫn cản trở thanh khoản:
+                  </p>
+                  <div className="grid gap-3">
+                    {liquidityFactors.map((f) => (
+                      <div key={f.label} className={`rounded-xl border p-4 flex items-start gap-3 ${f.icon === "✅" ? "border-emerald-200 bg-emerald-50" : "border-amber-200 bg-amber-50"}`}>
+                        <span className="text-lg shrink-0">{f.icon}</span>
+                        <div>
+                          <p className={`font-bold text-sm mb-1 ${f.icon === "✅" ? "text-emerald-800" : "text-amber-800"}`}>{f.label}</p>
+                          <p className={`text-xs leading-relaxed ${f.icon === "✅" ? "text-emerald-700" : "text-amber-700"}`}>{f.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* ── Section: Bối cảnh giá & Hồ sơ nhà đầu tư ── */}
+              <section className="mb-14">
+                <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-2 pb-4 border-b-2 border-amber-400">
+                  Bối cảnh thị trường và profile nhà đầu tư phù hợp
+                </h2>
+                <div className="pt-6 space-y-7">
+                  <div>
+                    <h3 className="text-lg font-black text-slate-800 mb-3">Diễn biến giá đất Nhơn Trạch</h3>
+                    <div className="space-y-3">
+                      {priceGrowthContext.map((item) => (
+                        <div key={item.year} className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-4">
+                          <div className="w-28 shrink-0 rounded-lg bg-slate-800 text-white text-xs font-black px-3 py-2 text-center leading-tight">{item.year}</div>
+                          <p className="text-slate-600 text-sm leading-relaxed">{item.note}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-slate-400 mt-3 italic">* Số liệu tổng hợp từ nguồn thị trường, mang tính tham khảo.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-black text-slate-800 mb-3">Mega City 2 phù hợp với hồ sơ đầu tư nào?</h3>
+                    <div className="rounded-2xl border border-slate-200 overflow-hidden">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-slate-50 border-b border-slate-200">
+                            <th className="text-left px-5 py-3 text-xs font-bold text-slate-500 uppercase">Hồ sơ đầu tư</th>
+                            <th className="text-center px-4 py-3 text-xs font-bold text-slate-500 uppercase">Phù hợp</th>
+                            <th className="text-left px-5 py-3 text-xs font-bold text-slate-500 uppercase">Lý do</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                          {investProfiles.map((row, i) => (
+                            <tr key={row.profile} className={i % 2 === 0 ? "bg-white" : "bg-slate-50/60"}>
+                              <td className="px-5 py-4 font-semibold text-slate-700 text-xs">{row.profile}</td>
+                              <td className="px-4 py-4 text-center">
+                                <span className={`inline-block text-xs font-black px-2.5 py-1 rounded-full ${
+                                  row.suitability === "Cao" ? "bg-emerald-100 text-emerald-700" :
+                                  row.suitability === "Thấp" ? "bg-red-100 text-red-700" :
+                                  "bg-amber-100 text-amber-700"
+                                }`}>{row.suitability}</span>
+                              </td>
+                              <td className="px-5 py-4 text-slate-500 text-xs leading-relaxed">{row.reason}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* ── Cross-link: An cư ── */}
+              <div className="mb-14 rounded-2xl border-2 border-slate-200 bg-slate-50 p-6">
+                <p className="text-xs font-black text-slate-400 uppercase tracking-wider mb-3">📖 Bài viết liên quan</p>
+                <p className="font-bold text-slate-800 text-base mb-2">Bạn đang muốn mua để ở thay vì đầu tư?</p>
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                  Góc nhìn về an cư tại Mega City 2 có nhiều điểm khác với góc nhìn đầu tư — từ tiêu chí trường học, tiện ích dân sinh, thời gian đi làm đến môi trường sống thực tế.
+                </p>
+                <a href="/tin-tuc/mega-city-2-co-phu-hop-de-o"
+                  className="inline-flex items-center gap-2 bg-white border border-slate-300 text-slate-700 font-bold text-sm px-5 py-2.5 rounded-xl hover:border-amber-400 hover:text-amber-700 transition-all">
+                  Mega City 2 có phù hợp để ở không? →
+                </a>
+              </div>
+
               {/* ── Section: Rủi ro ── */}
               <section className="mb-14">
                 <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-2 pb-4 border-b-2 border-amber-400">
@@ -534,6 +708,12 @@ export default function CoNenDauTuClient() {
         <RelatedContent
           items={[
             {
+              href: "/tin-tuc/mega-city-2-co-phu-hop-de-o",
+              title: "Mega City 2 có phù hợp để ở không?",
+              description: "Phân tích góc an cư: tiện ích dân sinh, trường học, thời gian đi làm và môi trường sống.",
+              tag: "An cư",
+            },
+            {
               href: "/mega-city-2",
               title: "Tổng quan Mega City 2 Nhơn Trạch",
               description: "Thông tin tổng hợp về dự án: quy mô, chủ đầu tư và pháp lý.",
@@ -556,12 +736,6 @@ export default function CoNenDauTuClient() {
               title: "Pháp lý – QĐ 1772",
               description: "Tình trạng pháp lý và điều kiện giao dịch.",
               tag: "Pháp lý",
-            },
-            {
-              href: "/mega-city-2/tien-ich",
-              title: "Tiện ích nội khu",
-              description: "Các tiện ích được quy hoạch trong khu dân cư.",
-              tag: "Tiện ích",
             },
             {
               href: "/mega-city-2/faq",

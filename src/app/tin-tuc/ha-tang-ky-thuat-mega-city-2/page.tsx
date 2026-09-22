@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -748,8 +748,8 @@ export default function HaTangKyThuatMegaCity2Page() {
                   {[
                     { href: "/mega-city-2",                                   label: "Mega City 2 Nhơn Trạch — Tổng quan dự án" },
                     { href: "/tin-tuc/tien-do-mega-city-2",                   label: "Tiến độ Mega City 2 mới nhất" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",         label: "Bảng giá Mega City 2 mới nhất" },
-                    { href: "/tin-tuc/phap-ly-mega-city-2",                   label: "Pháp lý dự án Mega City 2" },
+                    { href: "/mega-city-2/bang-gia",         label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/phap-ly",                   label: "Pháp lý dự án Mega City 2" },
                     { href: "/tin-tuc/checklist-nhan-nen-mega-city-2",        label: "Checklist nhận nền Mega City 2" },
                     { href: "/tin-tuc/chi-phi-xay-nha-mega-city-2",           label: "Chi phí xây nhà Mega City 2" },
                     { href: "/mega-city-2/mat-bang",                          label: "Mặt bằng Mega City 2" },
@@ -835,7 +835,7 @@ export default function HaTangKyThuatMegaCity2Page() {
                       { label: "Checklist nhận nền Mega City 2",  href: "/tin-tuc/checklist-nhan-nen-mega-city-2" },
                       { label: "Chi phí xây nhà Mega City 2",     href: "/tin-tuc/chi-phi-xay-nha-mega-city-2" },
                       { label: "Tiến độ Mega City 2 2026",        href: "/tin-tuc/tien-do-mega-city-2" },
-                      { label: "Pháp lý dự án Mega City 2",       href: "/tin-tuc/phap-ly-mega-city-2" },
+                      { label: "Pháp lý dự án Mega City 2",       href: "/mega-city-2/phap-ly" },
                     ].map((l) => (
                       <a
                         key={l.href}

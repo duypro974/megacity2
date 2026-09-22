@@ -596,9 +596,9 @@ export default function HeSinhThaiBDSKimOanhGroupPage() {
                     sâu:
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <LinkBtn href="/tin-tuc/bang-gia-mega-city-2-moi-nhat">Bảng giá Mega City 2 →</LinkBtn>
+                    <LinkBtn href="/mega-city-2/bang-gia">Bảng giá Mega City 2 →</LinkBtn>
                     <LinkBtn href="/tin-tuc/vi-tri-mega-city-2-o-dau">Vị trí Mega City 2 ở đâu? →</LinkBtn>
-                    <LinkBtn href="/tin-tuc/phap-ly-mega-city-2">Pháp lý Mega City 2 →</LinkBtn>
+                    <LinkBtn href="/mega-city-2/phap-ly">Pháp lý Mega City 2 →</LinkBtn>
                     <LinkBtn href="/tin-tuc/tien-do-mega-city-2">Tiến độ Mega City 2 →</LinkBtn>
                     <LinkBtn href="/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach">Có nên đầu tư Mega City 2? →</LinkBtn>
                   </div>
@@ -676,8 +676,8 @@ export default function HeSinhThaiBDSKimOanhGroupPage() {
                     {[
                       { label: "Lịch sử Kim Oanh Group",   href: "/tin-tuc/lich-su-phat-trien-kim-oanh-group" },
                       { label: "Mega City 2 Nhơn Trạch",   href: "/mega-city-2" },
-                      { label: "Bảng giá Mega City 2",     href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat" },
-                      { label: "Pháp lý Mega City 2",      href: "/tin-tuc/phap-ly-mega-city-2" },
+                      { label: "Bảng giá Mega City 2",     href: "/mega-city-2/bang-gia" },
+                      { label: "Pháp lý Mega City 2",      href: "/mega-city-2/phap-ly" },
                       { label: "Tiến độ Mega City 2",      href: "/tin-tuc/tien-do-mega-city-2" },
                       { label: "Có nên đầu tư Mega City 2?", href: "/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach" },
                       { label: "Thị trường BĐS Nhơn Trạch", href: "/tin-tuc/thi-truong-bat-dong-san-nhon-trach-2026" },
@@ -708,8 +708,8 @@ export default function HeSinhThaiBDSKimOanhGroupPage() {
             { href: "/mega-city-2", title: "Tổng quan Mega City 2 Nhơn Trạch", description: "Thông tin tổng hợp về dự án: quy mô, sản phẩm, pháp lý và bảng giá.", tag: "Dự án" },
             { href: "/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach", title: "Có nên đầu tư Mega City 2 năm 2026?", description: "Phân tích tiềm năng đầu tư dựa trên vị trí, pháp lý và bảng giá.", tag: "Phân tích" },
             { href: "/tin-tuc/thi-truong-bat-dong-san-nhon-trach-2026", title: "Thị trường BĐS Nhơn Trạch 2026", description: "Cập nhật giá đất, quy hoạch, hạ tầng và tiềm năng đầu tư Nhơn Trạch.", tag: "Thị trường" },
-            { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat", title: "Bảng giá Mega City 2 mới nhất", description: "Giá tham khảo từng loại sản phẩm và những yếu tố ảnh hưởng đến giá.", tag: "Bảng giá" },
-            { href: "/tin-tuc/phap-ly-mega-city-2", title: "Pháp lý Mega City 2 Nhơn Trạch", description: "Cập nhật thông tin quy hoạch, quyết định phê duyệt và hồ sơ dự án.", tag: "Pháp lý" },
+            { href: "/mega-city-2/bang-gia", title: "Bảng giá Mega City 2 mới nhất", description: "Giá tham khảo từng loại sản phẩm và những yếu tố ảnh hưởng đến giá.", tag: "Bảng giá" },
+            { href: "/mega-city-2/phap-ly", title: "Pháp lý Mega City 2 Nhơn Trạch", description: "Cập nhật thông tin quy hoạch, quyết định phê duyệt và hồ sơ dự án.", tag: "Pháp lý" },
           ]}
         />
       </div>

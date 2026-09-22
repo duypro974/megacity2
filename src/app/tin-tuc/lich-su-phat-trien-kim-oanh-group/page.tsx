@@ -291,8 +291,8 @@ export default function LichSuKimOanhGroupPage() {
         <RelatedContent title="Bài viết liên quan" items={[
           { href: "/mega-city-2",                          title: "Mega City 2 Nhơn Trạch – Tổng quan dự án",    description: "Thông tin đầy đủ về quy mô, pháp lý, hạ tầng và bảng giá dự án.", tag: "Dự án" },
           { href: "/tin-tuc/5-ly-do-nen-dau-tu-mega-city-2", title: "5 Lý Do Nên Đầu Tư Mega City 2 2026",       description: "Phân tích vị trí, hạ tầng, tiện ích và tiềm năng dài hạn.", tag: "Phân tích" },
-          { href: "/tin-tuc/phap-ly-mega-city-2",          title: "Pháp lý Mega City 2 – QĐ 1772/QĐ-UBND",      description: "Chi tiết pháp lý và điều kiện giao dịch tại dự án Mega City 2.", tag: "Pháp lý" },
-          { href: "/tin-tuc/gia-dat-nhon-trach-2026",       title: "Giá đất Nhơn Trạch 2026 mới nhất",           description: "Bảng giá, thị trường và các khu vực tiềm năng tại Nhơn Trạch.", tag: "Thị trường" },
+          { href: "/mega-city-2/phap-ly",                    title: "Pháp lý Mega City 2 – QĐ 1772/QĐ-UBND",      description: "Chi tiết pháp lý và điều kiện giao dịch tại dự án Mega City 2.", tag: "Pháp lý" },
+          { href: "/tin-tuc/gia-dat-nhon-trach-2026",        title: "Giá đất Nhơn Trạch 2026 mới nhất",           description: "Bảng giá, thị trường và các khu vực tiềm năng tại Nhơn Trạch.", tag: "Thị trường" },
         ]} />
       </div>
       <CorpFooter />

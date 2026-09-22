@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -380,7 +380,7 @@ export default function ThuTucChuyenNhuongMegaCity2Page() {
                   </div>
 
                   <div className="flex flex-wrap gap-3">
-                    <LinkBtn href="/tin-tuc/phap-ly-mega-city-2">
+                    <LinkBtn href="/mega-city-2/phap-ly">
                       Pháp lý dự án Mega City 2 Nhơn Trạch →
                     </LinkBtn>
                     <LinkBtn href="/mega-city-2/phap-ly">
@@ -567,7 +567,7 @@ export default function ThuTucChuyenNhuongMegaCity2Page() {
                   </InfoBox>
 
                   <div className="flex flex-wrap gap-3">
-                    <LinkBtn href="/tin-tuc/bang-gia-mega-city-2-moi-nhat">
+                    <LinkBtn href="/mega-city-2/bang-gia">
                       Bảng giá Mega City 2 Nhơn Trạch mới nhất →
                     </LinkBtn>
                   </div>
@@ -652,8 +652,8 @@ export default function ThuTucChuyenNhuongMegaCity2Page() {
                 <div className="pt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { href: "/mega-city-2",                                    label: "Mega City 2 Nhơn Trạch — Tổng quan dự án" },
-                    { href: "/tin-tuc/phap-ly-mega-city-2",                    label: "Pháp lý dự án Mega City 2" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",          label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/phap-ly",                    label: "Pháp lý dự án Mega City 2" },
+                    { href: "/mega-city-2/bang-gia",          label: "Bảng giá Mega City 2 mới nhất" },
                     { href: "/tin-tuc/tien-do-mega-city-2",                    label: "Tiến độ Mega City 2 mới nhất" },
                     { href: "/tin-tuc/ha-tang-ky-thuat-mega-city-2",           label: "Hạ tầng kỹ thuật Mega City 2" },
                     { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",label: "Mặt bằng phân lô Mega City 2" },
@@ -735,9 +735,9 @@ export default function ThuTucChuyenNhuongMegaCity2Page() {
                   <p className="font-bold text-slate-800 text-sm mb-3">Bài viết liên quan</p>
                   <div className="space-y-3">
                     {[
-                      { label: "Pháp lý dự án Mega City 2",       href: "/tin-tuc/phap-ly-mega-city-2" },
+                      { label: "Pháp lý dự án Mega City 2",       href: "/mega-city-2/phap-ly" },
                       { label: "Checklist nhận nền Mega City 2",   href: "/tin-tuc/checklist-nhan-nen-mega-city-2" },
-                      { label: "Bảng giá Mega City 2 mới nhất",    href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat" },
+                      { label: "Bảng giá Mega City 2 mới nhất",    href: "/mega-city-2/bang-gia" },
                       { label: "Quy cách xây dựng Mega City 2",    href: "/tin-tuc/quy-cach-xay-dung-mega-city-2" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-amber-600 transition-colors">
@@ -795,7 +795,7 @@ export default function ThuTucChuyenNhuongMegaCity2Page() {
           title="Bài viết liên quan"
           items={[
             {
-              href: "/tin-tuc/phap-ly-mega-city-2",
+              href: "/mega-city-2/phap-ly",
               title: "Pháp Lý Dự Án Mega City 2 Nhơn Trạch Có Gì?",
               description: "Cập nhật quyết định phê duyệt, hồ sơ dự án và những điều cần kiểm tra.",
               tag: "Tin dự án",

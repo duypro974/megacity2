@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -592,7 +592,7 @@ export default function ShophouseMegaCity2Page() {
                   </InfoBox>
 
                   <div className="flex flex-wrap gap-3">
-                    <LinkBtn href="/tin-tuc/bang-gia-mega-city-2-moi-nhat">
+                    <LinkBtn href="/mega-city-2/bang-gia">
                       Bảng giá Mega City 2 Nhơn Trạch mới nhất →
                     </LinkBtn>
                   </div>
@@ -628,7 +628,7 @@ export default function ShophouseMegaCity2Page() {
                     <LinkBtn href="/tin-tuc/thu-tuc-chuyen-nhuong-mega-city-2">
                       Thủ tục sang tên & chuyển nhượng đất nền Mega City 2 →
                     </LinkBtn>
-                    <LinkBtn href="/tin-tuc/phap-ly-mega-city-2">
+                    <LinkBtn href="/mega-city-2/phap-ly">
                       Pháp lý dự án Mega City 2 →
                     </LinkBtn>
                   </div>
@@ -666,7 +666,7 @@ export default function ShophouseMegaCity2Page() {
                     { href: "/tin-tuc/tien-ich-ngoai-khu-mega-city-2",                          label: "Tiện ích ngoại khu Mega City 2" },
                     { href: "/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",   label: "Kết nối Mega City 2 và KCN Nhơn Trạch" },
                     { href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2",                       label: "Đường đi từ TP.HCM đến Mega City 2" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",                           label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/bang-gia",                           label: "Bảng giá Mega City 2 mới nhất" },
                     { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",                 label: "Mặt bằng phân lô Mega City 2" },
                     { href: "/tin-tuc/quy-cach-xay-dung-mega-city-2",                           label: "Quy cách xây dựng Mega City 2" },
                   ].map((l) => (
@@ -748,7 +748,7 @@ export default function ShophouseMegaCity2Page() {
                       { label: "Biệt thự & nhà vườn Mega City 2",   href: "/tin-tuc/dat-nen-nha-vuon-biet-thu-mega-city-2" },
                       { label: "Kết nối Mega City 2 và KCN",         href: "/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach" },
                       { label: "Quy cách xây dựng Mega City 2",      href: "/tin-tuc/quy-cach-xay-dung-mega-city-2" },
-                      { label: "Bảng giá Mega City 2 mới nhất",      href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat" },
+                      { label: "Bảng giá Mega City 2 mới nhất",      href: "/mega-city-2/bang-gia" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-amber-600 transition-colors">
                         → {l.label}

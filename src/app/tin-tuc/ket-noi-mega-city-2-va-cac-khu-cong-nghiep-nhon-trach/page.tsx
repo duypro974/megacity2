@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -635,7 +635,7 @@ export default function KetNoiMegaCity2KCNPage() {
                     { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",label: "Mặt bằng phân lô Mega City 2" },
                     { href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2",      label: "Đường đi từ TP.HCM đến Mega City 2" },
                     { href: "/tin-tuc/thu-tuc-chuyen-nhuong-mega-city-2",      label: "Thủ tục chuyển nhượng Mega City 2" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",          label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/bang-gia",          label: "Bảng giá Mega City 2 mới nhất" },
                     { href: "/tin-tuc/chi-phi-xay-nha-mega-city-2",            label: "Chi phí xây nhà Mega City 2" },
                     { href: "/tin-tuc/ha-tang-ky-thuat-mega-city-2",           label: "Hạ tầng kỹ thuật Mega City 2" },
                     { href: "/tin-tuc/quy-cach-xay-dung-mega-city-2",          label: "Quy cách xây dựng Mega City 2" },
@@ -718,7 +718,7 @@ export default function KetNoiMegaCity2KCNPage() {
                       { label: "Đường đi từ TP.HCM đến Mega City 2", href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2" },
                       { label: "Chi phí xây nhà Mega City 2",         href: "/tin-tuc/chi-phi-xay-nha-mega-city-2" },
                       { label: "Quy cách xây dựng Mega City 2",       href: "/tin-tuc/quy-cach-xay-dung-mega-city-2" },
-                      { label: "Bảng giá Mega City 2 mới nhất",       href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat" },
+                      { label: "Bảng giá Mega City 2 mới nhất",       href: "/mega-city-2/bang-gia" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-amber-600 transition-colors">
                         → {l.label}

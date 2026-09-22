@@ -3,21 +3,26 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 
 export const metadata: Metadata = {
-  title: "Mega City 2 Nhơn Trạch 2026: Giá Từ 1,15 Tỷ & Pháp Lý 1772",
+  // SEO update 2026-09-22: strengthen brand keyword signals
+  // Targets: "mega city 2 nhơn trạch", "dự án mega city 2", "bán mega city 2", "khu đô thị mega city 2"
+  title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ 09/2026",
   description:
-    "Dự án Mega City 2 Nhơn Trạch quy mô 84ha. Đã có quyết định 2.421 lô phân lô theo QĐ 1772/QĐ-UBND. Cập nhật bảng giá bán đất nền và tiến độ mới nhất tháng 09/2026.",
+    "Thông tin dự án Mega City 2 Nhơn Trạch: quy mô 84 ha, 2.421 lô phân lô theo QĐ 1772/QĐ-UBND. Bảng giá đất nền từ 1,15 tỷ, hạ tầng ~95%, 110 GCN đã cấp. Liên hệ tư vấn mua bán Mega City 2: 0937.587.438.",
   keywords: [
     "Mega City 2",
     "Mega City 2 Nhơn Trạch",
-    "Dự án Mega City 2",
-    "Khu đô thị Mega City 2",
+    "dự án Mega City 2",
+    "khu đô thị Mega City 2",
+    "bán Mega City 2",
+    "mua Mega City 2",
     "bảng giá Mega City 2",
+    "đất nền Mega City 2 Nhơn Trạch",
   ],
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2" },
   openGraph: {
-    title: "Mega City 2 Nhơn Trạch 2026: Giá Từ 1,15 Tỷ & Pháp Lý 1772",
+    title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ 09/2026",
     description:
-      "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Giá từ 1,15 tỷ/nền.",
+      "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Giá từ 1,15 tỷ/nền. Tư vấn mua bán: 0937.587.438.",
     type: "website",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -32,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mega City 2 Nhơn Trạch 2026: Giá Từ 1,15 Tỷ & Pháp Lý 1772",
+    title: "Dự Án Mega City 2 Nhơn Trạch – Giá Từ 1,15 Tỷ | Pháp Lý QĐ 1772 | 09/2026",
     description:
-      "2.421 lô phân lô bán nền, hạ tầng ~95%, giá từ 1,15 tỷ/nền. QĐ 1772/QĐ-UBND ngày 30/5/2025.",
+      "84 ha, 2.421 lô phân lô bán nền, hạ tầng ~95%, giá từ 1,15 tỷ/nền. QĐ 1772/QĐ-UBND ngày 30/5/2025. Tư vấn: 0937.587.438.",
     images: [
       "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
     ],

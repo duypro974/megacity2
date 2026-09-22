@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -659,7 +659,7 @@ export default function TienIchNgoaiKhuMegaCity2Page() {
                     { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",                 label: "Mặt bằng phân lô Mega City 2" },
                     { href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2",                       label: "Đường đi từ TP.HCM đến Mega City 2" },
                     { href: "/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",   label: "Kết nối Mega City 2 và KCN Nhơn Trạch" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",                           label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/bang-gia",                           label: "Bảng giá Mega City 2 mới nhất" },
                     { href: "/tin-tuc/vi-tri-mega-city-2-o-dau",                                label: "Vị trí Mega City 2 ở đâu?" },
                     { href: "/tin-tuc/ha-tang-ky-thuat-mega-city-2",                            label: "Hạ tầng kỹ thuật Mega City 2" },
                     { href: "/tin-tuc/mega-city-2-co-phu-hop-de-o",                             label: "Mega City 2 có phù hợp để ở không?" },
@@ -737,7 +737,7 @@ export default function TienIchNgoaiKhuMegaCity2Page() {
                       { label: "Mega City 2 có phù hợp để ở?",        href: "/tin-tuc/mega-city-2-co-phu-hop-de-o" },
                       { label: "Kết nối Mega City 2 và KCN",           href: "/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach" },
                       { label: "Đường đi từ TP.HCM đến Mega City 2",  href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2" },
-                      { label: "Bảng giá Mega City 2 mới nhất",        href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat" },
+                      { label: "Bảng giá Mega City 2 mới nhất",        href: "/mega-city-2/bang-gia" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-amber-600 transition-colors">
                         → {l.label}

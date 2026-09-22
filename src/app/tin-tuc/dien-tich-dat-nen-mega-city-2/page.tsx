@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -612,7 +612,7 @@ export default function DienTichDatNenMegaCity2Page() {
                       <a href="/mega-city-2" className="inline-flex items-center gap-1.5 bg-white border border-blue-300 text-blue-700 font-bold text-sm px-4 py-2 rounded-xl hover:bg-blue-50 transition-all">
                         🏙️ Xem thông tin Mega City 2 Nhơn Trạch →
                       </a>
-                      <a href="/tin-tuc/bang-gia-mega-city-2-moi-nhat" className="inline-flex items-center gap-1.5 bg-white border border-blue-300 text-blue-700 font-bold text-sm px-4 py-2 rounded-xl hover:bg-blue-50 transition-all">
+                      <a href="/mega-city-2/bang-gia" className="inline-flex items-center gap-1.5 bg-white border border-blue-300 text-blue-700 font-bold text-sm px-4 py-2 rounded-xl hover:bg-blue-50 transition-all">
                         💰 Bảng giá mới nhất →
                       </a>
                     </div>
@@ -658,10 +658,10 @@ export default function DienTichDatNenMegaCity2Page() {
                   <p className="font-bold text-slate-700 text-sm mb-3 uppercase tracking-wider">Bài viết liên quan</p>
                   <ul className="space-y-2">
                     {[
-                      { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat", label: "Bảng giá Mega City 2 mới nhất" },
+                      { href: "/mega-city-2/bang-gia", label: "Bảng giá Mega City 2 mới nhất" },
                       { href: "/tin-tuc/chi-phi-xay-nha-mega-city-2", label: "Chi phí xây nhà tại Mega City 2" },
                       { href: "/tin-tuc/checklist-nhan-nen-mega-city-2", label: "Checklist nhận nền Mega City 2" },
-                      { href: "/tin-tuc/phap-ly-mega-city-2", label: "Pháp lý dự án Mega City 2" },
+                      { href: "/mega-city-2/phap-ly", label: "Pháp lý dự án Mega City 2" },
                       { href: "/tin-tuc/tien-do-mega-city-2", label: "Tiến độ Mega City 2 mới nhất" },
                     ].map(({ href, label }) => (
                       <li key={href}>
@@ -690,7 +690,7 @@ export default function DienTichDatNenMegaCity2Page() {
               tag: "Dự án",
             },
             {
-              href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+              href: "/mega-city-2/bang-gia",
               title: "Bảng giá Mega City 2 Nhơn Trạch mới nhất",
               description: "Cập nhật bảng giá chi tiết từng phân khu, từng loại diện tích và chính sách thanh toán linh hoạt.",
               tag: "Bảng giá",

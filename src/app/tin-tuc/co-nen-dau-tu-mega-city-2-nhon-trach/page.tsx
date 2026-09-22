@@ -21,21 +21,22 @@ const PUBLISHED_ISO = "2026-08-13";
 // Metadata
 // ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
+  title: "Có Nên Đầu Tư Mega City 2 Nhơn Trạch 2026? Lợi Suất, Thanh Khoản & Rủi Ro",
   description:
-    "Đánh giá tiềm năng đầu tư Mega City 2 Nhơn Trạch năm 2026 dựa trên vị trí, pháp lý, hạ tầng, bảng giá và khả năng tăng trưởng.",
+    "Phân tích đầu tư Mega City 2 Nhơn Trạch 2026: lợi suất cho thuê 3–7%/năm, 2.421 lô đã có pháp lý QĐ 1772, bối cảnh giá thị trường 2019–2026 và profile nhà đầu tư phù hợp.",
   alternates: { canonical: PAGE_URL },
   keywords: [
     "đầu tư Mega City 2",
-    "Mega City 2 Nhơn Trạch",
-    "có nên mua Mega City 2",
-    "giá đất Mega City 2",
-    "đất nền Nhơn Trạch",
+    "lợi suất cho thuê Mega City 2",
+    "tiềm năng tăng giá Mega City 2",
+    "thanh khoản đất nền Nhơn Trạch",
+    "có nên mua Mega City 2 để đầu tư",
+    "dòng tiền bất động sản Nhơn Trạch",
   ],
   openGraph: {
-    title: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026?",
+    title: "Có Nên Đầu Tư Mega City 2 Nhơn Trạch 2026? Lợi Suất, Thanh Khoản & Rủi Ro",
     description:
-      "Đánh giá tiềm năng đầu tư Mega City 2 Nhơn Trạch năm 2026 dựa trên vị trí, pháp lý, hạ tầng và bảng giá.",
+      "Lợi suất cho thuê 3–7%/năm, pháp lý QĐ 1772 rõ ràng, 110 GCN đã cấp. Phân tích dành riêng cho nhà đầu tư — không phải góc mua để ở.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -51,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026?",
-    description: "Phân tích chi tiết tiềm năng đầu tư Mega City 2 Nhơn Trạch 2026.",
+    title: "Có Nên Đầu Tư Mega City 2 Nhơn Trạch 2026?",
+    description: "Lợi suất cho thuê, thanh khoản, bối cảnh giá và profile phù hợp — phân tích từ góc nhà đầu tư.",
     images: [NEWS1["1"]],
   },
 };
@@ -63,9 +64,9 @@ export const metadata: Metadata = {
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
+  headline: "Có Nên Đầu Tư Mega City 2 Nhơn Trạch 2026? Lợi Suất, Thanh Khoản & Rủi Ro",
   description:
-    "Đánh giá tiềm năng đầu tư Mega City 2 Nhơn Trạch năm 2026 dựa trên vị trí, pháp lý, hạ tầng, bảng giá và khả năng tăng trưởng.",
+    "Phân tích đầu tư Mega City 2 Nhơn Trạch 2026: lợi suất cho thuê 3–7%/năm, 2.421 lô đã có pháp lý QĐ 1772, bối cảnh giá thị trường 2019–2026 và profile nhà đầu tư phù hợp.",
   image: [NEWS1["1"], NEWS1["2"], NEWS1["3"]],
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
   publisher: {
@@ -75,7 +76,7 @@ const articleSchema = {
     logo: { "@type": "ImageObject", url: `${BASE_URL}/KOG_Web_RGB_01.svg` },
   },
   datePublished: PUBLISHED_ISO,
-  dateModified: PUBLISHED_ISO,
+  dateModified: "2026-09-22",
   url: PAGE_URL,
   mainEntityOfPage: { "@type": "WebPage", "@id": PAGE_URL },
   about: {

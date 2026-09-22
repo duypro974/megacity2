@@ -290,6 +290,12 @@ export default function TienDoPage() {
         <RelatedContent
           items={[
             {
+              href: "/tin-tuc/tien-do-mega-city-2",
+              title: "Cập nhật tiến độ Mega City 2 tháng 9/2026",
+              description: "Nhật ký tiến độ thực địa: hình ảnh đường nội khu, điện nước và nhà xây sẵn — cập nhật hàng tháng.",
+              tag: "Cập nhật",
+            },
+            {
               href: "/mega-city-2",
               title: "Tổng quan Mega City 2",
               description: "Thông tin tổng hợp về dự án.",
@@ -312,12 +318,6 @@ export default function TienDoPage() {
               title: "Bảng giá",
               description: "Giá chuyển nhượng tham khảo.",
               tag: "Bảng giá",
-            },
-            {
-              href: "/mega-city-2/mat-bang",
-              title: "Mặt bằng & Sản phẩm",
-              description: "Bản đồ phân lô và loại hình sản phẩm.",
-              tag: "Mặt bằng",
             },
             {
               href: "/mega-city-2/faq",

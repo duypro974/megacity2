@@ -7,22 +7,24 @@ import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
 
 export const metadata: Metadata = {
-  title: "FAQ Mega City 2 – Câu Hỏi Thường Gặp Về Pháp Lý, Giá & Tiến Độ",
+  // SEO update 2026-09-22: CTR fix — trang đang ở vị trí 5.77 nhưng CTR = 0%
+  // Thêm câu hỏi cụ thể + số liệu vào title/description để kích thích click
+  title: "Mega City 2 Có Sổ Hồng Chưa? Giá Bao Nhiêu? – 20+ Câu Hỏi Thường Gặp",
   description:
-    "Giải đáp các câu hỏi thường gặp về dự án Mega City 2 Nhơn Trạch: pháp lý QĐ 1772, giá đất, tiến độ, thanh toán, sổ hồng và thông tin chủ đầu tư.",
+    "Giải đáp 20+ câu hỏi thường gặp về Mega City 2 Nhơn Trạch: sổ hồng đã cấp 110 GCN, giá từ 1,15 tỷ, pháp lý QĐ 1772, đặt cọc 50 triệu, thời hạn xây dựng đến 31/12/2029. Đọc trước khi mua.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2/faq" },
   openGraph: {
-    title: "FAQ Mega City 2 – Câu Hỏi Thường Gặp",
+    title: "Mega City 2 Có Sổ Hồng Chưa? Giá Bao Nhiêu? – 20+ Câu Hỏi Thường Gặp",
     description:
-      "Giải đáp đầy đủ câu hỏi về Mega City 2 Nhơn Trạch: pháp lý, giá, tiến độ, thanh toán, sổ hồng.",
+      "110 GCN đã cấp, giá từ 1,15 tỷ, pháp lý QĐ 1772, đặt cọc 50 triệu. Giải đáp đầy đủ trước khi mua đất Mega City 2.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ Mega City 2 Nhơn Trạch",
-    description: "Giải đáp pháp lý, giá, tiến độ và thanh toán Mega City 2.",
+    title: "Mega City 2 Có Sổ Hồng Chưa? Giá Bao Nhiêu? 20+ Câu Hỏi Thường Gặp",
+    description: "110 GCN đã cấp, giá từ 1,15 tỷ/nền, pháp lý QĐ 1772. Đọc trước khi mua đất Mega City 2.",
   },
 };
 

@@ -687,7 +687,7 @@ export default function PhapLyMegaCity2Page() {
               tag: "Mặt bằng",
             },
             {
-              href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+              href: "/mega-city-2/bang-gia",
               title: "Bảng giá Mega City 2 mới nhất 2026",
               description: "Cập nhật giá tham khảo và yếu tố ảnh hưởng.",
               tag: "Tin tức",

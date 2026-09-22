@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -384,7 +384,7 @@ export default function ChecklistNhanNenMegaCity2Page() {
                     ]}
                   />
                   <div className="flex flex-wrap gap-3 pt-2">
-                    <LinkBtn href="/tin-tuc/phap-ly-mega-city-2">
+                    <LinkBtn href="/mega-city-2/phap-ly">
                       Pháp lý Mega City 2 →
                     </LinkBtn>
                     <LinkBtn href="/tin-tuc/cach-kiem-tra-phap-ly-dat-nen-nhon-trach">
@@ -793,7 +793,7 @@ export default function ChecklistNhanNenMegaCity2Page() {
                   <ul className="space-y-3">
                     {[
                       { href: "/tin-tuc/chi-phi-xay-nha-mega-city-2",              label: "Chi phí xây nhà Mega City 2 2026" },
-                      { href: "/tin-tuc/phap-ly-mega-city-2",                      label: "Pháp lý Mega City 2 mới nhất" },
+                      { href: "/mega-city-2/phap-ly",                      label: "Pháp lý Mega City 2 mới nhất" },
                       { href: "/tin-tuc/tien-do-mega-city-2",                      label: "Tiến độ Mega City 2 tháng 8/2026" },
                       { href: "/tin-tuc/cach-kiem-tra-phap-ly-dat-nen-nhon-trach", label: "Cách kiểm tra pháp lý đất nền" },
                       { href: "/tin-tuc/quy-trinh-mua-dat-nen-nhon-trach",         label: "Quy trình mua đất nền Nhơn Trạch" },
@@ -827,7 +827,7 @@ export default function ChecklistNhanNenMegaCity2Page() {
             tag: "Tin dự án",
           },
           {
-            href: "/tin-tuc/phap-ly-mega-city-2",
+            href: "/mega-city-2/phap-ly",
             title: "Pháp lý Mega City 2 có gì?",
             description: "Cập nhật quy hoạch, quyết định 1772/QĐ-UBND và hồ sơ pháp lý dự án mới nhất 2026.",
             tag: "Pháp lý",

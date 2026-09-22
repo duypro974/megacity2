@@ -665,7 +665,7 @@ export default function ViTriMegaCity2Client() {
               tag: "Phân tích",
             },
             {
-              href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+              href: "/mega-city-2/bang-gia",
               title: "Bảng giá Mega City 2 mới nhất 2026",
               description: "Cập nhật giá tham khảo các loại sản phẩm tại Mega City 2.",
               tag: "Bảng giá",

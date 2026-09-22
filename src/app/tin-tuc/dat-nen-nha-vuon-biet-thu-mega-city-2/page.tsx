@@ -664,7 +664,7 @@ export default function DatNenNhaVuonBietThuPage() {
                     { href: "/tin-tuc/quy-cach-xay-dung-mega-city-2",                           label: "Quy cách xây dựng Mega City 2" },
                     { href: "/tin-tuc/tien-ich-ngoai-khu-mega-city-2",                          label: "Tiện ích ngoại khu Mega City 2" },
                     { href: "/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",   label: "Kết nối Mega City 2 và KCN" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",                           label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/bang-gia",                                             label: "Bảng giá Mega City 2 mới nhất" },
                     { href: "/tin-tuc/thu-tuc-chuyen-nhuong-mega-city-2",                       label: "Thủ tục chuyển nhượng Mega City 2" },
                   ].map((l) => (
                     <a
@@ -747,7 +747,7 @@ export default function DatNenNhaVuonBietThuPage() {
                       { label: "Các loại sản phẩm Mega City 2",   href: "/tin-tuc/mega-city-2-co-nhung-loai-san-pham-nao" },
                       { label: "Mặt bằng phân lô Mega City 2",    href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach" },
                       { label: "Quy cách xây dựng Mega City 2",   href: "/tin-tuc/quy-cach-xay-dung-mega-city-2" },
-                      { label: "Bảng giá Mega City 2 mới nhất",   href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat" },
+                      { label: "Bảng giá Mega City 2 mới nhất",   href: "/mega-city-2/bang-gia" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-amber-600 transition-colors">
                         → {l.label}

@@ -21,9 +21,13 @@ const PUBLISHED_ISO = "2026-08-14";
 // Metadata
 // ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Vị trí Mega City 2 ở đâu? Phân tích chi tiết năm 2026",
+  // SEO update 2026-09-22 — Hướng B differentiation:
+  // Bài này = góc nhìn hỏi đáp / hướng dẫn ("ở đâu?", "đi bằng đường nào?")
+  // /mega-city-2/vi-tri = trang chính thức với số liệu kỹ thuật, bản đồ, khoảng cách chính xác
+  // Hai trang phục vụ intent khác nhau → giữ cả hai, KHÔNG redirect
+  title: "Mega City 2 Ở Đâu? Cách TP.HCM Bao Xa & Đi Bằng Đường Nào? (2026)",
   description:
-    "Khám phá vị trí Mega City 2 Nhơn Trạch, khả năng kết nối với TP.HCM, sân bay Long Thành và các tuyến giao thông trọng điểm của khu vực.",
+    "Mega City 2 Nhơn Trạch nằm trên đường 25C, cách TP.HCM 30–35 km. Hướng dẫn 3 đường đi từ trung tâm: đường 25C, phà Cát Lái và cao tốc Bến Lức–Long Thành. Xem bản đồ và phân tích chi tiết.",
   alternates: { canonical: PAGE_URL },
   keywords: [
     "vị trí Mega City 2",
@@ -35,9 +39,9 @@ export const metadata: Metadata = {
     "bất động sản Nhơn Trạch",
   ],
   openGraph: {
-    title: "Vị trí Mega City 2 ở đâu? Phân tích kết nối giao thông và tiềm năng khu vực Nhơn Trạch",
+    title: "Mega City 2 Ở Đâu? Cách TP.HCM Bao Xa & Đi Bằng Đường Nào? (2026)",
     description:
-      "Khám phá vị trí Mega City 2 Nhơn Trạch, khả năng kết nối với TP.HCM, sân bay Long Thành và các tuyến giao thông trọng điểm của khu vực.",
+      "Đường 25C, cách TP.HCM 30–35 km. 3 tuyến di chuyển: đường 25C, phà Cát Lái, cao tốc Bến Lức–Long Thành. Phân tích giao thông khu vực Nhơn Trạch.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -53,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vị trí Mega City 2 ở đâu? Phân tích chi tiết năm 2026",
+    title: "Mega City 2 Ở Đâu? Cách TP.HCM Bao Xa? (2026)",
     description:
-      "Khám phá vị trí Mega City 2 Nhơn Trạch, kết nối TP.HCM, sân bay Long Thành và hạ tầng giao thông khu vực.",
+      "Đường 25C, Nhơn Trạch, cách TP.HCM 30–35 km. 3 tuyến đi: đường 25C, phà Cát Lái, cao tốc Bến Lức–Long Thành.",
     images: [NEWS3["1"]],
   },
 };
@@ -67,9 +71,9 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline:
-    "Vị trí Mega City 2 ở đâu? Phân tích khả năng kết nối và tiềm năng phát triển khu vực Nhơn Trạch",
+    "Mega City 2 Ở Đâu? Cách TP.HCM Bao Xa & Đi Bằng Đường Nào? (2026)",
   description:
-    "Khám phá vị trí Mega City 2 Nhơn Trạch, khả năng kết nối với TP.HCM, sân bay Long Thành và các tuyến giao thông trọng điểm của khu vực.",
+    "Mega City 2 nằm trên đường 25C, xã Nhơn Trạch, Đồng Nai. Cách TP.HCM 30–35 km. Hướng dẫn 3 tuyến di chuyển và phân tích kết nối giao thông khu vực.",
   image: [NEWS3["1"], NEWS3["2"], NEWS3["3"]],
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
   publisher: {
@@ -100,7 +104,7 @@ const faqSchema = {
       name: "Mega City 2 nằm ở đâu?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dự án nằm tại huyện Nhơn Trạch, tỉnh Đồng Nai.",
+        text: "Mega City 2 tọa lạc tại Đường 25C, xã Nhơn Trạch, tỉnh Đồng Nai. Dự án nằm trong tam giác phát triển TP.HCM – Long Thành – Nhơn Trạch.",
       },
     },
     {
@@ -108,7 +112,7 @@ const faqSchema = {
       name: "Mega City 2 cách TP.HCM bao xa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Bạn nên tham khảo bản đồ thực tế và các tuyến đường kết nối để xác định khoảng cách cụ thể.",
+        text: "Mega City 2 cách trung tâm TP.HCM khoảng 30–35 km theo đường 25C. Thời gian di chuyển khoảng 45–60 phút qua đường 25C và cao tốc Bến Lức – Long Thành, hoặc 25–35 phút qua phà Cát Lái sang Quận 2.",
       },
     },
     {
@@ -116,23 +120,23 @@ const faqSchema = {
       name: "Vị trí Mega City 2 có gần sân bay Long Thành không?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dự án nằm trong khu vực được hưởng lợi từ hệ thống hạ tầng đang phát triển, bao gồm sân bay quốc tế Long Thành.",
+        text: "Có. Sân bay quốc tế Long Thành cách Mega City 2 khoảng 15–20 km, di chuyển khoảng 20–25 phút theo đường hiện hữu.",
       },
     },
     {
       "@type": "Question",
-      name: "Vì sao vị trí lại quan trọng khi đầu tư bất động sản?",
+      name: "Từ Mega City 2 đi TP.HCM bằng đường nào?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Vị trí có thể ảnh hưởng đến khả năng kết nối, tính thanh khoản và tiềm năng tăng giá của bất động sản.",
+        text: "Có 3 tuyến chính: (1) Đường 25C – cao tốc Bến Lức Long Thành (~45–60 phút đến Q1); (2) Phà Cát Lái sang Quận 2 (~25–35 phút); (3) Khi cầu Nhơn Trạch hoàn thành, thời gian rút ngắn còn 20–25 phút.",
       },
     },
     {
       "@type": "Question",
-      name: "Có thể xem bản đồ Mega City 2 ở đâu?",
+      name: "Có thể xem bản đồ và số liệu chính xác về vị trí Mega City 2 ở đâu?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `Bạn có thể tham khảo thêm tại ${BASE_URL}/mega-city-2/vi-tri`,
+        text: `Xem trang vị trí chính thức tại ${BASE_URL}/mega-city-2/vi-tri với bản đồ Google Maps nhúng, khoảng cách đến 6 điểm kết nối vùng và phân tích chi tiết 6 trục giao thông quan trọng.`,
       },
     },
   ],

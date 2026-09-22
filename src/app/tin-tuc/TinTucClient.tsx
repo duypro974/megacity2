@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -535,7 +535,7 @@ const ALL_NEWS: NewsItem[] = [
     category: "tin-du-an",
     excerpt:  "Cập nhật thông tin quy hoạch, quyết định phê duyệt 1772/QĐ-UBND, hồ sơ dự án và những điều nhà đầu tư cần kiểm tra trước khi mua.",
     image: `${CDN}/megacity2/news4/1`,
-    href:  "/tin-tuc/phap-ly-mega-city-2",
+    href:  "/mega-city-2/phap-ly",
   },
   {
     slug:     "vi-tri-mega-city-2-o-dau",
@@ -553,7 +553,7 @@ const ALL_NEWS: NewsItem[] = [
     category: "tin-du-an",
     excerpt:  "Cập nhật giá tham khảo từng loại sản phẩm, các yếu tố ảnh hưởng và lưu ý quan trọng trước khi đầu tư Mega City 2.",
     image: `${CDN}/megacity2/news2/1`,
-    href:  "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+    href:  "/mega-city-2/bang-gia",
   },
   {
     slug:     "co-nen-dau-tu-mega-city-2-nhon-trach",

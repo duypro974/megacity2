@@ -573,7 +573,7 @@ export default function DuongDiMegaCity2Page() {
                     { href: "/tin-tuc/vi-tri-mega-city-2-o-dau",               label: "Vị trí Mega City 2 ở đâu?" },
                     { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",label: "Mặt bằng phân lô Mega City 2" },
                     { href: "/tin-tuc/ha-tang-ky-thuat-mega-city-2",           label: "Hạ tầng kỹ thuật Mega City 2" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",          label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/bang-gia",                            label: "Bảng giá Mega City 2 mới nhất" },
                     { href: "/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat", label: "Hạ tầng giao thông Nhơn Trạch" },
                     { href: "/tin-tuc/cau-nhon-trach",                         label: "Cầu Nhơn Trạch 2026" },
                     { href: "/tin-tuc/duong-25c",                              label: "Đường 25C Nhơn Trạch" },

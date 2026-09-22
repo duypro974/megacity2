@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -738,7 +738,7 @@ export default function TienDoMegaCity2Client() {
               tag: "Mặt bằng",
             },
             {
-              href: "/tin-tuc/phap-ly-mega-city-2",
+              href: "/mega-city-2/phap-ly",
               title: "Pháp lý Mega City 2 có gì? Cập nhật 2026",
               description: "Thông tin về quyết định phê duyệt và hồ sơ pháp lý.",
               tag: "Tin tức",

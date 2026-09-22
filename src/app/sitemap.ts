@@ -1,28 +1,32 @@
-import { MetadataRoute } from "next";
+﻿import { MetadataRoute } from "next";
 
-// ─────────────────────────────────────────────────────────────
-// sitemap.ts — Kim Oanh Đồng Nai
-// Domain chính thức: https://kimoanhdongnai.com.vn
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// sitemap.ts â€” Kim Oanh Äá»“ng Nai
+// Domain chÃ­nh thá»©c: https://kimoanhdongnai.com.vn
 //
-// QUY TẮC:
-// - Chỉ đưa vào URL page thực tế (đã có route trong src/app/)
-// - KHÔNG dùng fragment #anchor — không phải route riêng
-// - KHÔNG dùng domain cũ (kimoanhdongnai.com.vn là domain duy nhất)
-// - Admin và API không đưa vào sitemap
-// - images[] khai báo ảnh tiêu biểu của từng trang (chuẩn Google Image Sitemap)
-// ─────────────────────────────────────────────────────────────
+// QUY Táº®C:
+// - Chá»‰ Ä‘Æ°a vÃ o URL page thá»±c táº¿ (Ä‘Ã£ cÃ³ route trong src/app/)
+// - KHÃ”NG dÃ¹ng fragment #anchor â€” khÃ´ng pháº£i route riÃªng
+// - KHÃ”NG dÃ¹ng domain cÅ© (kimoanhdongnai.com.vn lÃ  domain duy nháº¥t)
+// - Admin vÃ  API khÃ´ng Ä‘Æ°a vÃ o sitemap
+// - images[] khai bÃ¡o áº£nh tiÃªu biá»ƒu cá»§a tá»«ng trang (chuáº©n Google Image Sitemap)
+// - KHÃ”NG Ä‘Æ°a URL Ä‘Ã£ bá»‹ 301 redirect vÃ o sitemap:
+//     /tin-tuc/phap-ly-mega-city-2        â†’ /mega-city-2/phap-ly
+//     /tin-tuc/bang-gia-mega-city-2-moi-nhat â†’ /mega-city-2/bang-gia
+//   (deployed 2026-09-22, xem next.config.ts)
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const BASE = "https://kimoanhdongnai.com.vn";
 const CDN  = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit";
 
-/** Tạo Cloudinary URL cho sitemap (không cần transform nặng) */
+/** Táº¡o Cloudinary URL cho sitemap (khÃ´ng cáº§n transform náº·ng) */
 const cimg = (path: string) => `${CDN}/${path}`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
   return [
-    // ── Homepage ─────────────────────────────────────────────
+    // â”€â”€ Homepage â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: BASE,
       lastModified: "2026-09-18",
@@ -33,10 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // ── Trang dự án Mega City 2 (Pillar Page) ────────────────
+    // â”€â”€ Trang dá»± Ã¡n Mega City 2 (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/mega-city-2`,
-      lastModified: "2026-08-13",
+      lastModified: "2026-09-22",
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
@@ -58,11 +62,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // ── Topic Cluster: Mega City 2 sub-pages ─────────────────
+    // â”€â”€ Topic Cluster: Mega City 2 sub-pages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     {
       url: `${BASE}/mega-city-2/vi-tri`,
-      lastModified: "2026-08-13",
+      lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.85,
       images: [
@@ -75,10 +79,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
+      // Canonical page: há»£p nháº¥t tá»« /tin-tuc/phap-ly-mega-city-2 (301 redirect 2026-09-22)
       url: `${BASE}/mega-city-2/phap-ly`,
-      lastModified: "2026-08-13",
+      lastModified: "2026-09-22",
       changeFrequency: "monthly",
-      priority: 0.85,
+      priority: 0.88,
       images: [
         cimg("megacity2/legal/1.jpeg"),
         cimg("megacity2/legal/2.jpeg"),
@@ -114,7 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     {
       url: `${BASE}/mega-city-2/tien-do`,
-      lastModified: "2026-08-13",
+      lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.80,
       images: [
@@ -141,10 +146,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
+      // Canonical page: há»£p nháº¥t tá»« /tin-tuc/bang-gia-mega-city-2-moi-nhat (301 redirect 2026-09-22)
       url: `${BASE}/mega-city-2/bang-gia`,
-      lastModified: "2026-08-13",
+      lastModified: "2026-09-22",
       changeFrequency: "weekly",
-      priority: 0.88,
+      priority: 0.92,
       images: [
         cimg("megacity2/real/9.png"),
         cimg("megacity2/overview/1.jpg"),
@@ -165,7 +171,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.82,
     },
 
-    // ── Keyword gap pages (mới tạo 2026-08-13) ───────────────
+    // â”€â”€ Keyword gap pages (má»›i táº¡o 2026-08-13) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     {
       url: `${BASE}/mega-city-2/nha-pho-lien-ke`,
@@ -332,19 +338,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [cimg("megacity2/news24/1"),cimg("megacity2/news24/2"),cimg("megacity2/news24/3"),cimg("megacity2/news24/4"),cimg("megacity2/news24/5"),cimg("megacity2/news24/6")],
     },
 
-    // ── Tin tức ──────────────────────────────────────────────
+    // â”€â”€ Tin tá»©c â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-    {
-      url: `${BASE}/tin-tuc/bang-gia-mega-city-2-moi-nhat`,
-      lastModified: "2026-08-13",
-      changeFrequency: "weekly",
-      priority: 0.78,
-      images: [
-        cimg("megacity2/news2/1"),
-        cimg("megacity2/news2/2"),
-        cimg("megacity2/news2/3"),
-      ],
-    },
+    // /tin-tuc/bang-gia-mega-city-2-moi-nhat â†’ REMOVED (301 redirect to /mega-city-2/bang-gia, 2026-09-22)
 
     {
       url: `${BASE}/tin-tuc/gia-dat-nhon-trach-2026`,
@@ -433,7 +429,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/tin-tuc/co-nen-dau-tu-mega-city-2-nhon-trach`,
-      lastModified: "2026-08-13",
+      lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.75,
       images: [
@@ -443,10 +439,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // ── Tin tức Mega City 2 (article pages) ─────────────────
+    // â”€â”€ Tin tá»©c Mega City 2 (article pages) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/tin-tuc/vi-tri-mega-city-2-o-dau`,
-      lastModified: "2026-08-14",
+      lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.80,
       images: [
@@ -455,18 +451,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("megacity2/news3/3"),
       ],
     },
-    {
-      url: `${BASE}/tin-tuc/phap-ly-mega-city-2`,
-      lastModified: "2026-08-15",
-      changeFrequency: "monthly",
-      priority: 0.80,
-      images: [
-        cimg("megacity2/news4/1"),
-      ],
-    },
+    // /tin-tuc/phap-ly-mega-city-2 â†’ REMOVED (301 redirect to /mega-city-2/phap-ly, 2026-09-22)
     {
       url: `${BASE}/tin-tuc/tien-do-mega-city-2`,
-      lastModified: "2026-08-16",
+      lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.80,
       images: [
@@ -474,10 +462,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // ── Tin tức Nhơn Trạch (mới 08/2026) ────────────────────
+    // â”€â”€ Tin tá»©c NhÆ¡n Tráº¡ch (má»›i 08/2026) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/tin-tuc/mega-city-2-co-phu-hop-de-o`,
-      lastModified: "2026-08-23",
+      lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.80,
       images: [
@@ -552,7 +540,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // ── Về chúng tôi ─────────────────────────────────────────
+    // â”€â”€ Vá» chÃºng tÃ´i â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/ve-chung-toi`,
       lastModified: "2026-08-13",
@@ -565,7 +553,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
 
-    // ── The Link City (Pillar Page) ──────────────────────────
+    // â”€â”€ The Link City (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/the-link-city`,
       lastModified: "2026-09-08",
@@ -581,7 +569,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("thelinkcity/cross-section/a01-01.jpeg"),
       ],
     },
-    // ── Topic Cluster: The Link City ─────────────────────────
+    // â”€â”€ Topic Cluster: The Link City â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/the-link-city/vi-tri`,
       lastModified: "2026-09-08",
@@ -657,7 +645,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.78,
     },
 
-    // ── Tin tức Mega City 2 — nhóm bài mới (08–09/2026) ────────
+    // â”€â”€ Tin tá»©c Mega City 2 â€” nhÃ³m bÃ i má»›i (08â€“09/2026) â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/tin-tuc/so-sanh-mega-city-2-va-dat-tho-cu-dan-nhon-trach`,
       lastModified: "2026-09-02",
@@ -736,7 +724,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [cimg("megacity2/news32/1"), cimg("megacity2/news32/2"), cimg("megacity2/news32/3")],
     },
 
-    // ── Tin tức Mega City 2 mới (09/2026) ───────────────────
+    // â”€â”€ Tin tá»©c Mega City 2 má»›i (09/2026) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/tin-tuc/dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong`,
       lastModified: "2026-09-20",
@@ -773,7 +761,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // ── Tin tức The Link City ────────────────────────────────
+    // â”€â”€ Tin tá»©c The Link City â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/tin-tuc/cam-2-ty-nen-mua-chung-cu-bien-hoa-dat-long-thanh-the-link-city-2026`,
       lastModified: "2026-09-17",

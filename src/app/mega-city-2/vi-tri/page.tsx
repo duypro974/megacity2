@@ -341,6 +341,25 @@ export default function ViTriPage() {
           </div>
         </section>
 
+        {/* Cross-link: Tin tức vị trí */}
+        <section className="py-8 bg-slate-50 border-t border-slate-100">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col sm:flex-row sm:items-center gap-4 anim-up">
+              <div className="flex-1">
+                <p className="text-xs font-black text-slate-400 uppercase tracking-wider mb-1">📖 Bài viết hướng dẫn</p>
+                <p className="font-bold text-slate-800 text-sm mb-1">Mega City 2 ở đâu? Đi bằng đường nào từ TP.HCM?</p>
+                <p className="text-slate-500 text-xs leading-relaxed">
+                  Hướng dẫn thực tế 3 tuyến di chuyển, thời gian giờ cao điểm và so sánh các lộ trình — thông tin bổ sung cho bản đồ chính thức bên trên.
+                </p>
+              </div>
+              <a href="/tin-tuc/vi-tri-mega-city-2-o-dau"
+                className="shrink-0 inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 font-bold text-sm px-4 py-2.5 rounded-xl hover:bg-amber-100 transition-all whitespace-nowrap">
+                Xem hướng dẫn →
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <PageCTA
           title="Tìm hiểu thêm về vị trí Mega City 2"
@@ -350,6 +369,12 @@ export default function ViTriPage() {
         {/* Related content */}
         <RelatedContent
           items={[
+            {
+              href: "/tin-tuc/vi-tri-mega-city-2-o-dau",
+              title: "Mega City 2 ở đâu? Cách TP.HCM bao xa?",
+              description: "Hướng dẫn 3 tuyến đường di chuyển từ trung tâm TP.HCM và phân tích kết nối giao thông thực tế.",
+              tag: "Hướng dẫn",
+            },
             {
               href: "/mega-city-2",
               title: "Tổng quan Mega City 2 Nhơn Trạch",
@@ -373,12 +398,6 @@ export default function ViTriPage() {
               title: "Bảng giá Mega City 2 cập nhật",
               description: "Giá chuyển nhượng tham khảo các loại sản phẩm TH, T và Biệt thự V.",
               tag: "Bảng giá",
-            },
-            {
-              href: "/mega-city-2/mat-bang",
-              title: "Mặt bằng & Sản phẩm Mega City 2",
-              description: "Bản vẽ quy hoạch, mặt bằng phân lô và các loại sản phẩm nhà ở.",
-              tag: "Mặt bằng",
             },
             {
               href: "/mega-city-2/faq",

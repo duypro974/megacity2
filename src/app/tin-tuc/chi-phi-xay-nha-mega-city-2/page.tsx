@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -705,7 +705,7 @@ export default function ChiPhiXayNhaMegaCity2Page() {
                     <LinkBtn href="/tin-tuc/mega-city-2-co-phu-hop-de-o">
                       Mega City 2 có phù hợp để ở không? →
                     </LinkBtn>
-                    <LinkBtn href="/tin-tuc/bang-gia-mega-city-2-moi-nhat">
+                    <LinkBtn href="/mega-city-2/bang-gia">
                       Bảng giá Mega City 2 mới nhất →
                     </LinkBtn>
                   </div>
@@ -728,7 +728,7 @@ export default function ChiPhiXayNhaMegaCity2Page() {
                 <div className="pt-5 space-y-5">
                   <BulletList items={luuYRows} />
                   <div className="flex flex-wrap gap-3 pt-2">
-                    <LinkBtn href="/tin-tuc/phap-ly-mega-city-2">
+                    <LinkBtn href="/mega-city-2/phap-ly">
                       Pháp lý Mega City 2 →
                     </LinkBtn>
                     <LinkBtn href="/tin-tuc/quy-hoach-nhon-trach-moi-nhat">
@@ -841,10 +841,10 @@ export default function ChiPhiXayNhaMegaCity2Page() {
                   </p>
                   <ul className="space-y-3">
                     {[
-                      { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",    label: "Bảng giá Mega City 2 mới nhất 2026" },
+                      { href: "/mega-city-2/bang-gia",    label: "Bảng giá Mega City 2 mới nhất 2026" },
                       { href: "/tin-tuc/tien-do-mega-city-2",              label: "Tiến độ Mega City 2 tháng 8/2026" },
                       { href: "/tin-tuc/mega-city-2-co-phu-hop-de-o",      label: "Mega City 2 có phù hợp để ở không?" },
-                      { href: "/tin-tuc/phap-ly-mega-city-2",              label: "Pháp lý Mega City 2" },
+                      { href: "/mega-city-2/phap-ly",              label: "Pháp lý Mega City 2" },
                       { href: "/tin-tuc/gia-dat-nhon-trach-2026",          label: "Giá đất Nhơn Trạch 2026" },
                     ].map(({ href, label }) => (
                       <li key={href}>
@@ -870,7 +870,7 @@ export default function ChiPhiXayNhaMegaCity2Page() {
       <RelatedContent
         items={[
           {
-            href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+            href: "/mega-city-2/bang-gia",
             title: "Bảng giá Mega City 2 Nhơn Trạch mới nhất 2026",
             description: "Tham khảo mức giá từng loại sản phẩm, các yếu tố ảnh hưởng và lưu ý trước khi đầu tư.",
             tag: "Bảng giá",
@@ -888,7 +888,7 @@ export default function ChiPhiXayNhaMegaCity2Page() {
             tag: "Tin dự án",
           },
           {
-            href: "/tin-tuc/phap-ly-mega-city-2",
+            href: "/mega-city-2/phap-ly",
             title: "Pháp lý Mega City 2 có gì?",
             description: "Cập nhật quy hoạch, quyết định 1772/QĐ-UBND và hồ sơ pháp lý dự án mới nhất 2026.",
             tag: "Pháp lý",

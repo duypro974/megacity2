@@ -8,14 +8,16 @@ import ScrollAnimator from "@/components/ScrollAnimator";
 import { IMG_REAL } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
-  title: "Bảng Giá Mega City 2 Nhơn Trạch – Giá Đất Nền Tham Khảo 2026",
+  // SEO update 2026-09-22: tập trung từ khóa "bảng giá mega city 2" + biến thể
+  // Trang này là canonical duy nhất sau khi 301 redirect /tin-tuc/bang-gia-mega-city-2-moi-nhat
+  title: "Bảng Giá Mega City 2 Tháng 9/2026 – TH Từ 1,15 Tỷ, T Từ 1,3 Tỷ, V Từ 3 Tỷ",
   description:
-    "Bảng giá đất nền Mega City 2 Nhơn Trạch cập nhật 2026: từ 1,15 tỷ/nền. Chi tiết giá TH, T, V theo từng vị trí, diện tích và block. Liên hệ 0937.587.438 để nhận báo giá.",
+    "Bảng giá đất nền Mega City 2 Nhơn Trạch cập nhật tháng 9/2026: TH từ 1,15 tỷ, T từ 1,3 tỷ, biệt thự V từ 3 tỷ/nền. Giá theo từng block, vị trí, diện tích. Gọi 0937.587.438 để nhận bảng giá mới nhất.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2/bang-gia" },
   openGraph: {
-    title: "Bảng Giá Mega City 2 Nhơn Trạch – Cập Nhật 2026",
+    title: "Bảng Giá Mega City 2 Tháng 9/2026 – TH Từ 1,15 Tỷ | T Từ 1,3 Tỷ | V Từ 3 Tỷ",
     description:
-      "Bảng giá đất nền Mega City 2 từ 1,15 tỷ/nền. TH, T, V – giá theo vị trí và diện tích.",
+      "Giá đất nền Mega City 2 Nhơn Trạch mới nhất: TH từ 1,15 tỷ, nhà phố T từ 1,3 tỷ, biệt thự V từ 3 tỷ. Chi tiết theo block và vị trí.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -23,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bảng Giá Mega City 2 – Từ 1,15 Tỷ/Nền",
-    description: "Giá chuyển nhượng tham khảo TH, T, V tại Mega City 2 Nhơn Trạch 2026.",
+    title: "Bảng Giá Mega City 2 Tháng 9/2026 – TH 1,15 Tỷ | T 1,3 Tỷ | V 3 Tỷ",
+    description: "Cập nhật giá đất nền Mega City 2 Nhơn Trạch mới nhất: TH, T, V theo block và vị trí. Gọi 0937.587.438.",
     images: [IMG_REAL["9"]],
   },
 };
@@ -42,7 +44,7 @@ const priceSchema = {
     url: "https://kimoanhdongnai.com.vn",
   },
   datePublished: "2026-08-01",
-  dateModified: "2026-08-13",
+  dateModified: "2026-09-22",
   url: "https://kimoanhdongnai.com.vn/mega-city-2/bang-gia",
   about: {
     "@type": "RealEstateListing",

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -208,7 +208,7 @@ const CRITERIA = [
       ],
     },
     note: "Người mua đất dân cần kiểm tra tình trạng quy hoạch từng thửa tại Phòng TN&MT huyện Nhơn Trạch trước khi đặt cọc.",
-    link: { href: "/tin-tuc/phap-ly-mega-city-2", label: "Pháp lý dự án Mega City 2 Nhơn Trạch →" },
+    link: { href: "/mega-city-2/phap-ly", label: "Pháp lý dự án Mega City 2 Nhơn Trạch →" },
   },
   {
     id: "xay-dung",
@@ -597,11 +597,11 @@ export default function SoSanhMegaCity2DatThoCuPage() {
                   {[
                     { href: "/mega-city-2",                                                     label: "Mega City 2 Nhơn Trạch — Tổng quan dự án" },
                     { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",                 label: "Mặt bằng phân lô Mega City 2" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",                           label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/bang-gia",                           label: "Bảng giá Mega City 2 mới nhất" },
                     { href: "/tin-tuc/thu-tuc-chuyen-nhuong-mega-city-2",                       label: "Thủ tục chuyển nhượng Mega City 2" },
                     { href: "/tin-tuc/ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",   label: "Kết nối Mega City 2 và KCN Nhơn Trạch" },
                     { href: "/tin-tuc/ha-tang-ky-thuat-mega-city-2",                            label: "Hạ tầng kỹ thuật Mega City 2" },
-                    { href: "/tin-tuc/phap-ly-mega-city-2",                                    label: "Pháp lý dự án Mega City 2" },
+                    { href: "/mega-city-2/phap-ly",                                    label: "Pháp lý dự án Mega City 2" },
                     { href: "/tin-tuc/tien-ich-ngoai-khu-mega-city-2",                          label: "Tiện ích ngoại khu Mega City 2" },
                   ].map((l) => (
                     <a
@@ -679,10 +679,10 @@ export default function SoSanhMegaCity2DatThoCuPage() {
                   <p className="font-bold text-slate-800 text-sm mb-3">Bài viết liên quan</p>
                   <div className="space-y-3">
                     {[
-                      { label: "Pháp lý dự án Mega City 2",        href: "/tin-tuc/phap-ly-mega-city-2" },
+                      { label: "Pháp lý dự án Mega City 2",        href: "/mega-city-2/phap-ly" },
                       { label: "Hạ tầng kỹ thuật Mega City 2",     href: "/tin-tuc/ha-tang-ky-thuat-mega-city-2" },
                       { label: "Mặt bằng phân lô Mega City 2",     href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach" },
-                      { label: "Bảng giá Mega City 2 mới nhất",    href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat" },
+                      { label: "Bảng giá Mega City 2 mới nhất",    href: "/mega-city-2/bang-gia" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-amber-600 transition-colors">
                         → {l.label}
@@ -745,7 +745,7 @@ export default function SoSanhMegaCity2DatThoCuPage() {
               tag: "Tin dự án",
             },
             {
-              href: "/tin-tuc/phap-ly-mega-city-2",
+              href: "/mega-city-2/phap-ly",
               title: "Pháp Lý Dự Án Mega City 2 Nhơn Trạch Có Gì?",
               description: "Quyết định phê duyệt, hồ sơ pháp lý và những điều cần kiểm tra.",
               tag: "Tin dự án",

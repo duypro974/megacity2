@@ -36,6 +36,32 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // ─────────────────────────────────────────────────────────────
+  // 301 Redirects — SEO keyword cannibalization fix
+  //   Deployed: 2026-09-22
+  //   Review after 4–8 weeks in GSC (check /mega-city-2/phap-ly
+  //   and /mega-city-2/bang-gia for ranking improvement).
+  //
+  //   Hướng A: redirect tin-tuc duplicate → canonical sub-page
+  //   • phap-ly: sub-page ranks 3.05 vs blog 10.00 → redirect blog
+  //   • bang-gia: sub-page is primary conversion page; blog (pos 31)
+  //     traffic + link equity merged into sub-page after on-page upgrade
+  // ─────────────────────────────────────────────────────────────
+  async redirects() {
+    return [
+      {
+        source: "/tin-tuc/phap-ly-mega-city-2",
+        destination: "/mega-city-2/phap-ly",
+        permanent: true, // 301
+      },
+      {
+        source: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
+        destination: "/mega-city-2/bang-gia",
+        permanent: true, // 301
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

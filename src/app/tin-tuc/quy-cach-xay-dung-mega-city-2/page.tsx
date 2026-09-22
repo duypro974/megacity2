@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -705,8 +705,8 @@ export default function QuyCachXayDungMegaCity2Page() {
                     { href: "/tin-tuc/chi-phi-xay-nha-mega-city-2",            label: "Chi phí xây nhà Mega City 2" },
                     { href: "/tin-tuc/ha-tang-ky-thuat-mega-city-2",           label: "Hạ tầng kỹ thuật Mega City 2" },
                     { href: "/tin-tuc/mat-bang-phan-lo-mega-city-2-nhon-trach",label: "Mặt bằng phân lô Mega City 2" },
-                    { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat",          label: "Bảng giá Mega City 2 mới nhất" },
-                    { href: "/tin-tuc/phap-ly-mega-city-2",                    label: "Pháp lý dự án Mega City 2" },
+                    { href: "/mega-city-2/bang-gia",          label: "Bảng giá Mega City 2 mới nhất" },
+                    { href: "/mega-city-2/phap-ly",                    label: "Pháp lý dự án Mega City 2" },
                     { href: "/tin-tuc/tien-do-mega-city-2",                    label: "Tiến độ Mega City 2 mới nhất" },
                   ].map((l) => (
                     <a

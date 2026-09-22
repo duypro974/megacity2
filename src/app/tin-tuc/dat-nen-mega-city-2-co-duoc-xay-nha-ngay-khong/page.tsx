@@ -171,7 +171,7 @@ export default function DatNenXayNhaNgayPage() {
             </h1>
             <p className="text-slate-500 text-base leading-relaxed max-w-2xl mb-8">
               Cập nhật tiến độ điều chỉnh quy hoạch chung Nhơn Trạch, lộ trình ra{" "}
-              <a href="/tin-tuc/phap-ly-mega-city-2" className="text-amber-600 font-semibold hover:underline">sổ hồng</a>
+              <a href="/mega-city-2/phap-ly" className="text-amber-600 font-semibold hover:underline">sổ hồng</a>
               {" "}từng nền và thời điểm dự kiến được cấp phép khởi công xây dựng tại{" "}
               <a href="/mega-city-2" className="text-amber-600 font-semibold hover:underline">Mega City 2 Nhơn Trạch</a>.
             </p>
@@ -312,7 +312,7 @@ export default function DatNenXayNhaNgayPage() {
                   </div>
 
                   <div className="flex flex-wrap gap-3 not-prose">
-                    <LinkBtn href="/tin-tuc/phap-ly-mega-city-2">📋 Pháp lý dự án Mega City 2 Nhơn Trạch →</LinkBtn>
+                    <LinkBtn href="/mega-city-2/phap-ly">📋 Pháp lý dự án Mega City 2 Nhơn Trạch →</LinkBtn>
                   </div>
                 </div>
               </section>
@@ -482,7 +482,7 @@ export default function DatNenXayNhaNgayPage() {
                     <LinkBtn href="/tin-tuc/thu-tuc-chuyen-nhuong-mega-city-2">
                       📋 Thủ tục sang tên & chuyển nhượng đất nền Mega City 2 mới nhất →
                     </LinkBtn>
-                    <LinkBtn href="/tin-tuc/bang-gia-mega-city-2-moi-nhat">
+                    <LinkBtn href="/mega-city-2/bang-gia">
                       💰 Bảng giá Mega City 2 Nhơn Trạch mới nhất →
                     </LinkBtn>
                   </div>
@@ -543,8 +543,8 @@ export default function DatNenXayNhaNgayPage() {
                     </div>
                     <div className="flex flex-wrap gap-4 mt-3">
                       {[
-                        { href: "/tin-tuc/bang-gia-mega-city-2-moi-nhat", label: "Bảng giá mới nhất" },
-                        { href: "/tin-tuc/phap-ly-mega-city-2", label: "Pháp lý dự án" },
+                        { href: "/mega-city-2/bang-gia", label: "Bảng giá mới nhất" },
+                        { href: "/mega-city-2/phap-ly", label: "Pháp lý dự án" },
                         { href: "/tin-tuc/tien-do-mega-city-2", label: "Tiến độ mới nhất" },
                       ].map(({ href, label }) => (
                         <a key={href} href={href} className="text-slate-400 hover:text-white text-xs transition-colors">→ {label}</a>
@@ -598,7 +598,7 @@ export default function DatNenXayNhaNgayPage() {
                   <ul className="space-y-2">
                     {[
                       { href: "/tin-tuc/tien-do-mega-city-2", label: "Tiến độ Mega City 2 mới nhất" },
-                      { href: "/tin-tuc/phap-ly-mega-city-2", label: "Pháp lý dự án Mega City 2" },
+                      { href: "/mega-city-2/phap-ly", label: "Pháp lý dự án Mega City 2" },
                       { href: "/tin-tuc/checklist-nhan-nen-mega-city-2", label: "Checklist nhận nền Mega City 2" },
                       { href: "/tin-tuc/chi-phi-xay-nha-mega-city-2", label: "Chi phí xây nhà tại Mega City 2" },
                       { href: "/tin-tuc/quy-cach-xay-dung-mega-city-2", label: "Quy cách xây dựng Mega City 2" },
@@ -628,7 +628,7 @@ export default function DatNenXayNhaNgayPage() {
               tag: "Dự án",
             },
             {
-              href: "/tin-tuc/phap-ly-mega-city-2",
+              href: "/mega-city-2/phap-ly",
               title: "Pháp lý dự án Mega City 2 Nhơn Trạch",
               description: "Cập nhật đầy đủ hồ sơ pháp lý, quyết định phê duyệt và tiến trình cấp sổ hồng tại dự án Mega City 2.",
               tag: "Pháp lý",
