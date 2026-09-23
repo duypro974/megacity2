@@ -169,9 +169,23 @@ const comparePoints = [
   },
 ];
 
+const breadcrumbMc2MatBang = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Mặt bằng & Sản phẩm", item: "https://kimoanhdongnai.com.vn/mega-city-2/mat-bang" },
+  ],
+};
+
 export default function MatBangPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2MatBang) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageObjectSchema) }}

@@ -87,9 +87,20 @@ const airportFacts = [
   { label: "Vị trí", val: "Huyện Long Thành, Đồng Nai" },
 ];
 
+const breadcrumbMc2SanBay = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Sân bay Long Thành", item: "https://kimoanhdongnai.com.vn/mega-city-2/san-bay-long-thanh" },
+  ],
+};
+
 export default function SanBayLongThanhPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2SanBay) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 

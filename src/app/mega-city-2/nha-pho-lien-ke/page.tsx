@@ -138,9 +138,20 @@ const highlights = [
   { icon: "🏦", title: "Hỗ trợ vay NH", desc: "Kết nối ngân hàng đối tác, đặt cọc từ 50 triệu, hỗ trợ vay mua nền." },
 ];
 
+const breadcrumbMc2NhaPhoLienKe = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Nhà phố liên kế", item: "https://kimoanhdongnai.com.vn/mega-city-2/nha-pho-lien-ke" },
+  ],
+};
+
 export default function NhaPhoCLienKePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2NhaPhoLienKe) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 

@@ -115,9 +115,23 @@ const realImages = [
   { key: "8",  alt: "Khu công viên trung tâm Mega City 2 Nhơn Trạch" },
 ];
 
+const breadcrumbMc2TienDo = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Tiến độ xây dựng", item: "https://kimoanhdongnai.com.vn/mega-city-2/tien-do" },
+  ],
+};
+
 export default function TienDoPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2TienDo) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}

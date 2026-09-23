@@ -147,9 +147,23 @@ const galleryGroups = [
   },
 ];
 
+const breadcrumbMc2HinhAnh = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Hình ảnh thực tế", item: "https://kimoanhdongnai.com.vn/mega-city-2/hinh-anh" },
+  ],
+};
+
 export default function HinhAnhPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2HinhAnh) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}

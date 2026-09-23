@@ -137,9 +137,23 @@ const benefits = [
   },
 ];
 
+const breadcrumbMc2ThanhToan = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Thanh toán", item: "https://kimoanhdongnai.com.vn/mega-city-2/thanh-toan" },
+  ],
+};
+
 export default function ThanhToanPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2ThanhToan) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(paymentSchema) }}

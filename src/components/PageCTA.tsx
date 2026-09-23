@@ -88,7 +88,7 @@ export default function PageCTA({
         {/* Eyebrow */}
         <div className="flex items-center justify-center gap-3 mb-4 anim-up">
           <span className={`w-10 h-px ${isDark || isAmber ? "bg-white/35" : "bg-primary-200"}`} />
-          <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${isDark || isAmber ? "text-white/55" : "text-primary-500"}`}>
+          <span className={`text-xs font-bold uppercase tracking-[0.22em] ${isDark || isAmber ? "text-white/55" : "text-primary-500"}`}>
             Kim Oanh Đồng Nai
           </span>
           <span className={`w-10 h-px ${isDark || isAmber ? "bg-white/35" : "bg-primary-200"}`} />

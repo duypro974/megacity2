@@ -174,9 +174,23 @@ const distances = [
   { to: "Bệnh viện Đồng Nai", km: "~25 km", time: "30–40 phút" },
 ];
 
+const breadcrumbMc2ViTri = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Vị trí", item: "https://kimoanhdongnai.com.vn/mega-city-2/vi-tri" },
+  ],
+};
+
 export default function ViTriPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2ViTri) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLocationSchema) }}

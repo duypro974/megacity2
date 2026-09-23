@@ -30,6 +30,82 @@ export const metadata: Metadata = {
 };
 
 // ─────────────────────────────────────────────────────────────
+// JSON-LD — BreadcrumbList
+// ─────────────────────────────────────────────────────────────
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Về chúng tôi", item: "https://kimoanhdongnai.com.vn/ve-chung-toi" },
+  ],
+};
+
+// ─────────────────────────────────────────────────────────────
+// JSON-LD — Organization
+//   Dữ liệu lấy từ COMPANY_INFO và SITE_CONFIG — chỉ điền field
+//   có dữ liệu đã xác thực, bỏ qua founding year (không có trong codebase).
+// ─────────────────────────────────────────────────────────────
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://kimoanhdongnai.com.vn/#organization",
+  name: "Kim Oanh Group",
+  alternateName: "Tập đoàn Kim Oanh",
+  url: "https://kimoanhdongnai.com.vn",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://kimoanhdongnai.com.vn/KOG_Web_RGB_01.svg",
+  },
+  description: COMPANY_INFO.description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "268A Phan Trung",
+    addressLocality: "Phường Tam Hiệp",
+    addressRegion: "Đồng Nai",
+    addressCountry: "VN",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+840937587438",
+    contactType: "sales",
+    availableLanguage: "Vietnamese",
+    hoursAvailable: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+  },
+  email: "k.homekog@gmail.com",
+  sameAs: [
+    "https://www.facebook.com/kimoanhhomes",
+    "https://zalo.me/0937587438",
+  ],
+  knowsAbout: [
+    "Bất động sản",
+    "Phát triển khu đô thị",
+    "Đất nền Nhơn Trạch",
+    "Đất nền Dầu Giây",
+  ],
+};
+
+// ─────────────────────────────────────────────────────────────
+// JSON-LD — AboutPage (wraps Organization as mainEntity)
+// ─────────────────────────────────────────────────────────────
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://kimoanhdongnai.com.vn/ve-chung-toi",
+  url: "https://kimoanhdongnai.com.vn/ve-chung-toi",
+  name: "Về chúng tôi – Kim Oanh Đồng Nai",
+  description:
+    "Tìm hiểu về Kim Oanh Group – tầm nhìn, sứ mệnh, triết lý kinh doanh và hành trình phát triển tập đoàn bất động sản tại Đồng Nai.",
+  isPartOf: { "@type": "WebSite", url: "https://kimoanhdongnai.com.vn" },
+  mainEntity: { "@id": "https://kimoanhdongnai.com.vn/#organization" },
+};
+
+// ─────────────────────────────────────────────────────────────
 // Trang VỀ CHÚNG TÔI — /ve-chung-toi
 //
 // Nội dung: Giới thiệu Kim Oanh Group (tham khảo từ nguồn công khai)
@@ -39,6 +115,19 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      {/* JSON-LD schemas */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
       <CorpHeader />
       <ScrollRevealInit />
 

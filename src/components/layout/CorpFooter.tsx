@@ -100,7 +100,7 @@ export default function CorpFooter() {
 
           {/* ── Khám phá ── */}
           <div>
-            <h4 className="text-[11px] font-black text-white mb-5 uppercase tracking-[0.15em]">
+            <h4 className="text-xs font-black text-white mb-5 uppercase tracking-[0.15em]">
               KHÁM PHÁ
             </h4>
             <ul className="space-y-3">
@@ -136,7 +136,7 @@ export default function CorpFooter() {
 
           {/* ── Dự án ── */}
           <div>
-            <h4 className="text-[11px] font-black text-white mb-5 uppercase tracking-[0.15em]">
+            <h4 className="text-xs font-black text-white mb-5 uppercase tracking-[0.15em]">
               DỰ ÁN
             </h4>
             <ul className="space-y-3">
@@ -184,7 +184,7 @@ export default function CorpFooter() {
             </ul>
 
             {/* Kim Oanh section */}
-            <h4 className="text-[11px] font-black text-white mt-8 mb-4 uppercase tracking-[0.15em]">
+            <h4 className="text-xs font-black text-white mt-8 mb-4 uppercase tracking-[0.15em]">
               KIM OANH
             </h4>
             <ul className="space-y-3">
@@ -230,7 +230,7 @@ export default function CorpFooter() {
 
           {/* ── Liên hệ ── */}
           <div>
-            <h4 className="text-[11px] font-black text-white mb-5 uppercase tracking-[0.15em]">
+            <h4 className="text-xs font-black text-white mb-5 uppercase tracking-[0.15em]">
               LIÊN HỆ
             </h4>
             <ul className="space-y-4">

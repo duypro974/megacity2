@@ -179,7 +179,7 @@ export default function LienHeClient() {
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-5">
             <span className="w-8 h-px bg-amber-400/70" />
-            <p className="text-amber-400 text-[11px] font-bold tracking-[0.2em] uppercase">
+            <p className="text-amber-400 text-xs font-bold tracking-[0.2em] uppercase">
               Kim Oanh Đồng Nai · Hỗ trợ 24/7
             </p>
           </div>
@@ -226,7 +226,7 @@ export default function LienHeClient() {
                 <div className={`w-10 h-10 rounded-xl ${card.light} border flex items-center justify-center mb-4`}>
                   <Icon className={`w-4.5 h-4.5 ${card.textColor}`} />
                 </div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+                <p className="text-[12px] font-bold uppercase tracking-widest text-slate-400 mb-1">
                   {card.label}
                 </p>
                 <p className={`text-sm font-bold text-slate-800 leading-snug mb-1 ${card.href ? `group-hover:${card.textColor} transition-colors` : ""}`}>
@@ -252,7 +252,7 @@ export default function LienHeClient() {
 
           {/* Left: info panel */}
           <div className="lg:col-span-2">
-            <p className="text-amber-500 text-[11px] font-bold tracking-[0.18em] uppercase mb-3">
+            <p className="text-amber-500 text-xs font-bold tracking-[0.18em] uppercase mb-3">
               Chúng tôi hỗ trợ
             </p>
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-4">
@@ -287,7 +287,7 @@ export default function LienHeClient() {
                 <a
                   href={`tel:${SITE_CONFIG.phone}`}
                   className="flex items-center gap-2 bg-amber-500 hover:bg-amber-400
-                             text-white px-5 py-2.5 rounded-full text-xs font-bold
+                             text-white px-5 py-3 rounded-full text-xs font-bold
                              shadow-sm shadow-amber-500/20 transition-all hover:scale-105"
                 >
                   <Phone className="w-3.5 h-3.5" /> Gọi ngay
@@ -297,7 +297,7 @@ export default function LienHeClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-[#0068FF] hover:bg-[#005ce0]
-                             text-white px-5 py-2.5 rounded-full text-xs font-bold
+                             text-white px-5 py-3 rounded-full text-xs font-bold
                              shadow-sm shadow-blue-500/20 transition-all hover:scale-105"
                 >
                   <MessageCircle className="w-3.5 h-3.5" /> Zalo
@@ -351,7 +351,7 @@ export default function LienHeClient() {
                     {/* Row 1: Tên + SĐT */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[11px] font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
+                        <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
                           Họ và tên <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -370,7 +370,7 @@ export default function LienHeClient() {
                         {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                       </div>
                       <div>
-                        <label className="block text-[11px] font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
+                        <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
                           Số điện thoại <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -392,7 +392,7 @@ export default function LienHeClient() {
 
                     {/* Email */}
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
+                      <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
                         Email <span className="text-slate-300 font-normal normal-case tracking-normal">(tùy chọn)</span>
                       </label>
                       <input
@@ -413,7 +413,7 @@ export default function LienHeClient() {
 
                     {/* Dự án */}
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
+                      <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
                         Dự án quan tâm
                       </label>
                       <div className="relative">
@@ -443,7 +443,7 @@ export default function LienHeClient() {
 
                     {/* Nội dung */}
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
+                      <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">
                         Nội dung tư vấn
                       </label>
                       <textarea
@@ -484,7 +484,7 @@ export default function LienHeClient() {
                       )}
                     </button>
 
-                    <p className="text-[11px] text-slate-400 text-center leading-relaxed">
+                    <p className="text-xs text-slate-400 text-center leading-relaxed">
                       Thông tin của bạn được bảo mật và chỉ dùng để liên hệ tư vấn.
                     </p>
                   </form>
@@ -541,7 +541,7 @@ export default function LienHeClient() {
         <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="w-8 h-px bg-amber-400/60" />
-            <p className="text-amber-400 text-[11px] font-bold tracking-[0.2em] uppercase">
+            <p className="text-amber-400 text-xs font-bold tracking-[0.2em] uppercase">
               Kim Oanh Đồng Nai
             </p>
             <span className="w-8 h-px bg-amber-400/60" />

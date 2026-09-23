@@ -276,7 +276,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
           {/* ── Mobile burger ── */}
           <button
             className={cn(
-              "xl:hidden p-2 rounded-lg transition",
+              "xl:hidden p-3 rounded-lg transition",
               scrolled || solid
                 ? "text-slate-800 hover:bg-gray-100"
                 : "text-white hover:bg-white/10"
@@ -307,7 +307,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
               </Link>
               <button
                 onClick={() => { setOpen(false); setDropdown(null); }}
-                className="p-2 rounded-lg text-slate-500 hover:bg-gray-100 transition"
+                className="p-3 rounded-lg text-slate-500 hover:bg-gray-100 transition"
                 aria-label="Đóng menu"
               >
                 <X className="w-5 h-5" />

@@ -185,9 +185,23 @@ const priceFactors = [
   },
 ];
 
+const breadcrumbMc2BangGia = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://kimoanhdongnai.com.vn" },
+    { "@type": "ListItem", position: 2, name: "Mega City 2", item: "https://kimoanhdongnai.com.vn/mega-city-2" },
+    { "@type": "ListItem", position: 3, name: "Bảng giá", item: "https://kimoanhdongnai.com.vn/mega-city-2/bang-gia" },
+  ],
+};
+
 export default function BangGiaPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbMc2BangGia) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }}
@@ -284,7 +298,7 @@ export default function BangGiaPage() {
                         <td className="px-4 py-3.5 font-semibold text-slate-800">
                           {row.type}
                           {row.highlight && (
-                            <span className="ml-2 inline-block text-[10px] bg-primary-100
+                            <span className="ml-2 inline-block text-xs bg-primary-100
                                              text-primary-700 px-1.5 py-0.5 rounded-full font-bold">
                               Phổ biến
                             </span>
@@ -303,7 +317,7 @@ export default function BangGiaPage() {
                 </table>
               </div>
               <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-100">
-                <p className="text-[11px] text-slate-400">
+                <p className="text-xs text-slate-400">
                   * Giá tham khảo, có thể thay đổi theo thị trường và thời điểm. Cần xác nhận lại khi giao dịch.
                 </p>
               </div>
@@ -321,7 +335,7 @@ export default function BangGiaPage() {
                     <p className={`font-bold text-sm ${row.highlight ? "text-primary-800" : "text-slate-800"}`}>
                       {row.type}
                       {row.highlight && (
-                        <span className="ml-2 inline-block text-[10px] bg-primary-100
+                        <span className="ml-2 inline-block text-xs bg-primary-100
                                          text-primary-700 px-1.5 py-0.5 rounded-full font-bold">
                           Phổ biến
                         </span>
@@ -338,7 +352,7 @@ export default function BangGiaPage() {
                   <p className="text-xs text-slate-400">{row.note}</p>
                 </div>
               ))}
-              <p className="text-[11px] text-slate-400 px-1">
+              <p className="text-xs text-slate-400 px-1">
                 * Giá tham khảo, cần xác nhận khi giao dịch.
               </p>
             </div>
