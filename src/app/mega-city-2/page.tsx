@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   // Targets: "mega city 2 nhơn trạch", "dự án mega city 2", "bán mega city 2", "khu đô thị mega city 2"
   title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ 09/2026",
   description:
-    "Thông tin dự án Mega City 2 Nhơn Trạch: quy mô 84 ha, 2.421 lô phân lô theo QĐ 1772/QĐ-UBND. Bảng giá đất nền từ 1,15 tỷ, hạ tầng ~95%, 110 GCN đã cấp. Liên hệ tư vấn mua bán Mega City 2: 0937.587.438.",
+    "Thông tin dự án Mega City 2 Nhơn Trạch: quy mô 84 ha, 2.421 lô phân lô theo QĐ 1772/QĐ-UBND. QĐ 2979/QĐ-UBND ngày 24/9/2026 giao đất chính thức cho CĐT Phú Hội. Bảng giá đất nền từ 1,15 tỷ, hạ tầng ~95%, 110 GCN đã cấp. Liên hệ tư vấn mua bán Mega City 2: 0937.587.438.",
   keywords: [
     "Mega City 2",
     "Mega City 2 Nhơn Trạch",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ 09/2026",
     description:
-      "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. Giá từ 1,15 tỷ/nền. Tư vấn mua bán: 0937.587.438.",
+      "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. QĐ 2979/QĐ-UBND 24/9/2026 giao đất chính thức CĐT Phú Hội. Giá từ 1,15 tỷ/nền. Tư vấn mua bán: 0937.587.438.",
     type: "website",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -60,7 +60,7 @@ const jsonLd = {
     "Khu dân cư Mega City 2 quy mô ~83,94 ha tại xã Nhơn Trạch, tỉnh Đồng Nai. 2.421 lô phân lô bán nền được UBND tỉnh Đồng Nai chấp thuận theo QĐ 1772/QĐ-UBND ngày 30/05/2025. Chủ đầu tư: Công ty TNHH Khu đô thị Phú Hội. Phát triển: Kim Oanh Group.",
   url: "https://kimoanhdongnai.com.vn/mega-city-2",
   datePosted: "2026-08-13",
-  dateModified: "2026-09-08",
+  dateModified: "2026-09-24",
   image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
   floorSize: {
     "@type": "QuantitativeValue",
@@ -134,7 +134,7 @@ const jsonLd = {
     {
       "@type": "PropertyValue",
       name: "Pháp lý",
-      value: "QĐ 1772/QĐ-UBND ngày 30/05/2025",
+      value: "QĐ 1772/QĐ-UBND ngày 30/05/2025 · QĐ 2979/QĐ-UBND ngày 24/09/2026",
     },
     {
       "@type": "PropertyValue",
@@ -325,7 +325,7 @@ const projectFacts = [
   { label: "Hạ tầng nội khu",               value: "Đường nhựa nội khu theo quy hoạch", highlight: false },
   { label: "Tiến độ hạ tầng",               value: "~95%*",                            highlight: false },
   { label: "GCN đã cấp",                    value: "110 GCN đã cấp*",                  highlight: false },
-  { label: "Thông tin pháp lý",             value: "QH 1/500 · QĐ 1772/QĐ-UBND",      highlight: true  },
+  { label: "Thông tin pháp lý",             value: "QH 1/500 · QĐ 1772 · QĐ 2979",    highlight: true  },
 ];
 
 
@@ -588,7 +588,7 @@ export default function HomePage() {
 
             {/* Ngày cập nhật */}
             <p className="text-[11px] text-slate-400 mt-3 text-right">
-              Cập nhật lần cuối: 09/08/2026
+              Cập nhật lần cuối: 24/09/2026 (QĐ 2979/QĐ-UBND)
             </p>
           </div>
         </FadeSection>
@@ -765,6 +765,71 @@ export default function HomePage() {
         {/* ── Phương thức thanh toán ── */}
         <PaymentSection />
 
+        {/* ── Tiến Độ ── */}
+        <section id="tien-do" className="py-16 bg-white" data-reveal>
+          <div className="max-w-6xl mx-auto px-4">
+            <SectionLabel>Tiến độ</SectionLabel>
+            <SectionHeader sub="Theo thông tin được công bố gần nhất – tháng 06/2025">
+              Tiến độ hạ tầng Mega City 2
+            </SectionHeader>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Progress bars */}
+              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+                <div className="space-y-4 mb-4">
+                  {progressItems.map((item) => (
+                    <div key={item.label}>
+                      <div className="flex justify-between mb-1.5">
+                        <span className="text-sm font-semibold text-slate-700">{item.label}</span>
+                        <span className={`text-sm font-black tabular-nums ${item.pct === 100 ? "text-emerald-600" : "text-primary-600"}`}>
+                          {item.pct}%
+                        </span>
+                      </div>
+                      <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full rounded-full ${item.pct === 100 ? "bg-emerald-500" : "bg-primary-500"}`}
+                          style={{ width: `${item.pct}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[11px] text-slate-400 leading-relaxed border-t border-slate-200 pt-3">
+                  * Số liệu theo thông tin công bố 06/2025. Tình trạng thực tế từng lô có thể khác.
+                </p>
+                <a
+                  href="/mega-city-2/tien-do"
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-primary-600 hover:underline"
+                >
+                  Xem tiến độ chi tiết & hình ảnh thực tế →
+                </a>
+              </div>
+
+              {/* 4 ảnh thực tế */}
+              <div className="grid grid-cols-2 gap-2 content-start">
+                {PROGRESS_IMAGES.slice(0, 4).map((img) => (
+                  <div key={img.src}
+                    className="relative overflow-hidden rounded-xl bg-slate-100 h-36 group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                                    flex items-end p-2">
+                      <p className="text-white text-[11px] font-medium leading-snug">{img.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── Pháp Lý ── */}
         <LegalSection />
 
@@ -795,8 +860,7 @@ export default function HomePage() {
                   Công ty TNHH Khu đô thị Phú Hội
                 </h3>
                 <p className="text-sm text-slate-500 mt-1 leading-relaxed">
-                  Chủ đầu tư chính thức theo hồ sơ pháp lý và Quyết định
-                  1772/QĐ-UBND ngày 30/05/2025.
+                  Chủ đầu tư chính thức theo hồ sơ pháp lý, QĐ 1772/QĐ-UBND ngày 30/05/2025 và QĐ 2979/QĐ-UBND ngày 24/09/2026.
                 </p>
                 <ScrollLink to="phap-ly"
                   className="mt-3 inline-flex items-center gap-1 text-xs font-semibold
@@ -872,80 +936,6 @@ export default function HomePage() {
               </div>
             </div>
 
-          </div>
-        </section>
-
-        {/* ── Tiến Độ ── */}
-        <section id="tien-do" className="py-20 bg-slate-50" data-reveal>
-          <div className="max-w-6xl mx-auto px-4">
-            <SectionLabel>Tiến độ</SectionLabel>
-            <SectionHeader sub="Theo thông tin được công bố gần nhất – tháng 06/2025">
-              Tiến độ thi công hạ tầng Mega City 2
-            </SectionHeader>
-
-            <div className="mb-6 rounded-2xl bg-amber-50 border border-amber-200 px-4 py-3">
-              <p className="text-xs text-amber-700">
-                <span className="font-bold">Lưu ý:</span> Số liệu tiến độ dưới đây theo cập nhật tháng 06/2025.
-                Tình trạng thực tế có thể thay đổi – vui lòng liên hệ để xác nhận.{" "}
-                <a href="/mega-city-2/tien-do" className="font-bold text-amber-800 underline">
-                  Xem tiến độ xây dựng chi tiết →
-                </a>
-              </p>
-            </div>
-
-            {/* 6 progress bars */}
-            <div className="space-y-5 mb-10">
-              {progressItems.map((item) => (
-                <div key={item.label}>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-semibold text-slate-700">
-                      {item.label}
-                    </span>
-                    <span className="text-sm font-bold text-primary-600">
-                      {item.pct}%
-                    </span>
-                  </div>
-                  <div className="h-2.5 bg-slate-200 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-primary-600 rounded-full"
-                      style={{ width: `${item.pct}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Hiện trạng thực tế */}
-            <div className="mt-8">
-              <h3 className="text-sm font-semibold text-slate-700 mb-1">Hiện trạng thực tế</h3>
-              <p className="text-xs text-slate-400 mb-4">
-                Một số hình ảnh thực tế ghi nhận tại dự án, thể hiện hiện trạng nhà phố,
-                đường nội khu và cảnh quan.{" "}
-                <a href="/mega-city-2/hinh-anh" className="text-primary-600 hover:underline font-semibold">
-                  Xem toàn bộ hình ảnh thực tế →
-                </a>
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {PROGRESS_IMAGES.map((img) => (
-                  <div key={img.src}
-                    className="relative overflow-hidden rounded-xl bg-slate-100 h-36 md:h-40 group">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent
-                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                                    flex items-end p-3">
-                      <p className="text-white text-xs font-medium leading-snug">{img.title}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 

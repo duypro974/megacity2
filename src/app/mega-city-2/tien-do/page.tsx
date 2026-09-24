@@ -9,14 +9,14 @@ import ScrollAnimator from "@/components/ScrollAnimator";
 import { IMG_REAL } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
-  title: "Tiến Độ Xây Dựng Mega City 2 Nhơn Trạch – Hạ Tầng & Mốc Pháp Lý",
+  title: "Tiến Độ Mega City 2 Nhơn Trạch – QĐ 2979 Giao Đất 09/2026 & Hạ Tầng ~95%",
   description:
-    "Tiến độ thi công hạ tầng Mega City 2 Nhơn Trạch: đường nội khu, điện nước, công viên đạt ~95% theo cập nhật 06/2025. Hình ảnh thực tế và timeline xây dựng.",
+    "Tiến độ Mega City 2 Nhơn Trạch: UBND TP Đồng Nai ban hành QĐ 2979/QĐ-UBND ngày 24/9/2026 giao đất chính thức cho CĐT Phú Hội. Hạ tầng ~95%, đường nội khu, điện nước hoàn thiện. Hình ảnh thực tế.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2/tien-do" },
   openGraph: {
-    title: "Tiến Độ Xây Dựng Mega City 2 Nhơn Trạch – Hạ Tầng & Mốc Pháp Lý",
+    title: "Tiến Độ Mega City 2 Nhơn Trạch – QĐ 2979 Giao Đất 09/2026 & Hạ Tầng ~95%",
     description:
-      "Cập nhật tiến độ hạ tầng Mega City 2: đường, điện, nước, công viên đạt ~95%. Hình ảnh thực tế.",
+      "QĐ 2979/QĐ-UBND ngày 24/9/2026: UBND TP Đồng Nai giao đất chính thức cho CĐT Phú Hội tiếp tục dự án Mega City 2. Hạ tầng ~95%, hình ảnh thực tế.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tiến Độ Xây Dựng Mega City 2 Nhơn Trạch – Hạ Tầng & Mốc Pháp Lý",
-    description: "Cập nhật tiến độ hạ tầng và hình ảnh thực tế dự án Mega City 2 Nhơn Trạch.",
+    title: "Tiến Độ Mega City 2 Nhơn Trạch – QĐ 2979 Giao Đất 09/2026 & Hạ Tầng ~95%",
+    description: "QĐ 2979 ngày 24/9/2026 giao đất chính thức CĐT Phú Hội. Hạ tầng Mega City 2 đạt ~95%. Hình ảnh thực tế.",
     images: [IMG_REAL["1"]],
   },
 };
@@ -85,13 +85,13 @@ const imageSchema = {
 const progressSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Tiến độ thi công hạ tầng Mega City 2 Nhơn Trạch (cập nhật 2025–2026)",
+  headline: "Tiến độ Mega City 2 Nhơn Trạch – QĐ 2979 giao đất 24/9/2026 & hạ tầng ~95%",
   description:
-    "Thông tin cập nhật về tiến độ hoàn thiện hạ tầng dự án Mega City 2: đường nội khu, hệ thống điện, nước, công viên và cây xanh.",
+    "Cập nhật tiến độ pháp lý và hạ tầng dự án Mega City 2: UBND TP Đồng Nai ban hành QĐ 2979/QĐ-UBND ngày 24/9/2026 giao đất chính thức cho Công ty TNHH Khu đô thị Phú Hội. Hạ tầng đường, điện, nước, công viên đạt ~95%.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
   datePublished: "2026-08-01",
-  dateModified: "2026-08-09",
+  dateModified: "2026-09-24",
   url: "https://kimoanhdongnai.com.vn/mega-city-2/tien-do",
 };
 
@@ -157,7 +157,7 @@ export default function TienDoPage() {
             { label: "Mega City 2", href: "/mega-city-2" },
             { label: "Tiến độ" },
           ]}
-          updatedAt="06/2025 (cập nhật gần nhất)"
+          updatedAt="09/2026 (QĐ 2979/QĐ-UBND ngày 24/09/2026)"
         />
 
         {/* Disclaimer nổi bật */}
@@ -169,10 +169,60 @@ export default function TienDoPage() {
                 <p className="font-bold text-amber-800 text-sm mb-1">Lưu ý về số liệu tiến độ</p>
                 <p className="text-xs text-amber-700 leading-relaxed">
                   Số liệu tiến độ (~95%) dựa trên thông tin được công bố gần nhất vào tháng 06/2025.
-                  Tình trạng thực tế từng lô, từng block có thể khác nhau. Khách hàng nên tham quan
-                  thực tế và xác nhận với chuyên viên trước khi ra quyết định giao dịch.
+                  Ngày 24/09/2026, UBND TP Đồng Nai ban hành{" "}
+                  <span className="font-semibold">QĐ 2979/QĐ-UBND</span> giao đất chính thức cho Công ty TNHH Khu đô thị Phú Hội,
+                  đây là mốc pháp lý quan trọng xác nhận chủ đầu tư được tiếp tục triển khai dự án.
+                  Tình trạng thực tế từng lô, từng block có thể khác nhau.
+                  Khách hàng nên tham quan thực tế và xác nhận với chuyên viên trước khi ra quyết định giao dịch.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Banner QĐ 2979 mới nhất ── */}
+        <section className="py-10 bg-primary-600">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row md:items-center gap-5">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="bg-white/20 text-white text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-full">
+                    Cập nhật mới nhất
+                  </span>
+                  <span className="text-white/60 text-xs">24/09/2026</span>
+                </div>
+                <h3 className="text-white font-bold text-lg md:text-xl leading-snug mb-2">
+                  QĐ 2979/QĐ-UBND – UBND TP Đồng Nai giao đất chính thức cho Công ty TNHH Khu đô thị Phú Hội
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Quyết định số 2979 ngày 24/9/2026 xác nhận chủ đầu tư được giao <strong className="text-white">321.248 m²</strong> đất hạ tầng kỹ thuật và chấp thuận cơ cấu sử dụng <strong className="text-white">~839.256 m²</strong> toàn dự án, bao gồm đất ở, đất thương mại và đất hạ tầng — đây là bước pháp lý xác nhận dự án tiếp tục triển khai theo đúng quy hoạch.
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <a
+                  href="/2979.QĐ-UBND.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white text-primary-700 font-bold text-sm px-5 py-3 rounded-xl hover:bg-primary-50 transition-colors shadow"
+                >
+                  <span>📄</span> Xem văn bản gốc
+                </a>
+              </div>
+            </div>
+
+            {/* 3 thống kê nhanh */}
+            <div className="grid grid-cols-3 gap-3 mt-6">
+              {[
+                { label: "Đất ở được giao", value: "449.695 m²", sub: "Đến 30/6/2059" },
+                { label: "Đất thương mại / giáo dục", value: "69.562 m²", sub: "Nhà nước cho thuê" },
+                { label: "Đất hạ tầng kỹ thuật", value: "320.221 m²", sub: "Giao không thu tiền SDĐ" },
+              ].map((s) => (
+                <div key={s.label} className="bg-white/10 rounded-2xl px-4 py-3 text-center">
+                  <p className="text-white font-black text-lg md:text-xl tabular-nums">{s.value}</p>
+                  <p className="text-white/70 text-[11px] font-semibold mt-0.5">{s.label}</p>
+                  <p className="text-white/50 text-[10px] mt-0.5">{s.sub}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -184,7 +234,7 @@ export default function TienDoPage() {
               Tiến độ theo hạng mục hạ tầng
             </h2>
             <p className="text-sm text-slate-500 mb-8 anim-up anim-delay-100">
-              Theo thông tin công bố tháng 06/2025. Cập nhật lần cuối: 08/2026.
+              Theo thông tin công bố tháng 06/2025. Cập nhật pháp lý lần cuối: 09/2026 (QĐ 2979/QĐ-UBND).
             </p>
             <div className="space-y-6 max-w-2xl">
               {progressItems.map((item, i) => (
@@ -246,17 +296,57 @@ export default function TienDoPage() {
         {/* Timeline xây dựng */}
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-xl font-bold text-slate-800 mb-6 anim-up">
+            <h2 className="text-xl font-bold text-slate-800 mb-2 anim-up">
               Timeline pháp lý & hạ tầng quan trọng
             </h2>
+            <p className="text-sm text-slate-500 mb-6 anim-up anim-delay-100">
+              Cập nhật lần cuối: 09/2026
+            </p>
             <div className="space-y-4 max-w-2xl">
               {[
-                { year: "2018", event: "Kim Oanh Group bắt đầu đầu tư dự án Mega City 2", done: true },
-                { year: "2022–2024", event: "Xây dựng hạ tầng nội khu: đường, điện, nước, cây xanh", done: true },
-                { year: "30/05/2025", event: "UBND tỉnh Đồng Nai ban hành QĐ 1772/QĐ-UBND chấp thuận 2.421 lô phân lô bán nền", done: true, highlight: true },
-                { year: "06/2025", event: "Hạ tầng đạt ~95% theo thông tin công bố", done: true },
-                { year: "31/12/2029", event: "Hạn cuối hoàn thành xây dựng nhà ở (theo QĐ 1772)", done: false },
-              ].map((item, i) => (
+                {
+                  year: "2018",
+                  event: "Kim Oanh Group bắt đầu đầu tư dự án Mega City 2",
+                  done: true,
+                  highlight: false,
+                  new: false,
+                },
+                {
+                  year: "2022–2024",
+                  event: "Xây dựng hạ tầng nội khu: đường, điện, nước, cây xanh",
+                  done: true,
+                  highlight: false,
+                  new: false,
+                },
+                {
+                  year: "30/05/2025",
+                  event: "UBND tỉnh Đồng Nai ban hành QĐ 1772/QĐ-UBND chấp thuận 2.421 lô phân lô bán nền",
+                  done: true,
+                  highlight: false,
+                  new: false,
+                },
+                {
+                  year: "06/2025",
+                  event: "Hạ tầng đạt ~95% theo thông tin công bố",
+                  done: true,
+                  highlight: false,
+                  new: false,
+                },
+                {
+                  year: "24/09/2026",
+                  event: "UBND TP Đồng Nai ban hành QĐ 2979/QĐ-UBND: giao đất chính thức 321.248 m² hạ tầng kỹ thuật và chấp thuận toàn bộ cơ cấu sử dụng đất ~839.256 m² cho Công ty TNHH Khu đô thị Phú Hội",
+                  done: true,
+                  highlight: true,
+                  new: true,
+                },
+                {
+                  year: "31/12/2029",
+                  event: "Hạn cuối hoàn thành xây dựng nhà ở (theo QĐ 1772/QĐ-UBND)",
+                  done: false,
+                  highlight: false,
+                  new: false,
+                },
+              ].map((item, i, arr) => (
                 <div key={i} className="flex items-start gap-4 anim-left" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="flex flex-col items-center flex-shrink-0">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold
@@ -265,20 +355,46 @@ export default function TienDoPage() {
                         : item.done ? "bg-emerald-500" : "bg-slate-300"}`}>
                       {item.done ? "✓" : "○"}
                     </div>
-                    {i < 4 && <div className="w-px h-8 bg-slate-200 mt-1 anim-timeline-line" />}
+                    {i < arr.length - 1 && <div className="w-px h-8 bg-slate-200 mt-1 anim-timeline-line" />}
                   </div>
                   <div className={`flex-1 rounded-2xl border p-4 -mt-1 anim-card
                     ${item.highlight
                       ? "bg-primary-50 border-primary-200"
                       : "bg-white border-slate-200"}`}>
-                    <p className={`text-[11px] font-bold uppercase tracking-wider mb-1
-                      ${item.highlight ? "text-primary-600" : "text-slate-400"}`}>
-                      {item.year}
-                    </p>
-                    <p className={`text-sm font-semibold
+                    <div className="flex items-center gap-2 mb-1">
+                      <p className={`text-[11px] font-bold uppercase tracking-wider
+                        ${item.highlight ? "text-primary-600" : "text-slate-400"}`}>
+                        {item.year}
+                      </p>
+                      {item.new && (
+                        <span className="inline-block bg-red-500 text-white text-[9px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded-full leading-none">
+                          MỚI
+                        </span>
+                      )}
+                    </div>
+                    <p className={`text-sm font-semibold leading-relaxed
                       ${item.highlight ? "text-primary-800" : item.done ? "text-slate-700" : "text-slate-400"}`}>
                       {item.event}
                     </p>
+                    {item.highlight && (
+                      <div className="mt-3 space-y-1.5 border-t border-primary-200 pt-3">
+                        <p className="text-xs text-primary-700 font-semibold">Chi tiết QĐ 2979/QĐ-UBND:</p>
+                        <ul className="space-y-1 text-xs text-primary-700">
+                          <li>• Giao 449.694,8 m² đất ở (thời hạn đến 30/6/2059): nhà liên kế phố, liên kế vườn, biệt thự song lập và nhà ở xã hội</li>
+                          <li>• Cho thuê 69.561,5 m² đất thương mại dịch vụ và giáo dục</li>
+                          <li>• Giao 320.220,7 m² đất hạ tầng kỹ thuật (giao thông, cây xanh, trạm y tế, TTSHCĐ)</li>
+                          <li>• Ký bởi: KT. Chủ tịch – Phó Chủ tịch Nguyễn Tuấn Anh</li>
+                        </ul>
+                        <a
+                          href="/2979.QĐ-UBND.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 mt-2 text-xs font-bold text-primary-600 hover:text-primary-700 underline underline-offset-2"
+                        >
+                          📄 Xem văn bản QĐ 2979/QĐ-UBND
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

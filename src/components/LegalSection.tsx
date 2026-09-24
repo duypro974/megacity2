@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Shield, Award, CheckCircle2, X, ZoomIn } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
-import { IMG_LEGAL } from "@/lib/cloudinary";
+import { IMG_LEGAL, IMG_LEGAL_2979 } from "@/lib/cloudinary";
 
 /* ─────────────────────────────────────────
    Lightbox component
@@ -127,30 +127,100 @@ export default function LegalSection() {
       <div className="max-w-6xl mx-auto px-4">
 
         {/* 1. Tiêu đề chính */}
-        <div className="mb-4">
+        <div className="mb-6">
           <span className="inline-block text-xs font-bold tracking-widest uppercase text-primary-600 bg-primary-50 px-3 py-1 rounded-full mb-3">
             Pháp lý
           </span>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 leading-snug">
-            Pháp lý dự án Mega City 2 – Minh bạch, đã được UBND tỉnh chấp thuận phân lô bán nền
+            Pháp lý dự án Mega City 2 – Minh bạch, đã được UBND chấp thuận phân lô bán nền
           </h2>
         </div>
 
-        {/* 2. Đoạn mở đầu + Ảnh trang 1 (layout 2 cột desktop) */}
+        {/* 2. Banner QĐ-2979 MỚI NHẤT */}
+        <div className="rounded-2xl bg-primary-600 p-5 mb-5">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="bg-white/20 text-white text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full">
+                  Mới nhất · 24/09/2026
+                </span>
+              </div>
+              <p className="text-white font-bold text-base leading-snug mb-1">
+                QĐ 2979/QĐ-UBND – UBND TP Đồng Nai giao đất chính thức
+              </p>
+              <p className="text-white/80 text-xs leading-relaxed">
+                Giao <strong className="text-white">321.248 m²</strong> đất hạ tầng kỹ thuật và chấp thuận toàn bộ
+                cơ cấu sử dụng <strong className="text-white">~839.256 m²</strong> cho Công ty TNHH Khu đô thị Phú Hội
+                tiếp tục triển khai dự án tại phường Nhơn Trạch, TP Đồng Nai.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <span className="bg-white/15 text-white text-[10px] px-2.5 py-1 rounded-full font-semibold">449.695 m² đất ở</span>
+                <span className="bg-white/15 text-white text-[10px] px-2.5 py-1 rounded-full font-semibold">69.562 m² TM–Giáo dục</span>
+                <span className="bg-white/15 text-white text-[10px] px-2.5 py-1 rounded-full font-semibold">Đến 30/6/2059</span>
+              </div>
+            </div>
+            <a
+              href="/2979.QĐ-UBND.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 self-start bg-white text-primary-700 font-bold text-xs px-4 py-2.5 rounded-xl hover:bg-primary-50 transition-colors whitespace-nowrap"
+            >
+              📄 Xem văn bản gốc
+            </a>
+          </div>
+        </div>
+
+        {/* 2b. Gallery ảnh QĐ 2979 — 4 trang có zoom */}
+        <div className="mb-8">
+          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">
+            Hình ảnh văn bản QĐ 2979/QĐ-UBND — 4 trang
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { src: IMG_LEGAL_2979["1"], alt: "QĐ 2979/QĐ-UBND trang 1 – Tiêu đề và căn cứ pháp lý" },
+              { src: IMG_LEGAL_2979["2"], alt: "QĐ 2979/QĐ-UBND trang 2 – Điều 1 và Điều 2 giao đất" },
+              { src: IMG_LEGAL_2979["3"], alt: "QĐ 2979/QĐ-UBND trang 3 – Chi tiết diện tích từng loại đất" },
+              { src: IMG_LEGAL_2979["4"], alt: "QĐ 2979/QĐ-UBND trang 4 – Điều 3, Điều 4 và chữ ký con dấu" },
+            ].map((img, i) => (
+              <ZoomableImage
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
+                caption={`Trang ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* 3. Đoạn mở đầu + Ảnh trang 1 (layout 2 cột desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-10">
           {/* Đoạn mở */}
           <div>
-            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-              Dự án Khu dân cư theo quy hoạch tại xã Long Tân và xã Phú Hội, nay thuộc xã Nhơn Trạch,
-              tỉnh Đồng Nai
-              (diện tích khoảng 83,94 ha) do Công ty TNHH Khu đô thị Phú Hội làm chủ đầu tư
-              đã được Ủy ban nhân dân tỉnh Đồng Nai chấp thuận các vị trí thực hiện chuyển
-              nhượng quyền sử dụng đất dưới hình thức phân lô, bán nền cho cá nhân tự xây
-              dựng nhà ở theo quy hoạch chi tiết xây dựng tỷ lệ 1/500 đã được phê duyệt.
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
+              Dự án Khu dân cư theo quy hoạch tại xã Long Tân và xã Phú Hội, nay thuộc phường Nhơn Trạch,
+              TP Đồng Nai (diện tích khoảng 83,94 ha) do Công ty TNHH Khu đô thị Phú Hội làm chủ đầu tư
+              đã được UBND tỉnh Đồng Nai chấp thuận các vị trí thực hiện chuyển nhượng quyền sử dụng đất
+              dưới hình thức phân lô, bán nền theo quy hoạch chi tiết 1/500 đã được phê duyệt.
             </p>
+            {/* QĐ 1772 tóm tắt */}
+            <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                  <span className="text-white text-sm font-black">✓</span>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider mb-0.5">30/05/2025</p>
+                  <p className="text-sm font-bold text-emerald-800">QĐ 1772/QĐ-UBND</p>
+                  <p className="text-xs text-emerald-700 mt-1 leading-relaxed">
+                    UBND tỉnh Đồng Nai chấp thuận <strong>2.421 lô</strong> phân lô bán nền —
+                    dãy T-1→T-29, TH-1→TH-28, V-1→V-4.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* 3. Ảnh Quyết định trang 1 */}
+          {/* Ảnh Quyết định trang 1 */}
           <ZoomableImage
             src={IMG_LEGAL["1"]}
             alt="Quyết định số 1772/QĐ-UBND ngày 30/5/2025 của UBND tỉnh Đồng Nai chấp thuận phân lô bán nền dự án Mega City 2 Nhơn Trạch"
@@ -161,7 +231,7 @@ export default function LegalSection() {
         {/* 4. Các điểm chính */}
         <div className="bg-slate-50 rounded-2xl p-6 mb-10 border border-slate-100">
           <h3 className="font-bold text-slate-800 mb-4 text-base">
-            Các điểm chính của Quyết định
+            Các điểm chính của Quyết định 1772/QĐ-UBND
           </h3>
           <ul className="space-y-3">
             {[
@@ -273,9 +343,8 @@ export default function LegalSection() {
 
         {/* 8. Ghi chú nhỏ cuối section */}
         <p className="text-xs text-slate-400 border-t border-slate-100 pt-4 text-center">
-          Thông tin được cập nhật theo Quyết định số 1772/QĐ-UBND ngày 30/5/2025 của UBND tỉnh
-          Đồng Nai. Khách hàng vui lòng liên hệ để được hỗ trợ kiểm tra tình trạng pháp lý
-          cụ thể từng lô.
+          Pháp lý cập nhật theo QĐ 2979/QĐ-UBND ngày 24/9/2026 và QĐ 1772/QĐ-UBND ngày 30/5/2025 của UBND tỉnh Đồng Nai.
+          Khách hàng vui lòng liên hệ để được hỗ trợ kiểm tra tình trạng pháp lý cụ thể từng lô.
         </p>
       </div>
     </section>

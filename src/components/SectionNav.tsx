@@ -11,6 +11,7 @@ const SECTIONS = [
   { id: "san-pham",          label: "Sản phẩm" },
   { id: "bang-gia",          label: "Bảng giá" },
   { id: "thanh-toan",        label: "Thanh toán" },
+  { id: "tien-do",           label: "Tiến độ" },
   { id: "phap-ly",           label: "Pháp lý" },
   { id: "lien-he",           label: "Liên hệ" },
 ];

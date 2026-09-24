@@ -58,6 +58,10 @@ const LOCAL: Record<string, string> = {
   "megacity2/legal/1.jpeg":              "/legal/1.jpeg",
   "megacity2/legal/2.jpeg":              "/legal/2.jpeg",
   "megacity2/legal/3.jpeg":              "/legal/3.jpeg",
+  "megacity2/legal2/1.jpg":             "/legal 2/1.jpeg",
+  "megacity2/legal2/2.jpg":             "/legal 2/2.jpeg",
+  "megacity2/legal2/3.jpg":             "/legal 2/3.jpeg",
+  "megacity2/legal2/4.jpg":             "/legal 2/4.jpeg",
   "megacity2/regional-link/1.jpg":       "/Regional link/1.jpg",
   "megacity2/regional-link/2.jpg":       "/Regional link/2.jpg",
   "megacity2/regional-link/3.jpg":       "/Regional link/3.jpg",
@@ -334,11 +338,19 @@ export const IMG_PRODUCT: Record<string, string> = {
   "trang-12": cld("megacity2/product", "trang-12.jpeg", "doc"),
 };
 
-/** Pháp lý */
+/** Pháp lý QĐ 1772 */
 export const IMG_LEGAL = {
   "1": cld("megacity2/legal", "1.jpeg", "doc"),
   "2": cld("megacity2/legal", "2.jpeg", "doc"),
   "3": cld("megacity2/legal", "3.jpeg", "doc"),
+};
+
+/** Pháp lý QĐ 2979 (24/09/2026) — 4 trang */
+export const IMG_LEGAL_2979 = {
+  "1": cld("megacity2/legal2", "1.jpg", "doc"),
+  "2": cld("megacity2/legal2", "2.jpg", "doc"),
+  "3": cld("megacity2/legal2", "3.jpg", "doc"),
+  "4": cld("megacity2/legal2", "4.jpg", "doc"),
 };
 
 /** Liên kết vùng */

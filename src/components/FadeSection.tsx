@@ -9,8 +9,9 @@ interface FadeSectionProps {
 }
 
 /**
- * Wrapper dùng IntersectionObserver để fade-in khi scroll vào,
- * và fade-out (mờ + trượt lên) khi scroll qua section đó.
+ * Wrapper dùng IntersectionObserver để fade-in khi scroll vào viewport.
+ * Chỉ fade-in một lần duy nhất — không fade-out khi scroll qua
+ * để tránh bug section biến mất / trang trắng.
  */
 export default function FadeSection({ id, className = "", children }: FadeSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,29 +20,29 @@ export default function FadeSection({ id, className = "", children }: FadeSectio
     const el = ref.current;
     if (!el) return;
 
+    // Respect prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     el.style.opacity = "0";
-    el.style.transform = "translateY(28px)";
-    el.style.transition = "opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)";
+    el.style.transform = "translateY(24px)";
+    el.style.transition = "opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)";
 
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           el.style.opacity = "1";
           el.style.transform = "translateY(0)";
-        } else {
-          const rect = entry.boundingClientRect;
-          if (rect.top < 0) {
-            // Đã scroll qua — mờ nhẹ + trượt lên trên
-            el.style.opacity = "0.1";
-            el.style.transform = "translateY(-20px)";
-          } else {
-            // Chưa tới — ẩn phía dưới
-            el.style.opacity = "0";
-            el.style.transform = "translateY(28px)";
-          }
+          // Unobserve sau khi đã hiện — không cần theo dõi thêm
+          obs.unobserve(el);
         }
       },
-      { threshold: 0.06 }
+      {
+        threshold: 0.05,
+        // Trigger sớm 80px trước khi element vào viewport
+        rootMargin: "0px 0px -80px 0px",
+      }
     );
 
     obs.observe(el);

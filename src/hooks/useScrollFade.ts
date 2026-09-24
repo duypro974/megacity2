@@ -5,10 +5,9 @@ import { useEffect, useRef } from "react";
 /**
  * useScrollFade
  * Gắn IntersectionObserver lên ref element.
- * Khi vào viewport → opacity 1, translateY 0
- * Khi ra khỏi viewport (scroll qua) → opacity 0.15, translateY(-20px)
- * 
- * Chỉ áp dụng class, không reset — để tránh bug biến mất.
+ * Khi vào viewport → fade in (opacity 1, translateY 0).
+ * Chỉ trigger một lần — không fade-out khi scroll qua
+ * để tránh bug section biến mất / trang trắng.
  */
 export function useScrollFade() {
   const ref = useRef<HTMLElement | null>(null);
@@ -17,31 +16,29 @@ export function useScrollFade() {
     const el = ref.current;
     if (!el) return;
 
-    // Set initial style
+    // Respect prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     el.style.transition = "opacity 0.55s ease, transform 0.55s ease";
     el.style.opacity = "0";
-    el.style.transform = "translateY(32px)";
+    el.style.transform = "translateY(24px)";
 
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           el.style.opacity = "1";
           el.style.transform = "translateY(0)";
-        } else {
-          // Đã scroll qua (section phía trên) → mờ nhẹ
-          const rect = entry.boundingClientRect;
-          if (rect.top < 0) {
-            // Section đã scroll lên trên
-            el.style.opacity = "0.15";
-            el.style.transform = "translateY(-24px)";
-          } else {
-            // Section chưa đến (phía dưới)
-            el.style.opacity = "0";
-            el.style.transform = "translateY(32px)";
-          }
+          // Unobserve sau khi đã hiện — không reset lại
+          obs.unobserve(el);
         }
       },
-      { threshold: 0.08 }
+      {
+        threshold: 0.05,
+        // Trigger sớm 80px trước khi element vào viewport
+        rootMargin: "0px 0px -80px 0px",
+      }
     );
 
     obs.observe(el);
