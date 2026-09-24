@@ -106,8 +106,11 @@ export default function ScrollAnimator() {
           }
         });
       },
-      { threshold: 0.08 }
+      { threshold: 0.05, rootMargin: "0px 0px -60px 0px" }
     );
+
+    // Chỉ ẩn sau khi JS đã attach — tránh flash of invisible content
+    document.documentElement.classList.add("js-reveal-ready");
     revealEls.forEach((el) => revealObs.observe(el));
 
     return () => {

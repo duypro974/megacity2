@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "quyet-dinh-2979-giao-dat-mega-city-2",
+    title:    "QĐ 2979/QĐ-UBND: UBND TP Đồng Nai chính thức giao đất cho chủ đầu tư Mega City 2",
+    date:     "24/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Ngày 24/9/2026, UBND TP Đồng Nai ban hành QĐ 2979/QĐ-UBND giao đất chính thức cho Công ty TNHH Khu đô thị Phú Hội. Giao 321.248 m² hạ tầng kỹ thuật, chấp thuận ~839.256 m² toàn dự án.",
+    image: `${CDN}/megacity2/legal2/1.jpg`,
+    href:  "/tin-tuc/quyet-dinh-2979-giao-dat-mega-city-2",
+  },
+  {
     slug:     "dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong",
     title:    "Đất nền Mega City 2 có được xây nhà ngay không? Lộ trình quy hoạch và thời điểm khởi công thực tế",
     date:     "20/09/2026",

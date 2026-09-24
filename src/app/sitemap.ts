@@ -40,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // â”€â”€ Trang dá»± Ã¡n Mega City 2 (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/mega-city-2`,
-      lastModified: "2026-09-22",
+      lastModified: "2026-09-24",
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
@@ -119,7 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     {
       url: `${BASE}/mega-city-2/tien-do`,
-      lastModified: "2026-09-22",
+      lastModified: "2026-09-24",
       changeFrequency: "monthly",
       priority: 0.80,
       images: [
@@ -726,7 +726,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // â”€â”€ Tin tá»©c Mega City 2 má»›i (09/2026) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
-      url: `${BASE}/tin-tuc/dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong`,
+      url: `/tin-tuc/quyet-dinh-2979-giao-dat-mega-city-2`,
+      lastModified: "2026-09-24",
+      changeFrequency: "monthly" as const,
+      priority: 0.88,
+      images: [
+        cimg("megacity2/legal2/1"),
+        cimg("megacity2/legal2/2"),
+        cimg("megacity2/legal2/3"),
+        cimg("megacity2/legal2/4"),
+      ],
+    },
+    {
+      url: `/tin-tuc/dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong`,
       lastModified: "2026-09-20",
       changeFrequency: "monthly" as const,
       priority: 0.85,

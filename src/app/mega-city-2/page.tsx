@@ -766,7 +766,7 @@ export default function HomePage() {
         <PaymentSection />
 
         {/* ── Tiến Độ ── */}
-        <section id="tien-do" className="py-16 bg-white" data-reveal>
+        <FadeSection id="tien-do" className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Tiến độ</SectionLabel>
             <SectionHeader sub="Theo thông tin được công bố gần nhất – tháng 06/2025">
@@ -828,13 +828,13 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </FadeSection>
 
         {/* ── Pháp Lý ── */}
         <LegalSection />
 
         {/* ── Chủ đầu tư & Đơn vị phát triển ── */}
-        <section className="py-20 bg-white" data-reveal>
+        <FadeSection className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
 
             {/* Header */}
@@ -937,10 +937,10 @@ export default function HomePage() {
             </div>
 
           </div>
-        </section>
+        </FadeSection>
 
         {/* ── 6 điểm đáng chú ý ── */}
-        <section className="py-20 bg-white" data-reveal>
+        <FadeSection className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Tại sao nên quan tâm</SectionLabel>
             <SectionHeader sub="6 điểm nổi bật về dự án Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai">
@@ -981,10 +981,10 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </section>
+        </FadeSection>
 
         {/* ── FAQ ── */}
-        <section className="py-20 bg-slate-50" data-reveal>
+        <FadeSection className="py-20 bg-slate-50">
           <div className="max-w-3xl mx-auto px-4">
             <SectionLabel>FAQ</SectionLabel>
             <SectionHeader sub="Những câu hỏi thường gặp về dự án Mega City 2 Nhơn Trạch">
@@ -1037,10 +1037,10 @@ export default function HomePage() {
               </ScrollLink>
             </div>
           </div>
-        </section>
+        </FadeSection>
 
         {/* ── Liên Hệ ── */}
-        <section id="lien-he" className="py-20 bg-white" data-reveal>
+        <FadeSection id="lien-he" className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Liên hệ</SectionLabel>
             <SectionHeader sub="Để lại thông tin – chuyên viên tư vấn sẽ liên hệ trong 30 phút">
@@ -1140,7 +1140,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </FadeSection>
       </main>
 
       {/* ── Internal links: pillar → cluster ── */}
