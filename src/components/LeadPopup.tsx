@@ -68,18 +68,20 @@ function PopupForm({ onClose }: { onClose: () => void }) {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#16B364] to-emerald-500 px-6 py-5 flex items-center gap-3">
-        <Sparkles className="w-5 h-5 text-white/80 flex-shrink-0" />
-        <div>
-          <h3 className="text-white font-bold text-lg leading-tight">
+      <div className="bg-gradient-to-r from-[#16B364] to-emerald-500 px-4 py-4 pr-12 flex items-center gap-3">
+        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+          <Sparkles className="w-4 h-4 text-white" />
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-white font-bold text-base leading-tight truncate">
             Nhận bảng giá &amp; mặt bằng
           </h3>
-          <p className="text-white/70 text-xs mt-0.5">Tư vấn miễn phí – Phản hồi trong 5–15 phút</p>
+          <p className="text-white/75 text-xs mt-0.5">Tư vấn miễn phí · Phản hồi 5–15 phút</p>
         </div>
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="p-6 space-y-4">
+      <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3.5">
         {/* Họ tên */}
         <div>
           <label className="block text-xs font-bold text-slate-600 mb-1.5 uppercase tracking-wide">
@@ -212,13 +214,13 @@ function PopupForm({ onClose }: { onClose: () => void }) {
           type="submit"
           disabled={status === "loading"}
           className="w-full bg-[#16B364] hover:bg-emerald-600 text-white py-3.5 rounded-xl
-                     font-bold text-base shadow-lg shadow-green-500/25
+                     font-bold text-sm shadow-lg shadow-green-500/25
                      transition-all duration-200 hover:scale-[1.01]
                      flex items-center justify-center gap-2 disabled:opacity-60 disabled:scale-100"
         >
           {status === "loading"
-            ? <><Loader2 className="w-4 h-4 animate-spin" /> Đang gửi...</>
-            : <><Send className="w-4 h-4" /> Gửi thông tin – Nhận tư vấn ngay</>}
+            ? <><Loader2 className="w-4 h-4 animate-spin flex-shrink-0" /> Đang gửi...</>
+            : <><Send className="w-4 h-4 flex-shrink-0" /> Gửi thông tin – Nhận tư vấn</>}
         </button>
 
         <p className="text-center text-xs text-slate-400">
@@ -285,14 +287,14 @@ export default function LeadPopup() {
               type="button"
               onClick={closePopup}
               aria-label="Đóng"
-              className="absolute top-3.5 right-3.5 z-10 w-8 h-8 rounded-full bg-white/80 hover:bg-white
-                         flex items-center justify-center text-slate-500 hover:text-slate-800
-                         transition-colors shadow-sm"
+              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/25 hover:bg-white/40
+                         flex items-center justify-center text-white hover:text-white
+                         transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
 
-            <div className="max-h-[90vh]">
+            <div className="max-h-[90vh] overflow-y-auto">
               <PopupForm onClose={closePopup} />
             </div>
           </div>

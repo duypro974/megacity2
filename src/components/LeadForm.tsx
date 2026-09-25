@@ -54,11 +54,13 @@ export default function LeadForm() {
   return (
     <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
       {/* Header stripe */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-500 px-8 py-5 flex items-center gap-3">
-        <Sparkles className="w-5 h-5 text-white/80" />
-        <div>
-          <h3 className="text-white font-extrabold text-lg">Nhận bảng giá & mặt bằng</h3>
-          <p className="text-white/70 text-xs mt-0.5">Tư vấn miễn phí – Phản hồi trong 5–15 phút</p>
+      <div className="bg-gradient-to-r from-primary-600 to-primary-500 px-6 py-4 flex items-center gap-3">
+        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+          <Sparkles className="w-4 h-4 text-white" />
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-white font-extrabold text-base leading-tight">Nhận bảng giá &amp; mặt bằng</h3>
+          <p className="text-white/70 text-xs mt-0.5">Tư vấn miễn phí · Phản hồi 5–15 phút</p>
         </div>
       </div>
 
@@ -145,13 +147,13 @@ export default function LeadForm() {
         <button
           type="submit" disabled={status === "loading"}
           className="w-full bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600
-                     text-white py-4 rounded-xl font-extrabold text-base shadow-lg shadow-primary-500/30
+                     text-white py-3.5 rounded-xl font-extrabold text-sm shadow-lg shadow-primary-500/30
                      transition-all duration-200 hover:shadow-primary-500/50 hover:scale-[1.01]
                      flex items-center justify-center gap-2 disabled:opacity-60 disabled:scale-100"
         >
           {status === "loading"
-            ? <><Loader2 className="w-5 h-5 animate-spin" /> Đang gửi...</>
-            : <><Send className="w-4 h-4" /> Gửi thông tin – Nhận tư vấn ngay</>}
+            ? <><Loader2 className="w-5 h-5 animate-spin flex-shrink-0" /> Đang gửi...</>
+            : <><Send className="w-4 h-4 flex-shrink-0" /> Gửi thông tin – Nhận tư vấn</>}
         </button>
 
         <p className="text-center text-xs text-slate-400 leading-relaxed">
