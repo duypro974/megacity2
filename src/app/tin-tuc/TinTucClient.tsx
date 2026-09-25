@@ -43,6 +43,15 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "tien-do-the-link-city-dau-giay",
+    title:    "Tiến Độ The Link City Dầu Giây 2026: Hạ Tầng Hoàn Thiện, Chờ Trạm Xử Lý Nước Thải Mở Lại",
+    date:     "25/09/2026",
+    category: "tien-do",
+    excerpt:  "Tiến độ The Link City Dầu Giây mới nhất: toàn bộ hạ tầng kỹ thuật đã hoàn thiện, hiện đang chờ trạm xử lý nước thải hoàn tất để chính thức mở bán trở lại.",
+    image: `${CDN}/thelinkcity/progress/1.jpg`,
+    href:  "/tin-tuc/tien-do-the-link-city-dau-giay",
+  },
+  {
     slug:     "quyet-dinh-2979-giao-dat-mega-city-2",
     title:    "QĐ 2979/QĐ-UBND: UBND TP Đồng Nai chính thức giao đất cho chủ đầu tư Mega City 2",
     date:     "24/09/2026",
@@ -493,13 +502,13 @@ const ALL_NEWS: NewsItem[] = [
     href:  "/tin-tuc/kinh-nghiem-mua-dat-nen-nhon-trach",
   },
   {
-    slug:     "cao-toc-bien-hoa-vung-tau",
+    slug:     "cao-toc-bien-hoa-vung-tau-tac-dong-bat-dong-san-nhon-trach",
     title:    "Cao tốc Biên Hòa - Vũng Tàu tác động như thế nào đến bất động sản Nhơn Trạch?",
     date:     "17/08/2026",
     category: "thi-truong",
     excerpt:  "Tìm hiểu tác động của cao tốc Biên Hòa - Vũng Tàu đến thị trường bất động sản Nhơn Trạch. Phân tích hạ tầng, kết nối giao thông và tiềm năng trong tương lai.",
     image: `${CDN}/megacity2/news9/1`,
-    href:  "/tin-tuc/cao-toc-bien-hoa-vung-tau",
+    href:  "/tin-tuc/cao-toc-bien-hoa-vung-tau-tac-dong-bat-dong-san-nhon-trach",
   },
   {
     slug:     "san-bay-long-thanh-va-bat-dong-san-nhon-trach",
@@ -544,7 +553,7 @@ const ALL_NEWS: NewsItem[] = [
     category: "tin-du-an",
     excerpt:  "Cập nhật thông tin quy hoạch, quyết định phê duyệt 1772/QĐ-UBND, hồ sơ dự án và những điều nhà đầu tư cần kiểm tra trước khi mua.",
     image: `${CDN}/megacity2/news4/1`,
-    href:  "/mega-city-2/phap-ly",
+    href:  "/tin-tuc/phap-ly-mega-city-2",
   },
   {
     slug:     "vi-tri-mega-city-2-o-dau",
@@ -562,7 +571,7 @@ const ALL_NEWS: NewsItem[] = [
     category: "tin-du-an",
     excerpt:  "Cập nhật giá tham khảo từng loại sản phẩm, các yếu tố ảnh hưởng và lưu ý quan trọng trước khi đầu tư Mega City 2.",
     image: `${CDN}/megacity2/news2/1`,
-    href:  "/mega-city-2/bang-gia",
+    href:  "/tin-tuc/bang-gia-mega-city-2-moi-nhat",
   },
   {
     slug:     "co-nen-dau-tu-mega-city-2-nhon-trach",

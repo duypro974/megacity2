@@ -453,7 +453,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // /tin-tuc/phap-ly-mega-city-2 â†’ REMOVED (301 redirect to /mega-city-2/phap-ly, 2026-09-22)
     {
-      url: `${BASE}/tin-tuc/tien-do-mega-city-2`,
+      url: `/tin-tuc/tien-do-the-link-city-dau-giay`,
+      lastModified: "2026-09-25",
+      changeFrequency: "monthly" as const,
+      priority: 0.84,
+      images: [
+        cimg("thelinkcity/progress/1.jpg"),
+        cimg("thelinkcity/progress/2.jpg"),
+      ],
+    },
+    {
+      url: `/tin-tuc/tien-do-mega-city-2`,
       lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.80,
