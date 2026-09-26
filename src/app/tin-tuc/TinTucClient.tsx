@@ -8,6 +8,7 @@ import { Calendar, ArrowRight, Newspaper, ChevronLeft, ChevronRight } from "luci
 // Types & constants
 // ─────────────────────────────────────────────────────────────
 type Category = "tat-ca" | "tin-du-an" | "tien-do" | "thi-truong" | "kim-oanh";
+type Project  = "tat-ca" | "mega-city-2" | "the-link-city" | "chung";
 
 const CATEGORY_LABELS: Record<Category, string> = {
   "tat-ca":    "Tất cả",
@@ -15,6 +16,20 @@ const CATEGORY_LABELS: Record<Category, string> = {
   "tien-do":   "Tiến độ",
   "thi-truong":"Thị trường",
   "kim-oanh":  "Thông tin Kim Oanh",
+};
+
+const PROJECT_LABELS: Record<Project, string> = {
+  "tat-ca":        "Tất cả dự án",
+  "mega-city-2":   "Mega City 2",
+  "the-link-city": "The Link City",
+  "chung":         "Hạ tầng & Thị trường",
+};
+
+const PROJECT_COLORS: Record<Project, string> = {
+  "tat-ca":        "",
+  "mega-city-2":   "bg-primary-600",
+  "the-link-city": "bg-amber-500",
+  "chung":         "bg-slate-500",
 };
 
 const BADGE_COLORS: Record<string, string> = {
@@ -36,6 +51,7 @@ interface NewsItem {
   title:    string;
   date:     string;
   category: Exclude<Category, "tat-ca">;
+  project:  Exclude<Project, "tat-ca">;
   excerpt:  string;
   image:    string;
   href:     string;
@@ -44,6 +60,7 @@ interface NewsItem {
 const ALL_NEWS: NewsItem[] = [
   {
     slug:     "tien-do-the-link-city-dau-giay",
+    project:  "the-link-city",
     title:    "Tiến Độ The Link City Dầu Giây 2026: Hạ Tầng Hoàn Thiện, Chờ Trạm Xử Lý Nước Thải Mở Lại",
     date:     "25/09/2026",
     category: "tien-do",
@@ -53,6 +70,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "quyet-dinh-2979-giao-dat-mega-city-2",
+    project:  "mega-city-2",
     title:    "QĐ 2979/QĐ-UBND: UBND TP Đồng Nai chính thức giao đất cho chủ đầu tư Mega City 2",
     date:     "24/09/2026",
     category: "tin-du-an",
@@ -62,6 +80,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong",
+    project:  "mega-city-2",
     title:    "Đất nền Mega City 2 có được xây nhà ngay không? Lộ trình quy hoạch và thời điểm khởi công thực tế",
     date:     "20/09/2026",
     category: "tin-du-an",
@@ -71,6 +90,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "lo-dat-mega-city-2-mat-tien-bao-nhieu",
+    project:  "mega-city-2",
     title:    "Lô đất Mega City 2 mặt tiền bao nhiêu? Hướng dẫn cách kiểm tra kích thước thực tế",
     date:     "20/09/2026",
     category: "tin-du-an",
@@ -80,6 +100,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "dien-tich-dat-nen-mega-city-2",
+    project:  "mega-city-2",
     title:    "Mega City 2 có những diện tích nền nào? Hướng dẫn chọn diện tích theo nhu cầu",
     date:     "19/09/2026",
     category: "tin-du-an",
@@ -89,6 +110,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cam-2-ty-nen-mua-chung-cu-bien-hoa-dat-long-thanh-the-link-city-2026",
+    project:  "the-link-city",
     title:    "Cầm 1,8 – 2 Tỷ Năm 2026: Nên Mua Chung Cư Biên Hòa, Đất Long Thành Hay The Link City Dầu Giây?",
     date:     "17/09/2026",
     category: "thi-truong",
@@ -98,6 +120,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "tiem-nang-bat-dong-san-thong-nhat-nga-tu-dau-giay-2026",
+    project:  "the-link-city",
     title:    "Tiềm Năng Bất Động Sản Huyện Thống Nhất 2026: Vì Sao Ngã Tư Dầu Giây Là \"Tọa Độ Vàng\" Hút Dòng Vốn?",
     date:     "18/09/2026",
     category: "thi-truong",
@@ -107,6 +130,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "ho-so-phap-ly-the-link-city-dau-giay-cong-van-2505-ubnd-2026",
+    project:  "the-link-city",
     title:    "Hồ Sơ Pháp Lý The Link City Dầu Giây 2026: Giải Mã Công Văn 2505/UBND-KTN & Tiến Trình Cấp Sổ Đỏ Từng Nền",
     date:     "17/09/2026",
     category: "tin-du-an",
@@ -116,6 +140,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "giai-phap-an-cu-gia-dinh-tre-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
     title:    "Giải Pháp An Cư Cho Gia Đình Trẻ 2026: Sở Hữu Nhà Phố The Link City Dầu Giây Chỉ Từ 12 Triệu/Tháng",
     date:     "16/09/2026",
     category: "tin-du-an",
@@ -125,6 +150,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "don-song-do-thi-hoa-dau-giay-2026-2030-the-link-city",
+    project:  "the-link-city",
     title:    "Đón Sóng Đô Thị Hóa Dầu Giây 2026 – 2030: Cơ Hội \"Nhân Đôi Tài Sản\" Cùng The Link City",
     date:     "15/09/2026",
     category: "thi-truong",
@@ -134,6 +160,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cam-nang-chon-lo-dat-nen-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
     title:    "Cẩm Nang Chọn Lô Đất Nền The Link City Dầu Giây 2026: Phân Tích Chi Tiết Block LK17A, LK17B & Hướng Đẹp Nhất",
     date:     "14/09/2026",
     category: "tin-du-an",
@@ -143,6 +170,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "nhat-ky-thuc-dia-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
     title:    "Nhật Ký Thực Địa The Link City Dầu Giây 2026: Một Ngày Tận Mục Sở Thị \"Mỏ Vàng\" Cửa Ngõ Cao Tốc",
     date:     "13/09/2026",
     category: "tin-du-an",
@@ -152,6 +180,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "shophouse-the-link-city-dau-giay-tiem-nang-kinh-doanh-2026",
+    project:  "the-link-city",
     title:    "Shophouse The Link City Dầu Giây 2026: Vị Thế Mặt Tiền Giao Thương & Bài Toán Khai Thác Dòng Tiền Cho Thuê",
     date:     "12/09/2026",
     category: "tin-du-an",
@@ -161,6 +190,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "he-sinh-thai-tien-ich-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
     title:    "Hệ Sinh Thái 50+ Tiện Ích The Link City Dầu Giây: Chuẩn Mực Sống \"All-In-One\" Giữa Trung Tâm Đô Thị Mới",
     date:     "11/09/2026",
     category: "tin-du-an",
@@ -170,6 +200,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "quy-trinh-mua-ban-the-link-city-dau-giay-tieu-chuan-xay-dung-2026",
+    project:  "the-link-city",
     title:    "Hướng Dẫn Quy Trình Mua Bán The Link City Dầu Giây & Tiêu Chuẩn Xây Dựng Mẫu Nhà T3-2b Mới Nhất 2026",
     date:     "11/09/2026",
     category: "tin-du-an",
@@ -179,6 +210,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "so-sanh-dat-nen-the-link-city-dau-giay-voi-dat-tho-cu-2026",
+    project:  "the-link-city",
     title:    "So Sánh Đất Nền The Link City Dầu Giây Với Đất Thổ Cư Khu Vực: Có Đáng Xuống Tiền Đợt 1 Năm 2026?",
     date:     "10/09/2026",
     category: "tin-du-an",
@@ -188,6 +220,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "bang-gia-the-link-city-dau-giay-bai-toan-vay-ngan-hang-2026",
+    project:  "the-link-city",
     title:    "Bảng Giá The Link City Dầu Giây 2026 & Bài Toán Vay Mua Đất Nền Chỉ Từ 550 Triệu Vốn Tự Có",
     date:     "10/09/2026",
     category: "tin-du-an",
@@ -197,6 +230,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "tong-quan-the-link-city-dau-giay",
+    project:  "the-link-city",
     title:    "The Link City Dầu Giây – Tổng Quan Dự Án & Giá Bán Đợt 1 Năm 2026",
     date:     "09/09/2026",
     category: "tin-du-an",
@@ -206,6 +240,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "so-sanh-mega-city-2-va-dat-tho-cu-dan-nhon-trach",
+    project:  "mega-city-2",
     title:    "So Sánh Suất Đầu Tư Mega City 2 Với Đất Thổ Cư Dân Tự Phân Lô Tại Nhơn Trạch",
     date:     "02/09/2026",
     category: "tin-du-an",
@@ -215,6 +250,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "shophouse-mega-city-2-khai-thac-kinh-doanh",
+    project:  "mega-city-2",
     title:    "Shophouse Mega City 2 Nhơn Trạch: Khả Năng Khai Thác Kinh Doanh Dọc Các Trục Đường Lớn",
     date:     "01/09/2026",
     category: "tin-du-an",
@@ -224,6 +260,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "dat-nen-nha-vuon-biet-thu-mega-city-2",
+    project:  "mega-city-2",
     title:    "Đất Nền Nhà Vườn Và Biệt Thự Mega City 2 Nhơn Trạch: Đặc Điểm Và Tiềm Năng Khai Thác",
     date:     "30/08/2026",
     category: "tin-du-an",
@@ -233,6 +270,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "tien-ich-ngoai-khu-mega-city-2",
+    project:  "mega-city-2",
     title:    "Tiện Ích Ngoại Khu Xung Quanh Mega City 2: Bệnh Viện, Trường Học, Chợ Và Hành Chính",
     date:     "30/08/2026",
     category: "tin-du-an",
@@ -242,6 +280,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "ket-noi-mega-city-2-va-cac-khu-cong-nghiep-nhon-trach",
+    project:  "mega-city-2",
     title:    "Kết Nối Từ Mega City 2 Đến Các Khu Công Nghiệp Nhơn Trạch: Tiềm Năng Cho Thuê Và An Cư",
     date:     "30/08/2026",
     category: "tin-du-an",
@@ -251,6 +290,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "duong-di-tu-tphcm-den-mega-city-2",
+    project:  "mega-city-2",
     title:    "Khoảng Cách Từ Mega City 2 Đến Trung Tâm TP.HCM: Các Hướng Di Chuyển Thực Tế",
     date:     "29/08/2026",
     category: "tin-du-an",
@@ -260,6 +300,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "thu-tuc-chuyen-nhuong-mega-city-2",
+    project:  "mega-city-2",
     title:    "Thủ Tục Sang Tên Hợp Đồng Và Chuyển Nhượng Đất Nền Mega City 2 Mới Nhất",
     date:     "29/08/2026",
     category: "tin-du-an",
@@ -269,6 +310,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "quy-cach-xay-dung-mega-city-2",
+    project:  "mega-city-2",
     title:    "Tiêu Chuẩn Và Quy Cách Xây Dựng Tại Dự Án Mega City 2 Nhơn Trạch Mới Nhất",
     date:     "29/08/2026",
     category: "tin-du-an",
@@ -278,6 +320,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "mat-bang-phan-lo-mega-city-2-nhon-trach",
+    project:  "mega-city-2",
     title:    "Bản Đồ Mặt Bằng Phân Lô Mega City 2 Nhơn Trạch: Chi Tiết Từng Phân Khu Và Diện Tích",
     date:     "29/08/2026",
     category: "tin-du-an",
@@ -287,6 +330,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "ha-tang-ky-thuat-mega-city-2",
+    project:  "mega-city-2",
     title:    "Hạ Tầng Kỹ Thuật Mega City 2 Nhơn Trạch: Điện Âm, Nước Máy & Hệ Thống Thoát Nước",
     date:     "27/08/2026",
     category: "tin-du-an",
@@ -296,6 +340,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "mega-city-2-co-nhung-loai-san-pham-nao",
+    project:  "mega-city-2",
     title:    "Mega City 2 Có Những Loại Sản Phẩm Nào? Đất Nền, Nhà Phố, Nhà Vườn",
     date:     "27/08/2026",
     category: "tin-du-an",
@@ -305,6 +350,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "checklist-nhan-nen-mega-city-2",
+    project:  "mega-city-2",
     title:    "Checklist Nhận Nền & Kiểm Tra Hiện Trạng Trước Khi Xây Nhà Tại Mega City 2 Nhơn Trạch 2026",
     date:     "26/08/2026",
     category: "tin-du-an",
@@ -314,6 +360,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "chi-phi-xay-nha-mega-city-2",
+    project:  "mega-city-2",
     title:    "Chi Phí Xây Nhà Thực Tế Tại Mega City 2 Nhơn Trạch 2026",
     date:     "25/08/2026",
     category: "tin-du-an",
@@ -323,6 +370,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "he-sinh-thai-bat-dong-san-kim-oanh-group",
+    project:  "chung",
     title:    "Hệ Sinh Thái Bất Động Sản Kim Oanh Group: Mô Hình Phát Triển Đồng Bộ",
     date:     "24/08/2026",
     category: "kim-oanh",
@@ -332,6 +380,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "thi-truong-bat-dong-san-nhon-trach-2026",
+    project:  "chung",
     title:    "Thị Trường Bất Động Sản Nhơn Trạch 2026: Giá Đất, Hạ Tầng Và Cơ Hội Đầu Tư",
     date:     "24/08/2026",
     category: "thi-truong",
@@ -341,6 +390,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cach-doc-ban-do-quy-hoach-nhon-trach",
+    project:  "chung",
     title:    "Cách Đọc Bản Đồ Quy Hoạch Nhơn Trạch: Hướng Dẫn Cho Người Mua Đất",
     date:     "23/08/2026",
     category: "thi-truong",
@@ -350,6 +400,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cach-kiem-tra-phap-ly-dat-nen-nhon-trach",
+    project:  "chung",
     title:    "Cách Kiểm Tra Pháp Lý Đất Nền Nhơn Trạch Trước Khi Mua",
     date:     "23/08/2026",
     category: "thi-truong",
@@ -359,6 +410,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "mega-city-2-co-phu-hop-de-o",
+    project:  "mega-city-2",
     title:    "Mega City 2 Có Phù Hợp Để Ở Không? Phân Tích Nhu Cầu An Cư Tại Nhơn Trạch",
     date:     "23/08/2026",
     category: "tin-du-an",
@@ -368,6 +420,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "so-sanh-mega-city-2-va-cac-khu-do-thi-nhon-trach",
+    project:  "chung",
     title:    "So Sánh Mega City 2 Và Các Khu Đô Thị Nhơn Trạch: Nên Chọn Dự Án Nào?",
     date:     "23/08/2026",
     category: "thi-truong",
@@ -377,6 +430,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "quy-trinh-mua-dat-nen-nhon-trach",
+    project:  "chung",
     title:    "Quy Trình Mua Đất Nền Nhơn Trạch Từ A–Z: 8 Bước Cần Biết Năm 2026",
     date:     "23/08/2026",
     category: "thi-truong",
@@ -386,6 +440,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "mua-dat-nhon-trach-can-luu-y-gi",
+    project:  "chung",
     title:    "Mua Đất Nhơn Trạch Cần Lưu Ý Gì? 10 Điều Quan Trọng Người Mua Cần Biết Năm 2026",
     date:     "22/08/2026",
     category: "thi-truong",
@@ -395,6 +450,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "nen-mua-dat-nen-nhon-trach-hay-dau-tu-can-ho",
+    project:  "chung",
     title:    "Nên Mua Đất Nền Nhơn Trạch Hay Đầu Tư Căn Hộ? So Sánh Chi Tiết Cho Người Mới 2026",
     date:     "22/08/2026",
     category: "thi-truong",
@@ -404,6 +460,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "quy-hoach-1-500-nhon-trach",
+    project:  "chung",
     title:    "Quy hoạch 1/500 Nhơn Trạch: Cách Đọc Bản Đồ Và Những Điều Người Mua Đất Cần Biết",
     date:     "21/08/2026",
     category: "thi-truong",
@@ -413,6 +470,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cau-nhon-trach",
+    project:  "chung",
     title:    "Cầu Nhơn Trạch 2026: Kết Nối Giao Thông & Tác Động Bất Động Sản",
     date:     "21/08/2026",
     category: "thi-truong",
@@ -422,6 +480,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cao-toc-bien-hoa-vung-tau",
+    project:  "chung",
     title:    "Cao tốc Biên Hòa - Vũng Tàu 2026: Tiến Độ Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "20/08/2026",
     category: "thi-truong",
@@ -431,6 +490,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cao-toc-ben-luc-long-thanh",
+    project:  "chung",
     title:    "Cao tốc Bến Lức - Long Thành 2026: Tiến Độ Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "20/08/2026",
     category: "thi-truong",
@@ -440,6 +500,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "vanh-dai-3",
+    project:  "chung",
     title:    "Vành đai 3 TP.HCM 2026: Tiến Độ Mới Nhất Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "19/08/2026",
     category: "thi-truong",
@@ -449,6 +510,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cau-cat-lai",
+    project:  "chung",
     title:    "Cầu Cát Lái 2026: Tiến Độ Mới Nhất Và Tác Động Đến Bất Động Sản Nhơn Trạch",
     date:     "19/08/2026",
     category: "thi-truong",
@@ -458,6 +520,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "duong-25c",
+    project:  "chung",
     title:    "Đường 25C Nhơn Trạch: Tiến Độ Mới Nhất 2026 Và Tác Động Đến Mega City 2",
     date:     "19/08/2026",
     category: "thi-truong",
@@ -467,6 +530,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "ha-tang-giao-thong-nhon-trach-moi-nhat",
+    project:  "chung",
     title:    "Hạ tầng giao thông Nhơn Trạch mới nhất 2026: Những thay đổi tác động đến bất động sản",
     date:     "19/08/2026",
     category: "thi-truong",
@@ -476,6 +540,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "lich-su-phat-trien-kim-oanh-group",
+    project:  "chung",
     title:    "Lịch sử hình thành và phát triển của Kim Oanh Group",
     date:     "19/08/2026",
     category: "kim-oanh",
@@ -485,6 +550,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "5-ly-do-nen-dau-tu-mega-city-2",
+    project:  "mega-city-2",
     title:    "5 Lý Do Nên Đầu Tư Mega City 2 Nhơn Trạch Trong Năm 2026",
     date:     "18/08/2026",
     category: "tin-du-an",
@@ -494,6 +560,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "kinh-nghiem-mua-dat-nen-nhon-trach",
+    project:  "chung",
     title:    "Kinh Nghiệm Mua Đất Nền Nhơn Trạch Từ A-Z Cho Người Mới Năm 2026",
     date:     "18/08/2026",
     category: "thi-truong",
@@ -503,6 +570,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "cao-toc-bien-hoa-vung-tau-tac-dong-bat-dong-san-nhon-trach",
+    project:  "chung",
     title:    "Cao tốc Biên Hòa - Vũng Tàu tác động như thế nào đến bất động sản Nhơn Trạch?",
     date:     "17/08/2026",
     category: "thi-truong",
@@ -512,6 +580,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "san-bay-long-thanh-va-bat-dong-san-nhon-trach",
+    project:  "chung",
     title:    "Sân bay Long Thành ảnh hưởng như thế nào đến bất động sản Nhơn Trạch?",
     date:     "17/08/2026",
     category: "thi-truong",
@@ -521,6 +590,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "quy-hoach-nhon-trach-moi-nhat",
+    project:  "chung",
     title:    "Quy hoạch Nhơn Trạch mới nhất 2026: Những thay đổi quan trọng cần biết",
     date:     "16/08/2026",
     category: "thi-truong",
@@ -530,6 +600,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "gia-dat-nhon-trach-2026",
+    project:  "chung",
     title:    "Giá đất Nhơn Trạch 2026: Thị trường đang diễn biến như thế nào?",
     date:     "16/08/2026",
     category: "thi-truong",
@@ -539,6 +610,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "tien-do-mega-city-2",
+    project:  "mega-city-2",
     title:    "Tiến độ Mega City 2 Nhơn Trạch mới nhất năm 2026",
     date:     "16/08/2026",
     category: "tien-do",
@@ -548,6 +620,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "phap-ly-mega-city-2",
+    project:  "mega-city-2",
     title:    "Pháp lý Mega City 2 Nhơn Trạch có gì? Cập nhật mới nhất 2026",
     date:     "15/08/2026",
     category: "tin-du-an",
@@ -557,6 +630,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "vi-tri-mega-city-2-o-dau",
+    project:  "mega-city-2",
     title:    "Vị trí Mega City 2 ở đâu? Phân tích kết nối giao thông và tiềm năng khu vực Nhơn Trạch",
     date:     "14/08/2026",
     category: "tin-du-an",
@@ -566,6 +640,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "bang-gia-mega-city-2-moi-nhat",
+    project:  "mega-city-2",
     title:    "Bảng giá Mega City 2 Nhơn Trạch mới nhất năm 2026",
     date:     "13/08/2026",
     category: "tin-du-an",
@@ -575,6 +650,7 @@ const ALL_NEWS: NewsItem[] = [
   },
   {
     slug:     "co-nen-dau-tu-mega-city-2-nhon-trach",
+    project:  "chung",
     title:    "Có nên đầu tư Mega City 2 Nhơn Trạch năm 2026? Phân tích chi tiết",
     date:     "13/08/2026",
     category: "thi-truong",
@@ -587,6 +663,12 @@ const ALL_NEWS: NewsItem[] = [
 // ─────────────────────────────────────────────────────────────
 // News Card
 // ─────────────────────────────────────────────────────────────
+function ProjectBadge({ project }: { project: Exclude<Project, "tat-ca"> }) {
+  if (project === "mega-city-2")   return <span className="text-[9px] font-black uppercase tracking-wider text-primary-600 bg-primary-50 border border-primary-200 px-2 py-0.5 rounded-full">Mega City 2</span>;
+  if (project === "the-link-city") return <span className="text-[9px] font-black uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">The Link City</span>;
+  return <span className="text-[9px] font-black uppercase tracking-wider text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full">Thị trường</span>;
+}
+
 function NewsCard({ item }: { item: NewsItem }) {
   const badge = BADGE_COLORS[item.category] ?? "bg-slate-100 text-slate-600";
   return (
@@ -607,8 +689,11 @@ function NewsCard({ item }: { item: NewsItem }) {
         </span>
       </div>
       <div className="flex flex-col flex-1 p-5">
-        <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-2">
-          <Calendar className="w-3 h-3 flex-shrink-0" />{item.date}
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <div className="flex items-center gap-1.5 text-xs text-slate-400">
+            <Calendar className="w-3 h-3 flex-shrink-0" />{item.date}
+          </div>
+          <ProjectBadge project={item.project} />
         </div>
         <h2 className="font-bold text-slate-900 text-sm leading-snug mb-2
                        group-hover:text-amber-600 transition-colors line-clamp-2">
@@ -692,13 +777,16 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
 // Main component
 // ─────────────────────────────────────────────────────────────
 export default function TinTucClient() {
-  const [active, setActive] = useState<Category>("tat-ca");
-  const [page, setPage] = useState(1);
+  const [active,  setActive]  = useState<Category>("tat-ca");
+  const [project, setProject] = useState<Project>("tat-ca");
+  const [page,    setPage]    = useState(1);
 
-  const filtered = useMemo(() =>
-    active === "tat-ca" ? ALL_NEWS : ALL_NEWS.filter((n) => n.category === active),
-    [active]
-  );
+  const filtered = useMemo(() => {
+    let list = ALL_NEWS;
+    if (active  !== "tat-ca") list = list.filter((n) => n.category === active);
+    if (project !== "tat-ca") list = list.filter((n) => n.project  === project);
+    return list;
+  }, [active, project]);
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const safePage   = Math.min(page, totalPages || 1);
@@ -706,19 +794,26 @@ export default function TinTucClient() {
   const pageItems  = filtered.slice(start, start + ITEMS_PER_PAGE);
 
   const handleCategory = (cat: Category) => { setActive(cat); setPage(1); };
+  const handleProject  = (p: Project)    => { setProject(p);  setPage(1); };
   const handlePage     = (p: number) => {
     setPage(p);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const count = (cat: Category) =>
-    cat === "tat-ca" ? ALL_NEWS.length : ALL_NEWS.filter((n) => n.category === cat).length;
+  const countCat = (cat: Category) => {
+    const base = project !== "tat-ca" ? ALL_NEWS.filter((n) => n.project === project) : ALL_NEWS;
+    return cat === "tat-ca" ? base.length : base.filter((n) => n.category === cat).length;
+  };
+  const countProject = (p: Project) => {
+    const base = active !== "tat-ca" ? ALL_NEWS.filter((n) => n.category === active) : ALL_NEWS;
+    return p === "tat-ca" ? base.length : base.filter((n) => n.project === p).length;
+  };
 
   return (
     <main className="min-h-screen bg-slate-50">
 
       {/* ── Page header ── */}
-      <div className="bg-white border-b border-slate-100 pt-28 pb-8 px-4">
+      <div className="bg-white border-b border-slate-100 pt-28 pb-0 px-4">
         <div className="max-w-6xl mx-auto">
           <nav className="flex items-center gap-2 text-xs text-slate-400 mb-4">
             <Link href="/" className="hover:text-amber-600 transition-colors">Trang chủ</Link>
@@ -728,14 +823,40 @@ export default function TinTucClient() {
           <p className="text-amber-500 text-[11px] font-black uppercase tracking-widest mb-1.5">
             Kim Oanh Đồng Nai · Tin tức &amp; Thị trường
           </p>
-          <h1 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">
+          <h1 className="text-2xl md:text-3xl font-black text-slate-900 mb-5">
             Cập nhật mới nhất về dự án
           </h1>
 
-          {/* Category tabs */}
+          {/* ── Lọc theo dự án ── */}
+          <div className="flex items-center gap-2 flex-wrap mb-4">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mr-1">Dự án:</span>
+            {(Object.keys(PROJECT_LABELS) as Project[]).map((p) => {
+              const n = countProject(p);
+              const isActive = project === p;
+              const dot = PROJECT_COLORS[p];
+              return (
+                <button key={p} onClick={() => handleProject(p)}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border transition-all
+                    ${isActive
+                      ? "bg-slate-900 text-white border-slate-900 shadow-sm"
+                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"}`}>
+                  {dot && p !== "tat-ca" && (
+                    <span className={`w-2 h-2 rounded-full ${dot} flex-shrink-0`} />
+                  )}
+                  {PROJECT_LABELS[p]}
+                  <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ml-0.5
+                    ${isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500"}`}>
+                    {n}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ── Lọc theo loại nội dung ── */}
           <div className="flex items-center gap-1 flex-wrap border-b border-slate-200 -mb-px">
             {(Object.keys(CATEGORY_LABELS) as Category[]).map((cat) => {
-              const n = count(cat);
+              const n = countCat(cat);
               const isActive = active === cat;
               return (
                 <button key={cat} onClick={() => handleCategory(cat)}
