@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "vanh-dai-3",
+    project:  "chung",
+    title:    "Vành đai 3 qua Đồng Nai đã thông xe chưa? Cập nhật cuối tháng 9/2026",
+    date:     "28/09/2026",
+    category: "thi-truong",
+    excerpt:  "Cập nhật tiến độ Vành đai 3 qua Đồng Nai cuối tháng 9/2026: đoạn nào đã khai thác tạm, hạng mục nào đang hoàn thiện và tác động đến kết nối Nhơn Trạch – TP.HCM – Long Thành.",
+    image: `${CDN}/megacity2/news61/1`,
+    href:  "/tin-tuc/vanh-dai-3",
+  },
+  {
     slug:     "tien-do-the-link-city-dau-giay",
     project:  "the-link-city",
     title:    "Tiến Độ The Link City Dầu Giây 2026: Hạ Tầng Hoàn Thiện, Chờ Trạm Xử Lý Nước Thải Mở Lại",
@@ -497,16 +507,6 @@ const ALL_NEWS: NewsItem[] = [
     excerpt:  "Cập nhật tiến độ cao tốc Bến Lức - Long Thành năm 2026, khả năng kết nối Nhơn Trạch với TP.HCM, Long Thành và các khu vực kinh tế phía Nam.",
     image: `${CDN}/megacity2/news17/1`,
     href:  "/tin-tuc/cao-toc-ben-luc-long-thanh",
-  },
-  {
-    slug:     "vanh-dai-3",
-    project:  "chung",
-    title:    "Vành đai 3 TP.HCM 2026: Tiến Độ Mới Nhất Và Tác Động Đến Bất Động Sản Nhơn Trạch",
-    date:     "19/08/2026",
-    category: "thi-truong",
-    excerpt:  "Cập nhật tiến độ Vành đai 3 TP.HCM mới nhất năm 2026. Phân tích vị trí, quy hoạch, khả năng kết nối với Nhơn Trạch và tác động đến thị trường bất động sản.",
-    image: `${CDN}/megacity2/news16/1`,
-    href:  "/tin-tuc/vanh-dai-3",
   },
   {
     slug:     "cau-cat-lai",

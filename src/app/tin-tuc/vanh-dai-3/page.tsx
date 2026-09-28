@@ -4,12 +4,12 @@ import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import RelatedContent from "@/components/RelatedContent";
 import { ArticleFigure, useLightbox, type LightboxImage } from "@/components/ImageLightbox";
-import { IMG_NEWS16 } from "@/lib/cloudinary";
+import { IMG_NEWS61 } from "@/lib/cloudinary";
 
 const BASE_URL      = "https://kimoanhdongnai.com.vn";
 const PAGE_URL      = `${BASE_URL}/tin-tuc/vanh-dai-3`;
-const PUBLISHED     = "19/08/2026";
-const PUBLISHED_ISO = "2026-08-19";
+const PUBLISHED     = "28/09/2026";
+const PUBLISHED_ISO = "2026-09-28";
 
 // ─────────────────────────────────────────────────────────────
 // JSON-LD
@@ -17,9 +17,9 @@ const PUBLISHED_ISO = "2026-08-19";
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Vành đai 3 TP.HCM 2026: Tiến độ mới nhất và tác động đến bất động sản Nhơn Trạch",
-  description: "Cập nhật tiến độ Vành đai 3 TP.HCM mới nhất năm 2026. Phân tích vị trí, quy hoạch, khả năng kết nối với Nhơn Trạch và tác động đến thị trường bất động sản.",
-  image: [IMG_NEWS16["1"], IMG_NEWS16["2"], IMG_NEWS16["3"]],
+  headline: "Vành đai 3 qua Đồng Nai đã thông xe chưa? Cập nhật cuối tháng 9/2026",
+  description: "Cập nhật tiến độ Vành đai 3 qua Đồng Nai cuối tháng 9/2026: đoạn nào đã khai thác tạm, hạng mục nào đang hoàn thiện và tác động đến kết nối Nhơn Trạch – TP.HCM – Long Thành.",
+  image: [IMG_NEWS61["1"], IMG_NEWS61["2"], IMG_NEWS61["3"]],
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
   publisher: {
     "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL,
@@ -27,7 +27,7 @@ const articleSchema = {
   },
   datePublished: PUBLISHED_ISO, dateModified: PUBLISHED_ISO,
   url: PAGE_URL, mainEntityOfPage: { "@type": "WebPage", "@id": PAGE_URL },
-  keywords: "vành đai 3 TP.HCM, vành đai 3 nhơn trạch, tiến độ vành đai 3, quy hoạch vành đai 3, bất động sản nhơn trạch, hạ tầng giao thông đồng nai, mega city 2 nhơn trạch",
+  keywords: "vành đai 3 đồng nai, vành đai 3 thông xe, tiến độ vành đai 3, vành đai 3 nhơn trạch, cầu nhơn trạch, hạ tầng giao thông nhơn trạch, mega city 2 nhơn trạch",
   about: {
     "@type": "Place",
     name: "Nhơn Trạch, Đồng Nai",
@@ -41,34 +41,34 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Vành đai 3 đi qua những tỉnh nào?",
+      name: "Vành đai 3 qua Đồng Nai đã thông xe chưa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Tuyến đường đi qua TP. Hồ Chí Minh, Đồng Nai, Bình Dương và Long An. Đây là tuyến vành đai liên vùng quan trọng nhất khu vực phía Nam, kết nối bốn tỉnh thành trong một mạng lưới giao thông khép kín.",
+        text: "Tính đến cuối tháng 9/2026, chưa có cơ sở để khẳng định toàn bộ đoạn Vành đai 3 qua Đồng Nai đã thông xe đồng bộ, chính thức. Đoạn hướng từ cầu Nhơn Trạch về TP.HCM đã được khai thác tạm; các hạng mục còn lại đang tiếp tục hoàn thiện với mục tiêu hoàn thành xây lắp vào cuối tháng 9/2026.",
       },
     },
     {
       "@type": "Question",
-      name: "Vành đai 3 có đi qua Nhơn Trạch không?",
+      name: "Đoạn Vành đai 3 qua Đồng Nai dài bao nhiêu km?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Có. Theo quy hoạch, Vành đai 3 đi qua huyện Nhơn Trạch tỉnh Đồng Nai. Đây là một trong những địa phương được hưởng lợi trực tiếp từ dự án, với các xã như Long Tân, Phước An, Vĩnh Thanh, Phú Hội và trung tâm huyện nằm trong hành lang ảnh hưởng.",
+        text: "Đoạn tuyến thuộc Dự án thành phần 3 có chiều dài khoảng 11,26 km, khởi công ngày 18/06/2023, với tổng mức đầu tư khoảng 2.584 tỷ đồng. Tuyến bắt đầu từ vị trí kết nối cao tốc Bến Lức – Long Thành và kết thúc tại khu vực mố B cầu Nhơn Trạch.",
       },
     },
     {
       "@type": "Question",
-      name: "Vành đai 3 có ảnh hưởng đến giá bất động sản không?",
+      name: "Vành đai 3 đoạn Đồng Nai ảnh hưởng thế nào đến Nhơn Trạch?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Có. Hạ tầng giao thông là một trong những yếu tố tác động trực tiếp đến giá trị bất động sản. Tuyến đường giúp tăng khả năng kết nối, thúc đẩy đô thị hóa và thu hút dân cư – doanh nghiệp, từ đó tạo áp lực cầu lên thị trường nhà đất khu vực lân cận.",
+        text: "Khi được khai thác đồng bộ, tuyến bổ sung hướng kết nối từ Nhơn Trạch về TP.HCM qua cầu Nhơn Trạch, tăng liên kết với cao tốc Bến Lức – Long Thành và hỗ trợ kết nối hướng sân bay Long Thành. Tuy nhiên, tác động thực tế còn phụ thuộc vào việc hoàn thiện các nhánh kết nối và tổ chức lưu thông.",
       },
     },
     {
       "@type": "Question",
-      name: "Có nên đầu tư bất động sản Nhơn Trạch trong năm 2026 không?",
+      name: "Người dân có đi được trên Vành đai 3 đoạn Đồng Nai chưa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Nhà đầu tư nên nghiên cứu kỹ về vị trí, quy hoạch, pháp lý, hạ tầng và khả năng tài chính trước khi đưa ra quyết định. Nhơn Trạch có nhiều yếu tố hạ tầng hỗ trợ dài hạn, nhưng mỗi lô đất cần được đánh giá riêng dựa trên pháp lý cụ thể và mục tiêu đầu tư.",
+        text: "Đoạn hướng từ cầu Nhơn Trạch về TP.HCM đã được khai thác tạm. Tuy nhiên, toàn tuyến chưa khai thác đồng bộ. Trước khi di chuyển, người dân cần kiểm tra biển báo, thông báo tổ chức giao thông của cơ quan chức năng và ứng dụng bản đồ có cập nhật tình trạng đường.",
       },
     },
   ],
@@ -79,16 +79,15 @@ const breadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Trang chủ", item: BASE_URL },
     { "@type": "ListItem", position: 2, name: "Tin tức", item: `${BASE_URL}/tin-tuc` },
-    { "@type": "ListItem", position: 3, name: "Vành đai 3 TP.HCM 2026", item: PAGE_URL },
+    { "@type": "ListItem", position: 3, name: "Vành đai 3 qua Đồng Nai 2026", item: PAGE_URL },
   ],
 };
 
 const LIGHTBOX_IMAGES: LightboxImage[] = [
-  { src: IMG_NEWS16["1"], alt: "Toàn cảnh tuyến đường Vành đai 3 TP Hồ Chí Minh kết nối khu vực Đồng Nai",         caption: "Toàn cảnh tuyến đường Vành đai 3 TP.HCM kết nối khu vực Đồng Nai" },
-  { src: IMG_NEWS16["2"], alt: "Bản đồ quy hoạch tuyến đường Vành đai 3 đi qua huyện Nhơn Trạch tỉnh Đồng Nai",   caption: "Bản đồ quy hoạch Vành đai 3 đi qua huyện Nhơn Trạch" },
-  { src: IMG_NEWS16["3"], alt: "Tiến độ thi công dự án Vành đai 3 TP Hồ Chí Minh cập nhật năm 2026",              caption: "Tiến độ thi công Vành đai 3 TP.HCM cập nhật năm 2026" },
-  { src: IMG_NEWS16["4"], alt: "Tuyến đường Vành đai 3 kết nối với sân bay quốc tế Long Thành",                   caption: "Vành đai 3 kết nối với sân bay quốc tế Long Thành" },
-  { src: IMG_NEWS16["5"], alt: "Dự án Mega City 2 hưởng lợi từ hệ thống hạ tầng giao thông tại huyện Nhơn Trạch", caption: "Dự án Mega City 2 hưởng lợi từ hệ thống hạ tầng giao thông Nhơn Trạch" },
+  { src: IMG_NEWS61["1"], alt: "Toàn cảnh thi công đường Vành đai 3 đoạn qua Đồng Nai tháng 9 năm 2026",         caption: "Vành đai 3 đoạn qua Đồng Nai đang được hoàn thiện các hạng mục đường, nút giao và kết nối liên vùng." },
+  { src: IMG_NEWS61["2"], alt: "Nút giao Vành đai 3 với đường ĐT 25B và ĐT 25C tại Đồng Nai",                    caption: "Khu vực nút giao là một trong các hạng mục then chốt để kết nối Vành đai 3 với mạng lưới đường bộ khu vực." },
+  { src: IMG_NEWS61["3"], alt: "Cầu Nhơn Trạch thuộc dự án đường Vành đai 3 kết nối Đồng Nai với Thành phố Hồ Chí Minh", caption: "Cầu Nhơn Trạch là một mắt xích quan trọng trong kết nối Đồng Nai – TP.HCM trên hành lang Vành đai 3." },
+  { src: IMG_NEWS61["4"], alt: "Sơ đồ vị trí cầu Nhơn Trạch trên tuyến Vành đai 3 khu vực Thành phố Hồ Chí Minh và Đồng Nai", caption: "Sơ đồ minh họa vị trí kết nối của cầu Nhơn Trạch trong mạng lưới Vành đai 3." },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -114,6 +113,21 @@ function BulletList({ items }: { items: (string | React.ReactNode)[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+function NumberedList({ items }: { items: { title: string; body: React.ReactNode }[] }) {
+  return (
+    <div className="space-y-6 mb-4">
+      {items.map((item, i) => (
+        <div key={i} className="flex gap-4">
+          <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 text-white font-black text-sm flex items-center justify-center mt-0.5">{i + 1}</span>
+          <div>
+            <p className="font-black text-slate-800 mb-1">{item.title}</p>
+            <div className="text-slate-600 text-[16px] leading-relaxed">{item.body}</div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 function InfoBox({ children, type = "info" }: { children: React.ReactNode; type?: "info" | "warn" }) {
@@ -155,19 +169,23 @@ export default function VanhDai3Page() {
               <span>/</span>
               <a href="/tin-tuc" className="hover:text-primary-600 transition-colors">Tin tức</a>
               <span>/</span>
-              <span className="text-slate-600 font-medium">Vành đai 3 TP.HCM 2026</span>
+              <span className="text-slate-600 font-medium">Vành đai 3 qua Đồng Nai 2026</span>
             </nav>
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="inline-block bg-primary-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Hạ tầng</span>
-              <time dateTime={PUBLISHED_ISO} className="text-xs text-slate-400">{PUBLISHED}</time>
-              <span className="text-xs text-slate-400">· 9 phút đọc</span>
+              <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-700 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Cập nhật
+              </span>
+              <time dateTime={PUBLISHED_ISO} className="text-xs text-slate-400">Cập nhật: {PUBLISHED}</time>
+              <span className="text-xs text-slate-400">· 7 phút đọc</span>
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4 max-w-3xl">
-              Vành đai 3 TP.HCM 2026: Tiến độ mới nhất và tác động đến bất động sản Nhơn Trạch
+              Vành đai 3 qua Đồng Nai đã thông xe chưa? Cập nhật cuối tháng 9/2026
             </h1>
             <p className="text-slate-500 text-base leading-relaxed max-w-2xl mb-8">
-              Cập nhật tiến độ Vành đai 3 TP.HCM mới nhất năm 2026. Phân tích vị trí, quy hoạch,
-              khả năng kết nối với Nhơn Trạch và tác động đến thị trường bất động sản.
+              Cập nhật tiến độ Vành đai 3 qua Đồng Nai cuối tháng 9/2026: đoạn nào đã khai thác tạm,
+              hạng mục nào đang hoàn thiện và tác động đến kết nối Nhơn Trạch – TP.HCM – Long Thành.
             </p>
           </div>
 
@@ -176,13 +194,13 @@ export default function VanhDai3Page() {
             <div
               className="sm:rounded-t-2xl overflow-hidden border-t border-x border-slate-200 bg-slate-100 relative group cursor-zoom-in"
               onClick={() => openLightbox(0)} role="button" tabIndex={0}
-              aria-label="Phóng to ảnh Vành đai 3 TP.HCM"
+              aria-label="Phóng to ảnh Vành đai 3 qua Đồng Nai"
               onKeyDown={(e) => e.key === "Enter" && openLightbox(0)}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={IMG_NEWS16["1"]}
-                alt="Toàn cảnh tuyến đường Vành đai 3 TP Hồ Chí Minh kết nối khu vực Đồng Nai"
+                src={IMG_NEWS61["1"]}
+                alt="Toàn cảnh thi công đường Vành đai 3 đoạn qua Đồng Nai tháng 9 năm 2026"
                 className="w-full h-auto block"
                 loading="eager"
               />
@@ -195,7 +213,7 @@ export default function VanhDai3Page() {
               </div>
             </div>
             <p className="text-xs text-slate-400 italic text-center py-2.5 border-x border-slate-200 bg-slate-50 px-4">
-              Toàn cảnh tuyến đường Vành đai 3 TP Hồ Chí Minh kết nối khu vực Đồng Nai
+              Vành đai 3 đoạn qua Đồng Nai đang được hoàn thiện các hạng mục đường, nút giao và kết nối liên vùng.
             </p>
           </div>
         </div>
@@ -207,67 +225,107 @@ export default function VanhDai3Page() {
             {/* ── Article ── */}
             <article className="flex-1 min-w-0">
 
+              {/* Update notice */}
+              <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 mb-8">
+                <svg className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                <div>
+                  <p className="text-sm font-bold text-amber-800">Bài viết được cập nhật ngày 28/09/2026</p>
+                  <p className="text-xs text-amber-700 mt-0.5 leading-relaxed">
+                    Nội dung được làm mới theo thông tin công khai mới nhất về tiến độ Dự án thành phần 3
+                    Vành đai 3 qua Đồng Nai. Các số liệu và trạng thái thi công phản ánh tình hình cuối
+                    tháng 9/2026.
+                  </p>
+                </div>
+              </div>
+
               {/* TOC */}
               <nav aria-label="Mục lục bài viết" className="bg-slate-50 border border-slate-200 rounded-2xl px-6 py-5 mb-12">
                 <p className="font-bold text-slate-700 text-sm mb-3 uppercase tracking-wider">Nội dung bài viết</p>
                 <ol className="space-y-2 text-sm text-slate-600">
                   {[
-                    ["#la-gi",       "1. Vành đai 3 TP.HCM là gì?"],
-                    ["#vi-tri",      "2. Vị trí tuyến Vành đai 3 qua Nhơn Trạch"],
-                    ["#tien-do",     "3. Tiến độ thi công mới nhất năm 2026"],
-                    ["#san-bay",     "4. Kết nối với sân bay Long Thành"],
-                    ["#gia-bds",     "5. Ảnh hưởng đến bất động sản Nhơn Trạch"],
-                    ["#mega-city-2", "6. Mega City 2 hưởng lợi như thế nào?"],
-                    ["#faq",         "7. Câu hỏi thường gặp"],
+                    ["#tra-loi-nhanh",  "1. Trả lời nhanh: Đã thông xe toàn tuyến chưa?"],
+                    ["#quy-mo",         "2. Quy mô đoạn Vành đai 3 qua Đồng Nai"],
+                    ["#tien-do",        "3. Tiến độ cuối tháng 9/2026"],
+                    ["#nhon-trach",     "4. Điều gì thay đổi với Nhơn Trạch?"],
+                    ["#luu-y",          "5. Người dân cần lưu ý gì khi đi tuyến này?"],
+                    ["#mega-city-2",    "6. Vành đai 3 và việc di chuyển đến Mega City 2"],
+                    ["#faq",            "7. Câu hỏi thường gặp"],
                   ].map(([href, label]) => (
                     <li key={href}><a href={href} className="hover:text-primary-600 transition-colors">{label}</a></li>
                   ))}
                 </ol>
               </nav>
 
-              {/* Intro */}
+              {/* Sapo / Intro */}
               <p className="text-slate-600 text-[17px] leading-[1.85] mb-5">
-                Vành đai 3 TP.HCM là một trong những dự án giao thông quan trọng nhất của khu vực
-                phía Nam, với vai trò kết nối TP. Hồ Chí Minh với Đồng Nai, Bình Dương và Long An,
-                tạo nên một mạng lưới giao thông liên vùng hoàn chỉnh.
+                Vành đai 3 đoạn qua Đồng Nai đang ở giai đoạn hoàn thiện cuối cùng. Tính theo thông
+                tin công khai được cập nhật gần nhất, chưa nên hiểu là toàn bộ đoạn tuyến đã chính
+                thức khai thác đồng bộ. Tuy nhiên, một phần tuyến theo hướng từ cầu Nhơn Trạch về
+                TP.HCM đã được đưa vào khai thác tạm; các hạng mục còn lại như đường dẫn, nút giao,
+                cầu vượt, biển báo, sơn kẻ đường và kết nối với cao tốc Bến Lức – Long Thành vẫn
+                đang được đẩy nhanh để hoàn thành xây lắp vào cuối tháng 9/2026.
               </p>
               <p className="text-slate-600 text-[17px] leading-[1.85] mb-5">
-                Trong những năm gần đây, Nhơn Trạch trở thành một trong những địa phương được hưởng
-                lợi trực tiếp từ quá trình phát triển hạ tầng. Sự xuất hiện của Vành đai 3 được xem
-                là yếu tố quan trọng góp phần thay đổi diện mạo của khu vực này.
-              </p>
-              <p className="text-slate-600 text-[17px] leading-[1.85] mb-5">
-                Vậy Vành đai 3 đi qua những đâu tại Nhơn Trạch? Tiến độ hiện tại như thế nào?
-                Và tác động đến thị trường bất động sản ra sao? Bài viết dưới đây sẽ phân tích
-                chi tiết từng khía cạnh.
+                Với người dân Nhơn Trạch, khách di chuyển giữa Đồng Nai – TP.HCM và người quan tâm
+                bất động sản khu vực, đây là một mốc hạ tầng quan trọng. Tuyến đường khi hoàn thiện
+                và tổ chức khai thác đồng bộ sẽ bổ sung hướng kết nối giữa Nhơn Trạch, TP.HCM,
+                Long Thành và cao tốc Bến Lức – Long Thành.
               </p>
               <InfoBox type="warn">
-                <strong>Lưu ý:</strong> Thông tin về tiến độ Vành đai 3 được tổng hợp từ nguồn
-                công khai, mang tính tham khảo. Tiến độ thực tế phụ thuộc quyết định của cơ quan
-                có thẩm quyền. Phân tích tác động BĐS không phải cam kết tăng giá.
+                <strong>Lưu ý:</strong> &ldquo;Hoàn thành xây lắp&rdquo;, &ldquo;khai thác tạm&rdquo; và
+                &ldquo;chính thức tổ chức lưu thông toàn tuyến&rdquo; là ba trạng thái khác nhau. Người
+                đi đường cần theo dõi biển báo, thông báo tổ chức giao thông và hướng dẫn của cơ
+                quan chức năng tại thời điểm di chuyển.
               </InfoBox>
 
-              {/* Section 1 */}
+              {/* Section 1 — Trả lời nhanh */}
               <section className="mb-12">
-                <SectionHeading id="la-gi">Vành đai 3 TP.HCM là gì?</SectionHeading>
+                <SectionHeading id="tra-loi-nhanh">Trả lời nhanh: Đã thông xe toàn tuyến chưa?</SectionHeading>
                 <div className="pt-5 space-y-5">
                   <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Vành đai 3 là tuyến đường vành đai được quy hoạch nhằm kết nối TP. Hồ Chí Minh
-                    với các tỉnh Đồng Nai, Bình Dương và Long An, tạo thành một vòng đai giao thông
-                    liên vùng hoàn chỉnh bao quanh khu vực đô thị lớn nhất phía Nam.
+                    Câu trả lời ngắn là: chưa có cơ sở để khẳng định toàn bộ đoạn Vành đai 3 qua
+                    Đồng Nai đã thông xe đồng bộ, chính thức tại thời điểm cuối tháng 9/2026.
                   </p>
                   <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Dự án không chỉ giúp giảm áp lực giao thông tại khu vực trung tâm mà còn tạo
-                    động lực phát triển kinh tế, công nghiệp và bất động sản cho toàn vùng. Việc
-                    đầu tư đồng bộ vào hệ thống giao thông được kỳ vọng sẽ thúc đẩy quá trình đô
-                    thị hóa và tạo điều kiện thuận lợi cho phát triển các khu đô thị mới.
+                    Theo thông tin ngày 19/09/2026, Dự án thành phần 3 của Vành đai 3 qua Đồng Nai
+                    đang trong giai đoạn nước rút. Đoạn đường hướng từ cầu Nhơn Trạch về TP.HCM
+                    đã được khai thác tạm, trong khi nhiều hạng mục trên tuyến vẫn tiếp tục được
+                    thi công, hoàn thiện và tổ chức kết nối.
                   </p>
+                  <InfoBox type="warn">
+                    Nếu cần di chuyển thực tế, người dùng không nên mặc định có thể đi xuyên suốt
+                    toàn bộ tuyến. Hãy kiểm tra chỉ dẫn giao thông thực địa, ứng dụng bản đồ có
+                    cập nhật tình trạng đường và thông báo của cơ quan quản lý trước khi xuất phát.
+                  </InfoBox>
+                </div>
+              </section>
+
+              {/* Section 2 — Quy mô */}
+              <section className="mb-12">
+                <SectionHeading id="quy-mo">Quy mô đoạn Vành đai 3 qua Đồng Nai</SectionHeading>
+                <div className="pt-5 space-y-5">
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Đoạn tuyến thuộc Dự án thành phần 3 có chiều dài khoảng 11,26 km, khởi công
+                    ngày 18/06/2023, với tổng mức đầu tư khoảng 2.584 tỷ đồng. Tuyến bắt đầu từ
+                    vị trí kết nối{" "}
+                    <a href="/tin-tuc/cao-toc-ben-luc-long-thanh" className="text-primary-700 font-semibold hover:underline">cao tốc Bến Lức – Long Thành</a>{" "}
+                    và kết thúc tại khu vực mố B{" "}
+                    <a href="/tin-tuc/cau-nhon-trach" className="text-primary-700 font-semibold hover:underline">cầu Nhơn Trạch</a>.
+                  </p>
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Đây là một mắt xích quan trọng vì không chỉ tạo thêm trục lưu thông cho khu
+                    vực Nhơn Trạch mà còn liên kết với các hạ tầng giao thông liên vùng đang được
+                    đầu tư mạnh trong khu vực phía Nam.
+                  </p>
+
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
-                      ["Tổng chiều dài",  "~76 km"],
-                      ["Qua 4 tỉnh",      "TP.HCM, Đồng Nai, Bình Dương, Long An"],
-                      ["Loại đường",      "Vành đai liên vùng"],
-                      ["Quy mô",          "Đường cao tốc đô thị"],
+                      ["Chiều dài",       "~11,26 km"],
+                      ["Khởi công",       "18/06/2023"],
+                      ["Tổng mức đầu tư", "~2.584 tỷ đồng"],
+                      ["Dự án",           "Thành phần 3"],
                     ].map(([label, val]) => (
                       <div key={label} className="rounded-2xl bg-primary-50 border border-primary-100 p-4 text-center">
                         <p className="text-sm font-black text-primary-700 mb-1">{val}</p>
@@ -275,205 +333,215 @@ export default function VanhDai3Page() {
                       </div>
                     ))}
                   </div>
-                </div>
-              </section>
 
-              {/* Section 2 */}
-              <section className="mb-12">
-                <SectionHeading id="vi-tri">Vị trí của tuyến Vành đai 3 qua Nhơn Trạch</SectionHeading>
-                <div className="pt-5 space-y-5">
-                  <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Theo quy hoạch, Vành đai 3 sẽ đi qua nhiều địa phương quan trọng. Đối với tỉnh
-                    Đồng Nai, tuyến đường đi qua huyện Nhơn Trạch — tạo ra sự kết nối trực tiếp
-                    với TP. Hồ Chí Minh và nâng cao vị thế chiến lược của khu vực này trong mạng
-                    lưới giao thông liên vùng.
-                  </p>
-                  <H3>Các tỉnh thành tuyến đường đi qua</H3>
+                  <H3>Các vị trí đáng chú ý trên đoạn tuyến</H3>
                   <BulletList items={[
-                    "TP. Hồ Chí Minh: đi qua nhiều quận huyện phía đông và tây thành phố",
-                    "Đồng Nai: đi qua huyện Nhơn Trạch — khu vực đang phát triển mạnh về đô thị và công nghiệp",
-                    "Bình Dương: kết nối với các khu công nghiệp và đô thị trọng điểm phía bắc",
-                    "Long An: mở rộng kết nối vùng Tây Nam Bộ và các tỉnh miền Tây",
+                    "Khu vực kết nối với cao tốc Bến Lức – Long Thành tại xã Phước An.",
+                    "Nút giao với đường ĐT.25B.",
+                    "Khu vực cầu vượt ĐT.25C.",
+                    "Đoạn kết nối cầu Nhơn Trạch theo hướng về TP.HCM.",
+                    "Hệ thống đường song hành, đường dẫn, hạng mục chiếu sáng, biển báo và tổ chức giao thông đi kèm.",
                   ]} />
-                  <H3>Các khu vực tại Nhơn Trạch được hưởng lợi trực tiếp</H3>
-                  <BulletList items={[
-                    "Long Tân: xã nằm trong hành lang quy hoạch của tuyến đường",
-                    "Phước An: khu vực tiếp giáp với các tuyến giao thông quan trọng",
-                    "Vĩnh Thanh: vị trí kết nối giữa Nhơn Trạch và TP.HCM",
-                    "Phú Hội: nơi tọa lạc của nhiều dự án đô thị quy mô, trong đó có Mega City 2",
-                    "Trung tâm huyện Nhơn Trạch: hành chính và dịch vụ của toàn huyện",
-                  ]} />
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    <LinkBtn href="/mega-city-2">Mega City 2 Nhơn Trạch →</LinkBtn>
-                    <LinkBtn href="/mega-city-2/vi-tri">Vị trí dự án →</LinkBtn>
-                  </div>
                 </div>
               </section>
 
               <ArticleFigure
-                src={IMG_NEWS16["2"]}
-                alt="Bản đồ quy hoạch tuyến đường Vành đai 3 đi qua huyện Nhơn Trạch tỉnh Đồng Nai"
-                caption="Bản đồ quy hoạch tuyến đường Vành đai 3 đi qua huyện Nhơn Trạch, tỉnh Đồng Nai"
-                images={images} index={1} onOpen={openLightbox}
-              />
-
-              {/* Section 3 */}
-              <section className="mb-12">
-                <SectionHeading id="tien-do">Tiến độ thi công Vành đai 3 mới nhất năm 2026</SectionHeading>
-                <div className="pt-5 space-y-5">
-                  <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Tiến độ xây dựng Vành đai 3 đang được đẩy nhanh nhằm hoàn thiện hệ thống giao
-                    thông liên vùng. Đây là một trong những dự án hạ tầng được các nhà đầu tư đặc
-                    biệt quan tâm vì có thể tác động trực tiếp đến thị trường bất động sản tại
-                    Đồng Nai.
-                  </p>
-                  <H3>Các hạng mục đang triển khai</H3>
-                  <BulletList items={[
-                    "Giải phóng mặt bằng: công tác thu hồi đất và đền bù cho người dân trong hành lang dự án",
-                    "Thi công nền đường: san lấp, gia cố nền đất phục vụ xây dựng mặt đường",
-                    "Xây dựng cầu: các công trình cầu qua sông, kênh rạch dọc tuyến",
-                    "Hoàn thiện hệ thống thoát nước: đảm bảo thoát lũ và vệ sinh môi trường ven đường",
-                    "Xây dựng các nút giao thông: điểm kết nối với các tuyến đường hiện hữu",
-                  ]} />
-                  <InfoBox>
-                    Nhà đầu tư nên thường xuyên cập nhật thông tin chính thức từ{" "}
-                    <strong>UBND tỉnh Đồng Nai</strong> và{" "}
-                    <strong>Ban Quản lý dự án đầu tư xây dựng các công trình giao thông</strong>{" "}
-                    để theo dõi tiến độ thực tế của dự án.
-                  </InfoBox>
-                </div>
-              </section>
-
-              <ArticleFigure
-                src={IMG_NEWS16["3"]}
-                alt="Tiến độ thi công dự án Vành đai 3 TP Hồ Chí Minh cập nhật năm 2026"
-                caption="Tiến độ thi công dự án Vành đai 3 TP.HCM cập nhật năm 2026"
-                images={images} index={2} onOpen={openLightbox}
-              />
-
-              {/* Section 4 */}
-              <section className="mb-12">
-                <SectionHeading id="san-bay">Vành đai 3 kết nối với sân bay Long Thành như thế nào?</SectionHeading>
-                <div className="pt-5 space-y-5">
-                  <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Sân bay Long Thành được xem là một trong những dự án trọng điểm quốc gia. Khi
-                    kết hợp với Vành đai 3, hệ thống giao thông tại khu vực phía Nam sẽ được cải
-                    thiện đáng kể — đặc biệt đối với Nhơn Trạch, nơi nằm ở trung tâm của cả hai
-                    tuyến hạ tầng chiến lược này.
-                  </p>
-                  <H3>Những lợi ích nổi bật từ sự kết hợp hai dự án</H3>
-                  <BulletList items={[
-                    "Rút ngắn thời gian di chuyển: kết nối nhanh hơn giữa Nhơn Trạch, TP.HCM và sân bay Long Thành",
-                    "Tăng khả năng kết nối liên vùng: mở ra hướng phát triển cho Đồng Nai, Bình Dương, Long An",
-                    "Thúc đẩy hoạt động logistics: trung chuyển hàng hóa thuận tiện hơn nhờ tuyến vành đai",
-                    "Thu hút doanh nghiệp: môi trường hạ tầng hoàn thiện là yếu tố cốt lõi khi doanh nghiệp chọn địa điểm",
-                    "Hỗ trợ phát triển công nghiệp: mở rộng không gian sản xuất ra ngoài vùng lõi TP.HCM",
-                  ]} />
-                  <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Sự kết hợp giữa Vành đai 3 và sân bay Long Thành được đánh giá là một trong
-                    những động lực quan trọng nhất thúc đẩy sự phát triển của Nhơn Trạch trong
-                    giai đoạn 2025–2030 và những năm tiếp theo.
-                  </p>
-                  <InfoBox>
-                    <a href="/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach" className="font-bold text-primary-700 underline">
-                      Sân bay Long Thành ảnh hưởng đến BĐS Nhơn Trạch như thế nào? →
-                    </a>
-                  </InfoBox>
-                </div>
-              </section>
-
-              <ArticleFigure
-                src={IMG_NEWS16["4"]}
-                alt="Tuyến đường Vành đai 3 kết nối với sân bay quốc tế Long Thành"
-                caption="Tuyến đường Vành đai 3 kết nối với sân bay quốc tế Long Thành"
+                src={IMG_NEWS61["4"]}
+                alt="Sơ đồ vị trí cầu Nhơn Trạch trên tuyến Vành đai 3 khu vực Thành phố Hồ Chí Minh và Đồng Nai"
+                caption="Sơ đồ minh họa vị trí kết nối của cầu Nhơn Trạch trong mạng lưới Vành đai 3."
                 images={images} index={3} onOpen={openLightbox}
               />
 
-              {/* Section 5 */}
+              {/* Section 3 — Tiến độ */}
               <section className="mb-12">
-                <SectionHeading id="gia-bds">Vành đai 3 ảnh hưởng như thế nào đến bất động sản Nhơn Trạch?</SectionHeading>
+                <SectionHeading id="tien-do">Tiến độ cuối tháng 9/2026</SectionHeading>
                 <div className="pt-5 space-y-5">
                   <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Trong lĩnh vực bất động sản, hạ tầng luôn là yếu tố có tác động rất lớn đến
-                    giá trị của một dự án. Khi một tuyến đường lớn được hình thành, nhiều yếu tố
-                    trong khu vực sẽ thay đổi theo:
+                    Theo cập nhật giữa tháng 9/2026, khối lượng thực hiện các gói thầu xây lắp của
+                    dự án đạt khoảng 80% giá trị hợp đồng tính đến cuối tháng 8/2026. Trên đoạn
+                    tuyến chính từ đầu dự án đến nút giao ĐT.25B, nhiều hạng mục đã cơ bản hoàn
+                    thành; hệ thống chiếu sáng, biển báo giao thông và sơn kẻ vạch đang được triển
+                    khai.
                   </p>
-                  <BulletList items={[
-                    "Khả năng kết nối: đi lại thuận tiện hơn giúp thu hút cư dân và doanh nghiệp",
-                    "Tốc độ đô thị hóa: khu vực dọc hành lang tuyến đường phát triển nhanh hơn",
-                    "Giá trị bất động sản: áp lực cầu gia tăng kéo theo xu hướng tăng giá dài hạn",
-                    "Nhu cầu nhà ở: dân số tăng do lao động và chuyên gia đổ về khu vực",
-                    "Hoạt động thương mại: mặt đường lớn kích hoạt nhu cầu kinh doanh, dịch vụ",
-                  ]} />
-
-                  <H3>Các dự án hạ tầng đang tác động đến Nhơn Trạch</H3>
                   <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Trong những năm gần đây, Nhơn Trạch liên tục nhận được sự quan tâm của các nhà
-                    đầu tư nhờ hàng loạt dự án hạ tầng lớn đồng thời triển khai:
+                    Tại cầu vượt ĐT.25C và các vị trí đường dẫn, đơn vị thi công tiếp tục xử lý
+                    những phần việc còn lại. Riêng khu vực giao với cao tốc Bến Lức – Long Thành,
+                    công tác hoàn thiện đường dẫn và nhánh kết nối có ý nghĩa quan trọng để hình
+                    thành khả năng lưu thông đồng bộ giữa các tuyến.
                   </p>
-                  <BulletList items={[
-                    <><a href="/tin-tuc/cau-cat-lai" className="text-primary-700 font-semibold hover:underline">Cầu Cát Lái</a> — cầu vượt sông Đồng Nai kết nối Nhơn Trạch với TP.Thủ Đức trực tiếp</>,
-                    <><a href="/tin-tuc/duong-25c" className="text-primary-700 font-semibold hover:underline">Đường 25C</a> — trục giao thông huyết mạch chạy dọc huyện Nhơn Trạch hướng Long Thành</>,
-                    "Cao tốc Bến Lức – Long Thành — tuyến cao tốc đông-tây kết nối hai đầu vùng phía Nam",
-                    "Cao tốc Biên Hòa – Vũng Tàu — mở ra hành lang kinh tế duyên hải Đông Nam Bộ",
-                    <><a href="/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach" className="text-primary-700 font-semibold hover:underline">Sân bay Long Thành</a> — cửa ngõ hàng không quốc tế trọng điểm quốc gia</>,
-                    "Vành đai 3 TP.HCM — hoàn thiện mạng lưới vành đai liên vùng toàn diện nhất",
-                  ]} />
-                  <InfoBox type="warn">
-                    <strong>Lưu ý:</strong> Tác động của hạ tầng đến giá BĐS là yếu tố dài hạn và
-                    không đồng đều giữa các khu vực. Giá trị còn phụ thuộc vào pháp lý, quy hoạch
-                    và vị trí cụ thể từng lô. Nhà đầu tư cần đánh giá tổng thể trước khi quyết định.
-                  </InfoBox>
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    <LinkBtn href="/tin-tuc/gia-dat-nhon-trach-2026">Giá đất Nhơn Trạch 2026 →</LinkBtn>
-                    <LinkBtn href="/tin-tuc/quy-hoach-nhon-trach-moi-nhat">Quy hoạch Nhơn Trạch →</LinkBtn>
-                  </div>
-                </div>
-              </section>
-
-              {/* Section 6 */}
-              <section className="mb-12">
-                <SectionHeading id="mega-city-2">Mega City 2 hưởng lợi như thế nào từ Vành đai 3?</SectionHeading>
-                <div className="pt-5 space-y-5">
                   <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Trong số các dự án đang thu hút sự quan tâm tại Nhơn Trạch,{" "}
-                    <a href="/mega-city-2" className="text-primary-700 font-semibold hover:underline">Mega City 2</a>{" "}
-                    được đánh giá là một trong những dự án có nhiều lợi thế từ sự phát triển của hệ
-                    thống giao thông, trong đó có Vành đai 3.
+                    Thành phố Đồng Nai đã yêu cầu các đơn vị thi công tăng cường nhân lực, thiết
+                    bị và triển khai theo phương án 3 ca, 4 kíp nhằm hướng đến mục tiêu hoàn thành
+                    xây lắp vào cuối tháng 9/2026.
                   </p>
-                  <H3>Những lợi thế cụ thể của Mega City 2</H3>
-                  <BulletList items={[
-                    "Kết nối thuận tiện với TP. Hồ Chí Minh qua cầu Cát Lái và đường 25C",
-                    "Tiếp cận nhanh với sân bay Long Thành trong khoảng 20–25 phút di chuyển",
-                    "Hưởng lợi từ hệ thống hạ tầng đồng bộ: đường nhựa, điện, nước hoàn chỉnh",
-                    "Tiềm năng phát triển dài hạn khi vành đai liên vùng đi vào hoạt động",
-                    "Khả năng gia tăng giá trị trong tương lai theo xu hướng đô thị hóa khu vực",
-                  ]} />
-                  <p className="text-slate-600 text-[17px] leading-[1.85]">
-                    Ngoài lợi thế vị trí, Mega City 2 còn được nhiều nhà đầu tư quan tâm nhờ nền
-                    tảng pháp lý rõ ràng với quy hoạch 1/500 đã được phê duyệt và Quyết định
-                    1772/QĐ-UBND chấp thuận 2.421 lô phân lô bán nền tại xã Phú Hội, Nhơn Trạch.
-                  </p>
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    <LinkBtn href="/mega-city-2">Tổng quan Mega City 2 →</LinkBtn>
-                    <LinkBtn href="/mega-city-2/bang-gia">Bảng giá →</LinkBtn>
-                    <LinkBtn href="/mega-city-2/vi-tri">Vị trí →</LinkBtn>
-                    <LinkBtn href="/mega-city-2/phap-ly">Pháp lý →</LinkBtn>
-                    <LinkBtn href="/mega-city-2/tien-ich">Tiện ích →</LinkBtn>
-                  </div>
                 </div>
               </section>
 
               <ArticleFigure
-                src={IMG_NEWS16["5"]}
-                alt="Dự án Mega City 2 hưởng lợi từ hệ thống hạ tầng giao thông tại huyện Nhơn Trạch"
-                caption="Dự án Mega City 2 hưởng lợi từ hệ thống hạ tầng giao thông tại huyện Nhơn Trạch"
-                images={images} index={4} onOpen={openLightbox}
+                src={IMG_NEWS61["2"]}
+                alt="Nút giao Vành đai 3 với đường ĐT 25B và ĐT 25C tại Đồng Nai"
+                caption="Khu vực nút giao là một trong các hạng mục then chốt để kết nối Vành đai 3 với mạng lưới đường bộ khu vực."
+                images={images} index={1} onOpen={openLightbox}
               />
+
+              {/* Section 4 — Điều gì thay đổi với Nhơn Trạch */}
+              <section className="mb-12">
+                <SectionHeading id="nhon-trach">Điều gì thay đổi với Nhơn Trạch?</SectionHeading>
+                <div className="pt-5 space-y-5">
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Khi Vành đai 3 và các tuyến kết nối được khai thác đồng bộ, khu vực{" "}
+                    <a href="/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat" className="text-primary-700 font-semibold hover:underline">Nhơn Trạch</a>{" "}
+                    có thêm một hướng đi liên vùng thay vì phụ thuộc nhiều vào các trục đường hiện hữu.
+                  </p>
+
+                  <NumberedList items={[
+                    {
+                      title: "Thêm phương án kết nối với TP.HCM",
+                      body: (
+                        <>
+                          <p className="mb-3">
+                            <a href="/tin-tuc/cau-nhon-trach" className="text-primary-700 font-semibold hover:underline">Cầu Nhơn Trạch</a> và Vành đai 3 tạo thêm hành lang kết nối từ Đồng Nai về TP.HCM.
+                            Việc đoạn hướng về TP.HCM đã được khai thác tạm là tín hiệu cho thấy chức năng
+                            liên kết của công trình đang từng bước hình thành.
+                          </p>
+                          <p>
+                            Tuy nhiên, trải nghiệm di chuyển thực tế còn phụ thuộc vào tình trạng hoàn thiện
+                            các nhánh kết nối, tổ chức luồng tuyến, mật độ phương tiện và việc khai thác đồng
+                            bộ với các hạ tầng liên quan.
+                          </p>
+                        </>
+                      ),
+                    },
+                    {
+                      title: "Tăng liên kết với cao tốc Bến Lức – Long Thành",
+                      body: (
+                        <>
+                          <p className="mb-3">
+                            Điểm đầu đoạn Vành đai 3 qua Đồng Nai kết nối{" "}
+                            <a href="/tin-tuc/cao-toc-ben-luc-long-thanh" className="text-primary-700 font-semibold hover:underline">cao tốc Bến Lức – Long Thành</a>.
+                            Cùng thời điểm cuối tháng 9, cầu Phước Khánh trên cao tốc Bến Lức – Long Thành
+                            đang được thử tải, cho thấy các công việc để hoàn thiện mạng lưới kết nối liên vùng
+                            vẫn tiếp tục được triển khai.
+                          </p>
+                          <p>
+                            Khi các đoạn và nút giao được hoàn thiện đúng kế hoạch, người dân và doanh nghiệp
+                            sẽ có thêm lựa chọn lưu thông giữa khu vực phía Tây Nam TP.HCM, Nhơn Trạch và Long Thành.
+                          </p>
+                        </>
+                      ),
+                    },
+                    {
+                      title: "Hỗ trợ kết nối về hướng sân bay Long Thành",
+                      body: (
+                        <p>
+                          Vành đai 3 được đặt trong tổng thể các dự án giao thông phục vụ kết nối đến sân bay
+                          Long Thành. Tuyến không phải là đường đi thẳng duy nhất đến sân bay, nhưng đóng vai
+                          trò bổ sung năng lực kết nối giữa Nhơn Trạch, cao tốc Bến Lức – Long Thành và các
+                          trục hướng về Long Thành. Người mua nhà hoặc đầu tư bất động sản cần nhìn đây là
+                          yếu tố cải thiện khả năng kết nối dài hạn, không nên diễn giải thành cam kết chắc
+                          chắn về thời gian di chuyển hoặc mức tăng giá của bất kỳ dự án nào.
+                        </p>
+                      ),
+                    },
+                  ]} />
+                </div>
+              </section>
+
+              <ArticleFigure
+                src={IMG_NEWS61["3"]}
+                alt="Cầu Nhơn Trạch thuộc dự án đường Vành đai 3 kết nối Đồng Nai với Thành phố Hồ Chí Minh"
+                caption="Cầu Nhơn Trạch là một mắt xích quan trọng trong kết nối Đồng Nai – TP.HCM trên hành lang Vành đai 3."
+                images={images} index={2} onOpen={openLightbox}
+              />
+
+              {/* Section 5 — Lưu ý */}
+              <section className="mb-12">
+                <SectionHeading id="luu-y">Người dân cần lưu ý gì khi đi tuyến này?</SectionHeading>
+                <div className="pt-5 space-y-5">
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Trước khi di chuyển, nên lưu ý các điểm sau:
+                  </p>
+                  <BulletList items={[
+                    "Không mặc định toàn bộ đoạn tuyến đã mở cho mọi loại phương tiện.",
+                    "Kiểm tra thông báo tổ chức giao thông mới nhất từ cơ quan chức năng.",
+                    "Quan sát biển báo, chỉ dẫn phân luồng và rào chắn tại công trường.",
+                    "Dự phòng thời gian di chuyển vì khu vực vẫn có thể thi công, hoàn thiện hoặc điều chỉnh tổ chức giao thông.",
+                    "Không sử dụng thông tin tiến độ hạ tầng như căn cứ duy nhất để quyết định mua bán bất động sản.",
+                  ]} />
+                </div>
+              </section>
+
+              {/* Section 6 — Mega City 2 */}
+              <section className="mb-12">
+                <SectionHeading id="mega-city-2">Vành đai 3 và việc di chuyển đến Mega City 2</SectionHeading>
+                <div className="pt-5 space-y-5">
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Với khách hàng quan tâm khu vực Nhơn Trạch và{" "}
+                    <a href="/mega-city-2" className="text-primary-700 font-semibold hover:underline">Mega City 2</a>,
+                    Vành đai 3 là một phần trong bức tranh hạ tầng rộng hơn, cùng với{" "}
+                    <a href="/tin-tuc/duong-25c" className="text-primary-700 font-semibold hover:underline">đường 25C</a>,{" "}
+                    <a href="/tin-tuc/cau-nhon-trach" className="text-primary-700 font-semibold hover:underline">cầu Nhơn Trạch</a> và{" "}
+                    <a href="/tin-tuc/cao-toc-ben-luc-long-thanh" className="text-primary-700 font-semibold hover:underline">cao tốc Bến Lức – Long Thành</a>.
+                  </p>
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Điều cần quan tâm không chỉ là tuyến đường đã hoàn thành bao nhiêu phần trăm,
+                    mà là:
+                  </p>
+                  <BulletList items={[
+                    "Tuyến nào đã cho phép lưu thông thực tế.",
+                    "Nút giao nào đã hoàn thiện và khai thác ổn định.",
+                    "Lộ trình nào phù hợp với điểm xuất phát cụ thể tại TP.HCM.",
+                    "Thời gian di chuyển thực tế theo từng khung giờ.",
+                    "Tình trạng tổ chức giao thông tại thời điểm đi khảo sát dự án.",
+                  ]} />
+                  <InfoBox>
+                    Bạn có thể xem thêm bài hướng dẫn{" "}
+                    <a href="/tin-tuc/duong-di-tu-tphcm-den-mega-city-2" className="font-bold text-primary-700 underline">
+                      Đường đi Mega City 2 từ TP.HCM: khoảng cách và lộ trình
+                    </a>{" "}
+                    và{" "}
+                    <a href="/tin-tuc/vi-tri-mega-city-2-o-dau" className="font-bold text-primary-700 underline">
+                      Mega City 2 ở đâu? Cách TP.HCM bao xa và đi bằng đường nào?
+                    </a>{" "}
+                    để lựa chọn hướng di chuyển phù hợp.
+                  </InfoBox>
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <LinkBtn href="/tin-tuc/duong-di-tu-tphcm-den-mega-city-2">Đường đi từ TP.HCM →</LinkBtn>
+                    <LinkBtn href="/tin-tuc/vi-tri-mega-city-2-o-dau">Vị trí Mega City 2 →</LinkBtn>
+                    <LinkBtn href="/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat">Hạ tầng Nhơn Trạch →</LinkBtn>
+                  </div>
+                </div>
+              </section>
+
+              {/* Kết luận */}
+              <section className="mb-12">
+                <SectionHeading>Kết luận</SectionHeading>
+                <div className="pt-5 space-y-5">
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Cuối tháng 9/2026, Vành đai 3 đoạn qua Đồng Nai đã bước vào giai đoạn hoàn
+                    thiện quan trọng, trong đó có đoạn hướng từ cầu Nhơn Trạch về TP.HCM được khai
+                    thác tạm. Tuy nhiên, toàn bộ dự án vẫn đang tiếp tục hoàn thiện các hạng mục
+                    và kết nối để hướng đến mục tiêu hoàn thành xây lắp vào cuối tháng.
+                  </p>
+                  <p className="text-slate-600 text-[17px] leading-[1.85]">
+                    Do đó, thông điệp chính xác nhất là: tuyến đang rất gần mốc hoàn thiện, nhưng
+                    người dân cần kiểm tra thông báo tổ chức giao thông thực tế trước khi coi đây
+                    là một hành lang đã thông xe đồng bộ toàn tuyến.
+                  </p>
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5">
+                    <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Nguồn thông tin</p>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Thông tin trong bài được tổng hợp từ nguồn báo chí và cơ quan địa phương công
+                      khai tại thời điểm cập nhật. Tiến độ, phương án phân luồng và thời điểm khai
+                      thác có thể thay đổi theo thông báo của cơ quan có thẩm quyền.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
               {/* FAQ */}
               <section className="mb-12" id="faq">
-                <SectionHeading>Câu hỏi thường gặp về Vành đai 3 TP.HCM</SectionHeading>
+                <SectionHeading>Câu hỏi thường gặp</SectionHeading>
                 <div className="pt-5 space-y-3">
                   {faqSchema.mainEntity.map(({ name, acceptedAnswer }) => (
                     <details key={name} className="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-primary-200 transition-colors">
@@ -494,14 +562,12 @@ export default function VanhDai3Page() {
                 <SectionHeading>Tìm hiểu thêm</SectionHeading>
                 <div className="pt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
-                    { href: "/mega-city-2",                                                      label: "Mega City 2 Nhơn Trạch" },
-                    { href: "/mega-city-2/bang-gia",                                              label: "Bảng giá Mega City 2" },
-                    { href: "/mega-city-2/vi-tri",                                                label: "Vị trí Mega City 2" },
-                    { href: "/mega-city-2/phap-ly",                                               label: "Pháp lý Mega City 2" },
-                    { href: "/mega-city-2/tien-ich",                                              label: "Tiện ích Mega City 2" },
-                    { href: "/tin-tuc/duong-25c",                                                 label: "Đường 25C Nhơn Trạch" },
-                    { href: "/tin-tuc/cau-cat-lai",                                               label: "Cầu Cát Lái" },
-                    { href: "/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach",             label: "Sân bay Long Thành và BĐS Nhơn Trạch" },
+                    { href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2",    label: "Đường đi từ TP.HCM đến Mega City 2" },
+                    { href: "/tin-tuc/vi-tri-mega-city-2-o-dau",              label: "Mega City 2 ở đâu? Cách TP.HCM bao xa?" },
+                    { href: "/tin-tuc/cau-nhon-trach",                        label: "Cầu Nhơn Trạch – Cập nhật mới nhất" },
+                    { href: "/tin-tuc/cao-toc-ben-luc-long-thanh",            label: "Cao tốc Bến Lức – Long Thành 2026" },
+                    { href: "/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat", label: "Hạ tầng giao thông Nhơn Trạch mới nhất" },
+                    { href: "/mega-city-2",                                   label: "Tổng quan Mega City 2 Nhơn Trạch" },
                   ].map((l) => (
                     <a key={l.href} href={l.href}
                       className="flex items-center gap-2 text-sm text-slate-600 hover:text-primary-600 transition-colors px-4 py-3 rounded-xl border border-slate-100 hover:border-primary-200 hover:bg-primary-50">
@@ -511,15 +577,6 @@ export default function VanhDai3Page() {
                   ))}
                 </div>
               </section>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 mb-10">
-                <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Tuyên bố miễn trách nhiệm</p>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Thông tin trong bài được tổng hợp từ nguồn công khai và mang tính tham khảo.
-                  Tiến độ các dự án hạ tầng có thể thay đổi theo quyết định của cơ quan có thẩm
-                  quyền. Trước khi đầu tư, cần xác nhận thông tin pháp lý cụ thể từng sản phẩm.
-                </p>
-              </div>
 
             </article>
 
@@ -552,10 +609,10 @@ export default function VanhDai3Page() {
                   <p className="font-bold text-slate-800 text-sm mb-3">Bài viết liên quan</p>
                   <div className="space-y-3">
                     {[
-                      { label: "Đường 25C Nhơn Trạch 2026",              href: "/tin-tuc/duong-25c" },
-                      { label: "Cầu Cát Lái – Cập nhật mới nhất",        href: "/tin-tuc/cau-cat-lai" },
-                      { label: "Sân bay Long Thành & BĐS Nhơn Trạch",    href: "/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach" },
-                      { label: "Giá đất Nhơn Trạch 2026",                href: "/tin-tuc/gia-dat-nhon-trach-2026" },
+                      { label: "Cầu Nhơn Trạch – Cập nhật 2026",              href: "/tin-tuc/cau-nhon-trach" },
+                      { label: "Cao tốc Bến Lức – Long Thành 2026",           href: "/tin-tuc/cao-toc-ben-luc-long-thanh" },
+                      { label: "Hạ tầng giao thông Nhơn Trạch mới nhất",      href: "/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat" },
+                      { label: "Đường đi từ TP.HCM đến Mega City 2",          href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-primary-600 transition-colors">→ {l.label}</a>
                     ))}
@@ -580,7 +637,7 @@ export default function VanhDai3Page() {
             <h2 className="text-2xl font-black text-slate-900 mb-3">Bạn muốn tìm hiểu thêm về Mega City 2?</h2>
             <p className="text-slate-600 text-base mb-8 leading-relaxed">
               Xem thêm thông tin về vị trí, pháp lý và bảng giá dự án Mega City 2 tại Nhơn Trạch —
-              hưởng lợi trực tiếp từ Vành đai 3, cầu Cát Lái và sân bay Long Thành.
+              hưởng lợi trực tiếp từ Vành đai 3, cầu Nhơn Trạch và cao tốc Bến Lức – Long Thành.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <a href="/mega-city-2" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 text-sm">
@@ -597,28 +654,28 @@ export default function VanhDai3Page() {
           title="Bài viết liên quan"
           items={[
             {
-              href: "/mega-city-2",
-              title: "Mega City 2 Nhơn Trạch – Tổng quan dự án",
-              description: "Thông tin đầy đủ về quy mô, pháp lý, hạ tầng và bảng giá dự án Mega City 2.",
-              tag: "Dự án",
-            },
-            {
-              href: "/tin-tuc/duong-25c",
-              title: "Đường 25C Nhơn Trạch: Tiến độ mới nhất năm 2026",
-              description: "Phân tích tuyến đường 25C và tác động đến bất động sản khu vực Nhơn Trạch.",
+              href: "/tin-tuc/duong-di-tu-tphcm-den-mega-city-2",
+              title: "Đường đi từ TP.HCM đến Mega City 2: khoảng cách và lộ trình",
+              description: "Hướng dẫn các lộ trình di chuyển từ TP.HCM đến Mega City 2 Nhơn Trạch theo nhiều tuyến đường.",
               tag: "Hạ tầng",
             },
             {
-              href: "/tin-tuc/cau-cat-lai",
-              title: "Cầu Cát Lái – Cập nhật tiến độ mới nhất 2026",
-              description: "Thông tin mới nhất về dự án cầu Cát Lái kết nối Nhơn Trạch với TP.HCM.",
+              href: "/tin-tuc/cau-nhon-trach",
+              title: "Cầu Nhơn Trạch – Cập nhật tiến độ và tác động kết nối 2026",
+              description: "Thông tin mới nhất về cầu Nhơn Trạch trên tuyến Vành đai 3 kết nối Đồng Nai với TP.HCM.",
               tag: "Hạ tầng",
             },
             {
-              href: "/tin-tuc/san-bay-long-thanh-va-bat-dong-san-nhon-trach",
-              title: "Sân bay Long Thành ảnh hưởng đến BĐS Nhơn Trạch",
-              description: "Tác động của sân bay Long Thành đến thị trường bất động sản Nhơn Trạch.",
-              tag: "Thị trường",
+              href: "/tin-tuc/cao-toc-ben-luc-long-thanh",
+              title: "Cao tốc Bến Lức – Long Thành 2026: Tiến độ mới nhất",
+              description: "Cập nhật tiến độ cao tốc Bến Lức – Long Thành và kết nối với Vành đai 3 tại Nhơn Trạch.",
+              tag: "Hạ tầng",
+            },
+            {
+              href: "/tin-tuc/ha-tang-giao-thong-nhon-trach-moi-nhat",
+              title: "Hạ tầng giao thông Nhơn Trạch mới nhất 2026",
+              description: "Tổng hợp các dự án hạ tầng giao thông đang triển khai tại Nhơn Trạch năm 2026.",
+              tag: "Hạ tầng",
             },
           ]}
         />

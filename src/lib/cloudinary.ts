@@ -168,6 +168,11 @@ const LOCAL: Record<string, string> = {
   "thelinkcity/news50/4.png":   "/the link/news50/4.png",
   "thelinkcity/news50/5.jpg":   "/the link/news50/5.jpg",
   // Mega City 2 — news58
+  // Mega City 2 — news61
+  "megacity2/news61/1.webp":  "/news61/1.webp",
+  "megacity2/news61/2.jpg":   "/news61/2.jpg",
+  "megacity2/news61/3.webp":  "/news61/3.webp",
+  "megacity2/news61/4.webp":  "/news61/4.webp",
   "megacity2/news58/1.jpg":   "/news58/1.jpg",
   "megacity2/news58/2.png":   "/news58/2.png",
   "megacity2/news58/3.png":   "/news58/3.png",
@@ -1140,6 +1145,22 @@ export const IMG_NEWS57: Record<string, string> = Object.fromEntries(
     ["3", "3.png"],
     ["4", "4.png"],
   ].map(([k, v]) => [k, cld("megacity2/news57", v, "lg")])
+);
+
+/** News61 — Vành đai 3 qua Đồng Nai đã thông xe chưa? Cập nhật cuối tháng 9/2026 (4 ảnh)
+ *  1 = Toàn cảnh công trường Vành đai 3 đoạn qua Đồng Nai (webp)
+ *  2 = Nút giao Vành đai 3 với đường ĐT.25B và ĐT.25C (jpg)
+ *  3 = Cầu Nhơn Trạch trên tuyến Vành đai 3 (webp)
+ *  4 = Sơ đồ vị trí cầu Nhơn Trạch trong mạng lưới Vành đai 3 (webp)
+ *  Nguồn: public/news61/ → Cloudinary: megacity2/news61/
+ */
+export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.webp"],
+    ["2", "2.jpg"],
+    ["3", "3.webp"],
+    ["4", "4.webp"],
+  ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
 );
 
 /** News58 — Đất nền Mega City 2 có được xây nhà ngay không? (4 ảnh)
