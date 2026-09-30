@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "tien-ich-ngoai-khu-the-link-city-dau-giay",
+    project:  "the-link-city",
+    title:    "Tiện Ích Ngoại Khu The Link City Dầu Giây: Bệnh Viện, Trường Học, Chợ & Kết Nối Giao Thông",
+    date:     "30/09/2026",
+    category: "tin-du-an",
+    excerpt:  "Khám phá hệ thống tiện ích ngoại khu trong bán kính 5km quanh The Link City: bệnh viện đa khoa, trường học liên cấp, chợ sầm uất và cao tốc kết nối TP.HCM chỉ 45 phút.",
+    image: `${CDN}/thelinkcity/news62/1`,
+    href:  "/tin-tuc/tien-ich-ngoai-khu-the-link-city-dau-giay",
+  },
+  {
     slug:     "vanh-dai-3",
     project:  "chung",
     title:    "Vành đai 3 qua Đồng Nai đã thông xe chưa? Cập nhật cuối tháng 9/2026",

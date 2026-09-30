@@ -173,6 +173,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news61/2.jpg":   "/news61/2.jpg",
   "megacity2/news61/3.webp":  "/news61/3.webp",
   "megacity2/news61/4.webp":  "/news61/4.webp",
+  // The Link City — news62
+  "thelinkcity/news62/1.jpg": "/the link/news62/1.jpg",
+  "thelinkcity/news62/2.png": "/the link/news62/2.png",
+  "thelinkcity/news62/3.jpg": "/the link/news62/3.jpg",
+  "thelinkcity/news62/4.jpg": "/the link/news62/4.jpg",
+  "thelinkcity/news62/5.png": "/the link/news62/5.png",
   "megacity2/news58/1.jpg":   "/news58/1.jpg",
   "megacity2/news58/2.png":   "/news58/2.png",
   "megacity2/news58/3.png":   "/news58/3.png",
@@ -1161,6 +1167,24 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News62 — Tiện ích ngoại khu The Link City Dầu Giây (5 ảnh)
+ *  1 = Toàn cảnh The Link City / khu vực Dầu Giây (hero)
+ *  2 = Bệnh viện / cơ sở y tế gần dự án
+ *  3 = Trường học khu vực Dầu Giây / Thống Nhất
+ *  4 = Chợ / khu mua sắm sầm uất quanh ngã tư Dầu Giây
+ *  5 = QL1A / cao tốc / hạ tầng giao thông kết nối
+ *  Nguồn: public/the link/news62/ → Cloudinary: thelinkcity/news62/
+ */
+export const IMG_NEWS62: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.png"],
+    ["3", "3.jpg"],
+    ["4", "4.jpg"],
+    ["5", "5.png"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news62", v, "lg")])
 );
 
 /** News58 — Đất nền Mega City 2 có được xây nhà ngay không? (4 ảnh)
