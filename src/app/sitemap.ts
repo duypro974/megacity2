@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+﻿import { MetadataRoute } from "next";
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // sitemap.ts â€” Kim Oanh Äá»“ng Nai
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // â”€â”€ Homepage â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: BASE,
-      lastModified: "2026-09-18",
+      lastModified: "2026-09-30",
       changeFrequency: "weekly",
       priority: 1.0,
       images: [
@@ -37,7 +37,109 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // â”€â”€ Trang dá»± Ã¡n Mega City 2 (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // â”€â”€ The Link City (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    {
+      url: `${BASE}/the-link-city`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.98,
+      images: [
+        cimg("thelinkcity/overview/1.jpg"),
+        cimg("thelinkcity/overview/2.jpg"),
+        cimg("thelinkcity/overview/3.jpg"),
+        cimg("thelinkcity/real/1.jpg"),
+        cimg("thelinkcity/amenities/1.jpg"),
+        cimg("thelinkcity/diagram/so-do-tong-the.jpeg"),
+        cimg("thelinkcity/cross-section/a01-01.jpeg"),
+      ],
+    },
+    // â”€â”€ Topic Cluster: The Link City â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    {
+      url: `${BASE}/the-link-city/vi-tri`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [cimg("thelinkcity/location/1.jpg"), cimg("thelinkcity/location/2.jpg")],
+    },
+    {
+      url: `${BASE}/the-link-city/mat-bang`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [
+        cimg("thelinkcity/diagram/so-do-tong-the.jpeg"),
+        cimg("thelinkcity/cross-section/a01-01.jpeg"),
+        cimg("thelinkcity/cross-section/a01-02.jpeg"),
+        cimg("thelinkcity/cross-section/a02-01.jpeg"),
+        cimg("thelinkcity/cross-section/a02-02.jpeg"),
+        cimg("thelinkcity/cross-section/a03-01.jpeg"),
+        cimg("thelinkcity/cross-section/a03-02.jpeg"),
+        cimg("thelinkcity/cross-section/a04-01.jpeg"),
+        cimg("thelinkcity/cross-section/a04-02.jpeg"),
+      ],
+    },
+    {
+      url: `${BASE}/the-link-city/tien-ich`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.85,
+      images: [cimg("thelinkcity/amenities/1.jpg"), cimg("thelinkcity/amenities/2.jpg"), cimg("thelinkcity/amenities/3.jpg")],
+    },
+    {
+      url: `${BASE}/the-link-city/phap-ly`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [cimg("thelinkcity/legal/1.jpg"), cimg("thelinkcity/legal/2.jpg")],
+    },
+    {
+      url: `${BASE}/the-link-city/tien-do`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [cimg("thelinkcity/infrastructure/1.jpg"), cimg("thelinkcity/infrastructure/2.jpg"), cimg("thelinkcity/real/1.jpg")],
+    },
+    {
+      url: `${BASE}/the-link-city/hinh-anh`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.85,
+      images: [
+        cimg("thelinkcity/real/1.jpg"), cimg("thelinkcity/real/2.jpg"),
+        cimg("thelinkcity/real/3.jpg"), cimg("thelinkcity/real/4.jpg"),
+        cimg("thelinkcity/infrastructure/1.jpg"), cimg("thelinkcity/overview/1.jpg"),
+      ],
+    },
+    {
+      url: `${BASE}/the-link-city/bang-gia`,
+      lastModified: "2026-09-30",
+      changeFrequency: "daily",
+      priority: 0.95,
+      images: [
+        cimg("thelinkcity/overview/1.jpg"),
+        cimg("thelinkcity/diagram/so-do-tong-the.jpeg"),
+      ],
+    },
+    {
+      url: `${BASE}/the-link-city/thanh-toan`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [
+        cimg("thelinkcity/overview/1.jpg"),
+      ],
+    },
+    {
+      url: `${BASE}/the-link-city/faq`,
+      lastModified: "2026-09-30",
+      changeFrequency: "weekly",
+      priority: 0.82,
+      images: [
+        cimg("thelinkcity/overview/1.jpg"),
+      ],
+    },
+
+        // -- Trang dá»± Ã¡n Mega City 2 (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/mega-city-2`,
       lastModified: "2026-09-24",
@@ -575,99 +677,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
 
-    // â”€â”€ The Link City (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    {
-      url: `${BASE}/the-link-city`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.95,
-      images: [
-        cimg("thelinkcity/overview/1.jpg"),
-        cimg("thelinkcity/overview/2.jpg"),
-        cimg("thelinkcity/overview/3.jpg"),
-        cimg("thelinkcity/real/1.jpg"),
-        cimg("thelinkcity/amenities/1.jpg"),
-        cimg("thelinkcity/diagram/so-do-tong-the.jpeg"),
-        cimg("thelinkcity/cross-section/a01-01.jpeg"),
-      ],
-    },
-    // â”€â”€ Topic Cluster: The Link City â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    {
-      url: `${BASE}/the-link-city/vi-tri`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.85,
-      images: [cimg("thelinkcity/location/1.jpg"), cimg("thelinkcity/location/2.jpg")],
-    },
-    {
-      url: `${BASE}/the-link-city/mat-bang`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.88,
-      images: [
-        cimg("thelinkcity/diagram/so-do-tong-the.jpeg"),
-        cimg("thelinkcity/cross-section/a01-01.jpeg"),
-        cimg("thelinkcity/cross-section/a01-02.jpeg"),
-        cimg("thelinkcity/cross-section/a02-01.jpeg"),
-        cimg("thelinkcity/cross-section/a02-02.jpeg"),
-        cimg("thelinkcity/cross-section/a03-01.jpeg"),
-        cimg("thelinkcity/cross-section/a03-02.jpeg"),
-        cimg("thelinkcity/cross-section/a04-01.jpeg"),
-        cimg("thelinkcity/cross-section/a04-02.jpeg"),
-      ],
-    },
-    {
-      url: `${BASE}/the-link-city/tien-ich`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.82,
-      images: [cimg("thelinkcity/amenities/1.jpg"), cimg("thelinkcity/amenities/2.jpg"), cimg("thelinkcity/amenities/3.jpg")],
-    },
-    {
-      url: `${BASE}/the-link-city/phap-ly`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.88,
-      images: [cimg("thelinkcity/legal/1.jpg"), cimg("thelinkcity/legal/2.jpg")],
-    },
-    {
-      url: `${BASE}/the-link-city/tien-do`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.85,
-      images: [cimg("thelinkcity/infrastructure/1.jpg"), cimg("thelinkcity/infrastructure/2.jpg"), cimg("thelinkcity/real/1.jpg")],
-    },
-    {
-      url: `${BASE}/the-link-city/hinh-anh`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.85,
-      images: [
-        cimg("thelinkcity/real/1.jpg"), cimg("thelinkcity/real/2.jpg"),
-        cimg("thelinkcity/real/3.jpg"), cimg("thelinkcity/real/4.jpg"),
-        cimg("thelinkcity/infrastructure/1.jpg"), cimg("thelinkcity/overview/1.jpg"),
-      ],
-    },
-    {
-      url: `${BASE}/the-link-city/bang-gia`,
-      lastModified: "2026-09-08",
-      changeFrequency: "daily",
-      priority: 0.90,
-    },
-    {
-      url: `${BASE}/the-link-city/thanh-toan`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE}/the-link-city/faq`,
-      lastModified: "2026-09-08",
-      changeFrequency: "weekly",
-      priority: 0.78,
-    },
-
-    // â”€â”€ Tin tá»©c Mega City 2 â€” nhÃ³m bÃ i má»›i (08â€“09/2026) â”€â”€â”€â”€â”€â”€â”€â”€
+// â”€â”€ Tin tá»©c Mega City 2 â€” nhÃ³m bÃ i má»›i (08â€“09/2026) â”€â”€â”€â”€â”€â”€â”€â”€
     {
       url: `${BASE}/tin-tuc/so-sanh-mega-city-2-va-dat-tho-cu-dan-nhon-trach`,
       lastModified: "2026-09-02",
