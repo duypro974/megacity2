@@ -1,4 +1,4 @@
-﻿import { MetadataRoute } from "next";
+import { MetadataRoute } from "next";
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // sitemap.ts â€” Kim Oanh Äá»“ng Nai
@@ -453,7 +453,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // /tin-tuc/phap-ly-mega-city-2 â†’ REMOVED (301 redirect to /mega-city-2/phap-ly, 2026-09-22)
     {
-      url: `/tin-tuc/tien-do-the-link-city-dau-giay`,
+      url: `${BASE}/tin-tuc/tien-do-the-link-city-dau-giay`,
       lastModified: "2026-09-25",
       changeFrequency: "monthly" as const,
       priority: 0.84,
@@ -463,7 +463,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `/tin-tuc/tien-do-mega-city-2`,
+      url: `${BASE}/tin-tuc/tien-do-mega-city-2`,
       lastModified: "2026-09-22",
       changeFrequency: "monthly",
       priority: 0.80,
@@ -560,6 +560,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("about/kog-1"),
         cimg("about/kog-2"),
       ],
+    },
+    {
+      url: `${BASE}/lien-he`,
+      lastModified: "2026-09-20",
+      changeFrequency: "monthly",
+      priority: 0.70,
+    },
+    {
+      url: `${BASE}/tin-tuc`,
+      lastModified: "2026-09-25",
+      changeFrequency: "weekly",
+      priority: 0.80,
     },
 
 
@@ -736,7 +748,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // â”€â”€ Tin tá»©c Mega City 2 má»›i (09/2026) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
-      url: `/tin-tuc/quyet-dinh-2979-giao-dat-mega-city-2`,
+      url: `${BASE}/tin-tuc/quyet-dinh-2979-giao-dat-mega-city-2`,
       lastModified: "2026-09-24",
       changeFrequency: "monthly" as const,
       priority: 0.88,
@@ -748,7 +760,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `/tin-tuc/dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong`,
+      url: `${BASE}/tin-tuc/dat-nen-mega-city-2-co-duoc-xay-nha-ngay-khong`,
       lastModified: "2026-09-20",
       changeFrequency: "monthly" as const,
       priority: 0.85,

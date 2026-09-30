@@ -1,7 +1,6 @@
 "use client";
 
 import { Phone, MapPin, Mail, ChevronRight, X, ArrowUp } from "lucide-react";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { scrollToSection } from "@/lib/scrollTo";
@@ -190,7 +189,6 @@ export default function Footer() {
             <div className="hidden md:flex items-center justify-between gap-3">
               <p className="text-xs text-slate-400">© 2026 Mega City 2 Nhơn Trạch – Thông tin tham khảo, không phải website chính thức của chủ đầu tư.</p>
               <div className="flex items-center gap-4">
-                <Link href="/admin" className="text-xs text-slate-400 hover:text-amber-600 transition">Admin</Link>
                 <button type="button" onClick={() => setModal("terms")} className="text-xs text-slate-400 hover:text-amber-600 transition">Điều khoản sử dụng</button>
                 <button type="button" onClick={() => setModal("privacy")} className="text-xs text-slate-400 hover:text-amber-600 transition">Chính sách bảo mật</button>
                 <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="w-8 h-8 rounded-full bg-amber-500 hover:bg-amber-600 flex items-center justify-center transition-colors shadow-sm" aria-label="Lên đầu trang"><ArrowUp className="w-4 h-4 text-white" /></button>

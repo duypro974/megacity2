@@ -70,7 +70,6 @@ const jsonLd = {
     unitCode: "MTK",
     unitText: "m²",
   },
-  numberOfRooms: null,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Đường 25C",

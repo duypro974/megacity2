@@ -277,12 +277,6 @@ export default function CorpFooter() {
             <p className="sr-only">Cập nhật lần cuối: 19/08/2026</p>
           </div>
           <div className="flex items-center gap-4">
-            <Link
-              href="/admin"
-              className="text-xs text-slate-400 hover:text-amber-400 transition"
-            >
-              Admin
-            </Link>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
