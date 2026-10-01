@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "duong-di-tu-tphcm-den-the-link-city-dau-giay",
+    project:  "the-link-city",
+    title:    "Đường Đi Từ TP.HCM Đến The Link City Dầu Giây: 3 Lộ Trình & Thời Gian Thực Tế 2026",
+    date:     "01/10/2026",
+    category: "tin-du-an",
+    excerpt:  "Hướng dẫn 3 lộ trình đi từ TP.HCM đến The Link City Dầu Giây: qua cao tốc Long Thành–Dầu Giây, QL1A từ Biên Hòa và từ Thủ Đức. Khoảng cách, thời gian và mẹo tránh kẹt xe thực tế.",
+    image: `${CDN}/thelinkcity/news63/1`,
+    href:  "/tin-tuc/duong-di-tu-tphcm-den-the-link-city-dau-giay",
+  },
+  {
     slug:     "tien-ich-ngoai-khu-the-link-city-dau-giay",
     project:  "the-link-city",
     title:    "Tiện Ích Ngoại Khu The Link City Dầu Giây: Bệnh Viện, Trường Học, Chợ & Kết Nối Giao Thông",

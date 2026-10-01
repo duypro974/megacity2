@@ -173,6 +173,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news61/2.jpg":   "/news61/2.jpg",
   "megacity2/news61/3.webp":  "/news61/3.webp",
   "megacity2/news61/4.webp":  "/news61/4.webp",
+  // The Link City — news63
+  "thelinkcity/news63/1.webp": "/the link/news63/1.webp",
+  "thelinkcity/news63/2.jpg":  "/the link/news63/2.jpg",
+  "thelinkcity/news63/3.webp": "/the link/news63/3.webp",
+  "thelinkcity/news63/4.jpg":  "/the link/news63/4.jpg",
+  "thelinkcity/news63/5.jpg":  "/the link/news63/5.jpg",
   // The Link City — news62
   "thelinkcity/news62/1.jpg": "/the link/news62/1.jpg",
   "thelinkcity/news62/2.png": "/the link/news62/2.png",
@@ -1167,6 +1173,24 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News63 — Đường đi từ TP.HCM đến The Link City Dầu Giây (5 ảnh)
+ *  1 = Cao tốc TP.HCM–Long Thành–Dầu Giây (hero, webp)
+ *  2 = Nút giao / biển chỉ đường Dầu Giây (jpg)
+ *  3 = QL1A đoạn qua trung tâm Dầu Giây (webp)
+ *  4 = Cổng / mặt tiền The Link City (jpg)
+ *  5 = Sơ đồ lộ trình Google Maps (jpg)
+ *  Nguồn: public/the link/news63/ → Cloudinary: thelinkcity/news63/
+ */
+export const IMG_NEWS63: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.webp"],
+    ["2", "2.jpg"],
+    ["3", "3.webp"],
+    ["4", "4.jpg"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news63", v, "lg")])
 );
 
 /** News62 — Tiện ích ngoại khu The Link City Dầu Giây (5 ảnh)
