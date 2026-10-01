@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "co-nen-mua-dat-nen-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
+    title:    "Có Nên Mua Đất Nền The Link City Dầu Giây Không? Phân Tích Thực Tế 2026",
+    date:     "01/10/2026",
+    category: "tin-du-an",
+    excerpt:  "Đánh giá trung thực The Link City Dầu Giây 2026: ưu điểm pháp lý sổ hồng, hạ tầng hoàn thiện, vị trí cao tốc — và nhược điểm cần biết trước khi xuống tiền. Điểm tổng thể 7.3/10.",
+    image: `${CDN}/thelinkcity/news64/1`,
+    href:  "/tin-tuc/co-nen-mua-dat-nen-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "duong-di-tu-tphcm-den-the-link-city-dau-giay",
     project:  "the-link-city",
     title:    "Đường Đi Từ TP.HCM Đến The Link City Dầu Giây: 3 Lộ Trình & Thời Gian Thực Tế 2026",

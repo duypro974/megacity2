@@ -173,6 +173,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news61/2.jpg":   "/news61/2.jpg",
   "megacity2/news61/3.webp":  "/news61/3.webp",
   "megacity2/news61/4.webp":  "/news61/4.webp",
+  // The Link City — news64
+  "thelinkcity/news64/1.jpg":  "/the link/news64/1.jpg",
+  "thelinkcity/news64/2.jpg":  "/the link/news64/2.jpg",
+  "thelinkcity/news64/3.jpg":  "/the link/news64/3.jpg",
+  "thelinkcity/news64/4.webp": "/the link/news64/4.webp",
+  "thelinkcity/news64/5.jpg":  "/the link/news64/5.jpg",
   // The Link City — news63
   "thelinkcity/news63/1.webp": "/the link/news63/1.webp",
   "thelinkcity/news63/2.jpg":  "/the link/news63/2.jpg",
@@ -1173,6 +1179,24 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News64 — Có nên mua đất nền The Link City Dầu Giây không? (5 ảnh)
+ *  1 = Toàn cảnh khu dự án The Link City (hero, jpg)
+ *  2 = Hạ tầng đường nội khu hoàn thiện (jpg)
+ *  3 = Sổ hồng thực tế đã cấp từng nền (jpg)
+ *  4 = Nhà phố / biệt thự đã hoàn thiện trong khu (webp)
+ *  5 = Công viên / cảnh quan nội khu (jpg)
+ *  Nguồn: public/the link/news64/ → Cloudinary: thelinkcity/news64/
+ */
+export const IMG_NEWS64: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.jpg"],
+    ["4", "4.webp"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news64", v, "lg")])
 );
 
 /** News63 — Đường đi từ TP.HCM đến The Link City Dầu Giây (5 ảnh)

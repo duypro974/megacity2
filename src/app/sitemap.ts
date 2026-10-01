@@ -555,6 +555,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // /tin-tuc/phap-ly-mega-city-2 â†’ REMOVED (301 redirect to /mega-city-2/phap-ly, 2026-09-22)
     {
+      url: `${BASE}/tin-tuc/co-nen-mua-dat-nen-the-link-city-dau-giay-2026`,
+      lastModified: "2026-10-01",
+      changeFrequency: "monthly" as const,
+      priority: 0.87,
+      images: [
+        cimg("thelinkcity/news64/1.jpg"),
+        cimg("thelinkcity/news64/2.jpg"),
+        cimg("thelinkcity/news64/3.jpg"),
+        cimg("thelinkcity/news64/4.webp"),
+        cimg("thelinkcity/news64/5.jpg"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/duong-di-tu-tphcm-den-the-link-city-dau-giay`,
       lastModified: "2026-10-01",
       changeFrequency: "monthly" as const,
