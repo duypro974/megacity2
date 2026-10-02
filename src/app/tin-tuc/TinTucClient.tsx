@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "nha-pho-lien-ke-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
+    title:    "Nhà Phố Liên Kế The Link City Dầu Giây: Diện Tích, Thiết Kế & Chi Phí Xây Thực Tế 2026",
+    date:     "02/10/2026",
+    category: "tin-du-an",
+    excerpt:  "Chi tiết nhà phố liên kế The Link City: kích thước nền 5×20m, công năng mẫu nhà T3-2b từng tầng, tiêu chuẩn kiến trúc bắt buộc và bảng chi phí xây dựng hoàn thiện thực tế 2026.",
+    image: `${CDN}/thelinkcity/news65/1`,
+    href:  "/tin-tuc/nha-pho-lien-ke-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "co-nen-mua-dat-nen-the-link-city-dau-giay-2026",
     project:  "the-link-city",
     title:    "Có Nên Mua Đất Nền The Link City Dầu Giây Không? Phân Tích Thực Tế 2026",
