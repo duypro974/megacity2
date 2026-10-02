@@ -877,10 +877,10 @@ export default function PhapLyPage() {
                 Xem hồ sơ pháp lý →
               </a>
               <a
-                href="tel:0937587438"
+                href="/the-link-city"
                 className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-7 py-3.5 rounded-full transition-all text-sm"
               >
-                Gọi 0937.587.438
+                Tổng quan dự án The Link City →
               </a>
             </div>
           </div>

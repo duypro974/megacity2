@@ -684,6 +684,9 @@ export default function GiaiPhapAnCuPage() {
                     <LinkBtn href="/the-link-city/thiet-ke">
                       📑 Xem trọn bộ bản vẽ kỹ thuật CAD mẫu nhà T3-2b →
                     </LinkBtn>
+                    <LinkBtn href="/the-link-city/bang-gia">
+                      💰 Xem bảng giá The Link City Dầu Giây 2026 →
+                    </LinkBtn>
                   </div>
                 </div>
               </section>

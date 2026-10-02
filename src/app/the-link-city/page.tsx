@@ -76,7 +76,7 @@ const listingSchema = {
     "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai. 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
   url: "https://kimoanhdongnai.com.vn/the-link-city",
   datePosted: "2026-03-01",
-  dateModified: "2026-09-08",
+  dateModified: "2026-10-03",
   image: TLC_OG,
   address: {
     "@type": "PostalAddress",

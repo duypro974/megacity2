@@ -145,12 +145,26 @@ export default function HinhAnhPage() {
 
         {/* ── Định hướng ngữ cảnh — chống Cannibalization ── */}
         <div className="max-w-6xl mx-auto px-4 pt-6">
-          <p className="text-sm text-gray-600 mb-6 bg-gray-50 p-4 rounded-xl border border-gray-200">
-            Bộ sưu tập hình ảnh thực tế mới nhất tại dự án (cập nhật tháng 09/2026). Để xem phân tích quy hoạch tổng thể, hồ sơ pháp lý và bảng giá từng phân khu, mời quý khách truy cập:{" "}
-            <Link href="/the-link-city" className="font-semibold text-blue-600 hover:underline">
-              Trang thông tin tổng quan dự án The Link City Dầu Giây
-            </Link>.
-          </p>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 flex flex-wrap items-center justify-between gap-4">
+            <p className="text-sm text-amber-800 leading-relaxed flex-1 min-w-0">
+              Bộ sưu tập hình ảnh thực tế mới nhất (cập nhật tháng 10/2026).{" "}
+              Xem thêm thông tin dự án, bảng giá và tiến độ mở bán:
+            </p>
+            <div className="flex flex-wrap gap-2 shrink-0">
+              <Link href="/the-link-city"
+                className="inline-flex items-center gap-1 text-xs font-bold bg-white border border-amber-300 text-amber-700 px-3 py-1.5 rounded-lg hover:bg-amber-100 transition-colors whitespace-nowrap">
+                Tổng quan dự án →
+              </Link>
+              <Link href="/the-link-city/bang-gia"
+                className="inline-flex items-center gap-1 text-xs font-bold bg-amber-500 text-white px-3 py-1.5 rounded-lg hover:bg-amber-600 transition-colors whitespace-nowrap">
+                Bảng giá tháng 10/2026 →
+              </Link>
+              <Link href="/the-link-city/tien-do"
+                className="inline-flex items-center gap-1 text-xs font-bold bg-white border border-amber-300 text-amber-700 px-3 py-1.5 rounded-lg hover:bg-amber-100 transition-colors whitespace-nowrap">
+                Tiến độ mới nhất →
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* ── VIDEO SA BÀN ── */}

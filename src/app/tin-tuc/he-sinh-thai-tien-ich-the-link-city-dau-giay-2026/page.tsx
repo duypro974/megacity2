@@ -894,6 +894,12 @@ export default function HeSinhThaiTienIchPage() {
                 Xem tiện ích The Link City →
               </a>
               <a
+                href="/the-link-city"
+                className="inline-flex items-center gap-2 border-2 border-amber-500 text-amber-700 hover:bg-amber-50 font-bold px-7 py-3.5 rounded-full transition-all text-sm"
+              >
+                Tổng quan dự án →
+              </a>
+              <a
                 href="tel:0937587438"
                 className="inline-flex items-center gap-2 border-2 border-amber-500 text-amber-700 hover:bg-amber-50 font-bold px-7 py-3.5 rounded-full transition-all text-sm"
               >

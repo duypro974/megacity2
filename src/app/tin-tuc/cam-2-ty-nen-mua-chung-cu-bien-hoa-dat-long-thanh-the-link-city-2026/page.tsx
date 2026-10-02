@@ -405,7 +405,9 @@ export default function Cam2TyNenMuaPage() {
                 </SectionHeading>
                 <div className="pt-5 space-y-5 text-slate-600 text-[17px] leading-[1.85]">
                   <p>
-                    Trong khi Biên Hòa giá chung cư đã cao và Long Thành giá đất nền đã tiệm cận vùng đỉnh, <strong className="text-slate-800">The Link City Dầu Giây</strong> nổi lên như một điểm sáng cân bằng hoàn hảo giữa Giá bán – Pháp lý – Tiềm năng tăng trưởng.
+                    Trong khi Biên Hòa giá chung cư đã cao và Long Thành giá đất nền đã tiệm cận vùng đỉnh,{" "}
+                    <a href="/the-link-city" className="text-amber-700 font-semibold hover:underline">The Link City Dầu Giây</a>{" "}
+                    nổi lên như một điểm sáng cân bằng hoàn hảo giữa Giá bán – Pháp lý – Tiềm năng tăng trưởng.
                   </p>
 
                   <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 not-prose">
