@@ -173,6 +173,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news61/2.jpg":   "/news61/2.jpg",
   "megacity2/news61/3.webp":  "/news61/3.webp",
   "megacity2/news61/4.webp":  "/news61/4.webp",
+  // The Link City — news66
+  "thelinkcity/news66/1.jpg":  "/the link/news66/1.jpg",
+  "thelinkcity/news66/2.webp": "/the link/news66/2.webp",
+  "thelinkcity/news66/3.png":  "/the link/news66/3.png",
+  "thelinkcity/news66/4.jpg":  "/the link/news66/4.jpg",
+  "thelinkcity/news66/5.webp": "/the link/news66/5.webp",
   // The Link City — news65
   "thelinkcity/news65/1.webp": "/the link/news65/1.webp",
   "thelinkcity/news65/2.jpg":  "/the link/news65/2.jpg",
@@ -1185,6 +1191,24 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News66 — Khu công nghiệp Dầu Giây & cơ hội đầu tư The Link City (5 ảnh)
+ *  1 = KCN / nhà máy khu vực Dầu Giây – Thống Nhất (jpg, hero)
+ *  2 = Công nhân / chuyên gia đi làm, cổng nhà máy (webp)
+ *  3 = Bản đồ / sơ đồ các KCN quanh Dầu Giây (png)
+ *  4 = The Link City – nơi ở lý tưởng gần KCN (jpg)
+ *  5 = Cao tốc / logistics khu vực Dầu Giây (webp)
+ *  Nguồn: public/the link/news66/ → Cloudinary: thelinkcity/news66/
+ */
+export const IMG_NEWS66: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.webp"],
+    ["3", "3.png"],
+    ["4", "4.jpg"],
+    ["5", "5.webp"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news66", v, "lg")])
 );
 
 /** News65 — Nhà phố liên kế The Link City Dầu Giây (5 ảnh)

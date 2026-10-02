@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "khu-cong-nghiep-dau-giay-the-link-city",
+    project:  "the-link-city",
+    title:    "Khu Công Nghiệp Dầu Giây & Cơ Hội Đầu Tư The Link City 2026: Tại Sao 300.000 Lao Động Tạo Ra Sóng BĐS?",
+    date:     "03/10/2026",
+    category: "thi-truong",
+    excerpt:  "Phân tích 8 KCN quanh Dầu Giây – Thống Nhất, nhu cầu nhà ở 300.000 lao động và tại sao The Link City là lựa chọn an cư & đầu tư cho thuê lý tưởng với rental yield 5–9%/năm.",
+    image: `${CDN}/thelinkcity/news66/1`,
+    href:  "/tin-tuc/khu-cong-nghiep-dau-giay-the-link-city",
+  },
+  {
     slug:     "nha-pho-lien-ke-the-link-city-dau-giay-2026",
     project:  "the-link-city",
     title:    "Nhà Phố Liên Kế The Link City Dầu Giây: Diện Tích, Thiết Kế & Chi Phí Xây Thực Tế 2026",
