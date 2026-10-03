@@ -173,6 +173,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news61/2.jpg":   "/news61/2.jpg",
   "megacity2/news61/3.webp":  "/news61/3.webp",
   "megacity2/news61/4.webp":  "/news61/4.webp",
+  // The Link City — news67
+  "thelinkcity/news67/1.jpg":  "/the link/news67/1.jpg",
+  "thelinkcity/news67/2.jpg":  "/the link/news67/2.jpg",
+  "thelinkcity/news67/3.png":  "/the link/news67/3.png",
+  "thelinkcity/news67/4.png":  "/the link/news67/4.png",
+  "thelinkcity/news67/5.webp": "/the link/news67/5.webp",
   // The Link City — news66
   "thelinkcity/news66/1.jpg":  "/the link/news66/1.jpg",
   "thelinkcity/news66/2.webp": "/the link/news66/2.webp",
@@ -1191,6 +1197,24 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News67 — Biệt thự The Link City Dầu Giây 2026 (5 ảnh)
+ *  1 = Toàn cảnh khu biệt thự / 1 căn biệt thự đẹp (jpg, hero)
+ *  2 = Cận cảnh mặt tiền biệt thự hoàn thiện (jpg)
+ *  3 = Sơ đồ mặt bằng / bản vẽ biệt thự (png)
+ *  4 = Không gian sân vườn / cảnh quan biệt thự (png)
+ *  5 = Biệt thự trong tổng thể khu đô thị The Link City (webp)
+ *  Nguồn: public/the link/news67/ → Cloudinary: thelinkcity/news67/
+ */
+export const IMG_NEWS67: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.jpg"],
+    ["2", "2.jpg"],
+    ["3", "3.png"],
+    ["4", "4.png"],
+    ["5", "5.webp"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news67", v, "lg")])
 );
 
 /** News66 — Khu công nghiệp Dầu Giây & cơ hội đầu tư The Link City (5 ảnh)

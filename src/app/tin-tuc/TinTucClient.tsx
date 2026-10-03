@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "biet-thu-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
+    title:    "Biệt Thự The Link City Dầu Giây: Diện Tích, Thiết Kế & Tiềm Năng Đầu Tư 2026",
+    date:     "04/10/2026",
+    category: "tin-du-an",
+    excerpt:  "Chi tiết biệt thự The Link City: nền 200–350m², sân vườn riêng, mật độ XD 60–70%, tổng đầu tư 6,8–8,5 tỷ và so sánh trực tiếp với nhà phố liên kế cùng dự án.",
+    image: `${CDN}/thelinkcity/news67/1`,
+    href:  "/tin-tuc/biet-thu-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "khu-cong-nghiep-dau-giay-the-link-city",
     project:  "the-link-city",
     title:    "Khu Công Nghiệp Dầu Giây & Cơ Hội Đầu Tư The Link City 2026: Tại Sao 300.000 Lao Động Tạo Ra Sóng BĐS?",
