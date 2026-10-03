@@ -13,7 +13,7 @@ import ScrollLink from "@/components/ScrollLink";
 import TLCSectionNav from "@/components/thelinkcity/TLCSectionNav";
 import SaBanVideoFacade from "@/components/thelinkcity/SaBanVideoFacade";
 import SaBanGallery from "@/components/thelinkcity/SaBanGallery";
-import BangGiaTable from "@/components/thelinkcity/BangGiaTable";
+import BangGiaTable, { type PaymentTabKey } from "@/components/thelinkcity/BangGiaTable";
 import { useLightbox, type LightboxImage } from "@/components/ImageLightbox";
 import {
   TLC_OG,
@@ -510,11 +510,24 @@ const ROWS_B: Record<TK, { dot: string; label: string; pct: string; note?: strin
   ],
 };
 
-function PaymentTabs() {
-  const [activePayTab, setActivePayTab] = useState<TK>("lien-ke");
+function PaymentTabs({ activeTab, onTabChange, priceOverride }: {
+  activeTab?: TK;
+  onTabChange?: (tab: TK) => void;
+  priceOverride?: number | null;   // đồng VNĐ — giá lô từ bảng giá
+}) {
+  const [internalTab, setInternalTab] = useState<TK>("lien-ke");
+  const activePayTab = activeTab ?? internalTab;
+  const setActivePayTab = (tab: TK) => { setInternalTab(tab); onTabChange?.(tab); };
   const [planB, setPlanB] = useState(false);
   const curTab = PAY_TABS.find(t => t.key === activePayTab)!;
   const rows = planB ? ROWS_B[activePayTab] : ROWS_A[activePayTab];
+
+  // Giá dùng để tính số tiền: nếu có priceOverride dùng nó, không thì dùng mặc định 2,02 tỷ
+  const FALLBACK_PRICE = 2_020_000_000;
+  const basePrice = priceOverride ?? FALLBACK_PRICE;
+  const fmtAmt = (pctNum: number) =>
+    Math.round(basePrice * pctNum / 100 / 1_000_000).toLocaleString("vi-VN") + " tr";
+  const fmtBase = (n: number) => (n / 1_000_000_000).toFixed(3).replace(/\.?0+$/, "") + " tỷ";
 
   return (
     <div>
@@ -568,8 +581,10 @@ function PaymentTabs() {
               <tr className="bg-slate-50 border-b border-slate-100">
                 <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-24">Đợt</th>
                 <th className="text-left px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Thời điểm thanh toán</th>
-                <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-16">Tỷ lệ</th>
-                <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-28">Số tiền mẫu</th>
+                <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-24">Tỷ lệ</th>
+                <th className="text-right px-4 py-2.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-28">
+                  {priceOverride ? "Số tiền lô" : "Số tiền mẫu"}
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50">
@@ -577,9 +592,9 @@ function PaymentTabs() {
                 const isNH   = row.dot === "NH 70%";
                 const isCoc  = row.dot === "Cọc";
                 const pctNum = parseInt(row.pct);
-                const sampleAmt = !isNaN(pctNum) && !isCoc
-                  ? Math.round(2020000000 * pctNum / 100 / 1_000_000)
-                  : null;
+                // Chỉ tính số tiền khi là % thực sự (không phải hàng Cọc cố định)
+                const isPct  = !isCoc && !isNaN(pctNum) && row.pct.includes("%");
+                const sampleAmt = isPct ? fmtAmt(pctNum) : null;
                 return (
                   <tr key={i} className={`transition-colors
                     ${isNH ? "bg-primary-50/60 hover:bg-primary-50"
@@ -599,13 +614,13 @@ function PaymentTabs() {
                       </p>
                     </td>
                     <td className="px-4 py-3 text-right">
-                      <span className={`font-black text-sm ${isNH ? "text-primary-600" : isCoc ? "text-amber-600" : "text-slate-700"}`}>
+                      <span className={`font-black text-sm whitespace-nowrap ${isNH ? "text-primary-600" : isCoc ? "text-amber-600" : "text-slate-700"}`}>
                         {row.pct}
                       </span>
                     </td>
                     <td className="px-4 py-3 text-right">
                       {sampleAmt ? (
-                        <span className="text-xs text-slate-500">~{sampleAmt.toLocaleString("vi-VN")} tr</span>
+                        <span className="text-xs text-slate-500">~{sampleAmt}</span>
                       ) : (
                         <span className="text-xs text-slate-400">–</span>
                       )}
@@ -617,10 +632,14 @@ function PaymentTabs() {
             <tfoot>
               <tr className="bg-slate-50 border-t-2 border-slate-200">
                 <td colSpan={2} className="px-4 py-3 text-xs font-bold text-slate-600">
-                  Mẫu tính theo lô tiêu biểu 2,02 tỷ (LK17A-42 ~2.020 tỷ)
+                  {priceOverride
+                    ? `Tính theo lô đã chọn: ${fmtBase(priceOverride)}`
+                    : "Mẫu tính theo lô tiêu biểu 2,02 tỷ (LK17A-42 ~2.020 tỷ)"}
                 </td>
                 <td className="px-4 py-3 text-right font-black text-slate-800">100%</td>
-                <td className="px-4 py-3 text-right text-xs text-slate-500">2.020.000.000 đ</td>
+                <td className="px-4 py-3 text-right text-xs text-slate-500">
+                  {basePrice.toLocaleString("vi-VN")} đ
+                </td>
               </tr>
             </tfoot>
           </table>
@@ -673,6 +692,10 @@ export default function TheLinkCityPage() {
   const [loanRate,     setLoanRate]     = useState(7.5);           // %/năm
   const [loanTerm,     setLoanTerm]     = useState(25);            // năm
   const [gracePeriod,  setGracePeriod]  = useState(24);            // tháng ân hạn gốc
+
+  // ─── Tab tiến độ thanh toán — điều khiển từ nút Tiến độ trong bảng giá ───
+  const [activePayTab,   setActivePayTab]   = useState<PaymentTabKey>("lien-ke");
+  const [paymentPrice,   setPaymentPrice]   = useState<number | null>(null); // đồng VNĐ
 
   // cọc theo loại SP
   const depositAmount = productType === "nha-xay-san" ? 0.1 : 0.05; // tỷ
@@ -2069,9 +2092,17 @@ export default function TheLinkCityPage() {
               onCalcLoan={(giaInTy) => {
                 // giaInTy là số tỷ VNĐ — set thẳng vào state loanPrice (tỷ)
                 setLoanPrice(Math.round(giaInTy * 100) / 100);
-                // Scroll xuống widget
+                // Scroll thẳng xuống widget tính lãi (bỏ qua bảng tiến độ)
                 setTimeout(() => {
-                  document.getElementById("thanh-toan")?.scrollIntoView({ behavior: "smooth" });
+                  document.getElementById("loan-calc")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 100);
+              }}
+              onShowPayment={(tab, gia) => {
+                // Chọn đúng tab loại SP + lưu giá lô để bảng tiến độ tính số tiền thực
+                setActivePayTab(tab);
+                setPaymentPrice(gia);
+                setTimeout(() => {
+                  document.getElementById("thanh-toan")?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }, 100);
               }}
             />
@@ -2106,7 +2137,7 @@ export default function TheLinkCityPage() {
 
             {/* ── BẢNG TIẾN ĐỘ 3 TAB ── */}
             <div className="mb-10 anim-up">
-              <PaymentTabs />
+              <PaymentTabs activeTab={activePayTab} onTabChange={setActivePayTab} priceOverride={paymentPrice} />
             </div>
 
             {/* ── WIDGET TÍNH LÃI VAY NÂNG CẤP ── */}

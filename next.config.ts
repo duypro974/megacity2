@@ -68,6 +68,19 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: securityHeaders,
       },
+      // ─────────────────────────────────────────────────────────────
+      // PDF headers — đảm bảo browser decode đúng UTF-8 cho tên file
+      //   Thiếu charset → tên file tiếng Việt bị garbled trên production
+      // ─────────────────────────────────────────────────────────────
+      {
+        source: "/:path*.pdf",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/pdf; charset=utf-8",
+          },
+        ],
+      },
     ];
   },
   images: {

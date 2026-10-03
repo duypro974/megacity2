@@ -101,13 +101,22 @@ function LoaiBadge({ loai, loaiGoc }: { loai: LoaiSP; loaiGoc: string }) {
   );
 }
 
+// ── Map LoaiSP → PaymentTab key ───────────────────────────────────────────
+export type PaymentTabKey = "lien-ke" | "biet-thu" | "shophouse";
+export function loaiToPayTab(loai: LoaiSP): PaymentTabKey {
+  if (loai === "Biệt thự") return "biet-thu";
+  if (loai === "Nhà phố")  return "shophouse";
+  return "lien-ke"; // Đất nền
+}
+
 // ── Props ─────────────────────────────────────────────────────────────────
 interface Props {
-  onCalcLoan?: (gia: number) => void;
+  onCalcLoan?:    (gia: number) => void;
+  onShowPayment?: (tab: PaymentTabKey, gia: number) => void;
 }
 
 // ── Component ─────────────────────────────────────────────────────────────
-export default function BangGiaTable({ onCalcLoan }: Props) {
+export default function BangGiaTable({ onCalcLoan, onShowPayment }: Props) {
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
   const [showCount, setShowCount] = useState(8);
   const [expanded, setExpanded] = useState(false);
@@ -206,8 +215,13 @@ export default function BangGiaTable({ onCalcLoan }: Props) {
 
   const handleCalc = useCallback((gia: number) => {
     if (onCalcLoan) { onCalcLoan(gia); return; }
-    document.getElementById("thanh-toan")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("loan-calc")?.scrollIntoView({ behavior: "smooth" });
   }, [onCalcLoan]);
+
+  const handlePayment = useCallback((loai: LoaiSP, gia: number) => {
+    if (onShowPayment) { onShowPayment(loaiToPayTab(loai), gia); return; }
+    document.getElementById("thanh-toan")?.scrollIntoView({ behavior: "smooth" });
+  }, [onShowPayment]);
 
   const loaiCounts = useMemo(() => ({
     "Tất cả":   BANG_GIA_DATA.length,
@@ -475,6 +489,7 @@ export default function BangGiaTable({ onCalcLoan }: Props) {
                   </button>
                 </th>
                 <th className="text-right px-4 py-3 font-bold text-xs tracking-wide">Đơn giá</th>
+                <th className="text-center px-3 py-3 font-bold text-xs tracking-wide">Tiến độ</th>
                 <th className="text-center px-4 py-3 font-bold text-xs tracking-wide">Hành động</th>
               </tr>
             </thead>
@@ -504,6 +519,17 @@ export default function BangGiaTable({ onCalcLoan }: Props) {
                   </td>
                   <td className="px-4 py-3 text-right">
                     <span className="text-xs text-slate-500 font-medium">~{donGia(sp)}</span>
+                  </td>
+                  <td className="px-3 py-3">
+                    <button
+                      onClick={() => handlePayment(sp.loai, sp.gia)}
+                      className="inline-flex items-center gap-1 text-[11px] font-bold
+                                 text-emerald-700 bg-emerald-50 hover:bg-emerald-100
+                                 border border-emerald-200 px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap"
+                      title="Xem tiến độ thanh toán loại sản phẩm này"
+                    >
+                      📋 Tiến độ
+                    </button>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-center gap-1.5">
@@ -582,6 +608,14 @@ export default function BangGiaTable({ onCalcLoan }: Props) {
                   <Calculator className="w-3.5 h-3.5" />
                   Tính lãi vay
                 </button>
+                <button
+                  onClick={() => handlePayment(sp.loai, sp.gia)}
+                  className="flex-1 flex items-center justify-center gap-1.5 text-xs font-bold
+                             text-emerald-700 bg-emerald-50 border border-emerald-200
+                             py-2.5 rounded-xl hover:bg-emerald-100 transition-colors"
+                >
+                  📋 Tiến độ TT
+                </button>
                 <a
                   href={`${SITE_CONFIG.social.zalo}?text=Tôi quan tâm lô ${sp.ma} — ${fmtTy(sp.gia)}, ${sp.dt}m²`}
                   target="_blank" rel="noopener noreferrer"
@@ -589,7 +623,7 @@ export default function BangGiaTable({ onCalcLoan }: Props) {
                              text-white bg-[#0068FF] py-2.5 rounded-xl hover:bg-blue-700 transition-colors"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
-                  Nhận báo giá
+                  Báo giá
                 </a>
               </div>
             </div>
