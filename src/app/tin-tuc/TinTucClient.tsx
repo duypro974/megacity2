@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "dau-giay-len-thi-xa-2026-2030-the-link-city",
+    project:  "the-link-city",
+    title:    "Dầu Giây Lên Thị Xã 2026–2030: Lộ Trình, Tiêu Chí & Tác Động Đến Giá Đất The Link City",
+    date:     "05/10/2026",
+    category: "thi-truong",
+    excerpt:  "Phân tích lộ trình Dầu Giây lên đô thị loại IV 2026–2030: 5 tiêu chí cần đạt, bài học tăng giá 200–300% từ Dĩ An & Long Khánh và tác động trực tiếp đến The Link City.",
+    image: `${CDN}/thelinkcity/news68/1`,
+    href:  "/tin-tuc/dau-giay-len-thi-xa-2026-2030-the-link-city",
+  },
+  {
     slug:     "biet-thu-the-link-city-dau-giay-2026",
     project:  "the-link-city",
     title:    "Biệt Thự The Link City Dầu Giây: Diện Tích, Thiết Kế & Tiềm Năng Đầu Tư 2026",
