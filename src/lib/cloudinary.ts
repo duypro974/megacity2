@@ -173,6 +173,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news61/2.jpg":   "/news61/2.jpg",
   "megacity2/news61/3.webp":  "/news61/3.webp",
   "megacity2/news61/4.webp":  "/news61/4.webp",
+  // The Link City — news69
+  "thelinkcity/news69/1.webp":  "/the link/news69/1.webp",
+  "thelinkcity/news69/2.jpg":   "/the link/news69/2.jpg",
+  "thelinkcity/news69/3.jpeg":  "/the link/news69/3.jpeg",
+  "thelinkcity/news69/4.jpg":   "/the link/news69/4.jpg",
+  "thelinkcity/news69/5.jpg":   "/the link/news69/5.jpg",
   // The Link City — news68
   "thelinkcity/news68/1.jpg":  "/the link/news68/1.jpg",
   "thelinkcity/news68/2.webp": "/the link/news68/2.webp",
@@ -1203,6 +1209,24 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News69 — Sân bay Long Thành & BĐS Dầu Giây (5 ảnh)
+ *  1 = Phối cảnh / công trường sân bay Long Thành (webp, hero)
+ *  2 = Bản đồ khoảng cách Dầu Giây – Long Thành (jpg)
+ *  3 = Đường ĐT769 / cao tốc kết nối Dầu Giây – Long Thành (jpeg)
+ *  4 = The Link City trong bối cảnh kết nối sân bay (jpg)
+ *  5 = Khu vực quanh sân bay Long Thành đang phát triển (jpg)
+ *  Nguồn: public/the link/news69/ → Cloudinary: thelinkcity/news69/
+ */
+export const IMG_NEWS69: Record<string, string> = Object.fromEntries(
+  [
+    ["1", "1.webp"],
+    ["2", "2.jpg"],
+    ["3", "3.jpeg"],
+    ["4", "4.jpg"],
+    ["5", "5.jpg"],
+  ].map(([k, v]) => [k, cld("thelinkcity/news69", v, "lg")])
 );
 
 /** News68 — Dầu Giây lên thị xã 2026–2030 & The Link City (5 ảnh)

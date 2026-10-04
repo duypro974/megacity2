@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "san-bay-long-thanh-dau-giay-the-link-city",
+    project:  "the-link-city",
+    title:    "Sân Bay Long Thành & BĐS Dầu Giây: The Link City Cách Sân Bay Bao Xa? Cập Nhật 2026",
+    date:     "06/10/2026",
+    category: "thi-truong",
+    excerpt:  "The Link City cách sân bay Long Thành ~30–35km, 25–35 phút. Phân tích 3 kênh tác động gián tiếp của sân bay đến BĐS Dầu Giây và so sánh trực tiếp Dầu Giây vs Long Thành nên mua ở đâu.",
+    image: `${CDN}/thelinkcity/news69/1`,
+    href:  "/tin-tuc/san-bay-long-thanh-dau-giay-the-link-city",
+  },
+  {
     slug:     "dau-giay-len-thi-xa-2026-2030-the-link-city",
     project:  "the-link-city",
     title:    "Dầu Giây Lên Thị Xã 2026–2030: Lộ Trình, Tiêu Chí & Tác Động Đến Giá Đất The Link City",
