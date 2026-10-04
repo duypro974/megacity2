@@ -173,6 +173,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news61/2.jpg":   "/news61/2.jpg",
   "megacity2/news61/3.webp":  "/news61/3.webp",
   "megacity2/news61/4.webp":  "/news61/4.webp",
+  // Mega City 2 — news70
+  "megacity2/news70/1.jpg": "/news70/1.jpg",
+  "megacity2/news70/2.jpg": "/news70/2.jpg",
+  "megacity2/news70/3.jpg": "/news70/3.jpg",
+  "megacity2/news70/4.jpg": "/news70/4.jpg",
+  "megacity2/news70/5.jpg": "/news70/5.jpg",
   // The Link City — news69
   "thelinkcity/news69/1.webp":  "/the link/news69/1.webp",
   "thelinkcity/news69/2.jpg":   "/the link/news69/2.jpg",
@@ -1209,6 +1215,19 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News70 — Phó Thủ tướng kiểm tra sân bay Long Thành 04/10/2026 (5 ảnh)
+ *  1 = Đoàn công tác kiểm tra công trường sân bay Long Thành
+ *  2 = Toàn cảnh công trường sân bay Long Thành
+ *  3 = Các tuyến giao thông kết nối sân bay
+ *  4 = Phối cảnh / hạ tầng sân bay Long Thành
+ *  5 = Khu vực quanh sân bay đang phát triển
+ *  Nguồn: public/news70/ → Cloudinary: megacity2/news70/
+ */
+export const IMG_NEWS70: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"]]
+    .map(([k, v]) => [k, cld("megacity2/news70", v, "lg")])
 );
 
 /** News69 — Sân bay Long Thành & BĐS Dầu Giây (5 ảnh)

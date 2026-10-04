@@ -555,6 +555,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // /tin-tuc/phap-ly-mega-city-2 â†’ REMOVED (301 redirect to /mega-city-2/phap-ly, 2026-09-22)
     {
+      url: `${BASE}/tin-tuc/pho-thu-tuong-kiem-tra-san-bay-long-thanh`,
+      lastModified: "2026-10-04",
+      changeFrequency: "monthly" as const,
+      priority: 0.88,
+      images: [
+        cimg("megacity2/news70/1.jpg"),
+        cimg("megacity2/news70/2.jpg"),
+        cimg("megacity2/news70/4.jpg"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/san-bay-long-thanh-dau-giay-the-link-city`,
       lastModified: "2026-10-06",
       changeFrequency: "monthly" as const,

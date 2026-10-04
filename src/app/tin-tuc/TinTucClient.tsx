@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "pho-thu-tuong-kiem-tra-san-bay-long-thanh",
+    project:  "chung",
+    title:    "Phó Thủ tướng Phạm Gia Túc Kiểm Tra Sân Bay Long Thành: Tiến Độ Và Ý Nghĩa Với BĐS Nhơn Trạch – Dầu Giây",
+    date:     "04/10/2026",
+    category: "thi-truong",
+    excerpt:  "Ngày 4/10/2026, Phó Thủ tướng Thường trực Phạm Gia Túc kiểm tra thực tế tiến độ sân bay Long Thành và các tuyến giao thông kết nối. Phân tích tác động đến BĐS Nhơn Trạch (Mega City 2) và Dầu Giây (The Link City).",
+    image: `${CDN}/megacity2/news70/1`,
+    href:  "/tin-tuc/pho-thu-tuong-kiem-tra-san-bay-long-thanh",
+  },
+  {
     slug:     "san-bay-long-thanh-dau-giay-the-link-city",
     project:  "the-link-city",
     title:    "Sân Bay Long Thành & BĐS Dầu Giây: The Link City Cách Sân Bay Bao Xa? Cập Nhật 2026",
