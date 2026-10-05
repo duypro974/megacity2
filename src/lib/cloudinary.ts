@@ -179,6 +179,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news70/3.jpg": "/news70/3.jpg",
   "megacity2/news70/4.jpg": "/news70/4.jpg",
   "megacity2/news70/5.jpg": "/news70/5.jpg",
+  // The Link City — news71
+  "thelinkcity/news71/1.jpg":  "/the link/news71/1.jpg",
+  "thelinkcity/news71/2.webp": "/the link/news71/2.webp",
+  "thelinkcity/news71/3.jpg":  "/the link/news71/3.jpg",
+  "thelinkcity/news71/4.jpg":  "/the link/news71/4.jpg",
+  "thelinkcity/news71/5.jpg":  "/the link/news71/5.jpg",
   // The Link City — news69
   "thelinkcity/news69/1.webp":  "/the link/news69/1.webp",
   "thelinkcity/news69/2.jpg":   "/the link/news69/2.jpg",
@@ -1215,6 +1221,19 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News71 — Chính sách bán hàng The Link City Dầu Giây 2026 (5 ảnh)
+ *  1 = Khách hàng ký hợp đồng / tư vấn tại showroom (jpg, hero)
+ *  2 = Bảng giá / bảng chiết khấu thực tế (webp)
+ *  3 = Ngân hàng đối tác VietinBank / OCB (jpg)
+ *  4 = Sổ hồng thực tế đã cấp tại The Link City (jpg)
+ *  5 = Toàn cảnh The Link City / hạ tầng nội khu (jpg)
+ *  Nguồn: public/the link/news71/ → Cloudinary: thelinkcity/news71/
+ */
+export const IMG_NEWS71: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.webp"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/news71", v, "lg")])
 );
 
 /** News70 — Phó Thủ tướng kiểm tra sân bay Long Thành 04/10/2026 (5 ảnh)

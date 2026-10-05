@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "chinh-sach-ban-hang-the-link-city-dau-giay-2026",
+    project:  "the-link-city",
+    title:    "Chính Sách Bán Hàng The Link City Dầu Giây 2026: Chiết Khấu, Tiến Độ & Điều Kiện Mua Mới Nhất",
+    date:     "07/10/2026",
+    category: "tin-du-an",
+    excerpt:  "Chi tiết chính sách bán hàng The Link City 2026: cọc từ 50 triệu, 9–10 đợt thanh toán, chiết khấu sớm 16%/năm, vay VietinBank 70% ân hạn 24 tháng và CK thêm 1–2% khi mua nhiều lô.",
+    image: `${CDN}/thelinkcity/news71/1`,
+    href:  "/tin-tuc/chinh-sach-ban-hang-the-link-city-dau-giay-2026",
+  },
+  {
     slug:     "pho-thu-tuong-kiem-tra-san-bay-long-thanh",
     project:  "chung",
     title:    "Phó Thủ tướng Phạm Gia Túc Kiểm Tra Sân Bay Long Thành: Tiến Độ Và Ý Nghĩa Với BĐS Nhơn Trạch – Dầu Giây",
