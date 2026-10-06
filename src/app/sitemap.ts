@@ -555,6 +555,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // /tin-tuc/phap-ly-mega-city-2 â†’ REMOVED (301 redirect to /mega-city-2/phap-ly, 2026-09-22)
     {
+      url: `${BASE}/tin-tuc/vi-tri-the-link-city-dau-giay`,
+      lastModified: "2026-10-08",
+      changeFrequency: "monthly" as const,
+      priority: 0.87,
+      images: [
+        cimg("thelinkcity/news72/1.webp"),
+        cimg("thelinkcity/news72/3.jpg"),
+        cimg("thelinkcity/news72/5.jpg"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/chinh-sach-ban-hang-the-link-city-dau-giay-2026`,
       lastModified: "2026-10-07",
       changeFrequency: "monthly" as const,

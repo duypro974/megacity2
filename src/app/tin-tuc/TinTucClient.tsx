@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "vi-tri-the-link-city-dau-giay",
+    project:  "the-link-city",
+    title:    "Vị Trí The Link City Dầu Giây Ở Đâu? Tại Sao Ngã Tư QL1A – QL20 Là Điểm Đắc Địa Nhất Thống Nhất",
+    date:     "08/10/2026",
+    category: "tin-du-an",
+    excerpt:  "The Link City tọa lạc ngay ngã tư QL1A – QL20, trung tâm Dầu Giây: 45 phút TP.HCM, 30 phút sân bay Long Thành, điểm giao nhau của 3 tuyến cao tốc lớn nhất miền Nam.",
+    image: `${CDN}/thelinkcity/news72/1`,
+    href:  "/tin-tuc/vi-tri-the-link-city-dau-giay",
+  },
+  {
     slug:     "chinh-sach-ban-hang-the-link-city-dau-giay-2026",
     project:  "the-link-city",
     title:    "Chính Sách Bán Hàng The Link City Dầu Giây 2026: Chiết Khấu, Tiến Độ & Điều Kiện Mua Mới Nhất",

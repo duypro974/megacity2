@@ -179,6 +179,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news70/3.jpg": "/news70/3.jpg",
   "megacity2/news70/4.jpg": "/news70/4.jpg",
   "megacity2/news70/5.jpg": "/news70/5.jpg",
+  // The Link City — news72
+  "thelinkcity/news72/1.webp": "/the link/news72/1.webp",
+  "thelinkcity/news72/2.jpg":  "/the link/news72/2.jpg",
+  "thelinkcity/news72/3.jpg":  "/the link/news72/3.jpg",
+  "thelinkcity/news72/4.jpg":  "/the link/news72/4.jpg",
+  "thelinkcity/news72/5.jpg":  "/the link/news72/5.jpg",
   // The Link City — news71
   "thelinkcity/news71/1.jpg":  "/the link/news71/1.jpg",
   "thelinkcity/news71/2.webp": "/the link/news71/2.webp",
@@ -1221,6 +1227,19 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
     ["3", "3.webp"],
     ["4", "4.webp"],
   ].map(([k, v]) => [k, cld("megacity2/news61", v, "lg")])
+);
+
+/** News72 — Vị trí The Link City Dầu Giây (5 ảnh)
+ *  1 = Aerial / toàn cảnh ngã tư Dầu Giây nhìn từ trên cao (webp, hero)
+ *  2 = Biển chỉ đường / cột mốc ngã tư QL1A – QL20 (jpg)
+ *  3 = Bản đồ kết nối vùng Google Maps / sơ đồ (jpg)
+ *  4 = Cao tốc VEC E4 nút giao Dầu Giây (jpg)
+ *  5 = The Link City nhìn từ QL1A / mặt tiền dự án (jpg)
+ *  Nguồn: public/the link/news72/ → Cloudinary: thelinkcity/news72/
+ */
+export const IMG_NEWS72: Record<string, string> = Object.fromEntries(
+  [["1","1.webp"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/news72", v, "lg")])
 );
 
 /** News71 — Chính sách bán hàng The Link City Dầu Giây 2026 (5 ảnh)
