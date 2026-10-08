@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "ha-tang-ky-thuat-the-link-city-dau-giay",
+    project:  "the-link-city",
+    title:    "Hạ Tầng Kỹ Thuật The Link City Dầu Giây: Đường Nhựa, Điện Âm, Nước Máy & Thoát Nước Đã Hoàn Thiện 100%",
+    date:     "08/10/2026",
+    category: "tin-du-an",
+    excerpt:  "Lợi thế cạnh tranh số 1 của The Link City: toàn bộ đường nội khu nhựa phẳng, điện âm đô thị, nước máy đến từng lô và cống thoát nước ngầm đồng bộ — hoàn thiện 100% trước bàn giao, không phát sinh chi phí hạ tầng sau khi mua.",
+    image: `${CDN}/thelinkcity/news73/1`,
+    href:  "/tin-tuc/ha-tang-ky-thuat-the-link-city-dau-giay",
+  },
+  {
     slug:     "vi-tri-the-link-city-dau-giay",
     project:  "the-link-city",
     title:    "Vị Trí The Link City Dầu Giây Ở Đâu? Tại Sao Ngã Tư QL1A – QL20 Là Điểm Đắc Địa Nhất Thống Nhất",

@@ -179,6 +179,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news70/3.jpg": "/news70/3.jpg",
   "megacity2/news70/4.jpg": "/news70/4.jpg",
   "megacity2/news70/5.jpg": "/news70/5.jpg",
+  // The Link City — news73
+  "thelinkcity/news73/1.jpg": "/the link/news73/1.jpg",
+  "thelinkcity/news73/2.jpg": "/the link/news73/2.jpg",
+  "thelinkcity/news73/3.jpg": "/the link/news73/3.jpg",
+  "thelinkcity/news73/4.jpg": "/the link/news73/4.jpg",
+  "thelinkcity/news73/5.jpg": "/the link/news73/5.jpg",
   // The Link City — news72
   "thelinkcity/news72/1.webp": "/the link/news72/1.webp",
   "thelinkcity/news72/2.jpg":  "/the link/news72/2.jpg",
@@ -1240,6 +1246,19 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
 export const IMG_NEWS72: Record<string, string> = Object.fromEntries(
   [["1","1.webp"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"]]
     .map(([k, v]) => [k, cld("thelinkcity/news72", v, "lg")])
+);
+
+/** News73 — Hạ tầng kỹ thuật The Link City Dầu Giây (5 ảnh)
+ *  1 = Đường nội khu nhựa phẳng + vỉa hè + cây xanh (hero, góc rộng)
+ *  2 = Hệ thống cống thoát nước / hố ga nội khu
+ *  3 = Tủ điện / hệ thống điện âm tiêu chuẩn đô thị
+ *  4 = Đồng hồ nước / trạm cấp nước từng lô
+ *  5 = Toàn cảnh đường nội khu góc rộng khác
+ *  Nguồn: public/the link/news73/ → Cloudinary: thelinkcity/news73/
+ */
+export const IMG_NEWS73: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/news73", v, "lg")])
 );
 
 /** News71 — Chính sách bán hàng The Link City Dầu Giây 2026 (5 ảnh)
