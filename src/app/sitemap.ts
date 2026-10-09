@@ -566,6 +566,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/so-hong-the-link-city-dau-giay`,
+      lastModified: "2026-10-09",
+      changeFrequency: "monthly" as const,
+      priority: 0.89,
+      images: [
+        cimg("thelinkcity/news74/1.jpg"),
+        cimg("thelinkcity/news74/2.jpg"),
+        cimg("thelinkcity/news74/3.webp"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/ha-tang-ky-thuat-the-link-city-dau-giay`,
       lastModified: "2026-10-08",
       changeFrequency: "monthly" as const,

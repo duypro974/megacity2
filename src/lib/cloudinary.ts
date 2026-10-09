@@ -179,6 +179,12 @@ const LOCAL: Record<string, string> = {
   "megacity2/news70/3.jpg": "/news70/3.jpg",
   "megacity2/news70/4.jpg": "/news70/4.jpg",
   "megacity2/news70/5.jpg": "/news70/5.jpg",
+  // The Link City — news74
+  "thelinkcity/news74/1.jpg":  "/the link/news74/1.jpg",
+  "thelinkcity/news74/2.jpg":  "/the link/news74/2.jpg",
+  "thelinkcity/news74/3.webp": "/the link/news74/3.webp",
+  "thelinkcity/news74/4.png":  "/the link/news74/4.png",
+  "thelinkcity/news74/5.jpg":  "/the link/news74/5.jpg",
   // The Link City — news73
   "thelinkcity/news73/1.jpg": "/the link/news73/1.jpg",
   "thelinkcity/news73/2.jpg": "/the link/news73/2.jpg",
@@ -1246,6 +1252,19 @@ export const IMG_NEWS61: Record<string, string> = Object.fromEntries(
 export const IMG_NEWS72: Record<string, string> = Object.fromEntries(
   [["1","1.webp"],["2","2.jpg"],["3","3.jpg"],["4","4.jpg"],["5","5.jpg"]]
     .map(([k, v]) => [k, cld("thelinkcity/news72", v, "lg")])
+);
+
+/** News74 — Sổ hồng The Link City Dầu Giây (5 ảnh)
+ *  1 = Tập sổ hồng thực tế đã cấp — nhiều cuốn xếp cạnh nhau (jpg, hero)
+ *  2 = Cận cảnh 1 cuốn sổ hồng mở ra — tên dự án, số thửa, diện tích (jpg)
+ *  3 = Khách hàng nhận sổ hồng tại văn phòng Kim Oanh (webp)
+ *  4 = Văn bản pháp lý — Công văn 2505 / Quyết định giao đất (png)
+ *  5 = Hạ tầng nội khu The Link City hoàn thiện — minh chứng đủ điều kiện cấp sổ (jpg)
+ *  Nguồn: public/the link/news74/ → Cloudinary: thelinkcity/news74/
+ */
+export const IMG_NEWS74: Record<string, string> = Object.fromEntries(
+  [["1","1.jpg"],["2","2.jpg"],["3","3.webp"],["4","4.png"],["5","5.jpg"]]
+    .map(([k, v]) => [k, cld("thelinkcity/news74", v, "lg")])
 );
 
 /** News73 — Hạ tầng kỹ thuật The Link City Dầu Giây (5 ảnh)

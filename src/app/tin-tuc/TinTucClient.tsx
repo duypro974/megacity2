@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "so-hong-the-link-city-dau-giay",
+    project:  "the-link-city",
+    title:    "Sổ Hồng The Link City Dầu Giây: Thực Tế Đã Cấp, Quy Trình & Thời Gian Nhận 2026",
+    date:     "09/10/2026",
+    category: "tin-du-an",
+    excerpt:  "Sổ hồng The Link City đã cấp thực tế từng nền — loại đất ODT vĩnh viễn. Quy trình 4 bước từ đặt cọc đến nhận sổ, căn cứ Công văn 2505 và chi phí sang tên ~15–20 triệu đồng.",
+    image: `${CDN}/thelinkcity/news74/1`,
+    href:  "/tin-tuc/so-hong-the-link-city-dau-giay",
+  },
+  {
     slug:     "ha-tang-ky-thuat-the-link-city-dau-giay",
     project:  "the-link-city",
     title:    "Hạ Tầng Kỹ Thuật The Link City Dầu Giây: Đường Nhựa, Điện Âm, Nước Máy & Thoát Nước Đã Hoàn Thiện 100%",
