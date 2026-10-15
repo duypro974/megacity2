@@ -1,4 +1,4 @@
-﻿import { MetadataRoute } from "next";
+import { MetadataRoute } from "next";
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // sitemap.ts â€” Kim Oanh Äá»“ng Nai
@@ -26,10 +26,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
   return [
-    // â”€â”€ Homepage â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Homepage ──────────────────────────────────────────────
     {
       url: BASE,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 1.0,
       images: [
@@ -37,10 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    // â”€â”€ The Link City (Pillar Page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── The Link City (Pillar Page) ──────────────────────────
     {
       url: `${BASE}/the-link-city`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.98,
       images: [
@@ -53,17 +53,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("thelinkcity/cross-section/a01-01.jpeg"),
       ],
     },
-    // â”€â”€ Topic Cluster: The Link City â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Topic Cluster: The Link City ──────────────────────────
     {
       url: `${BASE}/the-link-city/vi-tri`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.88,
       images: [cimg("thelinkcity/location/1.jpg"), cimg("thelinkcity/location/2.jpg")],
     },
     {
       url: `${BASE}/the-link-city/mat-bang`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.88,
       images: [
@@ -80,28 +80,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/tien-ich`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.85,
       images: [cimg("thelinkcity/amenities/1.jpg"), cimg("thelinkcity/amenities/2.jpg"), cimg("thelinkcity/amenities/3.jpg")],
     },
     {
       url: `${BASE}/the-link-city/phap-ly`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.88,
       images: [cimg("thelinkcity/legal/1.jpg"), cimg("thelinkcity/legal/2.jpg")],
     },
     {
       url: `${BASE}/the-link-city/tien-do`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.88,
       images: [cimg("thelinkcity/infrastructure/1.jpg"), cimg("thelinkcity/infrastructure/2.jpg"), cimg("thelinkcity/real/1.jpg")],
     },
     {
       url: `${BASE}/the-link-city/hinh-anh`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.85,
       images: [
@@ -112,7 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/bang-gia`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "daily",
       priority: 0.95,
       images: [
@@ -122,7 +122,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/thanh-toan`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.88,
       images: [
@@ -131,7 +131,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/faq`,
-      lastModified: "2026-09-30",
+      lastModified: "2026-10-15",
       changeFrequency: "weekly",
       priority: 0.82,
       images: [

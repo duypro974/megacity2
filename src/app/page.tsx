@@ -16,14 +16,14 @@ import CorpContactSection from "@/components/home/CorpContactSection";
 export const metadata: Metadata = {
   title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
   description:
-    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
+    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Dự án trọng điểm The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn" },
   // E-E-A-T: khai báo tác giả/tổ chức xuất bản
   authors: [{ name: "Ban biên tập KIM OANH ĐỒNG NAI" }],
   openGraph: {
     title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
     description:
-      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai – Mega City 2 Nhơn Trạch, K-Home CityView.",
+      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai – The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView.",
     url: "https://kimoanhdongnai.com.vn",
     type: "website",
     locale: "vi_VN",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
     description:
-      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai – Mega City 2 Nhơn Trạch, K-Home CityView.",
+      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai – The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView.",
     images: [
       "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
     ],
@@ -56,8 +56,8 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://kimoanhdongnai.com.vn/#localbusiness",
-  name: "Kim Oanh Đồng Nai – Thông tin dự án Mega City 2 Nhơn Trạch",
-  description: "Cổng thông tin tổng hợp dự án bất động sản Kim Oanh tại Đồng Nai. Tư vấn và giới thiệu dự án khu dân cư Mega City 2 tại xã Nhơn Trạch, tỉnh Đồng Nai.",
+  name: "Kim Oanh Đồng Nai – Dự án The Link City Dầu Giây & Mega City 2 Nhơn Trạch",
+  description: "Cổng thông tin tổng hợp dự án bất động sản Kim Oanh tại Đồng Nai. Tư vấn và giới thiệu dự án The Link City (Dầu Giây), khu dân cư Mega City 2 (Nhơn Trạch), tỉnh Đồng Nai.",
   url: "https://kimoanhdongnai.com.vn",
   telephone: "+84937587438",
   email: "k.homekog@gmail.com",
@@ -93,7 +93,7 @@ const webPageSchema = {
   name: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
   url: "https://kimoanhdongnai.com.vn",
   description:
-    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
+    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Dự án trọng điểm The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
   author: {
     "@type": "Organization",
     name: "KIM OANH ĐỒNG NAI",
@@ -104,7 +104,7 @@ const webPageSchema = {
     name: "KIM OANH ĐỒNG NAI",
     url: "https://kimoanhdongnai.com.vn",
   },
-  dateModified: "2026-08-19",
+  dateModified: "2026-10-15",
 };
 
 // ─────────────────────────────────────────────────────────────

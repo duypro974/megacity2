@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Kim Oanh Đồng Nai",
   },
   description:
-    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Tìm hiểu thông tin dự án Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn.",
+    "Cổng thông tin tổng hợp các dự án bất động sản Kim Oanh tại Đồng Nai. Dự án The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView và kết nối tư vấn trực tiếp.",
   authors: [{ name: "Kim Oanh Đồng Nai" }],
   icons: {
     icon: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh tại Đồng Nai",
     description:
-      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai. Mega City 2 Nhơn Trạch, K-Home CityView và các dự án đang được hỗ trợ.",
+      "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai – The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView và các dự án trọng điểm.",
     type: "website",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Kim Oanh Đồng Nai – Thông tin dự án bất động sản Kim Oanh",
-    description: "Thông tin dự án bất động sản Kim Oanh tại Đồng Nai – Mega City 2, K-Home CityView.",
+    description: "Thông tin dự án bất động sản Kim Oanh tại Đồng Nai – The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView.",
     images: [
       "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,h_720,c_fill,g_auto/megacity2/overview/1.jpg",
     ],
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "WebSite",
               name: "Kim Oanh Đồng Nai",
               url: "https://kimoanhdongnai.com.vn",
-              description: "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai. Mega City 2 Nhơn Trạch, K-Home CityView.",
+              description: "Cổng thông tin dự án bất động sản Kim Oanh tại Đồng Nai. The Link City Dầu Giây, Mega City 2 Nhơn Trạch, K-Home CityView.",
             }),
           }}
         />

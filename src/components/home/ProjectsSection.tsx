@@ -11,10 +11,10 @@ import { PROJECTS, STATUS_LABEL, STATUS_COLOR, type ProjectPreview } from "@/dat
 // Scope: Mega City 2, K-Home CityView, K-Home Avenue, K-Home Midtown
 // ─────────────────────────────────────────────────────────────
 
-// Scope được hỗ trợ bởi website này — thứ tự hiển thị
+// Scope được hỗ trợ bởi website này — thứ tự hiển thị (ưu tiên The Link City)
 const SCOPE_SLUGS = [
-  "mega-city-2",
   "the-link-city",
+  "mega-city-2",
   "k-home-cityview",
   "k-home-avenue",
   "k-home-midtown",

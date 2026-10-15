@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -738,10 +738,10 @@ export default function TienDoMegaCity2Client() {
               tag: "Mặt bằng",
             },
             {
-              href: "/mega-city-2/phap-ly",
-              title: "Pháp lý Mega City 2 có gì? Cập nhật 2026",
-              description: "Thông tin về quyết định phê duyệt và hồ sơ pháp lý.",
-              tag: "Tin tức",
+              href: "/the-link-city",
+              title: "Dự án mới: The Link City Dầu Giây 2026",
+              description: "Đất nền sổ hồng riêng ngã tư QL1A - QL20, giá chỉ từ 1,85 tỷ/nền.",
+              tag: "Dự án tâm điểm",
             },
           ]}
         />

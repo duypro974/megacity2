@@ -72,11 +72,18 @@ const listingSchema = {
   "@type": "RealEstateListing",
   "@id": "https://kimoanhdongnai.com.vn/the-link-city#listing",
   name: "The Link City – Khu dân cư A1-C1 Dầu Giây",
+  alternateName: [
+    "The Link City Dầu Giây",
+    "Dầu Giây Center City",
+    "Dự án Dầu Giây Center City 2",
+    "Khu dân cư A1-C1 Dầu Giây",
+    "Đất nền The Link City Dầu Giây",
+  ],
   description:
-    "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai. 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
+    "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai (tiền thân là dự án Dầu Giây Center City / Khu dân cư A1-C1). Quy mô 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
   url: "https://kimoanhdongnai.com.vn/the-link-city",
   datePosted: "2026-03-01",
-  dateModified: "2026-10-03",
+  dateModified: "2026-10-15",
   image: TLC_OG,
   address: {
     "@type": "PostalAddress",

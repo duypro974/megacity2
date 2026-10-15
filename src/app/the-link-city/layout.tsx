@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     "giá The Link City",
     "bảng giá The Link City 2026",
     "pháp lý The Link City",
+    "dầu giây center city",
+    "dự án dầu giây center city 2",
+    "khu dân cư a1 c1 dầu giây",
+    "bán đất dầu giây",
+    "link city",
+    "linkcity",
+    "tiến độ cao tốc dầu giây - tân phú",
   ],
   alternates: { canonical: "https://kimoanhdongnai.com.vn/the-link-city" },
   openGraph: {
