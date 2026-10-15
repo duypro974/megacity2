@@ -9,6 +9,7 @@ import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import { TLC_LOCATION } from "@/lib/cloudinary";
 import { useLightbox, type LightboxImage } from "@/components/ImageLightbox";
+import InteractiveCommuteMatrix from "@/components/thelinkcity/InteractiveCommuteMatrix";
 import { MapPin, Navigation, ArrowRight, ZoomIn } from "lucide-react";
 const mapsImages: LightboxImage[] = [
   { src: TLC_LOCATION["1"], alt: "Bản đồ vị trí The Link City tại ngã tư Dầu Giây, Đồng Nai", caption: "Vị trí The Link City – ngã tư QL1A & QL20" },
@@ -26,7 +27,7 @@ const articleSchema = {
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
   datePublished: "2026-03-01",
-  dateModified: "2026-09-08",
+  dateModified: "2026-10-15",
   url: "https://kimoanhdongnai.com.vn/the-link-city/vi-tri",
   about: { "@type": "RealEstateListing", name: "The Link City", url: "https://kimoanhdongnai.com.vn/the-link-city" },
 };
@@ -235,6 +236,9 @@ export default function ViTriPage() {
             </p>
           </div>
         </section>
+
+        {/* Bộ đo khoảng cách & thời gian di chuyển tương tác */}
+        <InteractiveCommuteMatrix />
 
         {/* Kết nối giao thông */}
         <section className="py-14 bg-white">
