@@ -17,15 +17,15 @@ const NAV = [
     href: "#du-an",
     children: [
       {
-        label: "Mega City 2",
-        note: "Nhơn Trạch, Đồng Nai",
-        href: "/mega-city-2",
-        external: false,
-      },
-      {
         label: "The Link City",
         note: "Dầu Giây, Đồng Nai",
         href: "/the-link-city",
+        external: false,
+      },
+      {
+        label: "Mega City 2",
+        note: "Nhơn Trạch, Đồng Nai",
+        href: "/mega-city-2",
         external: false,
       },
       {

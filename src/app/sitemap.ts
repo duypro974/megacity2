@@ -1110,5 +1110,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
         cimg("thelinkcity/news43/5"),
       ],
     },
+    {
+      url: `${BASE}/tin-tuc/tien-do-cao-toc-dau-giay-tan-phu-2026-the-link-city`,
+      lastModified: "2026-10-15",
+      changeFrequency: "weekly",
+      priority: 0.90,
+      images: [
+        cimg("thelinkcity/maps/1.webp"),
+        cimg("thelinkcity/overview/1.jpg"),
+        cimg("thelinkcity/progress/1.jpg"),
+      ],
+    },
+    {
+      url: `${BASE}/tin-tuc/mega-city-2-khi-nao-ra-so-tien-do-phap-ly-2026`,
+      lastModified: "2026-10-15",
+      changeFrequency: "weekly",
+      priority: 0.90,
+      images: [
+        cimg("megacity2/legal/1.jpeg"),
+        cimg("megacity2/real/1.png"),
+        cimg("megacity2/overview/1.jpg"),
+      ],
+    },
   ];
 }
