@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SITE_CONFIG } from "@/data/siteConfig";
+import { trackEvent } from "@/lib/analytics";
 
 /* ── Phone với animation rung ── */
 function PhoneButton() {
   return (
     <a
       href={`tel:${SITE_CONFIG.phone}`}
+      onClick={() => trackEvent("contact_floating_phone", { method: "tel" })}
       title={`Gọi ngay: ${SITE_CONFIG.phoneDisplay}`}
       aria-label={`Gọi ngay: ${SITE_CONFIG.phoneDisplay}`}
       className="group relative flex items-center justify-center w-12 h-12 rounded-full
@@ -50,6 +52,7 @@ function ZaloButton() {
       href={SITE_CONFIG.social.zalo}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackEvent("contact_floating_zalo", { method: "zalo" })}
       title="Chat Zalo"
       aria-label="Chat Zalo"
       className="group relative flex items-center justify-center w-12 h-12 rounded-full

@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { BANG_GIA_DATA, type SanPham } from "@/data/bangGiaData";
 import { SITE_CONFIG } from "@/data/siteConfig";
+import { trackEvent } from "@/lib/analytics";
 
 // ─────────────────────────────────────────────────────────────
 // THUẬT TOÁN PHONG THỦY BÁT TRẠCH & CAN CHI CHÍNH TÔNG
@@ -401,6 +402,7 @@ export default function TheLinkCityFengShuiAdvisor() {
   // Xử lý chuyển đổi mục đích đầu tư -> xoay la bàn và cập nhật chiến lược
   const handleSelectGoal = (goal: "an-cu" | "shophouse" | "dau-tu") => {
     setInvestmentGoal(goal);
+    trackEvent("feng_shui_goal_change", { goal, birth_year: birthYear, gender });
     let targetDir = profile.bestDirection.name;
     if (goal === "an-cu") {
       const dn = profile.directions.find((d) => d.cung === "Diên Niên" || d.cung === "Thiên Y");
@@ -979,6 +981,14 @@ export default function TheLinkCityFengShuiAdvisor() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("feng_shui_plot_inquiry", {
+                      plot_code: plot.ma,
+                      plot_price: plot.gia,
+                      birth_year: birthYear,
+                      goal: investmentGoal,
+                    })
+                  }
                   className="w-full inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all shadow-md group-hover:shadow-emerald-500/25"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
@@ -1007,6 +1017,11 @@ export default function TheLinkCityFengShuiAdvisor() {
             <div className="flex items-center gap-2.5 shrink-0 w-full sm:w-auto">
               <a
                 href={`tel:${SITE_CONFIG.phone}`}
+                onClick={() =>
+                  trackEvent("click_hotline", {
+                    source: "feng_shui_banner",
+                  })
+                }
                 className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 bg-white text-slate-950 font-extrabold text-xs px-4 py-2.5 rounded-xl hover:bg-slate-100 transition-colors shadow"
               >
                 <Phone className="w-3.5 h-3.5 text-emerald-700" />
@@ -1018,6 +1033,13 @@ export default function TheLinkCityFengShuiAdvisor() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("click_zalo_consult", {
+                    source: "feng_shui_banner",
+                    birth_year: birthYear,
+                    goal: investmentGoal,
+                  })
+                }
                 className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl transition-colors shadow"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
