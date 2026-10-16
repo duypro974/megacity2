@@ -4,18 +4,19 @@ import { useState, useEffect, useCallback } from "react";
 import { scrollToSection } from "@/lib/scrollTo";
 
 const SECTIONS = [
-  { id: "tong-quan",  label: "Tổng quan" },
-  { id: "vi-tri",     label: "Vị trí" },
-  { id: "mat-bang",   label: "Mặt bằng" },
-  { id: "tien-ich",   label: "Tiện ích" },
-  { id: "phap-ly",    label: "Pháp lý" },
-  { id: "tien-do",    label: "Tiến độ" },
-  { id: "bang-gia",   label: "Bảng giá" },
-  { id: "thanh-toan", label: "Thanh toán" },
-  { id: "hinh-anh",   label: "Hình ảnh" },
-  { id: "mau-nha",    label: "Mẫu nhà" },
-  { id: "faq",        label: "FAQ" },
-  { id: "lien-he",    label: "Liên hệ" },
+  { id: "tong-quan",      label: "Tổng quan" },
+  { id: "vi-tri",         label: "Vị trí" },
+  { id: "mat-bang",       label: "Mặt bằng" },
+  { id: "tien-ich",       label: "Tiện ích" },
+  { id: "phap-ly",        label: "Pháp lý" },
+  { id: "tien-do",        label: "Tiến độ" },
+  { id: "phong-thuy",     label: "Phong thủy & Chọn lô" },
+  { id: "bang-gia",       label: "Bảng giá" },
+  { id: "thanh-toan",     label: "Thanh toán" },
+  { id: "hinh-anh",       label: "Hình ảnh" },
+  { id: "mau-nha",        label: "Mẫu nhà" },
+  { id: "faq",            label: "FAQ" },
+  { id: "lien-he",        label: "Liên hệ" },
 ];
 
 // Chỉ hiện nav khi scroll qua hero (> 90vh)

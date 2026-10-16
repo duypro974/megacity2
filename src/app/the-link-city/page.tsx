@@ -14,6 +14,7 @@ import TLCSectionNav from "@/components/thelinkcity/TLCSectionNav";
 import SaBanVideoFacade from "@/components/thelinkcity/SaBanVideoFacade";
 import SaBanGallery from "@/components/thelinkcity/SaBanGallery";
 import BangGiaTable, { type PaymentTabKey } from "@/components/thelinkcity/BangGiaTable";
+import TheLinkCityFengShuiAdvisor from "@/components/thelinkcity/TheLinkCityFengShuiAdvisor";
 import { useLightbox, type LightboxImage } from "@/components/ImageLightbox";
 import {
   TLC_OG,
@@ -62,6 +63,8 @@ import {
   ChevronDown,
   Play,
   Maximize2,
+  Sparkles,
+  Compass,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────
@@ -835,6 +838,15 @@ export default function TheLinkCityPage() {
               >
                 Khám phá dự án
                 <ChevronRight className="w-4 h-4" />
+              </ScrollLink>
+              <ScrollLink
+                to="phong-thuy"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600
+                           text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all duration-200
+                           shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50"
+              >
+                <Compass className="w-4 h-4 text-amber-300" />
+                Tra cứu phong thủy chọn lô
               </ScrollLink>
               <a
                 href={`tel:${SITE_CONFIG.phone}`}
@@ -2030,6 +2042,9 @@ export default function TheLinkCityPage() {
             </div>
           </div>
         </FadeSection>
+
+        {/* ─── SECTION 08B: BỘ CÔNG CỤ TRA CỨU PHONG THỦY BÁT TRẠCH & CHỌN LÔ ĐẤT VƯỢNG KHÍ ─── */}
+        <TheLinkCityFengShuiAdvisor />
 
         {/* ─── SECTION 09: BẢNG GIÁ ─── */}
         <FadeSection id="bang-gia" className="py-12 md:py-20 bg-slate-50">
