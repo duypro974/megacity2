@@ -91,7 +91,7 @@ export default function TienIchPage() {
             { label: "The Link City", href: "/the-link-city" },
             { label: "Tiện ích" },
           ]}
-          updatedAt="23/12/2025"
+          updatedAt="16/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />

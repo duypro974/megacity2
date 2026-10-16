@@ -116,7 +116,7 @@ export default function ViTriPage() {
             { label: "The Link City", href: "/the-link-city" },
             { label: "Vị trí" },
           ]}
-          updatedAt="23/12/2025"
+          updatedAt="16/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
@@ -137,19 +137,19 @@ export default function ViTriPage() {
                   icon: MapPin,
                   label: "Địa chỉ hành chính",
                   value: "Xã Dầu Giây, tỉnh Đồng Nai",
-                  note: "Nguồn: Báo Đồng Nai 23/12/2025",
+                  note: "Quy hoạch trung tâm hành chính Thống Nhất",
                 },
                 {
                   icon: Navigation,
                   label: "Vị trí giao thông",
                   value: "Ngã tư Quốc lộ 1A và Quốc lộ 20",
-                  note: "Nguồn: Kim Oanh Group + Báo Đồng Nai",
+                  note: "Tâm điểm kết nối giao thương liên vùng",
                 },
                 {
                   icon: MapPin,
                   label: "Khu vực",
                   value: "Trung tâm hành chính xã Dầu Giây",
-                  note: "Nguồn: Báo Đồng Nai 23/12/2025",
+                  note: "Khu dân cư hiện hữu sầm uất",
                 },
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl border border-slate-200 bg-white p-5 anim-card hover:shadow-md transition-shadow">
@@ -194,7 +194,7 @@ export default function ViTriPage() {
                     nhiều tuyến đường quan trọng.
                   </p>
                   <p className="text-xs text-slate-400">
-                    Nguồn: Kim Oanh Group · Báo Đồng Nai (23/12/2025)
+                    Nguồn: Kim Oanh Group · Báo Đồng Nai (Cập nhật 2026)
                   </p>
                 </div>
               </div>
@@ -368,7 +368,7 @@ export default function ViTriPage() {
         <section className="py-6 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <p className="text-xs text-slate-400">
-              Nguồn: Kim Oanh Land · Báo Đồng Nai (23/12/2025) · Cập nhật lần cuối: 23/12/2025
+              Nguồn: Kim Oanh Land · Báo Đồng Nai · Cập nhật mới nhất: 16/10/2026
             </p>
           </div>
         </section>
