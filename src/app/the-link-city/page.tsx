@@ -902,6 +902,7 @@ export default function TheLinkCityPage() {
                 { id: "tien-ich",   label: "Tiện ích" },
                 { id: "phap-ly",    label: "Pháp lý" },
                 { id: "tien-do",    label: "Tiến độ" },
+                { id: "phong-thuy", label: "Phong thủy" },
                 { id: "bang-gia",   label: "Bảng giá" },
                 { id: "thanh-toan", label: "Thanh toán" },
                 { id: "hinh-anh",   label: "Hình ảnh" },

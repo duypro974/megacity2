@@ -1,6 +1,7 @@
 "use client";
 
 import { type ComponentPropsWithoutRef } from "react";
+import { scrollToSection } from "@/lib/scrollTo";
 
 interface ScrollLinkProps extends Omit<ComponentPropsWithoutRef<"a">, "href"> {
   to: string;
@@ -11,14 +12,13 @@ export default function ScrollLink({
   to,
   children,
   className = "",
+  onClick,
   ...props
 }: ScrollLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const element = document.getElementById(to);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (onClick) onClick(e);
+    scrollToSection(to);
   };
 
   return (

@@ -490,7 +490,7 @@ export default function TheLinkCityFengShuiAdvisor() {
   return (
     <section
       id="phong-thuy"
-      className="py-14 md:py-24 bg-gradient-to-b from-[#051712] via-[#09261e] to-[#04140f] text-slate-100 relative overflow-hidden border-t border-b border-emerald-500/20"
+      className="scroll-mt-16 sm:scroll-mt-20 py-14 md:py-24 bg-gradient-to-b from-[#051712] via-[#09261e] to-[#04140f] text-slate-100 relative overflow-hidden border-t border-b border-emerald-500/20"
     >
       {/* Anchor tương thích ngược nếu khách truy cập bằng link cũ #game-tuong-tac */}
       <span id="game-tuong-tac" className="absolute -top-24 pointer-events-none" />
