@@ -12,21 +12,24 @@ const CDN      = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_aut
 const OG_IMG   = `${CDN}/thelinkcity/overview/1.webp`;
 
 export const metadata: Metadata = {
-  title: "Bảng Giá The Link City Dầu Giây 2026 – Giá Chính Thức Từng Lô",
+  title: "Bảng Giá The Link City Dầu Giây 2026: Từ 1,85 Tỷ (Sổ Hồng Sẵn)",
   description:
-    "Bảng giá The Link City Dầu Giây 2026: 369 lô Sẵn sàng, đất nền từ 1,852 tỷ, biệt thự từ 3,744 tỷ, nhà phố xây sẵn từ 3,855 tỷ. Dữ liệu từ CRM Kim Oanh Land, cập nhật realtime.",
+    "Cập nhật bảng giá The Link City Dầu Giây mới nhất 2026: 369 lô đất nền sổ hồng riêng từ 1,852 tỷ, biệt thự từ 3,744 tỷ, nhà phố hoàn thiện từ 3,855 tỷ. VietinBank hỗ trợ vay 70%, ân hạn gốc 24 tháng.",
   alternates: { canonical: PAGE_URL },
   keywords: [
     "bảng giá The Link City",
     "giá The Link City Dầu Giây",
     "bảng giá đất nền Dầu Giây 2026",
-    "giá nhà phố The Link City",
+    "giá đất The Link City",
+    "bảng giá dầu giây center city",
+    "giá đất nền ngã tư dầu giây",
     "đất nền Dầu Giây giá bao nhiêu",
+    "giá nhà phố The Link City",
   ],
   openGraph: {
-    title: "Bảng Giá The Link City Dầu Giây 2026 – Giá Chính Thức Từng Lô",
+    title: "Bảng Giá The Link City Dầu Giây 2026: Từ 1,85 Tỷ (Sổ Hồng Sẵn)",
     description:
-      "369 lô Sẵn sàng: đất nền từ 1,852 tỷ, biệt thự từ 3,744 tỷ, nhà phố xây sẵn từ 3,855 tỷ. Dữ liệu realtime từ CRM Kim Oanh Land.",
+      "Bảng giá chính thức 369 sản phẩm The Link City Dầu Giây: Đất nền từ 1,852 tỷ, biệt thự từ 3,744 tỷ. Sổ hồng công chứng ngay, VietinBank cho vay 70%.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -35,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bảng Giá The Link City Dầu Giây 2026",
-    description: "369 lô Sẵn sàng từ 1,852 tỷ. Đất nền, biệt thự, nhà phố xây sẵn – giá chính thức.",
+    title: "Bảng Giá The Link City Dầu Giây 2026: Từ 1,85 Tỷ",
+    description: "369 lô Sẵn sàng từ 1,852 tỷ. Đất nền sổ hồng trao tay ngã tư QL1A - QL20.",
     images: [OG_IMG],
   },
 };

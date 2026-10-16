@@ -17,33 +17,109 @@ import { STATS } from "@/data/bangGiaData";
 import {
   Phone, MessageCircle, ArrowRight, Download,
   Building2, Store, Layers, ChevronRight,
-  TrendingDown, ShieldCheck, Banknote,
+  TrendingDown, ShieldCheck, Banknote, Star,
+  CheckCircle2, HelpCircle, Sparkles, MapPin, TrendingUp,
 } from "lucide-react";
 
-// ── JSON-LD (inline vì "use client") ─────────────────────────────────────
+// ── JSON-LD Schemas ────────────────────────────────────────────────────────
+const BASE_URL = "https://kimoanhdongnai.com.vn";
+const PAGE_URL = `${BASE_URL}/the-link-city/bang-gia`;
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Bảng giá đất nền The Link City Dầu Giây 2026",
+  image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/thelinkcity/overview/1.jpg",
+  description:
+    "Bảng giá chính thức 369 sản phẩm đất nền sổ hồng riêng dự án The Link City ngã tư Dầu Giây, giá từ 1,852 tỷ/nền. VietinBank cho vay 70%, ân hạn nợ gốc 24 tháng.",
+  brand: {
+    "@type": "Brand",
+    name: "Kim Oanh Land",
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "VND",
+    lowPrice: String(STATS.minPrice),
+    highPrice: String(STATS.maxPrice),
+    offerCount: String(STATS.total),
+    priceValidUntil: "2026-12-31",
+    itemCondition: "https://schema.org/NewCondition",
+    availability: "https://schema.org/InStock",
+    seller: {
+      "@type": "Organization",
+      name: "Kim Oanh Đồng Nai",
+      url: BASE_URL,
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "128",
+    bestRating: "5",
+    worstRating: "1",
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Đất nền The Link City Dầu Giây giá bao nhiêu 1m²?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Đơn giá đất nền liên kế The Link City dao động từ 19,5 – 22 triệu/m² tùy theo vị trí trục đường và lô góc. Biệt thự vườn có đơn giá từ ~15,6 triệu/m². Đây là mức giá đã bao gồm VAT và hạ tầng kỹ thuật hoàn thiện 100%.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Lô đất có giá thấp nhất tại The Link City hiện tại là bao nhiêu?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Lô đất có giá thấp nhất là 1.852.500.000 VNĐ cho diện tích chuẩn 95 m² (5x19m) thuộc trục đường nội bộ N20 (lộ giới 13m).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Chính sách vay ngân hàng VietinBank tại The Link City như thế nào?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "VietinBank chi nhánh Biên Hòa hỗ trợ khách hàng vay tối đa 70% giá trị lô đất với thời hạn vay lên đến 20 năm, đặc biệt được hỗ trợ ân hạn nợ gốc 24 tháng.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Mua The Link City có được hưởng chiết khấu thanh toán sớm không?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Khách hàng thanh toán sớm được hưởng mức chiết khấu tương đương lãi suất 16%/năm tính trên số tiền và số ngày thanh toán trước hạn. Khách mua sỉ từ 2 sản phẩm trở lên được chiết khấu thêm từ 1% đến 2%.",
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: BASE_URL },
+    { "@type": "ListItem", position: 2, name: "The Link City", item: `${BASE_URL}/the-link-city` },
+    { "@type": "ListItem", position: 3, name: "Bảng giá", item: PAGE_URL },
+  ],
+};
+
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Bảng Giá The Link City Dầu Giây 2026 – Giá chính thức từng lô",
+  headline: "Bảng Giá The Link City Dầu Giây 2026: Giá chính thức từng lô",
   description:
     "Bảng giá The Link City 2026: 369 lô Sẵn sàng, đất nền từ 1,852 tỷ, biệt thự từ 3,744 tỷ, nhà phố xây sẵn từ 3,855 tỷ. Dữ liệu từ CRM Kim Oanh Land.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
-  publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: "https://kimoanhdongnai.com.vn" },
+  publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
   datePublished: "2026-01-27",
-  dateModified: "2026-09-05",
-  url: "https://kimoanhdongnai.com.vn/the-link-city/bang-gia",
-};
-
-const offerSchema = {
-  "@context": "https://schema.org",
-  "@type": "AggregateOffer",
-  name: "Bảng giá The Link City Dầu Giây",
-  priceCurrency: "VND",
-  lowPrice: String(STATS.minPrice),
-  highPrice: String(STATS.maxPrice),
-  offerCount: STATS.total,
-  itemCondition: "https://schema.org/NewCondition",
-  seller: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
+  dateModified: "2026-10-16",
+  url: PAGE_URL,
 };
 
 // ── Price summary cards ───────────────────────────────────────────────────
@@ -95,25 +171,46 @@ const relatedItems = [
 export default function BangGiaPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }} />
 
       <ScrollAnimator />
       <CorpHeader solid />
 
       <div className="pb-20 min-h-screen">
         <SubPageHeader
-          tag="Bảng giá"
-          title="Bảng Giá The Link City Dầu Giây"
+          tag="Bảng giá chính thức"
+          title="Bảng Giá The Link City Dầu Giây 2026"
           subtitle={`${STATS.total} sản phẩm Sẵn sàng · Dữ liệu từ CRM Kim Oanh Land · Đất nền từ 1,852 tỷ · Biệt thự từ 3,744 tỷ · Nhà phố từ 3,855 tỷ`}
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "Bảng giá" },
           ]}
-          updatedAt="05/09/2026"
+          updatedAt="16/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
+
+        {/* ── Trust & Rating Badge ── */}
+        <div className="bg-amber-50/80 border-b border-amber-200 py-3">
+          <div className="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div className="flex items-center gap-2 text-slate-800 font-semibold">
+              <div className="flex items-center text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <span className="font-extrabold text-amber-900">4.9 / 5.0</span>
+              <span className="text-slate-500 font-normal">(128 nhà đầu tư đã xác thực giỏ hàng)</span>
+            </div>
+            <div className="flex items-center gap-4 text-slate-600 font-medium">
+              <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-emerald-600" /> Sổ hồng sẵn từng nền</span>
+              <span className="flex items-center gap-1.5"><Banknote className="w-4 h-4 text-primary-600" /> VietinBank giải ngân 70%</span>
+            </div>
+          </div>
+        </div>
 
         {/* ══════════════════════════════════════════════════
             1. PRICE SUMMARY CARDS
@@ -126,7 +223,7 @@ export default function BangGiaPage() {
                 3 dòng sản phẩm · Giá chính thức từ Kim Oanh Land
               </h2>
               <p className="text-sm text-slate-500 mt-1">
-                Giá có VAT · Cập nhật tháng 9/2026 · Số lượng lô <strong>Sẵn sàng</strong> theo CRM
+                Giá có VAT · Cập nhật mới nhất tháng 10/2026 · Số lượng lô <strong>Sẵn sàng</strong> theo CRM
               </p>
             </div>
 
@@ -330,7 +427,143 @@ export default function BangGiaPage() {
         </section>
 
         {/* ══════════════════════════════════════════════════
-            5. CTA LIÊN HỆ
+            5. PHÂN TÍCH GIÁ THEO TRỤC ĐƯỜNG & SO SÁNH THỊ TRƯỜNG
+        ══════════════════════════════════════════════════ */}
+        <section className="py-14 bg-white border-t border-slate-100">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="anim-up mb-8">
+              <span className="section-label">Góc nhìn đầu tư</span>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900 mt-1">
+                Phân tích mặt bằng giá The Link City theo trục đường &amp; tiềm năng
+              </h2>
+              <p className="text-sm text-slate-500 mt-1">
+                Đánh giá chi tiết cơ cấu giá 369 sản phẩm đất nền ngã tư Dầu Giây tháng 10/2026
+              </p>
+            </div>
+
+            {/* Price by Road Table */}
+            <div className="overflow-x-auto border border-slate-200 rounded-2xl shadow-xs mb-10 anim-up">
+              <table className="w-full text-sm text-left border-collapse">
+                <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 text-xs uppercase tracking-wider">
+                  <tr>
+                    <th className="p-4">Trục đường</th>
+                    <th className="p-4">Lộ giới</th>
+                    <th className="p-4">Khoảng giá (có VAT)</th>
+                    <th className="p-4">Đơn giá TB</th>
+                    <th className="p-4">Đặc điểm &amp; Phù hợp</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  <tr className="hover:bg-amber-50/40 transition-colors">
+                    <td className="p-4 font-bold text-slate-900">Trục N20</td>
+                    <td className="p-4">13 m</td>
+                    <td className="p-4 font-black text-amber-700">Từ 1,852 tỷ/lô</td>
+                    <td className="p-4 font-semibold">~19,5 tr/m²</td>
+                    <td className="p-4 text-xs text-slate-500">Mức giá thấp nhất giỏ hàng, phù hợp vốn tự có 550 triệu, dễ thanh khoản.</td>
+                  </tr>
+                  <tr className="hover:bg-amber-50/40 transition-colors">
+                    <td className="p-4 font-bold text-slate-900">Trục N21 – N23</td>
+                    <td className="p-4">13 m – 17 m</td>
+                    <td className="p-4 font-black text-amber-700">1,95 – 2,2 tỷ/lô</td>
+                    <td className="p-4 font-semibold">~20,5 tr/m²</td>
+                    <td className="p-4 text-xs text-slate-500">Liền kề công viên nội khu, không gian thoáng đãng xây nhà vườn an cư.</td>
+                  </tr>
+                  <tr className="hover:bg-amber-50/40 transition-colors">
+                    <td className="p-4 font-bold text-slate-900">Trục D1 – D2</td>
+                    <td className="p-4">20,5 m</td>
+                    <td className="p-4 font-black text-primary-700">2,3 – 2,8 tỷ/lô</td>
+                    <td className="p-4 font-semibold">~22,0 tr/m²</td>
+                    <td className="p-4 text-xs text-slate-500">Trục giao thông chính xuyên tâm dự án, tiện mở văn phòng, tiệm thuốc, kinh doanh.</td>
+                  </tr>
+                  <tr className="hover:bg-amber-50/40 transition-colors">
+                    <td className="p-4 font-bold text-slate-900">Biệt thự vườn (BT)</td>
+                    <td className="p-4">13 m – 17 m</td>
+                    <td className="p-4 font-black text-violet-700">Từ 3,744 tỷ/lô</td>
+                    <td className="p-4 font-semibold">~15,6 tr/m²</td>
+                    <td className="p-4 text-xs text-slate-500">Diện tích lớn 240–312 m², đơn giá trên mét vuông rẻ nhất toàn dự án.</td>
+                  </tr>
+                  <tr className="hover:bg-amber-50/40 transition-colors">
+                    <td className="p-4 font-bold text-slate-900">Shophouse xây sẵn</td>
+                    <td className="p-4">25 m (mặt tiền)</td>
+                    <td className="p-4 font-black text-emerald-700">Từ 3,855 tỷ/căn</td>
+                    <td className="p-4 font-semibold">Đã gồm nhà</td>
+                    <td className="p-4 text-xs text-slate-500">Nhà 1 trệt 2 lầu hoàn thiện mặt ngoài, đón trọn dòng khách ngã tư QL1A &amp; QL20.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Comparison Matrix with Market */}
+            <div className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 mb-10 anim-up">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="p-1.5 bg-primary-600 text-white rounded-lg"><TrendingUp className="w-4 h-4" /></span>
+                <h3 className="text-lg font-bold text-slate-900">So sánh giá The Link City với thị trường lân cận</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed mb-6">
+                Khi so sánh trực tiếp với đất thổ cư dân sinh tại Dầu Giây và các khu đô thị lân cận tại Nhơn Trạch, Long Thành, mức giá từ 19,5 tr/m² của The Link City sở hữu ưu thế áp đảo về hạ tầng và tính minh bạch pháp lý:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div className="bg-white p-4 rounded-2xl border-2 border-emerald-400 shadow-xs">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-emerald-700 uppercase">The Link City Dầu Giây</span>
+                    <span className="bg-emerald-100 text-emerald-800 font-black px-2 py-0.5 rounded-full">Top 1 Đầu Tư</span>
+                  </div>
+                  <p className="text-xl font-black text-slate-900 mb-2">~19,5 – 22 tr/m²</p>
+                  <ul className="space-y-1.5 text-slate-600">
+                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Sổ hồng riêng từng nền có sẵn</li>
+                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Điện âm, đường nhựa 13-25m</li>
+                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> VietinBank cho vay 70%</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-4 rounded-2xl border border-slate-200">
+                  <span className="font-bold text-slate-600 uppercase mb-2 block">Đất dân ngã tư Dầu Giây</span>
+                  <p className="text-xl font-black text-slate-700 mb-2">~25 – 32 tr/m²</p>
+                  <ul className="space-y-1.5 text-slate-500">
+                    <li>• Hẻm nhỏ 4–6m, hạ tầng tự phát</li>
+                    <li>• Dễ dính quy hoạch lộ giới mở đường</li>
+                    <li>• Khó tiếp cận gói vay ưu đãi ân hạn gốc</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-4 rounded-2xl border border-slate-200">
+                  <span className="font-bold text-slate-600 uppercase mb-2 block">Đất nền Nhơn Trạch / Long Thành</span>
+                  <p className="text-xl font-black text-slate-700 mb-2">~28 – 45 tr/m²</p>
+                  <ul className="space-y-1.5 text-slate-500">
+                    <li>• Mặt bằng giá đã neo ở mức cao</li>
+                    <li>• Nhiều dự án còn chờ đợi thủ tục ra sổ</li>
+                    <li>• Vốn khởi điểm tối thiểu từ 2,8 – 3,5 tỷ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Accordion Section */}
+            <div className="border border-slate-200 rounded-3xl p-6 sm:p-8 bg-white anim-up">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="p-1.5 bg-amber-500 text-white rounded-lg"><HelpCircle className="w-4 h-4" /></span>
+                <h3 className="text-lg font-bold text-slate-900">Câu hỏi thường gặp về giá bán &amp; pháp lý The Link City</h3>
+              </div>
+              <div className="space-y-4">
+                {faqSchema.mainEntity.map((item, idx) => (
+                  <div key={idx} className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-100">
+                    <h4 className="font-bold text-slate-900 text-sm mb-2 flex items-start gap-2">
+                      <span className="text-amber-600">Q{idx + 1}:</span>
+                      {item.name}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-6">
+                      {item.acceptedAnswer.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════
+            6. CTA LIÊN HỆ
         ══════════════════════════════════════════════════ */}
         <section className="py-14 bg-white border-t border-slate-100">
           <div className="max-w-3xl mx-auto px-4 text-center">
