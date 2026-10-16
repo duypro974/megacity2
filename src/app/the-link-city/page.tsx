@@ -83,8 +83,13 @@ const listingSchema = {
     "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai (tiền thân là dự án Dầu Giây Center City / Khu dân cư A1-C1). Quy mô 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
   url: "https://kimoanhdongnai.com.vn/the-link-city",
   datePosted: "2026-03-01",
-  dateModified: "2026-10-15",
+  dateModified: "2026-10-16",
   image: TLC_OG,
+  hasMap: "https://maps.google.com/?cid=9641868529707424638",
+  sameAs: [
+    "https://maps.google.com/?cid=9641868529707424638",
+    "https://sites.google.com/view/the-link-city-dau-giay-kimoanh",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Xã Dầu Giây",
@@ -788,11 +793,11 @@ export default function TheLinkCityPage() {
             </div>
 
             <h1
-              className="font-black leading-none mb-5 animate-fade-in-up"
+              className="font-black leading-tight mb-5 animate-fade-in-up"
               style={{ animationDelay: "160ms", textShadow: "0 2px 20px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.4)" }}
             >
-              <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white drop-shadow-2xl">THE LINK</span>
-              <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-amber-400 drop-shadow-2xl">CITY</span>
+              <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white drop-shadow-2xl">THE LINK CITY</span>
+              <span className="block text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-amber-400 drop-shadow-2xl mt-1 tracking-wider">DẦU GIÂY · ĐỒNG NAI</span>
             </h1>
 
             <div className="flex items-center gap-3 mb-5 animate-fade-in" style={{ animationDelay: "220ms" }}>
@@ -801,7 +806,7 @@ export default function TheLinkCityPage() {
                 className="text-white/90 text-xs md:text-sm font-semibold uppercase tracking-[0.18em]"
                 style={{ textShadow: "0 1px 10px rgba(0,0,0,0.8)" }}
               >
-                Dầu Giây · Đồng Nai
+                Khu Dân Cư A1-C1 · Kim Oanh Group
               </span>
               <div className="h-px w-6 bg-white/60" />
             </div>

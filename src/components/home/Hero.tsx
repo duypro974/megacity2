@@ -183,21 +183,28 @@ export default function HomeHero() {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-20">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-20">
+              <a
+                href="/the-link-city"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300
+                           text-slate-950 px-8 py-4 rounded-full text-sm font-black
+                           shadow-lg shadow-amber-500/40 transition-all hover:-translate-y-0.5 group"
+              >
+                <span>🔥 THE LINK CITY DẦU GIÂY</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
               <button
                 onClick={() => scrollTo("du-an")}
-                className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400
-                           text-slate-900 px-8 py-4 rounded-full text-sm font-bold
-                           shadow-lg shadow-amber-500/30 transition-all hover:-translate-y-0.5 group"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25
+                           text-white px-7 py-4 rounded-full text-sm font-bold backdrop-blur-sm transition-all"
               >
-                KHÁM PHÁ DỰ ÁN
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                TẤT CẢ DỰ ÁN
               </button>
               <button
                 onClick={() => scrollTo("lien-he")}
-                className="inline-flex items-center justify-center gap-2 border border-white/30
-                           text-white/90 hover:bg-white/10 hover:border-white/50
-                           px-8 py-4 rounded-full text-sm font-semibold transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-white/20
+                           text-white/80 hover:text-white hover:bg-white/10
+                           px-6 py-4 rounded-full text-sm font-semibold transition-all"
               >
                 LIÊN HỆ TƯ VẤN
               </button>
