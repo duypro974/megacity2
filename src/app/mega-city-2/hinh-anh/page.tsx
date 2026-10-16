@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
@@ -185,7 +185,7 @@ export default function HinhAnhPage() {
             { label: "Mega City 2", href: "/mega-city-2" },
             { label: "Hình ảnh" },
           ]}
-          updatedAt="08/2026"
+          updatedAt="16/10/2026"
         />
 
         {/* Notice */}

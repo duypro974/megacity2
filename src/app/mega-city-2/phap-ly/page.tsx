@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import SubPageHeader from "@/components/SubPageHeader";
@@ -210,7 +210,7 @@ export default function PhapLyPage() {
             { label: "Mega City 2", href: "/mega-city-2" },
             { label: "Pháp lý" },
           ]}
-          updatedAt="09/2026 (QĐ 2979/QĐ-UBND ngày 24/09/2026)"
+          updatedAt="16/10/2026 (QĐ 2979/QĐ-UBND)"
         />
 
         {/* Highlight 2 QĐ quan trọng */}

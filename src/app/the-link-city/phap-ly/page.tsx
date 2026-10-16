@@ -85,7 +85,7 @@ const faqSchema = {
       name: "VietinBank có xác nhận pháp lý The Link City không?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Bà Nguyễn Thị Ngọc Trúc – Phó Giám đốc VietinBank chi nhánh Biên Hòa phát biểu tại sự kiện 23/12/2025: 'VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City.'",
+        text: "Bà Nguyễn Thị Ngọc Trúc – Phó Giám đốc VietinBank chi nhánh Biên Hòa khẳng định: 'VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City.'",
       },
     },
   ],
@@ -200,7 +200,7 @@ export default function PhapLyPage() {
             { label: "The Link City", href: "/the-link-city" },
             { label: "Pháp lý" },
           ]}
-          updatedAt="04/09/2026"
+          updatedAt="16/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
@@ -426,11 +426,11 @@ export default function PhapLyPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 anim-stagger">
               {[
-                { icon: "🏛️", title: "Chủ đầu tư pháp lý",       content: "Công ty TNHH Đầu tư Phú Việt Tín",     detail: "Đại diện: Ông Đặng Phước Bình – Tổng Giám đốc",                                                source: "Báo Đồng Nai (23/12/2025)",                   highlight: true,  badge: "VERIFIED" },
-                { icon: "🏢", title: "Đơn vị phát triển",          content: "Kim Oanh Land (Kim Oanh Group)",       detail: "Đại diện: Bà Đặng Thị Kim Oanh – Chủ tịch HĐQT",                                             source: "Báo Đồng Nai (23/12/2025)",                   highlight: false, badge: "VERIFIED" },
+                { icon: "🏛️", title: "Chủ đầu tư pháp lý",       content: "Công ty TNHH Đầu tư Phú Việt Tín",     detail: "Đại diện: Ông Đặng Phước Bình – Tổng Giám đốc",                                                source: "Báo Đồng Nai",                                highlight: true,  badge: "VERIFIED" },
+                { icon: "🏢", title: "Đơn vị phát triển",          content: "Kim Oanh Land (Kim Oanh Group)",       detail: "Đại diện: Bà Đặng Thị Kim Oanh – Chủ tịch HĐQT",                                             source: "Báo Đồng Nai",                                highlight: false, badge: "VERIFIED" },
                 { icon: "📋", title: "Pháp lý Giai đoạn 1",        content: "Sổ hồng đã cấp cho CĐT Phú Việt Tín", detail: "Hạ tầng kỹ thuật hoàn thiện, GCN từng nền đã được cấp",                                        source: "CV 2505/UBND-KTN · 13/02/2026",               highlight: true,  badge: "CONFIRMED" },
                 { icon: "⏳", title: "Pháp lý Giai đoạn 2",        content: "Đang hoàn thiện điều kiện cấp GCN",   detail: "UBND tỉnh đã chỉ đạo Sở NN&MT đẩy nhanh tiến độ cấp sổ từng khách hàng",                        source: "CV 2505/UBND-KTN · 13/02/2026",               highlight: false, badge: "IN PROGRESS" },
-                { icon: "🏦", title: "Ngân hàng đồng hành",         content: "VietinBank chi nhánh Biên Hòa",       detail: '"Rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City"',                       source: "Bà Nguyễn Thị Ngọc Trúc – Phó GĐ (23/12/2025)", highlight: false, badge: "VERIFIED" },
+                { icon: "🏦", title: "Ngân hàng đồng hành",         content: "VietinBank chi nhánh Biên Hòa",       detail: '"Rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City"',                       source: "Bà Nguyễn Thị Ngọc Trúc – Phó GĐ VietinBank", highlight: false, badge: "VERIFIED" },
                 { icon: "🔍", title: "Kiểm toán Nhà nước",          content: "Đã xử lý xong toàn bộ kiến nghị",    detail: "VB 261/KV XIII-TH xác nhận hoàn thành kiến nghị về giá đất",                                      source: "Kiểm toán Nhà nước · 05/12/2025",             highlight: false, badge: "CLOSED" },
               ].map((item) => (
                 <div
@@ -471,7 +471,7 @@ export default function PhapLyPage() {
                     &ldquo;VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City.&rdquo;
                   </blockquote>
                   <p className="text-[11px] text-blue-600 mt-2">
-                    — Bà Nguyễn Thị Ngọc Trúc, Phó Giám đốc VietinBank chi nhánh Biên Hòa · 23/12/2025
+                    — Bà Nguyễn Thị Ngọc Trúc, Phó Giám đốc VietinBank chi nhánh Biên Hòa
                   </p>
                 </div>
               </div>

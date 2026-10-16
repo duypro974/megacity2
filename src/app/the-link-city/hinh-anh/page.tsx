@@ -93,7 +93,7 @@ const groupOffsets = galleryGroups.reduce<number[]>((acc, g, i) => {
 
 const relatedItems = [
   { href: "/the-link-city",          title: "Tổng quan The Link City",    description: "Thông tin đầy đủ về dự án.",                  tag: "Tổng quan" },
-  { href: "/the-link-city/tien-do",  title: "Tiến độ xây dựng",           description: "GĐ1 hoàn thiện, GĐ2 ~55% (23/12/2025).",     tag: "Tiến độ"  },
+  { href: "/the-link-city/tien-do",  title: "Tiến độ xây dựng",           description: "GĐ1 hoàn thiện, GĐ2 thi công đồng bộ năm 2026.", tag: "Tiến độ"  },
   { href: "/the-link-city/mat-bang", title: "Mặt bằng The Link City",     description: "Quy hoạch 2 giai đoạn.",                      tag: "Mặt bằng" },
   { href: "/the-link-city/tien-ich", title: "Tiện ích The Link City",     description: "50 tiện ích theo công bố.",                   tag: "Tiện ích" },
   { href: "/the-link-city/phap-ly",  title: "Pháp lý The Link City",     description: "CĐT Phú Việt Tín, VietinBank đồng hành.",     tag: "Pháp lý"  },
@@ -138,7 +138,7 @@ export default function HinhAnhPage() {
             { label: "The Link City", href: "/the-link-city" },
             { label: "Hình ảnh" },
           ]}
-          updatedAt="05/09/2026"
+          updatedAt="16/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />

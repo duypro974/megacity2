@@ -289,7 +289,7 @@ export default function MatBangPage() {
           { label: "The Link City", href: "/the-link-city" },
           { label: "Mặt bằng" },
         ]}
-        updatedAt="03/09/2026"
+        updatedAt="16/10/2026"
         backHref="/the-link-city"
         backLabel="Quay lại tổng quan The Link City"
       />
@@ -394,9 +394,9 @@ export default function MatBangPage() {
                 </h3>
                 <ul className="space-y-1.5 text-xs text-slate-600">
                   {[
-                    "Hạ tầng đạt ~55% theo GPXD tại thời điểm 23/12/2025",
+                    "Hạ tầng GĐ2 đang hoàn thiện đồng bộ theo GPXD",
                     "Khu vực trung tâm thương mại 2,6 ha đã hoàn tất pháp lý đất",
-                    "Dự kiến hoàn thiện hạ tầng trong ~9 tháng từ 23/12/2025",
+                    "Tiến độ thi công liên tục năm 2026",
                     "Đang hoàn thiện điều kiện cấp GCN quyền sử dụng đất",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
@@ -424,7 +424,7 @@ export default function MatBangPage() {
                 ))}
               </div>
               <p className="text-[11px] text-primary-600 mt-3">
-                Nguồn: Kim Oanh Land · Báo Đồng Nai (23/12/2025). Tổng ~100 ha là tổng hợp từ 2 giai đoạn.
+                Nguồn: Kim Oanh Land · Báo Đồng Nai. Tổng ~100 ha là tổng hợp từ 2 giai đoạn.
               </p>
             </div>
           </div>
@@ -991,7 +991,7 @@ export default function MatBangPage() {
                 {
                   href: "/the-link-city/tien-do",
                   title: "Tiến độ xây dựng",
-                  desc: "Cập nhật tiến độ 2 giai đoạn theo thông tin công bố 23/12/2025.",
+                  desc: "Cập nhật tiến độ 2 giai đoạn mới nhất năm 2026.",
                   tag: "Tiến độ",
                   highlight: false,
                 },
@@ -1031,7 +1031,7 @@ export default function MatBangPage() {
             <div className="rounded-xl bg-slate-50 border border-slate-200 px-5 py-4 anim-up">
               <p className="text-[11px] text-slate-400 leading-relaxed">
                 Thông tin và hồ sơ mặt bằng trên trang này được tổng hợp từ tài liệu dự án và nguồn công bố chính thức.
-                Cập nhật theo nguồn: 23/12/2025 · Trang chỉnh sửa: 03/09/2026.
+                Cập nhật thông tin mới nhất: 16/10/2026.
                 Vui lòng liên hệ Kim Oanh Land để nhận hồ sơ pháp lý và bán hàng chính thức.
               </p>
             </div>

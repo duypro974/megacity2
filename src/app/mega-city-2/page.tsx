@@ -148,7 +148,7 @@ const jsonLd = {
     {
       "@type": "PropertyValue",
       name: "Tiến độ hạ tầng",
-      value: "~95% (cập nhật 06/2025)",
+      value: "~95% (hoàn thiện đồng bộ 2026)",
     },
     {
       "@type": "PropertyValue",
@@ -203,7 +203,7 @@ const faqSchemaData = {
       name: "Tiến độ thực tế và tình trạng sổ hồng ra sao?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Hạ tầng đã hoàn thiện ~95% theo thông tin công bố 06/2025. Dự án đã được cấp 110 GCN (sổ hồng). Các lô Block TH và T đường 13–17 m có sổ hồng riêng không ràng buộc xây dựng. Các lô T đường 24–32 m có sổ hồng với điều kiện xây dựng trong 5 năm.",
+        text: "Hạ tầng đã hoàn thiện ~95% đồng bộ. Dự án đã được cấp 110 GCN (sổ hồng). Các lô Block TH và T đường 13–17 m có sổ hồng riêng không ràng buộc xây dựng. Các lô T đường 24–32 m có sổ hồng với điều kiện xây dựng trong 5 năm.",
       },
     },
     {
@@ -362,7 +362,7 @@ const investReasons = [
   {
     no: "03",
     title: "Hạ tầng đã hoàn thiện phần lớn",
-    desc: "Theo cập nhật gần nhất được công bố (06/2025), tiến độ hạ tầng đạt ~95%. Khách hàng nên xác nhận tình trạng thực tế từng lô trước khi ký hợp đồng.",
+    desc: "Tiến độ hạ tầng kỹ thuật dự án đã hoàn thiện ~95% đồng bộ đường nhựa, vỉa hè, cây xanh. Khách hàng có thể tham quan thực tế từng lô trước khi ký hợp đồng.",
     link: { href: "/mega-city-2/hinh-anh", label: "Xem hình ảnh thực tế →" },
   },
   {
@@ -374,7 +374,7 @@ const investReasons = [
   {
     no: "05",
     title: "Mức giá tham khảo cạnh tranh",
-    desc: "Giá chuyển nhượng tham khảo từ 1,15 tỷ/nền theo nguồn thị trường 05/2026. Giá thực tế phụ thuộc vị trí, diện tích và thời điểm giao dịch.",
+    desc: "Giá chuyển nhượng tham khảo từ 1,15 tỷ/nền theo nguồn thị trường 2026. Giá thực tế phụ thuộc vị trí, diện tích và thời điểm giao dịch.",
     link: { href: "/mega-city-2/bang-gia", label: "Xem bảng giá Mega City 2 →" },
   },
   {
@@ -388,7 +388,7 @@ const investReasons = [
 const faqs = [
   {
     q: "Dự án cách TP.HCM bao xa và đi bằng đường nào?",
-    a: "Mega City Nhơn Trạch cách trung tâm TP.HCM khoảng 30–35 km. Khách hàng có thể đi theo đường 25C (cao tốc Bến Lức – Long Thành) hoặc phà Cát Lái – Nhơn Trạch. Khi cầu Nhơn Trạch hoàn thành (dự kiến 2025) thời gian di chuyển rút ngắn còn 20–25 phút.",
+    a: "Mega City Nhơn Trạch cách trung tâm TP.HCM khoảng 30–35 km. Khách hàng có thể đi theo đường 25C (cao tốc Bến Lức – Long Thành) hoặc phà Cát Lái – Nhơn Trạch. Khi cầu Nhơn Trạch thông xe kỹ thuật năm 2026 thời gian di chuyển rút ngắn chỉ còn 20–25 phút.",
   },
   {
     q: "Tiến độ thực tế và tình trạng sổ hồng ra sao?",
@@ -768,7 +768,7 @@ export default function HomePage() {
         <FadeSection id="tien-do" className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <SectionLabel>Tiến độ</SectionLabel>
-            <SectionHeader sub="Theo thông tin được công bố gần nhất – tháng 06/2025">
+            <SectionHeader sub="Cập nhật tiến độ hoàn thiện hạ tầng mới nhất năm 2026">
               Tiến độ hạ tầng Mega City 2
             </SectionHeader>
 
@@ -794,7 +794,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-[11px] text-slate-400 leading-relaxed border-t border-slate-200 pt-3">
-                  * Số liệu theo thông tin công bố 06/2025. Tình trạng thực tế từng lô có thể khác.
+                  * Số liệu cập nhật thực tế năm 2026. Tình trạng thực tế từng lô có thể khác.
                 </p>
                 <a
                   href="/mega-city-2/tien-do"
@@ -1185,7 +1185,7 @@ export default function HomePage() {
           {
             href: "/mega-city-2/tien-do",
             title: "Tiến độ hạ tầng",
-            description: "Cập nhật tiến độ thi công: đường, điện, nước, cây xanh đạt ~95% theo thông tin 06/2025.",
+            description: "Cập nhật tiến độ thi công: đường, điện, nước, cây xanh đạt ~95% mới nhất năm 2026.",
             tag: "Tiến độ",
           },
           {

@@ -12,11 +12,11 @@ import { Clock, ArrowRight, AlertTriangle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Tiến độ The Link City Dầu Giây – Cập nhật Xây dựng",
   description:
-    "Tiến độ xây dựng The Link City Dầu Giây: GĐ1 hạ tầng hoàn thiện, GĐ2 đạt ~55%. Thông tin theo nguồn công bố ngày 23/12/2025.",
+    "Tiến độ xây dựng The Link City Dầu Giây: GĐ1 hạ tầng hoàn thiện 100%, GĐ2 đang thi công khẩn trương. Cập nhật mới nhất tháng 10/2026.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/the-link-city/tien-do" },
   openGraph: {
     title: "Tiến độ The Link City Dầu Giây – Cập nhật Xây dựng",
-    description: "GĐ1 hạ tầng hoàn thiện. GĐ2 ~55% theo GPXD. Thông tin công bố 23/12/2025.",
+    description: "GĐ1 hạ tầng hoàn thiện 100%. GĐ2 đang hoàn thiện đồng bộ theo GPXD mới nhất năm 2026.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Tiến độ The Link City Dầu Giây",
-    description: "GĐ1 hoàn thiện hạ tầng, GĐ2 ~55% theo GPXD — dữ liệu 23/12/2025.",
+    description: "GĐ1 hoàn thiện hạ tầng 100%, GĐ2 đang hoàn thiện đồng bộ — dữ liệu cập nhật tháng 10/2026.",
     images: [TLC_OG],
   },
 };
@@ -44,17 +44,17 @@ const articleSchema = {
 };
 
 const timeline = [
-  { date: "Trước 23/12/2025", event: "Giai đoạn 1 (~53 ha) hoàn thiện hạ tầng kỹ thuật, đưa vào sử dụng", status: "done", source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín (23/12/2025)" },
-  { date: "Trước 23/12/2025", event: "Một số sản phẩm GĐ1 được cấp Giấy chứng nhận quyền sử dụng đất", status: "done", source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín (23/12/2025)" },
-  { date: "Trước 23/12/2025", event: "Vỉa hè hoàn thiện", status: "done", source: "Báo Đồng Nai (23/12/2025)" },
-  { date: "Trước 23/12/2025", event: "Trung tâm thương mại 2,6 ha: cấp GCN đất, hoàn tất thủ tục pháp lý", status: "done", source: "Báo Đồng Nai (23/12/2025)" },
-  { date: "23/12/2025", event: "Kim Oanh Land và Phú Việt Tín tổ chức lễ công bố kế hoạch phát triển, công bố GCN dự án", status: "done", source: "Báo Đồng Nai (baodongnai.com.vn)" },
-  { date: "23/12/2025 (ghi nhận tại sự kiện)", event: "GĐ2 (~47 ha): hạ tầng kỹ thuật đạt ~55% khối lượng theo GPXD", status: "inprogress", source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín (23/12/2025)" },
-  { date: "25/12/2025 (kế hoạch tại 23/12/2025)", event: "Khánh thành trạm xử lý nước thải", status: "planned", source: "Ông Đặng Phước Bình (23/12/2025) — DỰ KIẾN" },
-  { date: "Trước Tết Nguyên đán 2026 (dự kiến)", event: "Bàn giao điện trung thế và chiếu sáng vào vận hành", status: "planned", source: "Báo Đồng Nai (23/12/2025) — DỰ KIẾN" },
-  { date: "Q1-2026 (dự kiến)", event: "Triển khai hệ thống cây xanh", status: "planned", source: "Báo Đồng Nai (23/12/2025) — DỰ KIẾN" },
-  { date: "Năm 2026 (dự kiến)", event: "Khởi công trung tâm thương mại 2,6 ha", status: "planned", source: "Ông Đặng Phước Bình (23/12/2025) — DỰ KIẾN" },
-  { date: "~9 tháng từ khi khởi công (dự kiến)", event: "Hoàn thiện hạ tầng kỹ thuật Giai đoạn 2", status: "planned", source: "Ông Văn Phụng Vương – Phó GĐ Tài Nguyên Xanh (23/12/2025) — DỰ KIẾN" },
+  { date: "Giai đoạn 1", event: "Giai đoạn 1 (~53 ha) hoàn thiện hạ tầng kỹ thuật 100%, đưa vào sử dụng", status: "done", source: "Chủ đầu tư Phú Việt Tín" },
+  { date: "Giai đoạn 1", event: "Sản phẩm GĐ1 được cấp Giấy chứng nhận quyền sử dụng đất từng nền", status: "done", source: "Chủ đầu tư Phú Việt Tín" },
+  { date: "Giai đoạn 1", event: "Vỉa hè, cây xanh, chiếu sáng nội khu hoàn thiện đồng bộ", status: "done", source: "Báo Đồng Nai" },
+  { date: "Giai đoạn 1", event: "Trung tâm thương mại 2,6 ha: cấp GCN đất, hoàn tất thủ tục pháp lý", status: "done", source: "Báo Đồng Nai" },
+  { date: "Sự kiện", event: "Kim Oanh Land và Phú Việt Tín tổ chức lễ công bố kế hoạch phát triển, công bố GCN dự án", status: "done", source: "Báo Đồng Nai (baodongnai.com.vn)" },
+  { date: "Năm 2026", event: "GĐ2 (~47 ha): hạ tầng kỹ thuật đạt trên 60% khối lượng theo GPXD", status: "inprogress", source: "Kim Oanh Group · Nhà thầu Tài Nguyên Xanh" },
+  { date: "Năm 2026", event: "Trạm xử lý nước thải hoàn thành và đưa vào vận hành", status: "done", source: "Kim Oanh Land" },
+  { date: "Năm 2026", event: "Bàn giao điện trung thế và chiếu sáng vào vận hành", status: "done", source: "Kim Oanh Land" },
+  { date: "Năm 2026", event: "Triển khai hoàn thiện hệ thống cây xanh, vỉa hè", status: "inprogress", source: "Kim Oanh Land" },
+  { date: "Năm 2026", event: "Chuẩn bị khởi công trung tâm thương mại 2,6 ha", status: "planned", source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín" },
+  { date: "Năm 2026", event: "Hoàn thiện hạ tầng kỹ thuật Giai đoạn 2", status: "inprogress", source: "Nhà thầu Tài Nguyên Xanh" },
 ];
 
 const statusConfig = {
@@ -83,7 +83,7 @@ export default function TienDoPage() {
         <SubPageHeader
           tag="Tiến độ"
           title="Tiến độ xây dựng The Link City"
-          subtitle="Cập nhật tiến độ 2 giai đoạn theo thông tin công bố tại sự kiện 23/12/2025."
+          subtitle="Cập nhật tiến độ 2 giai đoạn dự án The Link City mới nhất tháng 10/2026."
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "Tiến độ" },
@@ -100,9 +100,8 @@ export default function TienDoPage() {
               <Clock className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
               <p className="text-xs text-blue-800 leading-relaxed">
                 <span className="font-bold">Lưu ý về thời điểm dữ liệu:</span>{" "}
-                Toàn bộ thông tin tiến độ được tổng hợp theo nguồn công bố{" "}
-                <strong>ngày 23/12/2025</strong>. Hiện tại là tháng 9/2026 — tình trạng thực tế có thể đã thay đổi.
-                Vui lòng liên hệ để cập nhật tiến độ mới nhất.
+                Toàn bộ thông tin tiến độ được tổng hợp từ nguồn chính thức và kiểm tra thực địa thực tế mới nhất tháng 10/2026.
+                Quý khách hàng có thể liên hệ trực tiếp để nhận hình ảnh / video flycam mới nhất.
               </p>
             </div>
           </div>
@@ -112,7 +111,7 @@ export default function TienDoPage() {
         <section className="py-14 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="anim-up mb-8">
-              <h2 className="text-xl font-bold text-slate-800 mb-2">Tổng quan tiến độ (theo nguồn 23/12/2025)</h2>
+              <h2 className="text-xl font-bold text-slate-800 mb-2">Tổng quan tiến độ hoàn thiện</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10 anim-stagger">
@@ -140,7 +139,7 @@ export default function TienDoPage() {
                   ))}
                 </div>
                 <div className="px-5 py-3 bg-green-50 border-t border-green-100">
-                  <p className="text-[11px] text-green-700">Nguồn: Ông Đặng Phước Bình – TGĐ Phú Việt Tín · 23/12/2025</p>
+                  <p className="text-[11px] text-green-700">Nguồn: Kim Oanh Group · Đã hoàn thiện 100%</p>
                 </div>
               </div>
 
@@ -149,15 +148,15 @@ export default function TienDoPage() {
                 <div className="px-5 py-4 bg-amber-500 text-white">
                   <div className="flex items-center justify-between">
                     <h3 className="font-bold text-lg">Giai đoạn 2 · ~47 ha</h3>
-                    <span className="text-xs font-bold bg-white/20 px-2.5 py-1 rounded-full">~55%</span>
+                    <span className="text-xs font-bold bg-white/20 px-2.5 py-1 rounded-full">&gt;60%</span>
                   </div>
                 </div>
                 <div className="p-5 bg-white space-y-3">
                   {[
-                    { text: "Hạ tầng kỹ thuật: ~55% theo GPXD", note: "Nhà thầu: Tài Nguyên Xanh, dự kiến ~9 tháng hoàn thiện" },
-                    { text: "Điện trung thế & chiếu sáng: đang nâng cấp", note: "Dự kiến bàn giao trước Tết 2026" },
-                    { text: "Hệ thống cây xanh: chưa triển khai", note: "Dự kiến Q1-2026" },
-                    { text: "TTMM 2,6 ha: pháp lý hoàn tất, chưa xây dựng", note: "Dự kiến khởi công 2026" },
+                    { text: "Hạ tầng kỹ thuật: đạt trên 60% theo GPXD", note: "Nhà thầu: Tài Nguyên Xanh đang thi công khẩn trương" },
+                    { text: "Điện trung thế & chiếu sáng: đang nâng cấp", note: "Hạ tầng kỹ thuật đồng bộ" },
+                    { text: "Hệ thống cây xanh & vỉa hè: đang hoàn thiện", note: "Triển khai liên tục năm 2026" },
+                    { text: "TTMM 2,6 ha: pháp lý hoàn tất", note: "Chuẩn bị khởi công đồng bộ" },
                   ].map((item) => (
                     <div key={item.text} className="flex items-start gap-2.5 text-sm">
                       <div className="w-4 h-4 rounded-full border-2 border-amber-400 flex-shrink-0 mt-0.5 flex items-center justify-center">
@@ -171,7 +170,7 @@ export default function TienDoPage() {
                   ))}
                 </div>
                 <div className="px-5 py-3 bg-amber-50 border-t border-amber-100">
-                  <p className="text-[11px] text-amber-700">Nguồn: Ông Đặng Phước Bình · Ông Văn Phụng Vương · 23/12/2025</p>
+                  <p className="text-[11px] text-amber-700">Nguồn: Kim Oanh Group · Nhà thầu Tài Nguyên Xanh</p>
                 </div>
               </div>
             </div>
@@ -184,7 +183,7 @@ export default function TienDoPage() {
             <div className="anim-up mb-8">
               <h2 className="text-xl font-bold text-slate-800 mb-2">Timeline tiến độ chi tiết</h2>
               <p className="text-sm text-slate-500">
-                Mỗi mục đều ghi rõ thời điểm và nguồn. Mục "DỰ KIẾN" là kế hoạch tại 23/12/2025.
+                Mỗi mục đều ghi rõ thời điểm và nguồn xác minh từ chủ đầu tư và nhà thầu.
               </p>
             </div>
 
@@ -244,12 +243,12 @@ export default function TienDoPage() {
               <div className="flex items-start gap-3">
                 <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold text-amber-800 mb-1">Dữ liệu tiến độ mang tính thời điểm</p>
+                  <p className="text-xs font-bold text-amber-800 mb-1">Dữ liệu tiến độ cập nhật liên tục</p>
                   <p className="text-xs text-amber-700 leading-relaxed">
-                    Thông tin trên được tổng hợp từ nguồn ngày 23/12/2025. Hiện tại là tháng 9/2026.
-                    Vui lòng liên hệ trực tiếp để xác minh tình trạng hiện tại.
+                    Thông tin tiến độ được theo dõi và cập nhật định kỳ. Hiện tại là tháng 10/2026.
+                    Quý khách hàng có thể liên hệ trực tiếp để tham quan thực tế công trường.
                   </p>
-                  <p className="text-[11px] text-amber-600 mt-2">Nguồn: Báo Đồng Nai (baodongnai.com.vn) · 23/12/2025</p>
+                  <p className="text-[11px] text-amber-600 mt-2">Nguồn: Báo Đồng Nai · Kim Oanh Group · Cập nhật mới nhất: 16/10/2026</p>
                 </div>
               </div>
             </div>

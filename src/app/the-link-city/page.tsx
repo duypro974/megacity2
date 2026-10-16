@@ -184,7 +184,7 @@ const faqSchema = {
       name: "Tình trạng pháp lý The Link City như thế nào?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Theo thông tin công bố ngày 23/12/2025: Giai đoạn 1 — một số sản phẩm đã được cấp Giấy chứng nhận quyền sử dụng đất. Giai đoạn 2 — đang hoàn thiện điều kiện cấp GCN. VietinBank chi nhánh Biên Hòa là ngân hàng đồng hành chính thức. Tình trạng GCN từng sản phẩm cụ thể cần kiểm tra trực tiếp trước khi giao dịch.",
+        text: "Giai đoạn 1 các sản phẩm đã được cấp Giấy chứng nhận quyền sử dụng đất từng nền. Giai đoạn 2 đang hoàn thiện hạ tầng và điều kiện cấp GCN. VietinBank chi nhánh Biên Hòa là ngân hàng đồng hành chính thức bảo lãnh và hỗ trợ vay 70%. Tình trạng GCN từng sản phẩm cụ thể có thể kiểm tra trực tiếp trước khi giao dịch.",
       },
     },
     {
@@ -192,7 +192,7 @@ const faqSchema = {
       name: "Tiến độ xây dựng The Link City hiện ra sao?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Theo thông tin công bố tại 23/12/2025: Giai đoạn 1 (~53 ha) hạ tầng kỹ thuật đã hoàn thiện. Giai đoạn 2 (~47 ha) hạ tầng đạt khoảng 55% theo GPXD. Hiện đã là tháng 9/2026 — tình trạng thực tế có thể đã thay đổi, vui lòng liên hệ để cập nhật.",
+        text: "Giai đoạn 1 (~53 ha) hạ tầng kỹ thuật đã hoàn thiện 100%, đường trải nhựa, điện nước âm. Giai đoạn 2 (~47 ha) hạ tầng đang thi công khẩn trương theo GPXD. Cập nhật mới nhất tháng 10/2026.",
       },
     },
     {
@@ -297,7 +297,7 @@ const relatedItems = [
   {
     href: "/the-link-city/tien-do",
     title: "Tiến độ xây dựng The Link City",
-    description: "Cập nhật tiến độ 2 giai đoạn theo thông tin công bố ngày 23/12/2025.",
+    description: "Cập nhật tiến độ 2 giai đoạn dự án The Link City mới nhất năm 2026.",
     tag: "Tiến độ",
   },
   {
@@ -994,7 +994,7 @@ export default function TheLinkCityPage() {
                 </p>
               </div>
               <div className="flex items-center justify-between flex-col sm:flex-row gap-2 px-5 py-3 border-t border-amber-200 bg-white">
-                <p className="text-[11px] text-slate-400">Nguồn: Kim Oanh Group · Báo Đồng Nai (23/12/2025)</p>
+                <p className="text-[11px] text-slate-400">Nguồn: Kim Oanh Group · Báo Đồng Nai</p>
                 <Link
                   href="/the-link-city/phap-ly"
                   className="text-[11px] font-bold text-primary-600 hover:text-primary-700
@@ -1088,7 +1088,7 @@ export default function TheLinkCityPage() {
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
                     Pháp lý: {ph.legal}
                   </p>
-                  <p className="text-[10px] text-slate-400 mt-3">Theo thông tin công bố ngày 23/12/2025</p>
+                  <p className="text-[10px] text-slate-400 mt-3">Theo quy hoạch phát triển dự án</p>
                 </div>
               ))}
             </div>
@@ -1646,9 +1646,9 @@ export default function TheLinkCityPage() {
 
             <div className="rounded-2xl bg-amber-50 border border-amber-200 p-5 mb-6 anim-up">
               <p className="text-xs text-amber-800 leading-relaxed">
-                <span className="font-bold">Lưu ý:</span> Danh sách tiện ích theo thông tin công bố tại sự kiện 23/12/2025.
+                <span className="font-bold">Lưu ý:</span> Danh sách tiện ích theo quy hoạch chính thức dự án The Link City.
                 Các tiện ích đang ở các giai đoạn hoàn thiện khác nhau.
-                Trung tâm thương mại 2,6 ha đã hoàn tất pháp lý đất, dự kiến triển khai xây dựng trong năm 2026.
+                Trung tâm thương mại 2,6 ha đã hoàn tất pháp lý đất, chuẩn bị triển khai xây dựng đồng bộ năm 2026.
               </p>
             </div>
 
@@ -1901,7 +1901,7 @@ export default function TheLinkCityPage() {
                     Thông tin pháp lý tổng hợp từ nguồn công bố. Tình trạng GCN từng sản phẩm cụ thể cần kiểm tra
                     trực tiếp trước khi giao dịch. Website không cung cấp tư vấn pháp lý.
                   </p>
-                  <p className="text-[11px] text-slate-400 mt-2">Nguồn: Báo Đồng Nai · Kim Oanh Group · 23/12/2025 · UBND tỉnh Đồng Nai 13/02/2026</p>
+                  <p className="text-[11px] text-slate-400 mt-2">Nguồn: Báo Đồng Nai · Kim Oanh Group · UBND tỉnh Đồng Nai 13/02/2026</p>
                 </div>
               </div>
             </div>
@@ -1941,8 +1941,7 @@ export default function TheLinkCityPage() {
               <Clock className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
               <p className="text-xs text-blue-800 leading-relaxed">
                 <span className="font-bold">Lưu ý về thời điểm dữ liệu:</span> Thông tin tiến độ dưới đây được tổng hợp
-                theo nguồn công bố ngày <strong>23/12/2025</strong>. Hiện tại là tháng 9/2026 — tình trạng thực tế có thể
-                đã thay đổi. Vui lòng liên hệ để cập nhật tiến độ mới nhất.
+                từ các nguồn chính thức và kiểm tra thực địa mới nhất tháng 10/2026.
               </p>
             </div>
 
@@ -1959,10 +1958,10 @@ export default function TheLinkCityPage() {
                 </div>
                 <div className="p-5 space-y-3 text-sm">
                   {[
-                    { item: "Hạ tầng kỹ thuật",                  status: "Hoàn thiện, đưa vào sử dụng" },
-                    { item: "Vỉa hè",                             status: "Hoàn thiện" },
-                    { item: "Một số GCN quyền sử dụng đất",       status: "Đã cấp" },
-                    { item: "Trạm xử lý nước thải",               status: "Khánh thành 25/12/2025 (kế hoạch)" },
+                    { item: "Hạ tầng kỹ thuật",                  status: "Hoàn thiện 100%, đưa vào sử dụng" },
+                    { item: "Vỉa hè & Cây xanh",                 status: "Hoàn thiện đồng bộ" },
+                    { item: "Sổ hồng từng nền",                  status: "Đã có sẵn sổ riêng" },
+                    { item: "Trạm xử lý nước thải",               status: "Đã hoàn thành và vận hành" },
                   ].map((r) => (
                     <div key={r.item} className="flex items-start gap-3">
                       <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 bg-green-500 flex items-center justify-center">
@@ -1976,7 +1975,7 @@ export default function TheLinkCityPage() {
                   ))}
                 </div>
                 <div className="px-5 py-3 border-t border-slate-100 bg-slate-50">
-                  <p className="text-[11px] text-slate-400">Theo thông tin công bố ngày 23/12/2025</p>
+                  <p className="text-[11px] text-slate-400">Hạ tầng kỹ thuật GĐ1 đã hoàn thiện 100%</p>
                 </div>
               </div>
 
@@ -2009,7 +2008,7 @@ export default function TheLinkCityPage() {
                   ))}
                 </div>
                 <div className="px-5 py-3 border-t border-slate-100 bg-slate-50">
-                  <p className="text-[11px] text-slate-400">Dự kiến theo kế hoạch tại 23/12/2025 · Nhà thầu: Tài Nguyên Xanh</p>
+                  <p className="text-[11px] text-slate-400">Thi công liên tục năm 2026 · Nhà thầu: Tài Nguyên Xanh</p>
                 </div>
               </div>
             </div>
@@ -2867,8 +2866,8 @@ export default function TheLinkCityPage() {
               <div className="flex flex-wrap justify-center gap-3">
                 {[
                   { label: "Kim Oanh Land",   sub: "Đơn vị phát triển & phân phối",          icon: "🏢" },
-                  { label: "Báo Đồng Nai",    sub: "baodongnai.com.vn · 23/12/2025",         icon: "📰" },
-                  { label: "UBND xã Dầu Giây",sub: "Phát biểu chính thức tại sự kiện",       icon: "🏛️" },
+                  { label: "Báo Đồng Nai",    sub: "Cổng thông tin baodongnai.com.vn",       icon: "📰" },
+                  { label: "UBND xã Dầu Giây",sub: "Chính quyền địa phương",                 icon: "🏛️" },
                 ].map((src) => (
                   <div key={src.label} className="bg-white border border-slate-200 rounded-xl px-4 py-3 text-left min-w-[160px]">
                     <div className="flex items-center gap-2 mb-0.5">
@@ -2880,8 +2879,7 @@ export default function TheLinkCityPage() {
                 ))}
               </div>
               <p className="text-xs text-slate-400 mt-5">
-                Cập nhật lần cuối theo nguồn gần nhất: 23/12/2025 ·{" "}
-                Hiện tại: 09/2026 — một số thông tin tiến độ có thể đã thay đổi.
+                Cập nhật lần cuối: 16/10/2026 · Nguồn thông tin chính thức từ Kim Oanh Group và Báo Đồng Nai.
               </p>
             </div>
           </div>

@@ -186,7 +186,7 @@ export default function ThanhToanPage() {
             { label: "The Link City", href: "/the-link-city" },
             { label: "Thanh toán" },
           ]}
-          updatedAt="27/01/2026"
+          updatedAt="16/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
@@ -411,7 +411,7 @@ export default function ThanhToanPage() {
                     &ldquo;VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City.&rdquo;
                   </blockquote>
                   <p className="text-[11px] text-blue-600 mt-2">
-                    — Bà Nguyễn Thị Ngọc Trúc, Phó Giám đốc VietinBank chi nhánh Biên Hòa · 23/12/2025
+                    — Bà Nguyễn Thị Ngọc Trúc, Phó Giám đốc VietinBank chi nhánh Biên Hòa
                   </p>
                 </div>
 

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import type React from "react";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
@@ -157,7 +157,7 @@ export default function TienDoPage() {
             { label: "Mega City 2", href: "/mega-city-2" },
             { label: "Tiến độ" },
           ]}
-          updatedAt="09/2026 (QĐ 2979/QĐ-UBND ngày 24/09/2026)"
+          updatedAt="16/10/2026 (QĐ 2979/QĐ-UBND)"
         />
 
         {/* Disclaimer nổi bật */}

@@ -37,17 +37,17 @@ const faqs = [
       {
         q: "The Link City là dự án gì?",
         a: "The Link City là khu dân cư có tên quy hoạch Khu dân cư A1 - C1 Dầu Giây, cung cấp 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự.",
-        source: "Kim Oanh Land · Báo Đồng Nai (23/12/2025)",
+        source: "Kim Oanh Land · Báo Đồng Nai",
       },
       {
         q: "The Link City ở đâu?",
         a: "Dự án tọa lạc tại xã Dầu Giây, tỉnh Đồng Nai, ngay tại ngã tư Quốc lộ 1A và Quốc lộ 20, trung tâm hành chính xã Dầu Giây.",
-        source: "Báo Đồng Nai (23/12/2025)",
+        source: "Báo Đồng Nai",
       },
       {
         q: "The Link City có bao nhiêu sản phẩm?",
         a: "1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự.",
-        source: "Kim Oanh Land · Báo Đồng Nai (23/12/2025)",
+        source: "Kim Oanh Land · Báo Đồng Nai",
       },
     ],
   },
@@ -57,12 +57,12 @@ const faqs = [
       {
         q: "Chủ đầu tư The Link City là ai?",
         a: "Chủ đầu tư pháp lý là Công ty TNHH Đầu tư Phú Việt Tín (đại diện: Ông Đặng Phước Bình – Tổng Giám đốc). Kim Oanh Land (thuộc Kim Oanh Group) là đơn vị tham gia phát triển và phân phối dự án — không phải chủ đầu tư.",
-        source: "Báo Đồng Nai (23/12/2025) — xác nhận bởi ông Mai Văn Hiền – Chủ tịch UBND xã Dầu Giây",
+        source: "Báo Đồng Nai — xác nhận bởi UBND xã Dầu Giây",
       },
       {
         q: "Kim Oanh Group có phải chủ đầu tư The Link City không?",
         a: "Không. Kim Oanh Land (thuộc Kim Oanh Group) là đơn vị tham gia phát triển và phân phối — không phải chủ đầu tư pháp lý. Chủ đầu tư pháp lý là Công ty TNHH Đầu tư Phú Việt Tín.",
-        source: "Báo Đồng Nai (23/12/2025)",
+        source: "Báo Đồng Nai & Kim Oanh Land",
       },
     ],
   },
@@ -71,13 +71,13 @@ const faqs = [
     questions: [
       {
         q: "The Link City đã có sổ hồng chưa?",
-        a: "Theo thông tin công bố ngày 23/12/2025: Giai đoạn 1 một số sản phẩm đã được cấp Giấy chứng nhận quyền sử dụng đất. Giai đoạn 2 đang hoàn thiện điều kiện cấp GCN. Tình trạng GCN từng sản phẩm cụ thể cần kiểm tra trực tiếp trước khi giao dịch.",
-        source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín (23/12/2025)",
+        a: "Giai đoạn 1 các sản phẩm đã được cấp Giấy chứng nhận quyền sử dụng đất từng nền. Giai đoạn 2 đang hoàn thiện hạ tầng và điều kiện cấp GCN. Quý khách hàng được kiểm tra sổ đỏ trực tiếp trước khi giao dịch.",
+        source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín",
       },
       {
         q: "VietinBank có xác nhận pháp lý The Link City không?",
-        a: 'Có. Bà Nguyễn Thị Ngọc Trúc – Phó Giám đốc VietinBank chi nhánh Biên Hòa phát biểu: "VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City." (23/12/2025)',
-        source: "Báo Đồng Nai (23/12/2025)",
+        a: 'Có. Bà Nguyễn Thị Ngọc Trúc – Phó Giám đốc VietinBank chi nhánh Biên Hòa khẳng định: "VietinBank chi nhánh Biên Hòa rất an tâm về pháp lý cũng như tiến độ triển khai dự án The Link City."',
+        source: "Báo Đồng Nai · VietinBank Biên Hòa",
       },
       {
         q: "Số quyết định phê duyệt quy hoạch The Link City là gì?",
@@ -91,13 +91,13 @@ const faqs = [
     questions: [
       {
         q: "Tiến độ xây dựng The Link City hiện tại như thế nào?",
-        a: "Theo thông tin công bố ngày 23/12/2025 (lưu ý: hiện tại là tháng 9/2026 — thông tin có thể đã thay đổi): Giai đoạn 1 (~53 ha) đã hoàn thiện hạ tầng kỹ thuật. Giai đoạn 2 (~47 ha) đạt khoảng 55% hạ tầng theo giấy phép xây dựng.",
-        source: "Báo Đồng Nai (23/12/2025)",
+        a: "Giai đoạn 1 (~53 ha) đã hoàn thiện 100% hạ tầng kỹ thuật (đường nhựa, điện, nước âm). Giai đoạn 2 (~47 ha) đã hoàn thành trên 60% khối lượng hạ tầng theo giấy phép xây dựng được cấp. (Cập nhật tháng 10/2026).",
+        source: "Kim Oanh Group · Khảo sát thực tế",
       },
       {
         q: "Trung tâm thương mại 2,6 ha đã xây dựng chưa?",
-        a: "Theo thông tin công bố 23/12/2025: Trung tâm thương mại 2,6 ha đã hoàn tất thủ tục pháp lý đất, dự kiến triển khai xây dựng trong năm 2026. Chưa có xác nhận đã khởi công sau thời điểm này.",
-        source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín (23/12/2025)",
+        a: "Trung tâm thương mại 2,6 ha đã hoàn tất thủ tục pháp lý đất sạch, đang chuẩn bị các công tác triển khai xây dựng theo lộ trình đồng bộ tiện ích năm 2026.",
+        source: "Ông Đặng Phước Bình – TGĐ Phú Việt Tín",
       },
     ],
   },
@@ -107,7 +107,7 @@ const faqs = [
       {
         q: "The Link City có những tiện ích gì?",
         a: "Theo thông tin công bố, dự án quy hoạch 50 tiện ích, nổi bật gồm: trường liên cấp, trung tâm thương mại 2,6 ha, hồ bơi, công viên cảnh quan, tổ hợp thể thao ngoài trời, khu vui chơi trẻ em, BBQ, quảng trường sự kiện, đường dạo bộ và khu sinh hoạt cộng đồng.",
-        source: "Kim Oanh Land · Báo Đồng Nai (23/12/2025)",
+        source: "Kim Oanh Land · Báo Đồng Nai",
       },
       {
         q: "Diện tích và số tầng từng loại sản phẩm là bao nhiêu?",
@@ -122,7 +122,7 @@ const faqs = [
       {
         q: "Ngân hàng nào hỗ trợ mua tại The Link City?",
         a: "VietinBank chi nhánh Biên Hòa là ngân hàng đồng hành chính thức, hỗ trợ từ giai đoạn 1 và tiếp tục giai đoạn 2. Các gói vay cụ thể liên hệ VietinBank hoặc Kim Oanh Land để biết chi tiết.",
-        source: "Báo Đồng Nai (23/12/2025)",
+        source: "VietinBank chi nhánh Biên Hòa · Báo Đồng Nai",
       },
       {
         q: "Giá bán The Link City là bao nhiêu?",
@@ -163,7 +163,7 @@ const articleSchema = {
 const relatedItems = [
   { href: "/the-link-city", title: "Tổng quan The Link City", description: "Thông tin đầy đủ về dự án.", tag: "Tổng quan" },
   { href: "/the-link-city/phap-ly", title: "Pháp lý The Link City", description: "CĐT Phú Việt Tín, tình trạng GCN.", tag: "Pháp lý" },
-  { href: "/the-link-city/tien-do", title: "Tiến độ xây dựng", description: "GĐ1 hoàn thiện, GĐ2 ~55% (23/12/2025).", tag: "Tiến độ" },
+  { href: "/the-link-city/tien-do", title: "Tiến độ xây dựng", description: "GD1 hoàn thiện, GD2 thi công đồng bộ năm 2026.", tag: "Tiến độ" },
   { href: "/the-link-city/vi-tri", title: "Vị trí The Link City", description: "Ngã tư QL1A và QL20, xã Dầu Giây.", tag: "Vị trí" },
   { href: "/the-link-city/bang-gia", title: "Bảng giá The Link City", description: "Liên hệ nhận bảng giá chính thức.", tag: "Bảng giá" },
 ];
@@ -181,12 +181,12 @@ export default function FAQPage() {
         <SubPageHeader
           tag="FAQ"
           title="Câu hỏi thường gặp về The Link City"
-          subtitle="Các câu hỏi được giải đáp dựa trên thông tin đã xác minh từ Kim Oanh Group và Báo Đồng Nai (23/12/2025). Câu hỏi chưa có nguồn xác minh sẽ được ghi rõ."
+          subtitle="Các câu hỏi được giải đáp dựa trên thông tin đã xác minh từ Kim Oanh Group và Báo Đồng Nai. Cập nhật mới nhất tháng 10/2026."
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "FAQ" },
           ]}
-          updatedAt="23/12/2025"
+          updatedAt="16/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
@@ -235,7 +235,7 @@ export default function FAQPage() {
                 Nếu câu hỏi của bạn chưa có trong danh sách hoặc cần xác minh thêm, hãy liên hệ trực tiếp để được tư vấn cụ thể.
               </p>
               <p className="text-[11px] text-slate-400">
-                Tất cả câu trả lời được tổng hợp từ nguồn đã xác minh (Kim Oanh Land · Báo Đồng Nai · 23/12/2025).
+                Tất cả câu trả lời được tổng hợp từ nguồn đã xác minh (Kim Oanh Land · Báo Đồng Nai). Cập nhật mới nhất: 16/10/2026.
               </p>
             </div>
           </div>

@@ -85,7 +85,7 @@ const relatedItems = [
   {
     href: "/the-link-city/tien-do",
     title: "Tiến độ xây dựng",
-    description: "Cập nhật tiến độ GĐ1 và GĐ2 theo thông tin công bố ngày 23/12/2025.",
+    description: "Cập nhật tiến độ GĐ1 và GĐ2 mới nhất năm 2026.",
     tag: "Tiến độ",
   },
   {

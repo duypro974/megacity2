@@ -86,7 +86,7 @@ export default function TienIchPage() {
         <SubPageHeader
           tag="Tiện ích"
           title="Hệ tiện ích The Link City Dầu Giây"
-          subtitle="50 tiện ích theo công bố tại sự kiện 23/12/2025. Các hạng mục đang ở các giai đoạn hoàn thiện khác nhau."
+          subtitle="50 tiện ích đẳng cấp quy hoạch đồng bộ. Các hạng mục đang ở các giai đoạn hoàn thiện khác nhau."
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "Tiện ích" },
@@ -150,14 +150,13 @@ export default function TienIchPage() {
               </div>
               <div className="p-5">
                 <p className="text-sm text-amber-900 leading-relaxed mb-3">
-                  Trung tâm thương mại quy mô 2,6 ha là điểm nhấn lớn nhất của hệ tiện ích The Link City.
-                  Theo thông tin công bố ngày 23/12/2025:
+                  Trung tâm thương mại quy mô 2,6 ha là điểm nhấn lớn nhất của hệ tiện ích The Link City:
                 </p>
                 <ul className="space-y-2 text-sm">
                   {[
                     { item: "Đã được cấp Giấy chứng nhận quyền sử dụng đất", done: true },
                     { item: "Hoàn tất thủ tục pháp lý điều chỉnh", done: true },
-                    { item: "Dự kiến triển khai xây dựng trong năm 2026", done: false },
+                    { item: "Chuẩn bị triển khai xây dựng", done: false },
                   ].map((r) => (
                     <li key={r.item} className="flex items-start gap-2.5">
                       <span className={`w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center text-[8px] font-black
@@ -169,7 +168,7 @@ export default function TienIchPage() {
                   ))}
                 </ul>
                 <p className="text-[11px] text-amber-700 mt-3">
-                  Nguồn: Báo Đồng Nai (23/12/2025) · Ông Đặng Phước Bình – TGĐ Phú Việt Tín
+                  Nguồn: Báo Đồng Nai · Ông Đặng Phước Bình – TGĐ Phú Việt Tín
                 </p>
               </div>
             </div>
@@ -204,7 +203,7 @@ export default function TienIchPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-[10px] text-slate-400 mt-3">Theo công bố tại sự kiện 23/12/2025</p>
+                <p className="text-[10px] text-slate-400 mt-3">Quy hoạch đồng bộ nội khu dự án</p>
               </div>
 
               <div className="bg-white rounded-2xl border border-slate-200 p-5">
@@ -272,7 +271,7 @@ export default function TienIchPage() {
         <section className="py-4 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <p className="text-xs text-slate-400">
-              Nguồn: Kim Oanh Land · Báo Đồng Nai (23/12/2025) · Cập nhật lần cuối: 23/12/2025
+              Nguồn: Kim Oanh Land · Báo Đồng Nai · Cập nhật mới nhất: 16/10/2026
             </p>
           </div>
         </section>

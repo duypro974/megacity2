@@ -22,7 +22,7 @@ const PROJECT_INFO = [
   { label: "Phát triển",  value: "Kim Oanh Group" },
   { label: "Quy mô",      value: "~84 ha - 3.160 sản phẩm thấp tầng" },
   { label: "Loại hình",   value: "Nhà phố · Nhà vườn liên kế · Biệt thự" },
-  { label: "Tiến độ HT",  value: "~95% (cập nhật 06/2025)" },
+  { label: "Tiến độ HT",  value: "~95% (hoàn thiện đồng bộ 2026)" },
   { label: "Pháp lý",     value: "QH 1/500 · QĐ 1772/QĐ-UBND" },
 ];
 
