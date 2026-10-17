@@ -28,10 +28,10 @@ const PAGE_URL = `${BASE_URL}/the-link-city/bang-gia`;
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Bảng giá đất nền The Link City Dầu Giây 2026",
-  image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/thelinkcity/overview/1.jpg",
+  name: "Mua Bán Đất Nền The Link City Dầu Giây 2026",
+  image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/thelinkcity/overview/1.webp",
   description:
-    "Bảng giá chính thức 369 sản phẩm đất nền sổ hồng riêng dự án The Link City ngã tư Dầu Giây, giá từ 1,852 tỷ/nền. VietinBank cho vay 70%, ân hạn nợ gốc 24 tháng.",
+    "Thông tin mua bán đất Dầu Giây mới nhất 2026: Bảng giá 369 sản phẩm đất nền The Link City giá gốc CĐT từ 1,852 tỷ/nền. Sổ hồng sẵn từng nền, VietinBank cho vay 70%, ân hạn nợ gốc 24 tháng.",
   brand: {
     "@type": "Brand",
     name: "Kim Oanh Land",
@@ -64,6 +64,22 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "Thị trường mua bán đất Dầu Giây năm 2026 có gì nổi bật và giá bao nhiêu 1m²?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Thị trường mua bán đất Dầu Giây năm 2026 ghi nhận mức giá phổ biến từ 19,5 – 22 triệu/m² đối với các dự án đô thị quy hoạch chuẩn chỉnh và 25 – 32 triệu/m² tại khu dân cư tự phát mặt tiền kinh doanh. Trong đó, đất nền The Link City (KDC A1-C1) là điểm sáng nhờ mức giá gốc chỉ từ 19,5 triệu/m², sổ hồng sẵn trao tay và hạ tầng điện âm hoàn thiện 100%.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Mua bán đất Dầu Giây tại The Link City có sổ hồng sang tên công chứng ngay không?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Có. Toàn bộ 369 sản phẩm đất nền The Link City Dầu Giây đều đã có sổ hồng riêng từng nền đứng tên chủ đầu tư. Khách hàng giao dịch được ký hợp đồng công chứng chuyển nhượng quyền sử dụng đất ngay trong tuần, pháp lý minh bạch tuyệt đối.",
+      },
+    },
     {
       "@type": "Question",
       name: "Đất nền The Link City Dầu Giây giá bao nhiêu 1m²?",
@@ -112,13 +128,13 @@ const breadcrumbSchema = {
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Bảng Giá The Link City Dầu Giây 2026: Giá chính thức từng lô",
+  headline: "Bán Đất Dầu Giây 2026: Bảng Giá The Link City Từ 1,85 Tỷ (Sổ Hồng Riêng)",
   description:
-    "Bảng giá The Link City 2026: 369 lô Sẵn sàng, đất nền từ 1,852 tỷ, biệt thự từ 3,744 tỷ, nhà phố xây sẵn từ 3,855 tỷ. Dữ liệu từ CRM Kim Oanh Land.",
+    "Thông tin mua bán đất Dầu Giây 2026: 369 lô đất nền The Link City giá từ 1,852 tỷ/nền (19,5 tr/m²). Sổ hồng riêng từng nền, VietinBank cho vay 70%, công chứng sang tên ngay.",
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai" },
   publisher: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
   datePublished: "2026-01-27",
-  dateModified: "2026-10-16",
+  dateModified: "2026-10-17",
   url: PAGE_URL,
 };
 
@@ -181,14 +197,14 @@ export default function BangGiaPage() {
 
       <div className="pb-20 min-h-screen">
         <SubPageHeader
-          tag="Bảng giá chính thức"
-          title="Bảng Giá The Link City Dầu Giây 2026"
-          subtitle={`${STATS.total} sản phẩm Sẵn sàng · Dữ liệu từ CRM Kim Oanh Land · Đất nền từ 1,852 tỷ · Biệt thự từ 3,744 tỷ · Nhà phố từ 3,855 tỷ`}
+          tag="Mua Bán Đất Dầu Giây · Bảng Giá 2026"
+          title="Bảng Giá Mua Bán Đất Dầu Giây — The Link City 2026"
+          subtitle={`${STATS.total} sản phẩm đất nền sổ hồng riêng · Giá gốc CĐT Kim Oanh từ 1,852 tỷ/nền (19,5 tr/m²) · VietinBank cho vay 70% ân hạn gốc 24 tháng`}
           breadcrumbs={[
             { label: "The Link City", href: "/the-link-city" },
             { label: "Bảng giá" },
           ]}
-          updatedAt="16/10/2026"
+          updatedAt="17/10/2026"
           backHref="/the-link-city"
           backLabel="Quay lại trang The Link City"
         />
@@ -497,10 +513,10 @@ export default function BangGiaPage() {
             <div className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 mb-10 anim-up">
               <div className="flex items-center gap-2 mb-4">
                 <span className="p-1.5 bg-primary-600 text-white rounded-lg"><TrendingUp className="w-4 h-4" /></span>
-                <h3 className="text-lg font-bold text-slate-900">So sánh giá The Link City với thị trường lân cận</h3>
+                <h3 className="text-lg font-bold text-slate-900">So sánh mặt bằng giá mua bán đất Dầu Giây 2026</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed mb-6">
-                Khi so sánh trực tiếp với đất thổ cư dân sinh tại Dầu Giây và các khu đô thị lân cận tại Nhơn Trạch, Long Thành, mức giá từ 19,5 tr/m² của The Link City sở hữu ưu thế áp đảo về hạ tầng và tính minh bạch pháp lý:
+                Khi so sánh trực tiếp với thị trường mua bán đất Dầu Giây (đất thổ cư dân sinh) và các khu đô thị lân cận tại Nhơn Trạch, Long Thành, mức giá từ 19,5 tr/m² của The Link City sở hữu ưu thế áp đảo về hạ tầng quy hoạch bài bản và tính minh bạch pháp lý sổ hồng riêng từng nền:
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">

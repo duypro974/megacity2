@@ -12,11 +12,15 @@ const CDN      = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_aut
 const OG_IMG   = `${CDN}/thelinkcity/overview/1.webp`;
 
 export const metadata: Metadata = {
-  title: "Bảng Giá The Link City Dầu Giây 2026: Từ 1,85 Tỷ (Sổ Hồng Sẵn)",
+  title: "Bán Đất Dầu Giây 2026: Bảng Giá The Link City Từ 1,85 Tỷ (Sổ Hồng Riêng)",
   description:
-    "Cập nhật bảng giá The Link City Dầu Giây mới nhất 2026: 369 lô đất nền sổ hồng riêng từ 1,852 tỷ, biệt thự từ 3,744 tỷ, nhà phố hoàn thiện từ 3,855 tỷ. VietinBank hỗ trợ vay 70%, ân hạn gốc 24 tháng.",
+    "Thông tin mua bán đất Dầu Giây mới nhất 2026: Bảng giá 369 lô đất nền The Link City (KDC A1-C1) giá gốc CĐT từ 1,852 tỷ/nền (19,5 tr/m²). Sổ hồng sẵn từng nền, ngân hàng VietinBank hỗ trợ vay 70%.",
   alternates: { canonical: PAGE_URL },
   keywords: [
+    "bán đất dầu giây",
+    "mua bán đất dầu giây",
+    "bán đất dầu giây đồng nai",
+    "bán đất ngã tư dầu giây",
     "bảng giá The Link City",
     "giá The Link City Dầu Giây",
     "bảng giá đất nền Dầu Giây 2026",
@@ -27,19 +31,19 @@ export const metadata: Metadata = {
     "giá nhà phố The Link City",
   ],
   openGraph: {
-    title: "Bảng Giá The Link City Dầu Giây 2026: Từ 1,85 Tỷ (Sổ Hồng Sẵn)",
+    title: "Bán Đất Dầu Giây 2026: Bảng Giá The Link City Từ 1,85 Tỷ (Sổ Hồng Riêng)",
     description:
-      "Bảng giá chính thức 369 sản phẩm The Link City Dầu Giây: Đất nền từ 1,852 tỷ, biệt thự từ 3,744 tỷ. Sổ hồng công chứng ngay, VietinBank cho vay 70%.",
+      "Mua bán đất nền Dầu Giây giá gốc CĐT: 369 sản phẩm The Link City từ 1,852 tỷ/nền. Sổ hồng công chứng ngay trong tuần, VietinBank cho vay 70%, ân hạn nợ gốc 24 tháng.",
     type: "article",
     locale: "vi_VN",
     siteName: "Kim Oanh Đồng Nai",
     url: PAGE_URL,
-    images: [{ url: OG_IMG, width: 1280, height: 720, alt: "Bảng giá The Link City Dầu Giây 2026" }],
+    images: [{ url: OG_IMG, width: 1280, height: 720, alt: "Bảng giá mua bán đất Dầu Giây The Link City 2026" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bảng Giá The Link City Dầu Giây 2026: Từ 1,85 Tỷ",
-    description: "369 lô Sẵn sàng từ 1,852 tỷ. Đất nền sổ hồng trao tay ngã tư QL1A - QL20.",
+    title: "Bán Đất Dầu Giây 2026: Bảng Giá The Link City Từ 1,85 Tỷ",
+    description: "Mua bán đất Dầu Giây sổ hồng trao tay: 369 lô từ 1,852 tỷ tại ngã tư QL1A - QL20.",
     images: [OG_IMG],
   },
 };
