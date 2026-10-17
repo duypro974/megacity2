@@ -17,15 +17,15 @@ const PUBLISHED_ISO = "2026-10-01";
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Đường Đi Từ TP.HCM Đến The Link City Dầu Giây: 3 Lộ Trình & Thời Gian Thực Tế 2026",
-  description: "Hướng dẫn 3 lộ trình đi từ TP.HCM đến The Link City Dầu Giây: qua cao tốc Long Thành–Dầu Giây, QL1A và hướng từ Biên Hòa. Khoảng cách, thời gian và mẹo di chuyển thực tế.",
+  headline: "Chỉ 45 Phút: Đường Đi Từ TPHCM Đến The Link City Dầu Giây 2026 (Tránh Kẹt Xe)",
+  description: "Hướng dẫn 3 lộ trình nhanh nhất từ TP.HCM đến The Link City Dầu Giây: chỉ 45 phút qua cao tốc Long Thành - Dầu Giây, cách né điểm kẹt xe và kinh nghiệm lái xe thực tế 2026.",
   image: [IMG_NEWS63["1"], IMG_NEWS63["4"], IMG_NEWS63["5"]],
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
   publisher: {
     "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL,
     logo: { "@type": "ImageObject", url: `${BASE_URL}/KOG_Web_RGB_01.svg` },
   },
-  datePublished: PUBLISHED_ISO, dateModified: PUBLISHED_ISO,
+  datePublished: PUBLISHED_ISO, dateModified: "2026-10-17",
   url: PAGE_URL, mainEntityOfPage: { "@type": "WebPage", "@id": PAGE_URL },
   keywords: "đường đi từ tphcm đến the link city dầu giây, từ tp hcm đi dầu giây bao lâu, lộ trình từ sài gòn đến dầu giây, the link city dầu giây cách tphcm bao xa",
   about: {
@@ -200,12 +200,11 @@ export default function DuongDiTLCPage() {
               <span className="text-xs text-slate-400">· 5 phút đọc</span>
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4 max-w-3xl">
-              Đường Đi Từ TP.HCM Đến The Link City Dầu Giây: 3 Lộ Trình & Thời Gian Thực Tế 2026
+              Chỉ 45 Phút: Đường Đi Từ TPHCM Đến The Link City Dầu Giây 2026 (Tránh Kẹt Xe)
             </h1>
             <p className="text-slate-500 text-base leading-relaxed max-w-2xl mb-8">
-              Từ trung tâm TP.HCM đến The Link City Dầu Giây chỉ khoảng 45–55 phút theo cao tốc.
-              Bài viết phân tích 3 lộ trình cụ thể theo từng điểm xuất phát, kèm khoảng cách,
-              thời gian thực tế và mẹo di chuyển tránh kẹt xe.
+              Từ trung tâm TP.HCM đến The Link City Dầu Giây chỉ mất khoảng 45–55 phút di chuyển theo cao tốc Long Thành – Dầu Giây.
+              Bài viết hướng dẫn chi tiết 3 lộ trình nhanh nhất, khoảng cách, thời gian thực tế theo từng khung giờ và kinh nghiệm tránh kẹt xe ngã tư Dầu Giây năm 2026.
             </p>
           </div>
 

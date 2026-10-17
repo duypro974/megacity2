@@ -221,10 +221,18 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Pháp lý dự án The Link City đã có sổ đỏ chưa?",
+      name: "The Link City Dầu Giây khi nào ra sổ, đã có sổ hồng chưa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Link City đã có Giấy chứng nhận quyền sử dụng đất (Sổ hồng) từng nền cấp cho Chủ đầu tư Phú Việt Tín, hoàn thành 100% tiền sử dụng đất với Cục Thuế Đồng Nai và quy hoạch chi tiết 1/500 phê duyệt đầy đủ. UBND tỉnh Đồng Nai đã ban hành Công văn số 2505/UBND-KTN ngày 13/02/2026 chỉ đạo Sở NN&MT đẩy nhanh cấp sổ cho từng khách hàng.",
+        text: "The Link City đã có Giấy chứng nhận quyền sử dụng đất (Sổ hồng) từng nền cấp cho Chủ đầu tư Phú Việt Tín đối với GĐ1, hoàn thành 100% tiền sử dụng đất với Cục Thuế Đồng Nai và quy hoạch chi tiết 1/500 phê duyệt đầy đủ. Sau khi công chứng hợp đồng chuyển nhượng, thời gian làm thủ tục đăng ký biến động và nhận sổ hồng sang tên cá nhân chỉ từ 15–30 ngày làm việc theo chỉ đạo tại Công văn 2505/UBND-KTN của UBND tỉnh Đồng Nai.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Từ TP.HCM đi The Link City Dầu Giây mất bao nhiêu phút?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Từ TP.HCM đến The Link City Dầu Giây chỉ mất khoảng 45–55 phút di chuyển theo tuyến cao tốc TP.HCM – Long Thành – Dầu Giây (khoảng cách 65km). Dự án tọa lạc ngay ngã tư Quốc lộ 1A và Quốc lộ 20 — trung tâm hành chính Dầu Giây.",
       },
     },
     {

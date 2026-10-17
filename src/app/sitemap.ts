@@ -40,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── The Link City (Pillar Page) ──────────────────────────
     {
       url: `${BASE}/the-link-city`,
-      lastModified: "2026-10-16",
+      lastModified: "2026-10-17",
       changeFrequency: "weekly",
       priority: 0.98,
       images: [
@@ -112,7 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/bang-gia`,
-      lastModified: "2026-10-16",
+      lastModified: "2026-10-17",
       changeFrequency: "daily",
       priority: 0.95,
       images: [
@@ -567,7 +567,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/tin-tuc/so-hong-the-link-city-dau-giay`,
-      lastModified: "2026-10-09",
+      lastModified: "2026-10-17",
       changeFrequency: "monthly" as const,
       priority: 0.89,
       images: [
@@ -681,7 +681,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/tin-tuc/duong-di-tu-tphcm-den-the-link-city-dau-giay`,
-      lastModified: "2026-10-01",
+      lastModified: "2026-10-17",
       changeFrequency: "monthly" as const,
       priority: 0.85,
       images: [

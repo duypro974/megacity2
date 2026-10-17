@@ -14,17 +14,17 @@ const PUBLISHED_ISO = "2026-10-09";
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Sổ Hồng The Link City Dầu Giây: Thực Tế Đã Cấp, Quy Trình & Thời Gian Nhận 2026",
-  description: "Sổ hồng The Link City Dầu Giây đã được cấp thực tế từng nền. Tìm hiểu quy trình nhận sổ, căn cứ pháp lý Công văn 2505 và thời gian dự kiến sang tên 2026.",
+  headline: "The Link City Dầu Giây Khi Nào Ra Sổ? Thực Tế Pháp Lý & Sổ Hồng 2026",
+  description: "Giải đáp chính xác The Link City khi nào ra sổ: Sở TN&MT Đồng Nai đã cấp sổ hồng riêng từng nền cho CĐT Phú Việt Tín. Hướng dẫn quy trình, điều kiện công chứng và thời gian nhận sổ sang tên 2026.",
   image: [IMG_NEWS74["1"], IMG_NEWS74["2"], IMG_NEWS74["3"]],
   author: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
   publisher: {
     "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL,
     logo: { "@type": "ImageObject", url: `${BASE_URL}/KOG_Web_RGB_01.svg` },
   },
-  datePublished: PUBLISHED_ISO, dateModified: PUBLISHED_ISO,
+  datePublished: PUBLISHED_ISO, dateModified: "2026-10-17",
   url: PAGE_URL, mainEntityOfPage: { "@type": "WebPage", "@id": PAGE_URL },
-  keywords: "sổ hồng the link city, the link city có sổ hồng chưa, quy trình nhận sổ hồng the link city, sổ hồng dầu giây 2026",
+  keywords: "the link city khi nào ra sổ, the link city có sổ chưa, sổ hồng the link city dầu giây, pháp lý the link city có sổ hồng chưa, quy trình nhận sổ hồng the link city, khi nào the link city ra sổ, sổ hồng dầu giây 2026",
 };
 
 const faqSchema = {
@@ -33,10 +33,10 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "The Link City Dầu Giây có sổ hồng chưa?",
+      name: "The Link City Dầu Giây khi nào ra sổ cho khách hàng?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Có. Chủ đầu tư Phú Việt Tín đã được UBND tỉnh Đồng Nai cấp Giấy chứng nhận quyền sử dụng đất (sổ hồng) cho toàn bộ quỹ đất dự án. Khi khách hàng ký hợp đồng chuyển nhượng và hoàn thành nghĩa vụ tài chính, sổ hồng sẽ được sang tên trực tiếp cho từng người mua.",
+        text: "Hiện tại, Sở TN&MT Đồng Nai đã cấp Giấy chứng nhận quyền sử dụng đất (sổ hồng) từng nền cho Chủ đầu tư Phú Việt Tín. Đối với các lô đất GĐ1, sau khi khách hàng hoàn tất thanh toán theo tiến độ và thực hiện ký hợp đồng công chứng chuyển nhượng, thời gian đăng ký biến động sang tên sổ hồng cho người mua chỉ mất khoảng 15–30 ngày làm việc.",
       },
     },
     {
@@ -80,7 +80,7 @@ const breadcrumbSchema = {
     { "@type": "ListItem", position: 1, name: "Trang chủ", item: BASE_URL },
     { "@type": "ListItem", position: 2, name: "Tin tức", item: `${BASE_URL}/tin-tuc` },
     { "@type": "ListItem", position: 3, name: "The Link City", item: `${BASE_URL}/the-link-city` },
-    { "@type": "ListItem", position: 4, name: "Sổ hồng The Link City", item: PAGE_URL },
+    { "@type": "ListItem", position: 4, name: "The Link City khi nào ra sổ", item: PAGE_URL },
   ],
 };
 
@@ -176,13 +176,13 @@ export default function SoHongTLCPage() {
               <span className="text-xs text-slate-400">· 6 phút đọc</span>
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4 max-w-3xl">
-              Sổ Hồng The Link City Dầu Giây: Thực Tế Đã Cấp, Quy Trình & Thời Gian Nhận 2026
+              The Link City Dầu Giây Khi Nào Ra Sổ? Thực Tế Pháp Lý &amp; Sổ Hồng 2026
             </h1>
             <p className="text-slate-500 text-base leading-relaxed max-w-2xl mb-8">
-              Câu hỏi pháp lý quan trọng nhất khi mua đất:{" "}
-              <em>&ldquo;Sổ hồng The Link City có thật không?&rdquo;</em> — Câu trả lời ngắn:
-              <strong> Có, đã cấp thực tế.</strong> Bài viết này phân tích căn cứ pháp lý,
-              quy trình nhận sổ và những điều cần biết trước khi ký hợp đồng.
+              Câu hỏi pháp lý được quan tâm nhất:{" "}
+              <em>&ldquo;The Link City Dầu Giây khi nào ra sổ, đã có sổ hồng thật chưa?&rdquo;</em> — Câu trả lời chính xác:
+              <strong> Đã được cấp sổ hồng riêng từng nền mang tên CĐT Phú Việt Tín.</strong> Bài viết này phân tích căn cứ pháp lý Công văn 2505,
+              quy trình công chứng chuyển nhượng và mốc thời gian nhận sổ sang tên khách hàng năm 2026.
             </p>
           </div>
 
