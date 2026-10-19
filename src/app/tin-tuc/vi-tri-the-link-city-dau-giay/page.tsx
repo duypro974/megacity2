@@ -538,9 +538,10 @@ export default function ViTriTLCPage() {
                 <SectionHeading>Tìm hiểu thêm về The Link City</SectionHeading>
                 <div className="pt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
-                    { href: "/the-link-city",                                                          label: "Tổng quan dự án The Link City" },
-                    { href: "/the-link-city/vi-tri",                                                   label: "Bản đồ vị trí chi tiết" },
-                    { href: "/the-link-city/bang-gia",                                                 label: "Bảng giá 2026" },
+                    { href: "/the-link-city",                                                          label: "Dự án The Link City Dầu Giây (Giá gốc CĐT)" },
+                    { href: "/the-link-city/bang-gia",                                                 label: "Bảng giá đất nền The Link City 2026" },
+                    { href: "/the-link-city/mat-bang",                                                 label: "Sơ đồ mặt bằng phân lô 369 sản phẩm" },
+                    { href: "/the-link-city/vi-tri",                                                   label: "Bản đồ vị trí & kết nối cao tốc" },
                     { href: "/tin-tuc/duong-di-tu-tphcm-den-the-link-city-dau-giay",                   label: "Đường đi từ TP.HCM: 3 lộ trình" },
                     { href: "/tin-tuc/tien-ich-ngoai-khu-the-link-city-dau-giay",                      label: "Tiện ích ngoại khu trong 5km" },
                     { href: "/tin-tuc/dau-giay-len-thi-xa-2026-2030-the-link-city",                    label: "Dầu Giây lên thị xã 2026–2030" },
@@ -591,15 +592,14 @@ export default function ViTriTLCPage() {
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                  <p className="font-bold text-slate-800 text-sm mb-4">Tìm hiểu The Link City</p>
+                  <p className="font-bold text-slate-800 text-sm mb-4">Dự án The Link City</p>
                   <div className="space-y-2.5">
                     {[
-                      { href: "/the-link-city",           label: "Tổng quan dự án" },
-                      { href: "/the-link-city/vi-tri",    label: "Bản đồ vị trí" },
-                      { href: "/the-link-city/phap-ly",   label: "Pháp lý dự án" },
-                      { href: "/the-link-city/bang-gia",  label: "Bảng giá 2026" },
-                      { href: "/the-link-city/tien-ich",  label: "Tiện ích nội khu" },
+                      { href: "/the-link-city",           label: "The Link City Dầu Giây" },
+                      { href: "/the-link-city/bang-gia",  label: "Bảng giá đất nền 2026" },
                       { href: "/the-link-city/mat-bang",  label: "Mặt bằng phân lô" },
+                      { href: "/the-link-city/phap-ly",   label: "Pháp lý sổ hồng có sẵn" },
+                      { href: "/the-link-city/vi-tri",    label: "Vị trí ngã tư Dầu Giây" },
                     ].map((l) => (
                       <a key={l.href} href={l.href}
                         className="flex items-center justify-between gap-2 text-sm text-slate-600 hover:text-amber-600 hover:translate-x-1 transition-all px-3 py-2 rounded-xl hover:bg-white">

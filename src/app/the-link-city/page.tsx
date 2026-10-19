@@ -86,7 +86,7 @@ const listingSchema = {
     "Dự án tại xã Dầu Giây, ngã tư Quốc lộ 1A và Quốc lộ 20, tỉnh Đồng Nai (tiền thân là dự án Dầu Giây Center City / Khu dân cư A1-C1). Quy mô 1.397 sản phẩm gồm nhà phố thương mại (shophouse), nhà phố liên kế và biệt thự. Chủ đầu tư: Công ty TNHH Đầu tư Phú Việt Tín. Đơn vị phát triển và phân phối: Kim Oanh Land.",
   url: "https://kimoanhdongnai.com.vn/the-link-city",
   datePosted: "2026-03-01",
-  dateModified: "2026-10-16",
+  dateModified: "2026-10-19",
   image: TLC_OG,
   hasMap: "https://maps.google.com/?cid=9641868529707424638",
   sameAs: [
@@ -830,11 +830,11 @@ export default function TheLinkCityPage() {
             </p>
 
             <p
-              className="text-white/70 text-sm md:text-base leading-relaxed max-w-lg mb-8 animate-fade-in"
+              className="text-white/80 text-sm md:text-base leading-relaxed max-w-xl mb-8 animate-fade-in"
               style={{ animationDelay: "300ms" }}
             >
-              Tọa lạc tại ngã tư Quốc lộ 1A &amp; Quốc lộ 20, trung tâm hành chính xã Dầu Giây.
-              Chủ đầu tư: Phú Việt Tín · Phát triển: Kim Oanh Land.
+              Dự án đất nền &amp; nhà phố thương mại tại ngã tư QL1A &amp; QL20, Dầu Giây, Đồng Nai.
+              Giá gốc CĐT từ 1,85 tỷ/nền (19,5 tr/m²), sổ hồng riêng từng nền công chứng ngay trong tuần.
             </p>
 
             <div className="flex flex-wrap gap-3 animate-fade-in" style={{ animationDelay: "380ms" }}>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import RelatedContent from "@/components/RelatedContent";
@@ -568,29 +569,27 @@ export default function DuongDiTLCPage() {
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                  <p className="font-bold text-slate-800 text-sm mb-4">Tìm hiểu The Link City</p>
+                  <p className="font-bold text-slate-800 text-sm mb-4">Dự án The Link City</p>
                   <div className="space-y-2.5">
                     {[
-                      { href: "/the-link-city",           label: "Tổng quan dự án" },
-                      { href: "/the-link-city/vi-tri",    label: "Vị trí & Kết nối" },
-                      { href: "/the-link-city/phap-ly",   label: "Pháp lý dự án" },
-                      { href: "/the-link-city/tien-do",   label: "Tiến độ xây dựng" },
-                      { href: "/the-link-city/bang-gia",  label: "Bảng giá 2026" },
-                      { href: "/the-link-city/tien-ich",  label: "Tiện ích nội khu" },
+                      { href: "/the-link-city",           label: "The Link City Dầu Giây" },
+                      { href: "/the-link-city/bang-gia",  label: "Bảng giá 369 lô (Từ 1,85 tỷ)" },
                       { href: "/the-link-city/mat-bang",  label: "Mặt bằng phân lô" },
-                      { href: "/the-link-city/hinh-anh",  label: "Hình ảnh thực tế" },
+                      { href: "/the-link-city/phap-ly",   label: "Sổ hồng từng nền 2026" },
+                      { href: "/the-link-city/vi-tri",    label: "Vị trí ngã tư QL1A - QL20" },
+                      { href: "/the-link-city/tien-do",   label: "Tiến độ hạ tầng thực tế" },
                     ].map((l) => (
-                      <a key={l.href} href={l.href}
+                      <Link key={l.href} href={l.href}
                         className="flex items-center justify-between gap-2 text-sm text-slate-600 hover:text-amber-600 hover:translate-x-1 transition-all px-3 py-2 rounded-xl hover:bg-white">
                         <span>{l.label}</span><span className="text-slate-300">→</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
 
                 <div className="rounded-2xl bg-amber-500 text-white p-5">
-                  <p className="font-bold text-sm mb-1">Đặt lịch tham quan</p>
-                  <p className="text-amber-100 text-xs mb-4">Gọi trước để được đón tiếp và hướng dẫn lộ trình tận nơi.</p>
+                  <p className="font-bold text-sm mb-1">Đặt lịch tham quan thực tế</p>
+                  <p className="text-amber-100 text-xs mb-4">Gọi trước để được đón tiếp tại dự án và hướng dẫn lộ trình né kẹt xe tận nơi.</p>
                   <a href="tel:0937587438" className="block text-center bg-white text-amber-700 font-bold text-sm px-4 py-2.5 rounded-xl hover:bg-amber-50 transition-colors">
                     0937.587.438
                   </a>
@@ -605,14 +604,17 @@ export default function DuongDiTLCPage() {
           <div className="max-w-3xl mx-auto px-4 text-center">
             <h2 className="text-2xl font-black text-slate-900 mb-3">Sẵn sàng đến thăm The Link City?</h2>
             <p className="text-slate-600 text-base mb-8 leading-relaxed">
-              Chỉ 45 phút từ TP.HCM theo cao tốc. Gọi trước để được tư vấn lộ trình và
-              đặt lịch tham quan dự án — đội ngũ sẽ hỗ trợ hướng dẫn chi tiết từ điểm xuất phát của bạn.
+              Chỉ 45 phút từ TP.HCM theo cao tốc Long Thành – Dầu Giây. Quý khách có thể xem trước bảng giá 369 sản phẩm hoặc
+              đặt lịch tham quan thực địa dự án cùng chuyên viên Kim Oanh Land.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <a href="/the-link-city" className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 text-sm">
-                Xem dự án →
-              </a>
-              <a href="tel:0937587438" className="inline-flex items-center gap-2 border-2 border-amber-500 text-amber-700 hover:bg-amber-50 font-bold px-7 py-3.5 rounded-full transition-all text-sm">
+              <Link href="/the-link-city" className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 text-sm">
+                Khám phá The Link City Dầu Giây →
+              </Link>
+              <Link href="/the-link-city/bang-gia" className="inline-flex items-center gap-2 bg-white border-2 border-amber-500 text-amber-700 hover:bg-amber-50 font-bold px-7 py-3.5 rounded-full transition-all text-sm shadow-sm">
+                Xem bảng giá 369 lô
+              </Link>
+              <a href="tel:0937587438" className="inline-flex items-center gap-2 border-2 border-slate-300 text-slate-700 hover:bg-slate-100 font-bold px-6 py-3.5 rounded-full transition-all text-sm">
                 Gọi 0937.587.438
               </a>
             </div>

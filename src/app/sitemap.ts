@@ -40,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── The Link City (Pillar Page) ──────────────────────────
     {
       url: `${BASE}/the-link-city`,
-      lastModified: "2026-10-17",
+      lastModified: "2026-10-19",
       changeFrequency: "weekly",
       priority: 0.98,
       images: [
@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Topic Cluster: The Link City ──────────────────────────
     {
       url: `${BASE}/the-link-city/vi-tri`,
-      lastModified: "2026-10-16",
+      lastModified: "2026-10-19",
       changeFrequency: "weekly",
       priority: 0.88,
       images: [cimg("thelinkcity/location/1.jpg"), cimg("thelinkcity/location/2.jpg")],
@@ -112,7 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/the-link-city/bang-gia`,
-      lastModified: "2026-10-17",
+      lastModified: "2026-10-19",
       changeFrequency: "daily",
       priority: 0.95,
       images: [
@@ -556,7 +556,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // /tin-tuc/phap-ly-mega-city-2 â†’ REMOVED (301 redirect to /mega-city-2/phap-ly, 2026-09-22)
     {
       url: `${BASE}/tin-tuc/vi-tri-the-link-city-dau-giay`,
-      lastModified: "2026-10-08",
+      lastModified: "2026-10-19",
       changeFrequency: "monthly" as const,
       priority: 0.87,
       images: [
@@ -567,7 +567,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/tin-tuc/so-hong-the-link-city-dau-giay`,
-      lastModified: "2026-10-17",
+      lastModified: "2026-10-19",
       changeFrequency: "monthly" as const,
       priority: 0.89,
       images: [
@@ -681,7 +681,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/tin-tuc/duong-di-tu-tphcm-den-the-link-city-dau-giay`,
-      lastModified: "2026-10-17",
+      lastModified: "2026-10-19",
       changeFrequency: "monthly" as const,
       priority: 0.85,
       images: [
@@ -1039,7 +1039,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/tin-tuc/shophouse-the-link-city-dau-giay-tiem-nang-kinh-doanh-2026`,
-      lastModified: "2026-09-12",
+      lastModified: "2026-10-19",
       changeFrequency: "monthly" as const,
       priority: 0.85,
       images: [

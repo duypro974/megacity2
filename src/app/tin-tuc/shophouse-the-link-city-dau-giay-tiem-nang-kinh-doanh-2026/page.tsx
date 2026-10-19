@@ -898,13 +898,14 @@ export default function ShophouseTheLinkCityPage() {
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                  <p className="font-bold text-slate-800 text-sm mb-3">Bài viết liên quan</p>
+                  <p className="font-bold text-slate-800 text-sm mb-3">Dự án The Link City</p>
                   <div className="space-y-3">
                     {[
-                      { label: "Tổng quan The Link City",       href: "/tin-tuc/tong-quan-the-link-city-dau-giay" },
-                      { label: "Bảng giá & Vay ngân hàng",      href: "/tin-tuc/bang-gia-the-link-city-dau-giay-bai-toan-vay-ngan-hang-2026" },
-                      { label: "50+ Tiện ích The Link City",    href: "/tin-tuc/he-sinh-thai-tien-ich-the-link-city-dau-giay-2026" },
-                      { label: "Quy trình mua bán",             href: "/tin-tuc/quy-trinh-mua-ban-the-link-city-dau-giay-tieu-chuan-xay-dung-2026" },
+                      { label: "The Link City Dầu Giây",        href: "/the-link-city" },
+                      { label: "Bảng giá Shophouse & Đất nền",  href: "/the-link-city/bang-gia" },
+                      { label: "Sơ đồ mặt bằng phân lô",        href: "/the-link-city/mat-bang" },
+                      { label: "Pháp lý sổ hồng từng căn",      href: "/the-link-city/phap-ly" },
+                      { label: "Tổng quan & thông số dự án",    href: "/tin-tuc/tong-quan-the-link-city-dau-giay" },
                     ].map((l) => (
                       <a key={l.href} href={l.href} className="block text-sm text-slate-600 hover:text-amber-600 transition-colors">
                         → {l.label}
@@ -944,10 +945,16 @@ export default function ShophouseTheLinkCityPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <a
+                href="/the-link-city"
+                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 text-sm"
+              >
+                Khám phá The Link City Dầu Giây →
+              </a>
+              <a
                 href="/the-link-city/bang-gia"
                 className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 text-sm"
               >
-                Xem bảng giá Shophouse →
+                Bảng giá 369 sản phẩm
               </a>
               <a
                 href="tel:0937587438"

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import RelatedContent from "@/components/RelatedContent";
@@ -278,6 +279,32 @@ export default function SoHongTLCPage() {
                       </div>
                     ))}
                   </div>
+
+                  {/* ── Internal Link Banner: Sổ hồng sẵn sàng công chứng ── */}
+                  <div className="rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-50 to-emerald-50 border border-amber-200 p-5 mt-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                      <div>
+                        <p className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                          <span className="text-amber-600 font-black">✦</span>
+                          Sẵn sàng công chứng sang tên ngay trong tuần
+                        </p>
+                        <p className="text-xs text-slate-600 mt-1">
+                          Toàn bộ 369 sản phẩm đất nền và biệt thự tại <strong>The Link City Dầu Giây</strong> đã có sổ hồng riêng từng lô. Giá gốc CĐT chỉ từ 1,85 tỷ/nền (19,5 tr/m²).
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap sm:flex-nowrap gap-2 shrink-0">
+                        <Link href="/the-link-city/bang-gia"
+                          className="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-sm">
+                          Xem bảng giá 369 lô
+                          <span className="text-xs">→</span>
+                        </Link>
+                        <Link href="/the-link-city/mat-bang"
+                          className="inline-flex items-center gap-1.5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-2.5 rounded-xl transition-all">
+                          Mặt bằng phân lô
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </section>
 
@@ -521,14 +548,14 @@ export default function SoHongTLCPage() {
                 <SectionHeading>Tìm hiểu thêm</SectionHeading>
                 <div className="pt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
+                    { href: "/the-link-city",                                                               label: "Dự án The Link City Dầu Giây (Giá gốc CĐT)" },
+                    { href: "/the-link-city/bang-gia",                                                      label: "Bảng giá 369 lô The Link City (Sổ hồng riêng)" },
+                    { href: "/the-link-city/mat-bang",                                                      label: "Sơ đồ mặt bằng phân lô The Link City" },
                     { href: "/the-link-city/phap-ly",                                                      label: "Hồ sơ pháp lý The Link City đầy đủ" },
                     { href: "/tin-tuc/ho-so-phap-ly-the-link-city-dau-giay-cong-van-2505-ubnd-2026",        label: "Giải mã Công văn 2505 chi tiết" },
-                    { href: "/tin-tuc/chinh-sach-ban-hang-the-link-city-dau-giay-2026",                     label: "Chính sách bán hàng & tiến độ thanh toán" },
+                    { href: "/tin-tuc/chinh-sach-ban-hang-the-link-city-dau-giay-2026",                     label: "Chính sách bán hàng & thanh toán VietinBank" },
                     { href: "/tin-tuc/quy-trinh-mua-ban-the-link-city-dau-giay-tieu-chuan-xay-dung-2026",   label: "Quy trình mua bán 5 bước" },
-                    { href: "/tin-tuc/co-nen-mua-dat-nen-the-link-city-dau-giay-2026",                      label: "Có nên mua The Link City không?" },
-                    { href: "/tin-tuc/ha-tang-ky-thuat-the-link-city-dau-giay",                             label: "Hạ tầng kỹ thuật hoàn thiện 100%" },
-                    { href: "/the-link-city",                                                               label: "Tổng quan dự án The Link City" },
-                    { href: "/the-link-city/bang-gia",                                                      label: "Bảng giá 2026" },
+                    { href: "/tin-tuc/duong-di-tu-tphcm-den-the-link-city-dau-giay",                       label: "Đường đi từ TPHCM đến The Link City (45 phút)" },
                   ].map((l) => (
                     <a key={l.href} href={l.href}
                       className="flex items-center gap-2 text-sm text-slate-600 hover:text-amber-600 transition-colors px-4 py-3 rounded-xl border border-slate-100 hover:border-amber-200 hover:bg-amber-50">
@@ -575,13 +602,14 @@ export default function SoHongTLCPage() {
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                  <p className="font-bold text-slate-800 text-sm mb-4">Pháp lý The Link City</p>
+                  <p className="font-bold text-slate-800 text-sm mb-4">Dự án The Link City</p>
                   <div className="space-y-2.5">
                     {[
-                      { href: "/the-link-city/phap-ly",    label: "Hồ sơ pháp lý" },
-                      { href: "/the-link-city/bang-gia",   label: "Bảng giá 2026" },
+                      { href: "/the-link-city",            label: "The Link City Dầu Giây" },
+                      { href: "/the-link-city/bang-gia",   label: "Bảng giá 369 lô có sổ" },
+                      { href: "/the-link-city/mat-bang",   label: "Mặt bằng phân lô" },
+                      { href: "/the-link-city/phap-ly",    label: "Hồ sơ pháp lý đầy đủ" },
                       { href: "/the-link-city/thanh-toan", label: "Tiến độ thanh toán" },
-                      { href: "/the-link-city",            label: "Tổng quan dự án" },
                     ].map((l) => (
                       <a key={l.href} href={l.href}
                         className="flex items-center justify-between gap-2 text-sm text-slate-600 hover:text-amber-600 hover:translate-x-1 transition-all px-3 py-2 rounded-xl hover:bg-white">
