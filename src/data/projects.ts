@@ -45,6 +45,26 @@ const MCCLOUD = "https://res.cloudinary.com/dqy4lfmcf/image/upload";
 const MCOPT = "f_auto,q_auto:good,w_800,c_limit";
 
 export const PROJECTS: ProjectPreview[] = [
+  // ── ONE ERA BÌNH DƯƠNG (SIÊU DỰ ÁN 1 TỶ USD) ────────────
+  {
+    slug: "one-era",
+    name: "One Era Bình Dương",
+    brand: "Kinera · Kim Oanh Group",
+    location: "Thuận Giao, TP. Thuận An, Bình Dương",
+    category: "mega-city",
+    type: "Nhà phố Townhouse · Shophouse thương mại · Căn hộ",
+    description:
+      "Siêu đô thị kiểu mẫu thế hệ mới ~50 ha, vốn đầu tư liên doanh chiến lược giữa Kim Oanh Group và 3 tập đoàn Nhật Bản (Sumitomo Forestry, Kumagai Gumi, NTT UD). Mở bán đợt 1 phân khu Central District 357 căn thấp tầng giới hạn.",
+    image: `${MCCLOUD}/${MCOPT}/oneera/hero/one-era-night-kinera-towers.webp`,
+    href: "/one-era",
+    status: "dang-mo-ban",
+    featured: true,
+    priceFrom: "Giá gốc Đợt 1 CĐT",
+    showPriceOnCorporate: false,
+    scale: "~50 ha · 1 Tỷ USD · 357 căn Central District",
+    year: 2026,
+    verified: true,
+  },
   // ── MEGA CITY ─────────────────────────────────────────────
   {
     slug: "mega-city-2",

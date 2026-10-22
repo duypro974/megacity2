@@ -141,6 +141,7 @@ export default function CorpFooter() {
             </h4>
             <ul className="space-y-3">
               {[
+                { label: "One Era", href: "/one-era", external: false },
                 { label: "The Link City", href: "/the-link-city", external: false },
                 { label: "Mega City 2", href: "/mega-city-2", external: false },
                 {

@@ -17,6 +17,12 @@ const NAV = [
     href: "#du-an",
     children: [
       {
+        label: "One Era",
+        note: "Bình Dương (Chuẩn Nhật)",
+        href: "/one-era",
+        external: false,
+      },
+      {
         label: "The Link City",
         note: "Dầu Giây, Đồng Nai",
         href: "/the-link-city",

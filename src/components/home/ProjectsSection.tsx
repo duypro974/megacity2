@@ -13,6 +13,7 @@ import { PROJECTS, STATUS_LABEL, STATUS_COLOR, type ProjectPreview } from "@/dat
 
 // Scope được hỗ trợ bởi website này — thứ tự hiển thị (ưu tiên The Link City)
 const SCOPE_SLUGS = [
+  "one-era",
   "the-link-city",
   "mega-city-2",
   "k-home-cityview",

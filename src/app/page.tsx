@@ -6,6 +6,7 @@ import LeadPopup from "@/components/LeadPopup";
 
 // Homepage sections — theo đúng thứ tự cấu trúc
 import HomeHero from "@/components/home/Hero";
+import Home3DExperience from "@/components/home/Home3DExperience";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import BusinessAreasSection from "@/components/home/BusinessAreasSection";
 import ValuesSection from "@/components/home/ValuesSection";
@@ -152,6 +153,10 @@ export default function HomePage() {
       <main>
         {/* 02. Hero */}
         <HomeHero />
+
+        {/* 03. Dự án đang được quan tâm */}
+        {/* 02.5. Trải Nghiệm 3D Đại Đô Thị Thực Tế Ảo */}
+        <Home3DExperience />
 
         {/* 03. Dự án đang được quan tâm */}
         <ProjectsSection />

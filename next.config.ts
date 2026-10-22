@@ -28,8 +28,9 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' data: https://fonts.gstatic.com",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://www.youtube.com https://www.gstatic.com",
-      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.google.com https://www.gstatic.com https://connect.facebook.net https://www.youtube.com",
-      "frame-src 'self' https://www.google.com https://www.youtube.com https://www.facebook.com",
+      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.google.com https://www.gstatic.com https://connect.facebook.net https://www.youtube.com https://360.oneera.com.vn https://ik.imagekit.io",
+      "frame-src 'self' https://www.google.com https://www.youtube.com https://www.facebook.com https://360.oneera.com.vn https://oneera.com.vn",
+      "media-src 'self' data: blob: https://ik.imagekit.io https://res.cloudinary.com https://360.oneera.com.vn",
       "frame-ancestors 'self'",
     ].join("; "),
   },
@@ -49,6 +50,16 @@ const nextConfig: NextConfig = {
   // ─────────────────────────────────────────────────────────────
   async redirects() {
     return [
+      {
+        source: "/one%20era",
+        destination: "/one-era",
+        permanent: true,
+      },
+      {
+        source: "/one era",
+        destination: "/one-era",
+        permanent: true,
+      },
       {
         source: "/tin-tuc/phap-ly-mega-city-2",
         destination: "/mega-city-2/phap-ly",

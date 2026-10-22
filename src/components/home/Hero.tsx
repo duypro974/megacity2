@@ -147,6 +147,16 @@ export default function HomeHero() {
           <div className="max-w-5xl mx-auto">
 
             {/* Eyebrow */}
+            <div className="mb-5">
+              <a
+                href="/one-era"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-pink-500/20 to-amber-500/10 border border-amber-400/40 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md shadow-lg shadow-amber-500/10 hover:border-amber-300 transition-all group animate-pulse"
+              >
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                <span>✨ KHÁM PHÁ VIRTUAL TOUR 360° ĐẠI ĐÔ THỊ ONE ERA</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
             <div className="flex items-center gap-3 mb-7">
               <span className="inline-block w-10 h-px bg-amber-400 flex-shrink-0" />
               <p className="text-amber-400 text-[11px] font-bold tracking-[0.18em] uppercase">
@@ -184,7 +194,16 @@ export default function HomeHero() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-20">
-              <a
+                            <a
+                href="/one-era"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400
+                           text-slate-950 px-8 py-4 rounded-full text-sm font-black
+                           shadow-xl shadow-amber-500/30 hover:scale-105 transition-all group"
+              >
+                <span>👑 KHÁM PHÁ ONE ERA 3D</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+<a
                 href="/the-link-city"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300
                            text-slate-950 px-8 py-4 rounded-full text-sm font-black

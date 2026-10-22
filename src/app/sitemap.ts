@@ -37,6 +37,70 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
+    // ── ONE ERA BÌNH DƯƠNG (Đại Đô Thị Kiểu Mẫu) ────────────
+    {
+      url: `${BASE}/one-era/360`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [cimg("oneera/hero/one-era-night-kinera-towers.webp")],
+    },
+    {
+      url: `${BASE}/one-era`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.99,
+      images: [
+        cimg("oneera/hero/one-era-night-kinera-towers.webp"),
+        cimg("oneera/hero/one-era-skyline-sunset.webp"),
+        cimg("oneera/hero/one-era-grand-boulevard.webp"),
+        cimg("oneera/master-plan/one-era-top-view-masterplan.webp"),
+        cimg("oneera/leaflets/central_district_leaflet_back_p1.webp"),
+      ],
+    },
+    // Topic Cluster: ONE ERA
+    {
+      url: `${BASE}/one-era/vi-tri`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [cimg("oneera/master-plan/one-era-tam-giao-connectivity.webp")],
+    },
+    {
+      url: `${BASE}/one-era/mat-bang`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [
+        cimg("oneera/leaflets/one-era-central-district-leaflet-back-plan.webp"),
+        cimg("oneera/leaflets/one-era-central-district-leaflet-front-plan.webp"),
+      ],
+    },
+    {
+      url: `${BASE}/one-era/bang-gia`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.88,
+      images: [cimg("oneera/products/one-era-shophouse-commercial-facade.webp")],
+    },
+    {
+      url: `${BASE}/one-era/tien-ich`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.86,
+      images: [
+        cimg("oneera/amenities/one-era-aeon-mall-shopping.webp"),
+        cimg("oneera/amenities/one-era-vas-saigon-school.webp"),
+      ],
+    },
+    {
+      url: `${BASE}/one-era/phap-ly`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      images: [cimg("oneera/developers/one-era-kinera-consortium.webp")],
+    },
+
     // ── The Link City (Pillar Page) ──────────────────────────
     {
       url: `${BASE}/the-link-city`,
