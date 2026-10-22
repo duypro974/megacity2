@@ -21,6 +21,7 @@ const NAV = [
         note: "Bình Dương (Chuẩn Nhật)",
         href: "/one-era",
         external: false,
+        isHot: true,
       },
       {
         label: "The Link City",
@@ -60,6 +61,11 @@ const NAV = [
         isViewAll: true,
       },
     ],
+  },
+  {
+    label: "Tour 360°",
+    href: "/one-era/360",
+    badge: "MỚI",
   },
   { label: "Tin tức", href: "/tin-tuc" },
   { label: "Liên hệ", href: "/lien-he" },
@@ -105,7 +111,7 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
   const isOnHomePage = typeof window !== "undefined" && window.location.pathname === "/";
 
   const renderLink = (
-    item: { label: string; href: string; external?: boolean; note?: string; isViewAll?: boolean },
+    item: { label: string; href: string; external?: boolean; note?: string; isViewAll?: boolean; isHot?: boolean },
     onClick?: () => void
   ) => {
     if (item.external) {
@@ -117,10 +123,19 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
           onClick={onClick}
           className="flex items-center justify-between px-4 py-3 hover:bg-amber-50 transition-colors group border-b border-slate-50 last:border-0"
         >
-          <span className="text-sm font-semibold text-slate-800 group-hover:text-amber-600">
-            {item.label}
-          </span>
-          {item.note && <span className="text-xs text-slate-400">{item.note}</span>}
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm font-semibold text-slate-800 group-hover:text-amber-600">
+                {item.label}
+              </span>
+              {item.isHot && (
+                <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 shadow-sm animate-pulse">
+                  HOT
+                </span>
+              )}
+            </div>
+            {item.note && <span className="text-xs text-slate-400 font-normal">{item.note}</span>}
+          </div>
         </a>
       );
     }
@@ -148,10 +163,19 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
           onClick={onClick}
           className="flex items-center justify-between px-4 py-3 hover:bg-amber-50 transition-colors group border-b border-slate-50 last:border-0"
         >
-          <span className="text-sm font-semibold text-slate-800 group-hover:text-amber-600">
-            {item.label}
-          </span>
-          {item.note && <span className="text-xs text-slate-400">{item.note}</span>}
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm font-semibold text-slate-800 group-hover:text-amber-600">
+                {item.label}
+              </span>
+              {item.isHot && (
+                <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 shadow-sm animate-pulse">
+                  HOT
+                </span>
+              )}
+            </div>
+            {item.note && <span className="text-xs text-slate-400 font-normal">{item.note}</span>}
+          </div>
         </Link>
       );
     }
@@ -164,10 +188,19 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
         }}
         className="flex items-center justify-between px-4 py-3 hover:bg-amber-50 transition-colors group border-b border-slate-50 last:border-0"
       >
-        <span className="text-sm font-semibold text-slate-800 group-hover:text-amber-600">
-          {item.label}
-        </span>
-        {item.note && <span className="text-xs text-slate-400">{item.note}</span>}
+        <div className="flex flex-col">
+          <div className="flex items-center gap-1.5">
+            <span className="text-sm font-semibold text-slate-800 group-hover:text-amber-600">
+              {item.label}
+            </span>
+            {item.isHot && (
+              <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 shadow-sm animate-pulse">
+                HOT
+              </span>
+            )}
+          </div>
+          {item.note && <span className="text-xs text-slate-400 font-normal">{item.note}</span>}
+        </div>
       </a>
     );
   };
@@ -199,9 +232,9 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
           </Link>
 
           {/* ── Desktop nav ── */}
-          <nav className="hidden xl:flex items-center gap-0.5">
+          <nav className="hidden lg:flex items-center gap-1">
             {NAV.map((item) => (
-              <div key={item.label} className="relative" data-dropdown-container>
+              <div key={item.label} className="relative group" data-dropdown-container onMouseEnter={() => item.children && setDropdown(item.label)} onMouseLeave={() => item.children && setDropdown(null)}>
                 {item.children ? (
                   <>
                     <button
@@ -247,6 +280,11 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
                     )}
                   >
                     {item.label}
+                    {(item as any).badge && (
+                      <span className="ml-1 text-[9px] font-black px-1.5 py-0.5 rounded bg-amber-400 text-slate-950 shadow-sm">
+                        {(item as any).badge}
+                      </span>
+                    )}
                   </Link>
                 ) : (
                   <a
@@ -393,7 +431,12 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
                       onClick={() => setOpen(false)}
                     >
                       {item.label}
-                    </Link>
+                    {(item as any).badge && (
+                      <span className="ml-1 text-[9px] font-black px-1.5 py-0.5 rounded bg-amber-400 text-slate-950 shadow-sm">
+                        {(item as any).badge}
+                      </span>
+                    )}
+                  </Link>
                   ) : (
                     <a
                       href={item.href}

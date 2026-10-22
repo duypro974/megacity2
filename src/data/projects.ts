@@ -61,7 +61,7 @@ export const PROJECTS: ProjectPreview[] = [
     featured: true,
     priceFrom: "Giá gốc Đợt 1 CĐT",
     showPriceOnCorporate: false,
-    scale: "~50 ha · 1 Tỷ USD · 357 căn Central District",
+    scale: "~50 ha · Chuẩn Nhật Bản · 357 căn Central District",
     year: 2026,
     verified: true,
   },

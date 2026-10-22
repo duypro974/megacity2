@@ -130,12 +130,12 @@ export default function ProjectsSection() {
             eyebrow="DỰ ÁN ĐANG ĐƯỢC QUAN TÂM"
             title={
               <>
-                Dự án Kim Oanh
+                Đại Đô Thị
                 <br />
-                <span className="text-amber-500">tại Đồng Nai</span>
+                <span className="text-amber-500">Trọng Điểm</span>
               </>
             }
-            subtitle="Khám phá thông tin các dự án Kim Oanh đang được website hỗ trợ tại Đồng Nai."
+            subtitle="Khám phá các đại đô thị tiêu biểu do Kim Oanh Group phát triển tại Bình Dương và Đồng Nai: One Era, The Link City, Mega City 2."
             className="mb-0"
           />
           <a
