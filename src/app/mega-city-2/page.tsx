@@ -446,7 +446,6 @@ export default function HomePage() {
 
       <CorpHeader hideOnScroll />
       <MegaCity2QuickNav />
-      <SectionNav />
       <LeadPopup />
 
       <main className="pb-16 lg:pb-0">

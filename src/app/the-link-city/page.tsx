@@ -760,7 +760,6 @@ export default function TheLinkCityPage() {
       <ScrollAnimator />
       <CorpHeader hideOnScroll />
       <TheLinkCityQuickNav />
-      <TLCSectionNav />
 
       {/* ─── SECTION 01: HERO ─── */}
       <section className="relative h-screen min-h-[640px] max-h-[900px] flex flex-col overflow-hidden bg-slate-900">

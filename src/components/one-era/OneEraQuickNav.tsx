@@ -1,34 +1,48 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Phone, Compass, Sparkles } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Phone, Compass, Sparkles, ChevronDown } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { cn } from "@/lib/utils";
 
-const NAV_ITEMS = [
+interface NavItem {
+  label: string;
+  href: string;
+  highlight?: boolean;
+}
+
+const PRIMARY_ITEMS: NavItem[] = [
   { label: "Virtual Tour 360°", href: "#trai-nghiem-360", highlight: true },
-  { label: "Sơ đồ 3D", href: "#mat-bang-3d" },
   { label: "Tổng quan", href: "#tong-quan" },
   { label: "Vị trí", href: "#vi-tri" },
-  { label: "Đối tác Nhật", href: "#doi-tac" },
   { label: "Central District", href: "#central-district" },
   { label: "Sản phẩm", href: "#san-pham" },
-  { label: "Nội thất 3D", href: "#noi-that" },
   { label: "Tiện ích", href: "#tien-ich" },
   { label: "Bảng giá", href: "#bang-gia" },
-  { label: "Tài liệu", href: "#tai-lieu" },
 ];
+
+const MORE_ITEMS: NavItem[] = [
+  { label: "Sơ đồ 3D", href: "#mat-bang-3d" },
+  { label: "Đối tác Nhật", href: "#doi-tac" },
+  { label: "Nội thất 3D", href: "#noi-that" },
+  { label: "Tài liệu Brochure", href: "#tai-lieu" },
+];
+
+const ALL_ITEMS: NavItem[] = [...PRIMARY_ITEMS, ...MORE_ITEMS];
 
 export default function OneEraQuickNav() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("trai-nghiem-360");
+  const [moreOpen, setMoreOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const moreTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 280);
 
       // detect active section
-      for (const item of NAV_ITEMS) {
+      for (const item of ALL_ITEMS) {
         const id = item.href.replace("#", "");
         const el = document.getElementById(id);
         if (el) {
@@ -46,7 +60,19 @@ export default function OneEraQuickNav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!moreOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [moreOpen]);
+
   const scrollTo = (href: string) => {
+    setMoreOpen(false);
     if (href === "#trai-nghiem-360") {
       window.dispatchEvent(new CustomEvent("open-oneera-360"));
     }
@@ -58,6 +84,21 @@ export default function OneEraQuickNav() {
     }
   };
 
+  const handleMouseEnter = () => {
+    if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
+    setMoreOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
+    moreTimeoutRef.current = setTimeout(() => {
+      setMoreOpen(false);
+    }, 180);
+  };
+
+  const activeMoreItem = MORE_ITEMS.find((item) => item.href.replace("#", "") === activeSection);
+  const isMoreActive = Boolean(activeMoreItem);
+
   return (
     <nav
       aria-label="One Era Quick Nav"
@@ -68,30 +109,30 @@ export default function OneEraQuickNav() {
           : "-translate-y-full opacity-0 pointer-events-none"
       )}
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6">
-        {/* Main Header Row */}
-        <div className="flex items-center justify-between h-14 gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Main Desktop / Mobile Header Row */}
+        <div className="flex items-center justify-between h-14 gap-2 lg:gap-4">
           {/* Brand Logo / Tag */}
           <div
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-2.5 cursor-pointer group shrink-0"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#dfb552] animate-pulse shadow-[0_0_10px_#dfb552]" />
-            <span className="font-extrabold tracking-wider text-white text-sm sm:text-base group-hover:text-[#dfb552] transition-colors font-sans uppercase">
+            <span className="font-extrabold tracking-wider text-white text-sm sm:text-base group-hover:text-[#dfb552] transition-colors font-sans uppercase whitespace-nowrap">
               ONE ERA
             </span>
           </div>
 
-          {/* Desktop Anchor Links */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-1.5 overflow-x-auto scrollbar-hide py-1">
-            {NAV_ITEMS.map((item) => {
+          {/* Desktop Navigation Links — 100% visible, no horizontal scroll */}
+          <div className="hidden lg:flex items-center gap-1 xl:gap-1.5 shrink-0">
+            {PRIMARY_ITEMS.map((item) => {
               const isActive = activeSection === item.href.replace("#", "");
               return (
                 <button
                   key={item.href}
                   onClick={() => scrollTo(item.href)}
                   className={cn(
-                    "text-xs font-medium px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
+                    "text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
                     isActive
                       ? "bg-[#dfb552]/20 text-[#dfb552] font-semibold border border-[#dfb552]/40 shadow-sm"
                       : item.highlight
@@ -99,11 +140,61 @@ export default function OneEraQuickNav() {
                       : "text-slate-300 hover:text-white hover:bg-white/5"
                   )}
                 >
-                  {item.highlight && <Compass className="w-3 h-3 text-[#dfb552]" />}
+                  {item.highlight && <Compass className="w-3.5 h-3.5 text-[#dfb552]" />}
                   <span>{item.label}</span>
                 </button>
               );
             })}
+
+            {/* Smart "Thêm ▾" Dropdown */}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                type="button"
+                onClick={() => setMoreOpen(!moreOpen)}
+                className={cn(
+                  "text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer",
+                  isMoreActive
+                    ? "bg-[#dfb552]/20 text-[#dfb552] font-semibold border border-[#dfb552]/40 shadow-sm"
+                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                )}
+              >
+                <span>{activeMoreItem ? activeMoreItem.label : "Thêm"}</span>
+                <ChevronDown
+                  className={cn("w-3.5 h-3.5 transition-transform duration-200", moreOpen && "rotate-180")}
+                />
+              </button>
+
+              {/* Dropdown Menu */}
+              {moreOpen && (
+                <div className="absolute top-full right-0 pt-1.5 w-52 z-50 animate-fadeInDown">
+                  <div className="bg-[#0b0e18]/98 backdrop-blur-2xl border border-white/10 rounded-xl shadow-2xl p-1.5 flex flex-col gap-0.5">
+                    {MORE_ITEMS.map((item) => {
+                      const isActive = activeSection === item.href.replace("#", "");
+                      return (
+                        <button
+                          key={item.href}
+                          onClick={() => scrollTo(item.href)}
+                          className={cn(
+                            "w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors flex items-center justify-between cursor-pointer",
+                            isActive
+                              ? "bg-[#dfb552]/20 text-[#dfb552] font-bold"
+                              : "text-slate-300 hover:text-white hover:bg-white/5"
+                          )}
+                        >
+                          <span>{item.label}</span>
+                          {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#dfb552]" />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Quick Hotline Pill */}
@@ -120,8 +211,8 @@ export default function OneEraQuickNav() {
         </div>
 
         {/* Mobile Horizontal Section Chips */}
-        <div className="flex lg:hidden overflow-x-auto scrollbar-hide py-1.5 -mx-3 px-3 border-t border-white/5 gap-1.5">
-          {NAV_ITEMS.map((item) => {
+        <div className="flex lg:hidden overflow-x-auto scrollbar-hide py-1.5 -mx-4 px-4 border-t border-white/5 gap-1.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          {ALL_ITEMS.map((item) => {
             const isActive = activeSection === item.href.replace("#", "");
             return (
               <button
