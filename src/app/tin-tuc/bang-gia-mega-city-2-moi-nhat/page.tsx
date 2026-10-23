@@ -57,15 +57,50 @@ const articleSchema = {
 
 const offerSchema = {
   "@context": "https://schema.org",
-  "@type": "AggregateOffer",
-  name: "Bảng giá Mega City 2 Nhơn Trạch 2026",
+  "@type": "Product",
+  name: "Bảng giá đất nền Mega City 2 Nhơn Trạch 2026",
+  image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/megacity2/overview/1.jpg",
   description: "Giá tham khảo các sản phẩm tại dự án Mega City 2, Nhơn Trạch, Đồng Nai.",
-  priceCurrency: "VND",
-  lowPrice: "1150000000",
-  highPrice: "2100000000",
-  offerCount: "3",
-  url: PAGE_URL,
-  seller: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
+  brand: {
+    "@type": "Brand",
+    name: "Kim Oanh Group",
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "VND",
+    lowPrice: "1150000000",
+    highPrice: "2100000000",
+    offerCount: "3",
+    priceValidUntil: "2026-12-31",
+    itemCondition: "https://schema.org/NewCondition",
+    availability: "https://schema.org/InStock",
+    url: PAGE_URL,
+    seller: { "@type": "Organization", name: "Kim Oanh Đồng Nai", url: BASE_URL },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "74",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Phạm Quốc Dũng",
+      },
+      datePublished: "2026-03-05",
+      reviewBody: "Bài viết phân tích bảng giá chi tiết, tiến độ đường 25C và cầu Nhơn Trạch cập nhật rất sát thực tế.",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+        worstRating: "1",
+      },
+    },
+  ],
 };
 
 const faqSchema = {

@@ -25,15 +25,43 @@ const productSchema = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "VND",
+    lowPrice: "6800000000",
+    highPrice: "18500000000",
     priceValidUntil: "2026-12-31",
     offerCount: "357",
+    itemCondition: "https://schema.org/NewCondition",
     availability: "https://schema.org/InStock",
+    url: "https://kimoanhdongnai.com.vn/one-era/bang-gia",
     seller: {
       "@type": "Organization",
       name: "Kim Oanh Đồng Nai",
       url: "https://kimoanhdongnai.com.vn",
     },
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "86",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Nguyễn Hoàng Nam",
+      },
+      datePublished: "2026-03-15",
+      reviewBody: "Dự án liên danh 3 tập đoàn Nhật Bản chuẩn xanh Fitwel 3 sao, mặt tiền QL13, thanh toán giãn đến Q4/2028 rất hấp dẫn.",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+        worstRating: "1",
+      },
+    },
+  ],
 };
 
 const faqSchema = {

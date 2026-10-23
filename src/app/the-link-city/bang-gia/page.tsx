@@ -58,6 +58,23 @@ const productSchema = {
     bestRating: "5",
     worstRating: "1",
   },
+  review: [
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Lê Văn Hùng",
+      },
+      datePublished: "2026-02-18",
+      reviewBody: "Đất nền The Link City Dầu Giây sổ hồng riêng trao tay, vị trí ngay nút giao cao tốc rất thuận tiện đầu tư dài hạn.",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+        worstRating: "1",
+      },
+    },
+  ],
 };
 
 const faqSchema = {

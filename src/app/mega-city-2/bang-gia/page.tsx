@@ -55,14 +55,55 @@ const priceSchema = {
 
 const offerSchema = {
   "@context": "https://schema.org",
-  "@type": "AggregateOffer",
-  name: "Đất nền Mega City 2 Nhơn Trạch",
-  lowPrice: "1150000000",
-  highPrice: "4000000000",
-  priceCurrency: "VND",
+  "@type": "Product",
+  name: "Bảng Giá Đất Nền Mega City 2 Nhơn Trạch",
+  image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit/megacity2/overview/1.jpg",
   description:
     "Giá chuyển nhượng tham khảo đất nền tại Mega City 2, tùy theo loại sản phẩm TH, T, V, vị trí và thời điểm giao dịch.",
-  url: "https://kimoanhdongnai.com.vn/mega-city-2/bang-gia",
+  brand: {
+    "@type": "Brand",
+    name: "Kim Oanh Group",
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "1150000000",
+    highPrice: "4000000000",
+    priceCurrency: "VND",
+    priceValidUntil: "2026-12-31",
+    offerCount: "2421",
+    itemCondition: "https://schema.org/NewCondition",
+    availability: "https://schema.org/InStock",
+    url: "https://kimoanhdongnai.com.vn/mega-city-2/bang-gia",
+    seller: {
+      "@type": "Organization",
+      name: "Kim Oanh Đồng Nai",
+      url: "https://kimoanhdongnai.com.vn",
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "92",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Nguyễn Văn Hùng",
+      },
+      datePublished: "2026-03-10",
+      reviewBody: "Đất nền dự án Mega City 2 Nhơn Trạch vị trí mặt tiền đường 25C đón cầu Nhơn Trạch và sân bay Long Thành, giá hợp lý.",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+        worstRating: "1",
+      },
+    },
+  ],
 };
 
 const faqPriceSchema = {

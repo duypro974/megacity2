@@ -67,6 +67,8 @@ export default function OneEraPage() {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "VND",
+      lowPrice: "6800000000",
+      highPrice: "18500000000",
       availability: "https://schema.org/InStock",
       offerCount: "357",
       description: "Mở bán đợt 1 phân khu Central District 357 căn thấp tầng",
