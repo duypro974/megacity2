@@ -84,7 +84,7 @@ export default function OneEraOverview({ onOpenImage }: Props) {
             <div className="relative rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group bg-[#0c101a]">
               <div className="relative aspect-[16/10] w-full">
                 <Image
-                  src={IMG_ONE_ERA.masterPlan.topView}
+                  src="/images/one-era/one-era-top-view-night-masterplan.webp"
                   alt="Mặt bằng tổng thể 3D siêu dự án One Era Bình Dương"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -94,13 +94,13 @@ export default function OneEraOverview({ onOpenImage }: Props) {
 
               {/* Overlay Badge */}
               <div className="absolute top-4 left-4 bg-[#06080e]/90 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-xs font-mono font-bold text-[#dfb552]">
-                QUY HOẠCH TỔNG THỂ 50 HÉCTA
+                QUY HOẠCH TỔNG THỂ 50 HÉCTA • BẢN NÉT 10K
               </div>
 
               {/* Zoom Button */}
               {onOpenImage && (
                 <button
-                  onClick={() => onOpenImage(IMG_ONE_ERA.masterPlan.topView, "Quy hoạch tổng thể 3D One Era")}
+                  onClick={() => onOpenImage("/images/one-era/one-era-top-view-night-masterplan.webp", "Quy hoạch tổng thể 50ha One Era (Bản Nét 10K)")}
                   className="absolute bottom-4 right-4 bg-[#0c121e]/90 hover:bg-[#dfb552] hover:text-[#06080e] text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition-all shadow-lg"
                   aria-label="Phóng to ảnh quy hoạch tổng thể"
                 >

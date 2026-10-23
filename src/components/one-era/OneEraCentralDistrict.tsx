@@ -53,8 +53,8 @@ export default function OneEraCentralDistrict({ onOpenImage }: Props) {
               {/* Image with Dark Vignette */}
               <div className="relative aspect-[16/10] overflow-hidden bg-black/60">
                 <Image
-                  src={IMG_ONE_ERA.hero.boulevard}
-                  alt="Đại lộ phồn hoa Central District One Era"
+                  src="/images/one-era/one-era-central-district-rooftop-aerial.webp"
+                  alt="Phối cảnh trên cao 357 căn Central District One Era với mái pin mặt trời"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -62,7 +62,7 @@ export default function OneEraCentralDistrict({ onOpenImage }: Props) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e1422] via-[#0e1422]/40 to-transparent" />
 
                 <div className="absolute top-3.5 left-3.5 bg-[#06080e]/90 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-mono font-bold text-[#dfb552] uppercase tracking-wider">
-                  Trục Đại Lộ 25m
+                  Mái Pin Mặt Trời EDGE
                 </div>
 
                 <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs font-mono text-slate-300">
@@ -201,8 +201,8 @@ export default function OneEraCentralDistrict({ onOpenImage }: Props) {
               {/* Image with Dark Vignette */}
               <div className="relative aspect-[16/10] overflow-hidden bg-black/60">
                 <Image
-                  src={IMG_ONE_ERA.products.shophouseFacade}
-                  alt="Phối cảnh nhà phố thương mại Shophouse One Era"
+                  src="/images/one-era/one-era-shophouse-facade-commercial-street.webp"
+                  alt="Phối cảnh dãy nhà phố thương mại Shophouse Central District One Era"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 33vw"

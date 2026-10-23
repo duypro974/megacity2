@@ -17,6 +17,7 @@ import OneEraInteriorShowcase from "@/components/one-era/OneEraInteriorShowcase"
 import OneEraAmenities from "@/components/one-era/OneEraAmenities";
 import OneEraGreenSmart from "@/components/one-era/OneEraGreenSmart";
 import OneEraPricingPolicy from "@/components/one-era/OneEraPricingPolicy";
+import OneEraBrochureGallery from "@/components/one-era/OneEraBrochureGallery";
 import OneEraLeafletDownload from "@/components/one-era/OneEraLeafletDownload";
 import OneEraFaqSection from "@/components/one-era/OneEraFaqSection";
 import OneEraTopicClusterSection from "@/components/one-era/OneEraTopicClusterSection";
@@ -79,7 +80,10 @@ export default function OneEraClient() {
         {/* 10. Pricing & Payment Policy Q4/2028 */}
         <OneEraPricingPolicy />
 
-        {/* 11. Download Official Leaflet & Brochure PDF */}
+        {/* 11. Official Brochure & Perspective 3D Gallery (28 Spreads + 24 Renders) */}
+        <OneEraBrochureGallery onOpenImage={handleOpenImage} />
+
+        {/* 12. Download Official Leaflet & Brochure PDF */}
         <OneEraLeafletDownload onOpenImage={handleOpenImage} />
 
         {/* 12. Frequently Asked Questions (FAQ) */}

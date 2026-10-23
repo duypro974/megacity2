@@ -40,7 +40,7 @@ export default function OneEraLocation({ onOpenImage }: Props) {
             <div className="relative rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group bg-[#0c101a]">
               <div className="relative aspect-[16/10] w-full">
                 <Image
-                  src={IMG_ONE_ERA.masterPlan.tamGiao}
+                  src="/images/one-era/one-era-regional-connectivity-map.webp"
                   alt="Sơ đồ vị trí kết nối giao thông tam giao One Era Bình Dương"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -56,7 +56,7 @@ export default function OneEraLocation({ onOpenImage }: Props) {
 
               {onOpenImage && (
                 <button
-                  onClick={() => onOpenImage(IMG_ONE_ERA.masterPlan.tamGiao, "Bản đồ liên kết giao thông One Era")}
+                  onClick={() => onOpenImage("/images/one-era/one-era-regional-connectivity-map.webp", "Bản đồ liên kết giao thông One Era chính thức")}
                   className="absolute bottom-4 right-4 bg-[#0c121e]/90 hover:bg-[#dfb552] hover:text-[#06080e] text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition-all shadow-lg"
                   aria-label="Phóng to bản đồ vị trí"
                 >

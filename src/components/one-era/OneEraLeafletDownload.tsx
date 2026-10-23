@@ -58,7 +58,7 @@ export default function OneEraLeafletDownload({ onOpenImage }: Props) {
                 </button>
               )}
               <a
-                href="/one era/1. Leaflet - Khu Central Street (mat truoc).pdf"
+                href="/docs/one-era/leaflet-central-street-mat-truoc.pdf"
                 download
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#dfb552] to-[#c99e39] text-[#06080e] font-extrabold text-xs uppercase tracking-wider transition-all shadow"
               >
@@ -96,7 +96,7 @@ export default function OneEraLeafletDownload({ onOpenImage }: Props) {
                 </button>
               )}
               <a
-                href="/one era/2. Leaflet - Khu Central Street (mat sau).pdf"
+                href="/docs/one-era/leaflet-central-street-mat-sau.pdf"
                 download
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#dfb552] to-[#c99e39] text-[#06080e] font-extrabold text-xs uppercase tracking-wider transition-all shadow"
               >
@@ -106,7 +106,7 @@ export default function OneEraLeafletDownload({ onOpenImage }: Props) {
             </div>
           </div>
 
-          {/* 30-Page Brochure */}
+          {/* 28-Spread Official Brochure */}
           <div className="p-8 rounded-3xl bg-[#0c121e]/85 border border-white/[0.08] hover:border-[#dfb552]/40 transition-all duration-300 flex flex-col justify-between group backdrop-blur-xl shadow-xl">
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#35a3ce]/10 border border-[#35a3ce]/30 flex items-center justify-center mb-6 text-[#35a3ce]">
@@ -116,19 +116,26 @@ export default function OneEraLeafletDownload({ onOpenImage }: Props) {
                 Brochure Bán Hàng Cao Cấp
               </span>
               <h3 className="text-lg font-bold text-white mb-2">
-                Trọn Bộ Brochure Dự Án (30 Trang)
+                Trọn Bộ Brochure Dự Án (28 Trang)
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed font-light mb-6">
-                Tập tài liệu kinh doanh cao cấp dày 30 trang chứa đầy đủ ảnh phối cảnh 3D toàn dự án, concept Mizuhiki Nhật Bản và nội thất mẫu.
+                Tập tài liệu kinh doanh cao cấp dày 28 trang chứa đầy đủ ảnh phối cảnh 3D toàn dự án, concept Mizuhiki Nhật Bản, tiện ích và nội thất mẫu.
               </p>
             </div>
 
             <div className="space-y-2 pt-4 border-t border-white/[0.06]">
               <a
-                href="#form-dang-ky"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#35a3ce] hover:bg-[#2c8eb5] text-[#06080e] font-extrabold text-xs uppercase tracking-wider transition-all shadow"
+                href="#thu-vien-anh"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#dfb552] hover:bg-[#c99e39] text-[#06080e] font-extrabold text-xs uppercase tracking-wider transition-all shadow"
               >
-                <Download className="w-4 h-4" />
+                <Eye className="w-4 h-4" />
+                <span>Lật Xem Trực Tuyến 28 Trang</span>
+              </a>
+              <a
+                href="#form-dang-ky"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#06080e] hover:bg-[#121929] text-white font-semibold text-xs transition-all border border-white/[0.08]"
+              >
+                <Download className="w-4 h-4 text-[#35a3ce]" />
                 <span>Đăng Ký Nhận Trọn Bộ Qua Zalo / Email</span>
               </a>
             </div>

@@ -25,7 +25,8 @@ const MORE_ITEMS: NavItem[] = [
   { label: "Sơ đồ 3D", href: "#mat-bang-3d" },
   { label: "Đối tác Nhật", href: "#doi-tac" },
   { label: "Nội thất 3D", href: "#noi-that" },
-  { label: "Tài liệu Brochure", href: "#tai-lieu" },
+  { label: "Brochure & Ảnh 3D", href: "#thu-vien-anh" },
+  { label: "Tải Leaflet PDF", href: "#tai-lieu" },
 ];
 
 const ALL_ITEMS: NavItem[] = [...PRIMARY_ITEMS, ...MORE_ITEMS];

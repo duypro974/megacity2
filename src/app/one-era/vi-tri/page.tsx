@@ -129,7 +129,7 @@ export default function ViTriOneEraPage() {
           <div className="mb-14">
             <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl group aspect-[16/10] w-full">
               <Image
-                src={IMG_ONE_ERA.masterPlan.tamGiao}
+                src="/images/one-era/one-era-regional-connectivity-map.webp"
                 alt="Bản đồ vị trí kết nối tam giao siêu dự án One Era Bình Dương"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

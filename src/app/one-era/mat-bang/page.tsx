@@ -139,17 +139,17 @@ export default function MatBangOneEraPage() {
                 </h2>
               </div>
               <button
-                onClick={() => setModalImage(IMG_ONE_ERA.masterPlan.topView)}
+                onClick={() => setModalImage("/images/one-era/one-era-top-view-night-masterplan.webp")}
                 className="px-4 py-2 rounded-xl bg-slate-900 text-amber-400 font-bold text-xs flex items-center gap-2 hover:bg-slate-800 transition-all self-start sm:self-auto"
               >
                 <ZoomIn className="w-4 h-4" />
-                <span>Xem Bản Vẽ Toàn Cảnh</span>
+                <span>Xem Bản Vẽ Toàn Cảnh (10K)</span>
               </button>
             </div>
 
             <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl group aspect-[16/10] w-full">
               <Image
-                src={IMG_ONE_ERA.masterPlan.topView}
+                src="/images/one-era/one-era-top-view-night-masterplan.webp"
                 alt="Mặt bằng tổng thể 3D siêu dự án One Era 50ha"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -230,7 +230,7 @@ export default function MatBangOneEraPage() {
                 <strong className="text-slate-900">Thông số lộ giới đường nội bộ:</strong> Đại lộ One Era (25m), Đường CKV-TG11 (22m), KV-D29 (20m), KV-N1 (19m), S1 (18m), đường nội bộ GP1–GP3 & V1–V6 (13m).
               </div>
               <a
-                href="/one era/2. Leaflet - Khu Central Street (mat sau).pdf"
+                href="/docs/one-era/leaflet-central-street-mat-sau.pdf"
                 download
                 className="inline-flex items-center gap-1.5 text-amber-700 font-bold hover:underline"
               >

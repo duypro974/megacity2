@@ -26,26 +26,26 @@ const SLIDES = [
   {
     title: "Hoàng Hôn Thượng Đỉnh",
     subtitle: "Tầm nhìn biểu tượng hướng về trung tâm Thành phố Hồ Chí Minh",
-    url: IMG_ONE_ERA.hero.sunset,
+    url: "/images/one-era/one-era-panoramic-sunset.webp",
     alt: "Phối cảnh hoàng hôn siêu dự án One Era Bình Dương",
   },
   {
+    title: "Toàn Cảnh 50 Hécta Về Đêm",
+    subtitle: "Quy hoạch đại đô thị sinh thái 50ha lung linh rực sáng Đông Bắc Sài Gòn",
+    url: "/images/one-era/one-era-top-view-night-masterplan.webp",
+    alt: "Toàn cảnh 50ha master plan về đêm One Era Kim Oanh",
+  },
+  {
     title: "Đêm Huyền Diệu Tháp Đôi Kinera",
-    subtitle: "Cầu Kén Vàng rực rỡ nối liền đại siêu thị AEON Mall và ga Metro",
-    url: IMG_ONE_ERA.hero.nightTowers,
+    subtitle: "Quần thể cao ốc kết hợp đại siêu thị AEON Mall và Cầu Kén Vàng Mizuhiki",
+    url: "/images/one-era/one-era-kinera-towers-aeon-mall.webp",
     alt: "Phối cảnh đêm tháp đôi Kinera Tower và TTTM AEON Mall One Era",
   },
   {
-    title: "Đại Lộ Phồn Hoa One Era",
-    subtitle: "Trục đại lộ 25m sầm uất với các dãy phố thương mại thịnh vượng",
-    url: IMG_ONE_ERA.hero.boulevard,
+    title: "Đại Lộ Phồn Hoa One Era (25m)",
+    subtitle: "Trục đại lộ giao thương sầm uất với các dãy phố thương mại thịnh vượng",
+    url: "/images/one-era/one-era-grand-boulevard-towers.webp",
     alt: "Đại lộ thương mại sầm uất và cầu đi bộ biểu tượng tại One Era",
-  },
-  {
-    title: "Toàn Cảnh 50 Hécta Sinh Thái",
-    subtitle: "Quy hoạch bền vững đón vượng khí phong thủy từ dòng Suối Cát mát lành",
-    url: IMG_ONE_ERA.hero.panorama,
-    alt: "Toàn cảnh panorama 50ha khu đô thị One Era Kim Oanh",
   },
 ];
 
