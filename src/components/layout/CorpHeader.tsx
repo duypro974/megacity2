@@ -71,17 +71,30 @@ const NAV = [
   { label: "Liên hệ", href: "/lien-he" },
 ];
 
-export default function CorpHeader({ solid = false }: { solid?: boolean }) {
+export default function CorpHeader({
+  solid = false,
+  hideOnScroll = false,
+}: {
+  solid?: boolean;
+  hideOnScroll?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdown, setDropdown] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const threshold = hideOnScroll ? 280 : 50;
+      const isPast = window.scrollY > threshold;
+      setScrolled(isPast);
+      if (isPast && hideOnScroll && dropdown) {
+        setDropdown(null);
+      }
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [hideOnScroll, dropdown]);
 
   useEffect(() => {
     return () => {
@@ -254,6 +267,9 @@ export default function CorpHeader({ solid = false }: { solid?: boolean }) {
       <header
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+          hideOnScroll && scrolled
+            ? "-translate-y-full opacity-0 pointer-events-none"
+            : "translate-y-0 opacity-100",
           scrolled || solid
             ? "bg-white/95 backdrop-blur-sm shadow-[0_2px_20px_rgba(0,0,0,0.08)] py-3"
             : "bg-transparent py-5"

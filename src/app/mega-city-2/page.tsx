@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
+import CorpHeader from "@/components/layout/CorpHeader";
+import MegaCity2QuickNav from "@/components/megacity2/MegaCity2QuickNav";
 import Hero from "@/components/Hero";
 
 export const metadata: Metadata = {
@@ -443,7 +444,8 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaData) }}
       />
 
-      <Header />
+      <CorpHeader hideOnScroll />
+      <MegaCity2QuickNav />
       <SectionNav />
       <LeadPopup />
 

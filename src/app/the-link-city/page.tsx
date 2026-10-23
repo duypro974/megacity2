@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import CorpHeader from "@/components/layout/CorpHeader";
+import TheLinkCityQuickNav from "@/components/thelinkcity/TheLinkCityQuickNav";
 import CorpFooter from "@/components/layout/CorpFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import LeadForm from "@/components/LeadForm";
@@ -757,7 +758,8 @@ export default function TheLinkCityPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <ScrollAnimator />
-      <CorpHeader />
+      <CorpHeader hideOnScroll />
+      <TheLinkCityQuickNav />
       <TLCSectionNav />
 
       {/* ─── SECTION 01: HERO ─── */}

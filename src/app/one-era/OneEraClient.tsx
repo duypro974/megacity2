@@ -38,7 +38,7 @@ export default function OneEraClient() {
   return (
     <div className="min-h-screen bg-[#06080e] text-[#f5f2eb] selection:bg-[#dfb552] selection:text-[#06080e] font-sans antialiased">
       {/* Floating Header & Quick Navigation */}
-      <CorpHeader />
+      <CorpHeader hideOnScroll />
       <OneEraQuickNav />
 
       {/* Main Sections */}
