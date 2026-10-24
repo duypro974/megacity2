@@ -338,41 +338,6 @@ const LOCAL: Record<string, string> = {
   "megacity2/news7/5.webp":              "/news7/5.webp",
   "megacity2/news7/6.png":               "/news7/6.png",
   "megacity2/news7/7.jpg":               "/news7/7.jpg",
-  // One Era local fallbacks
-  "oneera/hero/one-era-skyline-sunset.webp": "/images/one-era/hero/one-era-skyline-sunset.webp",
-  "oneera/hero/one-era-night-kinera-towers.webp": "/images/one-era/hero/one-era-night-kinera-towers.webp",
-  "oneera/hero/one-era-grand-boulevard.webp": "/images/one-era/hero/one-era-grand-boulevard.webp",
-  "oneera/hero/one-era-panoramic-view.webp": "/images/one-era/hero/one-era-panoramic-view.webp",
-  "oneera/master-plan/one-era-top-view-masterplan.webp": "/images/one-era/master-plan/one-era-top-view-masterplan.webp",
-  "oneera/master-plan/one-era-eco-parks-overview.webp": "/images/one-era/master-plan/one-era-eco-parks-overview.webp",
-  "oneera/master-plan/one-era-tam-giao-connectivity.webp": "/images/one-era/master-plan/one-era-tam-giao-connectivity.webp",
-  "oneera/master-plan/one-era-skyline-hcmc.webp": "/images/one-era/master-plan/one-era-skyline-hcmc.webp",
-  "oneera/developers/kinera-philosophy.webp": "/images/one-era/developers/kinera-philosophy.webp",
-  "oneera/developers/family-nizi-rainbow.webp": "/images/one-era/developers/family-nizi-rainbow.webp",
-  "oneera/developers/family-generations-hands.webp": "/images/one-era/developers/family-generations-hands.webp",
-  "oneera/developers/family-living-room.webp": "/images/one-era/developers/family-living-room.webp",
-  "oneera/amenities/amenities-grid-5-icons.webp": "/images/one-era/amenities/amenities-grid-5-icons.webp",
-  "oneera/amenities/vas-saigon-school.webp": "/images/one-era/amenities/vas-saigon-school.webp",
-  "oneera/amenities/smart-playground-park.webp": "/images/one-era/amenities/smart-playground-park.webp",
-  "oneera/amenities/hyde-park-42ha-green.webp": "/images/one-era/amenities/hyde-park-42ha-green.webp",
-  "oneera/amenities/sports-fitness-park.webp": "/images/one-era/amenities/sports-fitness-park.webp",
-  "oneera/amenities/picnic-lawn-chill.webp": "/images/one-era/amenities/picnic-lawn-chill.webp",
-  "oneera/amenities/meret-international-clinic.webp": "/images/one-era/amenities/meret-international-clinic.webp",
-  "oneera/products/shophouse-facade-commercial.webp": "/images/one-era/products/shophouse-facade-commercial.webp",
-  "oneera/products/townhouse-architecture-mizuhiki.webp": "/images/one-era/products/townhouse-architecture-mizuhiki.webp",
-  "oneera/products/shophouse-ground-floor-cafe.webp": "/images/one-era/products/shophouse-ground-floor-cafe.webp",
-  "oneera/products/shophouse-mezzanine-coworking.webp": "/images/one-era/products/shophouse-mezzanine-coworking.webp",
-  "oneera/products/shophouse-level2-living-room.webp": "/images/one-era/products/shophouse-level2-living-room.webp",
-  "oneera/products/shophouse-level2-dining-bar.webp": "/images/one-era/products/shophouse-level2-dining-bar.webp",
-  "oneera/products/shophouse-level3-master-suite.webp": "/images/one-era/products/shophouse-level3-master-suite.webp",
-  "oneera/products/shophouse-level3-kids-creative-room.webp": "/images/one-era/products/shophouse-level3-kids-creative-room.webp",
-  "oneera/products/townhouse-ground-floor-living.webp": "/images/one-era/products/townhouse-ground-floor-living.webp",
-  "oneera/products/townhouse-ground-floor-kitchen.webp": "/images/one-era/products/townhouse-ground-floor-kitchen.webp",
-  "oneera/products/townhouse-level2-master-bedroom.webp": "/images/one-era/products/townhouse-level2-master-bedroom.webp",
-  "oneera/products/townhouse-level2-kids-bedroom.webp": "/images/one-era/products/townhouse-level2-kids-bedroom.webp",
-  "oneera/products/townhouse-level3-japanese-tea-room.webp": "/images/one-era/products/townhouse-level3-japanese-tea-room.webp",
-  "oneera/leaflets/central_district_leaflet_front_p1.webp": "/images/one-era/leaflets/central_district_leaflet_front_p1.webp",
-  "oneera/leaflets/central_district_leaflet_back_p1.webp": "/images/one-era/leaflets/central_district_leaflet_back_p1.webp",
 };
 
 export function cld(
@@ -1505,17 +1470,29 @@ export const IMG_NEWS58: Record<string, string> = Object.fromEntries(
 // ─────────────────────────────────────────────────────────────
 // Siêu Dự Án ONE ERA Bình Dương (1 Tỷ USD) — Cloudinary Images
 // ─────────────────────────────────────────────────────────────
+export const cldOneEra = (name: string, preset: keyof typeof T = "lg") =>
+  `${BASE}/${T[preset]}/oneera/${name}`;
+
+export const cldOneEraBrochure = (num: number, preset: keyof typeof T = "hero") =>
+  `${BASE}/${T[preset]}/oneera/brochure/brochure-spread-${String(num).padStart(2, "0")}.webp`;
+
+export const CLD_ONE_ERA_PDFS = {
+  leafletFront: "https://res.cloudinary.com/dqy4lfmcf/raw/upload/v1792815686/oneera/docs/leaflet-central-street-mat-truoc.pdf",
+  leafletBack: "https://res.cloudinary.com/dqy4lfmcf/raw/upload/v1792815696/oneera/docs/leaflet-central-street-mat-sau.pdf",
+};
+
 export const IMG_ONE_ERA = {
   hero: {
-    sunset: cld("oneera/hero", "one-era-skyline-sunset.webp", "hero"),
-    nightTowers: cld("oneera/hero", "one-era-night-kinera-towers.webp", "hero"),
-    boulevard: cld("oneera/hero", "one-era-grand-boulevard.webp", "hero"),
-    panorama: cld("oneera/hero", "one-era-panoramic-view.webp", "hero"),
+    sunset: cldOneEra("one-era-panoramic-sunset.webp", "hero"),
+    nightTowers: cldOneEra("one-era-top-view-night-masterplan.webp", "hero"),
+    kineraTowers: cldOneEra("one-era-kinera-towers-aeon-mall.webp", "hero"),
+    boulevard: cldOneEra("one-era-grand-boulevard-towers.webp", "hero"),
+    panorama: cldOneEra("one-era-panoramic-sunset.webp", "hero"),
   },
   masterPlan: {
-    topView: cld("oneera/master-plan", "one-era-top-view-masterplan.webp", "hero"),
+    topView: cldOneEra("one-era-top-view-night-masterplan.webp", "hero"),
+    tamGiao: cldOneEra("one-era-regional-connectivity-map.webp", "lg"),
     ecoParks: cld("oneera/master-plan", "one-era-eco-parks-overview.webp", "lg"),
-    tamGiao: cld("oneera/master-plan", "one-era-tam-giao-connectivity.webp", "lg"),
     skylineHcmc: cld("oneera/master-plan", "one-era-skyline-hcmc.webp", "lg"),
   },
   developers: {
@@ -1524,17 +1501,36 @@ export const IMG_ONE_ERA = {
     generationsHands: cld("oneera/developers", "family-generations-hands.webp", "lg"),
     livingRoom: cld("oneera/developers", "family-living-room.webp", "lg"),
   },
+  centralDistrict: {
+    rooftopAerial: cldOneEra("one-era-central-district-rooftop-aerial.webp", "lg"),
+    lakeAerial: cldOneEra("one-era-central-district-lake-aerial.webp", "lg"),
+    sunsetAerial: cldOneEra("one-era-central-district-sunset-aerial.webp", "lg"),
+    shophouseFacade: cldOneEra("one-era-shophouse-facade-commercial-street.webp", "lg"),
+    shophouseCorner: cldOneEra("one-era-shophouse-corner-commercial.webp", "lg"),
+    schoolStreet: cldOneEra("one-era-school-shophouse-street.webp", "lg"),
+    intersection: cldOneEra("one-era-commercial-intersection-school.webp", "lg"),
+  },
   amenities: {
     grid5Icons: cld("oneera/amenities", "amenities-grid-5-icons.webp", "lg"),
-    vasSaigon: cld("oneera/amenities", "vas-saigon-school.webp", "lg"),
+    vasSaigon: cldOneEra("one-era-international-school-sports.webp", "lg"),
+    vasSoccer: cldOneEra("one-era-international-school-soccer-field.webp", "lg"),
+    kindUp: cldOneEra("one-era-kindergarten-preschool.webp", "lg"),
+    meretClinic: cldOneEra("one-era-meret-health-clinic.webp", "lg"),
+    resortPool: cldOneEra("one-era-resort-lagoon-pool.webp", "lg"),
+    clubhouse: cldOneEra("one-era-clubhouse-pool-lawn.webp", "lg"),
+    multiSportsPark: cldOneEra("one-era-multi-generational-sports-park.webp", "lg"),
+    basketball: cldOneEra("one-era-outdoor-basketball-sports-park.webp", "lg"),
+    riversideWalkway: cldOneEra("one-era-riverside-walkway-sunset.webp", "lg"),
+    riversideBoulevard: cldOneEra("one-era-riverside-boulevard-towers.webp", "lg"),
+    metroSkyline: cldOneEra("one-era-metro-line-skyline.webp", "lg"),
+    aeonMall: cldOneEra("one-era-kinera-towers-aeon-mall.webp", "lg"),
     smartPlayground: cld("oneera/amenities", "smart-playground-park.webp", "lg"),
     hydePark42ha: cld("oneera/amenities", "hyde-park-42ha-green.webp", "lg"),
     sportsFitness: cld("oneera/amenities", "sports-fitness-park.webp", "lg"),
     picnicChill: cld("oneera/amenities", "picnic-lawn-chill.webp", "lg"),
-    meretClinic: cld("oneera/amenities", "meret-international-clinic.webp", "lg"),
   },
   products: {
-    shophouseFacade: cld("oneera/products", "shophouse-facade-commercial.webp", "lg"),
+    shophouseFacade: cldOneEra("one-era-shophouse-facade-commercial-street.webp", "lg"),
     townhouseMizuhiki: cld("oneera/products", "townhouse-architecture-mizuhiki.webp", "lg"),
     shophouseCafe: cld("oneera/products", "shophouse-ground-floor-cafe.webp", "lg"),
     shophouseCoworking: cld("oneera/products", "shophouse-mezzanine-coworking.webp", "lg"),
@@ -1552,4 +1548,5 @@ export const IMG_ONE_ERA = {
     front: cld("oneera/leaflets", "central_district_leaflet_front_p1.webp", "hero"),
     back: cld("oneera/leaflets", "central_district_leaflet_back_p1.webp", "hero"),
   },
+  docs: CLD_ONE_ERA_PDFS,
 };

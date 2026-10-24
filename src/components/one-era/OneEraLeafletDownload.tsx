@@ -58,12 +58,14 @@ export default function OneEraLeafletDownload({ onOpenImage }: Props) {
                 </button>
               )}
               <a
-                href="/docs/one-era/leaflet-central-street-mat-truoc.pdf"
-                download
+                href={IMG_ONE_ERA.docs.leafletFront}
+                target="_blank"
+                rel="noopener noreferrer"
+                download="leaflet-central-street-mat-truoc.pdf"
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#dfb552] to-[#c99e39] text-[#06080e] font-extrabold text-xs uppercase tracking-wider transition-all shadow"
               >
                 <Download className="w-4 h-4" />
-                <span>Tải File PDF Gốc (16 MB)</span>
+                <span>Tải File PDF Gốc (3.3 MB)</span>
               </a>
             </div>
           </div>
@@ -96,12 +98,14 @@ export default function OneEraLeafletDownload({ onOpenImage }: Props) {
                 </button>
               )}
               <a
-                href="/docs/one-era/leaflet-central-street-mat-sau.pdf"
-                download
+                href={IMG_ONE_ERA.docs.leafletBack}
+                target="_blank"
+                rel="noopener noreferrer"
+                download="leaflet-central-street-mat-sau.pdf"
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#dfb552] to-[#c99e39] text-[#06080e] font-extrabold text-xs uppercase tracking-wider transition-all shadow"
               >
                 <Download className="w-4 h-4" />
-                <span>Tải File PDF Gốc (83 MB)</span>
+                <span>Tải File PDF Gốc (4.5 MB)</span>
               </a>
             </div>
           </div>
