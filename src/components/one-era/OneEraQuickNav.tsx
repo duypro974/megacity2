@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { Phone, Compass, Sparkles, ChevronDown } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { cn } from "@/lib/utils";
+import { IMG_ONE_ERA } from "@/lib/cloudinary";
 
 interface NavItem {
   label: string;
@@ -116,9 +118,16 @@ export default function OneEraQuickNav() {
           {/* Brand Logo / Tag */}
           <div
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2.5 cursor-pointer group shrink-0"
+            className="flex items-center gap-2 cursor-pointer group shrink-0"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#dfb552] animate-pulse shadow-[0_0_10px_#dfb552]" />
+            <div className="relative w-6 h-7 shrink-0 drop-shadow-[0_2px_10px_rgba(223,181,82,0.4)]">
+              <Image
+                src={IMG_ONE_ERA.logo}
+                alt="Logo One Era"
+                fill
+                className="object-contain"
+              />
+            </div>
             <span className="font-extrabold tracking-wider text-white text-sm sm:text-base group-hover:text-[#dfb552] transition-colors font-sans uppercase whitespace-nowrap">
               ONE ERA
             </span>

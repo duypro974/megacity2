@@ -1482,6 +1482,7 @@ export const CLD_ONE_ERA_PDFS = {
 };
 
 export const IMG_ONE_ERA = {
+  logo: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_800,c_limit/oneera/logo-one-era.png",
   hero: {
     sunset: cldOneEra("one-era-panoramic-sunset.webp", "hero"),
     nightTowers: cldOneEra("one-era-top-view-night-masterplan.webp", "hero"),

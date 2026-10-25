@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { MapPin, Navigation, Train, Compass, Clock, CheckCircle2, ZoomIn } from "lucide-react";
+import { MapPin, Navigation, Train, Compass, Clock, CheckCircle2, ZoomIn, ExternalLink, Layers, Map as MapIcon } from "lucide-react";
 import { ONE_ERA_DATA } from "@/data/oneEraData";
 import { IMG_ONE_ERA } from "@/lib/cloudinary";
 
@@ -11,6 +12,7 @@ interface Props {
 
 export default function OneEraLocation({ onOpenImage }: Props) {
   const loc = ONE_ERA_DATA.locationConnectivity;
+  const [mapMode, setMapMode] = useState<"diagram" | "google">("google");
 
   return (
     <section id="vi-tri" className="py-20 lg:py-28 bg-[#06080e] text-[#f5f2eb] relative overflow-hidden border-b border-white/[0.06]">
@@ -35,37 +37,104 @@ export default function OneEraLocation({ onOpenImage }: Props) {
 
         {/* Top Connectivity Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
-          {/* Map Image */}
+          {/* Map Image / Google Maps Interactive Box */}
           <div className="lg:col-span-7">
-            <div className="relative rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group bg-[#0c101a]">
-              <div className="relative aspect-[16/10] w-full">
-                <Image
-                  src="/images/one-era/one-era-regional-connectivity-map.webp"
-                  alt="Sơ đồ vị trí kết nối giao thông tam giao One Era Bình Dương"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                />
-              </div>
-
-              {/* Map Badge */}
-              <div className="absolute top-4 left-4 bg-[#06080e]/90 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-xs font-mono font-bold text-[#dfb552] flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#dd668c]" />
-                <span>Mặt tiền QL13 & Nguyễn Thị Minh Khai, Thuận An</span>
-              </div>
-
-              {onOpenImage && (
+            {/* View Switcher Tabs */}
+            <div className="flex items-center justify-between mb-3">
+              <div className="inline-flex p-1 rounded-xl bg-[#0c121e] border border-white/10 text-xs">
                 <button
-                  onClick={() => onOpenImage("/images/one-era/one-era-regional-connectivity-map.webp", "Bản đồ liên kết giao thông One Era chính thức")}
-                  className="absolute bottom-4 right-4 bg-[#0c121e]/90 hover:bg-[#dfb552] hover:text-[#06080e] text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition-all shadow-lg"
-                  aria-label="Phóng to bản đồ vị trí"
+                  type="button"
+                  onClick={() => setMapMode("google")}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-semibold transition-all ${
+                    mapMode === "google"
+                      ? "bg-[#dfb552] text-[#06080e] shadow-md"
+                      : "text-slate-400 hover:text-white"
+                  }`}
                 >
-                  <ZoomIn className="w-5 h-5" />
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Google Maps Trực Tuyến</span>
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setMapMode("diagram")}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-semibold transition-all ${
+                    mapMode === "diagram"
+                      ? "bg-[#dfb552] text-[#06080e] shadow-md"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>Sơ Đồ Kết Nối Quy Hoạch</span>
+                </button>
+              </div>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Khu+%C4%90%C3%B4+Th%E1%BB%8B+One+Era+-+Thu%E1%BA%ADn+Giao+B%C3%ACnh+D%C6%B0%C6%A1ng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#dfb552] hover:text-[#fbf7ee] transition-colors font-medium"
+              >
+                <span>Chỉ đường trên Google Maps</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            <div className="relative rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group bg-[#0c101a]">
+              {mapMode === "google" ? (
+                /* Google Maps Iframe Embed */
+                <div className="relative aspect-[16/10] w-full min-h-[360px] sm:min-h-[420px]">
+                  <iframe
+                    title="Bản đồ vị trí Khu Đô Thị One Era Thuận Giao trên Google Maps"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15671.189154441584!2d106.6966144!3d10.9557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d75d27521557%3A0x673004d80ddb0c4!2zS2h1IMSQw7QgVGjhu4sgT25lIEVyYSAtIFRodeG6rW4gR2lhbw!5e0!3m2!1svi!2svn!4v1792923800000!5m2!1svi!2svn"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, display: "block" }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  {/* Floating Action Button */}
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Khu+%C4%90%C3%B4+Th%E1%BB%8B+One+Era+-+Thu%E1%BA%ADn+Giao+B%C3%ACnh+D%C6%B0%C6%A1ng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4 bg-[#0c121e]/90 hover:bg-[#dfb552] hover:text-[#06080e] text-white px-3.5 py-2 rounded-xl backdrop-blur-md border border-white/20 transition-all shadow-lg text-xs font-semibold flex items-center gap-1.5"
+                  >
+                    <span>Mở ứng dụng Google Maps</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              ) : (
+                /* High-Res Static Vector Diagram */
+                <div className="relative aspect-[16/10] w-full min-h-[360px] sm:min-h-[420px]">
+                  <Image
+                    src={IMG_ONE_ERA.masterPlan.tamGiao}
+                    alt="Sơ đồ vị trí kết nối giao thông tam giao One Era Bình Dương"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                  />
+                  {/* Map Badge */}
+                  <div className="absolute top-4 left-4 bg-[#06080e]/90 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-xs font-mono font-bold text-[#dfb552] flex items-center gap-2">
+                    <MapPin className="w-3.5 h-3.5 text-[#dd668c]" />
+                    <span>Mặt tiền QL13 & Nguyễn Thị Minh Khai, Thuận An</span>
+                  </div>
+
+                  {onOpenImage && (
+                    <button
+                      type="button"
+                      onClick={() => onOpenImage(IMG_ONE_ERA.masterPlan.tamGiao, "Bản đồ liên kết giao thông One Era chính thức")}
+                      className="absolute bottom-4 right-4 bg-[#0c121e]/90 hover:bg-[#dfb552] hover:text-[#06080e] text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition-all shadow-lg"
+                      aria-label="Phóng to bản đồ vị trí"
+                    >
+                      <ZoomIn className="w-5 h-5" />
+                    </button>
+                  )}
+                </div>
               )}
             </div>
             <p className="text-xs text-slate-400 mt-2 text-center italic">
-              * Bản đồ kết nối liên vùng 3 tuyến bộ & 2 tuyến Metro bao quanh dự án ONE ERA
+              * Tọa độ kim cương mặt tiền Quốc lộ 13 (Đại lộ Bình Dương), Vành Đai 3 và 2 tuyến Metro Line 1B & 2B
             </p>
           </div>
 

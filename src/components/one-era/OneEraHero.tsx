@@ -26,25 +26,25 @@ const SLIDES = [
   {
     title: "Hoàng Hôn Thượng Đỉnh",
     subtitle: "Tầm nhìn biểu tượng hướng về trung tâm Thành phố Hồ Chí Minh",
-    url: "/images/one-era/one-era-panoramic-sunset.webp",
+    url: IMG_ONE_ERA.hero.sunset,
     alt: "Phối cảnh hoàng hôn siêu dự án One Era Bình Dương",
   },
   {
     title: "Toàn Cảnh 50 Hécta Về Đêm",
     subtitle: "Quy hoạch đại đô thị sinh thái 50ha lung linh rực sáng Đông Bắc Sài Gòn",
-    url: "/images/one-era/one-era-top-view-night-masterplan.webp",
+    url: IMG_ONE_ERA.hero.nightTowers,
     alt: "Toàn cảnh 50ha master plan về đêm One Era Kim Oanh",
   },
   {
     title: "Đêm Huyền Diệu Tháp Đôi Kinera",
     subtitle: "Quần thể cao ốc kết hợp đại siêu thị AEON Mall và Cầu Kén Vàng Mizuhiki",
-    url: "/images/one-era/one-era-kinera-towers-aeon-mall.webp",
+    url: IMG_ONE_ERA.hero.kineraTowers,
     alt: "Phối cảnh đêm tháp đôi Kinera Tower và TTTM AEON Mall One Era",
   },
   {
     title: "Đại Lộ Phồn Hoa One Era (25m)",
     subtitle: "Trục đại lộ giao thương sầm uất với các dãy phố thương mại thịnh vượng",
-    url: "/images/one-era/one-era-grand-boulevard-towers.webp",
+    url: IMG_ONE_ERA.hero.boulevard,
     alt: "Đại lộ thương mại sầm uất và cầu đi bộ biểu tượng tại One Era",
   },
 ];
@@ -178,12 +178,23 @@ export default function OneEraHero() {
       {/* Hero Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-12">
         <div className="max-w-4xl">
-          {/* Top Pill / Badge with Japanese Accent */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#dfb552]/10 border border-[#dfb552]/30 backdrop-blur-xl mb-6 shadow-xl shadow-black/40">
-            <span className="w-2 h-2 rounded-full bg-[#dfb552] animate-ping" />
-            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#dfb552]">
-              Đại Đô Thị Kiểu Mẫu • Kim Oanh Group & 3 Tập Đoàn Nhật Bản
-            </span>
+          {/* Official One Era Brand Logo & Japanese Heritage Pill */}
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <div className="relative w-14 h-16 sm:w-16 sm:h-20 flex-shrink-0 drop-shadow-[0_10px_25px_rgba(223,181,82,0.35)]">
+              <Image
+                src={IMG_ONE_ERA.logo}
+                alt="Logo chính thức đại đô thị One Era Bình Dương"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#dfb552]/10 border border-[#dfb552]/30 backdrop-blur-xl shadow-xl shadow-black/40">
+              <span className="w-2 h-2 rounded-full bg-[#dfb552] animate-ping" />
+              <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#dfb552]">
+                Đại Đô Thị Kiểu Mẫu • Kim Oanh Group & 3 Tập Đoàn Nhật Bản
+              </span>
+            </div>
           </div>
 
           {/* Main H1 Title - Japanese Luxury Minimalist */}

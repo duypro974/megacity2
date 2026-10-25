@@ -38,6 +38,7 @@ export default function OneEraBrochureGallery({ onOpenImage }: Props) {
 
   // Perspective Filter State
   const [perspectiveFilter, setPerspectiveFilter] = useState<string>("all");
+  const isInitialMount = useRef(true);
 
   const filteredSpreads =
     brochureFilter === "all"
@@ -55,12 +56,19 @@ export default function OneEraBrochureGallery({ onOpenImage }: Props) {
     setCurrentSpreadIndex((prev) => (prev < filteredSpreads.length - 1 ? prev + 1 : 0));
   };
 
-  // Auto scroll thumbnail into view when currentSpreadIndex changes
+  // Only scroll thumbnail bar horizontally when user changes spreads, NEVER on initial page load
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     if (thumbScrollRef.current) {
       const activeThumb = thumbScrollRef.current.children[currentSpreadIndex] as HTMLElement;
       if (activeThumb) {
-        activeThumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        thumbScrollRef.current.scrollTo({
+          left: activeThumb.offsetLeft - thumbScrollRef.current.clientWidth / 2 + activeThumb.clientWidth / 2,
+          behavior: "smooth",
+        });
       }
     }
   }, [currentSpreadIndex]);

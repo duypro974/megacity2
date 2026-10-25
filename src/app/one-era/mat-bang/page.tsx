@@ -139,7 +139,7 @@ export default function MatBangOneEraPage() {
                 </h2>
               </div>
               <button
-                onClick={() => setModalImage("/images/one-era/one-era-top-view-night-masterplan.webp")}
+                onClick={() => setModalImage(IMG_ONE_ERA.masterPlan.topView)}
                 className="px-4 py-2 rounded-xl bg-slate-900 text-amber-400 font-bold text-xs flex items-center gap-2 hover:bg-slate-800 transition-all self-start sm:self-auto"
               >
                 <ZoomIn className="w-4 h-4" />
@@ -149,7 +149,7 @@ export default function MatBangOneEraPage() {
 
             <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl group aspect-[16/10] w-full">
               <Image
-                src="/images/one-era/one-era-top-view-night-masterplan.webp"
+                src={IMG_ONE_ERA.masterPlan.topView}
                 alt="Mặt bằng tổng thể 3D siêu dự án One Era 50ha"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

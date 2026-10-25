@@ -53,7 +53,7 @@ export default function OneEraCentralDistrict({ onOpenImage }: Props) {
               {/* Image with Dark Vignette */}
               <div className="relative aspect-[16/10] overflow-hidden bg-black/60">
                 <Image
-                  src="/images/one-era/one-era-central-district-rooftop-aerial.webp"
+                  src={IMG_ONE_ERA.centralDistrict.rooftopAerial}
                   alt="Phối cảnh trên cao 357 căn Central District One Era với mái pin mặt trời"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -201,7 +201,7 @@ export default function OneEraCentralDistrict({ onOpenImage }: Props) {
               {/* Image with Dark Vignette */}
               <div className="relative aspect-[16/10] overflow-hidden bg-black/60">
                 <Image
-                  src="/images/one-era/one-era-shophouse-facade-commercial-street.webp"
+                  src={IMG_ONE_ERA.centralDistrict.shophouseFacade}
                   alt="Phối cảnh dãy nhà phố thương mại Shophouse Central District One Era"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
