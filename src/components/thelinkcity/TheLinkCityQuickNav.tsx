@@ -19,16 +19,17 @@ const PRIMARY_ITEMS: NavItem[] = [
   { label: "Mặt bằng", id: "mat-bang" },
   { label: "Tiện ích", id: "tien-ich" },
   { label: "Pháp lý", id: "phap-ly" },
-  { label: "Phong thủy", id: "phong-thuy", isCompass: true },
   { label: "Bảng giá", id: "bang-gia", highlight: true },
+  { label: "Hình ảnh", id: "hinh-anh" },
+  { label: "Phong thủy", id: "phong-thuy", isCompass: true },
 ];
 
 const MORE_ITEMS: NavItem[] = [
   { label: "Tiến độ thi công", id: "tien-do" },
   { label: "Chính sách thanh toán", id: "thanh-toan" },
-  { label: "Hình ảnh thực tế", id: "hinh-anh" },
   { label: "Mẫu nhà thiết kế", id: "mau-nha" },
   { label: "Câu hỏi thường gặp", id: "faq" },
+  { label: "Liên hệ tư vấn", id: "lien-he" },
 ];
 
 const ALL_ITEMS: NavItem[] = [...PRIMARY_ITEMS, ...MORE_ITEMS, { label: "Liên hệ", id: "lien-he" }];
@@ -163,7 +164,10 @@ export default function TheLinkCityQuickNav() {
                     : "text-slate-300 hover:text-white hover:bg-white/5"
                 )}
               >
-                <span>{activeMoreItem ? activeMoreItem.label : "Thêm"}</span>
+                <span>Xem thêm</span>
+                {isMoreActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                )}
                 <ChevronDown
                   className={cn("w-3.5 h-3.5 transition-transform duration-200", moreOpen && "rotate-180")}
                 />

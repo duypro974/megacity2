@@ -2473,7 +2473,7 @@ export default function TheLinkCityPage() {
                 Hình ảnh &amp; Video Sa Bàn The Link City
               </h2>
               <p className="mt-2 text-slate-500 text-sm md:text-base max-w-3xl">
-                Bộ tư liệu sa bàn kiến trúc chụp tại showroom Kim Oanh Land — 7 góc chiến lược
+                Bộ tư liệu sa bàn kiến trúc chụp tại showroom Kim Oanh Land — 8 góc chi tiết
                 và video quét toàn cảnh mô hình tỷ lệ thực tế dự án.
               </p>
             </div>
