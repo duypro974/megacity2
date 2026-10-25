@@ -69,7 +69,7 @@ export default function OneEraLocation({ onOpenImage }: Props) {
               </div>
 
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Khu+%C4%90%C3%B4+Th%E1%BB%8B+One+Era+-+Thu%E1%BA%ADn+Giao+B%C3%ACnh+D%C6%B0%C6%A1ng"
+                href="https://www.google.com/maps/place/Khu+%C4%90%C3%B4+Th%E1%BB%8B+One+Era+-+Thu%E1%BA%ADn+Giao+-+Kim+Oanh+Land/@10.9662955,106.6924031,17z"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#dfb552] hover:text-[#fbf7ee] transition-colors font-medium"
@@ -84,18 +84,18 @@ export default function OneEraLocation({ onOpenImage }: Props) {
                 /* Google Maps Iframe Embed */
                 <div className="relative aspect-[16/10] w-full min-h-[360px] sm:min-h-[420px]">
                   <iframe
-                    title="Bản đồ vị trí Khu Đô Thị One Era Thuận Giao trên Google Maps"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15671.189154441584!2d106.6966144!3d10.9557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d75d27521557%3A0x673004d80ddb0c4!2zS2h1IMSQw7QgVGjhu4sgT25lIEVyYSAtIFRodeG6rW4gR2lhbw!5e0!3m2!1svi!2svn!4v1792923800000!5m2!1svi!2svn"
+                    title="Bản đồ vị trí Khu Đô Thị One Era - Thuận Giao - Kim Oanh Land trên Google Maps"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4212.77345651816!2d106.6924031!3d10.9662955!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d13926b79495%3A0x8c1ff23b6ecd0d8d!2zS2h1IMSQw7QgVGjhu4sgT25lIEVyYSAtIFRodeG6rW4gR2lhbyAtIEtpbSBPYW5oIExhbmQ!5e1!3m2!1svi!2s!4v1792924547836!5m2!1svi!2s"
                     width="100%"
                     height="100%"
                     style={{ border: 0, display: "block" }}
                     allowFullScreen
                     loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
+                    referrerPolicy="strict-origin-when-cross-origin"
                   />
                   {/* Floating Action Button */}
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Khu+%C4%90%C3%B4+Th%E1%BB%8B+One+Era+-+Thu%E1%BA%ADn+Giao+B%C3%ACnh+D%C6%B0%C6%A1ng"
+                    href="https://www.google.com/maps/place/Khu+%C4%90%C3%B4+Th%E1%BB%8B+One+Era+-+Thu%E1%BA%ADn+Giao+-+Kim+Oanh+Land/@10.9662955,106.6924031,17z"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="absolute bottom-4 right-4 bg-[#0c121e]/90 hover:bg-[#dfb552] hover:text-[#06080e] text-white px-3.5 py-2 rounded-xl backdrop-blur-md border border-white/20 transition-all shadow-lg text-xs font-semibold flex items-center gap-1.5"
