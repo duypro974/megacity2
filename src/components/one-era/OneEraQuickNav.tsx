@@ -20,6 +20,7 @@ const PRIMARY_ITEMS: NavItem[] = [
   { label: "Central District", href: "#central-district" },
   { label: "Sản phẩm", href: "#san-pham" },
   { label: "Tiện ích", href: "#tien-ich" },
+  { label: "Thực tế One Park", href: "#thuc-te-one-park" },
   { label: "Bảng giá", href: "#bang-gia" },
 ];
 

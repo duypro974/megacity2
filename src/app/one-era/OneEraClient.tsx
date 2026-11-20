@@ -15,6 +15,7 @@ import OneEraCentralDistrict from "@/components/one-era/OneEraCentralDistrict";
 import OneEraProducts from "@/components/one-era/OneEraProducts";
 import OneEraInteriorShowcase from "@/components/one-era/OneEraInteriorShowcase";
 import OneEraAmenities from "@/components/one-era/OneEraAmenities";
+import OneEraRealParkShowcase from "@/components/one-era/OneEraRealParkShowcase";
 import OneEraGreenSmart from "@/components/one-era/OneEraGreenSmart";
 import OneEraPricingPolicy from "@/components/one-era/OneEraPricingPolicy";
 import OneEraBrochureGallery from "@/components/one-era/OneEraBrochureGallery";
@@ -73,6 +74,9 @@ export default function OneEraClient() {
 
         {/* 8. All-In-One Amenities System */}
         <OneEraAmenities onOpenImage={handleOpenImage} />
+
+        {/* 8b. Real Completed One Park & Sales Gallery (32 Real Photos) */}
+        <OneEraRealParkShowcase onOpenImage={handleOpenImage} />
 
         {/* 9. Green & Smart Standards: Fitwel 3-Star & EDGE & AI */}
         <OneEraGreenSmart />

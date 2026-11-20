@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Sparkles, ZoomIn } from "lucide-react";
+import { Sparkles, ZoomIn, ChevronRight } from "lucide-react";
 import { ONE_ERA_DATA } from "@/data/oneEraData";
 
 interface Props {
@@ -140,6 +140,17 @@ export default function OneEraAmenities({ onOpenImage }: Props) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Real Park Direct Jump Link */}
+        <div className="mt-12 text-center">
+          <a
+            href="#thuc-te-one-park"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#dfb552]/10 hover:bg-[#dfb552]/20 border border-[#dfb552]/40 text-[#dfb552] text-xs font-semibold tracking-wider transition-all hover:scale-105 shadow-lg"
+          >
+            <span>Khám phá 32 hình ảnh thực tế Công viên One Park đã hoàn thiện</span>
+            <ChevronRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>
