@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
-import Image from "next/image";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import {
   Sun,
   Moon,
@@ -13,15 +12,22 @@ import {
   X,
   Compass,
   CheckCircle2,
-  Eye,
   Car,
+  Waves,
+  Building2,
+  Trees,
+  Smile,
   Layers,
+  ArrowRight,
 } from "lucide-react";
 import {
   REAL_PARK_PHOTOS,
-  REAL_PARK_TIME_TABS,
-  REAL_PARK_THEMATIC_FILTERS,
+  REAL_PARK_FILTERS,
+  filterRealParkPhotos,
   getCategoryBadgeLabel,
+  getLightboxImageUrl,
+  getThumbnailImageUrl,
+  getCardImageUrl,
   RealParkPhoto,
 } from "@/data/oneEraRealParkData";
 
@@ -30,31 +36,16 @@ interface Props {
 }
 
 export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
-  const [timeFilter, setTimeFilter] = useState<string>("all");
-  const [themeFilter, setThemeFilter] = useState<string>("all");
+  const [activeFilter, setActiveFilter] = useState<string>("all");
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(12);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const thumbnailContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Filter photos by time of day & thematic category
+  // Filter photos based on active single unified filter
   const filteredPhotos = useMemo(() => {
-    return REAL_PARK_PHOTOS.filter((photo) => {
-      const matchTime = timeFilter === "all" || photo.timeOfDay === timeFilter;
-      const matchTheme = themeFilter === "all" || photo.category === themeFilter;
-      return matchTime && matchTheme;
-    });
-  }, [timeFilter, themeFilter]);
-
-  // Bento spotlight photos (curated 4 top highlights when viewing all)
-  const isAllView = timeFilter === "all" && themeFilter === "all";
-
-  const spotlightPhotos = useMemo(() => {
-    if (!isAllView) return [];
-    const flycam = REAL_PARK_PHOTOS.find((p) => p.id === "one-park-day-02-aerial-overview");
-    const facade = REAL_PARK_PHOTOS.find((p) => p.id === "one-park-day-03-sales-gallery-facade");
-    const pool = REAL_PARK_PHOTOS.find((p) => p.id === "one-park-day-04-resort-pool-palms");
-    const waterfall = REAL_PARK_PHOTOS.find((p) => p.id === "one-park-night-19-waterfall-circle-monument");
-    return [flycam, facade, pool, waterfall].filter(Boolean) as RealParkPhoto[];
-  }, [isAllView]);
+    return filterRealParkPhotos(activeFilter);
+  }, [activeFilter]);
 
   const displayedPhotos = useMemo(() => {
     return filteredPhotos.slice(0, visibleCount);
@@ -80,7 +71,28 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
     setSelectedPhotoIndex((prev) => (prev! < filteredPhotos.length - 1 ? prev! + 1 : 0));
   }, [selectedPhotoIndex, filteredPhotos.length]);
 
-  // Keyboard navigation for Lightbox
+  // Aggressive background preloading of adjacent images into browser memory
+  // This completely eliminates any lag or delay when switching photos
+  useEffect(() => {
+    if (selectedPhotoIndex === null || filteredPhotos.length === 0) return;
+
+    const total = filteredPhotos.length;
+    const indicesToPreload = [
+      (selectedPhotoIndex + 1) % total,
+      (selectedPhotoIndex + 2) % total,
+      (selectedPhotoIndex - 1 + total) % total,
+      (selectedPhotoIndex - 2 + total) % total,
+    ];
+
+    indicesToPreload.forEach((idx) => {
+      if (filteredPhotos[idx]) {
+        const img = new window.Image();
+        img.src = getLightboxImageUrl(filteredPhotos[idx].url);
+      }
+    });
+  }, [selectedPhotoIndex, filteredPhotos]);
+
+  // Keyboard navigation (ArrowLeft, ArrowRight, Escape)
   useEffect(() => {
     if (selectedPhotoIndex === null) return;
 
@@ -94,7 +106,61 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedPhotoIndex, handlePrev, handleNext]);
 
+  // Auto-scroll thumbnail strip so active photo is always centered
+  useEffect(() => {
+    if (selectedPhotoIndex === null || !thumbnailContainerRef.current) return;
+    const container = thumbnailContainerRef.current;
+    const activeThumb = container.children[selectedPhotoIndex] as HTMLElement;
+    if (activeThumb) {
+      activeThumb.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }, [selectedPhotoIndex]);
+
+  // Touch swipe support for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        handleNext(); // swipe left -> next
+      } else {
+        handlePrev(); // swipe right -> prev
+      }
+    }
+    setTouchStartX(null);
+  };
+
   const selectedPhoto = selectedPhotoIndex !== null ? filteredPhotos[selectedPhotoIndex] : null;
+
+  // Icon mapping for filter tabs
+  const getFilterIcon = (filterId: string) => {
+    switch (filterId) {
+      case "all":
+        return <Layers className="w-3.5 h-3.5" />;
+      case "day":
+        return <Sun className="w-3.5 h-3.5 text-amber-400" />;
+      case "night":
+        return <Moon className="w-3.5 h-3.5 text-sky-400" />;
+      case "ho-boi":
+        return <Waves className="w-3.5 h-3.5 text-cyan-400" />;
+      case "sales-gallery":
+        return <Building2 className="w-3.5 h-3.5 text-amber-300" />;
+      case "cong-vien":
+        return <Trees className="w-3.5 h-3.5 text-emerald-400" />;
+      case "khu-vui-choi":
+        return <Smile className="w-3.5 h-3.5 text-rose-400" />;
+      case "toan-canh":
+        return <Compass className="w-3.5 h-3.5 text-indigo-400" />;
+      default:
+        return <Sparkles className="w-3.5 h-3.5" />;
+    }
+  };
 
   return (
     <section
@@ -107,7 +173,7 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#dfb552]/10 border border-[#dfb552]/30 text-[#dfb552] text-xs font-mono uppercase tracking-[0.25em] mb-4 shadow-lg shadow-[#dfb552]/5">
             <Camera className="w-3.5 h-3.5 animate-pulse text-[#dfb552]" />
             <span>Thực Tế Dự Án • 100% Đã Hoàn Thiện</span>
@@ -126,7 +192,7 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
           </p>
 
           {/* Integrated Stat Ribbon */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-7 text-xs font-mono">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-6 text-xs font-mono">
             <span className="px-3.5 py-1.5 rounded-full bg-[#0c121e]/90 border border-white/10 text-emerald-400 flex items-center gap-2 shadow-sm">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
               <span>Đã hoàn thiện & đón khách</span>
@@ -146,32 +212,29 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
           </div>
         </div>
 
-        {/* Master Control Bar: Day/Night Switcher & Category Pills */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 flex flex-col items-center gap-5">
-          {/* Primary Segmented Switcher (Thời Điểm) */}
-          <div className="p-1 sm:p-1.5 rounded-full bg-[#0c121e]/90 border border-white/10 backdrop-blur-xl shadow-2xl inline-flex items-center gap-1">
-            {REAL_PARK_TIME_TABS.map((tab) => {
-              const isActive = timeFilter === tab.id;
+        {/* Single Unified Filter Bar (Wraps gracefully, never cut off, no scrollbar bug) */}
+        <div className="max-w-5xl mx-auto mb-10 sm:mb-14">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+            {REAL_PARK_FILTERS.map((tab) => {
+              const isActive = activeFilter === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => {
-                    setTimeFilter(tab.id);
+                    setActiveFilter(tab.id);
                     setVisibleCount(12);
                   }}
-                  className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
+                  className={`px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 border ${
                     isActive
-                      ? "bg-gradient-to-r from-[#dfb552] via-[#e5c065] to-[#cfa339] text-[#06080e] shadow-[0_4px_20px_rgba(223,181,82,0.35)] scale-105 font-bold"
-                      : "text-slate-300 hover:text-white hover:bg-white/[0.04]"
+                      ? "bg-gradient-to-r from-[#dfb552] via-[#e5c065] to-[#cfa339] text-[#06080e] font-extrabold border-transparent shadow-[0_6px_25px_rgba(223,181,82,0.4)] scale-105"
+                      : "bg-[#0c121e]/80 text-slate-300 border-white/10 hover:border-[#dfb552]/40 hover:text-white"
                   }`}
                 >
-                  {tab.id === "day" && <Sun className="w-4 h-4 text-amber-500" />}
-                  {tab.id === "night" && <Moon className="w-4 h-4 text-sky-400" />}
-                  {tab.id === "all" && <Layers className="w-4 h-4" />}
+                  {getFilterIcon(tab.id)}
                   <span>{tab.label}</span>
                   <span
                     className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
-                      isActive ? "bg-black/20 text-[#06080e]" : "bg-white/10 text-slate-400"
+                      isActive ? "bg-black/25 text-[#06080e] font-bold" : "bg-white/10 text-slate-400"
                     }`}
                   >
                     {tab.count}
@@ -180,230 +243,21 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
               );
             })}
           </div>
-
-          {/* Secondary Thematic Pills (Phân Khu) */}
-          <div className="w-full flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-2">
-            {REAL_PARK_THEMATIC_FILTERS.map((theme) => {
-              const isActive = themeFilter === theme.id;
-              return (
-                <button
-                  key={theme.id}
-                  onClick={() => {
-                    setThemeFilter(theme.id);
-                    setVisibleCount(12);
-                  }}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all duration-200 border ${
-                    isActive
-                      ? "bg-[#dfb552]/15 text-[#dfb552] border-[#dfb552]/60 font-semibold shadow-sm"
-                      : "bg-[#0c121e]/60 text-slate-400 border-white/[0.06] hover:border-white/20 hover:text-slate-200"
-                  }`}
-                >
-                  {theme.label}
-                </button>
-              );
-            })}
-          </div>
         </div>
 
-        {/* Bento Masterpiece Spotlight (Featured when viewing All) */}
-        {isAllView && spotlightPhotos.length === 4 && (
-          <div className="mb-14 sm:mb-20">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#dfb552] font-semibold block mb-1">
-                  Spotlight • Điểm Nhấn Kiến Trúc
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white font-sans">
-                  4 GÓC NHÌN ĐẮT GIÁ NHẤT CÔNG VIÊN ONE PARK
-                </h3>
-              </div>
-              <span className="text-xs font-mono text-slate-400 hidden sm:inline">
-                Khám phá tổng thể công viên & Sales Gallery đã hiện hữu
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {/* Main Hero Card: Flycam Aerial Overview (Spans 2 columns on lg) */}
-              <div
-                onClick={() => {
-                  const targetIdx = filteredPhotos.findIndex((p) => p.id === spotlightPhotos[0].id);
-                  openLightbox(targetIdx >= 0 ? targetIdx : 0);
-                }}
-                className="lg:col-span-2 group relative aspect-[16/10] sm:aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0c121e] border border-white/[0.1] hover:border-[#dfb552]/70 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(223,181,82,0.15)] cursor-pointer"
-              >
-                <Image
-                  src={spotlightPhotos[0].url}
-                  alt={spotlightPhotos[0].title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 66vw"
-                  priority
-                />
-
-                {/* Dark Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-[#06080e]/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-
-                {/* Top Badge */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium">
-                    <Sun className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Flycam Toàn Cảnh • Ban Ngày</span>
-                  </span>
-
-                  <span className="p-2 rounded-full bg-black/60 text-white/90 group-hover:text-[#dfb552] group-hover:bg-black/90 transition-all backdrop-blur-md border border-white/10 group-hover:scale-110">
-                    <Maximize2 className="w-4 h-4" />
-                  </span>
-                </div>
-
-                {/* Bottom Floating Caption */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
-                  <span className="text-[10px] font-mono tracking-widest text-[#dfb552] uppercase font-bold mb-1.5 block">
-                    GÓC NHÌN TOÀN CẢNH FLYCAM • SALES GALLERY & ONE PARK
-                  </span>
-                  <h4 className="text-lg sm:text-2xl font-extrabold text-white mb-2 group-hover:text-[#dfb552] transition-colors font-sans">
-                    {spotlightPhotos[0].title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-300 font-light line-clamp-2 max-w-2xl leading-relaxed">
-                    {spotlightPhotos[0].description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Side Card 1: Sales Gallery Facade */}
-              <div
-                onClick={() => {
-                  const targetIdx = filteredPhotos.findIndex((p) => p.id === spotlightPhotos[1].id);
-                  openLightbox(targetIdx >= 0 ? targetIdx : 1);
-                }}
-                className="group relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0c121e] border border-white/[0.1] hover:border-[#dfb552]/70 transition-all duration-500 hover:shadow-[0_20px_45px_rgba(223,181,82,0.15)] cursor-pointer"
-              >
-                <Image
-                  src={spotlightPhotos[1].url}
-                  alt={spotlightPhotos[1].title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-[#06080e]/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium">
-                    <Sun className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Sales Gallery</span>
-                  </span>
-                  <span className="p-2 rounded-full bg-black/60 text-white/90 group-hover:text-[#dfb552] transition-all backdrop-blur-md border border-white/10 group-hover:scale-110">
-                    <Maximize2 className="w-4 h-4" />
-                  </span>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="text-[10px] font-mono tracking-widest text-[#dfb552] uppercase font-bold mb-1 block">
-                    MẶT ĐỨNG KIẾN TRÚC SÓNG BIỂN
-                  </span>
-                  <h4 className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-[#dfb552] transition-colors line-clamp-1">
-                    {spotlightPhotos[1].title}
-                  </h4>
-                  <p className="text-xs text-slate-300 font-light line-clamp-2 leading-relaxed">
-                    {spotlightPhotos[1].description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Side Card 2: Resort Pool Palms */}
-              <div
-                onClick={() => {
-                  const targetIdx = filteredPhotos.findIndex((p) => p.id === spotlightPhotos[2].id);
-                  openLightbox(targetIdx >= 0 ? targetIdx : 2);
-                }}
-                className="group relative aspect-[16/10] sm:aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0c121e] border border-white/[0.1] hover:border-[#dfb552]/70 transition-all duration-500 hover:shadow-[0_20px_45px_rgba(223,181,82,0.15)] cursor-pointer"
-              >
-                <Image
-                  src={spotlightPhotos[2].url}
-                  alt={spotlightPhotos[2].title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-[#06080e]/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium">
-                    <Sun className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Hồ Bơi Resort</span>
-                  </span>
-                  <span className="p-2 rounded-full bg-black/60 text-white/90 group-hover:text-[#dfb552] transition-all backdrop-blur-md border border-white/10 group-hover:scale-110">
-                    <Maximize2 className="w-4 h-4" />
-                  </span>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="text-[10px] font-mono tracking-widest text-[#dfb552] uppercase font-bold mb-1 block">
-                    ỐC ĐẢO NGHỈ DƯỠNG NHIỆT ĐỚI
-                  </span>
-                  <h4 className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-[#dfb552] transition-colors line-clamp-1">
-                    {spotlightPhotos[2].title}
-                  </h4>
-                  <p className="text-xs text-slate-300 font-light line-clamp-2 leading-relaxed">
-                    {spotlightPhotos[2].description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Side Card 3: Night Waterfall & Circle of Time (Spans 2 cols on lg) */}
-              <div
-                onClick={() => {
-                  const targetIdx = filteredPhotos.findIndex((p) => p.id === spotlightPhotos[3].id);
-                  openLightbox(targetIdx >= 0 ? targetIdx : 3);
-                }}
-                className="lg:col-span-2 group relative aspect-[16/10] sm:aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0c121e] border border-white/[0.1] hover:border-[#dfb552]/70 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(223,181,82,0.15)] cursor-pointer"
-              >
-                <Image
-                  src={spotlightPhotos[3].url}
-                  alt={spotlightPhotos[3].title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 66vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-[#06080e]/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-sky-400/30 text-sky-300 text-xs font-medium">
-                    <Moon className="w-3.5 h-3.5 text-sky-400" />
-                    <span>Vũ Điệu Ánh Sáng Về Đêm</span>
-                  </span>
-                  <span className="p-2 rounded-full bg-black/60 text-white/90 group-hover:text-[#dfb552] transition-all backdrop-blur-md border border-white/10 group-hover:scale-110">
-                    <Maximize2 className="w-4 h-4" />
-                  </span>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
-                  <span className="text-[10px] font-mono tracking-widest text-[#dfb552] uppercase font-bold mb-1.5 block">
-                    BIỂU TƯỢNG VÒNG TRÒN THỜI GIAN & THÁC NƯỚC ĐÊM
-                  </span>
-                  <h4 className="text-lg sm:text-2xl font-extrabold text-white mb-2 group-hover:text-[#dfb552] transition-colors font-sans">
-                    {spotlightPhotos[3].title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-300 font-light line-clamp-2 max-w-2xl leading-relaxed">
-                    {spotlightPhotos[3].description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Gallery Grid Title Divider */}
-        <div className="flex items-center justify-between border-t border-white/[0.08] pt-8 sm:pt-10 mb-8 sm:mb-10">
-          <div>
-            <span className="text-xs font-mono text-[#dfb552] uppercase tracking-wider font-semibold block mb-0.5">
-              Thư Viện Ảnh Thực Tế
+        {/* Category Result Header */}
+        <div className="flex items-center justify-between border-t border-white/[0.08] pt-6 mb-8">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#dfb552] animate-ping" />
+            <span className="text-xs sm:text-sm font-mono text-slate-300">
+              Đang hiển thị:{" "}
+              <strong className="text-white font-semibold">
+                {REAL_PARK_FILTERS.find((f) => f.id === activeFilter)?.label}
+              </strong>
             </span>
-            <h3 className="text-lg sm:text-2xl font-bold text-white font-sans">
-              DANH MỤC ẢNH CHI TIẾT ({filteredPhotos.length} GÓC NHÌN)
-            </h3>
           </div>
-          <span className="text-xs font-mono text-slate-400">
-            Hiển thị {displayedPhotos.length} / {filteredPhotos.length} ảnh
+          <span className="text-xs font-mono text-[#dfb552]">
+            {filteredPhotos.length} góc chụp thực tế
           </span>
         </div>
 
@@ -415,22 +269,20 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
               onClick={() => openLightbox(idx)}
               className="group relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0c121e] border border-white/[0.08] hover:border-[#dfb552]/70 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(0,0,0,0.8),0_0_35px_rgba(223,181,82,0.15)] cursor-pointer"
             >
-              {/* Image Full-Bleed with Native Aspect Ratio */}
-              <Image
-                src={photo.url}
+              {/* Image Full-Bleed via Direct High-Speed Cloudinary CDN */}
+              <img
+                src={getCardImageUrl(photo.url)}
                 alt={photo.title}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 loading="lazy"
-                quality={85}
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
 
               {/* Silk Gradient Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-[#06080e]/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-[#06080e]/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity pointer-events-none" />
 
               {/* Floating Top Bar: Time Badge & Expand Icon */}
-              <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
+              <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none z-10">
                 {photo.timeOfDay === "day" ? (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/15 text-white/95 text-[11px] font-sans font-medium shadow-md">
                     <Sun className="w-3 h-3 text-amber-400" />
@@ -448,8 +300,8 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
                 </div>
               </div>
 
-              {/* Floating Bottom Caption (Integrated seamlessly, no clumsy text box) */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+              {/* Floating Bottom Caption (Integrated seamlessly) */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 z-10">
                 <span className="text-[10px] font-mono tracking-widest text-[#dfb552] uppercase font-bold block mb-1">
                   {getCategoryBadgeLabel(photo.category)}
                 </span>
@@ -514,12 +366,12 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
         </div>
       </div>
 
-      {/* Enhanced Lightbox Modal */}
+      {/* High-Performance 60FPS Lightbox Modal */}
       {selectedPhoto && (
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-[120] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-between p-3 sm:p-6 animate-fadeIn"
+          className="fixed inset-0 z-[120] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-between p-3 sm:p-5 animate-fadeIn select-none"
           onClick={closeLightbox}
         >
           {/* Top Controls Bar */}
@@ -535,17 +387,19 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
 
             <button
               onClick={closeLightbox}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all hover:scale-110 border border-white/20"
-              aria-label="Đóng ảnh"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all hover:scale-110 border border-white/20"
+              aria-label="Đóng ảnh (Phím Escape)"
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
-          {/* Center Main Image Container with Next/Prev Controls */}
+          {/* Center Main Image Container with Instant Zero-Lag Switch */}
           <div
             className="relative w-full max-w-5xl flex-1 flex items-center justify-center my-2"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             {/* Prev Button */}
             <button
@@ -565,39 +419,41 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
               <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
             </button>
 
-            {/* The Main High-Res Image */}
-            <div className="relative w-full h-[50vh] sm:h-[62vh]">
-              <Image
-                src={selectedPhoto.url}
+            {/* The Main High-Res Image (Served directly from Cloudinary Edge CDN with preloaded cache) */}
+            <div className="relative w-full h-[52vh] sm:h-[64vh] flex items-center justify-center">
+              <img
+                key={selectedPhoto.id}
+                src={getLightboxImageUrl(selectedPhoto.url)}
                 alt={selectedPhoto.title}
-                fill
-                className="object-contain"
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                priority
+                className="max-h-full max-w-full w-auto h-auto object-contain rounded-xl shadow-2xl transition-opacity duration-200"
+                decoding="async"
               />
             </div>
           </div>
 
           {/* Bottom Interactive Strip: Caption & Mini-Thumbnails Carousel */}
           <div
-            className="w-full max-w-4xl flex flex-col items-center gap-3 z-20 pointer-events-auto"
+            className="w-full max-w-4xl flex flex-col items-center gap-2.5 z-20 pointer-events-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Caption Card */}
-            <div className="w-full px-5 py-3.5 rounded-2xl bg-[#0c121e]/90 border border-white/15 backdrop-blur-xl text-center">
+            <div className="w-full px-5 py-3 rounded-2xl bg-[#0c121e]/90 border border-white/15 backdrop-blur-xl text-center">
               <span className="text-[10px] font-mono tracking-widest text-[#dfb552] uppercase font-bold block mb-1">
                 {getCategoryBadgeLabel(selectedPhoto.category)}
               </span>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-1 font-sans">
+              <h3 className="text-sm sm:text-base font-bold text-white mb-0.5 font-sans">
                 {selectedPhoto.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl mx-auto line-clamp-2">
+              <p className="text-xs text-slate-300 font-light leading-relaxed max-w-2xl mx-auto line-clamp-2">
                 {selectedPhoto.description}
               </p>
             </div>
 
-            {/* Mini Thumbnails Carousel Strip */}
-            <div className="w-full flex items-center justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-2">
+            {/* Mini Thumbnails Carousel Strip with Auto-Scroll to Active */}
+            <div
+              ref={thumbnailContainerRef}
+              className="w-full flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-2"
+            >
               {filteredPhotos.map((photo, i) => {
                 const isActive = i === selectedPhotoIndex;
                 return (
@@ -610,12 +466,14 @@ export default function OneEraRealParkShowcase({ onOpenImage }: Props) {
                         : "border-white/15 opacity-50 hover:opacity-100 hover:border-white/40"
                     }`}
                   >
-                    <Image
-                      src={photo.url}
+                    <img
+                      src={getThumbnailImageUrl(photo.url)}
                       alt={photo.title}
-                      fill
-                      className="object-cover"
-                      sizes="64px"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width={160}
+                      height={100}
                     />
                   </button>
                 );
