@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bảng Giá One Era Bình Dương Đợt 1 – Giá Gốc CĐT & Chính Sách Ưu Đãi 2026",
     description:
-      "Bảng giá gốc và chính sách thanh toán ưu đãi dự án chuẩn quốc tế One Era Kim Oanh Group & 3 Tập đoàn Nhật Bản. Suất ngoại giao căn đẹp đợt 1.",
+      "Bảng giá gốc và chính sách thanh toán ưu đãi dự án chuẩn quốc tế One Era Kinera (Kim Oanh Group) & Tập đoàn Longfor. Suất ngoại giao căn đẹp đợt 1.",
     url: "https://kimoanhdongnai.com.vn/one-era/bang-gia",
     siteName: "Kim Oanh Đồng Nai",
     locale: "vi_VN",

@@ -40,7 +40,7 @@ const CLUSTER_PAGES = [
     href: "/one-era/phap-ly",
     tag: "Bảo Chứng Quốc Tế",
     title: "Pháp Lý Quy Hoạch 1/500 & Tổng Thầu Coteccons",
-    description: "Minh bạch pháp lý 1/500, liên doanh chiến lược Kim Oanh Group (51%) cùng 3 tập đoàn hàng đầu Nhật Bản (49%).",
+    description: "Minh bạch pháp lý 1/500, hợp tác chiến lược giữa Kinera (Kim Oanh Group) cùng Tập đoàn Longfor (Trung Quốc - Top 500 Toàn Cầu).",
     icon: ShieldCheck,
     accent: "#58aeb4",
   },

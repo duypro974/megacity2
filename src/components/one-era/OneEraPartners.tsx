@@ -21,10 +21,10 @@ export default function OneEraPartners() {
             <span>Liên Minh Chiến Lược Quốc Tế</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white uppercase font-sans">
-            BẢO CHỨNG BỞI <span className="bg-gradient-to-r from-[#dfb552] via-[#fbf7ee] to-[#dfb552] bg-clip-text text-transparent">KINERA & 3 TẬP ĐOÀN NHẬT BẢN</span>
+            BẢO CHỨNG BỞI <span className="bg-gradient-to-r from-[#dfb552] via-[#fbf7ee] to-[#dfb552] bg-clip-text text-transparent">KINERA & TẬP ĐOÀN LONGFOR (TRUNG QUỐC)</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Sự kết hợp hoàn hảo giữa năng lực phát triển quỹ đất 16 năm của Kim Oanh Group và công nghệ xây dựng, quản trị đô thị bền vững hơn 300 năm từ Nhật Bản.
+            Sự kết hợp hoàn hảo giữa năng lực phát triển quỹ đất 16 năm của Kim Oanh Group (Kinera) và bề dày kinh nghiệm kiến tạo đại đô thị tỷ USD từ Tập đoàn Longfor (Top 500 Doanh nghiệp lớn nhất thế giới).
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export default function OneEraPartners() {
                 <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-[#dfb552]/10 text-[#dfb552] border border-[#dfb552]/20">
                   {p.established}
                 </span>
-                <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase tracking-wider">Nhật Bản</span>
+                <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase tracking-wider">Quốc Tế</span>
               </div>
 
               <h3 className="text-lg sm:text-xl font-extrabold text-white mb-3 group-hover:text-[#dfb552] transition-colors">
@@ -75,7 +75,7 @@ export default function OneEraPartners() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-[#35a3ce]" />
-                  <span>Liên minh Nhật Bản (49% Vốn)</span>
+                  <span>Tập đoàn Longfor (Trung Quốc)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-4 h-4 text-[#dfb552]" />

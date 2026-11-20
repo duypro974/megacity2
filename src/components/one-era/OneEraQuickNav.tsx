@@ -25,7 +25,7 @@ const PRIMARY_ITEMS: NavItem[] = [
 
 const MORE_ITEMS: NavItem[] = [
   { label: "Sơ đồ 3D", href: "#mat-bang-3d" },
-  { label: "Đối tác Nhật", href: "#doi-tac" },
+  { label: "Đối tác quốc tế", href: "#doi-tac" },
   { label: "Nội thất 3D", href: "#noi-that" },
   { label: "Brochure & Ảnh 3D", href: "#thu-vien-anh" },
   { label: "Tải Leaflet PDF", href: "#tai-lieu" },

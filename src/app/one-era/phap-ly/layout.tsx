@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pháp Lý One Era Bình Dương – Quy Hoạch 1/500 & Bảo Chứng Quốc Tế Chuẩn Quốc Tế",
   description:
-    "Tìm hiểu chi tiết hồ sơ pháp lý dự án One Era Bình Dương (50ha). Phê duyệt quy hoạch 1/500, vốn liên doanh quốc tế giữa Kim Oanh Group & 3 Tập đoàn Nhật Bản, tổng thầu thi công Coteccons.",
+    "Tìm hiểu chi tiết hồ sơ pháp lý dự án One Era Bình Dương (50ha). Phê duyệt quy hoạch 1/500, vốn hợp tác quốc tế giữa Kim Oanh Group & Tập đoàn Longfor (Trung Quốc), tổng thầu thi công Coteccons.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/one-era/phap-ly" },
   openGraph: {
     title: "Pháp Lý One Era Bình Dương – Quy Hoạch 1/500 & Bảo Chứng Quốc Tế Chuẩn Quốc Tế",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Pháp Lý One Era Bình Dương – Quy Hoạch 1/500 & Tổng Thầu Coteccons",
-    description: "Hồ sơ pháp lý minh bạch và năng lực liên danh Nhật Bản tại dự án chuẩn quốc tế One Era.",
+    description: "Hồ sơ pháp lý minh bạch và năng lực hợp tác quốc tế cùng Tập đoàn Longfor tại dự án One Era.",
     images: ["https://res.cloudinary.com/dqy4lfmcf/image/upload/v1792642548/oneera/developers/one-era-kinera-consortium.webp"],
   },
 };

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tiện Ích One Era Bình Dương – TTTM AEON Mall, Cầu Kén Vàng & Chuẩn Sống Quốc Tế",
     description:
-      "Khám phá trọn vẹn hơn 50 tiện ích cao cấp phục vụ mọi thế hệ tại đại đô thị kiểu mẫu One Era Kim Oanh Group & Nhật Bản.",
+      "Khám phá trọn vẹn hơn 50 tiện ích cao cấp phục vụ mọi thế hệ tại đại đô thị kiểu mẫu One Era Kinera & Tập đoàn Longfor.",
     url: "https://kimoanhdongnai.com.vn/one-era/tien-ich",
     siteName: "Kim Oanh Đồng Nai",
     locale: "vi_VN",

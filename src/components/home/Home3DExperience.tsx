@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { IMG_ONE_ERA } from "@/lib/cloudinary";
 
-const VIDEO_3D_URL = "https://ik.imagekit.io/huubao/69c02d66-6851-4950-8d3a-a624051b8092.mp4";
+const VIDEO_3D_URL = "https://res.cloudinary.com/dqy4lfmcf/video/upload/v1795141003/oneera/videos/one-era-flythrough.mp4";
 
 interface Hotspot3D {
   id: string;
@@ -448,7 +448,7 @@ export default function Home3DExperience() {
               One Era Bình Dương
             </h4>
             <p className="text-xs text-slate-400 font-light line-clamp-2">
-              Khu đô thị kiểu mẫu thế hệ mới hợp tác cùng 3 tập đoàn Nhật Bản. Mở bán 357 căn Central District.
+              Khu đô thị kiểu mẫu thế hệ mới hợp tác cùng Tập đoàn Longfor (Trung Quốc). Mở bán 357 căn Central District.
             </p>
           </Link>
 

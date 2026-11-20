@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Virtual Tour 360° Đại Đô Thị One Era – Kim Oanh Group",
     description:
-      "Trải nghiệm không gian thực tế ảo 360 độ toàn cảnh 50ha One Era Bình Dương liên danh Kim Oanh Group & 3 Tập đoàn Nhật Bản.",
+      "Trải nghiệm không gian thực tế ảo 360 độ toàn cảnh 50ha One Era Bình Dương hợp tác chiến lược giữa Kinera (Kim Oanh Group) & Tập đoàn Longfor.",
     url: "https://kimoanhdongnai.com.vn/one-era/360",
     siteName: "Kim Oanh Đồng Nai",
     locale: "vi_VN",

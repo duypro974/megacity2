@@ -60,23 +60,23 @@ export const ONE_ERA_DATA = {
 
   developers: {
     developerName: "Công ty Cổ phần Tập đoàn Kinera (KINERA)",
-    developerDescription: "Liên doanh chiến lược giữa Kim Oanh Group (51% vốn) và 3 tập đoàn hàng đầu Nhật Bản (49% vốn) mang triết lý 'Sống Trân Quý' kiến tạo tổ ấm đa thế hệ.",
+    developerDescription: "Thỏa thuận hợp tác chiến lược giữa Kim Oanh Group (Kinera) và Tập đoàn Longfor (Trung Quốc - Top Fortune Global 500) kiến tạo đại đô thị One Era theo chuẩn mực quốc tế thượng lưu.",
     investor: "Công ty Cổ phần Đầu tư và Phát triển Kim Oanh (Kim Oanh Group)",
     japanesePartners: [
       {
-        name: "Sumitomo Forestry",
-        established: "1691 (Hơn 330 năm lịch sử)",
-        role: "Tập đoàn phát triển đô thị sinh thái, vật liệu gỗ và kiến trúc bền vững danh tiếng toàn cầu của Nhật Bản.",
+        name: "Tập Đoàn Longfor (Longfor Group)",
+        established: "1993 · Forbes Global 500",
+        role: "Tập đoàn bất động sản tỷ USD hàng đầu châu Á (HKEX: 0960), nhà phát triển đại đô thị phức hợp, chuỗi TTTM Paradise Walk và dịch vụ vận hành thông minh chuẩn 5 sao.",
       },
       {
-        name: "Kumagai Gumi",
-        established: "1898 (Hơn 125 năm lịch sử)",
-        role: "Tập đoàn xây dựng và kỹ thuật công trình quy mô hàng đầu Nhật Bản, sở hữu hàng loạt công trình ngầm và cao ốc biểu tượng.",
+        name: "Hệ Thống Bán Lẻ Paradise Walk",
+        established: "Biểu Tượng Thương Mại",
+        role: "Chuỗi trung tâm thương mại cao cấp hàng đầu khu vực của Longfor, thu hút hàng trăm triệu lượt khách, kiến tạo phong cách sống giải trí phồn hoa.",
       },
       {
-        name: "NTT Urban Development",
-        established: "Thành viên NTT Group",
-        role: "Thành viên tập đoàn viễn thông lớn nhất Nhật Bản NTT Group, chuyên gia phát triển đô thị thông minh và cao ốc văn phòng hạng sang.",
+        name: "Quản Lý Đô Thị Thông Minh AI",
+        established: "Chuẩn Quốc Tế",
+        role: "Công nghệ số hóa quản trị đại đô thị thông minh, an ninh đa lớp camera AI và dịch vụ cư dân đạt chuẩn hài lòng cao nhất liên tục nhiều năm.",
       },
     ],
     generalContractor: {
@@ -369,7 +369,7 @@ export const ONE_ERA_DATA = {
     },
     {
       q: "Chủ đầu tư và các đối tác phát triển của dự án là ai?",
-      a: "Dự án do Tập đoàn Địa ốc Kim Oanh làm chủ đầu tư và phát triển bởi KINERA – liên danh chiến lược giữa Kim Oanh Group (51%) cùng 3 tập đoàn hàng đầu Nhật Bản (49% gồm Sumitomo Forestry, Kumagai Gumi, NTT Urban Development). Tổng thầu xây dựng là Coteccons và đối tác thương mại là AEON Mall Việt Nam.",
+      a: "Dự án do Tập đoàn Địa ốc Kim Oanh làm chủ đầu tư và phát triển bởi KINERA – hợp tác chiến lược cùng Tập đoàn Longfor (Trung Quốc - Top Fortune Global 500) kiến tạo đại đô thị One Era quy mô gần 50 ha. Tổng thầu xây dựng là Coteccons cùng các đối tác quốc tế Surbana Jurong, DP Architects và AEON Mall.",
     },
     {
       q: "Phân khu Central District mở bán những loại hình sản phẩm nào?",
@@ -641,8 +641,8 @@ export const ONE_ERA_BROCHURE_SPREADS: OneEraBrochureSpread[] = [
   },
   {
     spreadNumber: 2,
-    title: "Liên Danh KINERA & Đối Tác Chiến Lược Nhật Bản",
-    subtitle: "Kim Oanh Group kết hợp cùng Sumitomo Forestry, Kumagai Gumi, NTT Urban Development",
+    title: "Liên Danh KINERA & Đối Tác Chiến Lược Longfor Group",
+    subtitle: "Kim Oanh Group hợp tác cùng Tập đoàn Longfor (Trung Quốc - Top Fortune Global 500)",
     pageRange: "Trang 03 - 04",
     image: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1920,c_limit/oneera/brochure/brochure-spread-02.webp",
     category: "tong-quan",

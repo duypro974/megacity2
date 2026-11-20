@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { IMG_ONE_ERA } from "@/lib/cloudinary";
 
-const VIDEO_3D_URL = "https://ik.imagekit.io/huubao/69c02d66-6851-4950-8d3a-a624051b8092.mp4";
+const VIDEO_3D_URL = "https://res.cloudinary.com/dqy4lfmcf/video/upload/v1795141003/oneera/videos/one-era-flythrough.mp4";
 
 const SLIDES = [
   {
@@ -50,7 +50,7 @@ const SLIDES = [
 ];
 
 export default function OneEraHero() {
-  const [useVideo, setUseVideo] = useState(false);
+  const [useVideo, setUseVideo] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -105,6 +105,10 @@ export default function OneEraHero() {
               muted={isMuted}
               playsInline
               poster={IMG_ONE_ERA.hero.sunset}
+              onError={() => {
+                console.warn("Video failed to play, switching to photo mode");
+                setUseVideo(false);
+              }}
               className="w-full h-full object-cover scale-105"
             />
           </div>
@@ -192,7 +196,7 @@ export default function OneEraHero() {
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#dfb552]/10 border border-[#dfb552]/30 backdrop-blur-xl shadow-xl shadow-black/40">
               <span className="w-2 h-2 rounded-full bg-[#dfb552] animate-ping" />
               <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#dfb552]">
-                Đại Đô Thị Kiểu Mẫu • Kim Oanh Group & 3 Tập Đoàn Nhật Bản
+                Đại Đô Thị Kiểu Mẫu • Kinera (Kim Oanh Group) & Tập Đoàn Longfor (Trung Quốc)
               </span>
             </div>
           </div>
@@ -207,9 +211,10 @@ export default function OneEraHero() {
 
           {/* Subtitle */}
           <p className="text-sm sm:text-lg text-slate-300 max-w-2xl font-light leading-relaxed mb-8 drop-shadow">
-            Đại đô thị sinh thái thông minh chuẩn Nhật Bản quy mô gần{" "}
-            <strong className="text-[#dfb552] font-semibold">50 Hécta</strong> với tổng vốn đầu tư{" "}
-            <strong className="text-[#dfb552] font-semibold">Quy Chuẩn Quốc Tế</strong>. Sở hữu vị trí độc tôn ngã ba sông Suối Cát, trực tiếp kết nối Vành Đai 3 và{" "}
+            Đại đô thị sinh thái thông minh quốc tế hợp tác cùng{" "}
+            <strong className="text-[#dfb552] font-semibold">Tập đoàn Longfor (Trung Quốc)</strong> quy mô gần{" "}
+            <strong className="text-[#dfb552] font-semibold">50 Hécta</strong> với tổng vốn đầu tư hơn{" "}
+            <strong className="text-[#dfb552] font-semibold">1 Tỷ USD</strong>. Sở hữu vị trí độc tôn ngã ba sông Suối Cát, trực tiếp kết nối Vành Đai 3 và{" "}
             <strong className="text-[#dfb552] font-semibold">2 tuyến Metro tương lai</strong>.
           </p>
 
@@ -237,11 +242,11 @@ export default function OneEraHero() {
 
             <div className="p-4 rounded-2xl bg-[#0c121e]/85 border border-white/[0.08] hover:border-[#dfb552]/40 backdrop-blur-xl transition-all shadow-lg group">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#dfb552] mb-1 font-mono group-hover:scale-105 transition-transform">
-                3 Tập Đoàn
+                Longfor
               </div>
               <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#35a3ce]" />
-                <span>Nhật Bản đồng phát triển</span>
+                <span>Top 500 Toàn Cầu Đồng Phát Triển</span>
               </div>
             </div>
 

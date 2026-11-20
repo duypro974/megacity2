@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mặt Bằng One Era Bình Dương – Sơ Đồ Quy Hoạch 50ha & Phân Lô Central District",
     description:
-      "Bản vẽ phân lô vector siêu nét dự án One Era Kim Oanh & Nhật Bản. Lộ giới đường nội bộ 13m - 25m, hồ bơi resort và tiện ích trung tâm.",
+      "Bản vẽ phân lô vector siêu nét dự án One Era Kinera & Tập đoàn Longfor. Lộ giới đường nội bộ 13m - 25m, hồ bơi resort và tiện ích trung tâm.",
     url: "https://kimoanhdongnai.com.vn/one-era/mat-bang",
     siteName: "Kim Oanh Đồng Nai",
     locale: "vi_VN",

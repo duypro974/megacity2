@@ -30,7 +30,7 @@ export default function OneEraOverview({ onOpenImage }: Props) {
             TỔNG QUAN SIÊU DỰ ÁN <span className="bg-gradient-to-r from-[#dfb552] via-[#fbf7ee] to-[#dfb552] bg-clip-text text-transparent">ONE ERA</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Kiến tạo chuẩn mực sống thượng lưu quốc tế đầu tiên tại Bình Dương với quy mô gần 50 Hécta, được bảo chứng bởi liên minh chiến lược giữa Tập đoàn Địa ốc Kim Oanh và 3 tập đoàn danh tiếng hàng đầu Nhật Bản.
+            Kiến tạo chuẩn mực sống thượng lưu quốc tế đầu tiên tại Bình Dương với quy mô gần 50 Hécta, được bảo chứng bởi liên minh chiến lược giữa Tập đoàn Địa ốc Kim Oanh và Tập đoàn Longfor (Trung Quốc - Top Fortune Global 500).
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function OneEraOverview({ onOpenImage }: Props) {
             </div>
             <h3 className="text-base font-bold text-white mb-2 uppercase tracking-wide">Vốn Tỉ Đô Quốc Tế</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Đại đô thị sinh thái kiểu mẫu chuẩn quốc tế với sự hợp tác phát triển cùng Sumitomo Forestry, Kumagai Gumi và NTT Urban Development.
+              Đại đô thị sinh thái kiểu mẫu chuẩn quốc tế với sự hợp tác phát triển cùng Tập đoàn Longfor (Top 500 Toàn Cầu) và liên minh tư vấn quốc tế.
             </p>
           </div>
 
@@ -140,8 +140,8 @@ export default function OneEraOverview({ onOpenImage }: Props) {
                 </div>
 
                 <div className="flex justify-between py-1.5 border-b border-white/[0.06]">
-                  <dt className="text-slate-400">Đối tác Nhật Bản</dt>
-                  <dd className="font-semibold text-slate-200 text-right">Sumitomo Forestry · Kumagai · NTT</dd>
+                  <dt className="text-slate-400">Đối tác chiến lược</dt>
+                  <dd className="font-semibold text-slate-200 text-right">Tập đoàn Longfor (Trung Quốc)</dd>
                 </div>
 
                 <div className="flex justify-between py-1.5 border-b border-white/[0.06]">

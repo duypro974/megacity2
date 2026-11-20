@@ -62,7 +62,7 @@ const relatedItems = [
   {
     href: "/one-era",
     title: "Tổng quan siêu dự án One Era (50ha – Chuẩn Quốc Tế)",
-    description: "Toàn bộ thông tin chủ đầu tư Kim Oanh Group và 3 tập đoàn Nhật Bản, phân khu Central District.",
+    description: "Toàn bộ thông tin chủ đầu tư Kim Oanh Group và đối tác chiến lược Longfor Group, phân khu Central District.",
     tag: "Trang Chính",
   },
   {

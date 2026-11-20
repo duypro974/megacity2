@@ -43,7 +43,7 @@ const faqSchema = {
       name: "Tỷ lệ góp vốn và cơ cấu liên danh tại dự án One Era như thế nào?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dự án được phát triển bởi pháp nhân Kinera với cơ cấu vốn liên doanh minh bạch: Tập đoàn Kim Oanh nắm giữ 51% cổ phần chi phối, và 49% còn lại do 3 tập đoàn hàng đầu Nhật Bản (Sumitomo Forestry, Kumagai Gumi và NTT Urban Development) cùng nắm giữ.",
+        text: "Dự án được phát triển bởi pháp nhân Kinera (thành viên Kim Oanh Group) hợp tác chiến lược cùng Tập đoàn Longfor (Trung Quốc - Top Fortune Global 500) cùng quy hoạch và kiến tạo đại đô thị One Era.",
       },
     },
     {
@@ -61,7 +61,7 @@ const relatedItems = [
   {
     href: "/one-era",
     title: "Tổng quan siêu dự án One Era (50ha – Chuẩn Quốc Tế)",
-    description: "Toàn bộ thông tin chủ đầu tư Kim Oanh Group và 3 tập đoàn Nhật Bản, phân khu Central District.",
+    description: "Toàn bộ thông tin chủ đầu tư Kim Oanh Group và đối tác chiến lược Longfor Group, phân khu Central District.",
     tag: "Trang Chính",
   },
   {
@@ -112,8 +112,8 @@ export default function PhapLyOneEraPage() {
         {/* Header Section */}
         <SubPageHeader
           tag="Pháp Lý & Năng Lực CĐT"
-          title="HỒ SƠ PHÁP LÝ & BẢO CHỨNG LIÊN DANH NHẬT BẢN"
-          subtitle="Minh bạch pháp lý quy hoạch 1/500, quỹ đất sạch gần 50 Hécta và năng lực liên danh giữa Kim Oanh Group (51%) cùng 3 tập đoàn hơn 300 năm lịch sử từ Nhật Bản."
+          title="HỒ SƠ PHÁP LÝ & BẢO CHỨNG HỢP TÁC CHIẾN LƯỢC QUỐC TẾ"
+          subtitle="Minh bạch pháp lý quy hoạch 1/500, quỹ đất sạch gần 50 Hécta và năng lực hợp tác chiến lược giữa Kim Oanh Group (Kinera) cùng Tập đoàn Longfor (Trung Quốc - Top 500 Toàn Cầu)."
           breadcrumbs={[
             { label: "One Era", href: "/one-era" },
             { label: "Pháp Lý" },
@@ -141,9 +141,9 @@ export default function PhapLyOneEraPage() {
               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center mx-auto mb-4 font-bold">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h2 className="text-lg font-bold text-slate-900 mb-2">Vốn Quốc Tế Hơn Chuẩn Quốc Tế</h2>
+              <h2 className="text-lg font-bold text-slate-900 mb-2">Vốn Quốc Tế Hơn 1 Tỷ USD</h2>
               <p className="text-xs text-slate-600 leading-relaxed font-light">
-                49% vốn cổ phần được nắm giữ bởi 3 tập đoàn Sumitomo Forestry, Kumagai Gumi và NTT Urban Development trực thuộc NTT Group.
+                Hợp tác chiến lược toàn diện cùng Tập đoàn Longfor (Trung Quốc - niêm yết sàn HKEX: 0960, Top Fortune Global 500).
               </p>
             </div>
 
@@ -186,8 +186,8 @@ export default function PhapLyOneEraPage() {
               </div>
 
               <div className="flex justify-between py-2 border-b border-slate-200/60">
-                <dt className="text-slate-500 font-medium">Cơ cấu vốn:</dt>
-                <dd className="font-semibold text-slate-900">Kim Oanh (51%) – Nhật Bản (49%)</dd>
+                <dt className="text-slate-500 font-medium">Đối tác phát triển:</dt>
+                <dd className="font-semibold text-slate-900">Kinera & Longfor Group (Trung Quốc)</dd>
               </div>
 
               <div className="flex justify-between py-2 border-b border-slate-200/60">

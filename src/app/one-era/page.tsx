@@ -5,9 +5,9 @@ import { ONE_ERA_DATA } from "@/data/oneEraData";
 import { SITE_CONFIG } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "One Era Bình Dương – Khu Đô Thị Chuẩn Nhật Kim Oanh Group & Đối Tác",
+  title: "One Era Bình Dương – Khu Đô Thị Kiểu Mẫu Kim Oanh Group & Tập Đoàn Longfor",
   description:
-    "Khu đô thị One Era Bình Dương (50ha Chuẩn Quốc Tế) liên doanh Kim Oanh Group & 3 tập đoàn Nhật Bản (Sumitomo Forestry, Kumagai Gumi, NTT UD). Mở bán đợt 1 phân khu Central District 357 căn giá gốc CĐT.",
+    "Khu đô thị One Era Bình Dương (~50ha Chuẩn Quốc Tế) hợp tác chiến lược giữa Kinera (Kim Oanh Group) & Tập đoàn Longfor (Trung Quốc - Top Fortune Global 500). Mở bán đợt 1 phân khu Central District 357 căn giá gốc CĐT.",
   keywords: [
     "One Era",
     "One Era Bình Dương",
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "The One World",
     "Kim Oanh Group One Era",
     "Kinera One Era",
+    "Longfor One Era",
+    "Longfor Group One Era",
     "Nhà phố One Era",
     "Shophouse One Era",
   ],
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     canonical: "https://kimoanhdongnai.com.vn/one-era",
   },
   openGraph: {
-    title: "One Era Bình Dương – Đại Đô Thị Kiểu Mẫu Kim Oanh & Đối Tác Nhật",
+    title: "One Era Bình Dương – Đại Đô Thị Kiểu Mẫu Kim Oanh Group & Longfor Group",
     description:
       "Quy mô 50ha tại Thuận An, Bình Dương kề cận tuyến Vành Đai 3 và 2 ga Metro. Mở bán 357 căn thấp tầng Central District Quý 4/2028 bàn giao.",
     url: "https://kimoanhdongnai.com.vn/one-era",
@@ -38,13 +40,13 @@ export const metadata: Metadata = {
         url: "https://res.cloudinary.com/dqy4lfmcf/image/upload/v1792642548/oneera/hero/one-era-night-kinera-towers.webp",
         width: 1200,
         height: 630,
-        alt: "Siêu đô thị One Era Bình Dương - Kim Oanh Group & Nhật Bản",
+        alt: "Siêu đô thị One Era Bình Dương - Kinera & Longfor Group",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "One Era Bình Dương – Đại Đô Thị Kiểu Mẫu Kim Oanh & Đối Tác Nhật",
+    title: "One Era Bình Dương – Đại Đô Thị Kiểu Mẫu Kim Oanh Group & Longfor Group",
     description:
       "Dự án One Era 50ha tại TP. Thuận An, Bình Dương. Vốn đầu tư chuẩn quốc tế, chuẩn xanh Fitwel 3 sao & EDGE quốc tế.",
     images: ["https://res.cloudinary.com/dqy4lfmcf/image/upload/v1792642548/oneera/hero/one-era-night-kinera-towers.webp"],

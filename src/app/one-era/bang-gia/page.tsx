@@ -20,7 +20,7 @@ const productSchema = {
     "Bảng giá gốc CĐT mở bán đợt 1 phân khu Central District One Era (357 căn thấp tầng). Tiến độ thanh toán giãn đến Q4/2028, ngân hàng hỗ trợ vay 70%, ân hạn nợ gốc.",
   brand: {
     "@type": "Brand",
-    name: "Kinera - Kim Oanh Group & Nhật Bản",
+    name: "Kinera - Kim Oanh Group & Longfor Group",
   },
   offers: {
     "@type": "AggregateOffer",
@@ -53,7 +53,7 @@ const productSchema = {
         name: "Nguyễn Hoàng Nam",
       },
       datePublished: "2026-03-15",
-      reviewBody: "Dự án liên danh 3 tập đoàn Nhật Bản chuẩn xanh Fitwel 3 sao, mặt tiền QL13, thanh toán giãn đến Q4/2028 rất hấp dẫn.",
+      reviewBody: "Dự án hợp tác chiến lược cùng Tập đoàn Longfor chuẩn xanh Fitwel 3 sao, mặt tiền QL13, thanh toán giãn đến Q4/2028 rất hấp dẫn.",
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
@@ -73,7 +73,7 @@ const faqSchema = {
       name: "Giá bán nhà phố Townhouse và Shophouse One Era đợt 1 là bao nhiêu?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Mức giá đợt 1 phân khu Central District được CĐT Kim Oanh Group và đối tác Nhật Bản áp dụng mức giá gốc giai đoạn đầu với nhiều chính sách chiết khấu ưu đãi cho khách hàng đặt chỗ sớm.",
+        text: "Mức giá đợt 1 phân khu Central District được CĐT Kinera (Kim Oanh Group) và đối tác chiến lược Longfor Group áp dụng mức giá gốc giai đoạn đầu với nhiều chính sách chiết khấu ưu đãi cho khách hàng đặt chỗ sớm.",
       },
     },
     {
@@ -99,7 +99,7 @@ const relatedItems = [
   {
     href: "/one-era",
     title: "Tổng quan siêu dự án One Era (50ha – Chuẩn Quốc Tế)",
-    description: "Toàn bộ thông tin chủ đầu tư Kim Oanh Group và 3 tập đoàn Nhật Bản, phân khu Central District.",
+    description: "Toàn bộ thông tin chủ đầu tư Kim Oanh Group và đối tác chiến lược Longfor Group, phân khu Central District.",
     tag: "Trang Chính",
   },
   {
@@ -150,7 +150,7 @@ export default function BangGiaOneEraPage() {
         <SubPageHeader
           tag="Bảng Giá & Chính Sách"
           title="BẢNG GIÁ ONE ERA BÌNH DƯƠNG ĐỢT 1 & TIẾN ĐỘ THANH TOÁN"
-          subtitle="Cập nhật bảng giá gốc từ Chủ đầu tư Kim Oanh Group & 3 Tập đoàn Nhật Bản. Cơ hội sở hữu 357 căn thấp tầng Central District với tiến độ giãn dài đến Quý 4/2028."
+          subtitle="Cập nhật bảng giá gốc từ Chủ đầu tư Kinera (Kim Oanh Group) & Tập đoàn Longfor. Cơ hội sở hữu 357 căn thấp tầng Central District với tiến độ giãn dài đến Quý 4/2028."
           breadcrumbs={[
             { label: "One Era", href: "/one-era" },
             { label: "Bảng Giá" },
