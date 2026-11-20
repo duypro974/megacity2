@@ -15,12 +15,34 @@ export interface RealParkPhoto {
 
 export const REAL_PARK_PHOTOS: RealParkPhoto[] = REAL_PARK_PHOTOS_RAW as RealParkPhoto[];
 
-export const REAL_PARK_CATEGORIES = [
-  { id: "all", label: "Tất Cả", count: REAL_PARK_PHOTOS.length },
-  { id: "day", label: "Ban Ngày (Thực Tế)", count: REAL_PARK_PHOTOS.filter((p) => p.timeOfDay === "day").length },
-  { id: "night", label: "Đêm Lung Linh Ánh Sáng", count: REAL_PARK_PHOTOS.filter((p) => p.timeOfDay === "night").length },
-  { id: "ho-boi", label: "Hồ Bơi Resort Ốc Đảo", count: REAL_PARK_PHOTOS.filter((p) => p.category === "ho-boi").length },
-  { id: "khu-vui-choi", label: "Khu Vui Chơi One Park", count: REAL_PARK_PHOTOS.filter((p) => p.category === "khu-vui-choi").length },
-  { id: "sales-gallery", label: "Sales Gallery & Biểu Tượng", count: REAL_PARK_PHOTOS.filter((p) => p.category === "sales-gallery").length },
-  { id: "cong-vien", label: "Cảnh Quan & Lối Dạo Bộ", count: REAL_PARK_PHOTOS.filter((p) => p.category === "cong-vien").length },
+export const REAL_PARK_TIME_TABS = [
+  { id: "all", label: "Tất Cả 32 Góc Nhìn", count: REAL_PARK_PHOTOS.length },
+  { id: "day", label: "Ban Ngày Sinh Thái", count: REAL_PARK_PHOTOS.filter((p) => p.timeOfDay === "day").length },
+  { id: "night", label: "Vũ Điệu Ánh Sáng Đêm", count: REAL_PARK_PHOTOS.filter((p) => p.timeOfDay === "night").length },
 ];
+
+export const REAL_PARK_THEMATIC_FILTERS = [
+  { id: "all", label: "Tất Cả Phân Khu" },
+  { id: "toan-canh", label: "Flycam & Toàn Cảnh" },
+  { id: "sales-gallery", label: "Sales Gallery Biểu Tượng" },
+  { id: "ho-boi", label: "Hồ Bơi Resort Lagoon" },
+  { id: "khu-vui-choi", label: "Khu Vui Chơi Trẻ Em" },
+  { id: "cong-vien", label: "Cảnh Quan & Lối Dạo Bộ" },
+];
+
+export function getCategoryBadgeLabel(category: string): string {
+  switch (category) {
+    case "toan-canh":
+      return "TOÀN CẢNH FLYCAM";
+    case "sales-gallery":
+      return "SALES GALLERY BIỂU TƯỢNG";
+    case "ho-boi":
+      return "HỒ BƠI RESORT LAGOON";
+    case "khu-vui-choi":
+      return "KHU VUI CHƠI TRẺ EM";
+    case "cong-vien":
+      return "CẢNH QUAN & LỐI DẠO";
+    default:
+      return "ONE PARK THỰC TẾ";
+  }
+}
