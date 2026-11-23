@@ -2,16 +2,16 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { usePathname } from "next/navigation";
-import { X, Send, CheckCircle, Loader2, Phone, User, Sparkles, Mail } from "lucide-react";
+import { X, Send, CheckCircle, Loader2, Phone, User, Sparkles, Mail, ChevronDown } from "lucide-react";
 import { PROJECTS, type ProjectPreview } from "@/data/projects";
 
 /* ─────────────────────────────────────────
    Danh sách dự án hỗ trợ
 ───────────────────────────────────────── */
 const POPUP_SCOPE = [
+  "mega-city-2",
   "one-era",
   "the-link-city",
-  "mega-city-2",
   "k-home-cityview",
   "k-home-avenue",
   "k-home-midtown",
@@ -50,50 +50,42 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
   // Form states
   const [name, setName]         = useState("");
   const [phone, setPhone]       = useState("");
-  const [selectedSlug, setSelectedSlug] = useState("");
   const [status, setStatus]     = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const isAdmin = pathname?.startsWith("/admin");
 
-  // Nhận diện dự án hiện tại (từ URL trang con/cluster, prop hoặc sessionStorage)
-  const currentProject = useMemo(() => {
-    // 1. Kiểm tra từ URL hiện tại (ưu tiên cao nhất, đúng theo từng trang con/cluster)
+  // 1. Xác định dự án dựa trên URL hoặc prop
+  const projectFromUrl = useMemo(() => {
+    return resolveProjectFromPath(pathname) || (projectSlug ? POPUP_PROJECTS.find((p) => p.slug === projectSlug) : null);
+  }, [pathname, projectSlug]);
+
+  const isInsideProjectPage = Boolean(projectFromUrl);
+
+  // 2. State dự án đang được chọn:
+  // - Khi ở trong trang dự án/trang con: cố định theo projectFromUrl.slug
+  // - Khi ở ngoài trang chủ: cho phép tự do chọn, thay đổi bao nhiêu lần tùy thích, không bao giờ bị ẩn hay khóa
+  const [selectedSlug, setSelectedSlug] = useState<string>(() => {
+    if (projectSlug) return projectSlug;
     const fromPath = resolveProjectFromPath(pathname);
-    if (fromPath) return fromPath;
+    if (fromPath) return fromPath.slug;
+    return "mega-city-2"; // Mặc định trên trang chủ
+  });
 
-    // 2. Nếu có prop projectSlug truyền vào
-    if (projectSlug) {
-      const fromProp = POPUP_PROJECTS.find((p) => p.slug === projectSlug);
-      if (fromProp) return fromProp;
-    }
-
-    // 3. Nếu đang chọn trong dropdown
-    if (selectedSlug) {
-      const fromSelect = POPUP_PROJECTS.find((p) => p.slug === selectedSlug);
-      if (fromSelect) return fromSelect;
-    }
-
-    // 4. Kiểm tra sessionStorage nếu người dùng vừa bấm xem dự án từ trang chủ
-    if (typeof window !== "undefined") {
-      try {
-        const saved = sessionStorage.getItem("kimoanh_selected_project");
-        if (saved) {
-          const fromSaved = POPUP_PROJECTS.find((p) => p.slug === saved);
-          if (fromSaved) return fromSaved;
-        }
-      } catch {}
-    }
-
-    return null;
-  }, [pathname, projectSlug, selectedSlug]);
-
-  // Đồng bộ selectedSlug khi vào trang dự án/trang con
+  // Đồng bộ khi người dùng điều hướng chuyển trang
   useEffect(() => {
-    if (currentProject) {
-      setSelectedSlug(currentProject.slug);
+    if (projectFromUrl) {
+      setSelectedSlug(projectFromUrl.slug);
     }
-  }, [currentProject]);
+  }, [projectFromUrl]);
+
+  // Dự án kích hoạt hiện tại để hiển thị thông tin
+  const activeProject = useMemo(() => {
+    if (isInsideProjectPage && projectFromUrl) {
+      return projectFromUrl;
+    }
+    return POPUP_PROJECTS.find((p) => p.slug === selectedSlug) || POPUP_PROJECTS[0];
+  }, [isInsideProjectPage, projectFromUrl, selectedSlug]);
 
   // Hiện popup tự động sau 4 giây khi vào mỗi trang / cluster
   useEffect(() => {
@@ -142,7 +134,6 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
 
   const closePopup = useCallback(() => {
     setShowPopup(false);
-    // Ghi nhớ trang này đã tắt popup để không làm phiền lại trên cùng trang
     try {
       if (pathname) {
         sessionStorage.setItem(`popup-closed-${pathname}`, "1");
@@ -181,7 +172,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
     setStatus("loading");
     setErrorMsg("");
 
-    const projectName = currentProject?.name || "Kim Oanh Group";
+    const projectName = activeProject ? activeProject.name : "Kim Oanh Group";
 
     try {
       const res = await fetch("/api/leads", {
@@ -190,7 +181,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
         body: JSON.stringify({
           name: cleanName,
           phone: cleanPhone,
-          project: currentProject?.slug || selectedSlug || "general",
+          project: activeProject ? activeProject.slug : "general",
           interest: `Dự án: ${projectName}`,
           note: `Khách đăng ký nhận bảng giá & mặt bằng ${projectName} từ trang ${pathname || ""}`,
         }),
@@ -214,15 +205,13 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
       {/* ── Modal Popup ── */}
       {showPopup && (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
-          style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }}
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/60 transition-opacity duration-200"
           onClick={closePopup}
           role="dialog"
           aria-modal="true"
         >
           <div
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden animate-fade-in-up"
-            style={{ animationDuration: "250ms" }}
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden transform transition-all duration-200 ease-out will-change-transform"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Nút đóng */}
@@ -244,7 +233,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-1.5">Đăng ký thành công!</h3>
                 <p className="text-slate-600 text-xs mb-5 leading-relaxed">
-                  Cảm ơn bạn đã quan tâm <strong className="text-emerald-700">{currentProject?.name || "dự án"}</strong>.<br />
+                  Cảm ơn bạn đã quan tâm <strong className="text-emerald-700">{activeProject ? activeProject.name : "dự án"}</strong>.<br />
                   Chuyên viên sẽ liên hệ gửi bảng giá &amp; ưu đãi trong <strong className="text-emerald-700">5–15 phút</strong>.
                 </p>
                 <button
@@ -256,53 +245,58 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
                 </button>
               </div>
             ) : (
-              /* Form nhập cực kỳ tinh giản — CHỈ TÊN & SĐT */
+              /* Form nhập tinh gọn, mượt mà */
               <>
-                {/* Header gọn gàng */}
+                {/* Header hiện đại, đổi theo dự án được chọn */}
                 <div className="bg-gradient-to-r from-[#16B364] to-emerald-600 px-5 py-4 pr-11 flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <Sparkles className="w-4 h-4 text-white" />
                   </div>
                   <div className="min-w-0">
                     <h3 className="text-white font-bold text-base leading-tight truncate">
-                      {currentProject
-                        ? `Bảng Giá ${currentProject.name}`
-                        : "Nhận Bảng Giá Dự Án"}
+                      {`Bảng Giá ${activeProject.name}`}
                     </h3>
-                    <p className="text-white/80 text-[11px] mt-0.5">
-                      Báo giá gốc CĐT · Phản hồi trong 5–15 phút
+                    <p className="text-white/85 text-[11px] mt-0.5 truncate">
+                      {isInsideProjectPage
+                        ? "Báo giá gốc CĐT · Phản hồi trong 5–15 phút"
+                        : `${activeProject.location} · Báo giá gốc CĐT`}
                     </p>
                   </div>
                 </div>
 
-                {/* Form rút gọn tuyệt đối */}
+                {/* Form nhập liệu */}
                 <form onSubmit={handleSubmit} className="p-5 space-y-3.5">
-                  {/* Trường hợp ở trang chủ chưa ấn dự án nào: Cho chọn dự án */}
-                  {!currentProject && (
+                  {/* Trường hợp ở ngoài trang chủ: Dropdown chọn dự án LUÔN HIỆN DIỆN, thay đổi mượt mà */}
+                  {!isInsideProjectPage && (
                     <div>
-                      <label className="block text-[11px] font-bold text-slate-600 mb-1 uppercase tracking-wide">
-                        Dự án quan tâm
-                      </label>
-                      <select
-                        value={selectedSlug}
-                        onChange={(e) => setSelectedSlug(e.target.value)}
-                        className="w-full px-3 py-2.5 text-xs border border-slate-200 rounded-xl
-                                   bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-400
-                                   focus:border-transparent outline-none transition cursor-pointer"
-                      >
-                        <option value="">— Chọn dự án quan tâm —</option>
-                        {POPUP_PROJECTS.map((p) => (
-                          <option key={p.slug} value={p.slug}>
-                            {p.name} ({p.location})
-                          </option>
-                        ))}
-                      </select>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <label className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+                          Dự án bạn quan tâm
+                        </label>
+                        <span className="text-[10px] text-emerald-600 font-medium">Bấm để đổi dự án</span>
+                      </div>
+                      <div className="relative">
+                        <select
+                          value={selectedSlug}
+                          onChange={(e) => setSelectedSlug(e.target.value)}
+                          className="w-full pl-3.5 pr-8 py-2.5 text-xs font-semibold text-slate-800 border border-slate-200 rounded-xl
+                                     bg-slate-50 hover:bg-slate-100/80 focus:bg-white focus:ring-2 focus:ring-emerald-400
+                                     focus:border-transparent outline-none transition cursor-pointer appearance-none shadow-xs"
+                        >
+                          {POPUP_PROJECTS.map((p) => (
+                            <option key={p.slug} value={p.slug}>
+                              {p.name} ({p.location})
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                      </div>
                     </div>
                   )}
 
                   {/* Họ và tên */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-600 mb-1 uppercase tracking-wide">
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1 uppercase tracking-wider">
                       Họ và tên <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -322,7 +316,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
 
                   {/* Số điện thoại */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-600 mb-1 uppercase tracking-wide">
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1 uppercase tracking-wider">
                       Số điện thoại <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -352,7 +346,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
                     disabled={status === "loading"}
                     className="w-full bg-[#16B364] hover:bg-emerald-600 text-white py-3 rounded-xl
                                font-bold text-xs uppercase tracking-wide shadow-md shadow-emerald-500/20
-                               transition-all duration-200 hover:scale-[1.01]
+                               transition-all duration-150 hover:scale-[1.01]
                                flex items-center justify-center gap-2 disabled:opacity-60 disabled:scale-100 cursor-pointer"
                   >
                     {status === "loading" ? (
@@ -363,7 +357,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
                     ) : (
                       <>
                         <Send className="w-3.5 h-3.5 flex-shrink-0" />
-                        {currentProject ? `Nhận Bảng Giá ${currentProject.name}` : "Gửi Thông Tin Ngay"}
+                        {`Nhận Bảng Giá ${activeProject.name}`}
                       </>
                     )}
                   </button>
@@ -386,7 +380,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
             setShowPopup(true);
             setStatus("idle");
           }}
-          aria-label={currentProject ? `Nhận bảng giá ${currentProject.name}` : "Đăng ký tư vấn"}
+          aria-label={`Nhận bảng giá ${activeProject.name}`}
           className="fixed bottom-20 left-4 z-50 flex items-center gap-0
                      group transition-all duration-300 hover:gap-2 lg:bottom-6 cursor-pointer"
         >
@@ -400,7 +394,7 @@ export default function LeadPopup({ projectSlug }: { projectSlug?: string }) {
                           max-w-0 overflow-hidden opacity-0
                           group-hover:max-w-[220px] group-hover:opacity-100
                           transition-all duration-300 ease-out -ml-3 pl-5">
-            {currentProject ? `Bảng giá ${currentProject.name}` : "Nhận bảng giá"}
+            {`Bảng giá ${activeProject.name}`}
           </div>
         </button>
       )}
