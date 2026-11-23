@@ -6,15 +6,16 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import MegaCity2LatestProgressShowcase from "@/components/megacity2/MegaCity2LatestProgressShowcase";
 import { IMG_REAL } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
-  title: "Tiến Độ Mega City 2 Nhơn Trạch – QĐ 2979 Giao Đất 09/2026 & Hạ Tầng ~95%",
+  title: "Tiến Độ Mega City 2 Mới Nhất 23/11/2026 – Thực Địa Hạ Tầng & NOXH K-Home Avenue",
   description:
     "Tiến độ Mega City 2 Nhơn Trạch: UBND TP Đồng Nai ban hành QĐ 2979/QĐ-UBND ngày 24/9/2026 giao đất chính thức cho CĐT Phú Hội. Hạ tầng ~95%, đường nội khu, điện nước hoàn thiện. Hình ảnh thực tế.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2/tien-do" },
   openGraph: {
-    title: "Tiến Độ Mega City 2 Nhơn Trạch – QĐ 2979 Giao Đất 09/2026 & Hạ Tầng ~95%",
+    title: "Tiến Độ Mega City 2 Mới Nhất 23/11/2026 – Thực Địa Hạ Tầng & NOXH K-Home Avenue",
     description:
       "QĐ 2979/QĐ-UBND ngày 24/9/2026: UBND TP Đồng Nai giao đất chính thức cho CĐT Phú Hội tiếp tục dự án Mega City 2. Hạ tầng ~95%, hình ảnh thực tế.",
     type: "article",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tiến Độ Mega City 2 Nhơn Trạch – QĐ 2979 Giao Đất 09/2026 & Hạ Tầng ~95%",
+    title: "Tiến Độ Mega City 2 Mới Nhất 23/11/2026 – Thực Địa Hạ Tầng & NOXH K-Home Avenue",
     description: "QĐ 2979 ngày 24/9/2026 giao đất chính thức CĐT Phú Hội. Hạ tầng Mega City 2 đạt ~95%. Hình ảnh thực tế.",
     images: [IMG_REAL["1"]],
   },
@@ -157,7 +158,7 @@ export default function TienDoPage() {
             { label: "Mega City 2", href: "/mega-city-2" },
             { label: "Tiến độ" },
           ]}
-          updatedAt="16/10/2026 (QĐ 2979/QĐ-UBND)"
+          updatedAt="23/11/2026 (Cập nhật thực địa mới nhất)"
         />
 
         {/* Disclaimer nổi bật */}
@@ -263,6 +264,13 @@ export default function TienDoPage() {
           </div>
         </section>
 
+        {/* ── Cập nhật thực địa 23/11/2026: Video & NOXH K-Home Avenue ── */}
+        <section className="py-12 bg-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <MegaCity2LatestProgressShowcase />
+          </div>
+        </section>
+
         {/* Hình ảnh thực tế */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">
@@ -335,6 +343,13 @@ export default function TienDoPage() {
                 {
                   year: "24/09/2026",
                   event: "UBND TP Đồng Nai ban hành QĐ 2979/QĐ-UBND: giao đất chính thức 321.248 m² hạ tầng kỹ thuật và chấp thuận toàn bộ cơ cấu sử dụng đất ~839.256 m² cho Công ty TNHH Khu đô thị Phú Hội",
+                  done: true,
+                  highlight: false,
+                  new: false,
+                },
+                {
+                  year: "23/11/2026",
+                  event: "Cập nhật thực địa: Trích 20% quỹ đất Mega City 2 thi công rầm rộ phân khu NOXH K-Home Avenue với 2 cẩu tháp, tổng thầu Handong E&C đang đổ sàn các tầng nổi. Hạ tầng đất nền đường nhựa, điện nước sẵn sàng.",
                   done: true,
                   highlight: true,
                   new: true,

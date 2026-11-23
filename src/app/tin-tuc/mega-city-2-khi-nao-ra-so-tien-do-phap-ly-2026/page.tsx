@@ -5,12 +5,13 @@ import CorpHeader from "@/components/layout/CorpHeader";
 import CorpFooter from "@/components/layout/CorpFooter";
 import RelatedContent from "@/components/RelatedContent";
 import { ArticleFigure, useLightbox, type LightboxImage } from "@/components/ImageLightbox";
+import MegaCity2LatestProgressShowcase from "@/components/megacity2/MegaCity2LatestProgressShowcase";
 import { Calendar, Clock, MapPin, CheckCircle2, ChevronRight, FileCheck, ShieldAlert, ArrowRight, Sparkles } from "lucide-react";
 
 const BASE_URL      = "https://kimoanhdongnai.com.vn";
 const PAGE_URL      = `${BASE_URL}/tin-tuc/mega-city-2-khi-nao-ra-so-tien-do-phap-ly-2026`;
-const PUBLISHED     = "15/10/2026";
-const PUBLISHED_ISO = "2026-10-15";
+const PUBLISHED     = "23/11/2026";
+const PUBLISHED_ISO = "2026-11-23";
 
 const CDN = "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1280,c_limit";
 
@@ -23,7 +24,7 @@ const IMAGES = {
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Mega City 2 Khi Nào Ra Sổ? Tiến Độ Pháp Lý & Cấp Sổ Mới Nhất 2026",
+  headline: "Mega City 2 Khi Nào Ra Sổ? Tiến Độ Pháp Lý & Cập Nhật Thực Địa Mới Nhất 23/11/2026",
   description:
     "Giải đáp chi tiết thắc mắc Mega City 2 khi nào ra sổ: căn cứ Quyết định 2979, tiến độ nghiệm thu hạ tầng, quy trình nộp hồ sơ cấp giấy chứng nhận quyền sử dụng đất năm 2026.",
   image: [IMAGES["1"], IMAGES["2"], IMAGES["3"]],
@@ -51,6 +52,14 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "Khu nhà ở xã hội K-Home Avenue có liên quan gì đến dự án Mega City 2?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "K-Home Avenue là phân khu nhà ở xã hội được trích từ 20% quỹ đất nhà ở của Mega City 2 (quy mô gần 9 ha theo Quyết định 2979/QĐ-UBND). Hiện công trình đang được tổng thầu Handong E&C thi công thần tốc với 2 cẩu tháp lớn, khẳng định pháp lý minh bạch và năng lực triểnkai thực tế của chủ đầu tư.",
+      },
+    },
     {
       "@type": "Question",
       name: "Mega City 2 khi nào ra sổ hồng cho khách hàng?",
@@ -125,7 +134,7 @@ export default function Page() {
               Giải đáp pháp lý & lộ trình cấp sổ
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
-              Mega City 2 Khi Nào Ra Sổ? Tiến Độ Pháp Lý & Cấp Sổ Mới Nhất 2026
+              Mega City 2 Khi Nào Ra Sổ? Tiến Độ Pháp Lý & Cập Nhật Thực Địa Mới Nhất 23/11/2026
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 pb-6 border-b border-slate-100">
               <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4 text-slate-400" /> Cập nhật: {PUBLISHED}</span>
@@ -190,6 +199,20 @@ export default function Page() {
               index={1}
               onOpen={openLightbox}
             />
+          </div>
+
+          {/* Cập nhật thực địa mới nhất 23/11/2026 */}
+          <div className="my-10">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 mb-6">
+              <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm mb-2">
+                <Sparkles className="w-4 h-4 text-emerald-600" />
+                <span>CẬP NHẬT THỰC ĐỊA MỚI NHẤT (23/11/2026): KHỞI CÔNG NOXH 20% QUỸ ĐẤT &amp; HẠ TẦNG ĐẤT NỀN</span>
+              </div>
+              <p className="text-slate-700 text-sm leading-relaxed">
+                Minh chứng thực tế rõ ràng nhất cho việc hoàn thiện pháp lý và triển khai toàn diện Mega City 2 chính là đại công trường <strong>Nhà ở xã hội K-Home Avenue</strong> — phân khu chiếm <strong>20% quỹ đất</strong> của dự án Mega City 2 theo đúng phê duyệt Quyết định 2979/QĐ-UBND. Hiện tổng thầu <strong>Handong E&C</strong> đang ngày đêm thi công kết cấu với 2 cẩu tháp vận hành liên tục. Song song đó, hạ tầng đất nền nội khu đã thảm nhựa đồng bộ, sẵn sàng bàn giao và hoàn tất thủ tục cấp sổ.
+              </p>
+            </div>
+            <MegaCity2LatestProgressShowcase />
           </div>
 
           {/* Section 2 */}

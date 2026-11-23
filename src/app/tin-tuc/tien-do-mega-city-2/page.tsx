@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   // Bài này = tin tức / nhật ký cập nhật tiến độ theo thời gian ("mới nhất", có ngày)
   // /mega-city-2/tien-do = trang thông tin kỹ thuật chính thức (tỷ lệ %, hình ảnh thực tế)
   // Hai trang phục vụ intent khác nhau → giữ cả hai, KHÔNG redirect
-  title: "Cập Nhật Tiến Độ Mega City 2 Tháng 9/2026 – Hạ Tầng Đạt ~95%",
+  title: "Cập Nhật Tiến Độ Mega City 2 Mới Nhất 23/11/2026 – Hạ Tầng & NOXH K-Home Avenue",
   description:
     "Tiến độ Mega City 2 Nhơn Trạch tháng 9/2026: hạ tầng nội khu ~95%, đường nhựa và điện nước hoàn thiện, 110 GCN đã cấp. Nhật ký cập nhật mới nhất từ thực địa.",
   alternates: { canonical: PAGE_URL },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "Mega City 2 Đồng Nai",
   ],
   openGraph: {
-    title: "Cập Nhật Tiến Độ Mega City 2 Tháng 9/2026 – Hạ Tầng Đạt ~95%",
+    title: "Cập Nhật Tiến Độ Mega City 2 Mới Nhất 23/11/2026 – Hạ Tầng & NOXH K-Home Avenue",
     description:
       "Hạ tầng Mega City 2 đạt ~95%, đường nhựa và điện nước hoàn thiện, 110 GCN đã cấp. Nhật ký tiến độ thực địa tháng 9/2026.",
     type: "article",

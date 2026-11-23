@@ -5,6 +5,7 @@ import SubPageHeader from "@/components/SubPageHeader";
 import RelatedContent from "@/components/RelatedContent";
 import PageCTA from "@/components/PageCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import MegaCity2LatestProgressShowcase from "@/components/megacity2/MegaCity2LatestProgressShowcase";
 import {
   IMG_REAL,
   IMG_AMENITIES,
@@ -14,7 +15,7 @@ import {
 } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
-  title: "Hình Ảnh Thực Tế Mega City 2 Nhơn Trạch – Cập Nhật 2025–2026",
+  title: "Hình Ảnh & Video Thực Tế Mega City 2 – Cập Nhật Mới Nhất 23/11/2026",
   description:
     "Hình ảnh thực tế ghi nhận tại dự án Mega City 2 Nhơn Trạch: đường nội khu, công viên, nhà mẫu, tiện ích và phối cảnh tổng thể. Cập nhật 2025–2026.",
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2/hinh-anh" },
@@ -185,7 +186,7 @@ export default function HinhAnhPage() {
             { label: "Mega City 2", href: "/mega-city-2" },
             { label: "Hình ảnh" },
           ]}
-          updatedAt="16/10/2026"
+          updatedAt="23/11/2026 (Cập nhật thực địa)"
         />
 
         {/* Notice */}
@@ -235,6 +236,13 @@ export default function HinhAnhPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Showcase tiến độ thực địa mới nhất 23/11/2026 ── */}
+        <section className="py-10 bg-slate-50 border-b border-slate-200">
+          <div className="max-w-6xl mx-auto px-4">
+            <MegaCity2LatestProgressShowcase />
           </div>
         </section>
 

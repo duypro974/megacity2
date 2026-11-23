@@ -5,6 +5,7 @@ import CorpFooter from "@/components/layout/CorpFooter";
 import PageCTA from "@/components/PageCTA";
 import RelatedContent from "@/components/RelatedContent";
 import { ArticleFigure, useLightbox, type LightboxImage } from "@/components/ImageLightbox";
+import MegaCity2LatestProgressShowcase from "@/components/megacity2/MegaCity2LatestProgressShowcase";
 
 // ─────────────────────────────────────────────────────────────
 // Cloudinary CDN helpers
@@ -23,8 +24,8 @@ const NEWS5 = {
 };
 
 const BASE_URL      = "https://kimoanhdongnai.com.vn";
-const PUBLISHED     = "16/08/2026";
-const PUBLISHED_ISO = "2026-08-16";
+const PUBLISHED     = "23/11/2026";
+const PUBLISHED_ISO = "2026-11-23";
 
 // ─────────────────────────────────────────────────────────────
 // JSON-LD Schemas
@@ -358,6 +359,11 @@ export default function TienDoMegaCity2Client() {
 
             {/* ── Article ── */}
             <article className="flex-1 min-w-0">
+
+              {/* ── Khối tiến độ mới nhất ngày 23/11/2026 ── */}
+              <div className="mb-14">
+                <MegaCity2LatestProgressShowcase />
+              </div>
 
               {/* Intro */}
               <div className="space-y-5 mb-14">

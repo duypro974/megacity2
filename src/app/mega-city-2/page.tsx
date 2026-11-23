@@ -6,7 +6,7 @@ import Hero from "@/components/Hero";
 export const metadata: Metadata = {
   // SEO update 2026-09-22: strengthen brand keyword signals
   // Targets: "mega city 2 nhơn trạch", "dự án mega city 2", "bán mega city 2", "khu đô thị mega city 2"
-  title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ 09/2026",
+  title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ Mới Nhất 23/11/2026",
   description:
     "Thông tin dự án Mega City 2 Nhơn Trạch: quy mô 84 ha, 2.421 lô phân lô theo QĐ 1772/QĐ-UBND. QĐ 2979/QĐ-UBND ngày 24/9/2026 giao đất chính thức cho CĐT Phú Hội. Bảng giá đất nền từ 1,15 tỷ, hạ tầng ~95%, 110 GCN đã cấp. Liên hệ tư vấn mua bán Mega City 2: 0937.587.438.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://kimoanhdongnai.com.vn/mega-city-2" },
   openGraph: {
-    title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ 09/2026",
+    title: "Dự Án Mega City 2 Nhơn Trạch – Bảng Giá, Pháp Lý & Tiến Độ Mới Nhất 23/11/2026",
     description:
       "Khu dân cư ~83,94 ha tại Nhơn Trạch, Đồng Nai. 2.421 lô phân lô bán nền theo QĐ 1772/QĐ-UBND. QĐ 2979/QĐ-UBND 24/9/2026 giao đất chính thức CĐT Phú Hội. Giá từ 1,15 tỷ/nền. Tư vấn mua bán: 0937.587.438.",
     type: "website",
@@ -268,6 +268,7 @@ import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
 import ScrollLink from "@/components/ScrollLink";
 import TableOfContents from "@/components/megacity2/TableOfContents";
+import MegaCity2LatestProgressShowcase from "@/components/megacity2/MegaCity2LatestProgressShowcase";
 import {
   Phone, Mail, MapPin, ChevronRight,
 } from "lucide-react";
@@ -822,6 +823,11 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+
+            {/* Showcase tiến độ mới nhất 23/11/2026 */}
+            <div className="mt-12 pt-10 border-t border-slate-100">
+              <MegaCity2LatestProgressShowcase />
+            </div>
           </div>
         </FadeSection>
 
@@ -1133,6 +1139,11 @@ export default function HomePage() {
                   của chủ đầu tư Công ty TNHH Khu đô thị Phú Hội.
                 </p>
               </div>
+            </div>
+
+            {/* Showcase tiến độ mới nhất 23/11/2026 */}
+            <div className="mt-12 pt-10 border-t border-slate-100">
+              <MegaCity2LatestProgressShowcase />
             </div>
           </div>
         </FadeSection>
