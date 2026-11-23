@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────
@@ -90,9 +91,17 @@ export function Lightbox({
     };
   }, [onClose, prev, next]);
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const img = images[current];
 
-  return (
+  if (!mounted || typeof document === "undefined") return null;
+
+  return createPortal(
     <div
       className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-md flex flex-col justify-between p-3 sm:p-5 select-none"
       onClick={onClose}
@@ -193,7 +202,8 @@ export function Lightbox({
           </div>
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }
 

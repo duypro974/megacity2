@@ -36,6 +36,10 @@ export default function FadeSection({ id, className = "", children }: FadeSectio
           el.style.transform = "translateY(0)";
           // Unobserve sau khi đã hiện — không cần theo dõi thêm
           obs.unobserve(el);
+          // Xóa transform sau khi hoàn tất transition để không tạo containing block làm lệch vị trí fixed modals
+          setTimeout(() => {
+            if (el) el.style.transform = "";
+          }, 600);
         }
       },
       {

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import {
   Play,
   Pause,
@@ -15,6 +16,8 @@ import {
   ShieldCheck,
   Users,
   TrendingUp,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import {
   PROGRESS_UPDATE_DATE,
@@ -31,10 +34,52 @@ export default function MegaCity2LatestProgressShowcase({
 }) {
   const [activeVideoId, setActiveVideoId] = useState(LATEST_PROGRESS_VIDEOS[0].id);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [lightboxItem, setLightboxItem] = useState<ProgressMediaItem | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const totalPhotos = LATEST_PROGRESS_PHOTOS.length;
+
+  const handlePrev = useCallback(() => {
+    setLightboxIndex((prev) => (prev === null ? null : (prev - 1 + totalPhotos) % totalPhotos));
+  }, [totalPhotos]);
+
+  const handleNext = useCallback(() => {
+    setLightboxIndex((prev) => (prev === null ? null : (prev + 1) % totalPhotos));
+  }, [totalPhotos]);
+
+  const handleClose = useCallback(() => {
+    setLightboxIndex(null);
+  }, []);
+
+  // Khóa scroll body và lắng nghe phím khi mở lightbox
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightboxIndex, handleClose, handlePrev, handleNext]);
 
   const currentVideo =
     LATEST_PROGRESS_VIDEOS.find((v) => v.id === activeVideoId) || LATEST_PROGRESS_VIDEOS[0];
+
+  const currentPhoto =
+    lightboxIndex !== null ? LATEST_PROGRESS_PHOTOS[lightboxIndex] : null;
 
   return (
     <div className="space-y-8">
@@ -201,10 +246,10 @@ export default function MegaCity2LatestProgressShowcase({
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-          {LATEST_PROGRESS_PHOTOS.map((photo) => (
+          {LATEST_PROGRESS_PHOTOS.map((photo, index) => (
             <div
               key={photo.id}
-              onClick={() => setLightboxItem(photo)}
+              onClick={() => setLightboxIndex(index)}
               className="group relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm hover:shadow-md transition-all cursor-pointer aspect-[4/3] flex flex-col"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -247,56 +292,100 @@ export default function MegaCity2LatestProgressShowcase({
         </div>
       </div>
 
-      {/* ── Modal Lightbox phóng to ảnh ── */}
-      {lightboxItem && (
+      {/* ── Modal Lightbox phóng to ảnh (Mount thẳng vào body qua Portal để luôn nằm ngay tâm màn hình) ── */}
+      {mounted && currentPhoto && createPortal(
         <div
-          className="fixed inset-0 z-[70] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setLightboxItem(null)}
+          className="fixed inset-0 z-[9999] bg-black/92 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 select-none animate-fade-in"
+          onClick={handleClose}
           role="dialog"
           aria-modal="true"
         >
-          <div
-            className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10"
-            onClick={(e) => e.stopPropagation()}
+          {/* Nút đóng góc trên phải viewport */}
+          <button
+            type="button"
+            onClick={handleClose}
+            className="fixed top-4 right-4 z-[10000] w-10 h-10 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg backdrop-blur-sm"
+            aria-label="Đóng (Esc)"
           >
-            {/* Nút đóng */}
+            <X className="w-5 h-5" />
+          </button>
+
+          {/* Nút lùi ảnh góc trái viewport */}
+          {totalPhotos > 1 && (
             <button
               type="button"
-              onClick={() => setLightboxItem(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              className="fixed left-3 sm:left-5 top-1/2 -translate-y-1/2 z-[10000] w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/35 active:scale-95 text-white flex items-center justify-center transition-all cursor-pointer shadow-xl backdrop-blur-sm"
+              aria-label="Ảnh trước (Mũi tên trái)"
             >
-              <X className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
+          )}
+
+          {/* Nút tiến ảnh góc phải viewport */}
+          {totalPhotos > 1 && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              className="fixed right-3 sm:right-5 top-1/2 -translate-y-1/2 z-[10000] w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/35 active:scale-95 text-white flex items-center justify-center transition-all cursor-pointer shadow-xl backdrop-blur-sm"
+              aria-label="Ảnh tiếp theo (Mũi tên phải)"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          )}
+
+          {/* Khung ảnh & Thông tin */}
+          <div
+            className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 mx-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Thanh trên: số thứ tự ảnh */}
+            <div className="px-4 py-2.5 bg-slate-950/80 border-b border-white/10 flex items-center justify-between text-xs text-white/80">
+              <span className="font-semibold text-emerald-400">
+                Ảnh {(lightboxIndex ?? 0) + 1} / {totalPhotos}
+              </span>
+              <span className="text-[11px] text-white/50 hidden sm:inline">
+                Dùng phím ← / → để chuyển ảnh · Esc để đóng
+              </span>
+            </div>
 
             {/* Ảnh lớn */}
-            <div className="max-h-[75vh] flex items-center justify-center bg-black">
+            <div className="max-h-[68vh] sm:max-h-[72vh] flex items-center justify-center bg-black/80">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={lightboxItem.src}
-                alt={lightboxItem.alt}
-                className="max-h-[75vh] w-auto max-w-full object-contain"
+                key={currentPhoto.src}
+                src={currentPhoto.src}
+                alt={currentPhoto.alt}
+                className="max-h-[68vh] sm:max-h-[72vh] w-auto max-w-full object-contain"
               />
             </div>
 
             {/* Thông tin ảnh */}
             <div className="p-4 sm:p-5 bg-slate-900 border-t border-white/10 text-white">
               <div className="flex items-center gap-2 mb-1">
-                {lightboxItem.badge && (
+                {currentPhoto.badge && (
                   <span className="bg-emerald-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
-                    {lightboxItem.badge}
+                    {currentPhoto.badge}
                   </span>
                 )}
-                <span className="text-xs text-slate-400">Ghi nhận: {lightboxItem.date}</span>
+                <span className="text-xs text-slate-400">Ghi nhận: {currentPhoto.date}</span>
               </div>
               <h4 className="text-base font-bold text-white mb-1">
-                {lightboxItem.title}
+                {currentPhoto.title}
               </h4>
               <p className="text-xs text-slate-300 leading-relaxed">
-                {lightboxItem.caption}
+                {currentPhoto.caption}
               </p>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
