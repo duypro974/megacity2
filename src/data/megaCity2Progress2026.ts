@@ -1,5 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 // Cập nhật tiến độ thực địa mới nhất Mega City 2 (23/11/2026)
+// Lưu trữ & phân phối tốc độ cao qua Cloudinary CDN
 // Bao gồm Video & Bộ ảnh thực tế phân khu NOXH K-Home Avenue
 // (trích 20% quỹ đất Mega City 2) và thực địa đất nền hạ tầng
 // ─────────────────────────────────────────────────────────────
@@ -23,8 +24,8 @@ export const LATEST_PROGRESS_VIDEOS: ProgressMediaItem[] = [
   {
     id: "video-dat-nen",
     type: "video",
-    src: "/mega-city-2-progress-2026/video-thuc-te-dat-nen-mega-city-2.mp4",
-    poster: "/mega-city-2-progress-2026/video-thuc-te-dat-nen-mega-city-2-thumb.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/video/upload/v1795401692/megacity2/progress-2026/video-thuc-te-dat-nen-mega-city-2.mp4",
+    poster: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/video-thuc-te-dat-nen-mega-city-2-thumb.jpg",
     alt: "Video thực tế tình hình đất nền và hạ tầng nội khu Mega City 2 Nhơn Trạch ngày 23/11/2026",
     title: "Thực địa đất nền & đường nhựa nội khu",
     caption:
@@ -35,8 +36,8 @@ export const LATEST_PROGRESS_VIDEOS: ProgressMediaItem[] = [
   {
     id: "video-cong-truong-noxh",
     type: "video",
-    src: "/mega-city-2-progress-2026/video-cong-truong-k-home-avenue-landscape.mp4",
-    poster: "/mega-city-2-progress-2026/video-cong-truong-k-home-avenue-landscape-thumb.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/video/upload/v1795401684/megacity2/progress-2026/video-cong-truong-k-home-avenue-landscape.mp4",
+    poster: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/video-cong-truong-k-home-avenue-landscape-thumb.jpg",
     alt: "Video công trường thi công Nhà ở xã hội K-Home Avenue trên 20% quỹ đất Mega City 2",
     title: "Toàn cảnh công trường NOXH K-Home Avenue",
     caption:
@@ -50,7 +51,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "cong-chao",
     type: "image",
-    src: "/mega-city-2-progress-2026/cong-chao-kim-oanh-group-mega-city-2.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/cong-chao-kim-oanh-group-mega-city-2.jpg",
     alt: "Cổng chào và biểu tượng Kim Oanh Group tại dự án Mega City 2 Nhơn Trạch",
     title: "Biểu tượng Kim Oanh Group tại Mega City 2",
     caption: "Cổng chào và tường đá khối chữ thương hiệu Kim Oanh Group cùng hàng dừa cảnh quan, quảng trường lát đá sạch đẹp.",
@@ -60,7 +61,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "toan-canh-noxh",
     type: "image",
-    src: "/mega-city-2-progress-2026/toan-canh-k-home-avenue-mega-city-2-20-phan-tram-quy-dat.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/toan-canh-k-home-avenue-mega-city-2-20-phan-tram-quy-dat.jpg",
     alt: "Toàn cảnh khối nhà NOXH K-Home Avenue xây dựng trên 20% quỹ đất Mega City 2",
     title: "NOXH K-Home Avenue (20% quỹ đất Mega City 2)",
     caption: "Phân khu nhà ở xã hội quy mô hơn 1.000 căn hộ vươn cao với 2 cẩu tháp hoạt động liên tục giữa lòng khu đô thị.",
@@ -70,7 +71,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "cau-thap-handong",
     type: "image",
-    src: "/mega-city-2-progress-2026/cau-thap-handong-noxh-k-home-avenue.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/cau-thap-handong-noxh-k-home-avenue.jpg",
     alt: "Cần cẩu tháp tổng thầu Handong E&C và Kim Oanh thi công tầng nổi K-Home Avenue",
     title: "Tổng thầu Handong E&C thi công tầng nổi",
     caption: "Cận cảnh cẩu tháp và lưới bao che an toàn, công nhân đang thi công kết cấu bê tông cốt thép các tầng nổi.",
@@ -80,7 +81,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "hang-rao-avenue",
     type: "image",
-    src: "/mega-city-2-progress-2026/hang-rao-du-an-k-home-avenue-nhon-trach.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/hang-rao-du-an-k-home-avenue-nhon-trach.jpg",
     alt: "Hàng rào nhận diện thương hiệu K-Home Avenue mở lối an cư mặt tiền đường nội khu",
     title: "Nhận diện K-Home Avenue mặt tiền đường nội khu",
     caption: "Hàng rào quảng bá chính thức K-Home Avenue bao quanh công trường, cây cọ xanh mát ven tuyến đường trải nhựa.",
@@ -90,7 +91,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "thi-cong-1",
     type: "image",
-    src: "/mega-city-2-progress-2026/k-home-avenue-mega-city-2-construction-1.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/k-home-avenue-mega-city-2-construction-1.jpg",
     alt: "Ảnh thực địa Đường Số 10 Nhơn Trạch ghi nhận ngày 23/11/2026 công trường K-Home Avenue",
     title: "Thực địa Đường Số 10 – Cẩu tháp vươn cao",
     caption: "Góc nhìn từ trục Đường Số 10: hạ tầng giao thông kết nối trực tiếp đến chân công trình phân khu nhà ở xã hội.",
@@ -100,7 +101,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "thi-cong-tang-noi",
     type: "image",
-    src: "/mega-city-2-progress-2026/thi-cong-tang-noi-k-home-avenue-mega-city-2.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/thi-cong-tang-noi-k-home-avenue-mega-city-2.jpg",
     alt: "Kết cấu sàn tầng nổi phân khu NOXH K-Home Avenue Mega City 2",
     title: "Thi công sàn tầng nổi phân khu căn hộ",
     caption: "Hệ giàn giáo và cốp pha thép chắc chắn, công trình đang tăng tốc hoàn thiện từng sàn tầng.",
@@ -110,7 +111,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "thuc-dia-mat-bang",
     type: "image",
-    src: "/mega-city-2-progress-2026/thuc-dia-mat-bang-mega-city-2-nhon-trach.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/thuc-dia-mat-bang-mega-city-2-nhon-trach.jpg",
     alt: "Mặt bằng thực tế đất nền Mega City 2 với nền cỏ và cẩu tháp phía xa",
     title: "Nền đất phân lô Mega City 2 phẳng phiu",
     caption: "Mặt bằng toàn khu đã san lấp cao ráo, phân lô rõ ràng, liền kề ngay công trường phân khu nhà ở xã hội đang xây dựng.",
@@ -120,7 +121,7 @@ export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [
   {
     id: "canh-quan-avenue",
     type: "image",
-    src: "/mega-city-2-progress-2026/canh-quan-dat-nen-k-home-avenue-mega-city-2.jpg",
+    src: "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_1600,c_limit/megacity2/progress-2026/canh-quan-dat-nen-k-home-avenue-mega-city-2.jpg",
     alt: "Khoảng lùi cảnh quan và cây xanh tại Mega City 2 hướng về K-Home Avenue",
     title: "Khoảng lùi cảnh quan & mảng xanh",
     caption: "Không gian thoáng đãng giữa các block đất nền và khu căn hộ cao tầng, đón trọn ánh nắng và gió tự nhiên.",
