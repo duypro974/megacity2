@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import ContactSidebar from "@/components/ContactSidebar";
+import LeadPopup from "@/components/LeadPopup";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kimoanhdongnai.com.vn"),
@@ -135,6 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         style={{ fontFamily: "'Be Vietnam Pro', system-ui, sans-serif" }}
       >
         <ContactSidebar />
+        <LeadPopup />
         {children}
       </body>
     </html>

@@ -220,7 +220,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, phone, email, interest, note } = body;
+    const { name, phone, email, interest, note, project } = body;
 
     if (!name?.trim() || !phone?.trim()) {
       return NextResponse.json(
@@ -229,13 +229,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const resolvedInterest =
+      interest?.trim() || (project ? `Dự án: ${project}` : "khac");
+    const resolvedNote =
+      note?.trim() || (project ? `Khách quan tâm dự án ${project}` : undefined);
+
     const newLead: Lead = {
       id:        `lead_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
       name:      name.trim(),
       phone:     phone.trim(),
       email:     email?.trim() || undefined,
-      interest:  interest || "khac",
-      note:      note?.trim() || undefined,
+      interest:  resolvedInterest,
+      note:      resolvedNote,
       createdAt: new Date().toISOString(),
       status:    "new",
     };

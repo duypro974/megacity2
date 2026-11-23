@@ -71,6 +71,14 @@ const NAV = [
   { label: "Liên hệ", href: "/lien-he" },
 ];
 
+function saveProjectToSession(href: string) {
+  const known = ["one-era", "the-link-city", "mega-city-2", "k-home-cityview", "k-home-avenue", "k-home-midtown"];
+  const match = known.find((k) => href.includes(k));
+  if (match) {
+    try { sessionStorage.setItem("kimoanh_selected_project", match); } catch {}
+  }
+}
+
 export default function CorpHeader({
   solid = false,
   hideOnScroll = false,
@@ -158,6 +166,7 @@ export default function CorpHeader({
 
   const isOnHomePage = typeof window !== "undefined" && window.location.pathname === "/";
 
+  const handleChildClick = (href: string, cb?: () => void) => { saveProjectToSession(href); cb?.(); };
   const renderLink = (
     item: { label: string; href: string; external?: boolean; note?: string; isViewAll?: boolean; isHot?: boolean },
     onItemClick?: () => void
@@ -171,7 +180,7 @@ export default function CorpHeader({
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={onItemClick}
+          onClick={() => handleChildClick(item.href, onItemClick)}
           className="flex items-center justify-between px-4 py-3 hover:bg-amber-50 active:bg-amber-100 transition-colors group border-b border-slate-50 last:border-0 cursor-pointer"
         >
           <div className="flex flex-col">
@@ -214,7 +223,7 @@ export default function CorpHeader({
       return (
         <Link
           href={item.href}
-          onClick={onItemClick}
+          onClick={() => handleChildClick(item.href, onItemClick)}
           className="flex items-center justify-between px-4 py-3 hover:bg-amber-50 active:bg-amber-100 transition-colors group border-b border-slate-50 last:border-0 cursor-pointer"
         >
           <div className="flex flex-col">
@@ -495,7 +504,7 @@ export default function CorpHeader({
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-3 py-3.5 px-4 border-b border-slate-100 last:border-0 active:bg-amber-50 group"
-                                onClick={() => setOpen(false)}
+                                onClick={() => { saveProjectToSession(child.href); setOpen(false); }}
                               >
                                 <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
                                 <div className="flex-1 min-w-0">
@@ -535,7 +544,7 @@ export default function CorpHeader({
                   ) : item.href.startsWith("/") ? (
                     <Link
                       href={item.href}
-                      onClick={() => setOpen(false)}
+                      onClick={() => { saveProjectToSession(item.href); setOpen(false); }}
                       className="py-4 text-base font-semibold border-b border-gray-100 flex items-center justify-between text-slate-700 active:bg-gray-50"
                     >
                       <span>{item.label}</span>

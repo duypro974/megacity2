@@ -264,7 +264,6 @@ import ProductSection from "@/components/ProductSection";
 import PaymentSection from "@/components/PaymentSection";
 import RealPhotoSection from "@/components/RealPhotoSection";
 import { PROGRESS_IMAGES } from "@/data/realImages";
-import LeadPopup from "@/components/LeadPopup";
 import SectionNav from "@/components/SectionNav";
 import FadeSection from "@/components/FadeSection";
 import ScrollLink from "@/components/ScrollLink";
@@ -443,7 +442,6 @@ export default function HomePage() {
 
       <CorpHeader hideOnScroll />
       <MegaCity2QuickNav />
-      <LeadPopup />
 
       <main className="pb-16 lg:pb-0">
         {/* ── Hero ── */}

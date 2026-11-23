@@ -110,14 +110,20 @@ function ProjectCard({ project }: { project: ProjectPreview }) {
     </div>
   );
 
+  const handleProjectClick = () => {
+    try {
+      sessionStorage.setItem("kimoanh_selected_project", project.slug);
+    } catch {}
+  };
+
   if (isExternal) {
     return (
-      <a href={project.href} target="_blank" rel="noopener noreferrer">
+      <a href={project.href} target="_blank" rel="noopener noreferrer" onClick={handleProjectClick}>
         {cardContent}
       </a>
     );
   }
-  return <Link href={project.href}>{cardContent}</Link>;
+  return <Link href={project.href} onClick={handleProjectClick}>{cardContent}</Link>;
 }
 
 // ── Main Section ───────────────────────────────────────────────
