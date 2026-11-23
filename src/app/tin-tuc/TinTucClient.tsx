@@ -59,6 +59,16 @@ interface NewsItem {
 
 const ALL_NEWS: NewsItem[] = [
   {
+    slug:     "dai-cong-truong-k-home-avenue-20-phan-tram-quy-dat-mega-city-2-2026",
+    project:  "mega-city-2",
+    title:    "Đại Công Trường K-Home Avenue Rầm Rộ Thi Công Trên 20% Quỹ Đất Mega City 2: Thực Địa 23/11/2026",
+    date:     "23/11/2026",
+    category: "tien-do",
+    excerpt:  "Ghi nhận thực tế ngày 23/11/2026: Tổng thầu Handong E&C vận hành 2 cẩu tháp lớn đổ sàn tầng nổi NOXH K-Home Avenue (20% quỹ đất Mega City 2 theo QĐ 2979). Cú hích dân cư khổng lồ cho đất nền xung quanh.",
+    image:    "https://res.cloudinary.com/dqy4lfmcf/image/upload/f_auto,q_auto:good,w_800,c_limit/megacity2/progress-2026/toan-canh-k-home-avenue-mega-city-2-20-phan-tram-quy-dat.jpg",
+    href:     "/tin-tuc/dai-cong-truong-k-home-avenue-20-phan-tram-quy-dat-mega-city-2-2026",
+  },
+  {
     slug:     "so-hong-the-link-city-dau-giay",
     project:  "the-link-city",
     title:    "Sổ Hồng The Link City Dầu Giây: Thực Tế Đã Cấp, Quy Trình & Thời Gian Nhận 2026",

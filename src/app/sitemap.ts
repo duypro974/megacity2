@@ -379,6 +379,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${BASE}/tin-tuc/dai-cong-truong-k-home-avenue-20-phan-tram-quy-dat-mega-city-2-2026`,
+      lastModified: "2026-11-23",
+      changeFrequency: "daily",
+      priority: 0.95,
+      images: [
+        cimg("megacity2/progress-2026/toan-canh-k-home-avenue-mega-city-2-20-phan-tram-quy-dat.jpg"),
+        cimg("megacity2/progress-2026/cau-thap-handong-noxh-k-home-avenue.jpg"),
+        cimg("megacity2/progress-2026/cong-chao-kim-oanh-group-mega-city-2.jpg"),
+      ],
+    },
+    {
       url: `${BASE}/tin-tuc/duong-25c`,
       lastModified: "2026-08-19",
       changeFrequency: "monthly",
