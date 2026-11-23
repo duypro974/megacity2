@@ -411,14 +411,11 @@ export default function CorpHeader({
 
             <button
               onClick={() => {
-                if (!isOnHomePage) {
-                  window.location.href = "/#lien-he";
-                  return;
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(new CustomEvent("open-lead-popup"));
                 }
-                const el = document.getElementById("lien-he");
-                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950"
+              className="px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 cursor-pointer"
             >
               TƯ VẤN
             </button>
@@ -584,14 +581,11 @@ export default function CorpHeader({
               <button
                 onClick={() => {
                   setOpen(false);
-                  if (!isOnHomePage) {
-                    window.location.href = "/#lien-he";
-                    return;
+                  if (typeof window !== "undefined") {
+                    window.dispatchEvent(new CustomEvent("open-lead-popup"));
                   }
-                  const el = document.getElementById("lien-he");
-                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className="w-full py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 text-sm font-bold active:scale-95 transition shadow-sm"
+                className="w-full py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 text-sm font-bold active:scale-95 transition shadow-sm cursor-pointer"
               >
                 LIÊN HỆ TƯ VẤN
               </button>

@@ -45,6 +45,18 @@ export const LATEST_PROGRESS_VIDEOS: ProgressMediaItem[] = [
     date: "23/11/2026",
     badge: "VIDEO CÔNG TRƯỜNG",
   },
+  {
+    id: "video-ha-tang-ket-noi-5p",
+    type: "video",
+    src: "https://res.cloudinary.com/dqy4lfmcf/video/upload/v1795422554/megacity2/videos/video-phan-tich-ha-tang-nhon-trach-san-bay-long-thanh-5p.mp4",
+    poster: "https://res.cloudinary.com/dqy4lfmcf/image/upload/v1795422498/megacity2/videos/video-phan-tich-ha-tang-nhon-trach-san-bay-long-thanh-5p-thumb.jpg",
+    alt: "Video 5 phút phân tích mạng lưới 8 nút giao nghìn tỷ kết nối TP.HCM – Nhơn Trạch – Sân bay Long Thành",
+    title: "Phân tích 5 phút: 8 nút giao & Cao tốc kết nối Sân bay Long Thành",
+    caption:
+      "Bản đồ đồ họa vệ tinh phân tích chi tiết toàn cảnh 8 nút giao nghìn tỷ, cao tốc TP.HCM – Long Thành mở rộng 8-10 làn, Vành đai 3, Cầu Nhơn Trạch và tuyến Metro số 6 kết nối thẳng tới Mega City 2.",
+    date: "23/11/2026",
+    badge: "INFOGRAPHIC 5 PHÚT",
+  },
 ];
 
 export const LATEST_PROGRESS_PHOTOS: ProgressMediaItem[] = [

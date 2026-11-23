@@ -289,6 +289,84 @@ export default function ViTriPage() {
           </div>
         </section>
 
+        {/* Video Phân tích hạ tầng & 8 nút giao kết nối Sân bay Long Thành */}
+        <section className="py-14 bg-slate-900 text-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mb-3">
+                🎬 Thước phim phân tích độc quyền · 5 phút
+              </span>
+              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-3">
+                Mạng Lưới 8 Nút Giao &amp; Cao Tốc Kết Nối Sân Bay Long Thành
+              </h2>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                Đồ họa vệ tinh 3D bóc tách toàn cảnh 8 nút giao trọng điểm, tuyến Cao tốc TP.HCM – Long Thành mở rộng 8–10 làn, Vành đai 3 và trục đường 25C chạy xuyên tâm dự án Mega City 2.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Video Player */}
+              <div className="lg:col-span-7 xl:col-span-8">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-700 bg-slate-950 shadow-2xl aspect-[16/9] flex items-center justify-center">
+                  <video
+                    controls
+                    preload="metadata"
+                    poster="https://res.cloudinary.com/dqy4lfmcf/image/upload/v1795422498/megacity2/videos/video-phan-tich-ha-tang-nhon-trach-san-bay-long-thanh-5p-thumb.jpg"
+                    className="w-full h-full object-cover"
+                  >
+                    <source
+                      src="https://res.cloudinary.com/dqy4lfmcf/video/upload/v1795422554/megacity2/videos/video-phan-tich-ha-tang-nhon-trach-san-bay-long-thanh-5p.mp4"
+                      type="video/mp4"
+                    />
+                    Trình duyệt của bạn không hỗ trợ phát video HTML5.
+                  </video>
+                </div>
+                <div className="flex items-center justify-between text-xs text-slate-400 mt-2.5 px-1">
+                  <span>⏱ Thời lượng: 05:17 · Chuẩn Full HD</span>
+                  <span className="text-emerald-400 font-medium">Bản đồ vệ tinh chi tiết hạ tầng 2026</span>
+                </div>
+              </div>
+
+              {/* Thông số & Điểm nhấn phân tích */}
+              <div className="lg:col-span-5 xl:col-span-4 space-y-4">
+                <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                  <p className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
+                    01. Nút giao Vành đai 3 &amp; Cầu Nhơn Trạch
+                  </p>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Đã hợp long nhịp chính, rút ngắn thời gian di chuyển từ Mega City 2 sang TP. Thủ Đức còn 15–20 phút.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                  <p className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">
+                    02. Trục đường 25C xuyên tâm dự án
+                  </p>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Mặt tiền lộ giới 100m kết nối thẳng cổng số 1 Sân bay Quốc tế Long Thành, tạo trục thương mại sầm uất.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                  <p className="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">
+                    03. 8 Nút giao đa tầng cao tốc
+                  </p>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Giải tỏa toàn bộ áp lực giao thông liên tỉnh, đưa Nhơn Trạch thành tâm điểm logistics vệ tinh lớn nhất phía Nam.
+                  </p>
+                </div>
+
+                <a
+                  href="/mega-city-2/bang-gia"
+                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs uppercase tracking-wide transition shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2 cursor-pointer text-center"
+                >
+                  Xem Bảng Giá Đất Nền Trục 25C →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Liên kết vùng */}
         <section className="py-14 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4">

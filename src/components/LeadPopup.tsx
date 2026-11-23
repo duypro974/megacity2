@@ -27,7 +27,7 @@ function resolveProjectFromPath(pathname: string | null): ProjectPreview | null 
   // 1. Khớp theo URL trang chính hoặc trang con (cluster)
   // Ví dụ: /mega-city-2, /mega-city-2/bang-gia, /the-link-city/mat-bang, /one-era/360...
   const matched = POPUP_PROJECTS.find(
-    (p) => p.href.startsWith("/") && (pathname === p.href || pathname.startsWith(p.href + "/"))
+    (p) => p.href.startsWith("/") && (pathname === p.href || pathname.startsWith(p.href + "/") || pathname.startsWith(p.href + "?"))
   );
   if (matched) return matched;
 
